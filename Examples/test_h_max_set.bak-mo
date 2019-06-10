@@ -1,0 +1,15 @@
+within HPF.Examples;
+
+model test_h_max_set
+  Integer h_max = 5;  // h_max is a parameter set in the global scope
+
+    HPF.Solver.SystemDef systemDef1 annotation(
+    Placement(visible = true, transformation(origin = {-99.1358, 95.6429}, extent = {{-23.8642, -18.3571}, {18.3571, 18.3571}}, rotation = 0)));  equation
+
+annotation(
+    Icon(coordinateSystem(extent = {{-130, -100}, {100, 100}}, grid = {0, 0})),
+    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-87, 62}, extent = {{67, -10}, {-67, 10}}, textString = "User specifies the max number\n of harmonics to be simulated")}),
+    Documentation(info="<html>
+<p></p>
+</html>"));
+end test_h_max_set;

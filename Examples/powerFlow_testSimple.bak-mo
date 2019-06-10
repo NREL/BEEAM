@@ -1,0 +1,26 @@
+within HPF.Examples;
+
+model powerFlow_testSimple
+  inner discrete Boolean modeSelect;
+  HPF.Components.Ground ground1 annotation(
+    Placement(visible = true, transformation(origin = {-20, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  inner HPF.SystemDef systemDef annotation(
+    Placement(visible = true, transformation(origin = {-10, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Components.VoltageSource voltageSource1 annotation(
+    Placement(visible = true, transformation(origin = {-20, -2}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.HarmonicSources.NonlinearHarmonicLoad nonlinearHarmonicLoad1 annotation(
+    Placement(visible = true, transformation(origin = {50, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.Components.Impedance z annotation(
+    Placement(visible = true, transformation(origin = {10, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+equation
+  connect(voltageSource1.pin_n, ground1.pin) annotation(
+    Line(points = {{-20, -20}, {-20, -31}}, color = {117, 80, 123}));
+  connect(ground1.pin_p, nonlinearHarmonicLoad1.pin_n) annotation(
+    Line(points = {{-20, -40}, {50, -40}, {50, -20}}, color = {117, 80, 123}));
+  connect(z.pin_n, nonlinearHarmonicLoad1.pin_p) annotation(
+    Line(points = {{20, 20}, {50, 20}, {50, 0}}, color = {117, 80, 123}));
+  connect(voltageSource1.pin_n, ground1.pin_p) annotation(
+    Line(points = {{-20, -20}, {-20, -40}}, color = {117, 80, 123}));
+  connect(z.pin_p, voltageSource1.pin_p) annotation(
+    Line(points = {{0, 20}, {-20, 20}, {-20, 0}, {-20, 0}}, color = {117, 80, 123}));
+end powerFlow_testSimple;
