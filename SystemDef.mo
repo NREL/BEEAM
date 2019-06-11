@@ -1,7 +1,6 @@
 within HPF;
 class SystemDef
                 // changing from model to a class
-
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
 
   /*
@@ -31,7 +30,7 @@ equation
       modeSelPrev = previous(modeSelect);
       if modeSelPrev == false then
         modeSelect = true;  // Power flow
-      else
+    else
         modeSelect = false; // Harmonic solver
       end if;
     end when;
