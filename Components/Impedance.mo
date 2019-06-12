@@ -7,7 +7,7 @@ model Impedance
 */
 
 extends Interfaces.TwoPinBase;
-Complex j = Modelica.ComplexMath.j;
+  import Modelica.ComplexMath.j;
   parameter Complex z(re(start = 1), im(start = 0)) "Impedance, R + jX"; 
   //parameter Integer h[2] = {1, 2}"Specify harmonics (array)";
   
