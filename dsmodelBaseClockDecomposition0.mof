@@ -1,0 +1,18 @@
+// Base-clock decomposition
+// An erroneous non-decomposible partition of continuous time and discrete time parts.
+// 
+// unknowns
+  event_check1.x
+  event_check1.y
+  systemDef.modeSelect
+// equation
+  when time > 0.5 then
+    systemDef.modeSelect = true;
+  end when;
+  if (systemDef.modeSelect == false) then 
+    event_check1.x = 10;
+    event_check1.y = time;
+  else
+    event_check1.x = 20;
+    event_check1.y = previous(event_check1.x);
+  end if;

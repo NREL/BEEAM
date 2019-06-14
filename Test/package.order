@@ -2,3 +2,6 @@ SinglePhase_Transformer
 MultiPhase_Impedance
 SinglePhase_Basic
 SinglePhase_PowerFlow
+Multiphase_Transformer
+Solver_ModeSwitch
+SinglePhase_HarmonicLoad

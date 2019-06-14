@@ -23,7 +23,7 @@ package Interface
     flow Real iRe[h];
     // Real part
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1)),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),
       __OpenModelica_commandLineOptions = "");
   end HPin;
@@ -38,13 +38,10 @@ package Interface
     extends HPin;
     HPF.Types.Reference reference "Reference";
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={28,108,200},
-            fillColor={102,44,145},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(grid = {0, 0})),
-      __OpenModelica_commandLineOptions = "");
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={Rectangle(fillColor = {92, 53, 102}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
+      
+      __OpenModelica_commandLineOptions = "",
+  Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
   end HPin_P;
 
   connector HPin_N "Negative Terminal"
@@ -52,7 +49,7 @@ package Interface
     Types.Reference reference "Reference";
     annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(lineColor = {117, 80, 123}, fillColor = {117, 80, 123}, extent = {{-100, 100}, {100, -100}})}),
-      Diagram(coordinateSystem(grid = {0, 0})),
+      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
       __OpenModelica_commandLineOptions = "");
   end HPin_N;
 

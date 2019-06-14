@@ -7,7 +7,6 @@ model Ground
 */
 
   outer SystemDef systemDef;
-  HPF.Interfaces.HPin_p pin(h=systemDef.numHrm) "Pin" annotation (Placement(visible = true, transformation(extent = {{90, -10}, {110, 10}}, rotation = 0), iconTransformation(origin = {0, 6}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
 equation
   /*
     From POOMS-Fritzson, "In a virtual connection subgraph without a Connctions.root definition, 

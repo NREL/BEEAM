@@ -6,33 +6,41 @@ class SystemDef
   /*
   INFO: Type variability
   Dymola is throwing an error for the type variability.
-  'constant' has a lower variability than parameter.
+  'constant' has a lower type variability than 'parameter'.
   */
   parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
-   /*
+
+  parameter Integer numPh = 3 "Number of phases";
+
+  parameter Real fFund = 60 "Fundamental frequency";
+
+ /*
       selects the mode of operation, used by nonlinear harmonic loads 
       Modes definition: (selecting boolean as the modes would have only 2 states)
         true = mode: power sink / source
         false = mode: constant current source
-    */
-  discrete Boolean modeSelect;
+  */
+  Boolean modeSelect( start = false);
 
-  discrete Boolean modeSelPrev(start = false);
+  //Boolean modeSelPrev(start = false);
+
+  //Real t(start = 0, fixed = true);  // time variable for solver mode switch
+  /*
   // defining clock variables used to implement the iterative solver
   Clock clk;
   parameter Modelica.SIunits.Time interval = 0.25;
+  */
 
-  parameter Real fFund = 60 "Fundamental frequency";
 
 equation
-  clk = Clock(interval);
-    when clk then
-      modeSelPrev = previous(modeSelect);
-      if modeSelPrev == false then
+ // clk = Clock(interval);
+    when time > 0.5 then
+      //modeSelPrev = previous(modeSelect);
+      //if modeSelPrev == false then
         modeSelect = true;  // Power flow
-    else
-        modeSelect = false; // Harmonic solver
-      end if;
+    //else
+        //modeSelect = false; // Harmonic solver
+      //end if;
     end when;
 
     /*
@@ -50,6 +58,6 @@ equation
     defaultComponentName = "systemDef",
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "No \"systemDef\" component is defined.
-    Drag Solver.SystemDef into the top level of your model.",
+    Drag SystemDef into the top level of your model.",
   Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Line(origin = {0, 60}, points = {{-100, 0}, {100, 0}}), Text(origin = {-48, 35}, extent = {{-34, 13}, {94, -9}}, textString = "Harmonics=%hrms"), Text(origin = {-48, 7}, extent = {{-34, 13}, {126, -33}}, textString = "Fundamental=%fFund Hz")}));
 end SystemDef;

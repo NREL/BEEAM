@@ -5,15 +5,15 @@ model SinglePhase_Basic
     Placement(visible = true, transformation(origin = {-70, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   import Modelica.ComplexMath.j;
   HPF.SinglePhase.Sources.VoltageSource voltageSource1(vArg = {0, 0.5, -0.25}, vMag = {100, 5, 3})  annotation(
-    Placement(visible = true, transformation(origin = {-40, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-44, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Impedance z(z = 5 + 2 * j)  annotation(
-    Placement(visible = true, transformation(origin = {2, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {4,2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z1(z = 2 + 2 * j)  annotation(
-    Placement(visible = true, transformation(origin = {42, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {46, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z2(z = 3 + 2 * j)  annotation(
-    Placement(visible = true, transformation(origin = {48, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {56, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation(
-    Placement(visible = true, transformation(origin = {-40, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-42, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(z1.pin_n, z2.pin_n) annotation(
     Line(points = {{-40, 80}, {-32, 80}, {-32, 60}, {-40, 60}, {-40, 60}}, color = {117, 80, 123}));
