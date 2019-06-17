@@ -5,7 +5,7 @@ model Test_SinglePhase
   HPF.HarmonicSources.NonlinearHarmonicLoad nonlinearHarmonicLoad1(iHrmsIm = {0, 0.1, 0.25}, iHrmsRe = {0.9, 0.5, 0.3}, sFund = 110 + 50 * j)  annotation (
     Placement(visible = true, transformation(origin = {56, -8}, extent = {{-13, -10}, {10, 10}}, rotation = -90)));
   HPF.Components.Ground ground1 annotation (
-    Placement(visible = true, transformation(origin = {-40, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-40, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Components.VoltageSource voltageSource1(theta(fixed = true),vArg = {0, 0.5, 0.25}, vMag = {250, 5, 0.5})  annotation (
     Placement(visible = true, transformation(origin = {-40, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   inner HPF.SystemDef systemDef(hrms = {1, 3, 5})  annotation (

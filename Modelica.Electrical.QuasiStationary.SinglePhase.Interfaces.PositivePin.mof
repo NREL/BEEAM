@@ -1,0 +1,10 @@
+connector PositivePin
+
+  Modelica.SIunits.ElectricPotential v.re "Imaginary part of complex electric potential";
+  Modelica.SIunits.ElectricPotential v.im "Real part of complex electrical potential";
+  Modelica.SIunits.Current i.re "Real part of complex current";
+  Modelica.SIunits.Current i.im "Imaginary part of complex current";
+  Modelica.SIunits.Angle reference.gamma;
+
+
+end PositivePin;

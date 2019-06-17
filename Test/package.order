@@ -5,3 +5,5 @@ SinglePhase_PowerFlow
 Multiphase_Transformer
 Solver_ModeSwitch
 SinglePhase_HarmonicLoad
+Test_ExternalDataWrite
+Test_ExternalDataRead

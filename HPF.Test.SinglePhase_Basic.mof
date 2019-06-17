@@ -1,0 +1,342 @@
+model SinglePhase_Basic
+  parameter Integer systemDef.hrms[3] = {1, 3, 5} "Harmonics to simulate";
+  constant Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)";
+  parameter Integer systemDef.numPh = 3 "Number of phases";
+  parameter Real systemDef.fFund = 60 "Fundamental frequency";
+  constant Integer voltageSource1.pin_p.h = 3;
+  constant Integer voltageSource1.pin_n.h = 3;
+  parameter Real voltageSource1.vMag[:] = {100, 5, 3} "Voltage Magnitude";
+  parameter Real voltageSource1.vArg[:] = {0, 0.5, -0.25} "Voltage angle";
+  constant Integer z.pin_p.h = 3;
+  constant Integer z.pin_n.h = 3;
+  parameter Real z.z.re = 1 "Real part of complex number";
+  parameter Real z.z.im = 0 "Imaginary part of complex number";
+  constant Integer z1.pin_p.h = 3;
+  constant Integer z1.pin_n.h = 3;
+  parameter Real z1.z.re = 1 "Real part of complex number";
+  parameter Real z1.z.im = 0 "Imaginary part of complex number";
+  constant Integer z2.pin_p.h = 3;
+  constant Integer z2.pin_n.h = 3;
+  parameter Real z2.z.re = 1 "Real part of complex number";
+  parameter Real z2.z.im = 0 "Imaginary part of complex number";
+  constant Integer ground1.pin.h = 3;
+
+  Boolean systemDef.modeSelect(start = true);
+  Boolean systemDef.event1(start = false);
+  Boolean systemDef.event2(start = false);
+  Real voltageSource1.v[1].re(start = 0) "Real part of complex number";
+  Real voltageSource1.v[1].im(start = 0) "Imaginary part of complex number";
+  Real voltageSource1.v[2].re(start = 0) "Real part of complex number";
+  Real voltageSource1.v[2].im(start = 0) "Imaginary part of complex number";
+  Real voltageSource1.v[3].re(start = 0) "Real part of complex number";
+  Real voltageSource1.v[3].im(start = 0) "Imaginary part of complex number";
+  Real voltageSource1.i[1].re(start = 0) "Real part of complex number";
+  Real voltageSource1.i[1].im(start = 0) "Imaginary part of complex number";
+  Real voltageSource1.i[2].re(start = 0) "Real part of complex number";
+  Real voltageSource1.i[2].im(start = 0) "Imaginary part of complex number";
+  Real voltageSource1.i[3].re(start = 0) "Real part of complex number";
+  Real voltageSource1.i[3].im(start = 0) "Imaginary part of complex number";
+  Real voltageSource1.omega;
+  Real voltageSource1.pin_p.v[1].re "Real part of complex number";
+  Real voltageSource1.pin_p.v[1].im "Imaginary part of complex number";
+  Real voltageSource1.pin_p.v[2].re "Real part of complex number";
+  Real voltageSource1.pin_p.v[2].im "Imaginary part of complex number";
+  Real voltageSource1.pin_p.v[3].re "Real part of complex number";
+  Real voltageSource1.pin_p.v[3].im "Imaginary part of complex number";
+  Real voltageSource1.pin_p.iIm[voltageSource1.pin_p.h];
+  Real voltageSource1.pin_p.iRe[voltageSource1.pin_p.h];
+  Modelica.SIunits.Angle voltageSource1.pin_p.reference.theta(start = 0);
+  Real voltageSource1.pin_n.v[1].re "Real part of complex number";
+  Real voltageSource1.pin_n.v[1].im "Imaginary part of complex number";
+  Real voltageSource1.pin_n.v[2].re "Real part of complex number";
+  Real voltageSource1.pin_n.v[2].im "Imaginary part of complex number";
+  Real voltageSource1.pin_n.v[3].re "Real part of complex number";
+  Real voltageSource1.pin_n.v[3].im "Imaginary part of complex number";
+  Real voltageSource1.pin_n.iIm[voltageSource1.pin_n.h];
+  Real voltageSource1.pin_n.iRe[voltageSource1.pin_n.h];
+  Modelica.SIunits.Angle voltageSource1.pin_n.reference.theta(start = 0);
+  Modelica.SIunits.Angle voltageSource1.theta(start = 0) = voltageSource1.pin_p.reference.theta;
+  Real z.v[1].re(start = 0) "Real part of complex number";
+  Real z.v[1].im(start = 0) "Imaginary part of complex number";
+  Real z.v[2].re(start = 0) "Real part of complex number";
+  Real z.v[2].im(start = 0) "Imaginary part of complex number";
+  Real z.v[3].re(start = 0) "Real part of complex number";
+  Real z.v[3].im(start = 0) "Imaginary part of complex number";
+  Real z.i[1].re(start = 0) "Real part of complex number";
+  Real z.i[1].im(start = 0) "Imaginary part of complex number";
+  Real z.i[2].re(start = 0) "Real part of complex number";
+  Real z.i[2].im(start = 0) "Imaginary part of complex number";
+  Real z.i[3].re(start = 0) "Real part of complex number";
+  Real z.i[3].im(start = 0) "Imaginary part of complex number";
+  Real z.omega;
+  Real z.pin_p.v[1].re "Real part of complex number";
+  Real z.pin_p.v[1].im "Imaginary part of complex number";
+  Real z.pin_p.v[2].re "Real part of complex number";
+  Real z.pin_p.v[2].im "Imaginary part of complex number";
+  Real z.pin_p.v[3].re "Real part of complex number";
+  Real z.pin_p.v[3].im "Imaginary part of complex number";
+  Real z.pin_p.iIm[z.pin_p.h];
+  Real z.pin_p.iRe[z.pin_p.h];
+  Modelica.SIunits.Angle z.pin_p.reference.theta(start = 0);
+  Real z.pin_n.v[1].re "Real part of complex number";
+  Real z.pin_n.v[1].im "Imaginary part of complex number";
+  Real z.pin_n.v[2].re "Real part of complex number";
+  Real z.pin_n.v[2].im "Imaginary part of complex number";
+  Real z.pin_n.v[3].re "Real part of complex number";
+  Real z.pin_n.v[3].im "Imaginary part of complex number";
+  Real z.pin_n.iIm[z.pin_n.h];
+  Real z.pin_n.iRe[z.pin_n.h];
+  Modelica.SIunits.Angle z.pin_n.reference.theta(start = 0);
+  Real z1.v[1].re(start = 0) "Real part of complex number";
+  Real z1.v[1].im(start = 0) "Imaginary part of complex number";
+  Real z1.v[2].re(start = 0) "Real part of complex number";
+  Real z1.v[2].im(start = 0) "Imaginary part of complex number";
+  Real z1.v[3].re(start = 0) "Real part of complex number";
+  Real z1.v[3].im(start = 0) "Imaginary part of complex number";
+  Real z1.i[1].re(start = 0) "Real part of complex number";
+  Real z1.i[1].im(start = 0) "Imaginary part of complex number";
+  Real z1.i[2].re(start = 0) "Real part of complex number";
+  Real z1.i[2].im(start = 0) "Imaginary part of complex number";
+  Real z1.i[3].re(start = 0) "Real part of complex number";
+  Real z1.i[3].im(start = 0) "Imaginary part of complex number";
+  Real z1.omega;
+  Real z1.pin_p.v[1].re "Real part of complex number";
+  Real z1.pin_p.v[1].im "Imaginary part of complex number";
+  Real z1.pin_p.v[2].re "Real part of complex number";
+  Real z1.pin_p.v[2].im "Imaginary part of complex number";
+  Real z1.pin_p.v[3].re "Real part of complex number";
+  Real z1.pin_p.v[3].im "Imaginary part of complex number";
+  Real z1.pin_p.iIm[z1.pin_p.h];
+  Real z1.pin_p.iRe[z1.pin_p.h];
+  Modelica.SIunits.Angle z1.pin_p.reference.theta(start = 0);
+  Real z1.pin_n.v[1].re "Real part of complex number";
+  Real z1.pin_n.v[1].im "Imaginary part of complex number";
+  Real z1.pin_n.v[2].re "Real part of complex number";
+  Real z1.pin_n.v[2].im "Imaginary part of complex number";
+  Real z1.pin_n.v[3].re "Real part of complex number";
+  Real z1.pin_n.v[3].im "Imaginary part of complex number";
+  Real z1.pin_n.iIm[z1.pin_n.h];
+  Real z1.pin_n.iRe[z1.pin_n.h];
+  Modelica.SIunits.Angle z1.pin_n.reference.theta(start = 0);
+  Real z2.v[1].re(start = 0) "Real part of complex number";
+  Real z2.v[1].im(start = 0) "Imaginary part of complex number";
+  Real z2.v[2].re(start = 0) "Real part of complex number";
+  Real z2.v[2].im(start = 0) "Imaginary part of complex number";
+  Real z2.v[3].re(start = 0) "Real part of complex number";
+  Real z2.v[3].im(start = 0) "Imaginary part of complex number";
+  Real z2.i[1].re(start = 0) "Real part of complex number";
+  Real z2.i[1].im(start = 0) "Imaginary part of complex number";
+  Real z2.i[2].re(start = 0) "Real part of complex number";
+  Real z2.i[2].im(start = 0) "Imaginary part of complex number";
+  Real z2.i[3].re(start = 0) "Real part of complex number";
+  Real z2.i[3].im(start = 0) "Imaginary part of complex number";
+  Real z2.omega;
+  Real z2.pin_p.v[1].re "Real part of complex number";
+  Real z2.pin_p.v[1].im "Imaginary part of complex number";
+  Real z2.pin_p.v[2].re "Real part of complex number";
+  Real z2.pin_p.v[2].im "Imaginary part of complex number";
+  Real z2.pin_p.v[3].re "Real part of complex number";
+  Real z2.pin_p.v[3].im "Imaginary part of complex number";
+  Real z2.pin_p.iIm[z2.pin_p.h];
+  Real z2.pin_p.iRe[z2.pin_p.h];
+  Modelica.SIunits.Angle z2.pin_p.reference.theta(start = 0);
+  Real z2.pin_n.v[1].re "Real part of complex number";
+  Real z2.pin_n.v[1].im "Imaginary part of complex number";
+  Real z2.pin_n.v[2].re "Real part of complex number";
+  Real z2.pin_n.v[2].im "Imaginary part of complex number";
+  Real z2.pin_n.v[3].re "Real part of complex number";
+  Real z2.pin_n.v[3].im "Imaginary part of complex number";
+  Real z2.pin_n.iIm[z2.pin_n.h];
+  Real z2.pin_n.iRe[z2.pin_n.h];
+  Modelica.SIunits.Angle z2.pin_n.reference.theta(start = 0);
+  Real ground1.pin.v[1].re "Real part of complex number";
+  Real ground1.pin.v[1].im "Imaginary part of complex number";
+  Real ground1.pin.v[2].re "Real part of complex number";
+  Real ground1.pin.v[2].im "Imaginary part of complex number";
+  Real ground1.pin.v[3].re "Real part of complex number";
+  Real ground1.pin.v[3].im "Imaginary part of complex number";
+  Real ground1.pin.iIm[ground1.pin.h];
+  Real ground1.pin.iRe[ground1.pin.h];
+  Modelica.SIunits.Angle ground1.pin.reference.theta(start = 0);
+
+// Equations and algorithms
+
+  // Component systemDef
+  // class HPF.SystemDef
+  algorithm
+    when time > 0.5 then
+      systemDef.modeSelect := true;
+    end when;
+    when time > 0.25 then
+      systemDef.event1 := true;
+    end when;
+    when time > 0.4 then
+      systemDef.event2 := true;
+    end when;
+
+  // Component voltageSource1
+  // class HPF.SinglePhase.Sources.VoltageSource
+    // extends HPF.SinglePhase.Interface.TwoPinBase
+    equation
+      Connections.branch(voltageSource1.pin_p.reference, voltageSource1.pin_n.reference);
+      voltageSource1.pin_p.reference.theta = voltageSource1.pin_n.reference.theta;
+      voltageSource1.omega = der(voltageSource1.pin_p.reference.theta);
+      voltageSource1.v = array(Complex.'-'.subtract(
+        voltageSource1.pin_p.v[ii2], 
+        voltageSource1.pin_n.v[ii2]) for ii2 in 1:max(size(voltageSource1.pin_p.v,
+         1), size(voltageSource1.pin_n.v, 1)));
+      voltageSource1.i.re = voltageSource1.pin_p.iRe;
+      voltageSource1.i.im = voltageSource1.pin_p.iIm;
+      voltageSource1.pin_p.iRe+voltageSource1.pin_n.iRe = array(0.0 for i in 1:
+        systemDef.numHrm);
+      voltageSource1.pin_p.iIm+voltageSource1.pin_n.iIm = array(0.0 for i in 1:
+        systemDef.numHrm);
+    // extends HPF.SinglePhase.Interface.Source
+    equation
+      Connections.root(voltageSource1.pin_p.reference);
+    // end of extends 
+  equation
+    voltageSource1.omega = 6.283185307179586*systemDef.fFund;
+    Modelica.ComplexMath.real(
+      voltageSource1.v) = voltageSource1.vMag.*cos(voltageSource1.vArg);
+    Modelica.ComplexMath.imag(
+      voltageSource1.v) = voltageSource1.vMag.*sin(voltageSource1.vArg);
+
+  // Component z
+  // class HPF.SinglePhase.Components.Impedance
+    // extends HPF.SinglePhase.Interface.TwoPinBase
+    equation
+      Connections.branch(z.pin_p.reference, z.pin_n.reference);
+      z.pin_p.reference.theta = z.pin_n.reference.theta;
+      z.omega = der(z.pin_p.reference.theta);
+      z.v = array(Complex.'-'.subtract(
+        z.pin_p.v[ii2], 
+        z.pin_n.v[ii2]) for ii2 in 1:max(size(z.pin_p.v, 1), size(z.pin_n.v, 1)));
+      z.i.re = z.pin_p.iRe;
+      z.i.im = z.pin_p.iIm;
+      z.pin_p.iRe+z.pin_n.iRe = array(0.0 for i in 1:systemDef.numHrm);
+      z.pin_p.iIm+z.pin_n.iIm = array(0.0 for i in 1:systemDef.numHrm);
+    // end of extends 
+  equation
+    z.v = array(Complex.'*'.multiply(
+      array(Complex.'*'.multiply(
+        z.z, 
+        Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:
+        size(systemDef.hrms, 1))[ii2], 
+      z.i[ii2]) for ii2 in 1:max(size(array(Complex.'*'.multiply(
+      z.z, 
+      Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:size(
+      systemDef.hrms, 1)), 1), size(z.i, 1)));
+
+  // Component z1
+  // class HPF.SinglePhase.Components.Impedance
+    // extends HPF.SinglePhase.Interface.TwoPinBase
+    equation
+      Connections.branch(z1.pin_p.reference, z1.pin_n.reference);
+      z1.pin_p.reference.theta = z1.pin_n.reference.theta;
+      z1.omega = der(z1.pin_p.reference.theta);
+      z1.v = array(Complex.'-'.subtract(
+        z1.pin_p.v[ii2], 
+        z1.pin_n.v[ii2]) for ii2 in 1:max(size(z1.pin_p.v, 1), size(z1.pin_n.v, 1)));
+      z1.i.re = z1.pin_p.iRe;
+      z1.i.im = z1.pin_p.iIm;
+      z1.pin_p.iRe+z1.pin_n.iRe = array(0.0 for i in 1:systemDef.numHrm);
+      z1.pin_p.iIm+z1.pin_n.iIm = array(0.0 for i in 1:systemDef.numHrm);
+    // end of extends 
+  equation
+    z1.v = array(Complex.'*'.multiply(
+      array(Complex.'*'.multiply(
+        z1.z, 
+        Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:
+        size(systemDef.hrms, 1))[ii2], 
+      z1.i[ii2]) for ii2 in 1:max(size(array(Complex.'*'.multiply(
+      z1.z, 
+      Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:size(
+      systemDef.hrms, 1)), 1), size(z1.i, 1)));
+
+  // Component z2
+  // class HPF.SinglePhase.Components.Impedance
+    // extends HPF.SinglePhase.Interface.TwoPinBase
+    equation
+      Connections.branch(z2.pin_p.reference, z2.pin_n.reference);
+      z2.pin_p.reference.theta = z2.pin_n.reference.theta;
+      z2.omega = der(z2.pin_p.reference.theta);
+      z2.v = array(Complex.'-'.subtract(
+        z2.pin_p.v[ii2], 
+        z2.pin_n.v[ii2]) for ii2 in 1:max(size(z2.pin_p.v, 1), size(z2.pin_n.v, 1)));
+      z2.i.re = z2.pin_p.iRe;
+      z2.i.im = z2.pin_p.iIm;
+      z2.pin_p.iRe+z2.pin_n.iRe = array(0.0 for i in 1:systemDef.numHrm);
+      z2.pin_p.iIm+z2.pin_n.iIm = array(0.0 for i in 1:systemDef.numHrm);
+    // end of extends 
+  equation
+    z2.v = array(Complex.'*'.multiply(
+      array(Complex.'*'.multiply(
+        z2.z, 
+        Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:
+        size(systemDef.hrms, 1))[ii2], 
+      z2.i[ii2]) for ii2 in 1:max(size(array(Complex.'*'.multiply(
+      z2.z, 
+      Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:size(
+      systemDef.hrms, 1)), 1), size(z2.i, 1)));
+
+  // Component ground1
+  // class HPF.SinglePhase.Components.Ground
+  equation
+    Connections.potentialRoot(ground1.pin.reference, 256);
+    if (Connections.isRoot(ground1.pin.reference)) then 
+      ground1.pin.reference.theta = 0;
+    end if;
+    ground1.pin.v = array(Complex.'constructor'.fromReal(0.0, 0) for i in 1:
+      systemDef.numHrm);
+
+  // This model
+  // class HPF.Test.SinglePhase_Basic
+  equation
+    assert(voltageSource1.pin_n.h == ground1.pin.h, "Parameters in connected connectors must be equal");
+    assert(z1.pin_n.h == ground1.pin.h, "Parameters in connected connectors must be equal");
+    assert(z2.pin_n.h == ground1.pin.h, "Parameters in connected connectors must be equal");
+    connect(ground1.pin.reference, voltageSource1.pin_n.reference);
+    connect(ground1.pin.reference, z1.pin_n.reference);
+    connect(ground1.pin.reference, z2.pin_n.reference);
+    assert(z.pin_p.h == voltageSource1.pin_p.h, "Parameters in connected connectors must be equal");
+    connect(voltageSource1.pin_p.reference, z.pin_p.reference);
+    assert(z1.pin_p.h == z.pin_n.h, "Parameters in connected connectors must be equal");
+    assert(z2.pin_p.h == z.pin_n.h, "Parameters in connected connectors must be equal");
+    connect(z.pin_n.reference, z1.pin_p.reference);
+    connect(z.pin_n.reference, z2.pin_p.reference);
+     -(ground1.pin.iIm+voltageSource1.pin_n.iIm+z1.pin_n.iIm+z2.pin_n.iIm) = 0.0
+      *ground1.pin.iIm;
+     -(ground1.pin.iRe+voltageSource1.pin_n.iRe+z1.pin_n.iRe+z2.pin_n.iRe) = 0.0
+      *ground1.pin.iRe;
+    voltageSource1.pin_n.v[1] = ground1.pin.v[1];
+    z1.pin_n.v[1] = ground1.pin.v[1];
+    z2.pin_n.v[1] = ground1.pin.v[1];
+    voltageSource1.pin_n.v[2] = ground1.pin.v[2];
+    z1.pin_n.v[2] = ground1.pin.v[2];
+    z2.pin_n.v[2] = ground1.pin.v[2];
+    voltageSource1.pin_n.v[3] = ground1.pin.v[3];
+    z1.pin_n.v[3] = ground1.pin.v[3];
+    z2.pin_n.v[3] = ground1.pin.v[3];
+     -(voltageSource1.pin_p.iIm+z.pin_p.iIm) = 0.0*voltageSource1.pin_p.iIm;
+     -(voltageSource1.pin_p.iRe+z.pin_p.iRe) = 0.0*voltageSource1.pin_p.iRe;
+    z.pin_p.v[1] = voltageSource1.pin_p.v[1];
+    z.pin_p.v[2] = voltageSource1.pin_p.v[2];
+    z.pin_p.v[3] = voltageSource1.pin_p.v[3];
+     -(z.pin_n.iIm+z1.pin_p.iIm+z2.pin_p.iIm) = 0.0*z.pin_n.iIm;
+     -(z.pin_n.iRe+z1.pin_p.iRe+z2.pin_p.iRe) = 0.0*z.pin_n.iRe;
+    z1.pin_p.v[1] = z.pin_n.v[1];
+    z2.pin_p.v[1] = z.pin_n.v[1];
+    z1.pin_p.v[2] = z.pin_n.v[2];
+    z2.pin_p.v[2] = z.pin_n.v[2];
+    z1.pin_p.v[3] = z.pin_n.v[3];
+    z2.pin_p.v[3] = z.pin_n.v[3];
+            
+// Initial equations and algorithms
+
+  // Component systemDef
+  // class HPF.SystemDef
+  initial algorithm
+    systemDef.modeSelect := false;
+
+end SinglePhase_Basic;

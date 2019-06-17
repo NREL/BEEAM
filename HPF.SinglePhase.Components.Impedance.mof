@@ -1,0 +1,78 @@
+model Impedance
+  parameter Integer systemDef.hrms[1] = {1} "Harmonics to simulate";
+  constant Integer systemDef.numHrm = 1 "Number of harmonics. (Automatically generated from hrms. Do not alter)";
+  parameter Integer systemDef.numPh = 3 "Number of phases";
+  parameter Real systemDef.fFund = 60 "Fundamental frequency";
+  constant Integer pin_p.h = 1;
+  constant Integer pin_n.h = 1;
+  parameter Real z.re = 1 "Real part of complex number";
+  parameter Real z.im = 0 "Imaginary part of complex number";
+
+  Boolean systemDef.modeSelect(start = true);
+  Boolean systemDef.event1(start = false);
+  Boolean systemDef.event2(start = false);
+  Real v[1].re(start = 0) "Real part of complex number";
+  Real v[1].im(start = 0) "Imaginary part of complex number";
+  Real i[1].re(start = 0) "Real part of complex number";
+  Real i[1].im(start = 0) "Imaginary part of complex number";
+  Real omega;
+  Real pin_p.v[1].re "Real part of complex number";
+  Real pin_p.v[1].im "Imaginary part of complex number";
+  Real pin_p.iIm[pin_p.h];
+  Real pin_p.iRe[pin_p.h];
+  Modelica.SIunits.Angle pin_p.reference.theta(start = 0);
+  Real pin_n.v[1].re "Real part of complex number";
+  Real pin_n.v[1].im "Imaginary part of complex number";
+  Real pin_n.iIm[pin_n.h];
+  Real pin_n.iRe[pin_n.h];
+  Modelica.SIunits.Angle pin_n.reference.theta(start = 0);
+
+// Equations and algorithms
+
+  // Component systemDef
+  // class HPF.SystemDef
+  algorithm
+    when time > 0.5 then
+      systemDef.modeSelect := true;
+    end when;
+    when time > 0.25 then
+      systemDef.event1 := true;
+    end when;
+    when time > 0.4 then
+      systemDef.event2 := true;
+    end when;
+
+  // This model
+  // class HPF.SinglePhase.Components.Impedance
+    // extends HPF.SinglePhase.Interface.TwoPinBase
+    equation
+      Connections.branch(pin_p.reference, pin_n.reference);
+      pin_p.reference.theta = pin_n.reference.theta;
+      omega = der(pin_p.reference.theta);
+      v = array(Complex.'-'.subtract(
+        pin_p.v[ii2], 
+        pin_n.v[ii2]) for ii2 in 1:max(size(pin_p.v, 1), size(pin_n.v, 1)));
+      i.re = pin_p.iRe;
+      i.im = pin_p.iIm;
+      pin_p.iRe+pin_n.iRe = array(0.0 for i in 1:systemDef.numHrm);
+      pin_p.iIm+pin_n.iIm = array(0.0 for i in 1:systemDef.numHrm);
+    // end of extends 
+  equation
+    v = array(Complex.'*'.multiply(
+      array(Complex.'*'.multiply(
+        z, 
+        Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:
+        size(systemDef.hrms, 1))[ii2], 
+      i[ii2]) for ii2 in 1:max(size(array(Complex.'*'.multiply(
+      z, 
+      Complex.'constructor'.fromReal(systemDef.hrms[ii1], 0)) for ii1 in 1:size(
+      systemDef.hrms, 1)), 1), size(i, 1)));
+            
+// Initial equations and algorithms
+
+  // Component systemDef
+  // class HPF.SystemDef
+  initial algorithm
+    systemDef.modeSelect := false;
+
+end Impedance;

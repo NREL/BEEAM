@@ -1,0 +1,70 @@
+partial model Source
+
+  Modelica.SIunits.Voltage v.re "Imaginary part of complex voltage";
+  Modelica.SIunits.Voltage v.im "Real part of complex voltage";
+  Modelica.SIunits.Voltage abs_v = Modelica.ComplexMath.'abs'(
+    v) "Magnitude of complex voltage";
+  Modelica.SIunits.Angle arg_v = Modelica.ComplexMath.arg(
+    v, 
+    0) "Argument of complex voltage";
+  Modelica.SIunits.Current i.re "Real part of complex current";
+  Modelica.SIunits.Current i.im "Imaginary part of complex current";
+  Modelica.SIunits.Current abs_i = Modelica.ComplexMath.'abs'(
+    i) "Magnitude of complex current";
+  Modelica.SIunits.Angle arg_i = Modelica.ComplexMath.arg(
+    i, 
+    0) "Argument of complex current";
+  Modelica.SIunits.ActivePower P = Modelica.ComplexMath.real(
+    Complex.'*'.multiply(
+      v, 
+      Modelica.ComplexMath.conj(
+        i))) "Active power";
+  Modelica.SIunits.ReactivePower Q = Modelica.ComplexMath.imag(
+    Complex.'*'.multiply(
+      v, 
+      Modelica.ComplexMath.conj(
+        i))) "Reactive power";
+  Modelica.SIunits.ApparentPower S = Modelica.ComplexMath.'abs'(
+    Complex.'*'.multiply(
+      v, 
+      Modelica.ComplexMath.conj(
+        i))) "Magnitude of complex apparent power";
+  Real pf = cos(Modelica.ComplexMath.arg(
+    Complex.'constructor'.fromReal(P, Q), 
+    0)) "Power factor";
+  Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
+  Modelica.SIunits.ElectricPotential pin_p.v.re "Imaginary part of complex electric potential";
+  Modelica.SIunits.ElectricPotential pin_p.v.im "Real part of complex electrical potential";
+  Modelica.SIunits.Current pin_p.i.re "Real part of complex current";
+  Modelica.SIunits.Current pin_p.i.im "Imaginary part of complex current";
+  Modelica.SIunits.Angle pin_p.reference.gamma;
+  Modelica.SIunits.ElectricPotential pin_n.v.re "Imaginary part of complex electric potential";
+  Modelica.SIunits.ElectricPotential pin_n.v.im "Real part of complex electrical potential";
+  Modelica.SIunits.Current pin_n.i.re "Real part of complex current";
+  Modelica.SIunits.Current pin_n.i.im "Imaginary part of complex current";
+  Modelica.SIunits.Angle pin_n.reference.gamma;
+  Modelica.SIunits.Angle gamma(start = 0) = pin_p.reference.gamma;
+
+// Equations and algorithms
+
+  // This model
+  // class Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source
+    // extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.TwoPin
+    equation
+      Connections.branch(pin_p.reference, pin_n.reference);
+      pin_p.reference.gamma = pin_n.reference.gamma;
+      omega = der(pin_p.reference.gamma);
+      v = Complex.'-'.subtract(
+        pin_p.v, 
+        pin_n.v);
+      i = pin_p.i;
+    // extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort
+    equation
+      Complex.'+'(
+        pin_p.i, 
+        pin_n.i) = Complex.'constructor'.fromReal(0, 0);
+    // end of extends 
+  equation
+    Connections.root(pin_p.reference);
+
+end Source;

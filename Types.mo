@@ -1,5 +1,4 @@
 within HPF;
-
 package Types
   record Reference
   /*
@@ -31,9 +30,9 @@ package Types
    end equalityConstraint;
   end Record;
   */
-    
+
     Modelica.SIunits.Angle theta;
-    
+
     function equalityConstraint "Eqauality constraint for reference angle"
       input Reference reference1;
       input Reference reference2;
@@ -41,12 +40,12 @@ package Types
     algorithm
       assert(abs(reference1.theta - reference2.theta) < 1E-6*2*Modelica.Constants.pi, "Reference angles should be equal!");
     end equalityConstraint;
-  
-    annotation(
+
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end Reference;
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
 end Types;

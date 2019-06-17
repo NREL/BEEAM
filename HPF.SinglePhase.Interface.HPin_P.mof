@@ -1,0 +1,11 @@
+connector HPin_P
+  constant Integer h = 1;
+
+  Real v[1].re "Real part of complex number";
+  Real v[1].im "Imaginary part of complex number";
+  Real iIm[h];
+  Real iRe[h];
+  Modelica.SIunits.Angle reference.theta(start = 0);
+
+
+end HPin_P;

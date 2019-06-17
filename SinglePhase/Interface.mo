@@ -23,7 +23,7 @@ package Interface
     flow Real iRe[h];
     // Real part
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),
       __OpenModelica_commandLineOptions = "");
   end HPin;
@@ -38,10 +38,11 @@ package Interface
     extends HPin;
     HPF.Types.Reference reference "Reference";
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={Rectangle(fillColor = {92, 53, 102}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
-      
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={Rectangle(fillColor = {92, 53, 102},
+              fillPattern =                                                                                                  FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
       __OpenModelica_commandLineOptions = "",
-  Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
+  Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
+
   end HPin_P;
 
   connector HPin_N "Negative Terminal"
@@ -49,21 +50,25 @@ package Interface
     Types.Reference reference "Reference";
     annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(lineColor = {117, 80, 123}, fillColor = {117, 80, 123}, extent = {{-100, 100}, {100, -100}})}),
-      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
+      Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
       __OpenModelica_commandLineOptions = "");
   end HPin_N;
 
   partial model TwoPinBase
     outer SystemDef systemDef; // instantiate systemDef as outer for global scope
-    Complex v[systemDef.numHrm] "Complex voltage";
-    Complex i[systemDef.numHrm] "Complex current";
+    /*
+      Complex v(re(start = 0), im(start = 0));
+    */
+    Complex v[systemDef.numHrm](each re(start = 0),each im(start = 0)) "Complex voltage";
+    Complex i[systemDef.numHrm](each re(start = 0),each im(start = 0)) "Complex current";
+  
     /*
       Defining omega for the overconstrained system workaround.
       omega would the derivative of alpha. ( additional constraint,
       as defined in pin.reference.theta)
     */
     Real omega;
-    
+  
     /*  pin objects for the two pins
         number of harmonics to be simulated is passed as a parameter.
     */
@@ -71,6 +76,9 @@ package Interface
       Placement(visible = true, transformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0), iconTransformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pin_n(h = systemDef.numHrm) "Negative pin" annotation (
       Placement(visible = true, transformation(extent = {{90, -10}, {110, 10}}, rotation = 0), iconTransformation(extent = {{90, -10}, {110, 10}}, rotation = 0)));
+  
+  initial equation
+  
   equation
     /*
       Nonbreakable branch for the overterdetermined variable.
@@ -165,19 +173,19 @@ package Interface
     algorithm (overconstrained connection based equation systems)
   */
     extends HPF.SinglePhase.Interface.TwoPinBase;
-    
+
     /*
       Defining an additional type 
     */
     Modelica.SIunits.Angle theta(start = 0) = pin_p.reference.theta;
-    
-  equation 
+
+  equation
     /*
       Defining root for the graph, root node in a virtual connection graph.
     */
     Connections.root(pin_p.reference);
-    
-    annotation(
+
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end Source;

@@ -20,8 +20,10 @@ class SystemDef
         true = mode: power sink / source
         false = mode: constant current source
   */
-  Boolean modeSelect( start = false);
+  Boolean modeSelect( start = true);
 
+  Boolean event1(start = false);
+  Boolean event2(start = false);
   //Boolean modeSelPrev(start = false);
 
   //Real t(start = 0, fixed = true);  // time variable for solver mode switch
@@ -31,18 +33,28 @@ class SystemDef
   parameter Modelica.SIunits.Time interval = 0.25;
   */
 
+initial algorithm
+  modeSelect := false;
 
 equation
- // clk = Clock(interval);
+
+algorithm
     when time > 0.5 then
       //modeSelPrev = previous(modeSelect);
       //if modeSelPrev == false then
-        modeSelect = true;  // Power flow
+        modeSelect := true;  // Power flow
     //else
         //modeSelect = false; // Harmonic solver
       //end if;
     end when;
 
+    when time > 0.25 then
+      event1 := true;
+    end when;
+
+    when time > 0.4 then
+      event2 := true;
+    end when;
     /*
       Annotation:
       This sets the default name for the model when used in a simulation. There can

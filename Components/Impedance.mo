@@ -9,9 +9,7 @@ model Impedance
 extends Interfaces.TwoPinBase;
   import Modelica.ComplexMath.j;
   parameter Complex z(re(start = 1), im(start = 0)) "Impedance, R + jX"; 
-  //parameter Integer h[2] = {1, 2}"Specify harmonics (array)";
-  
- // Integer hTmp[2] = {1, 2, 3};
+ 
 equation
   /*
     hrms is a user defined vector specified in systemDef.
