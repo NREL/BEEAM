@@ -102,209 +102,135 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(100,29)
+char initialName(63,29)
 systemDef.hrms[1]
-systemDef.hrms[2]
-systemDef.hrms[3]
 systemDef.numHrm
 systemDef.numPh
 systemDef.fFund
 systemDef.modeSelect
 systemDef.event1
 systemDef.event2
-voltageSource1.v[1].re
-voltageSource1.v[1].im
-voltageSource1.v[2].re
-voltageSource1.v[2].im
-voltageSource1.v[3].re
-voltageSource1.v[3].im
-voltageSource1.i[1].re
-voltageSource1.i[1].im
-voltageSource1.i[2].re
-voltageSource1.i[2].im
-voltageSource1.i[3].re
-voltageSource1.i[3].im
-voltageSource1.pin_p.h
-voltageSource1.pin_n.h
-voltageSource1.pin_n.v[1].re
-voltageSource1.pin_n.v[1].im
-voltageSource1.pin_n.v[2].re
-voltageSource1.pin_n.v[2].im
-voltageSource1.pin_n.v[3].re
-voltageSource1.pin_n.v[3].im
-voltageSource1.vMag[1]
-voltageSource1.vMag[2]
-voltageSource1.vMag[3]
-voltageSource1.vArg[1]
-voltageSource1.vArg[2]
-voltageSource1.vArg[3]
+v.v[1].re
+v.v[1].im
+v.i[1].re
+v.i[1].im
+v.pin_p.h
+v.pin_n.h
+v.pin_n.v[1].re
+v.pin_n.v[1].im
+v.theta
+v.vMag[1]
+v.vArg[1]
+ground1.pin.h
+ground1.pin.v[1].re
+ground1.pin.v[1].im
+ground1.pin.iIm[1]
+ground1.pin.iRe[1]
+test_Load1.v[1].re
+test_Load1.v[1].im
+test_Load1.i[1].re
+test_Load1.i[1].im
+test_Load1.pin_p.h
+test_Load1.pin_n.h
+test_Load1.pin_n.v[1].re
+test_Load1.pin_n.v[1].im
+test_Load1.sReal
+test_Load1.sImag
+test_Load1.iReal[1]
+test_Load1.iImag[1]
+test_Load1.vPre.re
+test_Load1.vPre.im
 z.v[1].re
 z.v[1].im
-z.v[2].re
-z.v[2].im
-z.v[3].re
-z.v[3].im
 z.pin_p.h
 z.pin_n.h
 z.pin_n.v[1].re
 z.pin_n.v[1].im
-z.pin_n.v[2].re
-z.pin_n.v[2].im
-z.pin_n.v[3].re
-z.pin_n.v[3].im
 z.pin_n.reference.theta
 z.z.re
 z.z.im
-z1.i[1].re
-z1.i[1].im
-z1.i[2].re
-z1.i[2].im
-z1.i[3].re
-z1.i[3].im
+z1.v[1].re
+z1.v[1].im
 z1.pin_p.h
 z1.pin_p.reference.theta
 z1.pin_p.reference.der(theta)
 z1.pin_n.h
-z1.pin_n.v[1].re
-z1.pin_n.v[1].im
-z1.pin_n.v[2].re
-z1.pin_n.v[2].im
-z1.pin_n.v[3].re
-z1.pin_n.v[3].im
 z1.z.re
 z1.z.im
 z2.i[1].re
 z2.i[1].im
-z2.i[2].re
-z2.i[2].im
-z2.i[3].re
-z2.i[3].im
 z2.pin_p.h
 z2.pin_p.reference.theta
 z2.pin_n.h
 z2.pin_n.v[1].re
 z2.pin_n.v[1].im
-z2.pin_n.v[2].re
-z2.pin_n.v[2].im
-z2.pin_n.v[3].re
-z2.pin_n.v[3].im
 z2.z.re
 z2.z.im
-ground1.pin.h
-ground1.pin.v[1].re
-ground1.pin.v[1].im
-ground1.pin.v[2].re
-ground1.pin.v[2].im
-ground1.pin.v[3].re
-ground1.pin.v[3].im
-ground1.pin.iIm[1]
-ground1.pin.iIm[2]
-ground1.pin.iIm[3]
-ground1.pin.iRe[1]
-ground1.pin.iRe[2]
-ground1.pin.iRe[3]
 
-double initialValue(100,6)
- -1       1                  0  0  1  282   # systemDef.hrms[1]
- -1       3                  0  0  1  282   # systemDef.hrms[2]
- -1       5                  0  0  1  282   # systemDef.hrms[3]
-  0       3                  0  0  6  258   # systemDef.numHrm
- -1       3                  0  0  1  282   # systemDef.numPh
- -1      60                  0  0  1  280   # systemDef.fFund
-  0       1                  0  0  6  321   # systemDef.modeSelect
-  0       0                  0  0  6  329   # systemDef.event1
-  0       0                  0  0  6  329   # systemDef.event2
-  0       0                  0  0  6  256   # voltageSource1.v[1].re
-  0       0                  0  0  6  256   # voltageSource1.v[1].im
-  0       0                  0  0  6  256   # voltageSource1.v[2].re
-  0       0                  0  0  6  256   # voltageSource1.v[2].im
-  0       0                  0  0  6  256   # voltageSource1.v[3].re
-  0       0                  0  0  6  256   # voltageSource1.v[3].im
-  0       0                  0  0  6  256   # voltageSource1.i[1].re
-  0       0                  0  0  6  256   # voltageSource1.i[1].im
-  0       0                  0  0  6  256   # voltageSource1.i[2].re
-  0       0                  0  0  6  256   # voltageSource1.i[2].im
-  0       0                  0  0  6  256   # voltageSource1.i[3].re
-  0       0                  0  0  6  256   # voltageSource1.i[3].im
-  0       3                  0  0  6  262   # voltageSource1.pin_p.h
-  0       3                  0  0  6  262   # voltageSource1.pin_n.h
-  0       0                  0  0  6  256   # voltageSource1.pin_n.v[1].re
-  0       0                  0  0  6  256   # voltageSource1.pin_n.v[1].im
-  0       0                  0  0  6  256   # voltageSource1.pin_n.v[2].re
-  0       0                  0  0  6  256   # voltageSource1.pin_n.v[2].im
-  0       0                  0  0  6  256   # voltageSource1.pin_n.v[3].re
-  0       0                  0  0  6  256   # voltageSource1.pin_n.v[3].im
- -1     100                  0  0  1  280   # voltageSource1.vMag[1]
- -1       5                  0  0  1  280   # voltageSource1.vMag[2]
- -1       3                  0  0  1  280   # voltageSource1.vMag[3]
- -1       0                  0  0  1  280   # voltageSource1.vArg[1]
- -1  5.0000000000000000E-01  0  0  1  280   # voltageSource1.vArg[2]
- -1 -2.5000000000000000E-01  0  0  1  280   # voltageSource1.vArg[3]
-  0       0                  0  0  6  256   # z.v[1].re
-  0       0                  0  0  6  256   # z.v[1].im
-  0       0                  0  0  6  256   # z.v[2].re
-  0       0                  0  0  6  256   # z.v[2].im
-  0       0                  0  0  6  256   # z.v[3].re
-  0       0                  0  0  6  256   # z.v[3].im
-  0       3                  0  0  6  262   # z.pin_p.h
-  0       3                  0  0  6  262   # z.pin_n.h
-  0       0                  0  0  6  256   # z.pin_n.v[1].re
-  0       0                  0  0  6  256   # z.pin_n.v[1].im
-  0       0                  0  0  6  256   # z.pin_n.v[2].re
-  0       0                  0  0  6  256   # z.pin_n.v[2].im
-  0       0                  0  0  6  256   # z.pin_n.v[3].re
-  0       0                  0  0  6  256   # z.pin_n.v[3].im
-  0       0                  0  0  6  256   # z.pin_n.reference.theta
- -1       5                  0  0  1  280   # z.z.re
- -1       2                  0  0  1  280   # z.z.im
-  0       0                  0  0  6  256   # z1.i[1].re
-  0       0                  0  0  6  256   # z1.i[1].im
-  0       0                  0  0  6  256   # z1.i[2].re
-  0       0                  0  0  6  256   # z1.i[2].im
-  0       0                  0  0  6  256   # z1.i[3].re
-  0       0                  0  0  6  256   # z1.i[3].im
-  0       3                  0  0  6  262   # z1.pin_p.h
- -1       0                  0  0  2  280   # z1.pin_p.reference.theta
-  0       0                  0  0  3  256   # z1.pin_p.reference.der(theta)
-  0       3                  0  0  6  262   # z1.pin_n.h
-  0       0                  0  0  6  256   # z1.pin_n.v[1].re
-  0       0                  0  0  6  256   # z1.pin_n.v[1].im
-  0       0                  0  0  6  256   # z1.pin_n.v[2].re
-  0       0                  0  0  6  256   # z1.pin_n.v[2].im
-  0       0                  0  0  6  256   # z1.pin_n.v[3].re
-  0       0                  0  0  6  256   # z1.pin_n.v[3].im
- -1       2                  0  0  1  280   # z1.z.re
- -1       2                  0  0  1  280   # z1.z.im
-  0       0                  0  0  6  256   # z2.i[1].re
-  0       0                  0  0  6  256   # z2.i[1].im
-  0       0                  0  0  6  256   # z2.i[2].re
-  0       0                  0  0  6  256   # z2.i[2].im
-  0       0                  0  0  6  256   # z2.i[3].re
-  0       0                  0  0  6  256   # z2.i[3].im
-  0       3                  0  0  6  262   # z2.pin_p.h
-  0       0                  0  0  6  256   # z2.pin_p.reference.theta
-  0       3                  0  0  6  262   # z2.pin_n.h
-  0       0                  0  0  6  256   # z2.pin_n.v[1].re
-  0       0                  0  0  6  256   # z2.pin_n.v[1].im
-  0       0                  0  0  6  256   # z2.pin_n.v[2].re
-  0       0                  0  0  6  256   # z2.pin_n.v[2].im
-  0       0                  0  0  6  256   # z2.pin_n.v[3].re
-  0       0                  0  0  6  256   # z2.pin_n.v[3].im
- -1       3                  0  0  1  280   # z2.z.re
- -1       2                  0  0  1  280   # z2.z.im
-  0       3                  0  0  6  262   # ground1.pin.h
-  0       0                  0  0  6  256   # ground1.pin.v[1].re
-  0       0                  0  0  6  256   # ground1.pin.v[1].im
-  0       0                  0  0  6  256   # ground1.pin.v[2].re
-  0       0                  0  0  6  256   # ground1.pin.v[2].im
-  0       0                  0  0  6  256   # ground1.pin.v[3].re
-  0       0                  0  0  6  256   # ground1.pin.v[3].im
-  0       0                  0  0  6  388   # ground1.pin.iIm[1]
-  0       0                  0  0  6  388   # ground1.pin.iIm[2]
-  0       0                  0  0  6  388   # ground1.pin.iIm[3]
-  0       0                  0  0  6  388   # ground1.pin.iRe[1]
-  0       0                  0  0  6  388   # ground1.pin.iRe[2]
-  0       0                  0  0  6  388   # ground1.pin.iRe[3]
+double initialValue(63,6)
+ -1    1  0  0  1  282   # systemDef.hrms[1]
+  0    1  0  0  6  258   # systemDef.numHrm
+ -1    3  0  0  1  282   # systemDef.numPh
+ -1   60  0  0  1  280   # systemDef.fFund
+  0    1  0  0  6  321   # systemDef.modeSelect
+  0    0  0  0  6  329   # systemDef.event1
+  0    0  0  0  6  329   # systemDef.event2
+  0    0  0  0  6  256   # v.v[1].re
+  0    0  0  0  6  256   # v.v[1].im
+  0    0  0  0  6  320   # v.i[1].re
+  0    0  0  0  6  320   # v.i[1].im
+  0    1  0  0  6  262   # v.pin_p.h
+  0    1  0  0  6  262   # v.pin_n.h
+  0    0  0  0  6  256   # v.pin_n.v[1].re
+  0    0  0  0  6  256   # v.pin_n.v[1].im
+  0    0  0  0  6  264   # v.theta
+ -1  100  0  0  1  280   # v.vMag[1]
+ -1    0  0  0  1  280   # v.vArg[1]
+  0    1  0  0  6  262   # ground1.pin.h
+  0    0  0  0  6  256   # ground1.pin.v[1].re
+  0    0  0  0  6  256   # ground1.pin.v[1].im
+  0    0  0  0  6  452   # ground1.pin.iIm[1]
+  0    0  0  0  6  452   # ground1.pin.iRe[1]
+  0    0  0  0  6  320   # test_Load1.v[1].re
+  0    0  0  0  6  320   # test_Load1.v[1].im
+  0    0  0  0  6  352   # test_Load1.i[1].re
+  0    0  0  0  6  352   # test_Load1.i[1].im
+  0    1  0  0  6  262   # test_Load1.pin_p.h
+  0    1  0  0  6  262   # test_Load1.pin_n.h
+  0    0  0  0  6  256   # test_Load1.pin_n.v[1].re
+  0    0  0  0  6  256   # test_Load1.pin_n.v[1].im
+ -1  150  0  0  1  280   # test_Load1.sReal
+ -1   33  0  0  1  280   # test_Load1.sImag
+ -1    5  0  0  1  280   # test_Load1.iReal[1]
+ -1    3  0  0  1  280   # test_Load1.iImag[1]
+  0    0  0  0  6  328   # test_Load1.vPre.re
+  0    0  0  0  6  328   # test_Load1.vPre.im
+  0    0  0  0  6  320   # z.v[1].re
+  0    0  0  0  6  320   # z.v[1].im
+  0    1  0  0  6  262   # z.pin_p.h
+  0    1  0  0  6  262   # z.pin_n.h
+  0    0  0  0  6  320   # z.pin_n.v[1].re
+  0    0  0  0  6  320   # z.pin_n.v[1].im
+  0    0  0  0  6  256   # z.pin_n.reference.theta
+ -1    5  0  0  1  280   # z.z.re
+ -1    2  0  0  1  280   # z.z.im
+  0    0  0  0  6  320   # z1.v[1].re
+  0    0  0  0  6  320   # z1.v[1].im
+  0    1  0  0  6  262   # z1.pin_p.h
+ -1    0  0  0  2  272   # z1.pin_p.reference.theta
+  0    0  0  0  3  256   # z1.pin_p.reference.der(theta)
+  0    1  0  0  6  262   # z1.pin_n.h
+ -1   10  0  0  1  280   # z1.z.re
+ -1    5  0  0  1  280   # z1.z.im
+  0    0  0  0  6  352   # z2.i[1].re
+  0    0  0  0  6  352   # z2.i[1].im
+  0    1  0  0  6  262   # z2.pin_p.h
+  0    0  0  0  6  256   # z2.pin_p.reference.theta
+  0    1  0  0  6  262   # z2.pin_n.h
+  0    0  0  0  6  256   # z2.pin_n.v[1].re
+  0    0  0  0  6  256   # z2.pin_n.v[1].im
+ -1    2  0  0  1  280   # z2.z.re
+ -1    1  0  0  1  280   # z2.z.im
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -355,9 +281,7 @@ double initialValue(100,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(100,89)
-Harmonics to simulate [:#(type=Integer)]
-Harmonics to simulate [:#(type=Integer)]
+char initialDescription(63,89)
 Harmonics to simulate [:#(type=Integer)]
 Number of harmonics. (Automatically generated from hrms. Do not alter) [:#(type=Integer)]
 Number of phases [:#(type=Integer)]
@@ -369,47 +293,39 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
 [:#(type=Integer)]
 [:#(type=Integer)]
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Voltage Magnitude
-Voltage Magnitude
-Voltage Magnitude
-Voltage angle
-Voltage angle
-Voltage angle
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-[:#(type=Integer)]
-[:#(type=Integer)]
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
 [rad|deg]
+Voltage Magnitude
+Voltage angle
+[:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
+
+
 Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
+[:#(type=Integer)]
+[:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
+
+
+
+
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+[:#(type=Integer)]
+[:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
+[rad|deg]
 Real part of complex number
 Imaginary part of complex number
 Real part of complex number
@@ -422,16 +338,6 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
 [:#(type=Integer)]
 [rad|deg]
 [:#(type=Integer)]
@@ -439,21 +345,4 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-[:#(type=Integer)]
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-
-
-
-
-
-
 

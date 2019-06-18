@@ -24,18 +24,13 @@ class SystemDef
 
   Boolean event1(start = false);
   Boolean event2(start = false);
-  //Boolean modeSelPrev(start = false);
 
-  //Real t(start = 0, fixed = true);  // time variable for solver mode switch
-  /*
-  // defining clock variables used to implement the iterative solver
-  Clock clk;
-  parameter Modelica.SIunits.Time interval = 0.25;
-  */
+  //Complex cmplxZeros[numHrm];
 
 initial algorithm
   modeSelect := false;
-
+  //cmplxZeros[:].re := zeros(numHrm - 1);
+  //cmplxZeros[:].im := zeros(numHrm - 1);
 equation
 
 algorithm

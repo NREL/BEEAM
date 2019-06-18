@@ -8,8 +8,8 @@ model Test_Load
   */
   outer SystemDef systemDef;
 
-  parameter Real sReal = 1;
-  parameter Real sImag = 0;
+  parameter Real sReal(start = 0) = 1;
+  parameter Real sImag(start = 0) = 0;
   parameter Real iReal[:] = {1};
   parameter Real iImag[:] = {0};
 

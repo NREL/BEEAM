@@ -1,0 +1,2906 @@
+Compiler arguments:
+  -log=verbose: compile_log.txt,w|xml|stderr -target=me -version=2.0 -platform=linux64 -out=. -modelicapath=/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL ../../../HPF HPF.Test.SinglePhase_Basic 
+Current working directory:
+  /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/pyjmi_workspace
+Compiler version: r12669
+Java version: 11.0.3
+OS name: Linux
+OS architecture: amd64
+MODELICAPATH    = 
+JAVA_HOME       = /usr/lib/jvm/java-11-openjdk-amd64
+JMODELICA_HOME  = /home/avpreetsingh/programfiles/jModelica/
+======= Compiling model =======
+Parsing ../../../HPF/package.mo...
+Checking for errors...
+MODELICAPATH = /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL
+extra_lib_dirs = 
+Reading file: ../../../HPF/package.mo
+Reading file: ../../../HPF/Test/package.mo
+Reading file: ../../../HPF/Test/SinglePhase_Basic.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Icons.mo
+Reading file: ../../../HPF/SystemDef.mo
+Reading file: ../../../HPF/SinglePhase/package.mo
+Reading file: ../../../HPF/SinglePhase/Sources/package.mo
+Reading file: ../../../HPF/SinglePhase/Sources/VoltageSource.mo
+Reading file: ../../../HPF/SinglePhase/Interface.mo
+Reading file: ../../../HPF/SinglePhase/Components/package.mo
+Reading file: ../../../HPF/SinglePhase/Components/Impedance.mo
+Reading file: ../../../HPF/SinglePhase/Components/Ground.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/SIunits.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Complex.mo
+Reading file: ../../../HPF/Types.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Constants.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Math/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/ComplexMath.mo
+Flattening model...
+Raw flattened model:
+fclass HPF.Test.SinglePhase_Basic
+ parameter Integer systemDef.hrms[3] = {1, 3, 5} "Harmonics to simulate" /* { 1, 3, 5 } */;
+ structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = true);
+ discrete Boolean systemDef.event1(start = false);
+ discrete Boolean systemDef.event2(start = false);
+ parameter Real voltageSource1.vMag[3] = {100, 5, 3} "Voltage Magnitude" /* { 100, 5, 3 } */;
+ parameter Real voltageSource1.vArg[3] = {0, 0.5, -0.25} "Voltage angle" /* { 0, 0.5, -0.25 } */;
+ Modelica.SIunits.Angle voltageSource1.theta(start = 0) = voltageSource1.pin_p.reference.theta;
+ Complex voltageSource1.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex voltageSource1.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real voltageSource1.omega;
+ HPF.Types.Reference voltageSource1.pin_p.reference "Reference";
+ structural parameter Integer voltageSource1.pin_p.h = 3 /* 3 */;
+ Complex voltageSource1.pin_p.v[3] "Complex potential at the node";
+ Real voltageSource1.pin_p.iIm[3];
+ Real voltageSource1.pin_p.iRe[3];
+ HPF.Types.Reference voltageSource1.pin_n.reference "Reference";
+ structural parameter Integer voltageSource1.pin_n.h = 3 /* 3 */;
+ Complex voltageSource1.pin_n.v[3] "Complex potential at the node";
+ Real voltageSource1.pin_n.iIm[3];
+ Real voltageSource1.pin_n.iRe[3];
+ parameter Complex z.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(5, 0), Complex.'*'.multiply(Complex.'constructor'.fromReal(2, 0), Complex(0, 1))) "Impedance, R + jX";
+ Complex z.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex z.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real z.omega;
+ HPF.Types.Reference z.pin_p.reference "Reference";
+ structural parameter Integer z.pin_p.h = 3 /* 3 */;
+ Complex z.pin_p.v[3] "Complex potential at the node";
+ Real z.pin_p.iIm[3];
+ Real z.pin_p.iRe[3];
+ HPF.Types.Reference z.pin_n.reference "Reference";
+ structural parameter Integer z.pin_n.h = 3 /* 3 */;
+ Complex z.pin_n.v[3] "Complex potential at the node";
+ Real z.pin_n.iIm[3];
+ Real z.pin_n.iRe[3];
+ parameter Complex z1.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(2, 0), Complex.'*'.multiply(Complex.'constructor'.fromReal(2, 0), Complex(0, 1))) "Impedance, R + jX";
+ Complex z1.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex z1.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real z1.omega;
+ HPF.Types.Reference z1.pin_p.reference "Reference";
+ structural parameter Integer z1.pin_p.h = 3 /* 3 */;
+ Complex z1.pin_p.v[3] "Complex potential at the node";
+ Real z1.pin_p.iIm[3];
+ Real z1.pin_p.iRe[3];
+ HPF.Types.Reference z1.pin_n.reference "Reference";
+ structural parameter Integer z1.pin_n.h = 3 /* 3 */;
+ Complex z1.pin_n.v[3] "Complex potential at the node";
+ Real z1.pin_n.iIm[3];
+ Real z1.pin_n.iRe[3];
+ parameter Complex z2.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(3, 0), Complex.'*'.multiply(Complex.'constructor'.fromReal(2, 0), Complex(0, 1))) "Impedance, R + jX";
+ Complex z2.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex z2.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real z2.omega;
+ HPF.Types.Reference z2.pin_p.reference "Reference";
+ structural parameter Integer z2.pin_p.h = 3 /* 3 */;
+ Complex z2.pin_p.v[3] "Complex potential at the node";
+ Real z2.pin_p.iIm[3];
+ Real z2.pin_p.iRe[3];
+ HPF.Types.Reference z2.pin_n.reference "Reference";
+ structural parameter Integer z2.pin_n.h = 3 /* 3 */;
+ Complex z2.pin_n.v[3] "Complex potential at the node";
+ Real z2.pin_n.iIm[3];
+ Real z2.pin_n.iRe[3];
+ HPF.Types.Reference ground1.pin.reference "Reference";
+ structural parameter Integer ground1.pin.h = 3 /* 3 */;
+ Complex ground1.pin.v[3] "Complex potential at the node";
+ Real ground1.pin.iIm[3];
+ Real ground1.pin.iRe[3];
+initial equation
+ algorithm
+  systemDef.modeSelect := false;
+;
+algorithm
+ when time > 0.5 then
+  systemDef.modeSelect := true;
+ end when;
+ when time > 0.25 then
+  systemDef.event1 := true;
+ end when;
+ when time > 0.4 then
+  systemDef.event2 := true;
+ end when;
+equation
+ voltageSource1.omega = 2 * 3.141592653589793 * systemDef.fFund;
+ Modelica.ComplexMath.real(voltageSource1.v[1:3]) = voltageSource1.vMag[1:3] .* cos(voltageSource1.vArg[1:3]);
+ Modelica.ComplexMath.imag(voltageSource1.v[1:3]) = voltageSource1.vMag[1:3] .* sin(voltageSource1.vArg[1:3]);
+ voltageSource1.pin_p.reference.theta = voltageSource1.pin_n.reference.theta;
+ voltageSource1.omega = der(voltageSource1.pin_p.reference.theta);
+ voltageSource1.v[1:3] = {Complex.'-'.subtract(voltageSource1.pin_p.v[1], voltageSource1.pin_n.v[1]), Complex.'-'.subtract(voltageSource1.pin_p.v[2], voltageSource1.pin_n.v[2]), Complex.'-'.subtract(voltageSource1.pin_p.v[3], voltageSource1.pin_n.v[3])};
+ voltageSource1.i[1:3].re = voltageSource1.pin_p.iRe[1:3];
+ voltageSource1.i[1:3].im = voltageSource1.pin_p.iIm[1:3];
+ voltageSource1.pin_p.iRe[1:3] + voltageSource1.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ voltageSource1.pin_p.iIm[1:3] + voltageSource1.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ z.v[1:3].re = z.z.re .* z.i[1:3].re;
+ z.v[1:3].im = z.z.im .* systemDef.hrms[1:3] .* z.i[1:3].im;
+ z.pin_p.reference.theta = z.pin_n.reference.theta;
+ z.omega = der(z.pin_p.reference.theta);
+ z.v[1:3] = {Complex.'-'.subtract(z.pin_p.v[1], z.pin_n.v[1]), Complex.'-'.subtract(z.pin_p.v[2], z.pin_n.v[2]), Complex.'-'.subtract(z.pin_p.v[3], z.pin_n.v[3])};
+ z.i[1:3].re = z.pin_p.iRe[1:3];
+ z.i[1:3].im = z.pin_p.iIm[1:3];
+ z.pin_p.iRe[1:3] + z.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ z.pin_p.iIm[1:3] + z.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ z1.v[1:3].re = z1.z.re .* z1.i[1:3].re;
+ z1.v[1:3].im = z1.z.im .* systemDef.hrms[1:3] .* z1.i[1:3].im;
+ z1.pin_p.reference.theta = z1.pin_n.reference.theta;
+ z1.omega = der(z1.pin_p.reference.theta);
+ z1.v[1:3] = {Complex.'-'.subtract(z1.pin_p.v[1], z1.pin_n.v[1]), Complex.'-'.subtract(z1.pin_p.v[2], z1.pin_n.v[2]), Complex.'-'.subtract(z1.pin_p.v[3], z1.pin_n.v[3])};
+ z1.i[1:3].re = z1.pin_p.iRe[1:3];
+ z1.i[1:3].im = z1.pin_p.iIm[1:3];
+ z1.pin_p.iRe[1:3] + z1.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ z1.pin_p.iIm[1:3] + z1.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ z2.v[1:3].re = z2.z.re .* z2.i[1:3].re;
+ z2.v[1:3].im = z2.z.im .* systemDef.hrms[1:3] .* z2.i[1:3].im;
+ z2.pin_p.reference.theta = z2.pin_n.reference.theta;
+ z2.omega = der(z2.pin_p.reference.theta);
+ z2.v[1:3] = {Complex.'-'.subtract(z2.pin_p.v[1], z2.pin_n.v[1]), Complex.'-'.subtract(z2.pin_p.v[2], z2.pin_n.v[2]), Complex.'-'.subtract(z2.pin_p.v[3], z2.pin_n.v[3])};
+ z2.i[1:3].re = z2.pin_p.iRe[1:3];
+ z2.i[1:3].im = z2.pin_p.iIm[1:3];
+ z2.pin_p.iRe[1:3] + z2.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ z2.pin_p.iIm[1:3] + z2.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ if Connections.isRoot(ground1.pin.reference) then
+  ground1.pin.reference.theta = 0;
+ end if;
+ ground1.pin.v[1:3] = {Complex.'constructor'.fromReal(0.0, 0), Complex.'constructor'.fromReal(0.0, 0), Complex.'constructor'.fromReal(0.0, 0)};
+ ground1.pin.iIm[1:3] + voltageSource1.pin_n.iIm[1:3] + z1.pin_n.iIm[1:3] + z2.pin_n.iIm[1:3] = zeros(3);
+ ground1.pin.iRe[1:3] + voltageSource1.pin_n.iRe[1:3] + z1.pin_n.iRe[1:3] + z2.pin_n.iRe[1:3] = zeros(3);
+ ground1.pin.v[1].im = voltageSource1.pin_n.v[1].im;
+ voltageSource1.pin_n.v[1].im = z1.pin_n.v[1].im;
+ z1.pin_n.v[1].im = z2.pin_n.v[1].im;
+ ground1.pin.v[1].re = voltageSource1.pin_n.v[1].re;
+ voltageSource1.pin_n.v[1].re = z1.pin_n.v[1].re;
+ z1.pin_n.v[1].re = z2.pin_n.v[1].re;
+ ground1.pin.v[2].im = voltageSource1.pin_n.v[2].im;
+ voltageSource1.pin_n.v[2].im = z1.pin_n.v[2].im;
+ z1.pin_n.v[2].im = z2.pin_n.v[2].im;
+ ground1.pin.v[2].re = voltageSource1.pin_n.v[2].re;
+ voltageSource1.pin_n.v[2].re = z1.pin_n.v[2].re;
+ z1.pin_n.v[2].re = z2.pin_n.v[2].re;
+ ground1.pin.v[3].im = voltageSource1.pin_n.v[3].im;
+ voltageSource1.pin_n.v[3].im = z1.pin_n.v[3].im;
+ z1.pin_n.v[3].im = z2.pin_n.v[3].im;
+ ground1.pin.v[3].re = voltageSource1.pin_n.v[3].re;
+ voltageSource1.pin_n.v[3].re = z1.pin_n.v[3].re;
+ z1.pin_n.v[3].re = z2.pin_n.v[3].re;
+ voltageSource1.pin_p.iIm[1:3] + z.pin_p.iIm[1:3] = zeros(3);
+ voltageSource1.pin_p.iRe[1:3] + z.pin_p.iRe[1:3] = zeros(3);
+ voltageSource1.pin_p.v[1].im = z.pin_p.v[1].im;
+ voltageSource1.pin_p.v[1].re = z.pin_p.v[1].re;
+ voltageSource1.pin_p.v[2].im = z.pin_p.v[2].im;
+ voltageSource1.pin_p.v[2].re = z.pin_p.v[2].re;
+ voltageSource1.pin_p.v[3].im = z.pin_p.v[3].im;
+ voltageSource1.pin_p.v[3].re = z.pin_p.v[3].re;
+ z.pin_n.iIm[1:3] + z1.pin_p.iIm[1:3] + z2.pin_p.iIm[1:3] = zeros(3);
+ z.pin_n.iRe[1:3] + z1.pin_p.iRe[1:3] + z2.pin_p.iRe[1:3] = zeros(3);
+ z.pin_n.v[1].im = z1.pin_p.v[1].im;
+ z1.pin_p.v[1].im = z2.pin_p.v[1].im;
+ z.pin_n.v[1].re = z1.pin_p.v[1].re;
+ z1.pin_p.v[1].re = z2.pin_p.v[1].re;
+ z.pin_n.v[2].im = z1.pin_p.v[2].im;
+ z1.pin_p.v[2].im = z2.pin_p.v[2].im;
+ z.pin_n.v[2].re = z1.pin_p.v[2].re;
+ z1.pin_p.v[2].re = z2.pin_p.v[2].re;
+ z.pin_n.v[3].im = z1.pin_p.v[3].im;
+ z1.pin_p.v[3].im = z2.pin_p.v[3].im;
+ z.pin_n.v[3].re = z1.pin_p.v[3].re;
+ z1.pin_p.v[3].re = z2.pin_p.v[3].re;
+ voltageSource1.pin_p.reference.theta = z.pin_p.reference.theta;
+ z.pin_n.reference.theta = z1.pin_p.reference.theta;
+ z1.pin_p.reference.theta = z2.pin_p.reference.theta;
+ ground1.pin.reference.theta = voltageSource1.pin_n.reference.theta;
+ HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(z1.pin_n.reference, z2.pin_n.reference);
+ HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(ground1.pin.reference, z2.pin_n.reference);
+
+public
+ function Modelica.ComplexMath.real
+  input Complex c;
+  output Real r;
+ algorithm
+  r := c.re;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.real;
+
+ function Modelica.ComplexMath.imag
+  input Complex c;
+  output Real r;
+ algorithm
+  r := c.im;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.imag;
+
+ function Complex.'-'.subtract
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re - c2.re, c1.im - c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'-'.subtract;
+
+ function Complex.'constructor'.fromReal
+  input Real re;
+  input Real im;
+  output Complex result;
+ algorithm
+  result.re := re;
+  result.im := im;
+  return;
+ annotation(Inline = true);
+ end Complex.'constructor'.fromReal;
+
+ function Complex.'*'.multiply
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re * c2.re - c1.im * c2.im, c1.re * c2.im + c1.im * c2.re);
+  return;
+ annotation(Inline = true);
+ end Complex.'*'.multiply;
+
+ function Complex.'+'
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re + c2.re, c1.im + c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'+';
+
+ function HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint;
+
+ function HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+end HPF.Test.SinglePhase_Basic;
+
+Applying transformation: enableIfEquationElimination...
+Applying transformation: genInitArrayStatements...
+Applying transformation: scalarize...
+Applying transformation: MakeReinitedVarsStates...
+Applying transformation: enableIfEquationElimination...
+Applying transformation: enableStreamsRewrite...
+Applying transformation: ExtractEventGeneratingExpressions...
+Applying transformation: GenerateEventIndicators...
+Applying transformation: convertWhenToIf...
+Applying transformation: FunctionInliningIfSet...
+Applying transformation: setFDerivativeVariables...
+Applying transformation: addFPreVariables...
+Applying transformation: enableIfEquationRewrite...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: variabilityPropagationIfSet...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: eliminateLinearEquations...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: enableExpandedInStreamRewrite...
+Applying transformation: evaluateAsserts...
+Applying transformation: enableSemiLinearRewrite...
+Applying transformation: eliminateEqualSwitches...
+Applying transformation: genInitialEquations...
+Applying transformation: setFDerivativeVariablesPreBLT...
+Applying transformation: indexReduction...
+Applying transformation: LateFunctionInliningIfSet...
+Applying transformation: commonSubexpressionEliminationIfSet...
+Applying transformation: addFPreVariables...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: eliminateLinearEquations...
+Applying transformation: sortDependentParameters...
+Applying transformation: addRuntimeOptionParameters...
+Applying transformation: computeMatchingsAndBLT...
+Flat tree before matching and BLT:
+fclass HPF.Test.SinglePhase_Basic
+ parameter Integer systemDef.hrms[1] = 1 "Harmonics to simulate" /* 1 */;
+ parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
+ parameter Integer systemDef.hrms[3] = 5 "Harmonics to simulate" /* 5 */;
+ structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = true);
+ discrete Boolean systemDef.event1(start = false);
+ discrete Boolean systemDef.event2(start = false);
+ parameter Real voltageSource1.vMag[1] = 100 "Voltage Magnitude" /* 100 */;
+ parameter Real voltageSource1.vMag[2] = 5 "Voltage Magnitude" /* 5 */;
+ parameter Real voltageSource1.vMag[3] = 3 "Voltage Magnitude" /* 3 */;
+ parameter Real voltageSource1.vArg[1] = 0 "Voltage angle" /* 0 */;
+ parameter Real voltageSource1.vArg[2] = 0.5 "Voltage angle" /* 0.5 */;
+ parameter Real voltageSource1.vArg[3] = -0.25 "Voltage angle" /* -0.25 */;
+ Modelica.SIunits.Angle voltageSource1.theta(start = 0);
+ parameter Real voltageSource1.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real voltageSource1.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real voltageSource1.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real voltageSource1.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real voltageSource1.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real voltageSource1.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real voltageSource1.i[1].re(start = 0,nominal = -1) "Real part of complex number";
+ Real voltageSource1.i[1].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real voltageSource1.i[2].re(start = 0,nominal = -1) "Real part of complex number";
+ Real voltageSource1.i[2].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real voltageSource1.i[3].re(start = 0,nominal = -1) "Real part of complex number";
+ Real voltageSource1.i[3].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real voltageSource1.omega;
+ parameter Real z.z.re(start = 1) = 5.0 "Real part of complex number" /* 5.0 */;
+ parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.omega;
+ parameter Real z1.z.re(start = 1) = 2.0 "Real part of complex number" /* 2.0 */;
+ parameter Real z1.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z1.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.i[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.i[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.omega;
+ parameter Real z2.z.re(start = 1) = 3.0 "Real part of complex number" /* 3.0 */;
+ parameter Real z2.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z2.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.omega;
+ constant Real ground1.pin.v[1].re = 0.0 "Real part of complex number";
+ constant Real ground1.pin.v[1].im = 0 "Imaginary part of complex number";
+ Real ground1.pin.iIm[1];
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iIm[3];
+ Real ground1.pin.iRe[1];
+ Real ground1.pin.iRe[2];
+ Real ground1.pin.iRe[3];
+ discrete Boolean temp_19;
+ discrete Boolean temp_20;
+ discrete Boolean temp_21;
+initial equation
+ algorithm
+  systemDef.modeSelect := false;
+;
+parameter equation
+ voltageSource1.v[1].re = voltageSource1.vMag[1] .* cos(voltageSource1.vArg[1]);
+ voltageSource1.v[2].re = voltageSource1.vMag[2] .* cos(voltageSource1.vArg[2]);
+ voltageSource1.v[3].re = voltageSource1.vMag[3] .* cos(voltageSource1.vArg[3]);
+ voltageSource1.v[1].im = voltageSource1.vMag[1] .* sin(voltageSource1.vArg[1]);
+ voltageSource1.v[2].im = voltageSource1.vMag[2] .* sin(voltageSource1.vArg[2]);
+ voltageSource1.v[3].im = voltageSource1.vMag[3] .* sin(voltageSource1.vArg[3]);
+equation
+ temp_19 = time > 0.5;
+ temp_20 = time > 0.25;
+ temp_21 = time > 0.4;
+algorithm
+ if temp_19 and not pre(temp_19) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_20 and not pre(temp_20) then
+  systemDef.event1 := true;
+ end if;
+ if temp_21 and not pre(temp_21) then
+  systemDef.event2 := true;
+ end if;
+equation
+ der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund;
+ voltageSource1.omega = der(voltageSource1.theta);
+ z.v[1].re = z.z.re .* (- voltageSource1.i[1].re);
+ z.v[2].re = z.z.re .* (- voltageSource1.i[2].re);
+ z.v[3].re = z.z.re .* (- voltageSource1.i[3].re);
+ z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im);
+ z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im);
+ z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im);
+ z.omega = der(voltageSource1.theta);
+ z.v[1].re = voltageSource1.v[1].re - z1.v[1].re;
+ z.v[1].im = voltageSource1.v[1].im - z1.v[1].im;
+ z.v[2].re = voltageSource1.v[2].re - z1.v[2].re;
+ z.v[2].im = voltageSource1.v[2].im - z1.v[2].im;
+ z.v[3].re = voltageSource1.v[3].re - z1.v[3].re;
+ z.v[3].im = voltageSource1.v[3].im - z1.v[3].im;
+ z1.v[1].re = z1.z.re .* z1.i[1].re;
+ z1.v[2].re = z1.z.re .* z1.i[2].re;
+ z1.v[3].re = z1.z.re .* z1.i[3].re;
+ z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im;
+ z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im;
+ z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im;
+ z1.omega = der(voltageSource1.theta);
+ z1.v[1].re = z2.z.re .* z2.i[1].re;
+ z1.v[2].re = z2.z.re .* z2.i[2].re;
+ z1.v[3].re = z2.z.re .* z2.i[3].re;
+ z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im;
+ z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im;
+ z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im;
+ z2.omega = der(voltageSource1.theta);
+ ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0;
+ ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0;
+ ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0;
+ ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0;
+ ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0;
+ ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0;
+ 0 = ground1.pin.iIm[1];
+ 0 = ground1.pin.iIm[2];
+ 0 = ground1.pin.iIm[3];
+ 0 = ground1.pin.iRe[1];
+ 0 = ground1.pin.iRe[2];
+ 0 = ground1.pin.iRe[3];
+ HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta));
+ HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta));
+
+public
+ function Modelica.ComplexMath.real
+  input Complex c;
+  output Real r;
+ algorithm
+  r := c.re;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.real;
+
+ function Modelica.ComplexMath.imag
+  input Complex c;
+  output Real r;
+ algorithm
+  r := c.im;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.imag;
+
+ function Complex.'-'.subtract
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re - c2.re, c1.im - c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'-'.subtract;
+
+ function Complex.'constructor'.fromReal
+  input Real re;
+  input Real im;
+  output Complex result;
+ algorithm
+  result.re := re;
+  result.im := im;
+  return;
+ annotation(Inline = true);
+ end Complex.'constructor'.fromReal;
+
+ function Complex.'*'.multiply
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re * c2.re - c1.im * c2.im, c1.re * c2.im + c1.im * c2.re);
+  return;
+ annotation(Inline = true);
+ end Complex.'*'.multiply;
+
+ function Complex.'+'
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re + c2.re, c1.im + c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'+';
+
+ function HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint;
+
+ function HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+end HPF.Test.SinglePhase_Basic;
+
+DAE BiPGraph
+BiPGraph (49 equations, 47 variables)
+Variables: {der(voltageSource1.theta) voltageSource1.i[1].re voltageSource1.i[1].im voltageSource1.i[2].re voltageSource1.i[2].im voltageSource1.i[3].re voltageSource1.i[3].im voltageSource1.omega z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega z1.v[1].re z1.v[1].im z1.v[2].re z1.v[2].im z1.v[3].re z1.v[3].im z1.i[1].re z1.i[1].im z1.i[2].re z1.i[2].im z1.i[3].re z1.i[3].im z1.omega z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.i[3].re z2.i[3].im z2.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] systemDef.modeSelect systemDef.event1 systemDef.event2 temp_19 temp_20 temp_21 }
+eq_1 : temp_19@M // temp_19 = time > 0.5
+eq_2 : temp_20@M // temp_20 = time > 0.25
+eq_3 : temp_21@M // temp_21 = time > 0.4
+eq_4[1] : temp_19# temp_20# temp_21# systemDef.event2@M // algorithm
+ if temp_19 and not pre(temp_19) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_20 and not pre(temp_20) then
+  systemDef.event1 := true;
+ end if;
+ if temp_21 and not pre(temp_21) then
+  systemDef.event2 := true;
+ end if;
+
+eq_4[2] : temp_19# temp_20# systemDef.event1@M temp_21# // Already printed, see eq_4[1]
+eq_4[3] : temp_19# systemDef.modeSelect@M temp_20# temp_21# // Already printed, see eq_4[1]
+eq_5 : der(voltageSource1.theta)@M // der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : voltageSource1.omega@M der(voltageSource1.theta)@ // voltageSource1.omega = der(voltageSource1.theta)
+eq_7 : z.v[1].re@M voltageSource1.i[1].re@ // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+eq_8 : z.v[2].re@M voltageSource1.i[2].re@ // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+eq_9 : z.v[3].re@M voltageSource1.i[3].re@ // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+eq_10 : z.v[1].im@M voltageSource1.i[1].im@ // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+eq_11 : z.v[2].im@M voltageSource1.i[2].im@ // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+eq_12 : z.v[3].im@M voltageSource1.i[3].im@ // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+eq_13 : z.omega@M der(voltageSource1.theta)@ // z.omega = der(voltageSource1.theta)
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_20 : z1.v[1].re@ z1.i[1].re@M // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_21 : z1.v[2].re@ z1.i[2].re@M // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_22 : z1.v[3].re@ z1.i[3].re@M // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_23 : z1.v[1].im@ z1.i[1].im@M // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_24 : z1.v[2].im@ z1.i[2].im@M // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_25 : z1.v[3].im@ z1.i[3].im@M // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_26 : z1.omega@M der(voltageSource1.theta)@ // z1.omega = der(voltageSource1.theta)
+eq_27 : z1.v[1].re@ z2.i[1].re@M // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_28 : z1.v[2].re@ z2.i[2].re@M // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_29 : z1.v[3].re@ z2.i[3].re@M // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_30 : z1.v[1].im@ z2.i[1].im@M // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_31 : z1.v[2].im@ z2.i[2].im@M // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_32 : z1.v[3].im@ z2.i[3].im@M // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_33 : z2.omega@M der(voltageSource1.theta)@ // z2.omega = der(voltageSource1.theta)
+eq_34 : ground1.pin.iIm[1]@ voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_35 : ground1.pin.iIm[2]@ voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_36 : ground1.pin.iIm[3]@ voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_37 : ground1.pin.iRe[1]@ voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_38 : ground1.pin.iRe[2]@ voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_39 : ground1.pin.iRe[3]@ voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_40 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]@M // 0 = ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]@M // 0 = ground1.pin.iRe[3]
+eq_46 : // HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_47 : // HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+DAE BiPGraph matching
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_19
+eq_2 : temp_20
+eq_3 : temp_21
+eq_4[1] : systemDef.event2
+eq_4[2] : systemDef.event1
+eq_4[3] : systemDef.modeSelect
+eq_5 : der(voltageSource1.theta)
+eq_6 : voltageSource1.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[3].re
+eq_10 : z.v[1].im
+eq_11 : z.v[2].im
+eq_12 : z.v[3].im
+eq_13 : z.omega
+eq_14 : z1.v[1].re
+eq_15 : z1.v[1].im
+eq_16 : z1.v[2].re
+eq_17 : z1.v[2].im
+eq_18 : z1.v[3].re
+eq_19 : z1.v[3].im
+eq_20 : z1.i[1].re
+eq_21 : z1.i[2].re
+eq_22 : z1.i[3].re
+eq_23 : z1.i[1].im
+eq_24 : z1.i[2].im
+eq_25 : z1.i[3].im
+eq_26 : z1.omega
+eq_27 : z2.i[1].re
+eq_28 : z2.i[2].re
+eq_29 : z2.i[3].re
+eq_30 : z2.i[1].im
+eq_31 : z2.i[2].im
+eq_32 : z2.i[3].im
+eq_33 : z2.omega
+eq_34 : voltageSource1.i[1].im
+eq_35 : voltageSource1.i[2].im
+eq_36 : voltageSource1.i[3].im
+eq_37 : voltageSource1.i[1].re
+eq_38 : voltageSource1.i[2].re
+eq_39 : voltageSource1.i[3].re
+eq_40 : ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]
+Unmatched equations: {}
+Unmatched variables: {}
+----------------------------------------
+
+BiPGraph (49 equations, 47 variables)
+Variables: {der(voltageSource1.theta) voltageSource1.i[1].re voltageSource1.i[1].im voltageSource1.i[2].re voltageSource1.i[2].im voltageSource1.i[3].re voltageSource1.i[3].im voltageSource1.omega z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega z1.v[1].re z1.v[1].im z1.v[2].re z1.v[2].im z1.v[3].re z1.v[3].im z1.i[1].re z1.i[1].im z1.i[2].re z1.i[2].im z1.i[3].re z1.i[3].im z1.omega z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.i[3].re z2.i[3].im z2.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] systemDef.modeSelect systemDef.event1 systemDef.event2 temp_19 temp_20 temp_21 }
+eq_1 : temp_19@M // temp_19 = time > 0.5
+eq_2 : temp_20@M // temp_20 = time > 0.25
+eq_3 : temp_21@M // temp_21 = time > 0.4
+eq_4[1] : temp_19# temp_20# temp_21# systemDef.event2@M // algorithm
+ if temp_19 and not pre(temp_19) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_20 and not pre(temp_20) then
+  systemDef.event1 := true;
+ end if;
+ if temp_21 and not pre(temp_21) then
+  systemDef.event2 := true;
+ end if;
+
+eq_4[2] : temp_19# temp_20# systemDef.event1@M temp_21# // Already printed, see eq_4[1]
+eq_4[3] : temp_19# systemDef.modeSelect@M temp_20# temp_21# // Already printed, see eq_4[1]
+eq_5 : der(voltageSource1.theta)@M // der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : voltageSource1.omega@M der(voltageSource1.theta)@ // voltageSource1.omega = der(voltageSource1.theta)
+eq_7 : z.v[1].re@M voltageSource1.i[1].re@ // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+eq_8 : z.v[2].re@M voltageSource1.i[2].re@ // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+eq_9 : z.v[3].re@M voltageSource1.i[3].re@ // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+eq_10 : z.v[1].im@M voltageSource1.i[1].im@ // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+eq_11 : z.v[2].im@M voltageSource1.i[2].im@ // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+eq_12 : z.v[3].im@M voltageSource1.i[3].im@ // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+eq_13 : z.omega@M der(voltageSource1.theta)@ // z.omega = der(voltageSource1.theta)
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_20 : z1.v[1].re@ z1.i[1].re@M // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_21 : z1.v[2].re@ z1.i[2].re@M // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_22 : z1.v[3].re@ z1.i[3].re@M // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_23 : z1.v[1].im@ z1.i[1].im@M // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_24 : z1.v[2].im@ z1.i[2].im@M // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_25 : z1.v[3].im@ z1.i[3].im@M // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_26 : z1.omega@M der(voltageSource1.theta)@ // z1.omega = der(voltageSource1.theta)
+eq_27 : z1.v[1].re@ z2.i[1].re@M // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_28 : z1.v[2].re@ z2.i[2].re@M // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_29 : z1.v[3].re@ z2.i[3].re@M // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_30 : z1.v[1].im@ z2.i[1].im@M // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_31 : z1.v[2].im@ z2.i[2].im@M // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_32 : z1.v[3].im@ z2.i[3].im@M // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_33 : z2.omega@M der(voltageSource1.theta)@ // z2.omega = der(voltageSource1.theta)
+eq_34 : ground1.pin.iIm[1]@ voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_35 : ground1.pin.iIm[2]@ voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_36 : ground1.pin.iIm[3]@ voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_37 : ground1.pin.iRe[1]@ voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_38 : ground1.pin.iRe[2]@ voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_39 : ground1.pin.iRe[3]@ voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_40 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]@M // 0 = ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]@M // 0 = ground1.pin.iRe[3]
+eq_46 : // HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_47 : // HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[1].re z1.v[1].re z1.i[1].re voltageSource1.i[1].re z.v[1].re }
+eq_27 : z1.v[1].re@ z2.i[1].re# // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_20 : z1.v[1].re@ z1.i[1].re# // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_37 : voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_7 : z.v[1].re@M voltageSource1.i[1].re# // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_14 : z1.v[1].re
+eq_37 : voltageSource1.i[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_27 eq_20 }
+Unmatched variables: {z2.i[1].re z1.i[1].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_14 : z1.v[1].re
+eq_37 : voltageSource1.i[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_27 eq_20 }
+Unmatched variables: {z2.i[1].re z1.i[1].re }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[1].re = z2.z.re .* z2.i[1].re, tearing with variable: z1.i[1].re
+Automatic tearing pair, equation: z1.v[1].re = z1.z.re .* z1.i[1].re, tearing with variable: z2.i[1].re
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[2].re z1.v[2].re z1.i[2].re voltageSource1.i[2].re z.v[2].re }
+eq_28 : z1.v[2].re@ z2.i[2].re# // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_21 : z1.v[2].re@ z1.i[2].re# // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_38 : voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_8 : z.v[2].re@M voltageSource1.i[2].re# // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_16 : z1.v[2].re
+eq_38 : voltageSource1.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_28 eq_21 }
+Unmatched variables: {z2.i[2].re z1.i[2].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_16 : z1.v[2].re
+eq_38 : voltageSource1.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_28 eq_21 }
+Unmatched variables: {z2.i[2].re z1.i[2].re }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[2].re = z2.z.re .* z2.i[2].re, tearing with variable: z1.i[2].re
+Automatic tearing pair, equation: z1.v[2].re = z1.z.re .* z1.i[2].re, tearing with variable: z2.i[2].re
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[3].re z1.v[3].re z1.i[3].re voltageSource1.i[3].re z.v[3].re }
+eq_29 : z1.v[3].re@ z2.i[3].re# // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_22 : z1.v[3].re@ z1.i[3].re# // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_39 : voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_9 : z.v[3].re@M voltageSource1.i[3].re# // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_18 : z1.v[3].re
+eq_39 : voltageSource1.i[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_29 eq_22 }
+Unmatched variables: {z2.i[3].re z1.i[3].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_18 : z1.v[3].re
+eq_39 : voltageSource1.i[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_29 eq_22 }
+Unmatched variables: {z2.i[3].re z1.i[3].re }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[3].re = z2.z.re .* z2.i[3].re, tearing with variable: z1.i[3].re
+Automatic tearing pair, equation: z1.v[3].re = z1.z.re .* z1.i[3].re, tearing with variable: z2.i[3].re
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[1].im z1.v[1].im z1.i[1].im voltageSource1.i[1].im z.v[1].im }
+eq_30 : z1.v[1].im@ z2.i[1].im# // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_23 : z1.v[1].im@ z1.i[1].im# // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_34 : voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_10 : z.v[1].im@M voltageSource1.i[1].im# // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_15 : z1.v[1].im
+eq_34 : voltageSource1.i[1].im
+eq_10 : z.v[1].im
+Unmatched equations: {eq_30 eq_23 }
+Unmatched variables: {z2.i[1].im z1.i[1].im }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_15 : z1.v[1].im
+eq_34 : voltageSource1.i[1].im
+eq_10 : z.v[1].im
+Unmatched equations: {eq_30 eq_23 }
+Unmatched variables: {z2.i[1].im z1.i[1].im }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im, tearing with variable: z1.i[1].im
+Automatic tearing pair, equation: z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im, tearing with variable: z2.i[1].im
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[2].im z1.v[2].im z1.i[2].im voltageSource1.i[2].im z.v[2].im }
+eq_31 : z1.v[2].im@ z2.i[2].im# // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_24 : z1.v[2].im@ z1.i[2].im# // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_35 : voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_11 : z.v[2].im@M voltageSource1.i[2].im# // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_17 : z1.v[2].im
+eq_35 : voltageSource1.i[2].im
+eq_11 : z.v[2].im
+Unmatched equations: {eq_31 eq_24 }
+Unmatched variables: {z2.i[2].im z1.i[2].im }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_17 : z1.v[2].im
+eq_35 : voltageSource1.i[2].im
+eq_11 : z.v[2].im
+Unmatched equations: {eq_31 eq_24 }
+Unmatched variables: {z2.i[2].im z1.i[2].im }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im, tearing with variable: z1.i[2].im
+Automatic tearing pair, equation: z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im, tearing with variable: z2.i[2].im
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[3].im z1.v[3].im z1.i[3].im voltageSource1.i[3].im z.v[3].im }
+eq_32 : z1.v[3].im@ z2.i[3].im# // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_25 : z1.v[3].im@ z1.i[3].im# // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_36 : voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_12 : z.v[3].im@M voltageSource1.i[3].im# // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_19 : z1.v[3].im
+eq_36 : voltageSource1.i[3].im
+eq_12 : z.v[3].im
+Unmatched equations: {eq_32 eq_25 }
+Unmatched variables: {z2.i[3].im z1.i[3].im }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_19 : z1.v[3].im
+eq_36 : voltageSource1.i[3].im
+eq_12 : z.v[3].im
+Unmatched equations: {eq_32 eq_25 }
+Unmatched variables: {z2.i[3].im z1.i[3].im }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im, tearing with variable: z1.i[3].im
+Automatic tearing pair, equation: z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im, tearing with variable: z2.i[3].im
+***********************************
+*********** ODE section ***********
+***********************************
+
+--- Solved equation ---
+der(voltageSource1.theta) := 6.283185307179586 * systemDef.fFund
+
+***********************************
+*********** Real outputs **********
+***********************************
+
+***********************************
+*** Integer and boolean outputs ***
+***********************************
+
+***********************************
+********* Other variables *********
+***********************************
+
+--- Unsolved mixed linear system (Block 1) of 6 variables ---
+Coefficient variability: constant
+Unknown continuous variables:
+
+Solved discrete variables:
+  temp_21
+  temp_20
+  temp_19
+  systemDef.modeSelect
+  systemDef.event1
+  systemDef.event2
+
+Continuous residual equations:
+
+Discrete equations:
+  temp_21 := time > 0.4
+  temp_20 := time > 0.25
+  temp_19 := time > 0.5
+  algorithm
+    if temp_19 and not pre(temp_19) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_20 and not pre(temp_20) then
+      systemDef.event1 := true;
+    end if;
+    if temp_21 and not pre(temp_21) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.modeSelect
+                        systemDef.event1
+                        systemDef.event2
+
+Jacobian:
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Torn linear system (Block 2) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[1].re
+  z.v[1].re
+  z1.v[1].re
+
+Iteration variables:
+  z1.i[1].re
+  z2.i[1].re
+
+Torn equations:
+  voltageSource1.i[1].re := ground1.pin.iRe[1] - z1.i[1].re - z2.i[1].re
+  z.v[1].re := z.z.re .* (- voltageSource1.i[1].re)
+  z1.v[1].re := - z.v[1].re + voltageSource1.v[1].re
+
+Residual equations:
+  z1.v[1].re = z2.z.re .* z2.i[1].re
+    Iteration variables: z1.i[1].re
+  z1.v[1].re = z1.z.re .* z1.i[1].re
+    Iteration variables: z2.i[1].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Torn linear system (Block 5) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[1].im
+  z.v[1].im
+  z1.v[1].im
+
+Iteration variables:
+  z1.i[1].im
+  z2.i[1].im
+
+Torn equations:
+  voltageSource1.i[1].im := ground1.pin.iIm[1] - z1.i[1].im - z2.i[1].im
+  z.v[1].im := z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+  z1.v[1].im := - z.v[1].im + voltageSource1.v[1].im
+
+Residual equations:
+  z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+    Iteration variables: z1.i[1].im
+  z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+    Iteration variables: z2.i[1].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[1], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[1])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[1]), 0.0|
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Torn linear system (Block 3) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[2].re
+  z.v[2].re
+  z1.v[2].re
+
+Iteration variables:
+  z1.i[2].re
+  z2.i[2].re
+
+Torn equations:
+  voltageSource1.i[2].re := ground1.pin.iRe[2] - z1.i[2].re - z2.i[2].re
+  z.v[2].re := z.z.re .* (- voltageSource1.i[2].re)
+  z1.v[2].re := - z.v[2].re + voltageSource1.v[2].re
+
+Residual equations:
+  z1.v[2].re = z2.z.re .* z2.i[2].re
+    Iteration variables: z1.i[2].re
+  z1.v[2].re = z1.z.re .* z1.i[2].re
+    Iteration variables: z2.i[2].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Torn linear system (Block 6) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[2].im
+  z.v[2].im
+  z1.v[2].im
+
+Iteration variables:
+  z1.i[2].im
+  z2.i[2].im
+
+Torn equations:
+  voltageSource1.i[2].im := ground1.pin.iIm[2] - z1.i[2].im - z2.i[2].im
+  z.v[2].im := z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+  z1.v[2].im := - z.v[2].im + voltageSource1.v[2].im
+
+Residual equations:
+  z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+    Iteration variables: z1.i[2].im
+  z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+    Iteration variables: z2.i[2].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[2], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[2])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[2]), 0.0|
+
+--- Solved equation ---
+ground1.pin.iRe[3] := 0
+
+--- Torn linear system (Block 4) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[3].re
+  z.v[3].re
+  z1.v[3].re
+
+Iteration variables:
+  z1.i[3].re
+  z2.i[3].re
+
+Torn equations:
+  voltageSource1.i[3].re := ground1.pin.iRe[3] - z1.i[3].re - z2.i[3].re
+  z.v[3].re := z.z.re .* (- voltageSource1.i[3].re)
+  z1.v[3].re := - z.v[3].re + voltageSource1.v[3].re
+
+Residual equations:
+  z1.v[3].re = z2.z.re .* z2.i[3].re
+    Iteration variables: z1.i[3].re
+  z1.v[3].re = z1.z.re .* z1.i[3].re
+    Iteration variables: z2.i[3].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[3] := 0
+
+--- Torn linear system (Block 7) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[3].im
+  z.v[3].im
+  z1.v[3].im
+
+Iteration variables:
+  z1.i[3].im
+  z2.i[3].im
+
+Torn equations:
+  voltageSource1.i[3].im := ground1.pin.iIm[3] - z1.i[3].im - z2.i[3].im
+  z.v[3].im := z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+  z1.v[3].im := - z.v[3].im + voltageSource1.v[3].im
+
+Residual equations:
+  z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+    Iteration variables: z1.i[3].im
+  z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+    Iteration variables: z2.i[3].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[3], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[3])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[3]), 0.0|
+
+--- Solved equation ---
+voltageSource1.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z1.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z2.omega := der(voltageSource1.theta)
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+***********************************
+
+--- Unsolved mixed linear system (Block 1) of 6 variables ---
+Coefficient variability: constant
+Unknown continuous variables:
+
+Solved discrete variables:
+  temp_21
+  temp_20
+  temp_19
+  systemDef.modeSelect
+  systemDef.event1
+  systemDef.event2
+
+Continuous residual equations:
+
+Discrete equations:
+  temp_21 := time > 0.4
+  temp_20 := time > 0.25
+  temp_19 := time > 0.5
+  algorithm
+    if temp_19 and not pre(temp_19) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_20 and not pre(temp_20) then
+      systemDef.event1 := true;
+    end if;
+    if temp_21 and not pre(temp_21) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.modeSelect
+                        systemDef.event1
+                        systemDef.event2
+
+Jacobian:
+
+--- Solved equation ---
+der(voltageSource1.theta) := 6.283185307179586 * systemDef.fFund
+
+--- Solved equation ---
+voltageSource1.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Torn linear system (Block 2) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[1].re
+  z.v[1].re
+  z1.v[1].re
+
+Iteration variables:
+  z1.i[1].re
+  z2.i[1].re
+
+Torn equations:
+  voltageSource1.i[1].re := ground1.pin.iRe[1] - z1.i[1].re - z2.i[1].re
+  z.v[1].re := z.z.re .* (- voltageSource1.i[1].re)
+  z1.v[1].re := - z.v[1].re + voltageSource1.v[1].re
+
+Residual equations:
+  z1.v[1].re = z2.z.re .* z2.i[1].re
+    Iteration variables: z1.i[1].re
+  z1.v[1].re = z1.z.re .* z1.i[1].re
+    Iteration variables: z2.i[1].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Torn linear system (Block 3) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[2].re
+  z.v[2].re
+  z1.v[2].re
+
+Iteration variables:
+  z1.i[2].re
+  z2.i[2].re
+
+Torn equations:
+  voltageSource1.i[2].re := ground1.pin.iRe[2] - z1.i[2].re - z2.i[2].re
+  z.v[2].re := z.z.re .* (- voltageSource1.i[2].re)
+  z1.v[2].re := - z.v[2].re + voltageSource1.v[2].re
+
+Residual equations:
+  z1.v[2].re = z2.z.re .* z2.i[2].re
+    Iteration variables: z1.i[2].re
+  z1.v[2].re = z1.z.re .* z1.i[2].re
+    Iteration variables: z2.i[2].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iRe[3] := 0
+
+--- Torn linear system (Block 4) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[3].re
+  z.v[3].re
+  z1.v[3].re
+
+Iteration variables:
+  z1.i[3].re
+  z2.i[3].re
+
+Torn equations:
+  voltageSource1.i[3].re := ground1.pin.iRe[3] - z1.i[3].re - z2.i[3].re
+  z.v[3].re := z.z.re .* (- voltageSource1.i[3].re)
+  z1.v[3].re := - z.v[3].re + voltageSource1.v[3].re
+
+Residual equations:
+  z1.v[3].re = z2.z.re .* z2.i[3].re
+    Iteration variables: z1.i[3].re
+  z1.v[3].re = z1.z.re .* z1.i[3].re
+    Iteration variables: z2.i[3].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Torn linear system (Block 5) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[1].im
+  z.v[1].im
+  z1.v[1].im
+
+Iteration variables:
+  z1.i[1].im
+  z2.i[1].im
+
+Torn equations:
+  voltageSource1.i[1].im := ground1.pin.iIm[1] - z1.i[1].im - z2.i[1].im
+  z.v[1].im := z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+  z1.v[1].im := - z.v[1].im + voltageSource1.v[1].im
+
+Residual equations:
+  z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+    Iteration variables: z1.i[1].im
+  z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+    Iteration variables: z2.i[1].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[1], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[1])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[1]), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Torn linear system (Block 6) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[2].im
+  z.v[2].im
+  z1.v[2].im
+
+Iteration variables:
+  z1.i[2].im
+  z2.i[2].im
+
+Torn equations:
+  voltageSource1.i[2].im := ground1.pin.iIm[2] - z1.i[2].im - z2.i[2].im
+  z.v[2].im := z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+  z1.v[2].im := - z.v[2].im + voltageSource1.v[2].im
+
+Residual equations:
+  z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+    Iteration variables: z1.i[2].im
+  z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+    Iteration variables: z2.i[2].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[2], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[2])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[2]), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[3] := 0
+
+--- Torn linear system (Block 7) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[3].im
+  z.v[3].im
+  z1.v[3].im
+
+Iteration variables:
+  z1.i[3].im
+  z2.i[3].im
+
+Torn equations:
+  voltageSource1.i[3].im := ground1.pin.iIm[3] - z1.i[3].im - z2.i[3].im
+  z.v[3].im := z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+  z1.v[3].im := - z.v[3].im + voltageSource1.v[3].im
+
+Residual equations:
+  z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+    Iteration variables: z1.i[3].im
+  z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+    Iteration variables: z2.i[3].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[3], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[3])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[3]), 0.0|
+
+--- Solved equation ---
+z.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z1.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z2.omega := der(voltageSource1.theta)
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+-------------------------------
+
+BiPGraph (46 equations, 54 variables)
+Variables: {der(voltageSource1.theta) voltageSource1.i[1].re voltageSource1.i[1].im voltageSource1.i[2].re voltageSource1.i[2].im voltageSource1.i[3].re voltageSource1.i[3].im voltageSource1.omega z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega z1.v[1].re z1.v[1].im z1.v[2].re z1.v[2].im z1.v[3].re z1.v[3].im z1.i[1].re z1.i[1].im z1.i[2].re z1.i[2].im z1.i[3].re z1.i[3].im z1.omega z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.i[3].re z2.i[3].im z2.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] systemDef.modeSelect systemDef.event1 systemDef.event2 temp_19 temp_20 temp_21 voltageSource1.theta pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_19) pre(temp_20) pre(temp_21) }
+eq_1 : temp_19@M // temp_19 = time > 0.5
+eq_2 : temp_20@M // temp_20 = time > 0.25
+eq_3 : temp_21@M // temp_21 = time > 0.4
+eq_5 : der(voltageSource1.theta)@M // der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : voltageSource1.omega@M der(voltageSource1.theta)@ // voltageSource1.omega = der(voltageSource1.theta)
+eq_7 : z.v[1].re@M voltageSource1.i[1].re@ // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+eq_8 : z.v[2].re@M voltageSource1.i[2].re@ // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+eq_9 : z.v[3].re@M voltageSource1.i[3].re@ // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+eq_10 : z.v[1].im@M voltageSource1.i[1].im@ // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+eq_11 : z.v[2].im@M voltageSource1.i[2].im@ // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+eq_12 : z.v[3].im@M voltageSource1.i[3].im@ // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+eq_13 : z.omega@M der(voltageSource1.theta)@ // z.omega = der(voltageSource1.theta)
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_20 : z1.v[1].re@ z1.i[1].re@M // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_21 : z1.v[2].re@ z1.i[2].re@M // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_22 : z1.v[3].re@ z1.i[3].re@M // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_23 : z1.v[1].im@ z1.i[1].im@M // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_24 : z1.v[2].im@ z1.i[2].im@M // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_25 : z1.v[3].im@ z1.i[3].im@M // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_26 : z1.omega@M der(voltageSource1.theta)@ // z1.omega = der(voltageSource1.theta)
+eq_27 : z1.v[1].re@ z2.i[1].re@M // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_28 : z1.v[2].re@ z2.i[2].re@M // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_29 : z1.v[3].re@ z2.i[3].re@M // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_30 : z1.v[1].im@ z2.i[1].im@M // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_31 : z1.v[2].im@ z2.i[2].im@M // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_32 : z1.v[3].im@ z2.i[3].im@M // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_33 : z2.omega@M der(voltageSource1.theta)@ // z2.omega = der(voltageSource1.theta)
+eq_34 : ground1.pin.iIm[1]@ voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_35 : ground1.pin.iIm[2]@ voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_36 : ground1.pin.iIm[3]@ voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_37 : ground1.pin.iRe[1]@ voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_38 : ground1.pin.iRe[2]@ voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_39 : ground1.pin.iRe[3]@ voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_40 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]@M // 0 = ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]@M // 0 = ground1.pin.iRe[3]
+eq_46 : voltageSource1.theta# // HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_47 : voltageSource1.theta# // HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+Init DAE BiPGraph
+BiPGraph (47 equations, 54 variables)
+Variables: {der(voltageSource1.theta) voltageSource1.i[1].re voltageSource1.i[1].im voltageSource1.i[2].re voltageSource1.i[2].im voltageSource1.i[3].re voltageSource1.i[3].im voltageSource1.omega z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega z1.v[1].re z1.v[1].im z1.v[2].re z1.v[2].im z1.v[3].re z1.v[3].im z1.i[1].re z1.i[1].im z1.i[2].re z1.i[2].im z1.i[3].re z1.i[3].im z1.omega z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.i[3].re z2.i[3].im z2.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] systemDef.modeSelect systemDef.event1 systemDef.event2 temp_19 temp_20 temp_21 voltageSource1.theta pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_19) pre(temp_20) pre(temp_21) }
+eq_1 : temp_19@M // temp_19 = time > 0.5
+eq_2 : temp_20@M // temp_20 = time > 0.25
+eq_3 : temp_21@M // temp_21 = time > 0.4
+eq_5 : der(voltageSource1.theta)@M // der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : voltageSource1.omega@M der(voltageSource1.theta)@ // voltageSource1.omega = der(voltageSource1.theta)
+eq_7 : z.v[1].re@M voltageSource1.i[1].re@ // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+eq_8 : z.v[2].re@M voltageSource1.i[2].re@ // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+eq_9 : z.v[3].re@M voltageSource1.i[3].re@ // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+eq_10 : z.v[1].im@M voltageSource1.i[1].im@ // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+eq_11 : z.v[2].im@M voltageSource1.i[2].im@ // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+eq_12 : z.v[3].im@M voltageSource1.i[3].im@ // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+eq_13 : z.omega@M der(voltageSource1.theta)@ // z.omega = der(voltageSource1.theta)
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_20 : z1.v[1].re@ z1.i[1].re@M // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_21 : z1.v[2].re@ z1.i[2].re@M // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_22 : z1.v[3].re@ z1.i[3].re@M // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_23 : z1.v[1].im@ z1.i[1].im@M // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_24 : z1.v[2].im@ z1.i[2].im@M // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_25 : z1.v[3].im@ z1.i[3].im@M // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_26 : z1.omega@M der(voltageSource1.theta)@ // z1.omega = der(voltageSource1.theta)
+eq_27 : z1.v[1].re@ z2.i[1].re@M // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_28 : z1.v[2].re@ z2.i[2].re@M // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_29 : z1.v[3].re@ z2.i[3].re@M // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_30 : z1.v[1].im@ z2.i[1].im@M // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_31 : z1.v[2].im@ z2.i[2].im@M // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_32 : z1.v[3].im@ z2.i[3].im@M // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_33 : z2.omega@M der(voltageSource1.theta)@ // z2.omega = der(voltageSource1.theta)
+eq_34 : ground1.pin.iIm[1]@ voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_35 : ground1.pin.iIm[2]@ voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_36 : ground1.pin.iIm[3]@ voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_37 : ground1.pin.iRe[1]@ voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_38 : ground1.pin.iRe[2]@ voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_39 : ground1.pin.iRe[3]@ voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_40 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]@M // 0 = ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]@M // 0 = ground1.pin.iRe[3]
+eq_46 : voltageSource1.theta# // HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_47 : voltageSource1.theta# // HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_48 : systemDef.modeSelect@M // algorithm
+ systemDef.modeSelect := false;
+
+
+Init BiPGraph matching
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_19
+eq_2 : temp_20
+eq_3 : temp_21
+eq_5 : der(voltageSource1.theta)
+eq_6 : voltageSource1.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[3].re
+eq_10 : z.v[1].im
+eq_11 : z.v[2].im
+eq_12 : z.v[3].im
+eq_13 : z.omega
+eq_14 : z1.v[1].re
+eq_15 : z1.v[1].im
+eq_16 : z1.v[2].re
+eq_17 : z1.v[2].im
+eq_18 : z1.v[3].re
+eq_19 : z1.v[3].im
+eq_20 : z1.i[1].re
+eq_21 : z1.i[2].re
+eq_22 : z1.i[3].re
+eq_23 : z1.i[1].im
+eq_24 : z1.i[2].im
+eq_25 : z1.i[3].im
+eq_26 : z1.omega
+eq_27 : z2.i[1].re
+eq_28 : z2.i[2].re
+eq_29 : z2.i[3].re
+eq_30 : z2.i[1].im
+eq_31 : z2.i[2].im
+eq_32 : z2.i[3].im
+eq_33 : z2.omega
+eq_34 : voltageSource1.i[1].im
+eq_35 : voltageSource1.i[2].im
+eq_36 : voltageSource1.i[3].im
+eq_37 : voltageSource1.i[1].re
+eq_38 : voltageSource1.i[2].re
+eq_39 : voltageSource1.i[3].re
+eq_40 : ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]
+eq_48 : systemDef.modeSelect
+Unmatched equations: {}
+Unmatched variables: {systemDef.event1 systemDef.event2 voltageSource1.theta pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_19) pre(temp_20) pre(temp_21) }
+----------------------------------------
+
+Analysing initial system for redundant equations to remove.
+All seems to be ok!
+Init DAE BiPGraph after addition of initial equations
+BiPGraph (56 equations, 54 variables)
+Variables: {der(voltageSource1.theta) voltageSource1.i[1].re voltageSource1.i[1].im voltageSource1.i[2].re voltageSource1.i[2].im voltageSource1.i[3].re voltageSource1.i[3].im voltageSource1.omega z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega z1.v[1].re z1.v[1].im z1.v[2].re z1.v[2].im z1.v[3].re z1.v[3].im z1.i[1].re z1.i[1].im z1.i[2].re z1.i[2].im z1.i[3].re z1.i[3].im z1.omega z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.i[3].re z2.i[3].im z2.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] systemDef.modeSelect systemDef.event1 systemDef.event2 temp_19 temp_20 temp_21 voltageSource1.theta pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_19) pre(temp_20) pre(temp_21) }
+eq_1 : temp_19@M // temp_19 = time > 0.5
+eq_2 : temp_20@M // temp_20 = time > 0.25
+eq_3 : temp_21@M // temp_21 = time > 0.4
+eq_5 : der(voltageSource1.theta)@M // der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : voltageSource1.omega@M der(voltageSource1.theta)@ // voltageSource1.omega = der(voltageSource1.theta)
+eq_7 : z.v[1].re@M voltageSource1.i[1].re@ // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+eq_8 : z.v[2].re@M voltageSource1.i[2].re@ // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+eq_9 : z.v[3].re@M voltageSource1.i[3].re@ // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+eq_10 : z.v[1].im@M voltageSource1.i[1].im@ // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+eq_11 : z.v[2].im@M voltageSource1.i[2].im@ // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+eq_12 : z.v[3].im@M voltageSource1.i[3].im@ // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+eq_13 : z.omega@M der(voltageSource1.theta)@ // z.omega = der(voltageSource1.theta)
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_20 : z1.v[1].re@ z1.i[1].re@M // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_21 : z1.v[2].re@ z1.i[2].re@M // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_22 : z1.v[3].re@ z1.i[3].re@M // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_23 : z1.v[1].im@ z1.i[1].im@M // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_24 : z1.v[2].im@ z1.i[2].im@M // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_25 : z1.v[3].im@ z1.i[3].im@M // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_26 : z1.omega@M der(voltageSource1.theta)@ // z1.omega = der(voltageSource1.theta)
+eq_27 : z1.v[1].re@ z2.i[1].re@M // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_28 : z1.v[2].re@ z2.i[2].re@M // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_29 : z1.v[3].re@ z2.i[3].re@M // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_30 : z1.v[1].im@ z2.i[1].im@M // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_31 : z1.v[2].im@ z2.i[2].im@M // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_32 : z1.v[3].im@ z2.i[3].im@M // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_33 : z2.omega@M der(voltageSource1.theta)@ // z2.omega = der(voltageSource1.theta)
+eq_34 : ground1.pin.iIm[1]@ voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_35 : ground1.pin.iIm[2]@ voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_36 : ground1.pin.iIm[3]@ voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_37 : ground1.pin.iRe[1]@ voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_38 : ground1.pin.iRe[2]@ voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_39 : ground1.pin.iRe[3]@ voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_40 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]@M // 0 = ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]@M // 0 = ground1.pin.iRe[3]
+eq_46 : voltageSource1.theta# // HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_47 : voltageSource1.theta# // HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+eq_48 : systemDef.modeSelect@M // algorithm
+ systemDef.modeSelect := false;
+
+eq_49 : systemDef.event1@M pre(systemDef.event1)@ // systemDef.event1 = pre(systemDef.event1)
+eq_50 : systemDef.event2@M pre(systemDef.event2)@ // systemDef.event2 = pre(systemDef.event2)
+eq_51 : voltageSource1.theta@M // voltageSource1.theta = 0
+eq_52 : systemDef.modeSelect@ pre(systemDef.modeSelect)@M // systemDef.modeSelect = pre(systemDef.modeSelect)
+eq_53 : pre(systemDef.event1)@M // pre(systemDef.event1) = false
+eq_54 : pre(systemDef.event2)@M // pre(systemDef.event2) = false
+eq_55 : pre(temp_19)@M // pre(temp_19) = false
+eq_56 : pre(temp_20)@M // pre(temp_20) = false
+eq_57 : pre(temp_21)@M // pre(temp_21) = false
+
+Init BiPGraph matching after addition of initial equations
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_19
+eq_2 : temp_20
+eq_3 : temp_21
+eq_5 : der(voltageSource1.theta)
+eq_6 : voltageSource1.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[3].re
+eq_10 : z.v[1].im
+eq_11 : z.v[2].im
+eq_12 : z.v[3].im
+eq_13 : z.omega
+eq_14 : z1.v[1].re
+eq_15 : z1.v[1].im
+eq_16 : z1.v[2].re
+eq_17 : z1.v[2].im
+eq_18 : z1.v[3].re
+eq_19 : z1.v[3].im
+eq_20 : z1.i[1].re
+eq_21 : z1.i[2].re
+eq_22 : z1.i[3].re
+eq_23 : z1.i[1].im
+eq_24 : z1.i[2].im
+eq_25 : z1.i[3].im
+eq_26 : z1.omega
+eq_27 : z2.i[1].re
+eq_28 : z2.i[2].re
+eq_29 : z2.i[3].re
+eq_30 : z2.i[1].im
+eq_31 : z2.i[2].im
+eq_32 : z2.i[3].im
+eq_33 : z2.omega
+eq_34 : voltageSource1.i[1].im
+eq_35 : voltageSource1.i[2].im
+eq_36 : voltageSource1.i[3].im
+eq_37 : voltageSource1.i[1].re
+eq_38 : voltageSource1.i[2].re
+eq_39 : voltageSource1.i[3].re
+eq_40 : ground1.pin.iIm[1]
+eq_41 : ground1.pin.iIm[2]
+eq_42 : ground1.pin.iIm[3]
+eq_43 : ground1.pin.iRe[1]
+eq_44 : ground1.pin.iRe[2]
+eq_45 : ground1.pin.iRe[3]
+eq_48 : systemDef.modeSelect
+eq_49 : systemDef.event1
+eq_50 : systemDef.event2
+eq_51 : voltageSource1.theta
+eq_52 : pre(systemDef.modeSelect)
+eq_53 : pre(systemDef.event1)
+eq_54 : pre(systemDef.event2)
+eq_55 : pre(temp_19)
+eq_56 : pre(temp_20)
+eq_57 : pre(temp_21)
+Unmatched equations: {}
+Unmatched variables: {}
+----------------------------------------
+
+Initial system contains homotopy, computing homotopy block components...
+... block components computed: []
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[1].re z1.v[1].re z1.i[1].re voltageSource1.i[1].re z.v[1].re }
+eq_27 : z1.v[1].re@ z2.i[1].re# // z1.v[1].re = z2.z.re .* z2.i[1].re
+eq_14 : z.v[1].re@ z1.v[1].re@M // z.v[1].re = voltageSource1.v[1].re - z1.v[1].re
+eq_20 : z1.v[1].re@ z1.i[1].re# // z1.v[1].re = z1.z.re .* z1.i[1].re
+eq_37 : voltageSource1.i[1].re@M z1.i[1].re@ z2.i[1].re@ // ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0
+eq_7 : z.v[1].re@M voltageSource1.i[1].re# // z.v[1].re = z.z.re .* (- voltageSource1.i[1].re)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_14 : z1.v[1].re
+eq_37 : voltageSource1.i[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_27 eq_20 }
+Unmatched variables: {z2.i[1].re z1.i[1].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_14 : z1.v[1].re
+eq_37 : voltageSource1.i[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_27 eq_20 }
+Unmatched variables: {z2.i[1].re z1.i[1].re }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[1].re = z2.z.re .* z2.i[1].re, tearing with variable: z1.i[1].re
+Automatic tearing pair, equation: z1.v[1].re = z1.z.re .* z1.i[1].re, tearing with variable: z2.i[1].re
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[2].re z1.v[2].re z1.i[2].re voltageSource1.i[2].re z.v[2].re }
+eq_28 : z1.v[2].re@ z2.i[2].re# // z1.v[2].re = z2.z.re .* z2.i[2].re
+eq_16 : z.v[2].re@ z1.v[2].re@M // z.v[2].re = voltageSource1.v[2].re - z1.v[2].re
+eq_21 : z1.v[2].re@ z1.i[2].re# // z1.v[2].re = z1.z.re .* z1.i[2].re
+eq_38 : voltageSource1.i[2].re@M z1.i[2].re@ z2.i[2].re@ // ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0
+eq_8 : z.v[2].re@M voltageSource1.i[2].re# // z.v[2].re = z.z.re .* (- voltageSource1.i[2].re)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_16 : z1.v[2].re
+eq_38 : voltageSource1.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_28 eq_21 }
+Unmatched variables: {z2.i[2].re z1.i[2].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_16 : z1.v[2].re
+eq_38 : voltageSource1.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_28 eq_21 }
+Unmatched variables: {z2.i[2].re z1.i[2].re }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[2].re = z2.z.re .* z2.i[2].re, tearing with variable: z1.i[2].re
+Automatic tearing pair, equation: z1.v[2].re = z1.z.re .* z1.i[2].re, tearing with variable: z2.i[2].re
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[3].re z1.v[3].re z1.i[3].re voltageSource1.i[3].re z.v[3].re }
+eq_29 : z1.v[3].re@ z2.i[3].re# // z1.v[3].re = z2.z.re .* z2.i[3].re
+eq_18 : z.v[3].re@ z1.v[3].re@M // z.v[3].re = voltageSource1.v[3].re - z1.v[3].re
+eq_22 : z1.v[3].re@ z1.i[3].re# // z1.v[3].re = z1.z.re .* z1.i[3].re
+eq_39 : voltageSource1.i[3].re@M z1.i[3].re@ z2.i[3].re@ // ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0
+eq_9 : z.v[3].re@M voltageSource1.i[3].re# // z.v[3].re = z.z.re .* (- voltageSource1.i[3].re)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_18 : z1.v[3].re
+eq_39 : voltageSource1.i[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_29 eq_22 }
+Unmatched variables: {z2.i[3].re z1.i[3].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_18 : z1.v[3].re
+eq_39 : voltageSource1.i[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_29 eq_22 }
+Unmatched variables: {z2.i[3].re z1.i[3].re }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[3].re = z2.z.re .* z2.i[3].re, tearing with variable: z1.i[3].re
+Automatic tearing pair, equation: z1.v[3].re = z1.z.re .* z1.i[3].re, tearing with variable: z2.i[3].re
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[1].im z1.v[1].im z1.i[1].im voltageSource1.i[1].im z.v[1].im }
+eq_30 : z1.v[1].im@ z2.i[1].im# // z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_15 : z.v[1].im@ z1.v[1].im@M // z.v[1].im = voltageSource1.v[1].im - z1.v[1].im
+eq_23 : z1.v[1].im@ z1.i[1].im# // z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+eq_34 : voltageSource1.i[1].im@M z1.i[1].im@ z2.i[1].im@ // ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0
+eq_10 : z.v[1].im@M voltageSource1.i[1].im# // z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_15 : z1.v[1].im
+eq_34 : voltageSource1.i[1].im
+eq_10 : z.v[1].im
+Unmatched equations: {eq_30 eq_23 }
+Unmatched variables: {z2.i[1].im z1.i[1].im }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_15 : z1.v[1].im
+eq_34 : voltageSource1.i[1].im
+eq_10 : z.v[1].im
+Unmatched equations: {eq_30 eq_23 }
+Unmatched variables: {z2.i[1].im z1.i[1].im }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im, tearing with variable: z1.i[1].im
+Automatic tearing pair, equation: z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im, tearing with variable: z2.i[1].im
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[2].im z1.v[2].im z1.i[2].im voltageSource1.i[2].im z.v[2].im }
+eq_31 : z1.v[2].im@ z2.i[2].im# // z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_17 : z.v[2].im@ z1.v[2].im@M // z.v[2].im = voltageSource1.v[2].im - z1.v[2].im
+eq_24 : z1.v[2].im@ z1.i[2].im# // z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+eq_35 : voltageSource1.i[2].im@M z1.i[2].im@ z2.i[2].im@ // ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0
+eq_11 : z.v[2].im@M voltageSource1.i[2].im# // z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_17 : z1.v[2].im
+eq_35 : voltageSource1.i[2].im
+eq_11 : z.v[2].im
+Unmatched equations: {eq_31 eq_24 }
+Unmatched variables: {z2.i[2].im z1.i[2].im }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_17 : z1.v[2].im
+eq_35 : voltageSource1.i[2].im
+eq_11 : z.v[2].im
+Unmatched equations: {eq_31 eq_24 }
+Unmatched variables: {z2.i[2].im z1.i[2].im }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im, tearing with variable: z1.i[2].im
+Automatic tearing pair, equation: z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im, tearing with variable: z2.i[2].im
+Starting automatic tearing
+BiPGraph (5 equations, 5 variables)
+Variables: {z2.i[3].im z1.v[3].im z1.i[3].im voltageSource1.i[3].im z.v[3].im }
+eq_32 : z1.v[3].im@ z2.i[3].im# // z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+eq_19 : z.v[3].im@ z1.v[3].im@M // z.v[3].im = voltageSource1.v[3].im - z1.v[3].im
+eq_25 : z1.v[3].im@ z1.i[3].im# // z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+eq_36 : voltageSource1.i[3].im@M z1.i[3].im@ z2.i[3].im@ // ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0
+eq_12 : z.v[3].im@M voltageSource1.i[3].im# // z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_19 : z1.v[3].im
+eq_36 : voltageSource1.i[3].im
+eq_12 : z.v[3].im
+Unmatched equations: {eq_32 eq_25 }
+Unmatched variables: {z2.i[3].im z1.i[3].im }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_19 : z1.v[3].im
+eq_36 : voltageSource1.i[3].im
+eq_12 : z.v[3].im
+Unmatched equations: {eq_32 eq_25 }
+Unmatched variables: {z2.i[3].im z1.i[3].im }
+----------------------------------------
+
+Automatic tearing pair, equation: z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im, tearing with variable: z1.i[3].im
+Automatic tearing pair, equation: z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im, tearing with variable: z2.i[3].im
+--- Solved equation ---
+temp_19 := time > 0.5
+
+--- Solved equation ---
+temp_20 := time > 0.25
+
+--- Solved equation ---
+temp_21 := time > 0.4
+
+--- Solved equation ---
+der(voltageSource1.theta) := 6.283185307179586 * systemDef.fFund
+
+--- Solved equation ---
+voltageSource1.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Torn linear system (Block 1) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[1].re
+  z.v[1].re
+  z1.v[1].re
+
+Iteration variables:
+  z1.i[1].re
+  z2.i[1].re
+
+Torn equations:
+  voltageSource1.i[1].re := ground1.pin.iRe[1] - z1.i[1].re - z2.i[1].re
+  z.v[1].re := z.z.re .* (- voltageSource1.i[1].re)
+  z1.v[1].re := - z.v[1].re + voltageSource1.v[1].re
+
+Residual equations:
+  z1.v[1].re = z2.z.re .* z2.i[1].re
+    Iteration variables: z1.i[1].re
+  z1.v[1].re = z1.z.re .* z1.i[1].re
+    Iteration variables: z2.i[1].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Torn linear system (Block 2) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[2].re
+  z.v[2].re
+  z1.v[2].re
+
+Iteration variables:
+  z1.i[2].re
+  z2.i[2].re
+
+Torn equations:
+  voltageSource1.i[2].re := ground1.pin.iRe[2] - z1.i[2].re - z2.i[2].re
+  z.v[2].re := z.z.re .* (- voltageSource1.i[2].re)
+  z1.v[2].re := - z.v[2].re + voltageSource1.v[2].re
+
+Residual equations:
+  z1.v[2].re = z2.z.re .* z2.i[2].re
+    Iteration variables: z1.i[2].re
+  z1.v[2].re = z1.z.re .* z1.i[2].re
+    Iteration variables: z2.i[2].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iRe[3] := 0
+
+--- Torn linear system (Block 3) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[3].re
+  z.v[3].re
+  z1.v[3].re
+
+Iteration variables:
+  z1.i[3].re
+  z2.i[3].re
+
+Torn equations:
+  voltageSource1.i[3].re := ground1.pin.iRe[3] - z1.i[3].re - z2.i[3].re
+  z.v[3].re := z.z.re .* (- voltageSource1.i[3].re)
+  z1.v[3].re := - z.v[3].re + voltageSource1.v[3].re
+
+Residual equations:
+  z1.v[3].re = z2.z.re .* z2.i[3].re
+    Iteration variables: z1.i[3].re
+  z1.v[3].re = z1.z.re .* z1.i[3].re
+    Iteration variables: z2.i[3].re
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.re, 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.re)|
+  |0.0, 0.0, 1.0, (- z1.z.re), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Torn linear system (Block 4) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[1].im
+  z.v[1].im
+  z1.v[1].im
+
+Iteration variables:
+  z1.i[1].im
+  z2.i[1].im
+
+Torn equations:
+  voltageSource1.i[1].im := ground1.pin.iIm[1] - z1.i[1].im - z2.i[1].im
+  z.v[1].im := z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im)
+  z1.v[1].im := - z.v[1].im + voltageSource1.v[1].im
+
+Residual equations:
+  z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+    Iteration variables: z1.i[1].im
+  z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im
+    Iteration variables: z2.i[1].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[1], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[1])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[1]), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Torn linear system (Block 5) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[2].im
+  z.v[2].im
+  z1.v[2].im
+
+Iteration variables:
+  z1.i[2].im
+  z2.i[2].im
+
+Torn equations:
+  voltageSource1.i[2].im := ground1.pin.iIm[2] - z1.i[2].im - z2.i[2].im
+  z.v[2].im := z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im)
+  z1.v[2].im := - z.v[2].im + voltageSource1.v[2].im
+
+Residual equations:
+  z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+    Iteration variables: z1.i[2].im
+  z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im
+    Iteration variables: z2.i[2].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[2], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[2])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[2]), 0.0|
+
+--- Solved equation ---
+ground1.pin.iIm[3] := 0
+
+--- Torn linear system (Block 6) of 2 iteration variables and 3 solved variables ---
+Coefficient variability: parameter
+Torn variables:
+  voltageSource1.i[3].im
+  z.v[3].im
+  z1.v[3].im
+
+Iteration variables:
+  z1.i[3].im
+  z2.i[3].im
+
+Torn equations:
+  voltageSource1.i[3].im := ground1.pin.iIm[3] - z1.i[3].im - z2.i[3].im
+  z.v[3].im := z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im)
+  z1.v[3].im := - z.v[3].im + voltageSource1.v[3].im
+
+Residual equations:
+  z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im
+    Iteration variables: z1.i[3].im
+  z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im
+    Iteration variables: z2.i[3].im
+
+Jacobian:
+  |-1.0, 0.0, 0.0, -1.0, -1.0|
+  |z.z.im .* systemDef.hrms[3], 1.0, 0.0, 0.0, 0.0|
+  |0.0, 1.0, 1.0, 0.0, 0.0|
+  |0.0, 0.0, 1.0, 0.0, (- z2.z.im .* systemDef.hrms[3])|
+  |0.0, 0.0, 1.0, (- z1.z.im .* systemDef.hrms[3]), 0.0|
+
+--- Solved equation ---
+z.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z1.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+z2.omega := der(voltageSource1.theta)
+
+--- Solved equation ---
+voltageSource1.theta := 0
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta))
+
+--- Solved algorithm ---
+algorithm
+  systemDef.modeSelect := false;
+
+  Assigned variables: systemDef.modeSelect
+
+--- Solved equation ---
+pre(systemDef.event1) := false
+
+--- Solved equation ---
+systemDef.event1 := pre(systemDef.event1)
+
+--- Solved equation ---
+pre(systemDef.event2) := false
+
+--- Solved equation ---
+systemDef.event2 := pre(systemDef.event2)
+
+--- Solved equation ---
+pre(systemDef.modeSelect) := systemDef.modeSelect
+
+--- Solved equation ---
+pre(temp_19) := false
+
+--- Solved equation ---
+pre(temp_20) := false
+
+--- Solved equation ---
+pre(temp_21) := false
+-------------------------------
+
+Diagnostics for transformed flattened model:
+Diagnostics for flattened class HPF.Test.SinglePhase_Basic
+Number of independent constants:                   2(    2 scalars)
+  Number of Real independent constants:            2(    2 scalars)
+  Number of Real independent constants:            2(    2 scalars)
+  Number of Integer independent constants:         0(    0 scalars)
+  Number of Enum independent constants:            0(    0 scalars)
+  Number of Boolean independent constants:         0(    0 scalars)
+  Number of String independent constants:          0(    0 scalars)
+Number of dependent constants:                     0(    0 scalars)
+  Number of Real dependent constants:              0(    0 scalars)
+  Number of Integer dependent constants:           0(    0 scalars)
+  Number of Enum dependent constants:              0(    0 scalars)
+  Number of Boolean dependent constants:           0(    0 scalars)
+  Number of String dependent constants:            0(    0 scalars)
+Number of independent parameters:                 57(   57 scalars)
+  Number of Real independent parameters:          27(   27 scalars)
+  Number of Integer independent parameters:       17(   17 scalars)
+  Number of Enum independent parameters:           0(    0 scalars)
+  Number of Boolean independent parameters:       13(   13 scalars)
+  Number of String independent parameters:         0(    0 scalars)
+Number of dependent parameters:                    6(    6 scalars)
+  Number of Real dependent parameters:             6(    6 scalars)
+  Number of Integer dependent parameters:          0(    0 scalars)
+  Number of Enum dependent parameters:             0(    0 scalars)
+  Number of Boolean dependent parameters:          0(    0 scalars)
+  Number of String dependent parameters:           0(    0 scalars)
+Number of initial parameters:                      0(    0 scalars)
+  Number of Real dependent parameters:             0(    0 scalars)
+  Number of Integer dependent parameters:          0(    0 scalars)
+  Number of Enum dependent parameters:             0(    0 scalars)
+  Number of Boolean dependent parameters:          0(    0 scalars)
+  Number of String dependent parameters:           0(    0 scalars)
+Number of variables:                              48(   48 scalars)
+  Number of Real variables:                       42(   42 scalars)
+  Number of Integer variables:                     0(    0 scalars)
+  Number of Enum variables:                        0(    0 scalars)
+  Number of Boolean variables:                     6(    6 scalars)
+  Number of String variables:                      0(    0 scalars)
+Number of Real differentiated variables:           1(    1 scalars)
+Number of Real derivative variables:               1(    1 scalars)
+Number of Real continous algebraic variables:     40(   40 scalars)
+Number of inputs:                                  0(    0 scalars)
+  Number of Real inputs:                           0(    0 scalars)
+  Number of Integer inputs:                        0(    0 scalars)
+  Number of Enum inputs:                           0(    0 scalars)
+  Number of Boolean inputs:                        0(    0 scalars)
+  Number of String inputs:                         0(    0 scalars)
+Number of discrete variables:                      6(    6 scalars)
+  Number of Real discrete variables:               0(    0 scalars)
+  Number of Integer discrete variables:            0(    0 scalars)
+  Number of Enum discrete variables:               0(    0 scalars)
+  Number of Boolean discrete variables:            6(    6 scalars)
+  Number of String discrete variables:             0(    0 scalars)
+Number of equations:                              47(   47 scalars)
+Number of variables with binding expression:       0(    0 scalars)
+  Number of Real variables with binding exp:       0(    0 scalars)
+  Number of Integer variables binding exp:         0(    0 scalars)
+  Number of Enum variables binding exp:            0(    0 scalars)
+  Number of Boolean variables binding exp:         0(    0 scalars)
+  Number of String variables binding exp:          0(    0 scalars)
+Total number of equations:                        47(   47 scalars)
+Number of initial equations:                       7(    7 scalars)
+Number of event indicators in equations:           0
+Number of event indicators in init equations:      0
+
+Independent constants: 
+ ground1.pin.v[1].re: number of uses: 0, isLinear: true
+ ground1.pin.v[1].im: number of uses: 0, isLinear: true
+
+Dependent constants: 
+
+Independent parameters: 
+ systemDef.fFund: number of uses: 1, isLinear: true, evaluated binding exp: 60
+ voltageSource1.vMag[1]: number of uses: 2, isLinear: true, evaluated binding exp: 100
+ voltageSource1.vMag[2]: number of uses: 2, isLinear: true, evaluated binding exp: 5
+ voltageSource1.vMag[3]: number of uses: 2, isLinear: true, evaluated binding exp: 3
+ voltageSource1.vArg[1]: number of uses: 2, isLinear: true, evaluated binding exp: 0
+ voltageSource1.vArg[2]: number of uses: 2, isLinear: true, evaluated binding exp: 0.5
+ voltageSource1.vArg[3]: number of uses: 2, isLinear: true, evaluated binding exp: -0.25
+ z.z.re: number of uses: 3, isLinear: true, evaluated binding exp: 5.0
+ z.z.im: number of uses: 3, isLinear: true, evaluated binding exp: 2.0
+ z1.z.re: number of uses: 3, isLinear: true, evaluated binding exp: 2.0
+ z1.z.im: number of uses: 3, isLinear: true, evaluated binding exp: 2.0
+ z2.z.re: number of uses: 3, isLinear: true, evaluated binding exp: 3.0
+ z2.z.im: number of uses: 3, isLinear: true, evaluated binding exp: 2.0
+ _block_jacobian_check_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-6
+ _cs_rel_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-6
+ _cs_step_size: number of uses: 0, isLinear: true, evaluated binding exp: 0.001
+ _events_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _events_tol_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-4
+ _nle_jacobian_finite_difference_delta: number of uses: 0, isLinear: true, evaluated binding exp: 1.490116119384766E-8
+ _nle_solver_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _nle_solver_max_residual_scaling_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E10
+ _nle_solver_min_residual_scaling_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _nle_solver_min_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-12
+ _nle_solver_regularization_tolerance: number of uses: 0, isLinear: true, evaluated binding exp: -1.0
+ _nle_solver_step_limit_factor: number of uses: 0, isLinear: true, evaluated binding exp: 10.0
+ _nle_solver_tol_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-4
+ _time_events_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 2.220446049250313E-14
+ systemDef.hrms[1]: number of uses: 3, isLinear: true, evaluated binding exp: 1
+ systemDef.hrms[2]: number of uses: 3, isLinear: true, evaluated binding exp: 3
+ systemDef.hrms[3]: number of uses: 3, isLinear: true, evaluated binding exp: 5
+ systemDef.numPh: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _block_solver_experimental_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _cs_experimental_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _cs_solver: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _iteration_variable_scaling: number of uses: 0, isLinear: true, evaluated binding exp: 1
+ _log_level: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _nle_active_bounds_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _nle_jacobian_calculation_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _nle_jacobian_update_mode: number of uses: 0, isLinear: true, evaluated binding exp: 2
+ _nle_solver_exit_criterion: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _nle_solver_max_iter: number of uses: 0, isLinear: true, evaluated binding exp: 100
+ _nle_solver_max_iter_no_jacobian: number of uses: 0, isLinear: true, evaluated binding exp: 10
+ _residual_equation_scaling: number of uses: 0, isLinear: true, evaluated binding exp: 1
+ systemDef.numHrm: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _block_jacobian_check: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _block_solver_profiling: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _enforce_bounds: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _nle_brent_ignore_error: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _nle_solver_check_jac_cond: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _nle_solver_use_last_integrator_step: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _nle_solver_use_nominals_as_fallback: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _rescale_after_singular_jac: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _rescale_each_step: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _runtime_log_to_file: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _use_Brent_in_1d: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _use_jacobian_equilibration: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _use_newton_for_brent: number of uses: 0, isLinear: true, evaluated binding exp: true
+
+Dependent parameters: 
+ voltageSource1.v[1].re: number of uses: 2, isLinear: true
+ voltageSource1.v[2].re: number of uses: 2, isLinear: true
+ voltageSource1.v[3].re: number of uses: 2, isLinear: true
+ voltageSource1.v[1].im: number of uses: 2, isLinear: true
+ voltageSource1.v[2].im: number of uses: 2, isLinear: true
+ voltageSource1.v[3].im: number of uses: 2, isLinear: true
+
+Differentiated variables: 
+ voltageSource1.theta: number of uses: 5, isLinear: false
+
+Derivative variables: 
+ der(voltageSource1.theta): number of uses: 5, isLinear: true
+
+Discrete variables: 
+ systemDef.modeSelect: number of uses: 2, isLinear: true, alias: no
+ systemDef.event1: number of uses: 1, isLinear: true, alias: no
+ systemDef.event2: number of uses: 1, isLinear: true, alias: no
+ temp_19: number of uses: 2, isLinear: true, alias: no
+ temp_20: number of uses: 2, isLinear: true, alias: no
+ temp_21: number of uses: 2, isLinear: true, alias: no
+
+Algebraic real variables: 
+ voltageSource1.i[1].re: number of uses: 2, isLinear: true, alias: no
+ voltageSource1.i[1].im: number of uses: 2, isLinear: true, alias: no
+ voltageSource1.i[2].re: number of uses: 2, isLinear: true, alias: no
+ voltageSource1.i[2].im: number of uses: 2, isLinear: true, alias: no
+ voltageSource1.i[3].re: number of uses: 2, isLinear: true, alias: no
+ voltageSource1.i[3].im: number of uses: 2, isLinear: true, alias: no
+ voltageSource1.omega: number of uses: 1, isLinear: true, alias: no
+ z.v[1].re: number of uses: 2, isLinear: true, alias: no
+ z.v[1].im: number of uses: 2, isLinear: true, alias: no
+ z.v[2].re: number of uses: 2, isLinear: true, alias: no
+ z.v[2].im: number of uses: 2, isLinear: true, alias: no
+ z.v[3].re: number of uses: 2, isLinear: true, alias: no
+ z.v[3].im: number of uses: 2, isLinear: true, alias: no
+ z.omega: number of uses: 1, isLinear: true, alias: no
+ z1.v[1].re: number of uses: 3, isLinear: true, alias: no
+ z1.v[1].im: number of uses: 3, isLinear: true, alias: no
+ z1.v[2].re: number of uses: 3, isLinear: true, alias: no
+ z1.v[2].im: number of uses: 3, isLinear: true, alias: no
+ z1.v[3].re: number of uses: 3, isLinear: true, alias: no
+ z1.v[3].im: number of uses: 3, isLinear: true, alias: no
+ z1.i[1].re: number of uses: 2, isLinear: true, alias: no
+ z1.i[1].im: number of uses: 2, isLinear: true, alias: no
+ z1.i[2].re: number of uses: 2, isLinear: true, alias: no
+ z1.i[2].im: number of uses: 2, isLinear: true, alias: no
+ z1.i[3].re: number of uses: 2, isLinear: true, alias: no
+ z1.i[3].im: number of uses: 2, isLinear: true, alias: no
+ z1.omega: number of uses: 1, isLinear: true, alias: no
+ z2.i[1].re: number of uses: 2, isLinear: true, alias: no
+ z2.i[1].im: number of uses: 2, isLinear: true, alias: no
+ z2.i[2].re: number of uses: 2, isLinear: true, alias: no
+ z2.i[2].im: number of uses: 2, isLinear: true, alias: no
+ z2.i[3].re: number of uses: 2, isLinear: true, alias: no
+ z2.i[3].im: number of uses: 2, isLinear: true, alias: no
+ z2.omega: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iIm[1]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iIm[2]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iIm[3]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iRe[1]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iRe[2]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iRe[3]: number of uses: 2, isLinear: true, alias: no
+
+Input variables: 
+
+Alias sets:
+{voltageSource1.theta(start=0), voltageSource1.pin_p.reference.theta, voltageSource1.pin_n.reference.theta, z.pin_p.reference.theta, z.pin_n.reference.theta, z1.pin_p.reference.theta, z1.pin_n.reference.theta, z2.pin_p.reference.theta, z2.pin_n.reference.theta, ground1.pin.reference.theta}
+{voltageSource1.i[1].re(start=0), voltageSource1.pin_p.iRe[1], -voltageSource1.pin_n.iRe[1], -z.i[1].re(start=0), -z.pin_p.iRe[1], z.pin_n.iRe[1]}
+{voltageSource1.i[2].re(start=0), voltageSource1.pin_p.iRe[2], -voltageSource1.pin_n.iRe[2], -z.i[2].re(start=0), -z.pin_p.iRe[2], z.pin_n.iRe[2]}
+{voltageSource1.i[3].re(start=0), voltageSource1.pin_p.iRe[3], -voltageSource1.pin_n.iRe[3], -z.i[3].re(start=0), -z.pin_p.iRe[3], z.pin_n.iRe[3]}
+{voltageSource1.i[1].im(start=0), voltageSource1.pin_p.iIm[1], -voltageSource1.pin_n.iIm[1], -z.i[1].im(start=0), -z.pin_p.iIm[1], z.pin_n.iIm[1]}
+{voltageSource1.i[2].im(start=0), voltageSource1.pin_p.iIm[2], -voltageSource1.pin_n.iIm[2], -z.i[2].im(start=0), -z.pin_p.iIm[2], z.pin_n.iIm[2]}
+{voltageSource1.i[3].im(start=0), voltageSource1.pin_p.iIm[3], -voltageSource1.pin_n.iIm[3], -z.i[3].im(start=0), -z.pin_p.iIm[3], z.pin_n.iIm[3]}
+{z1.i[1].re(start=0), z1.pin_p.iRe[1], -z1.pin_n.iRe[1]}
+{z1.i[2].re(start=0), z1.pin_p.iRe[2], -z1.pin_n.iRe[2]}
+{z1.i[3].re(start=0), z1.pin_p.iRe[3], -z1.pin_n.iRe[3]}
+{z1.i[1].im(start=0), z1.pin_p.iIm[1], -z1.pin_n.iIm[1]}
+{z1.i[2].im(start=0), z1.pin_p.iIm[2], -z1.pin_n.iIm[2]}
+{z1.i[3].im(start=0), z1.pin_p.iIm[3], -z1.pin_n.iIm[3]}
+{z2.i[1].re(start=0), z2.pin_p.iRe[1], -z2.pin_n.iRe[1]}
+{z2.i[2].re(start=0), z2.pin_p.iRe[2], -z2.pin_n.iRe[2]}
+{z2.i[3].re(start=0), z2.pin_p.iRe[3], -z2.pin_n.iRe[3]}
+{z2.i[1].im(start=0), z2.pin_p.iIm[1], -z2.pin_n.iIm[1]}
+{z2.i[2].im(start=0), z2.pin_p.iIm[2], -z2.pin_n.iIm[2]}
+{z2.i[3].im(start=0), z2.pin_p.iIm[3], -z2.pin_n.iIm[3]}
+{ground1.pin.v[1].im, voltageSource1.pin_n.v[1].im, z1.pin_n.v[1].im, z2.pin_n.v[1].im, ground1.pin.v[2].im, voltageSource1.pin_n.v[2].im, z1.pin_n.v[2].im, z2.pin_n.v[2].im, ground1.pin.v[3].im, voltageSource1.pin_n.v[3].im, z1.pin_n.v[3].im, z2.pin_n.v[3].im}
+{ground1.pin.v[1].re, voltageSource1.pin_n.v[1].re, z1.pin_n.v[1].re, z2.pin_n.v[1].re, ground1.pin.v[2].re, voltageSource1.pin_n.v[2].re, z1.pin_n.v[2].re, z2.pin_n.v[2].re, ground1.pin.v[3].re, voltageSource1.pin_n.v[3].re, z1.pin_n.v[3].re, z2.pin_n.v[3].re}
+{voltageSource1.v[1].im(start=0), voltageSource1.pin_p.v[1].im, z.pin_p.v[1].im, temp_33}
+{voltageSource1.v[1].re(start=0), voltageSource1.pin_p.v[1].re, z.pin_p.v[1].re, temp_24}
+{voltageSource1.v[2].im(start=0), voltageSource1.pin_p.v[2].im, z.pin_p.v[2].im, temp_36}
+{voltageSource1.v[2].re(start=0), voltageSource1.pin_p.v[2].re, z.pin_p.v[2].re, temp_27}
+{voltageSource1.v[3].im(start=0), voltageSource1.pin_p.v[3].im, z.pin_p.v[3].im, temp_39}
+{voltageSource1.v[3].re(start=0), voltageSource1.pin_p.v[3].re, z.pin_p.v[3].re, temp_30}
+{z1.v[1].im(start=0), z.pin_n.v[1].im, z1.pin_p.v[1].im, z2.pin_p.v[1].im, z2.v[1].im(start=0)}
+{z1.v[1].re(start=0), z.pin_n.v[1].re, z1.pin_p.v[1].re, z2.pin_p.v[1].re, z2.v[1].re(start=0)}
+{z1.v[2].im(start=0), z.pin_n.v[2].im, z1.pin_p.v[2].im, z2.pin_p.v[2].im, z2.v[2].im(start=0)}
+{z1.v[2].re(start=0), z.pin_n.v[2].re, z1.pin_p.v[2].re, z2.pin_p.v[2].re, z2.v[2].re(start=0)}
+{z1.v[3].im(start=0), z.pin_n.v[3].im, z1.pin_p.v[3].im, z2.pin_p.v[3].im, z2.v[3].im(start=0)}
+{z1.v[3].re(start=0), z.pin_n.v[3].re, z1.pin_p.v[3].re, z2.pin_p.v[3].re, z2.v[3].re(start=0)}
+{systemDef.numHrm, voltageSource1.pin_p.h, voltageSource1.pin_n.h, z.pin_p.h, z.pin_n.h, z1.pin_p.h, z1.pin_n.h, z2.pin_p.h, z2.pin_n.h, ground1.pin.h}
+136 variables can be eliminated
+
+Incidence:
+ eq 0: temp_19
+ eq 1: temp_20
+ eq 2: temp_21
+ eq 3: temp_19 systemDef.modeSelect temp_20 systemDef.event1 temp_21 systemDef.event2
+ eq 4: der(voltageSource1.theta)
+ eq 5: der(voltageSource1.theta) voltageSource1.omega
+ eq 6: z.v[1].re voltageSource1.i[1].re
+ eq 7: z.v[2].re voltageSource1.i[2].re
+ eq 8: z.v[3].re voltageSource1.i[3].re
+ eq 9: z.v[1].im voltageSource1.i[1].im
+ eq 10: z.v[2].im voltageSource1.i[2].im
+ eq 11: z.v[3].im voltageSource1.i[3].im
+ eq 12: der(voltageSource1.theta) z.omega
+ eq 13: z.v[1].re z1.v[1].re
+ eq 14: z.v[1].im z1.v[1].im
+ eq 15: z.v[2].re z1.v[2].re
+ eq 16: z.v[2].im z1.v[2].im
+ eq 17: z.v[3].re z1.v[3].re
+ eq 18: z.v[3].im z1.v[3].im
+ eq 19: z1.v[1].re z1.i[1].re
+ eq 20: z1.v[2].re z1.i[2].re
+ eq 21: z1.v[3].re z1.i[3].re
+ eq 22: z1.v[1].im z1.i[1].im
+ eq 23: z1.v[2].im z1.i[2].im
+ eq 24: z1.v[3].im z1.i[3].im
+ eq 25: der(voltageSource1.theta) z1.omega
+ eq 26: z1.v[1].re z2.i[1].re
+ eq 27: z1.v[2].re z2.i[2].re
+ eq 28: z1.v[3].re z2.i[3].re
+ eq 29: z1.v[1].im z2.i[1].im
+ eq 30: z1.v[2].im z2.i[2].im
+ eq 31: z1.v[3].im z2.i[3].im
+ eq 32: der(voltageSource1.theta) z2.omega
+ eq 33: ground1.pin.iIm[1] voltageSource1.i[1].im z1.i[1].im z2.i[1].im
+ eq 34: ground1.pin.iIm[2] voltageSource1.i[2].im z1.i[2].im z2.i[2].im
+ eq 35: ground1.pin.iIm[3] voltageSource1.i[3].im z1.i[3].im z2.i[3].im
+ eq 36: ground1.pin.iRe[1] voltageSource1.i[1].re z1.i[1].re z2.i[1].re
+ eq 37: ground1.pin.iRe[2] voltageSource1.i[2].re z1.i[2].re z2.i[2].re
+ eq 38: ground1.pin.iRe[3] voltageSource1.i[3].re z1.i[3].re z2.i[3].re
+ eq 39: ground1.pin.iIm[1]
+ eq 40: ground1.pin.iIm[2]
+ eq 41: ground1.pin.iIm[3]
+ eq 42: ground1.pin.iRe[1]
+ eq 43: ground1.pin.iRe[2]
+ eq 44: ground1.pin.iRe[3]
+ eq 45:
+ eq 46:
+
+Variable dependencies:
+Derivative variables: 
+ der(voltageSource1.theta)
+    systemDef.fFund
+
+Differentiated variables: 
+ voltageSource1.theta
+
+Algebraic real variables: 
+ voltageSource1.i[1].re
+    z.z.re
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.re
+    z1.z.re
+ voltageSource1.i[1].im
+    z.z.im
+    systemDef.hrms[1]
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.im
+    z1.z.im
+ voltageSource1.i[2].re
+    z.z.re
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.re
+    z1.z.re
+ voltageSource1.i[2].im
+    z.z.im
+    systemDef.hrms[2]
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.im
+    z1.z.im
+ voltageSource1.i[3].re
+    z.z.re
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.re
+    z1.z.re
+ voltageSource1.i[3].im
+    z.z.im
+    systemDef.hrms[3]
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.im
+    z1.z.im
+ voltageSource1.omega
+    systemDef.fFund
+ z.v[1].re
+    z.z.re
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.re
+    z1.z.re
+ z.v[1].im
+    z.z.im
+    systemDef.hrms[1]
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.im
+    z1.z.im
+ z.v[2].re
+    z.z.re
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.re
+    z1.z.re
+ z.v[2].im
+    z.z.im
+    systemDef.hrms[2]
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.im
+    z1.z.im
+ z.v[3].re
+    z.z.re
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.re
+    z1.z.re
+ z.v[3].im
+    z.z.im
+    systemDef.hrms[3]
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.im
+    z1.z.im
+ z.omega
+    systemDef.fFund
+ z1.v[1].re
+    z.z.re
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.re
+    z1.z.re
+ z1.v[1].im
+    z.z.im
+    systemDef.hrms[1]
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.im
+    z1.z.im
+ z1.v[2].re
+    z.z.re
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.re
+    z1.z.re
+ z1.v[2].im
+    z.z.im
+    systemDef.hrms[2]
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.im
+    z1.z.im
+ z1.v[3].re
+    z.z.re
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.re
+    z1.z.re
+ z1.v[3].im
+    z.z.im
+    systemDef.hrms[3]
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.im
+    z1.z.im
+ z1.i[1].re
+    z.z.re
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.re
+    z1.z.re
+ z1.i[1].im
+    z.z.im
+    systemDef.hrms[1]
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.im
+    z1.z.im
+ z1.i[2].re
+    z.z.re
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.re
+    z1.z.re
+ z1.i[2].im
+    z.z.im
+    systemDef.hrms[2]
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.im
+    z1.z.im
+ z1.i[3].re
+    z.z.re
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.re
+    z1.z.re
+ z1.i[3].im
+    z.z.im
+    systemDef.hrms[3]
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.im
+    z1.z.im
+ z1.omega
+    systemDef.fFund
+ z2.i[1].re
+    z.z.re
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.re
+    z1.z.re
+ z2.i[1].im
+    z.z.im
+    systemDef.hrms[1]
+    voltageSource1.vMag[1]
+    voltageSource1.vArg[1]
+    z2.z.im
+    z1.z.im
+ z2.i[2].re
+    z.z.re
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.re
+    z1.z.re
+ z2.i[2].im
+    z.z.im
+    systemDef.hrms[2]
+    voltageSource1.vArg[2]
+    voltageSource1.vMag[2]
+    z2.z.im
+    z1.z.im
+ z2.i[3].re
+    z.z.re
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.re
+    z1.z.re
+ z2.i[3].im
+    z.z.im
+    systemDef.hrms[3]
+    voltageSource1.vArg[3]
+    voltageSource1.vMag[3]
+    z2.z.im
+    z1.z.im
+ z2.omega
+    systemDef.fFund
+ ground1.pin.iIm[1]
+ ground1.pin.iIm[2]
+ ground1.pin.iIm[3]
+ ground1.pin.iRe[1]
+ ground1.pin.iRe[2]
+ ground1.pin.iRe[3]
+
+
+
+Connection sets: 27 sets
+Connection set (flow): {ground1.pin.iIm[1:3] (i), voltageSource1.pin_n.iIm[1:3] (i), z1.pin_n.iIm[1:3] (i), z2.pin_n.iIm[1:3] (i)}
+Connection set (flow): {ground1.pin.iRe[1:3] (i), voltageSource1.pin_n.iRe[1:3] (i), z1.pin_n.iRe[1:3] (i), z2.pin_n.iRe[1:3] (i)}
+Connection set (potential): {ground1.pin.v[1].im (i), voltageSource1.pin_n.v[1].im (i), z1.pin_n.v[1].im (i), z2.pin_n.v[1].im (i)}
+Connection set (potential): {ground1.pin.v[1].re (i), voltageSource1.pin_n.v[1].re (i), z1.pin_n.v[1].re (i), z2.pin_n.v[1].re (i)}
+Connection set (potential): {ground1.pin.v[2].im (i), voltageSource1.pin_n.v[2].im (i), z1.pin_n.v[2].im (i), z2.pin_n.v[2].im (i)}
+Connection set (potential): {ground1.pin.v[2].re (i), voltageSource1.pin_n.v[2].re (i), z1.pin_n.v[2].re (i), z2.pin_n.v[2].re (i)}
+Connection set (potential): {ground1.pin.v[3].im (i), voltageSource1.pin_n.v[3].im (i), z1.pin_n.v[3].im (i), z2.pin_n.v[3].im (i)}
+Connection set (potential): {ground1.pin.v[3].re (i), voltageSource1.pin_n.v[3].re (i), z1.pin_n.v[3].re (i), z2.pin_n.v[3].re (i)}
+Connection set (flow): {voltageSource1.pin_p.iIm[1:3] (i), z.pin_p.iIm[1:3] (i)}
+Connection set (flow): {voltageSource1.pin_p.iRe[1:3] (i), z.pin_p.iRe[1:3] (i)}
+Connection set (potential): {voltageSource1.pin_p.v[1].im (i), z.pin_p.v[1].im (i)}
+Connection set (potential): {voltageSource1.pin_p.v[1].re (i), z.pin_p.v[1].re (i)}
+Connection set (potential): {voltageSource1.pin_p.v[2].im (i), z.pin_p.v[2].im (i)}
+Connection set (potential): {voltageSource1.pin_p.v[2].re (i), z.pin_p.v[2].re (i)}
+Connection set (potential): {voltageSource1.pin_p.v[3].im (i), z.pin_p.v[3].im (i)}
+Connection set (potential): {voltageSource1.pin_p.v[3].re (i), z.pin_p.v[3].re (i)}
+Connection set (flow): {z.pin_n.iIm[1:3] (i), z1.pin_p.iIm[1:3] (i), z2.pin_p.iIm[1:3] (i)}
+Connection set (flow): {z.pin_n.iRe[1:3] (i), z1.pin_p.iRe[1:3] (i), z2.pin_p.iRe[1:3] (i)}
+Connection set (potential): {z.pin_n.v[1].im (i), z1.pin_p.v[1].im (i), z2.pin_p.v[1].im (i)}
+Connection set (potential): {z.pin_n.v[1].re (i), z1.pin_p.v[1].re (i), z2.pin_p.v[1].re (i)}
+Connection set (potential): {z.pin_n.v[2].im (i), z1.pin_p.v[2].im (i), z2.pin_p.v[2].im (i)}
+Connection set (potential): {z.pin_n.v[2].re (i), z1.pin_p.v[2].re (i), z2.pin_p.v[2].re (i)}
+Connection set (potential): {z.pin_n.v[3].im (i), z1.pin_p.v[3].im (i), z2.pin_p.v[3].im (i)}
+Connection set (potential): {z.pin_n.v[3].re (i), z1.pin_p.v[3].re (i), z2.pin_p.v[3].re (i)}
+Connection set (potential): {voltageSource1.pin_p.reference.theta (i), z.pin_p.reference.theta (i)}
+Connection set (potential): {z.pin_n.reference.theta (i), z1.pin_p.reference.theta (i), z2.pin_p.reference.theta (i)}
+Connection set (potential): {ground1.pin.reference.theta (i), voltageSource1.pin_n.reference.theta (i)}
+
+Transformed flattened model:
+fclass HPF.Test.SinglePhase_Basic
+ parameter Integer systemDef.hrms[1] = 1 "Harmonics to simulate" /* 1 */;
+ parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
+ parameter Integer systemDef.hrms[3] = 5 "Harmonics to simulate" /* 5 */;
+ structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = true);
+ discrete Boolean systemDef.event1(start = false);
+ discrete Boolean systemDef.event2(start = false);
+ parameter Real voltageSource1.vMag[1] = 100 "Voltage Magnitude" /* 100 */;
+ parameter Real voltageSource1.vMag[2] = 5 "Voltage Magnitude" /* 5 */;
+ parameter Real voltageSource1.vMag[3] = 3 "Voltage Magnitude" /* 3 */;
+ parameter Real voltageSource1.vArg[1] = 0 "Voltage angle" /* 0 */;
+ parameter Real voltageSource1.vArg[2] = 0.5 "Voltage angle" /* 0.5 */;
+ parameter Real voltageSource1.vArg[3] = -0.25 "Voltage angle" /* -0.25 */;
+ Modelica.SIunits.Angle voltageSource1.theta(start = 0);
+ parameter Real voltageSource1.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real voltageSource1.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real voltageSource1.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real voltageSource1.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real voltageSource1.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real voltageSource1.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real voltageSource1.i[1].re(start = 0,nominal = -1) "Real part of complex number";
+ Real voltageSource1.i[1].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real voltageSource1.i[2].re(start = 0,nominal = -1) "Real part of complex number";
+ Real voltageSource1.i[2].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real voltageSource1.i[3].re(start = 0,nominal = -1) "Real part of complex number";
+ Real voltageSource1.i[3].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real voltageSource1.omega;
+ parameter Real z.z.re(start = 1) = 5.0 "Real part of complex number" /* 5.0 */;
+ parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.omega;
+ parameter Real z1.z.re(start = 1) = 2.0 "Real part of complex number" /* 2.0 */;
+ parameter Real z1.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z1.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.i[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z1.i[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z1.omega;
+ parameter Real z2.z.re(start = 1) = 3.0 "Real part of complex number" /* 3.0 */;
+ parameter Real z2.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z2.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.omega;
+ constant Real ground1.pin.v[1].re = 0.0 "Real part of complex number";
+ constant Real ground1.pin.v[1].im = 0 "Imaginary part of complex number";
+ Real ground1.pin.iIm[1];
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iIm[3];
+ Real ground1.pin.iRe[1];
+ Real ground1.pin.iRe[2];
+ Real ground1.pin.iRe[3];
+ discrete Boolean temp_19;
+ discrete Boolean temp_20;
+ discrete Boolean temp_21;
+initial equation
+ algorithm
+  systemDef.modeSelect := false;
+;
+ voltageSource1.theta = 0;
+ pre(systemDef.event1) = false;
+ pre(systemDef.event2) = false;
+ pre(temp_19) = false;
+ pre(temp_20) = false;
+ pre(temp_21) = false;
+parameter equation
+ voltageSource1.v[1].re = voltageSource1.vMag[1] .* cos(voltageSource1.vArg[1]);
+ voltageSource1.v[2].re = voltageSource1.vMag[2] .* cos(voltageSource1.vArg[2]);
+ voltageSource1.v[3].re = voltageSource1.vMag[3] .* cos(voltageSource1.vArg[3]);
+ voltageSource1.v[1].im = voltageSource1.vMag[1] .* sin(voltageSource1.vArg[1]);
+ voltageSource1.v[2].im = voltageSource1.vMag[2] .* sin(voltageSource1.vArg[2]);
+ voltageSource1.v[3].im = voltageSource1.vMag[3] .* sin(voltageSource1.vArg[3]);
+equation
+ temp_19 = time > 0.5;
+ temp_20 = time > 0.25;
+ temp_21 = time > 0.4;
+algorithm
+ if temp_19 and not pre(temp_19) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_20 and not pre(temp_20) then
+  systemDef.event1 := true;
+ end if;
+ if temp_21 and not pre(temp_21) then
+  systemDef.event2 := true;
+ end if;
+equation
+ der(voltageSource1.theta) = 6.283185307179586 * systemDef.fFund;
+ voltageSource1.omega = der(voltageSource1.theta);
+ z.v[1].re = z.z.re .* (- voltageSource1.i[1].re);
+ z.v[2].re = z.z.re .* (- voltageSource1.i[2].re);
+ z.v[3].re = z.z.re .* (- voltageSource1.i[3].re);
+ z.v[1].im = z.z.im .* systemDef.hrms[1] .* (- voltageSource1.i[1].im);
+ z.v[2].im = z.z.im .* systemDef.hrms[2] .* (- voltageSource1.i[2].im);
+ z.v[3].im = z.z.im .* systemDef.hrms[3] .* (- voltageSource1.i[3].im);
+ z.omega = der(voltageSource1.theta);
+ z.v[1].re = voltageSource1.v[1].re - z1.v[1].re;
+ z.v[1].im = voltageSource1.v[1].im - z1.v[1].im;
+ z.v[2].re = voltageSource1.v[2].re - z1.v[2].re;
+ z.v[2].im = voltageSource1.v[2].im - z1.v[2].im;
+ z.v[3].re = voltageSource1.v[3].re - z1.v[3].re;
+ z.v[3].im = voltageSource1.v[3].im - z1.v[3].im;
+ z1.v[1].re = z1.z.re .* z1.i[1].re;
+ z1.v[2].re = z1.z.re .* z1.i[2].re;
+ z1.v[3].re = z1.z.re .* z1.i[3].re;
+ z1.v[1].im = z1.z.im .* systemDef.hrms[1] .* z1.i[1].im;
+ z1.v[2].im = z1.z.im .* systemDef.hrms[2] .* z1.i[2].im;
+ z1.v[3].im = z1.z.im .* systemDef.hrms[3] .* z1.i[3].im;
+ z1.omega = der(voltageSource1.theta);
+ z1.v[1].re = z2.z.re .* z2.i[1].re;
+ z1.v[2].re = z2.z.re .* z2.i[2].re;
+ z1.v[3].re = z2.z.re .* z2.i[3].re;
+ z1.v[1].im = z2.z.im .* systemDef.hrms[1] .* z2.i[1].im;
+ z1.v[2].im = z2.z.im .* systemDef.hrms[2] .* z2.i[2].im;
+ z1.v[3].im = z2.z.im .* systemDef.hrms[3] .* z2.i[3].im;
+ z2.omega = der(voltageSource1.theta);
+ ground1.pin.iIm[1] + (- voltageSource1.i[1].im) + (- z1.i[1].im) + (- z2.i[1].im) = 0;
+ ground1.pin.iIm[2] + (- voltageSource1.i[2].im) + (- z1.i[2].im) + (- z2.i[2].im) = 0;
+ ground1.pin.iIm[3] + (- voltageSource1.i[3].im) + (- z1.i[3].im) + (- z2.i[3].im) = 0;
+ ground1.pin.iRe[1] + (- voltageSource1.i[1].re) + (- z1.i[1].re) + (- z2.i[1].re) = 0;
+ ground1.pin.iRe[2] + (- voltageSource1.i[2].re) + (- z1.i[2].re) + (- z2.i[2].re) = 0;
+ ground1.pin.iRe[3] + (- voltageSource1.i[3].re) + (- z1.i[3].re) + (- z2.i[3].re) = 0;
+ 0 = ground1.pin.iIm[1];
+ 0 = ground1.pin.iIm[2];
+ 0 = ground1.pin.iIm[3];
+ 0 = ground1.pin.iRe[1];
+ 0 = ground1.pin.iRe[2];
+ 0 = ground1.pin.iRe[3];
+ HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta));
+ HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint(HPF.Types.Reference(voltageSource1.theta), HPF.Types.Reference(voltageSource1.theta));
+
+public
+ function HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_Basic.z1.pin_n.reference.equalityConstraint;
+
+ function HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_Basic.ground1.pin.reference.equalityConstraint;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+end HPF.Test.SinglePhase_Basic;
+
+Generating code...
+====== Model compiled successfully =======
+make -f /home/avpreetsingh/programfiles/jModelica/Makefiles/MakeFile fmume20_
+make[1]: Entering directory '/tmp/jmc5673419936401822925out'
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic_base.o sources/HPF_Test_SinglePhase_Basic_base.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic_init_dependent.o sources/HPF_Test_SinglePhase_Basic_init_dependent.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -O1 -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic_funcs.o sources/HPF_Test_SinglePhase_Basic_funcs.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic.o sources/HPF_Test_SinglePhase_Basic.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic_equ_init.o sources/HPF_Test_SinglePhase_Basic_equ_init.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic_init_independent.o sources/HPF_Test_SinglePhase_Basic_init_independent.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_Basic_equ.o sources/HPF_Test_SinglePhase_Basic_equ.c
+mkdir -p binaries/linux64
+g++ -shared -Wl,-rpath,'$ORIGIN',--no-undefined -pthread -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -o binaries/linux64/HPF_Test_SinglePhase_Basic.so  HPF_Test_SinglePhase_Basic_base.o  HPF_Test_SinglePhase_Basic_init_dependent.o  HPF_Test_SinglePhase_Basic_funcs.o  HPF_Test_SinglePhase_Basic.o  HPF_Test_SinglePhase_Basic_equ_init.o  HPF_Test_SinglePhase_Basic_init_independent.o  HPF_Test_SinglePhase_Basic_equ.o  -L/home/avpreetsingh/programfiles/jModelica/lib/RuntimeLibrary -lfmi2 -ljmi -ldl "-L/home/avpreetsingh/programfiles/jModelica/lib"  -ljmi_get_set_default -ljmi_get_set_default -llapack -lblas -lgfortran -lModelicaExternalC -lzlib -ljmi -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/lib -l:libsundials_kinsol.a -l:libsundials_nvecserial.a -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Minpack/lib -l:libcminpack.a -lstdc++ -lm -l:libsundials_cvode.a
+rm -f  HPF_Test_SinglePhase_Basic_base.o  HPF_Test_SinglePhase_Basic_init_dependent.o  HPF_Test_SinglePhase_Basic_funcs.o  HPF_Test_SinglePhase_Basic.o  HPF_Test_SinglePhase_Basic_equ_init.o  HPF_Test_SinglePhase_Basic_init_independent.o  HPF_Test_SinglePhase_Basic_equ.o 
+make[1]: Leaving directory '/tmp/jmc5673419936401822925out'
+

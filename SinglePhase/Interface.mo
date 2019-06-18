@@ -58,9 +58,16 @@ package Interface
     outer SystemDef systemDef; // instantiate systemDef as outer for global scope
     /*
       Complex v(re(start = 0), im(start = 0));
+      Note on start and nominal value:
+      The power flow solution is a nonlinear problem solved using 
+      any of the nonlinear solver techniques (Example Newton).
+      Simulation fails if the initial values are off by a large 
+      margin. It was observed that a nominal value of zero
+      lead to solver failing to solve. Nominal value of one 
+      seems to work! 
     */
-    Complex v[systemDef.numHrm](each re(start = 0),each im(start = 0)) "Complex voltage";
-    Complex i[systemDef.numHrm](each re(start = 0),each im(start = 0)) "Complex current";
+    Complex v[systemDef.numHrm](each re(start = 0, nominal = 1),each im(start = 0, nominal = 1)) "Complex voltage";
+    Complex i[systemDef.numHrm](each re(start = 0, nominal = 1),each im(start = 0, nominal = 1)) "Complex current";
   
     /*
       Defining omega for the overconstrained system workaround.

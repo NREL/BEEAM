@@ -3,3 +3,4 @@ VoltageSource
 NonlinearLoad
 Load_Fundamental
 Test_VoltageCurrentScale
+Test_Load

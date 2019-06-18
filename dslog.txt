@@ -1,30 +1,60 @@
 Log-file of program ./dymosim
-(generated: Sat Jun 15 22:46:07 2019)
+(generated: Mon Jun 17 11:13:21 2019)
 
 dymosim started
 ... "dsin.txt" loading (dymosim input file)
-... "SinglePhase_Basic.mat" creating (simulation result file)
 
-Integration started at T = 0 using integration method DASSL
-(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-Integration terminated successfully at T = 1
-  WARNING: You have many state events. It might be due to chattering.
-  Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 0.196 seconds
-   CPU-time for one grid interval          : 0.392 milliseconds
-   CPU-time for initialization             : 0 seconds
-   Number of result points                 : 508
-   Number of grid points                   : 501
-   Number of accepted steps                : 23
-   Number of f-evaluations (dynamics)      : 23
-   Number of crossing function evaluations : 926
-   Number of Jacobian-evaluations          : 21
-   Number of model time events             : 0
-   Number of input time events             : 0
-   Number of state events                  : 3
-   Number of step events                   : 0
-   Minimum integration stepsize            : 1.33e-007
-   Maximum integration stepsize            : 0.444
-   Maximum integration order               : 1
-Calling terminal section
-... "dsfinal.txt" creating (final states)
+ERROR: Failed to solve nonlinear system using Newton solver.
+  During initialization at time: 0
+  Tag: simulation.nonlinear[1]
+
+  Common causes:
+   * The system of equations has no solution - the residual will be above zero.
+     - This may be caused by initial conditions not being fully specified, check the translation log.
+     - In some cases the event-logic can cause this.
+   * Starting values are too far from the solution, see homotopy in the manual.
+     - In rare cases this could occur at events.
+   * The equations are too discontinuous for the nonlinear solver - the residual will have knees.
+     - Likely caused by over-using noEvent.
+  Especially consider the first two items above when the nonlinear solver fails during initialization.
+
+  To get more information consider the options:
+   * Simulation/Setup/Translation/Generate listing of translated Modelica code in dsmodel.mof
+   * Simulation/Setup/Translation/List non-linear iteration variables
+   * Simulation/Setup/Debug/Store variables after failed initialization
+     - If a failure to solve a nonlinear equation caused failed initialization.
+   * The options under the group Simulation/Setup/Debug/Nonlinear solver diagnostics
+
+  Jacobian inverse norm estimate: 1904.71
+  Condition number estimate: 370.309
+  1-norm of the residual = 190.956
+
+  Last value of the solution:
+    z2.i[1].re = 17.3177
+    z2.i[1].im = -9.07167
+    test_Load1.i[1].im = 2.39978
+    test_Load1.i[1].re = 2.46628
+  Last value of the residual:
+    { 73.4387, -56.1632, 55.9711, 5.38297 }
+ 
+Trying homotopy
+
+ERROR: Failed to solve nonlinear system using Newton solver.
+  During initialization at time: 0
+  Tag: simulation.nonlinear[1]
+
+  For debugging help refer to the first error message of this type.
+
+  Jacobian inverse norm estimate: 1904.71
+  Condition number estimate: 370.309
+  1-norm of the residual = 190.956
+
+  Last value of the solution:
+    z2.i[1].re = 17.3177
+    z2.i[1].im = -9.07167
+    test_Load1.i[1].im = 2.39978
+    test_Load1.i[1].re = 2.46628
+  Last value of the residual:
+    { 73.4387, -56.1632, 55.9711, 5.38297 }
+ 
+Error: Integrator failed to start model.
