@@ -3,7 +3,7 @@ model Test_Load
 extends HPF.SinglePhase.Interface.TwoPinBase;
 import Modelica.ComplexMath.j;
 
-  parameter Complex S(re(start = 0), im(start = 0)) = 0 + 0*j;
+  parameter Complex S(re(start = 0), im(start = 0));
 equation
   if systemDef.numHrm > 1 then
     S = v[1] .* Modelica.ComplexMath.conj(i[1]);

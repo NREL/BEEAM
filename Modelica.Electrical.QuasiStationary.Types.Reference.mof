@@ -1,6 +1,0 @@
-record Reference
-
-  Modelica.SIunits.Angle gamma;
-
-
-end Reference;

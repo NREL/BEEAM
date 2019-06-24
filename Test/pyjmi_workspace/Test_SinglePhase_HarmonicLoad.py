@@ -22,7 +22,7 @@ INFO
 
 #curr_dir = os.path.dirname(os.path.abspath(__file__));
 
-class_name = 'HPF.Test.SinglePhase_Basic'
+class_name = 'HPF.Test.SinglePhase_HarmonicLoad'
 library_name = '../../../HPF'
 log_level = 'verbose: compile_log.txt'  # options: 'warning'/'w', 'error'/'e', 'verbose'/'v', 'info'/'i' or 'debug'/'d'.
 fmu_name = compile_fmu(class_name, library_name, compiler_log_level = log_level)

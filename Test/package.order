@@ -8,3 +8,5 @@ SinglePhase_HarmonicLoad
 Test_ExternalDataWrite
 Test_ExternalDataRead
 SinglePhase_Load
+SinglePhase_CurrentInjection
+Multiphase_IdealTransformer_D11Y

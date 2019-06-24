@@ -1,11 +1,12 @@
 within HPF.Machines.Transformers_iPh;
 model Test_DY
   outer SystemDef systemDef;
-  HPF.SinglePhase.Components.IdealTransformer idealTransformer1 annotation (
+  parameter Integer N = 1 "Turns ration";
+  HPF.SinglePhase.Components.IdealTransformer idealTransformer1(N = N)  annotation (
     Placement(visible = true, transformation(origin = {0, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.IdealTransformer idealTransformer2 annotation (
+  HPF.SinglePhase.Components.IdealTransformer idealTransformer2(N = N)  annotation (
     Placement(visible = true, transformation(origin={0,10},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.IdealTransformer idealTransformer3 annotation (
+  HPF.SinglePhase.Components.IdealTransformer idealTransformer3(N = N)  annotation (
     Placement(visible = true, transformation(origin = {0, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P pinPrim_A(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-86, 60}, extent = {{-6, -6}, {6, 6}}, rotation = 0), iconTransformation(origin={-100, 60},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -19,9 +20,8 @@ model Test_DY
     Placement(visible = true, transformation(origin = {74, 20}, extent = {{-6, -6}, {6, 6}}, rotation = 0), iconTransformation(origin={100, 40},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P hPin_P3(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {74, -20}, extent = {{-6, -6}, {6, 6}}, rotation = 0), iconTransformation(origin={100, 0},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation (Placement(transformation(
-          extent={{52,-90},{64,-78}}), iconTransformation(extent={{90,-70},{110,
-            -50}})));
+  HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation (Placement(visible = true,transformation(
+          extent = {{68, -72}, {80, -60}}, rotation = 0), iconTransformation(extent = {{90, -70}, {110, -50}}, rotation = 0)));
 equation
   connect(pinPrim_A, idealTransformer1.pinP_Prim) annotation (
     Line(points={{-86,60},{-10,60},{-10,60},{-10,60}}));
@@ -53,5 +53,5 @@ equation
   
 annotation (
     Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={Rectangle(extent = {{-100, 100}, {100, -100}}), Line(points = {{-74, -26}, {-44, 42}, {-16, -26}, {-74, -26}}, color = {28, 108, 200}), Line(points = {{42, 36}, {60, 0}, {78, 36}}, color = {28, 108, 200}), Line(points = {{60, 0}, {60, -30}}, color = {28, 108, 200}), Text(origin = {2, -14},lineColor = {28, 108, 200}, extent = {{-60, -26}, {-34, -50}}, textString = "D11"), Text(origin = {-2, -8},lineColor = {28, 108, 200}, extent = {{50, -28}, {76, -52}}, textString = "Y")}),
-    Diagram(coordinateSystem(grid = {0, 0})));
+    Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {0, 78}, extent = {{-16, 4}, {16, -4}}, textString = "Delta-Y")}));
 end Test_DY;

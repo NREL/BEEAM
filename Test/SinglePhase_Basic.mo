@@ -1,18 +1,18 @@
 within HPF.Test;
 model SinglePhase_Basic
   inner HPF.SystemDef systemDef(fFund = 60,hrms = {1, 3, 5})  annotation (
-    Placement(visible = true, transformation(origin = {-70, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-60, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   import Modelica.ComplexMath.j;
   HPF.SinglePhase.Sources.VoltageSource voltageSource1(vArg = {0, 0.5, -0.25}, vMag = {100, 5, 3})  annotation (
-    Placement(visible = true, transformation(origin = {-50, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-44, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Impedance z(z = 5 + 2 * j)  annotation (
-    Placement(visible = true, transformation(origin={6,22},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z1(z = 2 + 2 * j)  annotation (
-    Placement(visible = true, transformation(origin={54,22},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-22,22},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.Impedance z1(z = 2 + 0 * j)  annotation (
+    Placement(visible = true, transformation(origin={14,22},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z2(z = 3 + 2 * j)  annotation (
-    Placement(visible = true, transformation(origin = {62, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {14, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
-    Placement(visible = true, transformation(origin = {-50, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-44, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource1.pin_n, ground1.pin) annotation (
     Line(points={{-50,-18},{-50,-18},{-50,-18},{-50,-42}},          color = {117, 80, 123}));

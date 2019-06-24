@@ -53,8 +53,8 @@ equation
    
    Error Type 1
    */
-  Modelica.ComplexMath.real(v) = vMag.*cos(vArg);
-  Modelica.ComplexMath.imag(v) = vMag.*sin(vArg);
+  v[:].re = vMag[:].*cos(vArg[:]);
+  v[:].im = vMag[:].*sin(vArg[:]);
 
 annotation(
   defaultComponentName = "v",

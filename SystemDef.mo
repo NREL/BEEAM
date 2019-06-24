@@ -9,7 +9,7 @@ class SystemDef
   'constant' has a lower type variability than 'parameter'.
   */
   parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
-
+  parameter Integer numHigherHrm = numHrm - 1;
   parameter Integer numPh = 3 "Number of phases";
 
   parameter Real fFund = 60 "Fundamental frequency";

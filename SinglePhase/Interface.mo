@@ -13,15 +13,17 @@ package Interface
     /*
       potential variables
     */
-    parameter Integer h(start = 1);
+    parameter Integer h(start = 1) "Numbder of harmonics";
     Complex v[h] "Complex potential at the node";
     /*
-                      flow variables
-                    */
-    flow Real iIm[h];
-    // flow variable, imaginary part
-    flow Real iRe[h];
-    // Real part
+      Flow variables.
+      (It was necessary to define the flow variables separately
+      (real and imaginart) as some of the modelica implementations
+      donot resolve the Complex record when it is defined as a vector)
+    */
+    flow Real iIm[h];   // Real part
+    flow Real iRe[h];   // Imaginary part
+  
     annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),

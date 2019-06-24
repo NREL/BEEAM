@@ -22,16 +22,18 @@ INFO
 
 #curr_dir = os.path.dirname(os.path.abspath(__file__));
 
-class_name = 'HPF.Test.SinglePhase_Basic'
+class_name = 'HPF.Test.Multiphase_Transformer'
 library_name = '../../../HPF'
 log_level = 'verbose: compile_log.txt'  # options: 'warning'/'w', 'error'/'e', 'verbose'/'v', 'info'/'i' or 'debug'/'d'.
 fmu_name = compile_fmu(class_name, library_name, compiler_log_level = log_level)
 
-singlePhaseBasic = load_fmu(fmu_name)
+threePhTfmr = load_fmu(fmu_name)
 
-res = singlePhaseBasic.simulate(final_time = 1)
+res = threePhTfmr.simulate(final_time = 1)
 
- 
+print(res['terminate1.z.i[1].re'])
+print(res['terminate1.z.i[1].im'])
+
 """
 rlc = load_fmu(fmu_name)
 

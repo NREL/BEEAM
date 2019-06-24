@@ -1,5 +1,7 @@
 within HPF.SinglePhase.Components;
 model Terminate "Terminal connection for an unconnected phase"
+  import Modelica.ComplexMath.j;
+  inner outer SystemDef systemDef;
   /*
   This would be a one pin component. The ground would be 
   internally connected.
@@ -14,7 +16,7 @@ model Terminate "Terminal connection for an unconnected phase"
     annotation (Placement(transformation(extent={{-6,-4},{14,16}})));
   Interface.HPin_P hPin_P annotation (Placement(transformation(extent={{-50,14},
             {-38,26}}), iconTransformation(extent={{-40,-10},{-20,10}})));
-  Impedance z annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+  Impedance z(z = Complex(1e8, 1 - 9))  annotation (Placement(transformation(extent={{-20,10},{0,30}})));
 equation
 
   connect(hPin_P, z.pin_p)

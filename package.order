@@ -4,13 +4,8 @@ Test_components
 Test
 Templates
 SystemDef
-Solver
 SinglePhase
 MultiPhase
 Machines
-Interfaces
-HarmonicSources
 Examples
-Example_HPF_Fuchs
 Documentation
-Components

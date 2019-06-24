@@ -22,16 +22,28 @@ INFO
 
 #curr_dir = os.path.dirname(os.path.abspath(__file__));
 
-class_name = 'HPF.Test.SinglePhase_Basic'
+class_name = 'HPF.Test.Multiphase_Transformer'
 library_name = '../../../HPF'
 log_level = 'verbose: compile_log.txt'  # options: 'warning'/'w', 'error'/'e', 'verbose'/'v', 'info'/'i' or 'debug'/'d'.
 fmu_name = compile_fmu(class_name, library_name, compiler_log_level = log_level)
 
-singlePhaseBasic = load_fmu(fmu_name)
+multiphase_transformer = load_fmu(fmu_name)
 
-res = singlePhaseBasic.simulate(final_time = 1)
+res = multiphase_transformer.simulate(final_time = 1)
 
  
+"""
+Compute system losses:
+    Get losses from the voltage and current values from the resistor and the
+    impedances
+    Using the following notation for harmonics:
+        Example: 1st harmonic voltage
+        v_1
+"""
+# Resistor 1 'r'
+
+
+
 """
 rlc = load_fmu(fmu_name)
 
