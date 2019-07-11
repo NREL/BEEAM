@@ -6,6 +6,7 @@ function writeNodeVoltage
   Writing data to file.    
   Using write matrix from Modelia.Utilities
   */
+  extends Modelica.Icons.Function;
   input Complex data;
   input String name;
   protected
@@ -21,7 +22,7 @@ end writeNodeVoltage;
     /*
     Reading data from file
     */
-
+  extends Modelica.Icons.Function;
     input String name;
     // returns complex record
     output Complex v;

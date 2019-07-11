@@ -10,26 +10,26 @@ model Test_SinglePhase
     Placement(visible = true, transformation(origin = {-40, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   inner HPF.SystemDef systemDef(hrms = {1, 3, 5})  annotation (
     Placement(visible = true, transformation(origin = {-42, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Components.Impedance z(z = 1 + 2 * j)  annotation(
+  HPF.Components.Impedance z(z = 1 + 2 * j)  annotation (
     Placement(visible = true, transformation(origin = {-30, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Components.Impedance z1(z = 1 + 3 * j)  annotation(
+  HPF.Components.Impedance z1(z = 1 + 3 * j)  annotation (
     Placement(visible = true, transformation(origin = {16,26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Components.Impedance z2(z = 2 + 1 * j)  annotation(
+  HPF.Components.Impedance z2(z = 2 + 1 * j)  annotation (
     Placement(visible = true, transformation(origin = {16, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(ground1.pin, voltageSource1.pin_n) annotation (
     Line(points={{-40,-37.4},{-40,-37.4},{-40,-20},{-40,-20}},      color = {117, 80, 123}));
   connect(nonlinearHarmonicLoad1.pin_n, ground1.pin) annotation (
     Line(points={{60,-20},{60,-20},{60,-38},{-40,-38},{-40,-37.4}},          color = {117, 80, 123}));
-  connect(z1.pin_n, z2.pin_n) annotation(
+  connect(z1.pin_n, z2.pin_n) annotation (
     Line(points = {{26, 26}, {30, 26}, {30, 2}, {24, 2}, {24, 0}}, color = {117, 80, 123}));
-  connect(nonlinearHarmonicLoad1.pin_p, z1.pin_n) annotation(
+  connect(nonlinearHarmonicLoad1.pin_p, z1.pin_n) annotation (
     Line(points = {{60, 0}, {60, 0}, {60, 26}, {26, 26}, {26, 26}}, color = {117, 80, 123}));
-  connect(z.pin_n, z1.pin_p) annotation(
+  connect(z.pin_n, z1.pin_p) annotation (
     Line(points = {{-14, 26}, {6, 26}, {6, 26}, {6, 26}}, color = {117, 80, 123}));
-  connect(z.pin_p, voltageSource1.pin_p) annotation(
+  connect(z.pin_p, voltageSource1.pin_p) annotation (
     Line(points = {{-34, 26}, {-40, 26}, {-40, 4}, {-40, 4}}, color = {117, 80, 123}));
-  connect(z2.pin_p, z1.pin_p) annotation(
+  connect(z2.pin_p, z1.pin_p) annotation (
     Line(points = {{4, 0}, {-8, 0}, {-8, 26}, {6, 26}, {6, 26}}, color = {117, 80, 123}));
 
 annotation (

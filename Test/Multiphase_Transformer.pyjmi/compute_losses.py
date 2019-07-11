@@ -64,3 +64,6 @@ r2.i_1 = N.complex(res['r2.i[1].re'][-1], res['r2.i[1].im'][-1])
 r2.v_3 = N.complex(res['r2.v[2].re'][-1], res['r2.v[2].im'][-1])
 r2.i_3 = N.complex(res['r2.i[2].re'][-1], res['r2.i[2].im'][-1])
 
+# computing losses, S = v * conjugate(i)
+pwrZ_1 = z.v_1 * N.conjugate(z.i_1) 
+print(N.abs(pwrZ_1))

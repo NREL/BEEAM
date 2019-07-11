@@ -35,7 +35,7 @@ model Test_Load
   //parameter Complex test_1(re(start = 0), im(start = 0));
   //Complex testZeros[systemDef.numHigherHrm] = {Complex(0.0) for i in 1:(systemDef.numHigherHrm)};
 
-  parameter Complex testVect[systemDef.numHrm](each re(start = 0, nominal = 1),each im(start = 0, nominal = 1)) = cat(1, {Complex(sReal, sImag)}, {Complex(0.0) for i in 1:systemDef.numHrm-1});
+  Complex testVect[systemDef.numHrm](each re(start = 0, nominal = 1),each im(start = 0, nominal = 1)) = cat(1, {Complex(sReal, sImag)}, {Complex(0.0) for i in 1:systemDef.numHrm-1});
 
 
   Complex vPre(re( start = 0), im( start = 0));// =   Modelica.ComplexMath.real(v[1]);

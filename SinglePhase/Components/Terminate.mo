@@ -24,8 +24,7 @@ equation
   connect(z.pin_n, ground.pin)
     annotation (Line(points={{0,20},{4,20},{4,6}}, color={117,80,123}));
 annotation (
-    Icon(coordinateSystem(grid = {0, 0}, extent={{-80,-60},{60,80}}, initialScale = 0.1), graphics
-        ={
+    Icon(coordinateSystem(grid = {0, 0}, extent={{-80,-60},{60,80}}, initialScale = 0.1), graphics={
         Line(
           points={{-22,0},{30,0}},
           color={238,46,47},

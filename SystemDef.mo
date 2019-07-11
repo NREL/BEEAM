@@ -6,10 +6,11 @@ class SystemDef
   /*
   INFO: Type variability
   Dymola is throwing an error for the type variability.
-  'constant' has a lower type variability than 'parameter'.
+  'constant' or no type prefix has a lower type variability than 'parameter'.
+  Also, numHrm cannot be initialized as Real.
   */
   parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
-  parameter Integer numHigherHrm = numHrm - 1;
+
   parameter Integer numPh = 3 "Number of phases";
 
   parameter Real fFund = 60 "Fundamental frequency";
@@ -22,8 +23,8 @@ class SystemDef
   */
   Boolean modeSelect( start = true);
 
-  Boolean event1(start = false);
-  Boolean event2(start = false);
+  Boolean eventWriteData(start = false);
+  Boolean eventReadData(start = false);
 
   //Complex cmplxZeros[numHrm];
 
@@ -43,12 +44,15 @@ algorithm
       //end if;
     end when;
 
+    /*
+      Additional time events for saving and reading node voltages
+    */
     when time > 0.25 then
-      event1 := true;
+      eventWriteData := true;
     end when;
 
     when time > 0.4 then
-      event2 := true;
+      eventReadData := true;
     end when;
     /*
       Annotation:

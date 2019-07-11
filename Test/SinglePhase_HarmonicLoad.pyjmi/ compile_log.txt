@@ -1,0 +1,3373 @@
+Compiler arguments:
+  -log=verbose: compile_log.txt,w|xml|stderr -target=me -version=2.0 -platform=linux64 -out=. -modelicapath=/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL ../../../HPF HPF.Test.SinglePhase_HarmonicLoad 
+Current working directory:
+  /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/SinglePhase_HarmonicLoad.pyjmi
+Compiler version: r12669
+Java version: 11.0.3
+OS name: Linux
+OS architecture: amd64
+MODELICAPATH    = 
+JAVA_HOME       = /usr/lib/jvm/java-11-openjdk-amd64
+JMODELICA_HOME  = /home/avpreetsingh/programfiles/jModelica/
+======= Compiling model =======
+Parsing ../../../HPF/package.mo...
+Checking for errors...
+MODELICAPATH = /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL
+extra_lib_dirs = 
+Reading file: ../../../HPF/package.mo
+Reading file: ../../../HPF/Test/package.mo
+Reading file: ../../../HPF/Test/SinglePhase_HarmonicLoad.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Icons.mo
+Reading file: ../../../HPF/SystemDef.mo
+Reading file: ../../../HPF/SinglePhase/package.mo
+Reading file: ../../../HPF/SinglePhase/Sources/package.mo
+Reading file: ../../../HPF/SinglePhase/Sources/VoltageSource.mo
+Reading file: ../../../HPF/SinglePhase/Interface.mo
+Reading file: ../../../HPF/SinglePhase/Components/package.mo
+Reading file: ../../../HPF/SinglePhase/Components/Ground.mo
+Reading file: ../../../HPF/SinglePhase/Components/Impedance.mo
+Reading file: ../../../HPF/SinglePhase/NonlinearLoads/package.mo
+Reading file: ../../../HPF/SinglePhase/NonlinearLoads/Test_Load.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/SIunits.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Complex.mo
+Reading file: ../../../HPF/Types.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Constants.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Math/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/ComplexMath.mo
+Reading file: ../../../HPF/Test_components/package.mo
+Reading file: ../../../HPF/Test_components/Test_VoltageCurrentScale.mo
+Reading file: ../../../HPF/SinglePhase/NonlinearLoads/DataIO.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Utilities/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Utilities/Streams.mo
+Flattening model...
+Raw flattened model:
+fclass HPF.Test.SinglePhase_HarmonicLoad
+ parameter Integer systemDef.hrms[2] = {1, 3} "Harmonics to simulate" /* { 1, 3 } */;
+ structural parameter Integer systemDef.numHrm = 2 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 2 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = true);
+ discrete Boolean systemDef.event1(start = false);
+ discrete Boolean systemDef.event2(start = false);
+ parameter Real v.vMag[2] = {100, 5} "Voltage Magnitude" /* { 100, 5 } */;
+ parameter Real v.vArg[2] = {0, 0.5} "Voltage angle" /* { 0, 0.5 } */;
+ Modelica.SIunits.Angle v.theta(fixed = true,start = 0) = v.pin_p.reference.theta;
+ Complex v.v[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex v.i[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real v.omega;
+ HPF.Types.Reference v.pin_p.reference "Reference";
+ structural parameter Integer v.pin_p.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex v.pin_p.v[2] "Complex potential at the node";
+ Real v.pin_p.iIm[2];
+ Real v.pin_p.iRe[2];
+ HPF.Types.Reference v.pin_n.reference "Reference";
+ structural parameter Integer v.pin_n.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex v.pin_n.v[2] "Complex potential at the node";
+ Real v.pin_n.iIm[2];
+ Real v.pin_n.iRe[2];
+ HPF.Types.Reference ground1.pin.reference "Reference";
+ structural parameter Integer ground1.pin.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex ground1.pin.v[2] "Complex potential at the node";
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iRe[2];
+ parameter Complex z.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(5, 0), Complex.'*'.multiply(Complex.'constructor'.fromReal(2, 0), Complex(0, 1))) "Impedance, R + jX";
+ Real z.vFundAbs = Modelica.ComplexMath.'abs'(z.v[1]);
+ Real z.vFundArg = Modelica.ComplexMath.arg(z.v[1], 0);
+ Real z.iFundAbs = Modelica.ComplexMath.'abs'(z.i[1]);
+ Real z.iFundArg = Modelica.ComplexMath.arg(z.i[1], 0);
+ Complex z.v[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex z.i[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real z.omega;
+ HPF.Types.Reference z.pin_p.reference "Reference";
+ structural parameter Integer z.pin_p.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex z.pin_p.v[2] "Complex potential at the node";
+ Real z.pin_p.iIm[2];
+ Real z.pin_p.iRe[2];
+ HPF.Types.Reference z.pin_n.reference "Reference";
+ structural parameter Integer z.pin_n.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex z.pin_n.v[2] "Complex potential at the node";
+ Real z.pin_n.iIm[2];
+ Real z.pin_n.iRe[2];
+ parameter Complex z2.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(2, 0), Complex(0, 1)) "Impedance, R + jX";
+ Real z2.vFundAbs = Modelica.ComplexMath.'abs'(z2.v[1]);
+ Real z2.vFundArg = Modelica.ComplexMath.arg(z2.v[1], 0);
+ Real z2.iFundAbs = Modelica.ComplexMath.'abs'(z2.i[1]);
+ Real z2.iFundArg = Modelica.ComplexMath.arg(z2.i[1], 0);
+ Complex z2.v[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex z2.i[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real z2.omega;
+ HPF.Types.Reference z2.pin_p.reference "Reference";
+ structural parameter Integer z2.pin_p.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex z2.pin_p.v[2] "Complex potential at the node";
+ Real z2.pin_p.iIm[2];
+ Real z2.pin_p.iRe[2];
+ HPF.Types.Reference z2.pin_n.reference "Reference";
+ structural parameter Integer z2.pin_n.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex z2.pin_n.v[2] "Complex potential at the node";
+ Real z2.pin_n.iIm[2];
+ Real z2.pin_n.iRe[2];
+ parameter Real test_Load1.sReal(start = 0) = -150 "IMPORTANT: set real power to -ve" /* -150 */;
+ parameter Real test_Load1.sImag(start = 0) = 20 /* 20 */;
+ parameter Real test_Load1.iReal[2] = {5, 2} /* { 5, 2 } */;
+ parameter Real test_Load1.iImag[2] = {0.25, 0.5} /* { 0.25, 0.5 } */;
+ parameter Real test_Load1.sVectRe[2](each start = 0) = {-150, 0} /* { -150, 0 } */;
+ parameter Real test_Load1.sVectIm[2](each start = 0) = {20, 0} /* { 20, 0 } */;
+ Complex test_Load1.testVect[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) = cat(1, {Complex.'constructor'.fromReal(test_Load1.sReal, test_Load1.sImag)}, {Complex.'constructor'.fromReal(0.0, 0)});
+ discrete Complex test_Load1.vPre(re(start = 0),im(start = 0));
+ Complex test_Load1.v[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex test_Load1.i[2](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real test_Load1.omega;
+ HPF.Types.Reference test_Load1.pin_p.reference "Reference";
+ structural parameter Integer test_Load1.pin_p.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex test_Load1.pin_p.v[2] "Complex potential at the node";
+ Real test_Load1.pin_p.iIm[2];
+ Real test_Load1.pin_p.iRe[2];
+ HPF.Types.Reference test_Load1.pin_n.reference "Reference";
+ structural parameter Integer test_Load1.pin_n.h = 2 "Numbder of harmonics" /* 2 */;
+ Complex test_Load1.pin_n.v[2] "Complex potential at the node";
+ Real test_Load1.pin_n.iIm[2];
+ Real test_Load1.pin_n.iRe[2];
+initial equation
+ algorithm
+  systemDef.modeSelect := false;
+;
+algorithm
+ when time > 0.5 then
+  systemDef.modeSelect := true;
+ end when;
+ when time > 0.25 then
+  systemDef.event1 := true;
+ end when;
+ when time > 0.4 then
+  systemDef.event2 := true;
+ end when;
+equation
+ v.omega = 2 * 3.141592653589793 * systemDef.fFund;
+ v.v[1:2].re = v.vMag[1:2] .* cos(v.vArg[1:2]);
+ v.v[1:2].im = v.vMag[1:2] .* sin(v.vArg[1:2]);
+ v.pin_p.reference.theta = v.pin_n.reference.theta;
+ v.omega = der(v.pin_p.reference.theta);
+ v.v[1:2] = {Complex.'-'.subtract(v.pin_p.v[1], v.pin_n.v[1]), Complex.'-'.subtract(v.pin_p.v[2], v.pin_n.v[2])};
+ v.i[1:2].re = v.pin_p.iRe[1:2];
+ v.i[1:2].im = v.pin_p.iIm[1:2];
+ v.pin_p.iRe[1:2] + v.pin_n.iRe[1:2] = {0.0, 0.0};
+ v.pin_p.iIm[1:2] + v.pin_n.iIm[1:2] = {0.0, 0.0};
+ if Connections.isRoot(ground1.pin.reference) then
+  ground1.pin.reference.theta = 0;
+ end if;
+ ground1.pin.v[1:2] = {Complex.'constructor'.fromReal(0.0, 0), Complex.'constructor'.fromReal(0.0, 0)};
+ z.v[1:2].re = z.z.re .* z.i[1:2].re - z.z.im .* systemDef.hrms[1:2] .* z.i[1:2].im;
+ z.v[1:2].im = z.z.re .* z.i[1:2].im + z.z.im .* systemDef.hrms[1:2] .* z.i[1:2].re;
+ z.pin_p.reference.theta = z.pin_n.reference.theta;
+ z.omega = der(z.pin_p.reference.theta);
+ z.v[1:2] = {Complex.'-'.subtract(z.pin_p.v[1], z.pin_n.v[1]), Complex.'-'.subtract(z.pin_p.v[2], z.pin_n.v[2])};
+ z.i[1:2].re = z.pin_p.iRe[1:2];
+ z.i[1:2].im = z.pin_p.iIm[1:2];
+ z.pin_p.iRe[1:2] + z.pin_n.iRe[1:2] = {0.0, 0.0};
+ z.pin_p.iIm[1:2] + z.pin_n.iIm[1:2] = {0.0, 0.0};
+ z2.v[1:2].re = z2.z.re .* z2.i[1:2].re - z2.z.im .* systemDef.hrms[1:2] .* z2.i[1:2].im;
+ z2.v[1:2].im = z2.z.re .* z2.i[1:2].im + z2.z.im .* systemDef.hrms[1:2] .* z2.i[1:2].re;
+ z2.pin_p.reference.theta = z2.pin_n.reference.theta;
+ z2.omega = der(z2.pin_p.reference.theta);
+ z2.v[1:2] = {Complex.'-'.subtract(z2.pin_p.v[1], z2.pin_n.v[1]), Complex.'-'.subtract(z2.pin_p.v[2], z2.pin_n.v[2])};
+ z2.i[1:2].re = z2.pin_p.iRe[1:2];
+ z2.i[1:2].im = z2.pin_p.iIm[1:2];
+ z2.pin_p.iRe[1:2] + z2.pin_n.iRe[1:2] = {0.0, 0.0};
+ z2.pin_p.iIm[1:2] + z2.pin_n.iIm[1:2] = {0.0, 0.0};
+ if systemDef.modeSelect == false then
+  test_Load1.testVect[1:2].re = test_Load1.v[1:2].re .* test_Load1.i[1:2].re;
+  test_Load1.testVect[1:2].im = test_Load1.v[1:2].im .* (- test_Load1.i[1:2].im);
+ else
+  test_Load1.i[1:2].re = test_Load1.iReal[1:2] .* HPF.Test_components.Test_VoltageCurrentScale(test_Load1.vPre.re);
+  test_Load1.i[1:2].im = test_Load1.iImag[1:2] .* HPF.Test_components.Test_VoltageCurrentScale(test_Load1.vPre.im);
+ end if;
+algorithm
+ when systemDef.event1 <> pre(systemDef.event1) then
+  HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(test_Load1.v[1], "testLoad");
+ end when;
+ when systemDef.event2 <> pre(systemDef.event2) then
+  test_Load1.vPre := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+ end when;
+equation
+ test_Load1.pin_p.reference.theta = test_Load1.pin_n.reference.theta;
+ test_Load1.omega = der(test_Load1.pin_p.reference.theta);
+ test_Load1.v[1:2] = {Complex.'-'.subtract(test_Load1.pin_p.v[1], test_Load1.pin_n.v[1]), Complex.'-'.subtract(test_Load1.pin_p.v[2], test_Load1.pin_n.v[2])};
+ test_Load1.i[1:2].re = test_Load1.pin_p.iRe[1:2];
+ test_Load1.i[1:2].im = test_Load1.pin_p.iIm[1:2];
+ test_Load1.pin_p.iRe[1:2] + test_Load1.pin_n.iRe[1:2] = {0.0, 0.0};
+ test_Load1.pin_p.iIm[1:2] + test_Load1.pin_n.iIm[1:2] = {0.0, 0.0};
+ ground1.pin.iIm[1:2] + test_Load1.pin_n.iIm[1:2] + v.pin_n.iIm[1:2] + z2.pin_n.iIm[1:2] = zeros(2);
+ ground1.pin.iRe[1:2] + test_Load1.pin_n.iRe[1:2] + v.pin_n.iRe[1:2] + z2.pin_n.iRe[1:2] = zeros(2);
+ ground1.pin.v[1].im = test_Load1.pin_n.v[1].im;
+ test_Load1.pin_n.v[1].im = v.pin_n.v[1].im;
+ v.pin_n.v[1].im = z2.pin_n.v[1].im;
+ ground1.pin.v[1].re = test_Load1.pin_n.v[1].re;
+ test_Load1.pin_n.v[1].re = v.pin_n.v[1].re;
+ v.pin_n.v[1].re = z2.pin_n.v[1].re;
+ ground1.pin.v[2].im = test_Load1.pin_n.v[2].im;
+ test_Load1.pin_n.v[2].im = v.pin_n.v[2].im;
+ v.pin_n.v[2].im = z2.pin_n.v[2].im;
+ ground1.pin.v[2].re = test_Load1.pin_n.v[2].re;
+ test_Load1.pin_n.v[2].re = v.pin_n.v[2].re;
+ v.pin_n.v[2].re = z2.pin_n.v[2].re;
+ v.pin_p.iIm[1:2] + z.pin_p.iIm[1:2] = zeros(2);
+ v.pin_p.iRe[1:2] + z.pin_p.iRe[1:2] = zeros(2);
+ v.pin_p.v[1].im = z.pin_p.v[1].im;
+ v.pin_p.v[1].re = z.pin_p.v[1].re;
+ v.pin_p.v[2].im = z.pin_p.v[2].im;
+ v.pin_p.v[2].re = z.pin_p.v[2].re;
+ test_Load1.pin_p.iIm[1:2] + z.pin_n.iIm[1:2] + z2.pin_p.iIm[1:2] = zeros(2);
+ test_Load1.pin_p.iRe[1:2] + z.pin_n.iRe[1:2] + z2.pin_p.iRe[1:2] = zeros(2);
+ test_Load1.pin_p.v[1].im = z.pin_n.v[1].im;
+ z.pin_n.v[1].im = z2.pin_p.v[1].im;
+ test_Load1.pin_p.v[1].re = z.pin_n.v[1].re;
+ z.pin_n.v[1].re = z2.pin_p.v[1].re;
+ test_Load1.pin_p.v[2].im = z.pin_n.v[2].im;
+ z.pin_n.v[2].im = z2.pin_p.v[2].im;
+ test_Load1.pin_p.v[2].re = z.pin_n.v[2].re;
+ z.pin_n.v[2].re = z2.pin_p.v[2].re;
+ v.pin_p.reference.theta = z.pin_p.reference.theta;
+ test_Load1.pin_p.reference.theta = z.pin_n.reference.theta;
+ z.pin_n.reference.theta = z2.pin_p.reference.theta;
+ ground1.pin.reference.theta = v.pin_n.reference.theta;
+ HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(test_Load1.pin_n.reference, ground1.pin.reference);
+ HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(z2.pin_n.reference, ground1.pin.reference);
+
+public
+ function Modelica.ComplexMath.'abs'
+  input Complex c;
+  output Real result;
+ algorithm
+  result := (c.re ^ 2 + c.im ^ 2) ^ 0.5;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.'abs';
+
+ function Modelica.ComplexMath.arg
+  input Complex c;
+  input Real phi0;
+  output Real phi;
+ algorithm
+  phi := Modelica.Math.atan3(c.im, c.re, phi0);
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.arg;
+
+ function Modelica.Math.atan3
+  input Real u1;
+  input Real u2;
+  input Real y0;
+  output Real y;
+  Real w;
+ algorithm
+  w := atan2(u1, u2);
+  if y0 == 0 then
+   y := w;
+  else
+   y := w + 6.283185307179586 * integer((3.141592653589793 + y0 - w) / 6.283185307179586);
+  end if;
+  return;
+ end Modelica.Math.atan3;
+
+ function Complex.'-'.subtract
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re - c2.re, c1.im - c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'-'.subtract;
+
+ function Complex.'constructor'.fromReal
+  input Real re;
+  input Real im;
+  output Complex result;
+ algorithm
+  result.re := re;
+  result.im := im;
+  return;
+ annotation(Inline = true);
+ end Complex.'constructor'.fromReal;
+
+ function Complex.'*'.multiply
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re * c2.re - c1.im * c2.im, c1.re * c2.im + c1.im * c2.re);
+  return;
+ annotation(Inline = true);
+ end Complex.'*'.multiply;
+
+ function Complex.'+'
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re + c2.re, c1.im + c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'+';
+
+ function HPF.Test_components.Test_VoltageCurrentScale
+  input Real v;
+  output Real res;
+ algorithm
+  res := 1;
+  return;
+ end HPF.Test_components.Test_VoltageCurrentScale;
+
+ function HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage
+  input Complex data;
+  input String name;
+  Real[:,:] dataMatrix;
+ algorithm
+  init dataMatrix as Real[2, 1];
+  dataMatrix := {{data.re}, {data.im}};
+  Modelica.Utilities.Streams.writeRealMatrix(name + ".mat", "data", dataMatrix, false, "4");
+  return;
+ end HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage;
+
+ function Modelica.Utilities.Streams.writeRealMatrix
+  input String fileName;
+  input String matrixName;
+  input Real[:,:] matrix;
+  input Boolean append;
+  input String format;
+  output Boolean success;
+ algorithm
+  external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format);
+  return;
+ end Modelica.Utilities.Streams.writeRealMatrix;
+
+ function HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage
+  input String name;
+  output Complex v;
+  Real[:,:] readMatrix;
+ algorithm
+  init readMatrix as Real[2, 1];
+  (readMatrix) := Modelica.Utilities.Streams.readRealMatrix(name + ".mat", "data", 2, 1, true);
+  v.re := readMatrix[1,1];
+  v.im := readMatrix[2,1];
+  return;
+ end HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage;
+
+ function Modelica.Utilities.Streams.readRealMatrix
+  input String fileName;
+  input String matrixName;
+  input Integer nrow;
+  input Integer ncol;
+  input Boolean verboseRead;
+  output Real[:,:] matrix;
+ algorithm
+  init matrix as Real[nrow, ncol];
+  external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead);
+  return;
+ end Modelica.Utilities.Streams.readRealMatrix;
+
+ function HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint;
+
+ function HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+end HPF.Test.SinglePhase_HarmonicLoad;
+
+Applying transformation: enableIfEquationElimination...
+Applying transformation: genInitArrayStatements...
+Applying transformation: scalarize...
+Applying transformation: MakeReinitedVarsStates...
+Applying transformation: enableIfEquationElimination...
+Applying transformation: enableStreamsRewrite...
+Applying transformation: ExtractEventGeneratingExpressions...
+Applying transformation: GenerateEventIndicators...
+Applying transformation: convertWhenToIf...
+Applying transformation: FunctionInliningIfSet...
+Applying transformation: setFDerivativeVariables...
+Applying transformation: addFPreVariables...
+Applying transformation: enableIfEquationRewrite...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: variabilityPropagationIfSet...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: eliminateLinearEquations...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: enableExpandedInStreamRewrite...
+Applying transformation: evaluateAsserts...
+Applying transformation: enableSemiLinearRewrite...
+Applying transformation: eliminateEqualSwitches...
+Applying transformation: genInitialEquations...
+Applying transformation: setFDerivativeVariablesPreBLT...
+Applying transformation: indexReduction...
+Applying transformation: LateFunctionInliningIfSet...
+Applying transformation: commonSubexpressionEliminationIfSet...
+Applying transformation: addFPreVariables...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: eliminateLinearEquations...
+Applying transformation: sortDependentParameters...
+Applying transformation: addRuntimeOptionParameters...
+Applying transformation: computeMatchingsAndBLT...
+Flat tree before matching and BLT:
+fclass HPF.Test.SinglePhase_HarmonicLoad
+ parameter Integer systemDef.hrms[1] = 1 "Harmonics to simulate" /* 1 */;
+ parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
+ structural parameter Integer systemDef.numHrm = 2 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 2 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = true);
+ discrete Boolean systemDef.event1(start = false);
+ discrete Boolean systemDef.event2(start = false);
+ parameter Real v.vMag[1] = 100 "Voltage Magnitude" /* 100 */;
+ parameter Real v.vMag[2] = 5 "Voltage Magnitude" /* 5 */;
+ parameter Real v.vArg[1] = 0 "Voltage angle" /* 0 */;
+ parameter Real v.vArg[2] = 0.5 "Voltage angle" /* 0.5 */;
+ Modelica.SIunits.Angle v.theta(fixed = true,start = 0);
+ parameter Real v.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real v.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real v.i[1].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[1].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.i[2].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[2].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.omega;
+ Real ground1.pin.iIm[1];
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iRe[1];
+ Real ground1.pin.iRe[2];
+ parameter Real z.z.re(start = 1) = 5.0 "Real part of complex number" /* 5.0 */;
+ parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z.vFundAbs;
+ Real z.vFundArg;
+ Real z.iFundAbs;
+ Real z.iFundArg;
+ Real z.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.omega;
+ parameter Real z2.z.re(start = 1) = 2 "Real part of complex number" /* 2 */;
+ parameter Real z2.z.im(start = 0) = 1 "Imaginary part of complex number" /* 1 */;
+ Real z2.vFundAbs;
+ Real z2.vFundArg;
+ Real z2.iFundAbs;
+ Real z2.iFundArg;
+ Real z2.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.omega;
+ parameter Real test_Load1.sReal(start = 0) = -150 "IMPORTANT: set real power to -ve" /* -150 */;
+ parameter Real test_Load1.sImag(start = 0) = 20 /* 20 */;
+ parameter Real test_Load1.iReal[1] = 5 /* 5 */;
+ parameter Real test_Load1.iReal[2] = 2 /* 2 */;
+ parameter Real test_Load1.iImag[1] = 0.25 /* 0.25 */;
+ parameter Real test_Load1.iImag[2] = 0.5 /* 0.5 */;
+ parameter Real test_Load1.sVectRe[1](start = 0) = -150 /* -150 */;
+ parameter Real test_Load1.sVectRe[2](start = 0) = 0 /* 0 */;
+ parameter Real test_Load1.sVectIm[1](start = 0) = 20 /* 20 */;
+ parameter Real test_Load1.sVectIm[2](start = 0) = 0 /* 0 */;
+ parameter Real test_Load1.testVect[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real test_Load1.testVect[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ constant Real test_Load1.testVect[2].re(start = 0,nominal = 1) = 0.0 "Real part of complex number";
+ constant Real test_Load1.testVect[2].im(start = 0,nominal = 1) = 0 "Imaginary part of complex number";
+ discrete Real test_Load1.vPre.re(start = 0) "Real part of complex number";
+ discrete Real test_Load1.vPre.im(start = 0) "Imaginary part of complex number";
+ Real test_Load1.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real test_Load1.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real test_Load1.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real test_Load1.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real test_Load1.omega;
+ discrete Boolean temp_16;
+ discrete Boolean temp_17;
+ discrete Boolean temp_18;
+ discrete Boolean temp_19;
+ discrete Boolean temp_20;
+ Real temp_9.re;
+ Real temp_9.im;
+initial equation
+ algorithm
+  systemDef.modeSelect := false;
+;
+ v.theta = 0;
+parameter equation
+ v.v[1].re = v.vMag[1] .* cos(v.vArg[1]);
+ v.v[2].re = v.vMag[2] .* cos(v.vArg[2]);
+ v.v[1].im = v.vMag[1] .* sin(v.vArg[1]);
+ v.v[2].im = v.vMag[2] .* sin(v.vArg[2]);
+ test_Load1.testVect[1].re = test_Load1.sReal;
+ test_Load1.testVect[1].im = test_Load1.sImag;
+equation
+ temp_16 = time > 0.5;
+ temp_17 = time > 0.25;
+ temp_18 = time > 0.4;
+algorithm
+ if temp_16 and not pre(temp_16) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_17 and not pre(temp_17) then
+  systemDef.event1 := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.event2 := true;
+ end if;
+equation
+ der(v.theta) = 6.283185307179586 * systemDef.fFund;
+ v.omega = der(v.theta);
+ z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im);
+ z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im);
+ z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re);
+ z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re);
+ z.omega = der(v.theta);
+ z.v[1].re = v.v[1].re - z2.v[1].re;
+ z.v[1].im = v.v[1].im - z2.v[1].im;
+ z.v[2].re = v.v[2].re - z2.v[2].re;
+ z.v[2].im = v.v[2].im - z2.v[2].im;
+ z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im;
+ z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im;
+ z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re;
+ z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re;
+ z2.omega = der(v.theta);
+ 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1];
+ 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2];
+ 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1];
+ 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2];
+ temp_19 = systemDef.event1 <> pre(systemDef.event1);
+ temp_20 = systemDef.event2 <> pre(systemDef.event2);
+algorithm
+ if temp_19 and not pre(temp_19) then
+  HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+ end if;
+ if temp_20 and not pre(temp_20) then
+  (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+  test_Load1.vPre.re := temp_9.re;
+  test_Load1.vPre.im := temp_9.im;
+ end if;
+equation
+ test_Load1.omega = der(v.theta);
+ ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0;
+ ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0;
+ ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0;
+ ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0;
+ 0 = ground1.pin.iIm[1];
+ 0 = ground1.pin.iIm[2];
+ 0 = ground1.pin.iRe[1];
+ 0 = ground1.pin.iRe[2];
+ HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5;
+ z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0);
+ z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5;
+ z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0);
+ z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5;
+ z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0);
+ z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5;
+ z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0);
+
+public
+ function Modelica.ComplexMath.'abs'
+  input Complex c;
+  output Real result;
+ algorithm
+  result := (c.re ^ 2 + c.im ^ 2) ^ 0.5;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.'abs';
+
+ function Modelica.ComplexMath.arg
+  input Complex c;
+  input Real phi0;
+  output Real phi;
+ algorithm
+  phi := Modelica.Math.atan3(c.im, c.re, phi0);
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.arg;
+
+ function Modelica.Math.atan3
+  input Real u1;
+  input Real u2;
+  input Real y0;
+  output Real y;
+  Real w;
+ algorithm
+  w := atan2(u1, u2);
+  if y0 == 0 then
+   y := w;
+  else
+   y := w + 6.283185307179586 * integer((3.141592653589793 + y0 - w) / 6.283185307179586);
+  end if;
+  return;
+ end Modelica.Math.atan3;
+
+ function Complex.'-'.subtract
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re - c2.re, c1.im - c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'-'.subtract;
+
+ function Complex.'constructor'.fromReal
+  input Real re;
+  input Real im;
+  output Complex result;
+ algorithm
+  result.re := re;
+  result.im := im;
+  return;
+ annotation(Inline = true);
+ end Complex.'constructor'.fromReal;
+
+ function Complex.'*'.multiply
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re * c2.re - c1.im * c2.im, c1.re * c2.im + c1.im * c2.re);
+  return;
+ annotation(Inline = true);
+ end Complex.'*'.multiply;
+
+ function Complex.'+'
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re + c2.re, c1.im + c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'+';
+
+ function HPF.Test_components.Test_VoltageCurrentScale
+  input Real v;
+  output Real res;
+ algorithm
+  res := 1;
+  return;
+ end HPF.Test_components.Test_VoltageCurrentScale;
+
+ function HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage
+  input Complex data;
+  input String name;
+  Real[:,:] dataMatrix;
+  Real[:,:] temp_1;
+  Real[:] temp_2;
+  Real[:] temp_3;
+ algorithm
+  init dataMatrix as Real[2, 1];
+  init temp_1 as Real[2, 1];
+  init temp_2 as Real[1];
+  temp_2[1] := data.re;
+  for i1 in 1:1 loop
+   temp_1[1,i1] := temp_2[i1];
+  end for;
+  init temp_3 as Real[1];
+  temp_3[1] := data.im;
+  for i1 in 1:1 loop
+   temp_1[2,i1] := temp_3[i1];
+  end for;
+  for i1 in 1:2 loop
+   for i2 in 1:1 loop
+    dataMatrix[i1,i2] := temp_1[i1,i2];
+   end for;
+  end for;
+  Modelica.Utilities.Streams.writeRealMatrix(name + ".mat", "data", dataMatrix, false, "4");
+  return;
+ end HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage;
+
+ function Modelica.Utilities.Streams.writeRealMatrix
+  input String fileName;
+  input String matrixName;
+  input Real[:,:] matrix;
+  input Boolean append;
+  input String format;
+  output Boolean success;
+ algorithm
+  external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format);
+  return;
+ end Modelica.Utilities.Streams.writeRealMatrix;
+
+ function HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage
+  input String name;
+  output Complex v;
+  Real[:,:] readMatrix;
+ algorithm
+  init readMatrix as Real[2, 1];
+  (readMatrix) := Modelica.Utilities.Streams.readRealMatrix(name + ".mat", "data", 2, 1, true);
+  v.re := readMatrix[1,1];
+  v.im := readMatrix[2,1];
+  return;
+ end HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage;
+
+ function Modelica.Utilities.Streams.readRealMatrix
+  input String fileName;
+  input String matrixName;
+  input Integer nrow;
+  input Integer ncol;
+  input Boolean verboseRead;
+  output Real[:,:] matrix;
+ algorithm
+  init matrix as Real[nrow, ncol];
+  external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead);
+  return;
+ end Modelica.Utilities.Streams.readRealMatrix;
+
+ function HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint;
+
+ function HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+end HPF.Test.SinglePhase_HarmonicLoad;
+
+DAE BiPGraph
+BiPGraph (51 equations, 49 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iRe[1] ground1.pin.iRe[2] z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.omega z2.vFundAbs z2.vFundArg z2.iFundAbs z2.iFundArg z2.v[1].re z2.v[1].im z2.v[2].re z2.v[2].im z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.omega test_Load1.i[1].re test_Load1.i[1].im test_Load1.i[2].re test_Load1.i[2].im test_Load1.omega temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im systemDef.modeSelect systemDef.event1 systemDef.event2 temp_16 temp_17 temp_18 temp_19 temp_20 }
+eq_1 : temp_16@M // temp_16 = time > 0.5
+eq_2 : temp_17@M // temp_17 = time > 0.25
+eq_3 : temp_18@M // temp_18 = time > 0.4
+eq_4[1] : temp_16# temp_17# temp_18# systemDef.event2@M // algorithm
+ if temp_16 and not pre(temp_16) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_17 and not pre(temp_17) then
+  systemDef.event1 := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.event2 := true;
+ end if;
+
+eq_4[2] : temp_16# temp_17# systemDef.event1@M temp_18# // Already printed, see eq_4[1]
+eq_4[3] : temp_16# systemDef.modeSelect@M temp_17# temp_18# // Already printed, see eq_4[1]
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_10 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_11 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_16 : z2.v[1].re@ z2.i[1].re@M z2.i[1].im@ // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_17 : z2.v[2].re@ z2.i[2].re@M z2.i[2].im@ // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_18 : z2.v[1].im@ z2.i[1].im@M z2.i[1].re@ // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_19 : z2.v[2].im@ z2.i[2].im@M z2.i[2].re@ // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_20 : z2.omega@M der(v.theta)@ // z2.omega = der(v.theta)
+eq_21 : systemDef.modeSelect# z2.v[1].re@ test_Load1.i[1].re@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_22 : systemDef.modeSelect# z2.v[2].re@ test_Load1.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_23 : systemDef.modeSelect# z2.v[1].im@ test_Load1.i[1].im@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_24 : systemDef.modeSelect# z2.v[2].im@ test_Load1.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_25 : temp_19@M systemDef.event1# // temp_19 = systemDef.event1 <> pre(systemDef.event1)
+eq_26 : temp_20@M systemDef.event2# // temp_20 = systemDef.event2 <> pre(systemDef.event2)
+eq_27[1] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# test_Load1.vPre.im@M // algorithm
+ if temp_19 and not pre(temp_19) then
+  HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+ end if;
+ if temp_20 and not pre(temp_20) then
+  (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+  test_Load1.vPre.re := temp_9.re;
+  test_Load1.vPre.im := temp_9.im;
+ end if;
+
+eq_27[2] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# test_Load1.vPre.re@M // Already printed, see eq_27[1]
+eq_27[3] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# temp_9.im@M // Already printed, see eq_27[1]
+eq_27[4] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# temp_9.re@M // Already printed, see eq_27[1]
+eq_28 : test_Load1.omega@M der(v.theta)@ // test_Load1.omega = der(v.theta)
+eq_29 : ground1.pin.iIm[1]@ test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_30 : ground1.pin.iIm[2]@ test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_31 : ground1.pin.iRe[1]@ test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_32 : ground1.pin.iRe[2]@ test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_33 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_37 : // HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : // HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : z2.vFundAbs@M z2.v[1].re@ z2.v[1].im@ // z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+eq_44 : z2.vFundArg@M z2.v[1].im@ z2.v[1].re@ // z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+eq_45 : z2.iFundAbs@M z2.i[1].re@ z2.i[1].im@ // z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+eq_46 : z2.iFundArg@M z2.i[1].im@ z2.i[1].re@ // z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+
+DAE BiPGraph matching
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_16
+eq_2 : temp_17
+eq_3 : temp_18
+eq_4[1] : systemDef.event2
+eq_4[2] : systemDef.event1
+eq_4[3] : systemDef.modeSelect
+eq_5 : der(v.theta)
+eq_6 : v.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[1].im
+eq_10 : z.v[2].im
+eq_11 : z.omega
+eq_12 : z2.v[1].re
+eq_13 : z2.v[1].im
+eq_14 : z2.v[2].re
+eq_15 : z2.v[2].im
+eq_16 : z2.i[1].re
+eq_17 : z2.i[2].re
+eq_18 : z2.i[1].im
+eq_19 : z2.i[2].im
+eq_20 : z2.omega
+eq_21 : test_Load1.i[1].re
+eq_22 : test_Load1.i[2].re
+eq_23 : test_Load1.i[1].im
+eq_24 : test_Load1.i[2].im
+eq_25 : temp_19
+eq_26 : temp_20
+eq_27[1] : test_Load1.vPre.im
+eq_27[2] : test_Load1.vPre.re
+eq_27[3] : temp_9.im
+eq_27[4] : temp_9.re
+eq_28 : test_Load1.omega
+eq_29 : v.i[1].im
+eq_30 : v.i[2].im
+eq_31 : v.i[1].re
+eq_32 : v.i[2].re
+eq_33 : ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]
+eq_39 : z.vFundAbs
+eq_40 : z.vFundArg
+eq_41 : z.iFundAbs
+eq_42 : z.iFundArg
+eq_43 : z2.vFundAbs
+eq_44 : z2.vFundArg
+eq_45 : z2.iFundAbs
+eq_46 : z2.iFundArg
+Unmatched equations: {}
+Unmatched variables: {}
+----------------------------------------
+
+BiPGraph (51 equations, 49 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iRe[1] ground1.pin.iRe[2] z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.omega z2.vFundAbs z2.vFundArg z2.iFundAbs z2.iFundArg z2.v[1].re z2.v[1].im z2.v[2].re z2.v[2].im z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.omega test_Load1.i[1].re test_Load1.i[1].im test_Load1.i[2].re test_Load1.i[2].im test_Load1.omega temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im systemDef.modeSelect systemDef.event1 systemDef.event2 temp_16 temp_17 temp_18 temp_19 temp_20 }
+eq_1 : temp_16@M // temp_16 = time > 0.5
+eq_2 : temp_17@M // temp_17 = time > 0.25
+eq_3 : temp_18@M // temp_18 = time > 0.4
+eq_4[1] : temp_16# temp_17# temp_18# systemDef.event2@M // algorithm
+ if temp_16 and not pre(temp_16) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_17 and not pre(temp_17) then
+  systemDef.event1 := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.event2 := true;
+ end if;
+
+eq_4[2] : temp_16# temp_17# systemDef.event1@M temp_18# // Already printed, see eq_4[1]
+eq_4[3] : temp_16# systemDef.modeSelect@M temp_17# temp_18# // Already printed, see eq_4[1]
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_10 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_11 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_16 : z2.v[1].re@ z2.i[1].re@M z2.i[1].im@ // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_17 : z2.v[2].re@ z2.i[2].re@M z2.i[2].im@ // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_18 : z2.v[1].im@ z2.i[1].im@M z2.i[1].re@ // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_19 : z2.v[2].im@ z2.i[2].im@M z2.i[2].re@ // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_20 : z2.omega@M der(v.theta)@ // z2.omega = der(v.theta)
+eq_21 : systemDef.modeSelect# z2.v[1].re@ test_Load1.i[1].re@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_22 : systemDef.modeSelect# z2.v[2].re@ test_Load1.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_23 : systemDef.modeSelect# z2.v[1].im@ test_Load1.i[1].im@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_24 : systemDef.modeSelect# z2.v[2].im@ test_Load1.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_25 : temp_19@M systemDef.event1# // temp_19 = systemDef.event1 <> pre(systemDef.event1)
+eq_26 : temp_20@M systemDef.event2# // temp_20 = systemDef.event2 <> pre(systemDef.event2)
+eq_27[1] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# test_Load1.vPre.im@M // algorithm
+ if temp_19 and not pre(temp_19) then
+  HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+ end if;
+ if temp_20 and not pre(temp_20) then
+  (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+  test_Load1.vPre.re := temp_9.re;
+  test_Load1.vPre.im := temp_9.im;
+ end if;
+
+eq_27[2] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# test_Load1.vPre.re@M // Already printed, see eq_27[1]
+eq_27[3] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# temp_9.im@M // Already printed, see eq_27[1]
+eq_27[4] : temp_19# z2.v[1].re@ z2.v[1].im@ temp_20# temp_9.re@M // Already printed, see eq_27[1]
+eq_28 : test_Load1.omega@M der(v.theta)@ // test_Load1.omega = der(v.theta)
+eq_29 : ground1.pin.iIm[1]@ test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_30 : ground1.pin.iIm[2]@ test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_31 : ground1.pin.iRe[1]@ test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_32 : ground1.pin.iRe[2]@ test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_33 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_37 : // HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : // HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : z2.vFundAbs@M z2.v[1].re@ z2.v[1].im@ // z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+eq_44 : z2.vFundArg@M z2.v[1].im@ z2.v[1].re@ // z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+eq_45 : z2.iFundAbs@M z2.i[1].re@ z2.i[1].im@ // z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+eq_46 : z2.iFundArg@M z2.i[1].im@ z2.i[1].re@ // z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+
+Starting automatic tearing
+BiPGraph (22 equations, 22 variables)
+Variables: {test_Load1.i[1].im v.i[1].im z.v[1].im z2.v[1].im z2.i[1].im z2.i[1].re z2.v[1].re test_Load1.i[1].re v.i[1].re z.v[1].re temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im temp_20 temp_19 temp_18 temp_17 systemDef.modeSelect systemDef.event1 systemDef.event2 temp_16 }
+eq_23 : systemDef.modeSelect# z2.v[1].im# test_Load1.i[1].im# // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_29 : test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_9 : z.v[1].im@M v.i[1].im# v.i[1].re# // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_18 : z2.v[1].im@ z2.i[1].im# z2.i[1].re# // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_16 : z2.v[1].re@ z2.i[1].re# z2.i[1].im# // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_21 : systemDef.modeSelect# z2.v[1].re# test_Load1.i[1].re# // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_31 : test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_7 : z.v[1].re@M v.i[1].re# v.i[1].im# // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_27[4] : temp_19# z2.v[1].re# z2.v[1].im# temp_20# temp_9.re@M // algorithm
+ if temp_19 and not pre(temp_19) then
+  HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+ end if;
+ if temp_20 and not pre(temp_20) then
+  (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+  test_Load1.vPre.re := temp_9.re;
+  test_Load1.vPre.im := temp_9.im;
+ end if;
+
+eq_27[3] : temp_19# z2.v[1].re# z2.v[1].im# temp_20# temp_9.im@M // Already printed, see eq_27[4]
+eq_27[2] : temp_19# z2.v[1].re# z2.v[1].im# temp_20# test_Load1.vPre.re@M // Already printed, see eq_27[4]
+eq_27[1] : temp_19# z2.v[1].re# z2.v[1].im# temp_20# test_Load1.vPre.im@M // Already printed, see eq_27[4]
+eq_26 : temp_20@M systemDef.event2# // temp_20 = systemDef.event2 <> pre(systemDef.event2)
+eq_25 : temp_19@M systemDef.event1# // temp_19 = systemDef.event1 <> pre(systemDef.event1)
+eq_3 : temp_18@M // temp_18 = time > 0.4
+eq_2 : temp_17@M // temp_17 = time > 0.25
+eq_4[3] : temp_16# systemDef.modeSelect@M temp_17# temp_18# // algorithm
+ if temp_16 and not pre(temp_16) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_17 and not pre(temp_17) then
+  systemDef.event1 := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.event2 := true;
+ end if;
+
+eq_4[2] : temp_16# temp_17# systemDef.event1@M temp_18# // Already printed, see eq_4[3]
+eq_4[1] : temp_16# temp_17# temp_18# systemDef.event2@M // Already printed, see eq_4[3]
+eq_1 : temp_16@M // temp_16 = time > 0.5
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_29 : v.i[1].im
+eq_9 : z.v[1].im
+eq_13 : z2.v[1].im
+eq_12 : z2.v[1].re
+eq_31 : v.i[1].re
+eq_7 : z.v[1].re
+eq_27[4] : temp_9.re
+eq_27[3] : temp_9.im
+eq_27[2] : test_Load1.vPre.re
+eq_27[1] : test_Load1.vPre.im
+eq_26 : temp_20
+eq_25 : temp_19
+eq_3 : temp_18
+eq_2 : temp_17
+eq_4[3] : systemDef.modeSelect
+eq_4[2] : systemDef.event1
+eq_4[1] : systemDef.event2
+eq_1 : temp_16
+Unmatched equations: {eq_23 eq_18 eq_16 eq_21 }
+Unmatched variables: {test_Load1.i[1].im z2.i[1].im z2.i[1].re test_Load1.i[1].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_29 : v.i[1].im
+eq_9 : z.v[1].im
+eq_13 : z2.v[1].im
+eq_12 : z2.v[1].re
+eq_31 : v.i[1].re
+eq_7 : z.v[1].re
+eq_27[4] : temp_9.re
+eq_27[3] : temp_9.im
+eq_27[2] : test_Load1.vPre.re
+eq_27[1] : test_Load1.vPre.im
+eq_26 : temp_20
+eq_25 : temp_19
+eq_3 : temp_18
+eq_2 : temp_17
+eq_4[3] : systemDef.modeSelect
+eq_4[2] : systemDef.event1
+eq_4[1] : systemDef.event2
+eq_1 : temp_16
+Unmatched equations: {eq_23 eq_18 eq_16 eq_21 }
+Unmatched variables: {test_Load1.i[1].im z2.i[1].im z2.i[1].re test_Load1.i[1].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1], tearing with variable: test_Load1.i[1].im
+Automatic tearing pair, equation: z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re, tearing with variable: z2.i[1].im
+Automatic tearing pair, equation: z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im, tearing with variable: test_Load1.i[1].re
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1], tearing with variable: z2.i[1].re
+Starting automatic tearing
+BiPGraph (10 equations, 10 variables)
+Variables: {test_Load1.i[2].im v.i[2].im z.v[2].im z2.v[2].im z2.i[2].im z2.i[2].re z2.v[2].re test_Load1.i[2].re v.i[2].re z.v[2].re }
+eq_24 : z2.v[2].im# test_Load1.i[2].im# // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_30 : test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_10 : z.v[2].im@M v.i[2].im# v.i[2].re# // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_19 : z2.v[2].im@ z2.i[2].im# z2.i[2].re# // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_17 : z2.v[2].re@ z2.i[2].re# z2.i[2].im# // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_22 : z2.v[2].re# test_Load1.i[2].re# // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_32 : test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_8 : z.v[2].re@M v.i[2].re# v.i[2].im# // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_30 : v.i[2].im
+eq_10 : z.v[2].im
+eq_15 : z2.v[2].im
+eq_14 : z2.v[2].re
+eq_32 : v.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_24 eq_19 eq_17 eq_22 }
+Unmatched variables: {test_Load1.i[2].im z2.i[2].im z2.i[2].re test_Load1.i[2].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_30 : v.i[2].im
+eq_10 : z.v[2].im
+eq_15 : z2.v[2].im
+eq_14 : z2.v[2].re
+eq_32 : v.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_24 eq_19 eq_17 eq_22 }
+Unmatched variables: {test_Load1.i[2].im z2.i[2].im z2.i[2].re test_Load1.i[2].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2], tearing with variable: test_Load1.i[2].im
+Automatic tearing pair, equation: z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re, tearing with variable: z2.i[2].im
+Automatic tearing pair, equation: z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im, tearing with variable: test_Load1.i[2].re
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2], tearing with variable: z2.i[2].re
+***********************************
+*********** ODE section ***********
+***********************************
+
+--- Solved equation ---
+der(v.theta) := 6.283185307179586 * systemDef.fFund
+
+***********************************
+*********** Real outputs **********
+***********************************
+
+***********************************
+*** Integer and boolean outputs ***
+***********************************
+
+***********************************
+********* Other variables *********
+***********************************
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Torn mixed system (Block 1) of 4 iteration variables and 10 solved variables ---
+Torn variables:
+  v.i[1].im
+  v.i[1].re
+  z.v[1].im
+  z2.v[1].im
+  z.v[1].re
+  z2.v[1].re
+  temp_9.re
+  temp_9.im
+  test_Load1.vPre.re
+  test_Load1.vPre.im
+
+Iteration variables:
+  test_Load1.i[1].im (start=0,nominal=1)
+  z2.i[1].im (start=0,nominal=1)
+  test_Load1.i[1].re (start=0,nominal=1)
+  z2.i[1].re (start=0,nominal=1)
+
+Solved discrete variables:
+  temp_16
+  temp_17
+  temp_18
+  systemDef.event1
+  temp_19
+  systemDef.event2
+  temp_20
+  systemDef.modeSelect
+
+Torn equations:
+  v.i[1].im := ground1.pin.iIm[1] - test_Load1.i[1].im - z2.i[1].im
+  v.i[1].re := ground1.pin.iRe[1] - test_Load1.i[1].re - z2.i[1].re
+  z.v[1].im := z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+  z2.v[1].im := - z.v[1].im + v.v[1].im
+  z.v[1].re := z.z.re .* (- v.i[1].re) + (- z.z.im .* systemDef.hrms[1] .* (- v.i[1].im))
+  z2.v[1].re := - z.v[1].re + v.v[1].re
+  algorithm
+    if temp_19 and not pre(temp_19) then
+      HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+    end if;
+    if temp_20 and not pre(temp_20) then
+      (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+      test_Load1.vPre.re := temp_9.re;
+      test_Load1.vPre.im := temp_9.im;
+    end if;
+
+    Assigned variables: temp_9.re
+                        temp_9.im
+  algorithm
+    if temp_19 and not pre(temp_19) then
+      HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+    end if;
+    if temp_20 and not pre(temp_20) then
+      (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+      test_Load1.vPre.re := temp_9.re;
+      test_Load1.vPre.im := temp_9.im;
+    end if;
+
+    Assigned variables: test_Load1.vPre.re
+                        test_Load1.vPre.im
+
+Continuous residual equations:
+  0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+    Iteration variables: test_Load1.i[1].im
+  z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+    Iteration variables: z2.i[1].im
+  z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+    Iteration variables: test_Load1.i[1].re
+  0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+    Iteration variables: z2.i[1].re
+
+Discrete equations:
+  temp_16 := time > 0.5
+  temp_17 := time > 0.25
+  temp_18 := time > 0.4
+  algorithm
+    if temp_16 and not pre(temp_16) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_17 and not pre(temp_17) then
+      systemDef.event1 := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.event1
+  temp_19 := systemDef.event1 <> pre(systemDef.event1)
+  algorithm
+    if temp_16 and not pre(temp_16) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_17 and not pre(temp_17) then
+      systemDef.event1 := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.event2
+  temp_20 := systemDef.event2 <> pre(systemDef.event2)
+  algorithm
+    if temp_16 and not pre(temp_16) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_17 and not pre(temp_17) then
+      systemDef.event1 := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.modeSelect
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Torn system (Block 2) of 4 iteration variables and 6 solved variables ---
+Torn variables:
+  v.i[2].im
+  v.i[2].re
+  z.v[2].im
+  z2.v[2].im
+  z.v[2].re
+  z2.v[2].re
+
+Iteration variables:
+  test_Load1.i[2].im (start=0,nominal=1)
+  z2.i[2].im (start=0,nominal=1)
+  test_Load1.i[2].re (start=0,nominal=1)
+  z2.i[2].re (start=0,nominal=1)
+
+Torn equations:
+  v.i[2].im := ground1.pin.iIm[2] - test_Load1.i[2].im - z2.i[2].im
+  v.i[2].re := ground1.pin.iRe[2] - test_Load1.i[2].re - z2.i[2].re
+  z.v[2].im := z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+  z2.v[2].im := - z.v[2].im + v.v[2].im
+  z.v[2].re := z.z.re .* (- v.i[2].re) + (- z.z.im .* systemDef.hrms[2] .* (- v.i[2].im))
+  z2.v[2].re := - z.v[2].re + v.v[2].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+    Iteration variables: test_Load1.i[2].im
+  z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+    Iteration variables: z2.i[2].im
+  z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+    Iteration variables: test_Load1.i[2].re
+  0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+    Iteration variables: z2.i[2].re
+
+--- Solved equation ---
+v.omega := der(v.theta)
+
+--- Solved equation ---
+z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.vFundArg := Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+
+--- Solved equation ---
+z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+--- Solved equation ---
+z.omega := der(v.theta)
+
+--- Solved equation ---
+z2.vFundAbs := (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z2.vFundArg := Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+
+--- Solved equation ---
+z2.iFundAbs := (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z2.iFundArg := Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+
+--- Solved equation ---
+z2.omega := der(v.theta)
+
+--- Solved equation ---
+test_Load1.omega := der(v.theta)
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+***********************************
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Torn mixed system (Block 1) of 4 iteration variables and 10 solved variables ---
+Torn variables:
+  v.i[1].im
+  v.i[1].re
+  z.v[1].im
+  z2.v[1].im
+  z.v[1].re
+  z2.v[1].re
+  temp_9.re
+  temp_9.im
+  test_Load1.vPre.re
+  test_Load1.vPre.im
+
+Iteration variables:
+  test_Load1.i[1].im (start=0,nominal=1)
+  z2.i[1].im (start=0,nominal=1)
+  test_Load1.i[1].re (start=0,nominal=1)
+  z2.i[1].re (start=0,nominal=1)
+
+Solved discrete variables:
+  temp_16
+  temp_17
+  temp_18
+  systemDef.event1
+  temp_19
+  systemDef.event2
+  temp_20
+  systemDef.modeSelect
+
+Torn equations:
+  v.i[1].im := ground1.pin.iIm[1] - test_Load1.i[1].im - z2.i[1].im
+  v.i[1].re := ground1.pin.iRe[1] - test_Load1.i[1].re - z2.i[1].re
+  z.v[1].im := z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+  z2.v[1].im := - z.v[1].im + v.v[1].im
+  z.v[1].re := z.z.re .* (- v.i[1].re) + (- z.z.im .* systemDef.hrms[1] .* (- v.i[1].im))
+  z2.v[1].re := - z.v[1].re + v.v[1].re
+  algorithm
+    if temp_19 and not pre(temp_19) then
+      HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+    end if;
+    if temp_20 and not pre(temp_20) then
+      (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+      test_Load1.vPre.re := temp_9.re;
+      test_Load1.vPre.im := temp_9.im;
+    end if;
+
+    Assigned variables: temp_9.re
+                        temp_9.im
+  algorithm
+    if temp_19 and not pre(temp_19) then
+      HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+    end if;
+    if temp_20 and not pre(temp_20) then
+      (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+      test_Load1.vPre.re := temp_9.re;
+      test_Load1.vPre.im := temp_9.im;
+    end if;
+
+    Assigned variables: test_Load1.vPre.re
+                        test_Load1.vPre.im
+
+Continuous residual equations:
+  0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+    Iteration variables: test_Load1.i[1].im
+  z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+    Iteration variables: z2.i[1].im
+  z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+    Iteration variables: test_Load1.i[1].re
+  0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+    Iteration variables: z2.i[1].re
+
+Discrete equations:
+  temp_16 := time > 0.5
+  temp_17 := time > 0.25
+  temp_18 := time > 0.4
+  algorithm
+    if temp_16 and not pre(temp_16) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_17 and not pre(temp_17) then
+      systemDef.event1 := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.event1
+  temp_19 := systemDef.event1 <> pre(systemDef.event1)
+  algorithm
+    if temp_16 and not pre(temp_16) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_17 and not pre(temp_17) then
+      systemDef.event1 := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.event2
+  temp_20 := systemDef.event2 <> pre(systemDef.event2)
+  algorithm
+    if temp_16 and not pre(temp_16) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_17 and not pre(temp_17) then
+      systemDef.event1 := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.event2 := true;
+    end if;
+
+    Assigned variables: systemDef.modeSelect
+
+--- Solved equation ---
+der(v.theta) := 6.283185307179586 * systemDef.fFund
+
+--- Solved equation ---
+v.omega := der(v.theta)
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Torn system (Block 2) of 4 iteration variables and 6 solved variables ---
+Torn variables:
+  v.i[2].im
+  v.i[2].re
+  z.v[2].im
+  z2.v[2].im
+  z.v[2].re
+  z2.v[2].re
+
+Iteration variables:
+  test_Load1.i[2].im (start=0,nominal=1)
+  z2.i[2].im (start=0,nominal=1)
+  test_Load1.i[2].re (start=0,nominal=1)
+  z2.i[2].re (start=0,nominal=1)
+
+Torn equations:
+  v.i[2].im := ground1.pin.iIm[2] - test_Load1.i[2].im - z2.i[2].im
+  v.i[2].re := ground1.pin.iRe[2] - test_Load1.i[2].re - z2.i[2].re
+  z.v[2].im := z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+  z2.v[2].im := - z.v[2].im + v.v[2].im
+  z.v[2].re := z.z.re .* (- v.i[2].re) + (- z.z.im .* systemDef.hrms[2] .* (- v.i[2].im))
+  z2.v[2].re := - z.v[2].re + v.v[2].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+    Iteration variables: test_Load1.i[2].im
+  z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+    Iteration variables: z2.i[2].im
+  z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+    Iteration variables: test_Load1.i[2].re
+  0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+    Iteration variables: z2.i[2].re
+
+--- Solved equation ---
+z.omega := der(v.theta)
+
+--- Solved equation ---
+z2.omega := der(v.theta)
+
+--- Solved equation ---
+test_Load1.omega := der(v.theta)
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Solved equation ---
+z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.vFundArg := Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+
+--- Solved equation ---
+z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+--- Solved equation ---
+z2.vFundAbs := (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z2.vFundArg := Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+
+--- Solved equation ---
+z2.iFundAbs := (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z2.iFundArg := Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+-------------------------------
+
+BiPGraph (44 equations, 60 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iRe[1] ground1.pin.iRe[2] z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.omega z2.vFundAbs z2.vFundArg z2.iFundAbs z2.iFundArg z2.v[1].re z2.v[1].im z2.v[2].re z2.v[2].im z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.omega test_Load1.i[1].re test_Load1.i[1].im test_Load1.i[2].re test_Load1.i[2].im test_Load1.omega temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im systemDef.modeSelect systemDef.event1 systemDef.event2 temp_16 temp_17 temp_18 temp_19 temp_20 v.theta pre(test_Load1.vPre.re) pre(test_Load1.vPre.im) pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_16) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) }
+eq_1 : temp_16@M // temp_16 = time > 0.5
+eq_2 : temp_17@M // temp_17 = time > 0.25
+eq_3 : temp_18@M // temp_18 = time > 0.4
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_10 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_11 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_16 : z2.v[1].re@ z2.i[1].re@M z2.i[1].im@ // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_17 : z2.v[2].re@ z2.i[2].re@M z2.i[2].im@ // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_18 : z2.v[1].im@ z2.i[1].im@M z2.i[1].re@ // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_19 : z2.v[2].im@ z2.i[2].im@M z2.i[2].re@ // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_20 : z2.omega@M der(v.theta)@ // z2.omega = der(v.theta)
+eq_21 : systemDef.modeSelect# z2.v[1].re@ test_Load1.i[1].re@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_22 : systemDef.modeSelect# z2.v[2].re@ test_Load1.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_23 : systemDef.modeSelect# z2.v[1].im@ test_Load1.i[1].im@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_24 : systemDef.modeSelect# z2.v[2].im@ test_Load1.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_25 : temp_19@M systemDef.event1# pre(systemDef.event1)# // temp_19 = systemDef.event1 <> pre(systemDef.event1)
+eq_26 : temp_20@M systemDef.event2# pre(systemDef.event2)# // temp_20 = systemDef.event2 <> pre(systemDef.event2)
+eq_28 : test_Load1.omega@M der(v.theta)@ // test_Load1.omega = der(v.theta)
+eq_29 : ground1.pin.iIm[1]@ test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_30 : ground1.pin.iIm[2]@ test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_31 : ground1.pin.iRe[1]@ test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_32 : ground1.pin.iRe[2]@ test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_33 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_37 : v.theta# // HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : v.theta# // HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : z2.vFundAbs@M z2.v[1].re@ z2.v[1].im@ // z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+eq_44 : z2.vFundArg@M z2.v[1].im@ z2.v[1].re@ // z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+eq_45 : z2.iFundAbs@M z2.i[1].re@ z2.i[1].im@ // z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+eq_46 : z2.iFundArg@M z2.i[1].im@ z2.i[1].re@ // z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+
+Init DAE BiPGraph
+BiPGraph (46 equations, 60 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iRe[1] ground1.pin.iRe[2] z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.omega z2.vFundAbs z2.vFundArg z2.iFundAbs z2.iFundArg z2.v[1].re z2.v[1].im z2.v[2].re z2.v[2].im z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.omega test_Load1.i[1].re test_Load1.i[1].im test_Load1.i[2].re test_Load1.i[2].im test_Load1.omega temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im systemDef.modeSelect systemDef.event1 systemDef.event2 temp_16 temp_17 temp_18 temp_19 temp_20 v.theta pre(test_Load1.vPre.re) pre(test_Load1.vPre.im) pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_16) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) }
+eq_1 : temp_16@M // temp_16 = time > 0.5
+eq_2 : temp_17@M // temp_17 = time > 0.25
+eq_3 : temp_18@M // temp_18 = time > 0.4
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_10 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_11 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_16 : z2.v[1].re@ z2.i[1].re@M z2.i[1].im@ // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_17 : z2.v[2].re@ z2.i[2].re@M z2.i[2].im@ // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_18 : z2.v[1].im@ z2.i[1].im@M z2.i[1].re@ // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_19 : z2.v[2].im@ z2.i[2].im@M z2.i[2].re@ // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_20 : z2.omega@M der(v.theta)@ // z2.omega = der(v.theta)
+eq_21 : systemDef.modeSelect# z2.v[1].re@ test_Load1.i[1].re@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_22 : systemDef.modeSelect# z2.v[2].re@ test_Load1.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_23 : systemDef.modeSelect# z2.v[1].im@ test_Load1.i[1].im@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_24 : systemDef.modeSelect# z2.v[2].im@ test_Load1.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_25 : temp_19@M systemDef.event1# pre(systemDef.event1)# // temp_19 = systemDef.event1 <> pre(systemDef.event1)
+eq_26 : temp_20@M systemDef.event2# pre(systemDef.event2)# // temp_20 = systemDef.event2 <> pre(systemDef.event2)
+eq_28 : test_Load1.omega@M der(v.theta)@ // test_Load1.omega = der(v.theta)
+eq_29 : ground1.pin.iIm[1]@ test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_30 : ground1.pin.iIm[2]@ test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_31 : ground1.pin.iRe[1]@ test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_32 : ground1.pin.iRe[2]@ test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_33 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_37 : v.theta# // HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : v.theta# // HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : z2.vFundAbs@M z2.v[1].re@ z2.v[1].im@ // z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+eq_44 : z2.vFundArg@M z2.v[1].im@ z2.v[1].re@ // z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+eq_45 : z2.iFundAbs@M z2.i[1].re@ z2.i[1].im@ // z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+eq_46 : z2.iFundArg@M z2.i[1].im@ z2.i[1].re@ // z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+eq_47 : systemDef.modeSelect@M // algorithm
+ systemDef.modeSelect := false;
+
+eq_48 : v.theta@M // v.theta = 0
+
+Init BiPGraph matching
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_16
+eq_2 : temp_17
+eq_3 : temp_18
+eq_5 : der(v.theta)
+eq_6 : v.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[1].im
+eq_10 : z.v[2].im
+eq_11 : z.omega
+eq_12 : z2.v[1].re
+eq_13 : z2.v[1].im
+eq_14 : z2.v[2].re
+eq_15 : z2.v[2].im
+eq_16 : z2.i[1].re
+eq_17 : z2.i[2].re
+eq_18 : z2.i[1].im
+eq_19 : z2.i[2].im
+eq_20 : z2.omega
+eq_21 : test_Load1.i[1].re
+eq_22 : test_Load1.i[2].re
+eq_23 : test_Load1.i[1].im
+eq_24 : test_Load1.i[2].im
+eq_25 : temp_19
+eq_26 : temp_20
+eq_28 : test_Load1.omega
+eq_29 : v.i[1].im
+eq_30 : v.i[2].im
+eq_31 : v.i[1].re
+eq_32 : v.i[2].re
+eq_33 : ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]
+eq_39 : z.vFundAbs
+eq_40 : z.vFundArg
+eq_41 : z.iFundAbs
+eq_42 : z.iFundArg
+eq_43 : z2.vFundAbs
+eq_44 : z2.vFundArg
+eq_45 : z2.iFundAbs
+eq_46 : z2.iFundArg
+eq_47 : systemDef.modeSelect
+eq_48 : v.theta
+Unmatched equations: {}
+Unmatched variables: {temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im systemDef.event1 systemDef.event2 pre(test_Load1.vPre.re) pre(test_Load1.vPre.im) pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_16) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) }
+----------------------------------------
+
+Analysing initial system for redundant equations to remove.
+All seems to be ok!
+Init DAE BiPGraph after addition of initial equations
+BiPGraph (62 equations, 60 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iRe[1] ground1.pin.iRe[2] z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.omega z2.vFundAbs z2.vFundArg z2.iFundAbs z2.iFundArg z2.v[1].re z2.v[1].im z2.v[2].re z2.v[2].im z2.i[1].re z2.i[1].im z2.i[2].re z2.i[2].im z2.omega test_Load1.i[1].re test_Load1.i[1].im test_Load1.i[2].re test_Load1.i[2].im test_Load1.omega temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im systemDef.modeSelect systemDef.event1 systemDef.event2 temp_16 temp_17 temp_18 temp_19 temp_20 v.theta pre(test_Load1.vPre.re) pre(test_Load1.vPre.im) pre(systemDef.modeSelect) pre(systemDef.event1) pre(systemDef.event2) pre(temp_16) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) }
+eq_1 : temp_16@M // temp_16 = time > 0.5
+eq_2 : temp_17@M // temp_17 = time > 0.25
+eq_3 : temp_18@M // temp_18 = time > 0.4
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_10 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_11 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_16 : z2.v[1].re@ z2.i[1].re@M z2.i[1].im@ // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_17 : z2.v[2].re@ z2.i[2].re@M z2.i[2].im@ // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_18 : z2.v[1].im@ z2.i[1].im@M z2.i[1].re@ // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_19 : z2.v[2].im@ z2.i[2].im@M z2.i[2].re@ // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_20 : z2.omega@M der(v.theta)@ // z2.omega = der(v.theta)
+eq_21 : systemDef.modeSelect# z2.v[1].re@ test_Load1.i[1].re@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_22 : systemDef.modeSelect# z2.v[2].re@ test_Load1.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_23 : systemDef.modeSelect# z2.v[1].im@ test_Load1.i[1].im@M // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_24 : systemDef.modeSelect# z2.v[2].im@ test_Load1.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_25 : temp_19@M systemDef.event1# pre(systemDef.event1)# // temp_19 = systemDef.event1 <> pre(systemDef.event1)
+eq_26 : temp_20@M systemDef.event2# pre(systemDef.event2)# // temp_20 = systemDef.event2 <> pre(systemDef.event2)
+eq_28 : test_Load1.omega@M der(v.theta)@ // test_Load1.omega = der(v.theta)
+eq_29 : ground1.pin.iIm[1]@ test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_30 : ground1.pin.iIm[2]@ test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_31 : ground1.pin.iRe[1]@ test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_32 : ground1.pin.iRe[2]@ test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_33 : ground1.pin.iIm[1]@M // 0 = ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]@M // 0 = ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]@M // 0 = ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]@M // 0 = ground1.pin.iRe[2]
+eq_37 : v.theta# // HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : v.theta# // HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : z2.vFundAbs@M z2.v[1].re@ z2.v[1].im@ // z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+eq_44 : z2.vFundArg@M z2.v[1].im@ z2.v[1].re@ // z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+eq_45 : z2.iFundAbs@M z2.i[1].re@ z2.i[1].im@ // z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+eq_46 : z2.iFundArg@M z2.i[1].im@ z2.i[1].re@ // z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+eq_47 : systemDef.modeSelect@M // algorithm
+ systemDef.modeSelect := false;
+
+eq_48 : v.theta@M // v.theta = 0
+eq_49 : temp_9.re@M // temp_9.re = pre(temp_9.re)
+eq_50 : temp_9.im@M // temp_9.im = pre(temp_9.im)
+eq_51 : test_Load1.vPre.re@M pre(test_Load1.vPre.re)@ // test_Load1.vPre.re = pre(test_Load1.vPre.re)
+eq_52 : test_Load1.vPre.im@M pre(test_Load1.vPre.im)@ // test_Load1.vPre.im = pre(test_Load1.vPre.im)
+eq_53 : systemDef.event1@M pre(systemDef.event1)@ // systemDef.event1 = pre(systemDef.event1)
+eq_54 : systemDef.event2@M pre(systemDef.event2)@ // systemDef.event2 = pre(systemDef.event2)
+eq_55 : pre(test_Load1.vPre.re)@M // pre(test_Load1.vPre.re) = 0
+eq_56 : pre(test_Load1.vPre.im)@M // pre(test_Load1.vPre.im) = 0
+eq_57 : systemDef.modeSelect@ pre(systemDef.modeSelect)@M // systemDef.modeSelect = pre(systemDef.modeSelect)
+eq_58 : pre(systemDef.event1)@M // pre(systemDef.event1) = false
+eq_59 : pre(systemDef.event2)@M // pre(systemDef.event2) = false
+eq_60 : pre(temp_16)@M // pre(temp_16) = false
+eq_61 : pre(temp_17)@M // pre(temp_17) = false
+eq_62 : pre(temp_18)@M // pre(temp_18) = false
+eq_63 : pre(temp_19)@M // pre(temp_19) = false
+eq_64 : pre(temp_20)@M // pre(temp_20) = false
+
+Init BiPGraph matching after addition of initial equations
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_16
+eq_2 : temp_17
+eq_3 : temp_18
+eq_5 : der(v.theta)
+eq_6 : v.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[1].im
+eq_10 : z.v[2].im
+eq_11 : z.omega
+eq_12 : z2.v[1].re
+eq_13 : z2.v[1].im
+eq_14 : z2.v[2].re
+eq_15 : z2.v[2].im
+eq_16 : z2.i[1].re
+eq_17 : z2.i[2].re
+eq_18 : z2.i[1].im
+eq_19 : z2.i[2].im
+eq_20 : z2.omega
+eq_21 : test_Load1.i[1].re
+eq_22 : test_Load1.i[2].re
+eq_23 : test_Load1.i[1].im
+eq_24 : test_Load1.i[2].im
+eq_25 : temp_19
+eq_26 : temp_20
+eq_28 : test_Load1.omega
+eq_29 : v.i[1].im
+eq_30 : v.i[2].im
+eq_31 : v.i[1].re
+eq_32 : v.i[2].re
+eq_33 : ground1.pin.iIm[1]
+eq_34 : ground1.pin.iIm[2]
+eq_35 : ground1.pin.iRe[1]
+eq_36 : ground1.pin.iRe[2]
+eq_39 : z.vFundAbs
+eq_40 : z.vFundArg
+eq_41 : z.iFundAbs
+eq_42 : z.iFundArg
+eq_43 : z2.vFundAbs
+eq_44 : z2.vFundArg
+eq_45 : z2.iFundAbs
+eq_46 : z2.iFundArg
+eq_47 : systemDef.modeSelect
+eq_48 : v.theta
+eq_49 : temp_9.re
+eq_50 : temp_9.im
+eq_51 : test_Load1.vPre.re
+eq_52 : test_Load1.vPre.im
+eq_53 : systemDef.event1
+eq_54 : systemDef.event2
+eq_55 : pre(test_Load1.vPre.re)
+eq_56 : pre(test_Load1.vPre.im)
+eq_57 : pre(systemDef.modeSelect)
+eq_58 : pre(systemDef.event1)
+eq_59 : pre(systemDef.event2)
+eq_60 : pre(temp_16)
+eq_61 : pre(temp_17)
+eq_62 : pre(temp_18)
+eq_63 : pre(temp_19)
+eq_64 : pre(temp_20)
+Unmatched equations: {}
+Unmatched variables: {}
+----------------------------------------
+
+Initial system contains homotopy, computing homotopy block components...
+... block components computed: []
+Starting automatic tearing
+BiPGraph (10 equations, 10 variables)
+Variables: {test_Load1.i[1].im v.i[1].im z.v[1].im z2.v[1].im z2.i[1].im z2.i[1].re z2.v[1].re test_Load1.i[1].re v.i[1].re z.v[1].re }
+eq_23 : z2.v[1].im# test_Load1.i[1].im# // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+eq_29 : test_Load1.i[1].im@ v.i[1].im@M z2.i[1].im@ // ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0
+eq_9 : z.v[1].im@M v.i[1].im# v.i[1].re# // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_13 : z.v[1].im@ z2.v[1].im@M // z.v[1].im = v.v[1].im - z2.v[1].im
+eq_18 : z2.v[1].im@ z2.i[1].im# z2.i[1].re# // z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+eq_16 : z2.v[1].re@ z2.i[1].re# z2.i[1].im# // z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+eq_12 : z.v[1].re@ z2.v[1].re@M // z.v[1].re = v.v[1].re - z2.v[1].re
+eq_21 : z2.v[1].re# test_Load1.i[1].re# // 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+eq_31 : test_Load1.i[1].re@ v.i[1].re@M z2.i[1].re@ // ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0
+eq_7 : z.v[1].re@M v.i[1].re# v.i[1].im# // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_29 : v.i[1].im
+eq_9 : z.v[1].im
+eq_13 : z2.v[1].im
+eq_12 : z2.v[1].re
+eq_31 : v.i[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_23 eq_18 eq_16 eq_21 }
+Unmatched variables: {test_Load1.i[1].im z2.i[1].im z2.i[1].re test_Load1.i[1].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_29 : v.i[1].im
+eq_9 : z.v[1].im
+eq_13 : z2.v[1].im
+eq_12 : z2.v[1].re
+eq_31 : v.i[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_23 eq_18 eq_16 eq_21 }
+Unmatched variables: {test_Load1.i[1].im z2.i[1].im z2.i[1].re test_Load1.i[1].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1], tearing with variable: test_Load1.i[1].im
+Automatic tearing pair, equation: z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re, tearing with variable: z2.i[1].im
+Automatic tearing pair, equation: z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im, tearing with variable: test_Load1.i[1].re
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1], tearing with variable: z2.i[1].re
+Starting automatic tearing
+BiPGraph (10 equations, 10 variables)
+Variables: {test_Load1.i[2].im v.i[2].im z.v[2].im z2.v[2].im z2.i[2].im z2.i[2].re z2.v[2].re test_Load1.i[2].re v.i[2].re z.v[2].re }
+eq_24 : z2.v[2].im# test_Load1.i[2].im# // 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+eq_30 : test_Load1.i[2].im@ v.i[2].im@M z2.i[2].im@ // ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0
+eq_10 : z.v[2].im@M v.i[2].im# v.i[2].re# // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_15 : z.v[2].im@ z2.v[2].im@M // z.v[2].im = v.v[2].im - z2.v[2].im
+eq_19 : z2.v[2].im@ z2.i[2].im# z2.i[2].re# // z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+eq_17 : z2.v[2].re@ z2.i[2].re# z2.i[2].im# // z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+eq_14 : z.v[2].re@ z2.v[2].re@M // z.v[2].re = v.v[2].re - z2.v[2].re
+eq_22 : z2.v[2].re# test_Load1.i[2].re# // 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+eq_32 : test_Load1.i[2].re@ v.i[2].re@M z2.i[2].re@ // ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0
+eq_8 : z.v[2].re@M v.i[2].re# v.i[2].im# // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_30 : v.i[2].im
+eq_10 : z.v[2].im
+eq_15 : z2.v[2].im
+eq_14 : z2.v[2].re
+eq_32 : v.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_24 eq_19 eq_17 eq_22 }
+Unmatched variables: {test_Load1.i[2].im z2.i[2].im z2.i[2].re test_Load1.i[2].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_30 : v.i[2].im
+eq_10 : z.v[2].im
+eq_15 : z2.v[2].im
+eq_14 : z2.v[2].re
+eq_32 : v.i[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_24 eq_19 eq_17 eq_22 }
+Unmatched variables: {test_Load1.i[2].im z2.i[2].im z2.i[2].re test_Load1.i[2].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2], tearing with variable: test_Load1.i[2].im
+Automatic tearing pair, equation: z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re, tearing with variable: z2.i[2].im
+Automatic tearing pair, equation: z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im, tearing with variable: test_Load1.i[2].re
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2], tearing with variable: z2.i[2].re
+--- Solved equation ---
+temp_16 := time > 0.5
+
+--- Solved equation ---
+temp_17 := time > 0.25
+
+--- Solved equation ---
+temp_18 := time > 0.4
+
+--- Solved equation ---
+der(v.theta) := 6.283185307179586 * systemDef.fFund
+
+--- Solved equation ---
+v.omega := der(v.theta)
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Solved algorithm ---
+algorithm
+  systemDef.modeSelect := false;
+
+  Assigned variables: systemDef.modeSelect
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Torn system (Block 1) of 4 iteration variables and 6 solved variables ---
+Torn variables:
+  v.i[1].im
+  v.i[1].re
+  z.v[1].im
+  z2.v[1].im
+  z.v[1].re
+  z2.v[1].re
+
+Iteration variables:
+  test_Load1.i[1].im (start=0,nominal=1)
+  z2.i[1].im (start=0,nominal=1)
+  test_Load1.i[1].re (start=0,nominal=1)
+  z2.i[1].re (start=0,nominal=1)
+
+Torn equations:
+  v.i[1].im := ground1.pin.iIm[1] - test_Load1.i[1].im - z2.i[1].im
+  v.i[1].re := ground1.pin.iRe[1] - test_Load1.i[1].re - z2.i[1].re
+  z.v[1].im := z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+  z2.v[1].im := - z.v[1].im + v.v[1].im
+  z.v[1].re := z.z.re .* (- v.i[1].re) + (- z.z.im .* systemDef.hrms[1] .* (- v.i[1].im))
+  z2.v[1].re := - z.v[1].re + v.v[1].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1]
+    Iteration variables: test_Load1.i[1].im
+  z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re
+    Iteration variables: z2.i[1].im
+  z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im
+    Iteration variables: test_Load1.i[1].re
+  0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1]
+    Iteration variables: z2.i[1].re
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Torn system (Block 2) of 4 iteration variables and 6 solved variables ---
+Torn variables:
+  v.i[2].im
+  v.i[2].re
+  z.v[2].im
+  z2.v[2].im
+  z.v[2].re
+  z2.v[2].re
+
+Iteration variables:
+  test_Load1.i[2].im (start=0,nominal=1)
+  z2.i[2].im (start=0,nominal=1)
+  test_Load1.i[2].re (start=0,nominal=1)
+  z2.i[2].re (start=0,nominal=1)
+
+Torn equations:
+  v.i[2].im := ground1.pin.iIm[2] - test_Load1.i[2].im - z2.i[2].im
+  v.i[2].re := ground1.pin.iRe[2] - test_Load1.i[2].re - z2.i[2].re
+  z.v[2].im := z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+  z2.v[2].im := - z.v[2].im + v.v[2].im
+  z.v[2].re := z.z.re .* (- v.i[2].re) + (- z.z.im .* systemDef.hrms[2] .* (- v.i[2].im))
+  z2.v[2].re := - z.v[2].re + v.v[2].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2]
+    Iteration variables: test_Load1.i[2].im
+  z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re
+    Iteration variables: z2.i[2].im
+  z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im
+    Iteration variables: test_Load1.i[2].re
+  0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2]
+    Iteration variables: z2.i[2].re
+
+--- Solved equation ---
+z.omega := der(v.theta)
+
+--- Solved equation ---
+z2.omega := der(v.theta)
+
+--- Solved equation ---
+pre(systemDef.event1) := false
+
+--- Solved equation ---
+systemDef.event1 := pre(systemDef.event1)
+
+--- Solved equation ---
+temp_19 := systemDef.event1 <> pre(systemDef.event1)
+
+--- Solved equation ---
+pre(systemDef.event2) := false
+
+--- Solved equation ---
+systemDef.event2 := pre(systemDef.event2)
+
+--- Solved equation ---
+temp_20 := systemDef.event2 <> pre(systemDef.event2)
+
+--- Solved equation ---
+test_Load1.omega := der(v.theta)
+
+--- Solved equation ---
+v.theta := 0
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Meta equation block ---
+HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Solved equation ---
+z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.vFundArg := Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+
+--- Solved equation ---
+z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+--- Solved equation ---
+z2.vFundAbs := (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z2.vFundArg := Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0)
+
+--- Solved equation ---
+z2.iFundAbs := (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z2.iFundArg := Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0)
+
+--- Solved equation ---
+temp_9.re := pre(temp_9.re)
+
+--- Solved equation ---
+temp_9.im := pre(temp_9.im)
+
+--- Solved equation ---
+pre(test_Load1.vPre.re) := 0
+
+--- Solved equation ---
+test_Load1.vPre.re := pre(test_Load1.vPre.re)
+
+--- Solved equation ---
+pre(test_Load1.vPre.im) := 0
+
+--- Solved equation ---
+test_Load1.vPre.im := pre(test_Load1.vPre.im)
+
+--- Solved equation ---
+pre(systemDef.modeSelect) := systemDef.modeSelect
+
+--- Solved equation ---
+pre(temp_16) := false
+
+--- Solved equation ---
+pre(temp_17) := false
+
+--- Solved equation ---
+pre(temp_18) := false
+
+--- Solved equation ---
+pre(temp_19) := false
+
+--- Solved equation ---
+pre(temp_20) := false
+-------------------------------
+
+Diagnostics for transformed flattened model:
+Diagnostics for flattened class HPF.Test.SinglePhase_HarmonicLoad
+Number of independent constants:                   2(    2 scalars)
+  Number of Real independent constants:            2(    2 scalars)
+  Number of Real independent constants:            2(    2 scalars)
+  Number of Integer independent constants:         0(    0 scalars)
+  Number of Enum independent constants:            0(    0 scalars)
+  Number of Boolean independent constants:         0(    0 scalars)
+  Number of String independent constants:          0(    0 scalars)
+Number of dependent constants:                     0(    0 scalars)
+  Number of Real dependent constants:              0(    0 scalars)
+  Number of Integer dependent constants:           0(    0 scalars)
+  Number of Enum dependent constants:              0(    0 scalars)
+  Number of Boolean dependent constants:           0(    0 scalars)
+  Number of String dependent constants:            0(    0 scalars)
+Number of independent parameters:                 62(   62 scalars)
+  Number of Real independent parameters:          33(   33 scalars)
+  Number of Integer independent parameters:       16(   16 scalars)
+  Number of Enum independent parameters:           0(    0 scalars)
+  Number of Boolean independent parameters:       13(   13 scalars)
+  Number of String independent parameters:         0(    0 scalars)
+Number of dependent parameters:                    6(    6 scalars)
+  Number of Real dependent parameters:             6(    6 scalars)
+  Number of Integer dependent parameters:          0(    0 scalars)
+  Number of Enum dependent parameters:             0(    0 scalars)
+  Number of Boolean dependent parameters:          0(    0 scalars)
+  Number of String dependent parameters:           0(    0 scalars)
+Number of initial parameters:                      0(    0 scalars)
+  Number of Real dependent parameters:             0(    0 scalars)
+  Number of Integer dependent parameters:          0(    0 scalars)
+  Number of Enum dependent parameters:             0(    0 scalars)
+  Number of Boolean dependent parameters:          0(    0 scalars)
+  Number of String dependent parameters:           0(    0 scalars)
+Number of variables:                              50(   50 scalars)
+  Number of Real variables:                       42(   42 scalars)
+  Number of Integer variables:                     0(    0 scalars)
+  Number of Enum variables:                        0(    0 scalars)
+  Number of Boolean variables:                     8(    8 scalars)
+  Number of String variables:                      0(    0 scalars)
+Number of Real differentiated variables:           1(    1 scalars)
+Number of Real derivative variables:               1(    1 scalars)
+Number of Real continous algebraic variables:     38(   38 scalars)
+Number of inputs:                                  0(    0 scalars)
+  Number of Real inputs:                           0(    0 scalars)
+  Number of Integer inputs:                        0(    0 scalars)
+  Number of Enum inputs:                           0(    0 scalars)
+  Number of Boolean inputs:                        0(    0 scalars)
+  Number of String inputs:                         0(    0 scalars)
+Number of discrete variables:                     10(   10 scalars)
+  Number of Real discrete variables:               2(    2 scalars)
+  Number of Integer discrete variables:            0(    0 scalars)
+  Number of Enum discrete variables:               0(    0 scalars)
+  Number of Boolean discrete variables:            8(    8 scalars)
+  Number of String discrete variables:             0(    0 scalars)
+Number of equations:                              46(   49 scalars)
+Number of variables with binding expression:       0(    0 scalars)
+  Number of Real variables with binding exp:       0(    0 scalars)
+  Number of Integer variables binding exp:         0(    0 scalars)
+  Number of Enum variables binding exp:            0(    0 scalars)
+  Number of Boolean variables binding exp:         0(    0 scalars)
+  Number of String variables binding exp:          0(    0 scalars)
+Total number of equations:                        46(   49 scalars)
+Number of initial equations:                      11(   11 scalars)
+Number of event indicators in equations:           0
+Number of event indicators in init equations:      0
+
+Independent constants: 
+ test_Load1.testVect[2].re: number of uses: 0, isLinear: true
+ test_Load1.testVect[2].im: number of uses: 0, isLinear: true
+
+Dependent constants: 
+
+Independent parameters: 
+ systemDef.fFund: number of uses: 1, isLinear: true, evaluated binding exp: 60
+ v.vMag[1]: number of uses: 2, isLinear: true, evaluated binding exp: 100
+ v.vMag[2]: number of uses: 2, isLinear: true, evaluated binding exp: 5
+ v.vArg[1]: number of uses: 2, isLinear: true, evaluated binding exp: 0
+ v.vArg[2]: number of uses: 2, isLinear: true, evaluated binding exp: 0.5
+ z.z.re: number of uses: 4, isLinear: true, evaluated binding exp: 5.0
+ z.z.im: number of uses: 4, isLinear: true, evaluated binding exp: 2.0
+ z2.z.re: number of uses: 4, isLinear: true, evaluated binding exp: 2
+ z2.z.im: number of uses: 4, isLinear: true, evaluated binding exp: 1
+ test_Load1.sReal: number of uses: 1, isLinear: true, evaluated binding exp: -150
+ test_Load1.sImag: number of uses: 1, isLinear: true, evaluated binding exp: 20
+ test_Load1.iReal[1]: number of uses: 1, isLinear: true, evaluated binding exp: 5
+ test_Load1.iReal[2]: number of uses: 1, isLinear: true, evaluated binding exp: 2
+ test_Load1.iImag[1]: number of uses: 1, isLinear: true, evaluated binding exp: 0.25
+ test_Load1.iImag[2]: number of uses: 1, isLinear: true, evaluated binding exp: 0.5
+ test_Load1.sVectRe[1]: number of uses: 0, isLinear: true, evaluated binding exp: -150
+ test_Load1.sVectRe[2]: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ test_Load1.sVectIm[1]: number of uses: 0, isLinear: true, evaluated binding exp: 20
+ test_Load1.sVectIm[2]: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _block_jacobian_check_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-6
+ _cs_rel_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-6
+ _cs_step_size: number of uses: 0, isLinear: true, evaluated binding exp: 0.001
+ _events_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _events_tol_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-4
+ _nle_jacobian_finite_difference_delta: number of uses: 0, isLinear: true, evaluated binding exp: 1.490116119384766E-8
+ _nle_solver_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _nle_solver_max_residual_scaling_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E10
+ _nle_solver_min_residual_scaling_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _nle_solver_min_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-12
+ _nle_solver_regularization_tolerance: number of uses: 0, isLinear: true, evaluated binding exp: -1.0
+ _nle_solver_step_limit_factor: number of uses: 0, isLinear: true, evaluated binding exp: 10.0
+ _nle_solver_tol_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-4
+ _time_events_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 2.220446049250313E-14
+ systemDef.hrms[1]: number of uses: 4, isLinear: true, evaluated binding exp: 1
+ systemDef.hrms[2]: number of uses: 4, isLinear: true, evaluated binding exp: 3
+ systemDef.numPh: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _block_solver_experimental_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _cs_experimental_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _cs_solver: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _iteration_variable_scaling: number of uses: 0, isLinear: true, evaluated binding exp: 1
+ _log_level: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _nle_active_bounds_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _nle_jacobian_calculation_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _nle_jacobian_update_mode: number of uses: 0, isLinear: true, evaluated binding exp: 2
+ _nle_solver_exit_criterion: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _nle_solver_max_iter: number of uses: 0, isLinear: true, evaluated binding exp: 100
+ _nle_solver_max_iter_no_jacobian: number of uses: 0, isLinear: true, evaluated binding exp: 10
+ _residual_equation_scaling: number of uses: 0, isLinear: true, evaluated binding exp: 1
+ systemDef.numHrm: number of uses: 0, isLinear: true, evaluated binding exp: 2
+ _block_jacobian_check: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _block_solver_profiling: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _enforce_bounds: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _nle_brent_ignore_error: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _nle_solver_check_jac_cond: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _nle_solver_use_last_integrator_step: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _nle_solver_use_nominals_as_fallback: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _rescale_after_singular_jac: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _rescale_each_step: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _runtime_log_to_file: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _use_Brent_in_1d: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _use_jacobian_equilibration: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _use_newton_for_brent: number of uses: 0, isLinear: true, evaluated binding exp: true
+
+Dependent parameters: 
+ v.v[1].re: number of uses: 2, isLinear: true
+ v.v[2].re: number of uses: 2, isLinear: true
+ v.v[1].im: number of uses: 2, isLinear: true
+ v.v[2].im: number of uses: 2, isLinear: true
+ test_Load1.testVect[1].re: number of uses: 2, isLinear: true
+ test_Load1.testVect[1].im: number of uses: 2, isLinear: true
+
+Differentiated variables: 
+ v.theta: number of uses: 5, isLinear: false
+
+Derivative variables: 
+ der(v.theta): number of uses: 5, isLinear: true
+
+Discrete variables: 
+ test_Load1.vPre.re: number of uses: 1, isLinear: true, alias: no
+ test_Load1.vPre.im: number of uses: 1, isLinear: true, alias: no
+ systemDef.modeSelect: number of uses: 6, isLinear: true, alias: no
+ systemDef.event1: number of uses: 2, isLinear: true, alias: no
+ systemDef.event2: number of uses: 2, isLinear: true, alias: no
+ temp_16: number of uses: 2, isLinear: true, alias: no
+ temp_17: number of uses: 2, isLinear: true, alias: no
+ temp_18: number of uses: 2, isLinear: true, alias: no
+ temp_19: number of uses: 2, isLinear: true, alias: no
+ temp_20: number of uses: 2, isLinear: true, alias: no
+
+Algebraic real variables: 
+ v.i[1].re: number of uses: 5, isLinear: false, alias: no
+ v.i[1].im: number of uses: 5, isLinear: false, alias: no
+ v.i[2].re: number of uses: 3, isLinear: true, alias: no
+ v.i[2].im: number of uses: 3, isLinear: true, alias: no
+ v.omega: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iIm[1]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iIm[2]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iRe[1]: number of uses: 2, isLinear: true, alias: no
+ ground1.pin.iRe[2]: number of uses: 2, isLinear: true, alias: no
+ z.vFundAbs: number of uses: 1, isLinear: true, alias: no
+ z.vFundArg: number of uses: 1, isLinear: true, alias: no
+ z.iFundAbs: number of uses: 1, isLinear: true, alias: no
+ z.iFundArg: number of uses: 1, isLinear: true, alias: no
+ z.v[1].re: number of uses: 4, isLinear: false, alias: no
+ z.v[1].im: number of uses: 4, isLinear: false, alias: no
+ z.v[2].re: number of uses: 2, isLinear: true, alias: no
+ z.v[2].im: number of uses: 2, isLinear: true, alias: no
+ z.omega: number of uses: 1, isLinear: true, alias: no
+ z2.vFundAbs: number of uses: 1, isLinear: true, alias: no
+ z2.vFundArg: number of uses: 1, isLinear: true, alias: no
+ z2.iFundAbs: number of uses: 1, isLinear: true, alias: no
+ z2.iFundArg: number of uses: 1, isLinear: true, alias: no
+ z2.v[1].re: number of uses: 6, isLinear: false, alias: no
+ z2.v[1].im: number of uses: 6, isLinear: false, alias: no
+ z2.v[2].re: number of uses: 3, isLinear: false, alias: no
+ z2.v[2].im: number of uses: 3, isLinear: false, alias: no
+ z2.i[1].re: number of uses: 5, isLinear: false, alias: no
+ z2.i[1].im: number of uses: 5, isLinear: false, alias: no
+ z2.i[2].re: number of uses: 3, isLinear: true, alias: no
+ z2.i[2].im: number of uses: 3, isLinear: true, alias: no
+ z2.omega: number of uses: 1, isLinear: true, alias: no
+ test_Load1.i[1].re: number of uses: 3, isLinear: false, alias: no
+ test_Load1.i[1].im: number of uses: 3, isLinear: false, alias: no
+ test_Load1.i[2].re: number of uses: 3, isLinear: false, alias: no
+ test_Load1.i[2].im: number of uses: 3, isLinear: false, alias: no
+ test_Load1.omega: number of uses: 1, isLinear: true, alias: no
+ temp_9.re: number of uses: 2, isLinear: true, alias: no
+ temp_9.im: number of uses: 2, isLinear: true, alias: no
+
+Input variables: 
+
+Alias sets:
+{v.i[1].re(start=0), v.pin_p.iRe[1], -v.pin_n.iRe[1], -z.i[1].re(start=0), -z.pin_p.iRe[1], z.pin_n.iRe[1]}
+{v.i[2].re(start=0), v.pin_p.iRe[2], -v.pin_n.iRe[2], -z.i[2].re(start=0), -z.pin_p.iRe[2], z.pin_n.iRe[2]}
+{v.i[1].im(start=0), v.pin_p.iIm[1], -v.pin_n.iIm[1], -z.i[1].im(start=0), -z.pin_p.iIm[1], z.pin_n.iIm[1]}
+{v.i[2].im(start=0), v.pin_p.iIm[2], -v.pin_n.iIm[2], -z.i[2].im(start=0), -z.pin_p.iIm[2], z.pin_n.iIm[2]}
+{z2.i[1].re(start=0), z2.pin_p.iRe[1], -z2.pin_n.iRe[1]}
+{z2.i[2].re(start=0), z2.pin_p.iRe[2], -z2.pin_n.iRe[2]}
+{z2.i[1].im(start=0), z2.pin_p.iIm[1], -z2.pin_n.iIm[1]}
+{z2.i[2].im(start=0), z2.pin_p.iIm[2], -z2.pin_n.iIm[2]}
+{v.theta(start=0), test_Load1.pin_p.reference.theta, test_Load1.pin_n.reference.theta, v.pin_p.reference.theta, v.pin_n.reference.theta, z.pin_p.reference.theta, z.pin_n.reference.theta, z2.pin_p.reference.theta, z2.pin_n.reference.theta, ground1.pin.reference.theta}
+{test_Load1.i[1].re(start=0), test_Load1.pin_p.iRe[1], -test_Load1.pin_n.iRe[1]}
+{test_Load1.i[2].re(start=0), test_Load1.pin_p.iRe[2], -test_Load1.pin_n.iRe[2]}
+{test_Load1.i[1].im(start=0), test_Load1.pin_p.iIm[1], -test_Load1.pin_n.iIm[1]}
+{test_Load1.i[2].im(start=0), test_Load1.pin_p.iIm[2], -test_Load1.pin_n.iIm[2]}
+{test_Load1.testVect[2].im(start=0), ground1.pin.v[1].im, test_Load1.pin_n.v[1].im, v.pin_n.v[1].im, z2.pin_n.v[1].im, ground1.pin.v[2].im, test_Load1.pin_n.v[2].im, v.pin_n.v[2].im, z2.pin_n.v[2].im}
+{test_Load1.testVect[2].re(start=0), ground1.pin.v[1].re, test_Load1.pin_n.v[1].re, v.pin_n.v[1].re, z2.pin_n.v[1].re, ground1.pin.v[2].re, test_Load1.pin_n.v[2].re, v.pin_n.v[2].re, z2.pin_n.v[2].re}
+{v.v[1].im(start=0), v.pin_p.v[1].im, z.pin_p.v[1].im}
+{v.v[1].re(start=0), v.pin_p.v[1].re, z.pin_p.v[1].re}
+{v.v[2].im(start=0), v.pin_p.v[2].im, z.pin_p.v[2].im}
+{v.v[2].re(start=0), v.pin_p.v[2].re, z.pin_p.v[2].re}
+{z2.v[1].im(start=0), test_Load1.pin_p.v[1].im, z.pin_n.v[1].im, z2.pin_p.v[1].im, test_Load1.v[1].im(start=0)}
+{z2.v[1].re(start=0), test_Load1.pin_p.v[1].re, z.pin_n.v[1].re, z2.pin_p.v[1].re, test_Load1.v[1].re(start=0)}
+{z2.v[2].im(start=0), test_Load1.pin_p.v[2].im, z.pin_n.v[2].im, z2.pin_p.v[2].im, test_Load1.v[2].im(start=0)}
+{z2.v[2].re(start=0), test_Load1.pin_p.v[2].re, z.pin_n.v[2].re, z2.pin_p.v[2].re, test_Load1.v[2].re(start=0)}
+{systemDef.numHrm, v.pin_p.h, v.pin_n.h, ground1.pin.h, z.pin_p.h, z.pin_n.h, z2.pin_p.h, z2.pin_n.h, test_Load1.pin_p.h, test_Load1.pin_n.h}
+94 variables can be eliminated
+
+Incidence:
+ eq 0: temp_16
+ eq 1: temp_17
+ eq 2: temp_18
+ eq 3: temp_16 systemDef.modeSelect temp_17 systemDef.event1 temp_18 systemDef.event2
+ eq 4: der(v.theta)
+ eq 5: der(v.theta) v.omega
+ eq 6: z.v[1].re v.i[1].re v.i[1].im
+ eq 7: z.v[2].re v.i[2].re v.i[2].im
+ eq 8: z.v[1].im v.i[1].im v.i[1].re
+ eq 9: z.v[2].im v.i[2].im v.i[2].re
+ eq 10: der(v.theta) z.omega
+ eq 11: z.v[1].re z2.v[1].re
+ eq 12: z.v[1].im z2.v[1].im
+ eq 13: z.v[2].re z2.v[2].re
+ eq 14: z.v[2].im z2.v[2].im
+ eq 15: z2.v[1].re z2.i[1].re z2.i[1].im
+ eq 16: z2.v[2].re z2.i[2].re z2.i[2].im
+ eq 17: z2.v[1].im z2.i[1].im z2.i[1].re
+ eq 18: z2.v[2].im z2.i[2].im z2.i[2].re
+ eq 19: der(v.theta) z2.omega
+ eq 20: systemDef.modeSelect z2.v[1].re test_Load1.i[1].re
+ eq 21: systemDef.modeSelect z2.v[2].re test_Load1.i[2].re
+ eq 22: systemDef.modeSelect z2.v[1].im test_Load1.i[1].im
+ eq 23: systemDef.modeSelect z2.v[2].im test_Load1.i[2].im
+ eq 24: temp_19 systemDef.event1
+ eq 25: temp_20 systemDef.event2
+ eq 26: temp_19 z2.v[1].re z2.v[1].im temp_20 temp_9.re temp_9.im test_Load1.vPre.re test_Load1.vPre.im
+ eq 27: der(v.theta) test_Load1.omega
+ eq 28: ground1.pin.iIm[1] test_Load1.i[1].im v.i[1].im z2.i[1].im
+ eq 29: ground1.pin.iIm[2] test_Load1.i[2].im v.i[2].im z2.i[2].im
+ eq 30: ground1.pin.iRe[1] test_Load1.i[1].re v.i[1].re z2.i[1].re
+ eq 31: ground1.pin.iRe[2] test_Load1.i[2].re v.i[2].re z2.i[2].re
+ eq 32: ground1.pin.iIm[1]
+ eq 33: ground1.pin.iIm[2]
+ eq 34: ground1.pin.iRe[1]
+ eq 35: ground1.pin.iRe[2]
+ eq 36:
+ eq 37:
+ eq 38: z.vFundAbs z.v[1].re z.v[1].im
+ eq 39: z.vFundArg z.v[1].im z.v[1].re
+ eq 40: z.iFundAbs v.i[1].re v.i[1].im
+ eq 41: z.iFundArg v.i[1].im v.i[1].re
+ eq 42: z2.vFundAbs z2.v[1].re z2.v[1].im
+ eq 43: z2.vFundArg z2.v[1].im z2.v[1].re
+ eq 44: z2.iFundAbs z2.i[1].re z2.i[1].im
+ eq 45: z2.iFundArg z2.i[1].im z2.i[1].re
+
+Variable dependencies:
+Derivative variables: 
+ der(v.theta)
+    systemDef.fFund
+
+Differentiated variables: 
+ v.theta
+
+Algebraic real variables: 
+ v.i[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ v.i[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ v.i[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ v.i[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ v.omega
+    systemDef.fFund
+ ground1.pin.iIm[1]
+ ground1.pin.iIm[2]
+ ground1.pin.iRe[1]
+ ground1.pin.iRe[2]
+ z.vFundAbs
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.vFundArg
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.iFundAbs
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.iFundArg
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.v[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.v[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.v[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.v[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z.omega
+    systemDef.fFund
+ z2.vFundAbs
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.vFundArg
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.iFundAbs
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.iFundArg
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.v[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.v[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.v[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.v[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.i[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.i[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.i[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.i[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ z2.omega
+    systemDef.fFund
+ test_Load1.i[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ test_Load1.i[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ test_Load1.i[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ test_Load1.i[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    test_Load1.iImag[2]
+    z2.z.re
+    z2.z.im
+    test_Load1.iReal[2]
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ test_Load1.omega
+    systemDef.fFund
+ temp_9.re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+ temp_9.im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    pre(temp_19)
+    pre(temp_20)
+    test_Load1.sImag
+    test_Load1.iImag[1]
+    z2.z.re
+    z2.z.im
+    test_Load1.sReal
+    test_Load1.iReal[1]
+    pre(temp_16)
+    pre(temp_17)
+    pre(temp_18)
+    pre(systemDef.event1)
+    pre(systemDef.event2)
+
+
+
+Connection sets: 21 sets
+Connection set (flow): {ground1.pin.iIm[1:2] (i), test_Load1.pin_n.iIm[1:2] (i), v.pin_n.iIm[1:2] (i), z2.pin_n.iIm[1:2] (i)}
+Connection set (flow): {ground1.pin.iRe[1:2] (i), test_Load1.pin_n.iRe[1:2] (i), v.pin_n.iRe[1:2] (i), z2.pin_n.iRe[1:2] (i)}
+Connection set (potential): {ground1.pin.v[1].im (i), test_Load1.pin_n.v[1].im (i), v.pin_n.v[1].im (i), z2.pin_n.v[1].im (i)}
+Connection set (potential): {ground1.pin.v[1].re (i), test_Load1.pin_n.v[1].re (i), v.pin_n.v[1].re (i), z2.pin_n.v[1].re (i)}
+Connection set (potential): {ground1.pin.v[2].im (i), test_Load1.pin_n.v[2].im (i), v.pin_n.v[2].im (i), z2.pin_n.v[2].im (i)}
+Connection set (potential): {ground1.pin.v[2].re (i), test_Load1.pin_n.v[2].re (i), v.pin_n.v[2].re (i), z2.pin_n.v[2].re (i)}
+Connection set (flow): {v.pin_p.iIm[1:2] (i), z.pin_p.iIm[1:2] (i)}
+Connection set (flow): {v.pin_p.iRe[1:2] (i), z.pin_p.iRe[1:2] (i)}
+Connection set (potential): {v.pin_p.v[1].im (i), z.pin_p.v[1].im (i)}
+Connection set (potential): {v.pin_p.v[1].re (i), z.pin_p.v[1].re (i)}
+Connection set (potential): {v.pin_p.v[2].im (i), z.pin_p.v[2].im (i)}
+Connection set (potential): {v.pin_p.v[2].re (i), z.pin_p.v[2].re (i)}
+Connection set (flow): {test_Load1.pin_p.iIm[1:2] (i), z.pin_n.iIm[1:2] (i), z2.pin_p.iIm[1:2] (i)}
+Connection set (flow): {test_Load1.pin_p.iRe[1:2] (i), z.pin_n.iRe[1:2] (i), z2.pin_p.iRe[1:2] (i)}
+Connection set (potential): {test_Load1.pin_p.v[1].im (i), z.pin_n.v[1].im (i), z2.pin_p.v[1].im (i)}
+Connection set (potential): {test_Load1.pin_p.v[1].re (i), z.pin_n.v[1].re (i), z2.pin_p.v[1].re (i)}
+Connection set (potential): {test_Load1.pin_p.v[2].im (i), z.pin_n.v[2].im (i), z2.pin_p.v[2].im (i)}
+Connection set (potential): {test_Load1.pin_p.v[2].re (i), z.pin_n.v[2].re (i), z2.pin_p.v[2].re (i)}
+Connection set (potential): {v.pin_p.reference.theta (i), z.pin_p.reference.theta (i)}
+Connection set (potential): {test_Load1.pin_p.reference.theta (i), z.pin_n.reference.theta (i), z2.pin_p.reference.theta (i)}
+Connection set (potential): {ground1.pin.reference.theta (i), v.pin_n.reference.theta (i)}
+
+Transformed flattened model:
+fclass HPF.Test.SinglePhase_HarmonicLoad
+ parameter Integer systemDef.hrms[1] = 1 "Harmonics to simulate" /* 1 */;
+ parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
+ structural parameter Integer systemDef.numHrm = 2 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 2 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = true);
+ discrete Boolean systemDef.event1(start = false);
+ discrete Boolean systemDef.event2(start = false);
+ parameter Real v.vMag[1] = 100 "Voltage Magnitude" /* 100 */;
+ parameter Real v.vMag[2] = 5 "Voltage Magnitude" /* 5 */;
+ parameter Real v.vArg[1] = 0 "Voltage angle" /* 0 */;
+ parameter Real v.vArg[2] = 0.5 "Voltage angle" /* 0.5 */;
+ Modelica.SIunits.Angle v.theta(fixed = true,start = 0);
+ parameter Real v.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real v.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real v.i[1].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[1].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.i[2].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[2].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.omega;
+ Real ground1.pin.iIm[1];
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iRe[1];
+ Real ground1.pin.iRe[2];
+ parameter Real z.z.re(start = 1) = 5.0 "Real part of complex number" /* 5.0 */;
+ parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z.vFundAbs;
+ Real z.vFundArg;
+ Real z.iFundAbs;
+ Real z.iFundArg;
+ Real z.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.omega;
+ parameter Real z2.z.re(start = 1) = 2 "Real part of complex number" /* 2 */;
+ parameter Real z2.z.im(start = 0) = 1 "Imaginary part of complex number" /* 1 */;
+ Real z2.vFundAbs;
+ Real z2.vFundArg;
+ Real z2.iFundAbs;
+ Real z2.iFundArg;
+ Real z2.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z2.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z2.omega;
+ parameter Real test_Load1.sReal(start = 0) = -150 "IMPORTANT: set real power to -ve" /* -150 */;
+ parameter Real test_Load1.sImag(start = 0) = 20 /* 20 */;
+ parameter Real test_Load1.iReal[1] = 5 /* 5 */;
+ parameter Real test_Load1.iReal[2] = 2 /* 2 */;
+ parameter Real test_Load1.iImag[1] = 0.25 /* 0.25 */;
+ parameter Real test_Load1.iImag[2] = 0.5 /* 0.5 */;
+ parameter Real test_Load1.sVectRe[1](start = 0) = -150 /* -150 */;
+ parameter Real test_Load1.sVectRe[2](start = 0) = 0 /* 0 */;
+ parameter Real test_Load1.sVectIm[1](start = 0) = 20 /* 20 */;
+ parameter Real test_Load1.sVectIm[2](start = 0) = 0 /* 0 */;
+ parameter Real test_Load1.testVect[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real test_Load1.testVect[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ constant Real test_Load1.testVect[2].re(start = 0,nominal = 1) = 0.0 "Real part of complex number";
+ constant Real test_Load1.testVect[2].im(start = 0,nominal = 1) = 0 "Imaginary part of complex number";
+ discrete Real test_Load1.vPre.re(start = 0) "Real part of complex number";
+ discrete Real test_Load1.vPre.im(start = 0) "Imaginary part of complex number";
+ Real test_Load1.i[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real test_Load1.i[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real test_Load1.i[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real test_Load1.i[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real test_Load1.omega;
+ discrete Boolean temp_16;
+ discrete Boolean temp_17;
+ discrete Boolean temp_18;
+ discrete Boolean temp_19;
+ discrete Boolean temp_20;
+ Real temp_9.re;
+ Real temp_9.im;
+initial equation
+ algorithm
+  systemDef.modeSelect := false;
+;
+ v.theta = 0;
+ pre(test_Load1.vPre.re) = 0;
+ pre(test_Load1.vPre.im) = 0;
+ pre(systemDef.event1) = false;
+ pre(systemDef.event2) = false;
+ pre(temp_16) = false;
+ pre(temp_17) = false;
+ pre(temp_18) = false;
+ pre(temp_19) = false;
+ pre(temp_20) = false;
+parameter equation
+ v.v[1].re = v.vMag[1] .* cos(v.vArg[1]);
+ v.v[2].re = v.vMag[2] .* cos(v.vArg[2]);
+ v.v[1].im = v.vMag[1] .* sin(v.vArg[1]);
+ v.v[2].im = v.vMag[2] .* sin(v.vArg[2]);
+ test_Load1.testVect[1].re = test_Load1.sReal;
+ test_Load1.testVect[1].im = test_Load1.sImag;
+equation
+ temp_16 = time > 0.5;
+ temp_17 = time > 0.25;
+ temp_18 = time > 0.4;
+algorithm
+ if temp_16 and not pre(temp_16) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_17 and not pre(temp_17) then
+  systemDef.event1 := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.event2 := true;
+ end if;
+equation
+ der(v.theta) = 6.283185307179586 * systemDef.fFund;
+ v.omega = der(v.theta);
+ z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im);
+ z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im);
+ z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re);
+ z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re);
+ z.omega = der(v.theta);
+ z.v[1].re = v.v[1].re - z2.v[1].re;
+ z.v[1].im = v.v[1].im - z2.v[1].im;
+ z.v[2].re = v.v[2].re - z2.v[2].re;
+ z.v[2].im = v.v[2].im - z2.v[2].im;
+ z2.v[1].re = z2.z.re .* z2.i[1].re - z2.z.im .* systemDef.hrms[1] .* z2.i[1].im;
+ z2.v[2].re = z2.z.re .* z2.i[2].re - z2.z.im .* systemDef.hrms[2] .* z2.i[2].im;
+ z2.v[1].im = z2.z.re .* z2.i[1].im + z2.z.im .* systemDef.hrms[1] .* z2.i[1].re;
+ z2.v[2].im = z2.z.re .* z2.i[2].im + z2.z.im .* systemDef.hrms[2] .* z2.i[2].re;
+ z2.omega = der(v.theta);
+ 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].re - z2.v[1].re .* test_Load1.i[1].re else test_Load1.i[1].re - test_Load1.iReal[1];
+ 0.0 = if systemDef.modeSelect == false then - z2.v[2].re .* test_Load1.i[2].re else test_Load1.i[2].re - test_Load1.iReal[2];
+ 0.0 = if systemDef.modeSelect == false then test_Load1.testVect[1].im - z2.v[1].im .* (- test_Load1.i[1].im) else test_Load1.i[1].im - test_Load1.iImag[1];
+ 0.0 = if systemDef.modeSelect == false then - z2.v[2].im .* (- test_Load1.i[2].im) else test_Load1.i[2].im - test_Load1.iImag[2];
+ temp_19 = systemDef.event1 <> pre(systemDef.event1);
+ temp_20 = systemDef.event2 <> pre(systemDef.event2);
+algorithm
+ if temp_19 and not pre(temp_19) then
+  HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(Complex(z2.v[1].re, z2.v[1].im), "testLoad");
+ end if;
+ if temp_20 and not pre(temp_20) then
+  (Complex(temp_9.re, temp_9.im)) := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
+  test_Load1.vPre.re := temp_9.re;
+  test_Load1.vPre.im := temp_9.im;
+ end if;
+equation
+ test_Load1.omega = der(v.theta);
+ ground1.pin.iIm[1] + (- test_Load1.i[1].im) + (- v.i[1].im) + (- z2.i[1].im) = 0;
+ ground1.pin.iIm[2] + (- test_Load1.i[2].im) + (- v.i[2].im) + (- z2.i[2].im) = 0;
+ ground1.pin.iRe[1] + (- test_Load1.i[1].re) + (- v.i[1].re) + (- z2.i[1].re) = 0;
+ ground1.pin.iRe[2] + (- test_Load1.i[2].re) + (- v.i[2].re) + (- z2.i[2].re) = 0;
+ 0 = ground1.pin.iIm[1];
+ 0 = ground1.pin.iIm[2];
+ 0 = ground1.pin.iRe[1];
+ 0 = ground1.pin.iRe[2];
+ HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5;
+ z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0);
+ z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5;
+ z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0);
+ z2.vFundAbs = (z2.v[1].re ^ 2 + z2.v[1].im ^ 2) ^ 0.5;
+ z2.vFundArg = Modelica.Math.atan3(z2.v[1].im, z2.v[1].re, 0);
+ z2.iFundAbs = (z2.i[1].re ^ 2 + z2.i[1].im ^ 2) ^ 0.5;
+ z2.iFundArg = Modelica.Math.atan3(z2.i[1].im, z2.i[1].re, 0);
+
+public
+ function Modelica.Math.atan3
+  input Real u1;
+  input Real u2;
+  input Real y0;
+  output Real y;
+  Real w;
+ algorithm
+  w := atan2(u1, u2);
+  if y0 == 0 then
+   y := w;
+  else
+   y := w + 6.283185307179586 * integer((3.141592653589793 + y0 - w) / 6.283185307179586);
+  end if;
+  return;
+ end Modelica.Math.atan3;
+
+ function HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage
+  input Complex data;
+  input String name;
+  Real[:,:] dataMatrix;
+  Real[:,:] temp_1;
+  Real[:] temp_2;
+  Real[:] temp_3;
+ algorithm
+  init dataMatrix as Real[2, 1];
+  init temp_1 as Real[2, 1];
+  init temp_2 as Real[1];
+  temp_2[1] := data.re;
+  for i1 in 1:1 loop
+   temp_1[1,i1] := temp_2[i1];
+  end for;
+  init temp_3 as Real[1];
+  temp_3[1] := data.im;
+  for i1 in 1:1 loop
+   temp_1[2,i1] := temp_3[i1];
+  end for;
+  for i1 in 1:2 loop
+   for i2 in 1:1 loop
+    dataMatrix[i1,i2] := temp_1[i1,i2];
+   end for;
+  end for;
+  Modelica.Utilities.Streams.writeRealMatrix(name + ".mat", "data", dataMatrix, false, "4");
+  return;
+ end HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage;
+
+ function Modelica.Utilities.Streams.writeRealMatrix
+  input String fileName;
+  input String matrixName;
+  input Real[:,:] matrix;
+  input Boolean append;
+  input String format;
+  output Boolean success;
+ algorithm
+  external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format);
+  return;
+ end Modelica.Utilities.Streams.writeRealMatrix;
+
+ function HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage
+  input String name;
+  output Complex v;
+  Real[:,:] readMatrix;
+ algorithm
+  init readMatrix as Real[2, 1];
+  (readMatrix) := Modelica.Utilities.Streams.readRealMatrix(name + ".mat", "data", 2, 1, true);
+  v.re := readMatrix[1,1];
+  v.im := readMatrix[2,1];
+  return;
+ end HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage;
+
+ function Modelica.Utilities.Streams.readRealMatrix
+  input String fileName;
+  input String matrixName;
+  input Integer nrow;
+  input Integer ncol;
+  input Boolean verboseRead;
+  output Real[:,:] matrix;
+ algorithm
+  init matrix as Real[nrow, ncol];
+  external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead);
+  return;
+ end Modelica.Utilities.Streams.readRealMatrix;
+
+ function HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_HarmonicLoad.test_Load1.pin_n.reference.equalityConstraint;
+
+ function HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.SinglePhase_HarmonicLoad.z2.pin_n.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+end HPF.Test.SinglePhase_HarmonicLoad;
+
+Generating code...
+====== Model compiled successfully =======
+make -f /home/avpreetsingh/programfiles/jModelica/Makefiles/MakeFile fmume20_
+make[1]: Entering directory '/tmp/jmc18437139024945468878out'
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad_base.o sources/HPF_Test_SinglePhase_HarmonicLoad_base.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad_init_dependent.o sources/HPF_Test_SinglePhase_HarmonicLoad_init_dependent.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad_init_independent.o sources/HPF_Test_SinglePhase_HarmonicLoad_init_independent.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -O1 -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad_funcs.o sources/HPF_Test_SinglePhase_HarmonicLoad_funcs.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad.o sources/HPF_Test_SinglePhase_HarmonicLoad.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad_equ_init.o sources/HPF_Test_SinglePhase_HarmonicLoad_equ_init.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_SinglePhase_HarmonicLoad_equ.o sources/HPF_Test_SinglePhase_HarmonicLoad_equ.c
+mkdir -p binaries/linux64
+g++ -shared -Wl,-rpath,'$ORIGIN',--no-undefined -pthread -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -o binaries/linux64/HPF_Test_SinglePhase_HarmonicLoad.so  HPF_Test_SinglePhase_HarmonicLoad_base.o  HPF_Test_SinglePhase_HarmonicLoad_init_dependent.o  HPF_Test_SinglePhase_HarmonicLoad_init_independent.o  HPF_Test_SinglePhase_HarmonicLoad_funcs.o  HPF_Test_SinglePhase_HarmonicLoad.o  HPF_Test_SinglePhase_HarmonicLoad_equ_init.o  HPF_Test_SinglePhase_HarmonicLoad_equ.o  -L/home/avpreetsingh/programfiles/jModelica/lib/RuntimeLibrary -lfmi2 -ljmi -ldl "-L/home/avpreetsingh/programfiles/jModelica/lib" -L"/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Resources/Library/linux64/gcc830-6ubuntu1" -L"/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Resources/Library/linux64" -L"/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Resources/Library" -lModelicaIO -lModelicaMatIO -lzlib -ljmi_get_set_default -lModelicaIO -lModelicaMatIO -lzlib -ljmi_get_set_default -llapack -lblas -lgfortran -lModelicaExternalC -lzlib -ljmi -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/lib -l:libsundials_kinsol.a -l:libsundials_nvecserial.a -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Minpack/lib -l:libcminpack.a -lstdc++ -lm -l:libsundials_cvode.a
+/usr/bin/ld: /home/avpreetsingh/programfiles/jModelica/lib/RuntimeLibrary/libModelicaMatIO.a(ModelicaMatIO.c.o): in function `Mat_VarDelete':
+/home/avpreetsingh/programfiles/tmp/JModelica/ThirdParty/MSL/Modelica/Resources/C-Sources/ModelicaMatIO.c:8521: warning: the use of `mktemp' is dangerous, better use `mkstemp' or `mkdtemp'
+rm -f  HPF_Test_SinglePhase_HarmonicLoad_base.o  HPF_Test_SinglePhase_HarmonicLoad_init_dependent.o  HPF_Test_SinglePhase_HarmonicLoad_init_independent.o  HPF_Test_SinglePhase_HarmonicLoad_funcs.o  HPF_Test_SinglePhase_HarmonicLoad.o  HPF_Test_SinglePhase_HarmonicLoad_equ_init.o  HPF_Test_SinglePhase_HarmonicLoad_equ.o 
+make[1]: Leaving directory '/tmp/jmc18437139024945468878out'
+
