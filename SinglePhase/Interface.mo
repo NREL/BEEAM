@@ -51,7 +51,7 @@ package Interface
     extends HPin;
     Types.Reference reference "Reference";
     annotation(
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(lineColor = {117, 80, 123}, fillColor = {117, 80, 123}, extent = {{-100, 100}, {100, -100}})}),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(lineColor = {117, 80, 123}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
       __OpenModelica_commandLineOptions = "");
   end HPin_N;
@@ -87,7 +87,7 @@ package Interface
   initial equation
 
   equation
-/*
+  /*
       Nonbreakable branch for the overdetermined variable.
     */
     Connections.branch(pin_p.reference, pin_n.reference);
@@ -195,18 +195,61 @@ package Interface
     end TwoPortBase;
 
   partial model TwoPortBaseAnalog
+  /*
+    Two port (two one port classes) partial class for a rectifier.
+    AC side is the multi harmonic side. The DC side 
+    consists of analog connector from Modelica std library,
+    Modelica.Electrical.Analog
+    
+  */
     outer SystemDef systemDef;
-    HPF.SinglePhase.Interface.HPin_P hPin_P1(h = systemDef.numHrm) annotation(
+    
+    /*
+      Harmonic (AC) side voltage and current.
+    */
+    Complex vHrm[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex voltage";
+    Complex iHrm[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex current";
+    // overdetermined variable
+    Real omega;
+    
+    /*
+      DC side voltage and current. (Redefining directly from Modelica.Electrical.Analog.Interfaces.OnePort)
+    */
+    Real vDC "DC voltage";
+    Real iDC "DC current";
+    
+    HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation(
         Placement(visible = true, transformation(origin = {-90, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_N hPin_N1(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation(
         Placement(visible = true, transformation(origin = {-90, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100,-100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation(
         Placement(visible = true, transformation(origin = {120, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation(
       Placement(visible = true, transformation(origin = {122, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  equation
   
-
+  initial equation 
+  
+  equation
+    /*
+      Harmonic (AC) side
+    */
+    Connections.branch(hPin_P.reference, hPin_N.reference);
+    hPin_P.reference.theta = hPin_N.reference.theta;  
+    omega = der(hPin_P.reference.theta);
+    
+    vHrm = hPin_P.v - hPin_N.v;
+    hPin_P.iRe + hPin_N.iRe = {0.0 for i in 1:systemDef.numHrm};
+    hPin_P.iIm + hPin_N.iIm = {0.0 for i in 1:systemDef.numHrm};
+    iHrm.re = hPin_P.iRe;
+    iHrm.im = hPin_P.iIm;
+    
+    /*
+      DC side
+    */
+    vDC = pin_p.v - pin_n.v;
+    0.0 = pin_p.i + pin_n.i;
+    iDC = pin_p.i; 
+    
     annotation(
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1)),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));

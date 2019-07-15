@@ -11,3 +11,4 @@ SinglePhase_Load
 SinglePhase_CurrentInjection
 Multiphase_IdealTransformer_D11Y
 Test_Rectifier
+Function_Test_polyval

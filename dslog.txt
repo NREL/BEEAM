@@ -1,31 +1,8 @@
-Log-file of program ./dymosim
-(generated: Mon Jun 24 13:37:50 2019)
-
-dymosim started
-... "dsin.txt" loading (dymosim input file)
-... "SinglePhase_HarmonicLoad.mat" creating (simulation result file)
-
-Integration started at T = 0 using integration method DASSL
-(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-... loading "data" from "testLoad.mat"
-Integration terminated successfully at T = 1
-  WARNING: You have many state events. It might be due to chattering.
-  Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 0.234 seconds
-   CPU-time for one grid interval          : 0.468 milliseconds
-   CPU-time for initialization             : 0.001 seconds
-   Number of result points                 : 508
-   Number of grid points                   : 501
-   Number of accepted steps                : 23
-   Number of f-evaluations (dynamics)      : 23
-   Number of crossing function evaluations : 926
-   Number of Jacobian-evaluations          : 21
-   Number of model time events             : 0
-   Number of input time events             : 0
-   Number of state events                  : 3
-   Number of step events                   : 0
-   Minimum integration stepsize            : 1.33e-007
-   Maximum integration stepsize            : 0.444
-   Maximum integration order               : 1
-Calling terminal section
-... "dsfinal.txt" creating (final states)
+ 
+64-bit mode activated. 
+Compiling and linking the model (GCC). 
+ 
+"Testing 64-bit compilation" 
+ 
+Successful generation of dymosim.exe. 
+ 

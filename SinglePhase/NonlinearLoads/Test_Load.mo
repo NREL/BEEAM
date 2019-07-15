@@ -58,12 +58,12 @@ equation
   end if;
 
 algorithm
-  when change(systemDef.event1) then
+  when change(systemDef.eventWriteData) then
     // write data
      HPF.SinglePhase.NonlinearLoads.DataIO.writeNodeVoltage(v[1], "testLoad");
   end when;
 
-  when change(systemDef.event2) then
+  when change(systemDef.eventReadData) then
   //read data
     vPre := HPF.SinglePhase.NonlinearLoads.DataIO.readNodeVoltage("testLoad");
   end when;

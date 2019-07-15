@@ -4,10 +4,10 @@ class SystemDef
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
 
   /*
-  INFO: Type variability
-  Dymola is throwing an error for the type variability.
-  'constant' or no type prefix has a lower type variability than 'parameter'.
-  Also, numHrm cannot be initialized as Real.
+    INFO: Type variability
+    Dymola is throwing an error for the type variability.
+    'constant' or no type prefix has a lower type variability than 'parameter'.
+    Also, numHrm cannot be initialized as Real.
   */
   parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
 
@@ -15,33 +15,36 @@ class SystemDef
 
   parameter Real fFund = 60 "Fundamental frequency";
 
- /*
-      selects the mode of operation, used by nonlinear harmonic loads 
-      Modes definition: (selecting boolean as the modes would have only 2 states)
-        true = mode: power sink / source
-        false = mode: constant current source
+  /*
+    selects the mode of operation, used by nonlinear harmonic loads 
+    Modes definition: (selecting boolean as the modes would have only 2 states)
+    true = mode: power sink / source
+    false = mode: constant current source
   */
-  Boolean modeSelect( start = true);
-
+  Boolean modeSelect(start = false);
+  
+  /*
+    Data read write events.
+  */
   Boolean eventWriteData(start = false);
   Boolean eventReadData(start = false);
 
-  //Complex cmplxZeros[numHrm];
 
 initial algorithm
-  modeSelect := false;
-  //cmplxZeros[:].re := zeros(numHrm - 1);
-  //cmplxZeros[:].im := zeros(numHrm - 1);
+  //modeSelect := false;
+  
 equation
 
 algorithm
+    /*
+              ____________
+      ________|
+      0       0.5
+      
+      System switches from power flow to current sources
+    */
     when time > 0.5 then
-      //modeSelPrev = previous(modeSelect);
-      //if modeSelPrev == false then
-        modeSelect := true;  // Power flow
-    //else
-        //modeSelect = false; // Harmonic solver
-      //end if;
+      modeSelect := true;  
     end when;
 
     /*

@@ -21,13 +21,13 @@ model Configuration_2
   HPF.SinglePhase.NonlinearLoads.Rectifier LED_Driver_1 annotation(
     Placement(visible = true, transformation(origin = {112,50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier LED_Driver_2 annotation(
-    Placement(visible = true, transformation(origin = {36, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {34, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier LED_Driver_3 annotation(
     Placement(visible = true, transformation(origin = {110, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_1 annotation(
     Placement(visible = true, transformation(origin = {70, 92}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_2 annotation(
-    Placement(visible = true, transformation(origin = {42, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {28, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_3 annotation(
     Placement(visible = true, transformation(origin = {74, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Machines.Transformers_iPh.Test_DY test_DY1 annotation(
