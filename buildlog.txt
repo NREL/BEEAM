@@ -1,8 +1,6 @@
  
-64-bit mode activated. 
 Compiling and linking the model (GCC). 
  
-"Testing 64-bit compilation" 
  
 Successful generation of dymosim.exe. 
  

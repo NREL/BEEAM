@@ -1,7 +1,7 @@
 within HPF.SinglePhase.Components;
 model IdealTransformer
 extends HPF.SinglePhase.Interface.TwoPortBase;
-
+  HPF.Utilities.ComponentProperties properties(ComponentType = "Transformer");
   parameter Real N = 1 "Turns ratio N1:N2 = N:1 (Subject to review!)";
 
 equation

@@ -16,11 +16,19 @@ model VoltageSource "Voltage Source"
 */
 
   extends HPF.SinglePhase.Interface.Source;
-
+  HPF.Utilities.ComponentProperties properties(ComponentType = "VoltageSource");
   import  Modelica.ComplexMath.j;
-  parameter Real vMag[:] = {1} "Voltage Magnitude";
-  parameter Real vArg[:] = {0} "Voltage angle";
+  parameter Real vMag[:] = {1} "Voltage Magnitude (Volts rms)";
+  parameter Real vArg[:] = {0} "Voltage angle (rad)";
 
+  /*
+    Measurable quantities 
+    S = V * conj(i) = (v.re + jv.im) * (i.re - ji.im)
+      = v.re * i.re - j(v.re * i.im) + j(v.im * i.re) + v.im * i.im
+      = (v.re*i.re + v.im*i.im) + j(v.im*i.re - v.re*i.im) 
+  */
+  Real P = (v[:].re * i[:].re) + (v[:].im * i[:].im) "Real Power";
+  
 equation
 
   /*

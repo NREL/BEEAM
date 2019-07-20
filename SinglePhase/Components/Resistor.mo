@@ -1,6 +1,7 @@
 within HPF.SinglePhase.Components;
 model Resistor
   extends HPF.SinglePhase.Interface.TwoPinBase;
+  HPF.Utilities.ComponentProperties properties(ComponentType = "Resistor");
   import Modelica.ComplexMath.j;
   parameter Real r(start = 1) = 1 "Resistance (ohm)";
 

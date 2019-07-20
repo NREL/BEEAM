@@ -6,6 +6,8 @@ model Ground
   All the terminals connected to ground are at zero voltage potential.
 */
   outer SystemDef systemDef;
+  // component properties
+  HPF.Utilities.ComponentProperties properties(ComponentType = "Ground");
   HPF.SinglePhase.Interface.HPin_P pin(h=systemDef.numHrm) "Pin" annotation (Placement(visible = true, transformation(extent = {{90, -10}, {110, 10}}, rotation = 0), iconTransformation(origin={0,0},    extent={{-10,-10},
             {10,10}},                                                                                                                                                                                                        rotation = 0)));
 equation

@@ -102,29 +102,36 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(113,37)
+char initialName(151,47)
 systemDef.hrms[1]
 systemDef.hrms[2]
+systemDef.hrms[3]
 systemDef.numHrm
 systemDef.numPh
 systemDef.fFund
 systemDef.modeSelect
-systemDef.event1
-systemDef.event2
+systemDef.eventWriteData
+systemDef.eventReadData
 v.v[1].re
 v.v[1].im
 v.v[2].re
 v.v[2].im
+v.v[3].re
+v.v[3].im
 v.i[1].re
 v.i[1].im
 v.i[2].re
 v.i[2].im
+v.i[3].re
+v.i[3].im
 v.omega
 v.pin_p.h
 v.pin_p.v[1].re
 v.pin_p.v[1].im
 v.pin_p.v[2].re
 v.pin_p.v[2].im
+v.pin_p.v[3].re
+v.pin_p.v[3].im
 v.pin_p.reference.theta
 v.pin_p.reference.der(theta)
 v.pin_n.h
@@ -132,205 +139,274 @@ v.pin_n.v[1].re
 v.pin_n.v[1].im
 v.pin_n.v[2].re
 v.pin_n.v[2].im
-v.theta
+v.pin_n.v[3].re
+v.pin_n.v[3].im
 v.vMag[1]
 v.vMag[2]
+v.vMag[3]
 v.vArg[1]
 v.vArg[2]
-ground1.pin.h
-ground1.pin.v[1].re
-ground1.pin.v[1].im
-ground1.pin.v[2].re
-ground1.pin.v[2].im
-ground1.pin.iIm[1]
-ground1.pin.iIm[2]
-ground1.pin.iRe[1]
-ground1.pin.iRe[2]
+v.vArg[3]
 z.v[1].re
+z.v[1].im
 z.v[2].re
 z.v[2].im
+z.v[3].re
+z.v[3].im
 z.omega
 z.pin_p.h
 z.pin_p.v[1].re
 z.pin_p.v[1].im
 z.pin_p.v[2].re
 z.pin_p.v[2].im
+z.pin_p.v[3].re
+z.pin_p.v[3].im
 z.pin_p.reference.theta
 z.pin_p.reference.der(theta)
 z.pin_n.h
+z.pin_n.v[1].re
 z.pin_n.v[2].re
 z.pin_n.v[2].im
+z.pin_n.v[3].re
+z.pin_n.v[3].im
+z.a
 z.z.re
 z.z.im
 z.vFundAbs
 z.vFundArg
 z.iFundAbs
 z.iFundArg
-z2.i[1].re
-z2.i[1].im
-z2.i[2].re
-z2.i[2].im
-z2.omega
-z2.pin_p.h
-z2.pin_p.reference.theta
-z2.pin_p.reference.der(theta)
-z2.pin_n.h
-z2.pin_n.v[1].re
-z2.pin_n.v[1].im
-z2.pin_n.v[2].re
-z2.pin_n.v[2].im
-z2.z.re
-z2.z.im
-z2.vFundAbs
-z2.vFundArg
-z2.iFundAbs
-z2.iFundArg
-test_Load1.v[1].re
-test_Load1.v[1].im
-test_Load1.i[1].re
-test_Load1.i[1].im
-test_Load1.i[2].re
-test_Load1.i[2].im
-test_Load1.omega
-test_Load1.pin_p.h
-test_Load1.pin_p.reference.theta
-test_Load1.pin_p.reference.der(theta)
-test_Load1.pin_n.h
-test_Load1.pin_n.v[1].re
-test_Load1.pin_n.v[1].im
-test_Load1.pin_n.v[2].re
-test_Load1.pin_n.v[2].im
-test_Load1.sReal
-test_Load1.sImag
-test_Load1.iReal[1]
-test_Load1.iReal[2]
-test_Load1.iImag[1]
-test_Load1.iImag[2]
-test_Load1.sVectRe[1]
-test_Load1.sVectRe[2]
-test_Load1.sVectIm[1]
-test_Load1.sVectIm[2]
-test_Load1.testVect[1].re
-test_Load1.testVect[1].im
-test_Load1.testVect[2].re
-test_Load1.testVect[2].im
-test_Load1.vPre.re
-test_Load1.vPre.im
+ground1.pin.h
+ground1.pin.v[1].re
+ground1.pin.v[1].im
+ground1.pin.v[2].re
+ground1.pin.v[2].im
+ground1.pin.v[3].re
+ground1.pin.v[3].im
+ground1.pin.iIm[1]
+ground1.pin.iIm[2]
+ground1.pin.iIm[3]
+ground1.pin.iRe[1]
+ground1.pin.iRe[2]
+ground1.pin.iRe[3]
+resistor1.R
+resistor1.T_ref
+resistor1.alpha
+resistor1.v
+resistor1.i
+resistor1.p.v
+resistor1.p.i
+resistor1.n.v
+resistor1.n.i
+resistor1.useHeatPort
+resistor1.T
+resistor1.LossPower
+resistor1.T_heatPort
+resistor1.R_actual
+ground2.p.v
+ground2.p.i
+rectifier1.constantVoltage1.V
+rectifier1.constantVoltage1.v
+rectifier1.constantVoltage1.i
+rectifier1.constantVoltage1.p.v
+rectifier1.constantVoltage1.p.i
+rectifier1.constantVoltage1.n.v
+rectifier1.constantVoltage1.n.i
+rectifier1.pin_p.v
+rectifier1.pin_p.i
+rectifier1.pin_n.v
+rectifier1.pin_n.i
+rectifier1.hPin_P.h
+rectifier1.hPin_N.h
+rectifier1.hPin_N.v[1].re
+rectifier1.hPin_N.v[1].im
+rectifier1.hPin_N.v[2].re
+rectifier1.hPin_N.v[2].im
+rectifier1.hPin_N.v[3].re
+rectifier1.hPin_N.v[3].im
+rectifier1.V_Rect
+rectifier1.efficiency
+rectifier1.hrmMdl_coefMag[1]
+rectifier1.hrmMdl_coefMag[2]
+rectifier1.hrmMdl_coefMag[3]
+rectifier1.hrmMdl_coefMag[4]
+rectifier1.hrmMdl_coefArg[1]
+rectifier1.hrmMdl_coefArg[2]
+rectifier1.hrmMdl_coefArg[3]
+rectifier1.hrmMdl_coefArg[4]
+rectifier1.rectifierModel
+rectifier1.P
+rectifier1.loadBase1.omega
+rectifier1.loadBase1.pin_p.h
+rectifier1.loadBase1.pin_p.reference.der(theta)
+rectifier1.loadBase1.pin_n.h
+rectifier1.loadBase1.pin_n.v[1].re
+rectifier1.loadBase1.pin_n.v[1].im
+rectifier1.loadBase1.pin_n.v[2].re
+rectifier1.loadBase1.pin_n.v[2].im
+rectifier1.loadBase1.pin_n.v[3].re
+rectifier1.loadBase1.pin_n.v[3].im
+rectifier1.Q
+rectifier1.S_vect[1].re
+rectifier1.S_vect[1].im
+rectifier1.S_vect[2].re
+rectifier1.S_vect[2].im
+rectifier1.S_vect[3].re
+rectifier1.S_vect[3].im
+rectifier1.globalSeed
 
-double initialValue(113,6)
-  0       1                  0  0  6  258   # systemDef.hrms[1]
-  0       3                  0  0  6  258   # systemDef.hrms[2]
-  0       2                  0  0  6  258   # systemDef.numHrm
-  0       3                  0  0  6  258   # systemDef.numPh
-  0      60                  0  0  6  256   # systemDef.fFund
-  0       1                  0  0  6  321   # systemDef.modeSelect
-  0       0                  0  0  6  329   # systemDef.event1
-  0       0                  0  0  6  329   # systemDef.event2
-  0     100                  0  0  6  256   # v.v[1].re
-  0       0                  0  0  6  256   # v.v[1].im
-  0  4.3879128094518638E+00  0  0  6  256   # v.v[2].re
-  0  2.3971276930210150E+00  0  0  6  256   # v.v[2].im
-  0       0                  0  0  6  352   # v.i[1].re
-  0       0                  0  0  6  320   # v.i[1].im
-  0       0                  0  0  6  352   # v.i[2].re
-  0       0                  0  0  6  320   # v.i[2].im
-  0  3.7699111843077515E+02  0  0  6  256   # v.omega
-  0       2                  0  0  6  262   # v.pin_p.h
-  0     100                  0  0  6  256   # v.pin_p.v[1].re
-  0       0                  0  0  6  256   # v.pin_p.v[1].im
-  0  4.3879128094518638E+00  0  0  6  256   # v.pin_p.v[2].re
-  0  2.3971276930210150E+00  0  0  6  256   # v.pin_p.v[2].im
- -1       0                  0  0  2  272   # v.pin_p.reference.theta
-  0       0                  0  0  3  256   # v.pin_p.reference.der(theta)
-  0       2                  0  0  6  262   # v.pin_n.h
-  0       0                  0  0  6  256   # v.pin_n.v[1].re
-  0       0                  0  0  6  256   # v.pin_n.v[1].im
-  0       0                  0  0  6  256   # v.pin_n.v[2].re
-  0       0                  0  0  6  256   # v.pin_n.v[2].im
-  0       0                  0  0  6  264   # v.theta
-  0     100                  0  0  6  256   # v.vMag[1]
-  0       5                  0  0  6  256   # v.vMag[2]
-  0       0                  0  0  6  256   # v.vArg[1]
-  0  5.0000000000000000E-01  0  0  6  256   # v.vArg[2]
-  0       2                  0  0  6  262   # ground1.pin.h
-  0       0                  0  0  6  256   # ground1.pin.v[1].re
-  0       0                  0  0  6  256   # ground1.pin.v[1].im
-  0       0                  0  0  6  256   # ground1.pin.v[2].re
-  0       0                  0  0  6  256   # ground1.pin.v[2].im
-  0       0                  0  0  6  452   # ground1.pin.iIm[1]
-  0       0                  0  0  6  452   # ground1.pin.iIm[2]
-  0       0                  0  0  6  452   # ground1.pin.iRe[1]
-  0       0                  0  0  6  452   # ground1.pin.iRe[2]
-  0       0                  0  0  6  352   # z.v[1].re
-  0       0                  0  0  6  320   # z.v[2].re
-  0       0                  0  0  6  320   # z.v[2].im
-  0  3.7699111843077515E+02  0  0  6  256   # z.omega
-  0       2                  0  0  6  262   # z.pin_p.h
-  0     100                  0  0  6  256   # z.pin_p.v[1].re
-  0       0                  0  0  6  256   # z.pin_p.v[1].im
-  0  4.3879128094518638E+00  0  0  6  256   # z.pin_p.v[2].re
-  0  2.3971276930210150E+00  0  0  6  256   # z.pin_p.v[2].im
-  0       0                  0  0  6  256   # z.pin_p.reference.theta
-  0  3.7699111843077515E+02  0  0  6  256   # z.pin_p.reference.der(theta)
-  0       2                  0  0  6  262   # z.pin_n.h
-  0       0                  0  0  6  320   # z.pin_n.v[2].re
-  0       0                  0  0  6  320   # z.pin_n.v[2].im
-  0       5                  0  0  6  256   # z.z.re
-  0       2                  0  0  6  256   # z.z.im
-  0       0                  0  0  6  320   # z.vFundAbs
-  0       0                  0  0  6  320   # z.vFundArg
-  0       0                  0  0  6  320   # z.iFundAbs
-  0       0                  0  0  6  320   # z.iFundArg
-  0       0                  0  0  6  352   # z2.i[1].re
-  0       0                  0  0  6  320   # z2.i[1].im
-  0       0                  0  0  6  352   # z2.i[2].re
-  0       0                  0  0  6  352   # z2.i[2].im
-  0  3.7699111843077515E+02  0  0  6  256   # z2.omega
-  0       2                  0  0  6  262   # z2.pin_p.h
-  0       0                  0  0  6  256   # z2.pin_p.reference.theta
-  0  3.7699111843077515E+02  0  0  6  256   # z2.pin_p.reference.der(theta)
-  0       2                  0  0  6  262   # z2.pin_n.h
-  0       0                  0  0  6  256   # z2.pin_n.v[1].re
-  0       0                  0  0  6  256   # z2.pin_n.v[1].im
-  0       0                  0  0  6  256   # z2.pin_n.v[2].re
-  0       0                  0  0  6  256   # z2.pin_n.v[2].im
-  0       2                  0  0  6  256   # z2.z.re
-  0       1                  0  0  6  256   # z2.z.im
-  0       0                  0  0  6  320   # z2.vFundAbs
-  0       0                  0  0  6  320   # z2.vFundArg
-  0       0                  0  0  6  320   # z2.iFundAbs
-  0       0                  0  0  6  320   # z2.iFundArg
-  0       0                  0  0  6  320   # test_Load1.v[1].re
-  0       0                  0  0  6  320   # test_Load1.v[1].im
-  0       0                  0  0  6  320   # test_Load1.i[1].re
-  0       0                  0  0  6  320   # test_Load1.i[1].im
-  0       0                  0  0  6  320   # test_Load1.i[2].re
-  0       0                  0  0  6  320   # test_Load1.i[2].im
-  0  3.7699111843077515E+02  0  0  6  256   # test_Load1.omega
-  0       2                  0  0  6  262   # test_Load1.pin_p.h
-  0       0                  0  0  6  256   # test_Load1.pin_p.reference.theta
-  0  3.7699111843077515E+02  0  0  6  256   # test_Load1.pin_p.reference.der(theta)
-  0       2                  0  0  6  262   # test_Load1.pin_n.h
-  0       0                  0  0  6  256   # test_Load1.pin_n.v[1].re
-  0       0                  0  0  6  256   # test_Load1.pin_n.v[1].im
-  0       0                  0  0  6  256   # test_Load1.pin_n.v[2].re
-  0       0                  0  0  6  256   # test_Load1.pin_n.v[2].im
-  0    -150                  0  0  6  256   # test_Load1.sReal
-  0      20                  0  0  6  256   # test_Load1.sImag
-  0       5                  0  0  6  256   # test_Load1.iReal[1]
-  0       2                  0  0  6  256   # test_Load1.iReal[2]
-  0  2.5000000000000000E-01  0  0  6  256   # test_Load1.iImag[1]
-  0  5.0000000000000000E-01  0  0  6  256   # test_Load1.iImag[2]
-  0    -150                  0  0  6  256   # test_Load1.sVectRe[1]
-  0       0                  0  0  6  256   # test_Load1.sVectRe[2]
-  0      20                  0  0  6  256   # test_Load1.sVectIm[1]
-  0       0                  0  0  6  256   # test_Load1.sVectIm[2]
-  0    -150                  0  0  6  256   # test_Load1.testVect[1].re
-  0      20                  0  0  6  256   # test_Load1.testVect[1].im
-  0       0                  0  0  6  256   # test_Load1.testVect[2].re
-  0       0                  0  0  6  256   # test_Load1.testVect[2].im
-  0       0                  0  0  6  328   # test_Load1.vPre.re
-  0       0                  0  0  6  328   # test_Load1.vPre.im
+double initialValue(151,6)
+  0       1                  0       0                  6   258   # systemDef.hrms[1]
+  0       3                  0       0                  6   258   # systemDef.hrms[2]
+  0       5                  0       0                  6   258   # systemDef.hrms[3]
+  0       3                  0       0                  6   258   # systemDef.numHrm
+  0       3                  0       0                  6   258   # systemDef.numPh
+  0      60                  0       0                  6   256   # systemDef.fFund
+  0       0                  0       0                  6   329   # systemDef.modeSelect
+  0       0                  0       0                  6   329   # systemDef.eventWriteData
+  0       0                  0       0                  6   329   # systemDef.eventReadData
+  0     100                  0       0                  6   256   # v.v[1].re
+  0       0                  0       0                  6   256   # v.v[1].im
+  0  4.8445621085532237E-01  0       0                  6   256   # v.v[2].re
+  0  1.2370197962726147E-01  0       0                  6   256   # v.v[2].im
+  0  1.9745607642533389E-01  0       0                  6   256   # v.v[3].re
+  0 -1.0787074618594568E-01  0       0                  6   256   # v.v[3].im
+  0       0                  0       0                  6   352   # v.i[1].re
+  0       0                  0       0                  6   320   # v.i[1].im
+  0       0                  0       0                  6   352   # v.i[2].re
+  0       0                  0       0                  6   320   # v.i[2].im
+  0       0                  0       0                  6   352   # v.i[3].re
+  0       0                  0       0                  6   320   # v.i[3].im
+  0  3.7699111843077515E+02  0       0                  6   256   # v.omega
+  0       3                  0       0                  6   262   # v.pin_p.h
+  0     100                  0       0                  6   256   # v.pin_p.v[1].re
+  0       0                  0       0                  6   256   # v.pin_p.v[1].im
+  0  4.8445621085532237E-01  0       0                  6   256   # v.pin_p.v[2].re
+  0  1.2370197962726147E-01  0       0                  6   256   # v.pin_p.v[2].im
+  0  1.9745607642533389E-01  0       0                  6   256   # v.pin_p.v[3].re
+  0 -1.0787074618594568E-01  0       0                  6   256   # v.pin_p.v[3].im
+ -1       0                  0       0                  2   280   # v.pin_p.reference.theta
+  0       0                  0       0                  3   256   # v.pin_p.reference.der(theta)
+  0       3                  0       0                  6   262   # v.pin_n.h
+  0       0                  0       0                  6   256   # v.pin_n.v[1].re
+  0       0                  0       0                  6   256   # v.pin_n.v[1].im
+  0       0                  0       0                  6   256   # v.pin_n.v[2].re
+  0       0                  0       0                  6   256   # v.pin_n.v[2].im
+  0       0                  0       0                  6   256   # v.pin_n.v[3].re
+  0       0                  0       0                  6   256   # v.pin_n.v[3].im
+  0     100                  0       0                  6   256   # v.vMag[1]
+  0  5.0000000000000000E-01  0       0                  6   256   # v.vMag[2]
+  0  2.2500000000000001E-01  0       0                  6   256   # v.vMag[3]
+  0       0                  0       0                  6   256   # v.vArg[1]
+  0  2.5000000000000000E-01  0       0                  6   256   # v.vArg[2]
+  0 -5.0000000000000000E-01  0       0                  6   256   # v.vArg[3]
+  0       0                  0       0                  6   352   # z.v[1].re
+  0       0                  0       0                  6   320   # z.v[1].im
+  0       0                  0       0                  6   352   # z.v[2].re
+  0       0                  0       0                  6   320   # z.v[2].im
+  0       0                  0       0                  6   352   # z.v[3].re
+  0       0                  0       0                  6   320   # z.v[3].im
+  0  3.7699111843077515E+02  0       0                  6   256   # z.omega
+  0       3                  0       0                  6   262   # z.pin_p.h
+  0     100                  0       0                  6   256   # z.pin_p.v[1].re
+  0       0                  0       0                  6   256   # z.pin_p.v[1].im
+  0  4.8445621085532237E-01  0       0                  6   256   # z.pin_p.v[2].re
+  0  1.2370197962726147E-01  0       0                  6   256   # z.pin_p.v[2].im
+  0  1.9745607642533389E-01  0       0                  6   256   # z.pin_p.v[3].re
+  0 -1.0787074618594568E-01  0       0                  6   256   # z.pin_p.v[3].im
+  0       0                  0       0                  6   256   # z.pin_p.reference.theta
+  0  3.7699111843077515E+02  0       0                  6   256   # z.pin_p.reference.der(theta)
+  0       3                  0       0                  6   262   # z.pin_n.h
+  0       0                  0       0                  6   320   # z.pin_n.v[1].re
+  0       0                  0       0                  6   320   # z.pin_n.v[2].re
+  0       0                  0       0                  6   320   # z.pin_n.v[2].im
+  0       0                  0       0                  6   320   # z.pin_n.v[3].re
+  0       0                  0       0                  6   320   # z.pin_n.v[3].im
+  0       2                  0       0                  6   256   # z.a
+  0      10                  0       0                  6   256   # z.z.re
+  0       2                  0       0                  6   256   # z.z.im
+  0       0                  0       0                  6   320   # z.vFundAbs
+  0       0                  0       0                  6   320   # z.vFundArg
+  0       0                  0       0                  6   320   # z.iFundAbs
+  0       0                  0       0                  6   320   # z.iFundArg
+  0       3                  0       0                  6   262   # ground1.pin.h
+  0       0                  0       0                  6   256   # ground1.pin.v[1].re
+  0       0                  0       0                  6   256   # ground1.pin.v[1].im
+  0       0                  0       0                  6   256   # ground1.pin.v[2].re
+  0       0                  0       0                  6   256   # ground1.pin.v[2].im
+  0       0                  0       0                  6   256   # ground1.pin.v[3].re
+  0       0                  0       0                  6   256   # ground1.pin.v[3].im
+  0       0                  0       0                  6   388   # ground1.pin.iIm[1]
+  0       0                  0       0                  6   388   # ground1.pin.iIm[2]
+  0       0                  0       0                  6   388   # ground1.pin.iIm[3]
+  0       0                  0       0                  6   388   # ground1.pin.iRe[1]
+  0       0                  0       0                  6   388   # ground1.pin.iRe[2]
+  0       0                  0       0                  6   388   # ground1.pin.iRe[3]
+  0      10                  0       0                  6   256   # resistor1.R
+  0  3.0014999999999998E+02  0 1.0000000000000000E+100  6   256   # resistor1.T_ref
+  0       0                  0       0                  6   256   # resistor1.alpha
+  0     100                  0       0                  6   256   # resistor1.v
+  0      10                  0       0                  6   256   # resistor1.i
+  0     100                  0       0                  6   260   # resistor1.p.v
+  0      10                  0       0                  6   388   # resistor1.p.i
+  0       0                  0       0                  6   260   # resistor1.n.v
+  0     -10                  0       0                  6   388   # resistor1.n.i
+  0       0                  0       0                  6   769   # resistor1.useHeatPort
+  0  3.0014999999999998E+02  0 1.0000000000000000E+100  6   256   # resistor1.T
+  0    1000                  0       0                  6   256   # resistor1.LossPower
+  0  3.0014999999999998E+02  0 1.0000000000000000E+100  6   256   # resistor1.T_heatPort
+  0      10                  0       0                  6   256   # resistor1.R_actual
+  0       0                  0       0                  6   260   # ground2.p.v
+  0       0                  0       0                  6   388   # ground2.p.i
+  0     100                  0       0                  6   256   # rectifier1.constantVoltage1.V
+  0     100                  0       0                  6   256   # rectifier1.constantVoltage1.v
+  0     -10                  0       0                  6   256   # rectifier1.constantVoltage1.i
+  0     100                  0       0                  6   260   # rectifier1.constantVoltage1.p.v
+  0     -10                  0       0                  6   388   # rectifier1.constantVoltage1.p.i
+  0       0                  0       0                  6   260   # rectifier1.constantVoltage1.n.v
+  0      10                  0       0                  6   388   # rectifier1.constantVoltage1.n.i
+  0     100                  0       0                  6   260   # rectifier1.pin_p.v
+  0     -10                  0       0                  6   388   # rectifier1.pin_p.i
+  0       0                  0       0                  6   260   # rectifier1.pin_n.v
+  0      10                  0       0                  6   388   # rectifier1.pin_n.i
+  0       3                  0       0                  6   262   # rectifier1.hPin_P.h
+  0       3                  0       0                  6   262   # rectifier1.hPin_N.h
+  0       0                  0       0                  6   256   # rectifier1.hPin_N.v[1].re
+  0       0                  0       0                  6   256   # rectifier1.hPin_N.v[1].im
+  0       0                  0       0                  6   256   # rectifier1.hPin_N.v[2].re
+  0       0                  0       0                  6   256   # rectifier1.hPin_N.v[2].im
+  0       0                  0       0                  6   256   # rectifier1.hPin_N.v[3].re
+  0       0                  0       0                  6   256   # rectifier1.hPin_N.v[3].im
+  0     100                  0       0                  6   256   # rectifier1.V_Rect
+  0  9.4999999999999996E-01  0       0                  6   256   # rectifier1.efficiency
+  0  2.7006426804924799E-05  0       0                  6   256   # rectifier1.hrmMdl_coefMag[1]
+  0 -1.5697610131033999E-03  0       0                  6   256   # rectifier1.hrmMdl_coefMag[2]
+  0 -6.0003708060210803E-03  0       0                  6   256   # rectifier1.hrmMdl_coefMag[3]
+  0  9.9551692201576802E-01  0       0                  6   256   # rectifier1.hrmMdl_coefMag[4]
+  0 -5.0237288104540401E-05  0       0                  6   256   # rectifier1.hrmMdl_coefArg[1]
+  0  2.3706392494484202E-03  0       0                  6   256   # rectifier1.hrmMdl_coefArg[2]
+  0 -1.4999395742816899E+00  0       0                  6   256   # rectifier1.hrmMdl_coefArg[3]
+  0  1.7199440762300799E+00  0       0                  6   256   # rectifier1.hrmMdl_coefArg[4]
+  0       1                  0       0                  6   256   # rectifier1.rectifierModel
+  0   -1000                  0       0                  6   256   # rectifier1.P
+  0  3.7699111843077515E+02  0       0                  6   256   # rectifier1.loadBase1.omega
+  0       3                  0       0                  6   262   # rectifier1.loadBase1.pin_p.h
+  0  3.7699111843077515E+02  0       0                  6   256   # rectifier1.loadBase1.pin_p.reference.der(theta)
+  0       3                  0       0                  6   262   # rectifier1.loadBase1.pin_n.h
+  0       0                  0       0                  6   256   # rectifier1.loadBase1.pin_n.v[1].re
+  0       0                  0       0                  6   256   # rectifier1.loadBase1.pin_n.v[1].im
+  0       0                  0       0                  6   256   # rectifier1.loadBase1.pin_n.v[2].re
+  0       0                  0       0                  6   256   # rectifier1.loadBase1.pin_n.v[2].im
+  0       0                  0       0                  6   256   # rectifier1.loadBase1.pin_n.v[3].re
+  0       0                  0       0                  6   256   # rectifier1.loadBase1.pin_n.v[3].im
+  0  5.0000000000000000E-01  0       0                  6  1280   # rectifier1.Q
+  0    -950                  0       0                  6  1280   # rectifier1.S_vect[1].re
+  0  5.0000000000000000E-01  0       0                  6  1280   # rectifier1.S_vect[1].im
+  0       0                  0       0                  6  1280   # rectifier1.S_vect[2].re
+  0       0                  0       0                  6  1280   # rectifier1.S_vect[2].im
+  0       0                  0       0                  6  1280   # rectifier1.S_vect[3].re
+  0       0                  0       0                  6  1280   # rectifier1.S_vect[3].im
+  0    9854                  0       0                  6  1280   # rectifier1.globalSeed
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -381,7 +457,8 @@ double initialValue(113,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(113,89)
+char initialDescription(151,90)
+Harmonics to simulate [:#(type=Integer)]
 Harmonics to simulate [:#(type=Integer)]
 Harmonics to simulate [:#(type=Integer)]
 Number of harmonics. (Automatically generated from hrms. Do not alter) [:#(type=Integer)]
@@ -398,8 +475,14 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
 [rad/s]
 Numbder of harmonics [:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
 Real part of complex number
@@ -411,21 +494,18 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-[rad|deg]
-Voltage Magnitude
-Voltage Magnitude
-Voltage angle
-Voltage angle
-Numbder of harmonics [:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
+Voltage Magnitude (Volts rms)
+Voltage Magnitude (Volts rms)
+Voltage Magnitude (Volts rms)
+Voltage angle (rad)
+Voltage angle (rad)
+Voltage angle (rad)
 Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-
-
-
-
-Real part of complex number
 Real part of complex number
 Imaginary part of complex number
 [rad/s]
@@ -434,60 +514,93 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-[rad|deg]
-[rad/s]
-Numbder of harmonics [:#(type=Integer)]
 Real part of complex number
 Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-
-
-
-
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-[rad/s]
-Numbder of harmonics [:#(type=Integer)]
 [rad|deg]
 [rad/s]
 Numbder of harmonics [:#(type=Integer)]
 Real part of complex number
+Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
+
 Real part of complex number
 Imaginary part of complex number
 
 
 
 
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-Real part of complex number
-Imaginary part of complex number
-[rad/s]
-Numbder of harmonics [:#(type=Integer)]
-[rad|deg]
-[rad/s]
 Numbder of harmonics [:#(type=Integer)]
 Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
-IMPORTANT: set real power to -ve
+Real part of complex number
+Imaginary part of complex number
 
 
 
 
 
 
-
-
+Resistance at temperature T_ref [Ohm]
+Reference temperature [K|degC]
+Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]
+Voltage drop of the two pins (= p.v - n.v) [V]
+Current flowing from pin p to pin n [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+=true, if heatPort is enabled [:#(type=Boolean)]
+Fixed device temperature if useHeatPort = false [K|degC]
+Loss power leaving component via heatPort [W]
+Temperature of heatPort [K|degC]
+Actual resistance = R*(1 + alpha*(T_heatPort - T_ref)) [Ohm]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Value of constant voltage [V]
+Voltage drop of the two pins (= p.v - n.v) [V]
+Current flowing from pin p to pin n [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Numbder of harmonics [:#(type=Integer)]
+Numbder of harmonics [:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+Rectifier DC output [V]
+Rectifier efficiency
+Harmonic model magnitude polynomial coefficient
+Harmonic model magnitude polynomial coefficient
+Harmonic model magnitude polynomial coefficient
+Harmonic model magnitude polynomial coefficient
+Harmonic model argument (angle, [rad]) polynomial coefficient
+Harmonic model argument (angle, [rad]) polynomial coefficient
+Harmonic model argument (angle, [rad]) polynomial coefficient
+Harmonic model argument (angle, [rad]) polynomial coefficient
+Rectifier model (Other model parameters passed as a record?)
+[W]
+[rad/s]
+Numbder of harmonics [:#(type=Integer)]
+[rad/s]
+Numbder of harmonics [:#(type=Integer)]
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
+Real part of complex number
+Imaginary part of complex number
 
 Real part of complex number
 Imaginary part of complex number
@@ -495,4 +608,5 @@ Real part of complex number
 Imaginary part of complex number
 Real part of complex number
 Imaginary part of complex number
+
 

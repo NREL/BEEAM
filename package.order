@@ -2,6 +2,7 @@ Types
 SystemDef
 SinglePhase
 MultiPhase
+DC
 Machines
 Examples
 Documentation

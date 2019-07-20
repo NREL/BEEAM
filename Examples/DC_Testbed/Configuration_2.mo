@@ -22,14 +22,8 @@ model Configuration_2
     Placement(visible = true, transformation(origin = {112,50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier LED_Driver_2 annotation(
     Placement(visible = true, transformation(origin = {34, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.NonlinearLoads.Rectifier LED_Driver_3 annotation(
-    Placement(visible = true, transformation(origin = {110, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_1 annotation(
     Placement(visible = true, transformation(origin = {70, 92}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_2 annotation(
-    Placement(visible = true, transformation(origin = {28, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_3 annotation(
-    Placement(visible = true, transformation(origin = {74, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Machines.Transformers_iPh.Test_DY test_DY1 annotation(
     Placement(visible = true, transformation(origin = {-50, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Resistor Laptop_1 annotation(
@@ -48,6 +42,12 @@ model Configuration_2
     Placement(visible = true, transformation(origin = {-120, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {-50, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_2 annotation(
+    Placement(visible = true, transformation(origin = {28, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  SinglePhase.NonlinearLoads.Rectifier Laptop_Adapter_3 annotation(
+    Placement(visible = true, transformation(origin = {74, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  SinglePhase.NonlinearLoads.Rectifier LED_Driver_3 annotation(
+    Placement(visible = true, transformation(origin = {110, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(PhB.pin_p, test_DY1.pinPrim_B) annotation(
     Line(points = {{-100, 10}, {-60, 10}}));

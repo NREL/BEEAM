@@ -1,6 +1,5 @@
 within HPF;
 class SystemDef
-                // changing from model to a class
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
 
   /*
@@ -73,5 +72,5 @@ algorithm
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "No \"systemDef\" component is defined.
     Drag SystemDef into the top level of your model.",
-  Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Line(origin = {0, 60}, points = {{-100, 0}, {100, 0}}), Text(origin = {-48, 35}, extent = {{-34, 13}, {94, -9}}, textString = "Harmonics=%hrms"), Text(origin = {-48, 7}, extent = {{-34, 13}, {126, -33}}, textString = "Fundamental=%fFund Hz")}));
+  Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Line(origin = {0, 60}, points = {{-100, 0}, {100, 0}}), Text(origin = {-48, 35}, extent = {{-34, 13}, {94, -9}}, textString = "Harmonics=%hrms"), Text(origin = {-48, 7}, extent = {{-34, 13}, {126, -33}}, textString = "Fundamental=%fFund Hz"), Text(origin = {-56, 81}, fillColor = {92, 53, 102}, extent = {{-34, 13}, {150, -15}}, textString = "System Setup", textStyle = {TextStyle.Bold})}));
 end SystemDef;

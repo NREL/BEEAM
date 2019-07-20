@@ -1,0 +1,3058 @@
+Compiler arguments:
+  -log=verbose: compile_log.txt,w|xml|stderr -target=me -version=2.0 -platform=linux64 -out=. -modelicapath=/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL ../../../HPF HPF.Test.Test_Rectifier 
+Current working directory:
+  /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/Test_Rectifier.pyjmi
+Compiler version: r12669
+Java version: 11.0.3
+OS name: Linux
+OS architecture: amd64
+MODELICAPATH    = 
+JAVA_HOME       = /usr/lib/jvm/java-11-openjdk-amd64
+JMODELICA_HOME  = /home/avpreetsingh/programfiles/jModelica/
+======= Compiling model =======
+Parsing ../../../HPF/package.mo...
+Checking for errors...
+MODELICAPATH = /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL
+extra_lib_dirs = 
+Reading file: ../../../HPF/package.mo
+Reading file: ../../../HPF/Test/package.mo
+Reading file: ../../../HPF/Test/Test_Rectifier.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Icons.mo
+Reading file: ../../../HPF/SystemDef.mo
+Reading file: ../../../HPF/SinglePhase/package.mo
+Reading file: ../../../HPF/SinglePhase/Sources/package.mo
+Reading file: ../../../HPF/SinglePhase/Sources/VoltageSource.mo
+Reading file: ../../../HPF/SinglePhase/Interface.mo
+Reading file: ../../../HPF/SinglePhase/Components/package.mo
+Reading file: ../../../HPF/SinglePhase/Components/Impedance.mo
+Reading file: ../../../HPF/SinglePhase/Components/Ground.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/Analog/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/Analog/Basic.mo
+Reading file: ../../../HPF/SinglePhase/NonlinearLoads/package.mo
+Reading file: ../../../HPF/SinglePhase/NonlinearLoads/Rectifier.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/SIunits.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Complex.mo
+Reading file: ../../../HPF/Types.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Constants.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Math/package.mo
+Reading file: ../../../HPF/Utilities.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/ComplexMath.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/Analog/Interfaces.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Thermal/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Thermal/HeatTransfer.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/ModelicaServices/package.mo
+Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/Analog/Sources.mo
+Warning at line 19, column 3, in file '../../../HPF/SinglePhase/NonlinearLoads/Rectifier.mo', PARAMETER_MISSING_BINDING_EXPRESSION:
+  The parameter rectifier1.rectifierModel does not have a binding expression
+Flattening model...
+Raw flattened model:
+fclass HPF.Test.Test_Rectifier
+ parameter Integer systemDef.hrms[3] = {1, 3, 5} "Harmonics to simulate" /* { 1, 3, 5 } */;
+ structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = false);
+ discrete Boolean systemDef.eventWriteData(start = false);
+ discrete Boolean systemDef.eventReadData(start = false);
+ parameter Real v.vMag[3] = {100, 0.5, 0.225} "Voltage Magnitude (Volts rms)" /* { 100, 0.5, 0.225 } */;
+ parameter Real v.vArg[3] = {0, 0.25, -0.5} "Voltage angle (rad)" /* { 0, 0.25, -0.5 } */;
+ Modelica.SIunits.Angle v.theta(start = 0) = v.pin_p.reference.theta;
+ Complex v.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex v.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real v.omega;
+ HPF.Types.Reference v.pin_p.reference "Reference";
+ structural parameter Integer v.pin_p.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex v.pin_p.v[3] "Complex potential at the node";
+ Real v.pin_p.iIm[3];
+ Real v.pin_p.iRe[3];
+ HPF.Types.Reference v.pin_n.reference "Reference";
+ structural parameter Integer v.pin_n.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex v.pin_n.v[3] "Complex potential at the node";
+ Real v.pin_n.iIm[3];
+ Real v.pin_n.iRe[3];
+ HPF.Utilities.Properties z.properties(ComponentType = "asdasd",a = 45);
+ parameter Complex z.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(10, 0), Complex.'*'.multiply(Complex.'constructor'.fromReal(2, 0), Complex(0, 1))) "Impedance, R + jX";
+ Real z.vFundAbs = Modelica.ComplexMath.'abs'(z.v[1]);
+ Real z.vFundArg = Modelica.ComplexMath.arg(z.v[1], 0);
+ Real z.iFundAbs = Modelica.ComplexMath.'abs'(z.i[1]);
+ Real z.iFundArg = Modelica.ComplexMath.arg(z.i[1], 0);
+ Complex z.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex z.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real z.omega;
+ HPF.Types.Reference z.pin_p.reference "Reference";
+ structural parameter Integer z.pin_p.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex z.pin_p.v[3] "Complex potential at the node";
+ Real z.pin_p.iIm[3];
+ Real z.pin_p.iRe[3];
+ HPF.Types.Reference z.pin_n.reference "Reference";
+ structural parameter Integer z.pin_n.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex z.pin_n.v[3] "Complex potential at the node";
+ Real z.pin_n.iIm[3];
+ Real z.pin_n.iRe[3];
+ HPF.Types.Reference ground1.pin.reference "Reference";
+ structural parameter Integer ground1.pin.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex ground1.pin.v[3] "Complex potential at the node";
+ Real ground1.pin.iIm[3];
+ Real ground1.pin.iRe[3];
+ parameter Modelica.SIunits.Resistance resistor1.R(start = 1) = 10 "Resistance at temperature T_ref" /* 10 */;
+ parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_ref = 300.15 "Reference temperature" /* 300.15 */;
+ parameter Modelica.SIunits.LinearTemperatureCoefficient resistor1.alpha = 0 "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))" /* 0 */;
+ Modelica.SIunits.Resistance resistor1.R_actual "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
+ Modelica.SIunits.ElectricPotential resistor1.v "Voltage drop between the two pins (= p.v - n.v)";
+ Modelica.SIunits.ElectricCurrent resistor1.i "Current flowing from pin p to pin n";
+ Modelica.SIunits.ElectricPotential resistor1.p.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent resistor1.p.i "Current flowing into the pin";
+ Modelica.SIunits.ElectricPotential resistor1.n.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent resistor1.n.i "Current flowing into the pin";
+ eval parameter Boolean resistor1.useHeatPort = false "=true, if heatPort is enabled" /* false */;
+ parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T = resistor1.T_ref "Fixed device temperature if useHeatPort = false";
+ Modelica.SIunits.Power resistor1.LossPower "Loss power leaving component via heatPort";
+ Modelica.SIunits.ThermodynamicTemperature resistor1.T_heatPort "Temperature of heatPort";
+ Modelica.SIunits.ElectricPotential ground2.p.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent ground2.p.i "Current flowing into the pin";
+ parameter Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.V(start = 1) = rectifier1.V_Rect "Value of constant voltage";
+ Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.v "Voltage drop between the two pins (= p.v - n.v)";
+ Modelica.SIunits.ElectricCurrent rectifier1.constantVoltage1.i "Current flowing from pin p to pin n";
+ Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.p.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent rectifier1.constantVoltage1.p.i "Current flowing into the pin";
+ Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.n.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent rectifier1.constantVoltage1.n.i "Current flowing into the pin";
+ Modelica.SIunits.ElectricPotential rectifier1.pin_p.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent rectifier1.pin_p.i "Current flowing into the pin";
+ Modelica.SIunits.ElectricPotential rectifier1.pin_n.v "Potential at the pin";
+ Modelica.SIunits.ElectricCurrent rectifier1.pin_n.i "Current flowing into the pin";
+ HPF.Types.Reference rectifier1.hPin_P.reference "Reference";
+ structural parameter Integer rectifier1.hPin_P.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex rectifier1.hPin_P.v[3] "Complex potential at the node";
+ Real rectifier1.hPin_P.iIm[3];
+ Real rectifier1.hPin_P.iRe[3];
+ HPF.Types.Reference rectifier1.hPin_N.reference "Reference";
+ structural parameter Integer rectifier1.hPin_N.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex rectifier1.hPin_N.v[3] "Complex potential at the node";
+ Real rectifier1.hPin_N.iIm[3];
+ Real rectifier1.hPin_N.iRe[3];
+ parameter Real rectifier1.V_Rect(start = 0) = 100 "Rectifier DC output" /* 100 */;
+ parameter Real rectifier1.efficiency(start = 1) = 0.95 "Rectifier efficiency" /* 0.95 */;
+ parameter Real rectifier1.hrmMdl_coefMag[4] = {2.70064268049248E-5, -0.0015697610131034, -0.00600037080602108, 0.995516922015768} "Harmonic model magnitude polynomial coefficient" /* { 2.70064268049248E-5, -0.0015697610131034, -0.00600037080602108, 0.995516922015768 } */;
+ parameter Real rectifier1.hrmMdl_coefArg[4] = {-5.02372881045404E-5, 0.00237063924944842, -1.49993957428169, 1.71994407623008} "Harmonic model argument (angle, [rad]) polynomial coefficient" /* { -5.02372881045404E-5, 0.00237063924944842, -1.49993957428169, 1.71994407623008 } */;
+ parameter Real rectifier1.rectifierModel "Rectifier model (Other model parameters passed as a record?)";
+ Real rectifier1.P = rectifier1.constantVoltage1.v * rectifier1.constantVoltage1.i;
+ Complex rectifier1.loadBase1.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
+ Complex rectifier1.loadBase1.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
+ Real rectifier1.loadBase1.omega;
+ HPF.Types.Reference rectifier1.loadBase1.pin_p.reference "Reference";
+ structural parameter Integer rectifier1.loadBase1.pin_p.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex rectifier1.loadBase1.pin_p.v[3] "Complex potential at the node";
+ Real rectifier1.loadBase1.pin_p.iIm[3];
+ Real rectifier1.loadBase1.pin_p.iRe[3];
+ HPF.Types.Reference rectifier1.loadBase1.pin_n.reference "Reference";
+ structural parameter Integer rectifier1.loadBase1.pin_n.h = 3 "Numbder of harmonics" /* 3 */;
+ Complex rectifier1.loadBase1.pin_n.v[3] "Complex potential at the node";
+ Real rectifier1.loadBase1.pin_n.iIm[3];
+ Real rectifier1.loadBase1.pin_n.iRe[3];
+protected
+ Real rectifier1.Q = 0.5;
+ Complex rectifier1.S_vect[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) = cat(1, {Complex.'constructor'.fromReal(rectifier1.P * rectifier1.efficiency, rectifier1.Q)}, {Complex.'constructor'.fromReal(0.0, 0), Complex.'constructor'.fromReal(0.0, 0)});
+ Real rectifier1.globalSeed = 9854;
+initial equation
+ algorithm
+;
+algorithm
+ when time > 0.5 then
+  systemDef.modeSelect := true;
+ end when;
+ when time > 0.25 then
+  systemDef.eventWriteData := true;
+ end when;
+ when time > 0.4 then
+  systemDef.eventReadData := true;
+ end when;
+equation
+ v.omega = 2 * 3.141592653589793 * systemDef.fFund;
+ v.v[1:3].re = v.vMag[1:3] .* cos(v.vArg[1:3]);
+ v.v[1:3].im = v.vMag[1:3] .* sin(v.vArg[1:3]);
+ v.pin_p.reference.theta = v.pin_n.reference.theta;
+ v.omega = der(v.pin_p.reference.theta);
+ v.v[1:3] = {Complex.'-'.subtract(v.pin_p.v[1], v.pin_n.v[1]), Complex.'-'.subtract(v.pin_p.v[2], v.pin_n.v[2]), Complex.'-'.subtract(v.pin_p.v[3], v.pin_n.v[3])};
+ v.i[1:3].re = v.pin_p.iRe[1:3];
+ v.i[1:3].im = v.pin_p.iIm[1:3];
+ v.pin_p.iRe[1:3] + v.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ v.pin_p.iIm[1:3] + v.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ z.v[1:3].re = z.z.re .* z.i[1:3].re - z.z.im .* systemDef.hrms[1:3] .* z.i[1:3].im;
+ z.v[1:3].im = z.z.re .* z.i[1:3].im + z.z.im .* systemDef.hrms[1:3] .* z.i[1:3].re;
+ z.pin_p.reference.theta = z.pin_n.reference.theta;
+ z.omega = der(z.pin_p.reference.theta);
+ z.v[1:3] = {Complex.'-'.subtract(z.pin_p.v[1], z.pin_n.v[1]), Complex.'-'.subtract(z.pin_p.v[2], z.pin_n.v[2]), Complex.'-'.subtract(z.pin_p.v[3], z.pin_n.v[3])};
+ z.i[1:3].re = z.pin_p.iRe[1:3];
+ z.i[1:3].im = z.pin_p.iIm[1:3];
+ z.pin_p.iRe[1:3] + z.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ z.pin_p.iIm[1:3] + z.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ if Connections.isRoot(ground1.pin.reference) then
+  ground1.pin.reference.theta = 0;
+ end if;
+ ground1.pin.v[1:3] = {Complex.'constructor'.fromReal(0.0, 0), Complex.'constructor'.fromReal(0.0, 0), Complex.'constructor'.fromReal(0.0, 0)};
+ assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!");
+ resistor1.R_actual = resistor1.R * (1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref));
+ resistor1.v = resistor1.R_actual * resistor1.i;
+ resistor1.LossPower = resistor1.v * resistor1.i;
+ resistor1.v = resistor1.p.v - resistor1.n.v;
+ 0 = resistor1.p.i + resistor1.n.i;
+ resistor1.i = resistor1.p.i;
+ if not false then
+  resistor1.T_heatPort = resistor1.T;
+ end if;
+ ground2.p.v = 0;
+ if systemDef.modeSelect == false then
+  rectifier1.S_vect[1:3].re = rectifier1.loadBase1.v[1:3].re .* rectifier1.loadBase1.i[1:3].re;
+  rectifier1.S_vect[1:3].im = rectifier1.loadBase1.v[1:3].im .* (- rectifier1.loadBase1.i[1:3].im);
+ else
+  rectifier1.loadBase1.i[1:3].re = {HPF.Utilities.polyval(rectifier1.hrmMdl_coefMag[1:4], 1), HPF.Utilities.polyval(rectifier1.hrmMdl_coefMag[1:4], 3), HPF.Utilities.polyval(rectifier1.hrmMdl_coefMag[1:4], 5)} .* sin({HPF.Utilities.polyval(rectifier1.hrmMdl_coefArg[1:4], 1), HPF.Utilities.polyval(rectifier1.hrmMdl_coefArg[1:4], 3), HPF.Utilities.polyval(rectifier1.hrmMdl_coefArg[1:4], 5)});
+  rectifier1.loadBase1.i[1:3].im = {HPF.Utilities.polyval(rectifier1.hrmMdl_coefMag[1:4], 1), HPF.Utilities.polyval(rectifier1.hrmMdl_coefMag[1:4], 3), HPF.Utilities.polyval(rectifier1.hrmMdl_coefMag[1:4], 5)} .* cos({HPF.Utilities.polyval(rectifier1.hrmMdl_coefArg[1:4], 1), HPF.Utilities.polyval(rectifier1.hrmMdl_coefArg[1:4], 3), HPF.Utilities.polyval(rectifier1.hrmMdl_coefArg[1:4], 5)});
+ end if;
+algorithm
+ when systemDef.eventWriteData <> pre(systemDef.eventWriteData) then
+ end when;
+ when systemDef.eventReadData <> pre(systemDef.eventReadData) then
+ end when;
+equation
+ rectifier1.constantVoltage1.v = rectifier1.constantVoltage1.V;
+ rectifier1.constantVoltage1.v = rectifier1.constantVoltage1.p.v - rectifier1.constantVoltage1.n.v;
+ 0 = rectifier1.constantVoltage1.p.i + rectifier1.constantVoltage1.n.i;
+ rectifier1.constantVoltage1.i = rectifier1.constantVoltage1.p.i;
+ rectifier1.loadBase1.pin_p.reference.theta = rectifier1.loadBase1.pin_n.reference.theta;
+ rectifier1.loadBase1.omega = der(rectifier1.loadBase1.pin_p.reference.theta);
+ rectifier1.loadBase1.v[1:3] = {Complex.'-'.subtract(rectifier1.loadBase1.pin_p.v[1], rectifier1.loadBase1.pin_n.v[1]), Complex.'-'.subtract(rectifier1.loadBase1.pin_p.v[2], rectifier1.loadBase1.pin_n.v[2]), Complex.'-'.subtract(rectifier1.loadBase1.pin_p.v[3], rectifier1.loadBase1.pin_n.v[3])};
+ rectifier1.loadBase1.i[1:3].re = rectifier1.loadBase1.pin_p.iRe[1:3];
+ rectifier1.loadBase1.i[1:3].im = rectifier1.loadBase1.pin_p.iIm[1:3];
+ rectifier1.loadBase1.pin_p.iRe[1:3] + rectifier1.loadBase1.pin_n.iRe[1:3] = {0.0, 0.0, 0.0};
+ rectifier1.loadBase1.pin_p.iIm[1:3] + rectifier1.loadBase1.pin_n.iIm[1:3] = {0.0, 0.0, 0.0};
+ rectifier1.pin_p.i + resistor1.p.i = 0.0;
+ rectifier1.pin_p.v = resistor1.p.v;
+ ground2.p.i + rectifier1.pin_n.i + resistor1.n.i = 0.0;
+ ground2.p.v = rectifier1.pin_n.v;
+ rectifier1.pin_n.v = resistor1.n.v;
+ rectifier1.hPin_P.iIm[1:3] + z.pin_n.iIm[1:3] = zeros(3);
+ rectifier1.hPin_P.iRe[1:3] + z.pin_n.iRe[1:3] = zeros(3);
+ rectifier1.hPin_P.v[1].im = z.pin_n.v[1].im;
+ rectifier1.hPin_P.v[1].re = z.pin_n.v[1].re;
+ rectifier1.hPin_P.v[2].im = z.pin_n.v[2].im;
+ rectifier1.hPin_P.v[2].re = z.pin_n.v[2].re;
+ rectifier1.hPin_P.v[3].im = z.pin_n.v[3].im;
+ rectifier1.hPin_P.v[3].re = z.pin_n.v[3].re;
+ v.pin_p.iIm[1:3] + z.pin_p.iIm[1:3] = zeros(3);
+ v.pin_p.iRe[1:3] + z.pin_p.iRe[1:3] = zeros(3);
+ v.pin_p.v[1].im = z.pin_p.v[1].im;
+ v.pin_p.v[1].re = z.pin_p.v[1].re;
+ v.pin_p.v[2].im = z.pin_p.v[2].im;
+ v.pin_p.v[2].re = z.pin_p.v[2].re;
+ v.pin_p.v[3].im = z.pin_p.v[3].im;
+ v.pin_p.v[3].re = z.pin_p.v[3].re;
+ ground1.pin.iIm[1:3] + rectifier1.hPin_N.iIm[1:3] + v.pin_n.iIm[1:3] = zeros(3);
+ ground1.pin.iRe[1:3] + rectifier1.hPin_N.iRe[1:3] + v.pin_n.iRe[1:3] = zeros(3);
+ ground1.pin.v[1].im = rectifier1.hPin_N.v[1].im;
+ rectifier1.hPin_N.v[1].im = v.pin_n.v[1].im;
+ ground1.pin.v[1].re = rectifier1.hPin_N.v[1].re;
+ rectifier1.hPin_N.v[1].re = v.pin_n.v[1].re;
+ ground1.pin.v[2].im = rectifier1.hPin_N.v[2].im;
+ rectifier1.hPin_N.v[2].im = v.pin_n.v[2].im;
+ ground1.pin.v[2].re = rectifier1.hPin_N.v[2].re;
+ rectifier1.hPin_N.v[2].re = v.pin_n.v[2].re;
+ ground1.pin.v[3].im = rectifier1.hPin_N.v[3].im;
+ rectifier1.hPin_N.v[3].im = v.pin_n.v[3].im;
+ ground1.pin.v[3].re = rectifier1.hPin_N.v[3].re;
+ rectifier1.hPin_N.v[3].re = v.pin_n.v[3].re;
+ rectifier1.constantVoltage1.p.i - rectifier1.pin_p.i = 0.0;
+ rectifier1.constantVoltage1.p.v = rectifier1.pin_p.v;
+ rectifier1.constantVoltage1.n.i - rectifier1.pin_n.i = 0.0;
+ rectifier1.constantVoltage1.n.v = rectifier1.pin_n.v;
+ - rectifier1.hPin_P.iIm[1:3] + rectifier1.loadBase1.pin_p.iIm[1:3] = zeros(3);
+ - rectifier1.hPin_P.iRe[1:3] + rectifier1.loadBase1.pin_p.iRe[1:3] = zeros(3);
+ rectifier1.hPin_P.v[1].im = rectifier1.loadBase1.pin_p.v[1].im;
+ rectifier1.hPin_P.v[1].re = rectifier1.loadBase1.pin_p.v[1].re;
+ rectifier1.hPin_P.v[2].im = rectifier1.loadBase1.pin_p.v[2].im;
+ rectifier1.hPin_P.v[2].re = rectifier1.loadBase1.pin_p.v[2].re;
+ rectifier1.hPin_P.v[3].im = rectifier1.loadBase1.pin_p.v[3].im;
+ rectifier1.hPin_P.v[3].re = rectifier1.loadBase1.pin_p.v[3].re;
+ - rectifier1.hPin_N.iIm[1:3] + rectifier1.loadBase1.pin_n.iIm[1:3] = zeros(3);
+ - rectifier1.hPin_N.iRe[1:3] + rectifier1.loadBase1.pin_n.iRe[1:3] = zeros(3);
+ rectifier1.hPin_N.v[1].im = rectifier1.loadBase1.pin_n.v[1].im;
+ rectifier1.hPin_N.v[1].re = rectifier1.loadBase1.pin_n.v[1].re;
+ rectifier1.hPin_N.v[2].im = rectifier1.loadBase1.pin_n.v[2].im;
+ rectifier1.hPin_N.v[2].re = rectifier1.loadBase1.pin_n.v[2].re;
+ rectifier1.hPin_N.v[3].im = rectifier1.loadBase1.pin_n.v[3].im;
+ rectifier1.hPin_N.v[3].re = rectifier1.loadBase1.pin_n.v[3].re;
+ v.pin_p.reference.theta = z.pin_p.reference.theta;
+ rectifier1.hPin_P.reference.theta = z.pin_n.reference.theta;
+ ground1.pin.reference.theta = rectifier1.hPin_N.reference.theta;
+ rectifier1.hPin_N.reference.theta = v.pin_n.reference.theta;
+ rectifier1.hPin_P.reference.theta = rectifier1.loadBase1.pin_p.reference.theta;
+ HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(rectifier1.loadBase1.pin_n.reference, rectifier1.hPin_N.reference);
+
+public
+ function Modelica.ComplexMath.'abs'
+  input Complex c;
+  output Real result;
+ algorithm
+  result := (c.re ^ 2 + c.im ^ 2) ^ 0.5;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.'abs';
+
+ function Modelica.ComplexMath.arg
+  input Complex c;
+  input Real phi0;
+  output Real phi;
+ algorithm
+  phi := Modelica.Math.atan3(c.im, c.re, phi0);
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.arg;
+
+ function Modelica.Math.atan3
+  input Real u1;
+  input Real u2;
+  input Real y0;
+  output Real y;
+  Real w;
+ algorithm
+  w := atan2(u1, u2);
+  if y0 == 0 then
+   y := w;
+  else
+   y := w + 6.283185307179586 * integer((3.141592653589793 + y0 - w) / 6.283185307179586);
+  end if;
+  return;
+ end Modelica.Math.atan3;
+
+ function Complex.'-'.subtract
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re - c2.re, c1.im - c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'-'.subtract;
+
+ function Complex.'constructor'.fromReal
+  input Real re;
+  input Real im;
+  output Complex result;
+ algorithm
+  result.re := re;
+  result.im := im;
+  return;
+ annotation(Inline = true);
+ end Complex.'constructor'.fromReal;
+
+ function Complex.'*'.multiply
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re * c2.re - c1.im * c2.im, c1.re * c2.im + c1.im * c2.re);
+  return;
+ annotation(Inline = true);
+ end Complex.'*'.multiply;
+
+ function Complex.'+'
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re + c2.re, c1.im + c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'+';
+
+ function HPF.Utilities.polyval
+  input Real[:] a;
+  input Real x;
+  output Real y;
+ algorithm
+  y := a[:] * {x ^ i for i in size(a, 1) - 1:-1:0};
+  return;
+ end HPF.Utilities.polyval;
+
+ function HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ record HPF.Utilities.Properties
+  discrete String ComponentType;
+  Real a;
+ end HPF.Utilities.Properties;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+ type Modelica.SIunits.Resistance = Real(final quantity = "Resistance",final unit = "Ohm");
+ type Modelica.SIunits.ThermodynamicTemperature = Real(final quantity = "ThermodynamicTemperature",final unit = "K",min = 0.0,start = 288.15,nominal = 300,displayUnit = "degC");
+ type Modelica.SIunits.LinearTemperatureCoefficient = Real(final quantity = "LinearTemperatureCoefficient",final unit = "1/K");
+ type Modelica.SIunits.ElectricPotential = Real(final quantity = "ElectricPotential",final unit = "V");
+ type Modelica.SIunits.ElectricCurrent = Real(final quantity = "ElectricCurrent",final unit = "A");
+ type Modelica.SIunits.Power = Real(final quantity = "Power",final unit = "W");
+end HPF.Test.Test_Rectifier;
+
+Applying transformation: enableIfEquationElimination...
+Applying transformation: genInitArrayStatements...
+Applying transformation: scalarize...
+Applying transformation: MakeReinitedVarsStates...
+Applying transformation: enableIfEquationElimination...
+Applying transformation: enableStreamsRewrite...
+Applying transformation: ExtractEventGeneratingExpressions...
+Applying transformation: GenerateEventIndicators...
+Applying transformation: convertWhenToIf...
+Applying transformation: FunctionInliningIfSet...
+Applying transformation: setFDerivativeVariables...
+Applying transformation: addFPreVariables...
+Applying transformation: enableIfEquationRewrite...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: variabilityPropagationIfSet...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: eliminateLinearEquations...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: enableExpandedInStreamRewrite...
+Applying transformation: evaluateAsserts...
+Applying transformation: enableSemiLinearRewrite...
+Applying transformation: eliminateEqualSwitches...
+Applying transformation: genInitialEquations...
+Applying transformation: setFDerivativeVariablesPreBLT...
+Applying transformation: indexReduction...
+Applying transformation: LateFunctionInliningIfSet...
+Applying transformation: commonSubexpressionEliminationIfSet...
+Applying transformation: addFPreVariables...
+Applying transformation: aliasEliminationIfSet...
+Applying transformation: eliminateLinearEquations...
+Applying transformation: sortDependentParameters...
+Applying transformation: addRuntimeOptionParameters...
+Applying transformation: computeMatchingsAndBLT...
+Flat tree before matching and BLT:
+fclass HPF.Test.Test_Rectifier
+ parameter Integer systemDef.hrms[1] = 1 "Harmonics to simulate" /* 1 */;
+ parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
+ parameter Integer systemDef.hrms[3] = 5 "Harmonics to simulate" /* 5 */;
+ structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = false);
+ discrete Boolean systemDef.eventWriteData(start = false);
+ discrete Boolean systemDef.eventReadData(start = false);
+ parameter Real v.vMag[1] = 100 "Voltage Magnitude (Volts rms)" /* 100 */;
+ parameter Real v.vMag[2] = 0.5 "Voltage Magnitude (Volts rms)" /* 0.5 */;
+ parameter Real v.vMag[3] = 0.225 "Voltage Magnitude (Volts rms)" /* 0.225 */;
+ parameter Real v.vArg[1] = 0 "Voltage angle (rad)" /* 0 */;
+ parameter Real v.vArg[2] = 0.25 "Voltage angle (rad)" /* 0.25 */;
+ parameter Real v.vArg[3] = -0.5 "Voltage angle (rad)" /* -0.5 */;
+ Modelica.SIunits.Angle v.theta(start = 0);
+ parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_heatPort "Temperature of heatPort";
+ parameter Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.V(start = 1) "Value of constant voltage";
+ parameter Real v.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real v.i[1].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[1].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.i[2].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[2].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.i[3].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[3].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.omega;
+ constant String z.properties.ComponentType = "asdasd";
+ constant Real z.properties.a = 45;
+ parameter Real z.z.re(start = 1) = 10.0 "Real part of complex number" /* 10.0 */;
+ parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z.vFundAbs;
+ Real z.vFundArg;
+ Real z.iFundAbs;
+ Real z.iFundArg;
+ Real z.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.omega;
+ Real ground1.pin.iIm[1];
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iIm[3];
+ Real ground1.pin.iRe[1];
+ Real ground1.pin.iRe[2];
+ Real ground1.pin.iRe[3];
+ parameter Modelica.SIunits.Resistance resistor1.R(start = 1) = 10 "Resistance at temperature T_ref" /* 10 */;
+ parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_ref = 300.15 "Reference temperature" /* 300.15 */;
+ parameter Modelica.SIunits.LinearTemperatureCoefficient resistor1.alpha = 0 "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))" /* 0 */;
+ parameter Real v.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real v.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ eval parameter Boolean resistor1.useHeatPort = false "=true, if heatPort is enabled" /* false */;
+ parameter Modelica.SIunits.Resistance resistor1.R_actual "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
+ parameter Modelica.SIunits.ElectricCurrent resistor1.i "Current flowing from pin p to pin n";
+ parameter Modelica.SIunits.Power resistor1.LossPower "Loss power leaving component via heatPort";
+ parameter Modelica.SIunits.ElectricCurrent ground2.p.i "Current flowing into the pin";
+ parameter Real rectifier1.V_Rect(start = 0) = 100 "Rectifier DC output" /* 100 */;
+ parameter Real rectifier1.efficiency(start = 1) = 0.95 "Rectifier efficiency" /* 0.95 */;
+ parameter Real rectifier1.hrmMdl_coefMag[1] = 2.70064268049248E-5 "Harmonic model magnitude polynomial coefficient" /* 2.70064268049248E-5 */;
+ parameter Real rectifier1.hrmMdl_coefMag[2] = -0.0015697610131034 "Harmonic model magnitude polynomial coefficient" /* -0.0015697610131034 */;
+ parameter Real rectifier1.hrmMdl_coefMag[3] = -0.00600037080602108 "Harmonic model magnitude polynomial coefficient" /* -0.00600037080602108 */;
+ parameter Real rectifier1.hrmMdl_coefMag[4] = 0.995516922015768 "Harmonic model magnitude polynomial coefficient" /* 0.995516922015768 */;
+ parameter Real rectifier1.hrmMdl_coefArg[1] = -5.02372881045404E-5 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* -5.02372881045404E-5 */;
+ parameter Real rectifier1.hrmMdl_coefArg[2] = 0.00237063924944842 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* 0.00237063924944842 */;
+ parameter Real rectifier1.hrmMdl_coefArg[3] = -1.49993957428169 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* -1.49993957428169 */;
+ parameter Real rectifier1.hrmMdl_coefArg[4] = 1.71994407623008 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* 1.71994407623008 */;
+ parameter Real rectifier1.rectifierModel "Rectifier model (Other model parameters passed as a record?)";
+ parameter Real rectifier1.P;
+ Real rectifier1.loadBase1.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real rectifier1.loadBase1.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real rectifier1.loadBase1.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real rectifier1.loadBase1.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real rectifier1.loadBase1.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real rectifier1.loadBase1.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real rectifier1.loadBase1.omega;
+ discrete Boolean temp_17;
+ discrete Boolean temp_18;
+ discrete Boolean temp_19;
+ discrete Boolean temp_20;
+ discrete Boolean temp_21;
+protected
+ parameter Real rectifier1.S_vect[1].re(start = 0,nominal = 1) "Real part of complex number";
+ constant Real rectifier1.S_vect[1].im(start = 0,nominal = 1) = 0.5 "Imaginary part of complex number";
+ constant Real rectifier1.S_vect[2].re(start = 0,nominal = 1) = 0.0 "Real part of complex number";
+ constant Real rectifier1.S_vect[2].im(start = 0,nominal = 1) = 0 "Imaginary part of complex number";
+ constant Real rectifier1.globalSeed = 9854;
+initial equation
+ algorithm
+;
+parameter equation
+ resistor1.T_heatPort = resistor1.T_ref;
+ rectifier1.constantVoltage1.V = rectifier1.V_Rect;
+ v.v[1].re = v.vMag[1] .* cos(v.vArg[1]);
+ v.v[2].re = v.vMag[2] .* cos(v.vArg[2]);
+ v.v[3].re = v.vMag[3] .* cos(v.vArg[3]);
+ v.v[1].im = v.vMag[1] .* sin(v.vArg[1]);
+ v.v[2].im = v.vMag[2] .* sin(v.vArg[2]);
+ v.v[3].im = v.vMag[3] .* sin(v.vArg[3]);
+ resistor1.R_actual = resistor1.R * (1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref));
+ resistor1.i = (- rectifier1.constantVoltage1.V) / (- resistor1.R_actual);
+ resistor1.LossPower = rectifier1.constantVoltage1.V * resistor1.i;
+ ground2.p.i = - resistor1.i + resistor1.i;
+ rectifier1.P = rectifier1.constantVoltage1.V * (- resistor1.i);
+ rectifier1.S_vect[1].re = rectifier1.P * rectifier1.efficiency;
+equation
+ temp_17 = time > 0.5;
+ temp_18 = time > 0.25;
+ temp_19 = time > 0.4;
+algorithm
+ if temp_17 and not pre(temp_17) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.eventWriteData := true;
+ end if;
+ if temp_19 and not pre(temp_19) then
+  systemDef.eventReadData := true;
+ end if;
+equation
+ der(v.theta) = 6.283185307179586 * systemDef.fFund;
+ v.omega = der(v.theta);
+ z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im);
+ z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im);
+ z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im);
+ z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re);
+ z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re);
+ z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re);
+ z.omega = der(v.theta);
+ z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re;
+ z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im;
+ z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re;
+ z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im;
+ z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re;
+ z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im;
+ assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!");
+ 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5));
+ 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5));
+ temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData);
+ temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData);
+algorithm
+ if temp_20 and not pre(temp_20) then
+ end if;
+ if temp_21 and not pre(temp_21) then
+ end if;
+equation
+ rectifier1.loadBase1.omega = der(v.theta);
+ ground1.pin.iIm[1] = 0;
+ ground1.pin.iIm[2] = 0;
+ ground1.pin.iIm[3] = 0;
+ ground1.pin.iRe[1] = 0;
+ ground1.pin.iRe[2] = 0;
+ ground1.pin.iRe[3] = 0;
+ HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5;
+ z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0);
+ z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5;
+ z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0);
+
+public
+ function Modelica.ComplexMath.'abs'
+  input Complex c;
+  output Real result;
+ algorithm
+  result := (c.re ^ 2 + c.im ^ 2) ^ 0.5;
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.'abs';
+
+ function Modelica.ComplexMath.arg
+  input Complex c;
+  input Real phi0;
+  output Real phi;
+ algorithm
+  phi := Modelica.Math.atan3(c.im, c.re, phi0);
+  return;
+ annotation(Inline = true);
+ end Modelica.ComplexMath.arg;
+
+ function Modelica.Math.atan3
+  input Real u1;
+  input Real u2;
+  input Real y0;
+  output Real y;
+  Real w;
+ algorithm
+  w := atan2(u1, u2);
+  if y0 == 0 then
+   y := w;
+  else
+   y := w + 6.283185307179586 * integer((3.141592653589793 + y0 - w) / 6.283185307179586);
+  end if;
+  return;
+ end Modelica.Math.atan3;
+
+ function Complex.'-'.subtract
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re - c2.re, c1.im - c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'-'.subtract;
+
+ function Complex.'constructor'.fromReal
+  input Real re;
+  input Real im;
+  output Complex result;
+ algorithm
+  result.re := re;
+  result.im := im;
+  return;
+ annotation(Inline = true);
+ end Complex.'constructor'.fromReal;
+
+ function Complex.'*'.multiply
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re * c2.re - c1.im * c2.im, c1.re * c2.im + c1.im * c2.re);
+  return;
+ annotation(Inline = true);
+ end Complex.'*'.multiply;
+
+ function Complex.'+'
+  input Complex c1;
+  input Complex c2;
+  output Complex c3;
+ algorithm
+  (c3) := Complex.'constructor'.fromReal(c1.re + c2.re, c1.im + c2.im);
+  return;
+ annotation(Inline = true);
+ end Complex.'+';
+
+ function HPF.Utilities.polyval
+  input Real[:] a;
+  input Real x;
+  output Real y;
+  Real temp_1;
+  Real temp_2;
+  Real[:] temp_3;
+ algorithm
+  init temp_3 as Real[max(integer(size(a, 1) - 1) + 1, 0)];
+  for i1 in 1:max(integer(size(a, 1) - 1) + 1, 0) loop
+   temp_3[i1] := x ^ (size(a, 1) - 1 + (1 - i1));
+  end for;
+  temp_2 := 0.0;
+  for i1 in 1:max(integer(size(a, 1) - 1) + 1, 0) loop
+   temp_2 := temp_2 + a[i1] * temp_3[i1];
+  end for;
+  temp_1 := temp_2;
+  y := temp_1;
+  return;
+ end HPF.Utilities.polyval;
+
+ function HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint;
+
+ record Complex
+  Real re "Real part of complex number";
+  Real im "Imaginary part of complex number";
+ end Complex;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ record HPF.Utilities.Properties
+  discrete String ComponentType;
+  Real a;
+ end HPF.Utilities.Properties;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+ type Modelica.SIunits.Resistance = Real(final quantity = "Resistance",final unit = "Ohm");
+ type Modelica.SIunits.ThermodynamicTemperature = Real(final quantity = "ThermodynamicTemperature",final unit = "K",min = 0.0,start = 288.15,nominal = 300,displayUnit = "degC");
+ type Modelica.SIunits.LinearTemperatureCoefficient = Real(final quantity = "LinearTemperatureCoefficient",final unit = "1/K");
+ type Modelica.SIunits.ElectricPotential = Real(final quantity = "ElectricPotential",final unit = "V");
+ type Modelica.SIunits.ElectricCurrent = Real(final quantity = "ElectricCurrent",final unit = "A");
+ type Modelica.SIunits.Power = Real(final quantity = "Power",final unit = "W");
+end HPF.Test.Test_Rectifier;
+
+DAE BiPGraph
+BiPGraph (43 equations, 40 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 }
+eq_1 : temp_17@M // temp_17 = time > 0.5
+eq_2 : temp_18@M // temp_18 = time > 0.25
+eq_3 : temp_19@M // temp_19 = time > 0.4
+eq_4[1] : temp_17# temp_18# temp_19# systemDef.eventReadData@M // algorithm
+ if temp_17 and not pre(temp_17) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.eventWriteData := true;
+ end if;
+ if temp_19 and not pre(temp_19) then
+  systemDef.eventReadData := true;
+ end if;
+
+eq_4[2] : temp_17# temp_18# systemDef.eventWriteData@M temp_19# // Already printed, see eq_4[1]
+eq_4[3] : temp_17# systemDef.modeSelect@M temp_18# temp_19# // Already printed, see eq_4[1]
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[3].re@M v.i[3].re@ v.i[3].im@ // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+eq_10 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_11 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_12 : z.v[3].im@M v.i[3].im@ v.i[3].re@ // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_13 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_20 : // assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+eq_21 : systemDef.modeSelect# rectifier1.loadBase1.v[1].re@ v.i[1].re@M // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_22 : systemDef.modeSelect# rectifier1.loadBase1.v[2].re@ v.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_23 : systemDef.modeSelect# rectifier1.loadBase1.v[3].re@ v.i[3].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_24 : systemDef.modeSelect# rectifier1.loadBase1.v[1].im@ v.i[1].im@M // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_25 : systemDef.modeSelect# rectifier1.loadBase1.v[2].im@ v.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_26 : systemDef.modeSelect# rectifier1.loadBase1.v[3].im@ v.i[3].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_27 : temp_20@M systemDef.eventWriteData# // temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+eq_28 : temp_21@M systemDef.eventReadData# // temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData)
+eq_29 : temp_20# temp_21# // algorithm
+ if temp_20 and not pre(temp_20) then
+ end if;
+ if temp_21 and not pre(temp_21) then
+ end if;
+
+eq_30 : rectifier1.loadBase1.omega@M der(v.theta)@ // rectifier1.loadBase1.omega = der(v.theta)
+eq_31 : ground1.pin.iIm[1]@M // ground1.pin.iIm[1] = 0
+eq_32 : ground1.pin.iIm[2]@M // ground1.pin.iIm[2] = 0
+eq_33 : ground1.pin.iIm[3]@M // ground1.pin.iIm[3] = 0
+eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
+eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
+eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
+eq_37 : // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+DAE BiPGraph matching
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_17
+eq_2 : temp_18
+eq_3 : temp_19
+eq_4[1] : systemDef.eventReadData
+eq_4[2] : systemDef.eventWriteData
+eq_4[3] : systemDef.modeSelect
+eq_5 : der(v.theta)
+eq_6 : v.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[3].re
+eq_10 : z.v[1].im
+eq_11 : z.v[2].im
+eq_12 : z.v[3].im
+eq_13 : z.omega
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_21 : v.i[1].re
+eq_22 : v.i[2].re
+eq_23 : v.i[3].re
+eq_24 : v.i[1].im
+eq_25 : v.i[2].im
+eq_26 : v.i[3].im
+eq_27 : temp_20
+eq_28 : temp_21
+eq_30 : rectifier1.loadBase1.omega
+eq_31 : ground1.pin.iIm[1]
+eq_32 : ground1.pin.iIm[2]
+eq_33 : ground1.pin.iIm[3]
+eq_34 : ground1.pin.iRe[1]
+eq_35 : ground1.pin.iRe[2]
+eq_36 : ground1.pin.iRe[3]
+eq_38 : z.vFundAbs
+eq_39 : z.vFundArg
+eq_40 : z.iFundAbs
+eq_41 : z.iFundArg
+Unmatched equations: {}
+Unmatched variables: {}
+----------------------------------------
+
+BiPGraph (43 equations, 40 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 }
+eq_1 : temp_17@M // temp_17 = time > 0.5
+eq_2 : temp_18@M // temp_18 = time > 0.25
+eq_3 : temp_19@M // temp_19 = time > 0.4
+eq_4[1] : temp_17# temp_18# temp_19# systemDef.eventReadData@M // algorithm
+ if temp_17 and not pre(temp_17) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.eventWriteData := true;
+ end if;
+ if temp_19 and not pre(temp_19) then
+  systemDef.eventReadData := true;
+ end if;
+
+eq_4[2] : temp_17# temp_18# systemDef.eventWriteData@M temp_19# // Already printed, see eq_4[1]
+eq_4[3] : temp_17# systemDef.modeSelect@M temp_18# temp_19# // Already printed, see eq_4[1]
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[3].re@M v.i[3].re@ v.i[3].im@ // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+eq_10 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_11 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_12 : z.v[3].im@M v.i[3].im@ v.i[3].re@ // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_13 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_20 : // assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+eq_21 : systemDef.modeSelect# rectifier1.loadBase1.v[1].re@ v.i[1].re@M // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_22 : systemDef.modeSelect# rectifier1.loadBase1.v[2].re@ v.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_23 : systemDef.modeSelect# rectifier1.loadBase1.v[3].re@ v.i[3].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_24 : systemDef.modeSelect# rectifier1.loadBase1.v[1].im@ v.i[1].im@M // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_25 : systemDef.modeSelect# rectifier1.loadBase1.v[2].im@ v.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_26 : systemDef.modeSelect# rectifier1.loadBase1.v[3].im@ v.i[3].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_27 : temp_20@M systemDef.eventWriteData# // temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+eq_28 : temp_21@M systemDef.eventReadData# // temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData)
+eq_29 : temp_20# temp_21# // algorithm
+ if temp_20 and not pre(temp_20) then
+ end if;
+ if temp_21 and not pre(temp_21) then
+ end if;
+
+eq_30 : rectifier1.loadBase1.omega@M der(v.theta)@ // rectifier1.loadBase1.omega = der(v.theta)
+eq_31 : ground1.pin.iIm[1]@M // ground1.pin.iIm[1] = 0
+eq_32 : ground1.pin.iIm[2]@M // ground1.pin.iIm[2] = 0
+eq_33 : ground1.pin.iIm[3]@M // ground1.pin.iIm[3] = 0
+eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
+eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
+eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
+eq_37 : // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+Starting automatic tearing
+BiPGraph (6 equations, 6 variables)
+Variables: {z.v[1].im rectifier1.loadBase1.v[1].im v.i[1].im rectifier1.loadBase1.v[1].re v.i[1].re z.v[1].re }
+eq_10 : z.v[1].im@M v.i[1].im# v.i[1].re# // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_24 : rectifier1.loadBase1.v[1].im# v.i[1].im# // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_21 : rectifier1.loadBase1.v[1].re# v.i[1].re# // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_7 : z.v[1].re@M v.i[1].re# v.i[1].im# // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_10 : z.v[1].im
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_24 eq_21 }
+Unmatched variables: {v.i[1].im v.i[1].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_10 : z.v[1].im
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_24 eq_21 }
+Unmatched variables: {v.i[1].im v.i[1].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1)), tearing with variable: v.i[1].im
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1)), tearing with variable: v.i[1].re
+Starting automatic tearing
+BiPGraph (6 equations, 6 variables)
+Variables: {z.v[2].im rectifier1.loadBase1.v[2].im v.i[2].im rectifier1.loadBase1.v[2].re v.i[2].re z.v[2].re }
+eq_11 : z.v[2].im@M v.i[2].im# v.i[2].re# // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_25 : rectifier1.loadBase1.v[2].im# v.i[2].im# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_22 : rectifier1.loadBase1.v[2].re# v.i[2].re# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_8 : z.v[2].re@M v.i[2].re# v.i[2].im# // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_11 : z.v[2].im
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_25 eq_22 }
+Unmatched variables: {v.i[2].im v.i[2].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_11 : z.v[2].im
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_25 eq_22 }
+Unmatched variables: {v.i[2].im v.i[2].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3)), tearing with variable: v.i[2].im
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3)), tearing with variable: v.i[2].re
+Starting automatic tearing
+BiPGraph (6 equations, 6 variables)
+Variables: {z.v[3].im rectifier1.loadBase1.v[3].im v.i[3].im rectifier1.loadBase1.v[3].re v.i[3].re z.v[3].re }
+eq_12 : z.v[3].im@M v.i[3].im# v.i[3].re# // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_26 : rectifier1.loadBase1.v[3].im# v.i[3].im# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_23 : rectifier1.loadBase1.v[3].re# v.i[3].re# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_9 : z.v[3].re@M v.i[3].re# v.i[3].im# // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_12 : z.v[3].im
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_26 eq_23 }
+Unmatched variables: {v.i[3].im v.i[3].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_12 : z.v[3].im
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_26 eq_23 }
+Unmatched variables: {v.i[3].im v.i[3].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5)), tearing with variable: v.i[3].im
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5)), tearing with variable: v.i[3].re
+***********************************
+*********** ODE section ***********
+***********************************
+
+--- Solved equation ---
+der(v.theta) := 6.283185307179586 * systemDef.fFund
+
+***********************************
+*********** Real outputs **********
+***********************************
+
+***********************************
+*** Integer and boolean outputs ***
+***********************************
+
+***********************************
+********* Other variables *********
+***********************************
+
+--- Unsolved mixed linear system (Block 1) of 8 variables ---
+Coefficient variability: constant
+Unknown continuous variables:
+
+Solved discrete variables:
+  temp_17
+  temp_18
+  temp_19
+  systemDef.eventReadData
+  temp_21
+  systemDef.eventWriteData
+  temp_20
+  systemDef.modeSelect
+
+Continuous residual equations:
+
+Discrete equations:
+  temp_17 := time > 0.5
+  temp_18 := time > 0.25
+  temp_19 := time > 0.4
+  algorithm
+    if temp_17 and not pre(temp_17) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.eventWriteData := true;
+    end if;
+    if temp_19 and not pre(temp_19) then
+      systemDef.eventReadData := true;
+    end if;
+
+    Assigned variables: systemDef.eventReadData
+  temp_21 := systemDef.eventReadData <> pre(systemDef.eventReadData)
+  algorithm
+    if temp_17 and not pre(temp_17) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.eventWriteData := true;
+    end if;
+    if temp_19 and not pre(temp_19) then
+      systemDef.eventReadData := true;
+    end if;
+
+    Assigned variables: systemDef.eventWriteData
+  temp_20 := systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+  algorithm
+    if temp_17 and not pre(temp_17) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.eventWriteData := true;
+    end if;
+    if temp_19 and not pre(temp_19) then
+      systemDef.eventReadData := true;
+    end if;
+
+    Assigned variables: systemDef.modeSelect
+
+Meta equations:
+  algorithm
+    if temp_20 and not pre(temp_20) then
+    end if;
+    if temp_21 and not pre(temp_21) then
+    end if;
+
+
+Jacobian:
+
+--- Torn system (Block 2) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[1].im
+  rectifier1.loadBase1.v[1].im
+  z.v[1].re
+  rectifier1.loadBase1.v[1].re
+
+Iteration variables:
+  v.i[1].im (start=0,nominal=-1)
+  v.i[1].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[1].im := z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+  rectifier1.loadBase1.v[1].im := - z.v[1].im + v.v[1].im
+  z.v[1].re := z.z.re .* (- v.i[1].re) + (- z.z.im .* systemDef.hrms[1] .* (- v.i[1].im))
+  rectifier1.loadBase1.v[1].re := - z.v[1].re + v.v[1].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+    Iteration variables: v.i[1].im
+  0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+    Iteration variables: v.i[1].re
+
+--- Torn system (Block 3) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[2].im
+  rectifier1.loadBase1.v[2].im
+  z.v[2].re
+  rectifier1.loadBase1.v[2].re
+
+Iteration variables:
+  v.i[2].im (start=0,nominal=-1)
+  v.i[2].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[2].im := z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+  rectifier1.loadBase1.v[2].im := - z.v[2].im + v.v[2].im
+  z.v[2].re := z.z.re .* (- v.i[2].re) + (- z.z.im .* systemDef.hrms[2] .* (- v.i[2].im))
+  rectifier1.loadBase1.v[2].re := - z.v[2].re + v.v[2].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+    Iteration variables: v.i[2].im
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+    Iteration variables: v.i[2].re
+
+--- Torn system (Block 4) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[3].im
+  rectifier1.loadBase1.v[3].im
+  z.v[3].re
+  rectifier1.loadBase1.v[3].re
+
+Iteration variables:
+  v.i[3].im (start=0,nominal=-1)
+  v.i[3].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[3].im := z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+  rectifier1.loadBase1.v[3].im := - z.v[3].im + v.v[3].im
+  z.v[3].re := z.z.re .* (- v.i[3].re) + (- z.z.im .* systemDef.hrms[3] .* (- v.i[3].im))
+  rectifier1.loadBase1.v[3].re := - z.v[3].re + v.v[3].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+    Iteration variables: v.i[3].im
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+    Iteration variables: v.i[3].re
+
+--- Solved equation ---
+v.omega := der(v.theta)
+
+--- Solved equation ---
+z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.vFundArg := Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+
+--- Solved equation ---
+z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+--- Solved equation ---
+z.omega := der(v.theta)
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[3] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[3] := 0
+
+--- Solved equation ---
+rectifier1.loadBase1.omega := der(v.theta)
+
+--- Meta equation block ---
+assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+
+--- Meta equation block ---
+HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+***********************************
+
+--- Unsolved mixed linear system (Block 1) of 8 variables ---
+Coefficient variability: constant
+Unknown continuous variables:
+
+Solved discrete variables:
+  temp_17
+  temp_18
+  temp_19
+  systemDef.eventReadData
+  temp_21
+  systemDef.eventWriteData
+  temp_20
+  systemDef.modeSelect
+
+Continuous residual equations:
+
+Discrete equations:
+  temp_17 := time > 0.5
+  temp_18 := time > 0.25
+  temp_19 := time > 0.4
+  algorithm
+    if temp_17 and not pre(temp_17) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.eventWriteData := true;
+    end if;
+    if temp_19 and not pre(temp_19) then
+      systemDef.eventReadData := true;
+    end if;
+
+    Assigned variables: systemDef.eventReadData
+  temp_21 := systemDef.eventReadData <> pre(systemDef.eventReadData)
+  algorithm
+    if temp_17 and not pre(temp_17) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.eventWriteData := true;
+    end if;
+    if temp_19 and not pre(temp_19) then
+      systemDef.eventReadData := true;
+    end if;
+
+    Assigned variables: systemDef.eventWriteData
+  temp_20 := systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+  algorithm
+    if temp_17 and not pre(temp_17) then
+      systemDef.modeSelect := true;
+    end if;
+    if temp_18 and not pre(temp_18) then
+      systemDef.eventWriteData := true;
+    end if;
+    if temp_19 and not pre(temp_19) then
+      systemDef.eventReadData := true;
+    end if;
+
+    Assigned variables: systemDef.modeSelect
+
+Meta equations:
+  algorithm
+    if temp_20 and not pre(temp_20) then
+    end if;
+    if temp_21 and not pre(temp_21) then
+    end if;
+
+
+Jacobian:
+
+--- Solved equation ---
+der(v.theta) := 6.283185307179586 * systemDef.fFund
+
+--- Solved equation ---
+v.omega := der(v.theta)
+
+--- Torn system (Block 2) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[1].im
+  rectifier1.loadBase1.v[1].im
+  z.v[1].re
+  rectifier1.loadBase1.v[1].re
+
+Iteration variables:
+  v.i[1].im (start=0,nominal=-1)
+  v.i[1].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[1].im := z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+  rectifier1.loadBase1.v[1].im := - z.v[1].im + v.v[1].im
+  z.v[1].re := z.z.re .* (- v.i[1].re) + (- z.z.im .* systemDef.hrms[1] .* (- v.i[1].im))
+  rectifier1.loadBase1.v[1].re := - z.v[1].re + v.v[1].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+    Iteration variables: v.i[1].im
+  0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+    Iteration variables: v.i[1].re
+
+--- Torn system (Block 3) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[2].im
+  rectifier1.loadBase1.v[2].im
+  z.v[2].re
+  rectifier1.loadBase1.v[2].re
+
+Iteration variables:
+  v.i[2].im (start=0,nominal=-1)
+  v.i[2].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[2].im := z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+  rectifier1.loadBase1.v[2].im := - z.v[2].im + v.v[2].im
+  z.v[2].re := z.z.re .* (- v.i[2].re) + (- z.z.im .* systemDef.hrms[2] .* (- v.i[2].im))
+  rectifier1.loadBase1.v[2].re := - z.v[2].re + v.v[2].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+    Iteration variables: v.i[2].im
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+    Iteration variables: v.i[2].re
+
+--- Torn system (Block 4) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[3].im
+  rectifier1.loadBase1.v[3].im
+  z.v[3].re
+  rectifier1.loadBase1.v[3].re
+
+Iteration variables:
+  v.i[3].im (start=0,nominal=-1)
+  v.i[3].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[3].im := z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+  rectifier1.loadBase1.v[3].im := - z.v[3].im + v.v[3].im
+  z.v[3].re := z.z.re .* (- v.i[3].re) + (- z.z.im .* systemDef.hrms[3] .* (- v.i[3].im))
+  rectifier1.loadBase1.v[3].re := - z.v[3].re + v.v[3].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+    Iteration variables: v.i[3].im
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+    Iteration variables: v.i[3].re
+
+--- Solved equation ---
+z.omega := der(v.theta)
+
+--- Meta equation block ---
+assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+
+--- Solved equation ---
+rectifier1.loadBase1.omega := der(v.theta)
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[3] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[3] := 0
+
+--- Meta equation block ---
+HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Solved equation ---
+z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.vFundArg := Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+
+--- Solved equation ---
+z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+-------------------------------
+
+BiPGraph (39 equations, 49 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+eq_1 : temp_17@M // temp_17 = time > 0.5
+eq_2 : temp_18@M // temp_18 = time > 0.25
+eq_3 : temp_19@M // temp_19 = time > 0.4
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[3].re@M v.i[3].re@ v.i[3].im@ // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+eq_10 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_11 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_12 : z.v[3].im@M v.i[3].im@ v.i[3].re@ // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_13 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_20 : // assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+eq_21 : systemDef.modeSelect# rectifier1.loadBase1.v[1].re@ v.i[1].re@M // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_22 : systemDef.modeSelect# rectifier1.loadBase1.v[2].re@ v.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_23 : systemDef.modeSelect# rectifier1.loadBase1.v[3].re@ v.i[3].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_24 : systemDef.modeSelect# rectifier1.loadBase1.v[1].im@ v.i[1].im@M // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_25 : systemDef.modeSelect# rectifier1.loadBase1.v[2].im@ v.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_26 : systemDef.modeSelect# rectifier1.loadBase1.v[3].im@ v.i[3].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_27 : temp_20@M systemDef.eventWriteData# pre(systemDef.eventWriteData)# // temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+eq_28 : temp_21@M systemDef.eventReadData# pre(systemDef.eventReadData)# // temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData)
+eq_30 : rectifier1.loadBase1.omega@M der(v.theta)@ // rectifier1.loadBase1.omega = der(v.theta)
+eq_31 : ground1.pin.iIm[1]@M // ground1.pin.iIm[1] = 0
+eq_32 : ground1.pin.iIm[2]@M // ground1.pin.iIm[2] = 0
+eq_33 : ground1.pin.iIm[3]@M // ground1.pin.iIm[3] = 0
+eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
+eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
+eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
+eq_37 : v.theta# // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+Init DAE BiPGraph
+BiPGraph (40 equations, 49 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+eq_1 : temp_17@M // temp_17 = time > 0.5
+eq_2 : temp_18@M // temp_18 = time > 0.25
+eq_3 : temp_19@M // temp_19 = time > 0.4
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[3].re@M v.i[3].re@ v.i[3].im@ // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+eq_10 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_11 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_12 : z.v[3].im@M v.i[3].im@ v.i[3].re@ // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_13 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_20 : // assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+eq_21 : systemDef.modeSelect# rectifier1.loadBase1.v[1].re@ v.i[1].re@M // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_22 : systemDef.modeSelect# rectifier1.loadBase1.v[2].re@ v.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_23 : systemDef.modeSelect# rectifier1.loadBase1.v[3].re@ v.i[3].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_24 : systemDef.modeSelect# rectifier1.loadBase1.v[1].im@ v.i[1].im@M // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_25 : systemDef.modeSelect# rectifier1.loadBase1.v[2].im@ v.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_26 : systemDef.modeSelect# rectifier1.loadBase1.v[3].im@ v.i[3].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_27 : temp_20@M systemDef.eventWriteData# pre(systemDef.eventWriteData)# // temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+eq_28 : temp_21@M systemDef.eventReadData# pre(systemDef.eventReadData)# // temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData)
+eq_30 : rectifier1.loadBase1.omega@M der(v.theta)@ // rectifier1.loadBase1.omega = der(v.theta)
+eq_31 : ground1.pin.iIm[1]@M // ground1.pin.iIm[1] = 0
+eq_32 : ground1.pin.iIm[2]@M // ground1.pin.iIm[2] = 0
+eq_33 : ground1.pin.iIm[3]@M // ground1.pin.iIm[3] = 0
+eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
+eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
+eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
+eq_37 : v.theta# // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_42 : // algorithm
+
+
+Init BiPGraph matching
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_17
+eq_2 : temp_18
+eq_3 : temp_19
+eq_5 : der(v.theta)
+eq_6 : v.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[3].re
+eq_10 : z.v[1].im
+eq_11 : z.v[2].im
+eq_12 : z.v[3].im
+eq_13 : z.omega
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_21 : v.i[1].re
+eq_22 : v.i[2].re
+eq_23 : v.i[3].re
+eq_24 : v.i[1].im
+eq_25 : v.i[2].im
+eq_26 : v.i[3].im
+eq_27 : temp_20
+eq_28 : temp_21
+eq_30 : rectifier1.loadBase1.omega
+eq_31 : ground1.pin.iIm[1]
+eq_32 : ground1.pin.iIm[2]
+eq_33 : ground1.pin.iIm[3]
+eq_34 : ground1.pin.iRe[1]
+eq_35 : ground1.pin.iRe[2]
+eq_36 : ground1.pin.iRe[3]
+eq_38 : z.vFundAbs
+eq_39 : z.vFundArg
+eq_40 : z.iFundAbs
+eq_41 : z.iFundArg
+Unmatched equations: {}
+Unmatched variables: {systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+----------------------------------------
+
+Analysing initial system for redundant equations to remove.
+All seems to be ok!
+Init DAE BiPGraph after addition of initial equations
+BiPGraph (52 equations, 49 variables)
+Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+eq_1 : temp_17@M // temp_17 = time > 0.5
+eq_2 : temp_18@M // temp_18 = time > 0.25
+eq_3 : temp_19@M // temp_19 = time > 0.4
+eq_5 : der(v.theta)@M // der(v.theta) = 6.283185307179586 * systemDef.fFund
+eq_6 : v.omega@M der(v.theta)@ // v.omega = der(v.theta)
+eq_7 : z.v[1].re@M v.i[1].re@ v.i[1].im@ // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+eq_8 : z.v[2].re@M v.i[2].re@ v.i[2].im@ // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+eq_9 : z.v[3].re@M v.i[3].re@ v.i[3].im@ // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+eq_10 : z.v[1].im@M v.i[1].im@ v.i[1].re@ // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_11 : z.v[2].im@M v.i[2].im@ v.i[2].re@ // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_12 : z.v[3].im@M v.i[3].im@ v.i[3].re@ // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_13 : z.omega@M der(v.theta)@ // z.omega = der(v.theta)
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_20 : // assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+eq_21 : systemDef.modeSelect# rectifier1.loadBase1.v[1].re@ v.i[1].re@M // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_22 : systemDef.modeSelect# rectifier1.loadBase1.v[2].re@ v.i[2].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_23 : systemDef.modeSelect# rectifier1.loadBase1.v[3].re@ v.i[3].re@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_24 : systemDef.modeSelect# rectifier1.loadBase1.v[1].im@ v.i[1].im@M // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_25 : systemDef.modeSelect# rectifier1.loadBase1.v[2].im@ v.i[2].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_26 : systemDef.modeSelect# rectifier1.loadBase1.v[3].im@ v.i[3].im@M // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_27 : temp_20@M systemDef.eventWriteData# pre(systemDef.eventWriteData)# // temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+eq_28 : temp_21@M systemDef.eventReadData# pre(systemDef.eventReadData)# // temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData)
+eq_30 : rectifier1.loadBase1.omega@M der(v.theta)@ // rectifier1.loadBase1.omega = der(v.theta)
+eq_31 : ground1.pin.iIm[1]@M // ground1.pin.iIm[1] = 0
+eq_32 : ground1.pin.iIm[2]@M // ground1.pin.iIm[2] = 0
+eq_33 : ground1.pin.iIm[3]@M // ground1.pin.iIm[3] = 0
+eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
+eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
+eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
+eq_37 : v.theta# // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_42 : // algorithm
+
+eq_43 : systemDef.modeSelect@M pre(systemDef.modeSelect)@ // systemDef.modeSelect = pre(systemDef.modeSelect)
+eq_44 : systemDef.eventWriteData@M pre(systemDef.eventWriteData)@ // systemDef.eventWriteData = pre(systemDef.eventWriteData)
+eq_45 : systemDef.eventReadData@M pre(systemDef.eventReadData)@ // systemDef.eventReadData = pre(systemDef.eventReadData)
+eq_46 : v.theta@M // v.theta = 0
+eq_47 : pre(systemDef.modeSelect)@M // pre(systemDef.modeSelect) = false
+eq_48 : pre(systemDef.eventWriteData)@M // pre(systemDef.eventWriteData) = false
+eq_49 : pre(systemDef.eventReadData)@M // pre(systemDef.eventReadData) = false
+eq_50 : pre(temp_17)@M // pre(temp_17) = false
+eq_51 : pre(temp_18)@M // pre(temp_18) = false
+eq_52 : pre(temp_19)@M // pre(temp_19) = false
+eq_53 : pre(temp_20)@M // pre(temp_20) = false
+eq_54 : pre(temp_21)@M // pre(temp_21) = false
+
+Init BiPGraph matching after addition of initial equations
+----------------------------------------
+BiPGraph matching:
+eq_1 : temp_17
+eq_2 : temp_18
+eq_3 : temp_19
+eq_5 : der(v.theta)
+eq_6 : v.omega
+eq_7 : z.v[1].re
+eq_8 : z.v[2].re
+eq_9 : z.v[3].re
+eq_10 : z.v[1].im
+eq_11 : z.v[2].im
+eq_12 : z.v[3].im
+eq_13 : z.omega
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_21 : v.i[1].re
+eq_22 : v.i[2].re
+eq_23 : v.i[3].re
+eq_24 : v.i[1].im
+eq_25 : v.i[2].im
+eq_26 : v.i[3].im
+eq_27 : temp_20
+eq_28 : temp_21
+eq_30 : rectifier1.loadBase1.omega
+eq_31 : ground1.pin.iIm[1]
+eq_32 : ground1.pin.iIm[2]
+eq_33 : ground1.pin.iIm[3]
+eq_34 : ground1.pin.iRe[1]
+eq_35 : ground1.pin.iRe[2]
+eq_36 : ground1.pin.iRe[3]
+eq_38 : z.vFundAbs
+eq_39 : z.vFundArg
+eq_40 : z.iFundAbs
+eq_41 : z.iFundArg
+eq_43 : systemDef.modeSelect
+eq_44 : systemDef.eventWriteData
+eq_45 : systemDef.eventReadData
+eq_46 : v.theta
+eq_47 : pre(systemDef.modeSelect)
+eq_48 : pre(systemDef.eventWriteData)
+eq_49 : pre(systemDef.eventReadData)
+eq_50 : pre(temp_17)
+eq_51 : pre(temp_18)
+eq_52 : pre(temp_19)
+eq_53 : pre(temp_20)
+eq_54 : pre(temp_21)
+Unmatched equations: {}
+Unmatched variables: {}
+----------------------------------------
+
+Initial system contains homotopy, computing homotopy block components...
+... block components computed: []
+Starting automatic tearing
+BiPGraph (6 equations, 6 variables)
+Variables: {z.v[1].im rectifier1.loadBase1.v[1].im v.i[1].im rectifier1.loadBase1.v[1].re v.i[1].re z.v[1].re }
+eq_10 : z.v[1].im@M v.i[1].im# v.i[1].re# // z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+eq_15 : z.v[1].im@ rectifier1.loadBase1.v[1].im@M // z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im
+eq_24 : rectifier1.loadBase1.v[1].im# v.i[1].im# // 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_14 : z.v[1].re@ rectifier1.loadBase1.v[1].re@M // z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re
+eq_21 : rectifier1.loadBase1.v[1].re# v.i[1].re# // 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+eq_7 : z.v[1].re@M v.i[1].re# v.i[1].im# // z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_10 : z.v[1].im
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_24 eq_21 }
+Unmatched variables: {v.i[1].im v.i[1].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_10 : z.v[1].im
+eq_15 : rectifier1.loadBase1.v[1].im
+eq_14 : rectifier1.loadBase1.v[1].re
+eq_7 : z.v[1].re
+Unmatched equations: {eq_24 eq_21 }
+Unmatched variables: {v.i[1].im v.i[1].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1)), tearing with variable: v.i[1].im
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1)), tearing with variable: v.i[1].re
+Starting automatic tearing
+BiPGraph (6 equations, 6 variables)
+Variables: {z.v[2].im rectifier1.loadBase1.v[2].im v.i[2].im rectifier1.loadBase1.v[2].re v.i[2].re z.v[2].re }
+eq_11 : z.v[2].im@M v.i[2].im# v.i[2].re# // z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+eq_17 : z.v[2].im@ rectifier1.loadBase1.v[2].im@M // z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im
+eq_25 : rectifier1.loadBase1.v[2].im# v.i[2].im# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_16 : z.v[2].re@ rectifier1.loadBase1.v[2].re@M // z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re
+eq_22 : rectifier1.loadBase1.v[2].re# v.i[2].re# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+eq_8 : z.v[2].re@M v.i[2].re# v.i[2].im# // z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_11 : z.v[2].im
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_25 eq_22 }
+Unmatched variables: {v.i[2].im v.i[2].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_11 : z.v[2].im
+eq_17 : rectifier1.loadBase1.v[2].im
+eq_16 : rectifier1.loadBase1.v[2].re
+eq_8 : z.v[2].re
+Unmatched equations: {eq_25 eq_22 }
+Unmatched variables: {v.i[2].im v.i[2].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3)), tearing with variable: v.i[2].im
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3)), tearing with variable: v.i[2].re
+Starting automatic tearing
+BiPGraph (6 equations, 6 variables)
+Variables: {z.v[3].im rectifier1.loadBase1.v[3].im v.i[3].im rectifier1.loadBase1.v[3].re v.i[3].re z.v[3].re }
+eq_12 : z.v[3].im@M v.i[3].im# v.i[3].re# // z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+eq_19 : z.v[3].im@ rectifier1.loadBase1.v[3].im@M // z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im
+eq_26 : rectifier1.loadBase1.v[3].im# v.i[3].im# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_18 : z.v[3].re@ rectifier1.loadBase1.v[3].re@M // z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re
+eq_23 : rectifier1.loadBase1.v[3].re# v.i[3].re# // 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+eq_9 : z.v[3].re@M v.i[3].re# v.i[3].im# // z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im)
+
+Initial matching
+----------------------------------------
+BiPGraph matching:
+eq_12 : z.v[3].im
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_26 eq_23 }
+Unmatched variables: {v.i[3].im v.i[3].re }
+----------------------------------------
+
+Matching after initial manipulation
+----------------------------------------
+BiPGraph matching:
+eq_12 : z.v[3].im
+eq_19 : rectifier1.loadBase1.v[3].im
+eq_18 : rectifier1.loadBase1.v[3].re
+eq_9 : z.v[3].re
+Unmatched equations: {eq_26 eq_23 }
+Unmatched variables: {v.i[3].im v.i[3].re }
+----------------------------------------
+
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5)), tearing with variable: v.i[3].im
+Automatic tearing pair, equation: 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5)), tearing with variable: v.i[3].re
+--- Solved equation ---
+temp_17 := time > 0.5
+
+--- Solved equation ---
+temp_18 := time > 0.25
+
+--- Solved equation ---
+temp_19 := time > 0.4
+
+--- Solved equation ---
+der(v.theta) := 6.283185307179586 * systemDef.fFund
+
+--- Solved equation ---
+v.omega := der(v.theta)
+
+--- Solved equation ---
+pre(systemDef.modeSelect) := false
+
+--- Solved equation ---
+systemDef.modeSelect := pre(systemDef.modeSelect)
+
+--- Torn system (Block 1) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[1].im
+  rectifier1.loadBase1.v[1].im
+  z.v[1].re
+  rectifier1.loadBase1.v[1].re
+
+Iteration variables:
+  v.i[1].im (start=0,nominal=-1)
+  v.i[1].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[1].im := z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re)
+  rectifier1.loadBase1.v[1].im := - z.v[1].im + v.v[1].im
+  z.v[1].re := z.z.re .* (- v.i[1].re) + (- z.z.im .* systemDef.hrms[1] .* (- v.i[1].im))
+  rectifier1.loadBase1.v[1].re := - z.v[1].re + v.v[1].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+    Iteration variables: v.i[1].im
+  0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1))
+    Iteration variables: v.i[1].re
+
+--- Torn system (Block 2) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[2].im
+  rectifier1.loadBase1.v[2].im
+  z.v[2].re
+  rectifier1.loadBase1.v[2].re
+
+Iteration variables:
+  v.i[2].im (start=0,nominal=-1)
+  v.i[2].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[2].im := z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re)
+  rectifier1.loadBase1.v[2].im := - z.v[2].im + v.v[2].im
+  z.v[2].re := z.z.re .* (- v.i[2].re) + (- z.z.im .* systemDef.hrms[2] .* (- v.i[2].im))
+  rectifier1.loadBase1.v[2].re := - z.v[2].re + v.v[2].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+    Iteration variables: v.i[2].im
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3))
+    Iteration variables: v.i[2].re
+
+--- Torn system (Block 3) of 2 iteration variables and 4 solved variables ---
+Torn variables:
+  z.v[3].im
+  rectifier1.loadBase1.v[3].im
+  z.v[3].re
+  rectifier1.loadBase1.v[3].re
+
+Iteration variables:
+  v.i[3].im (start=0,nominal=-1)
+  v.i[3].re (start=0,nominal=-1)
+
+Torn equations:
+  z.v[3].im := z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re)
+  rectifier1.loadBase1.v[3].im := - z.v[3].im + v.v[3].im
+  z.v[3].re := z.z.re .* (- v.i[3].re) + (- z.z.im .* systemDef.hrms[3] .* (- v.i[3].im))
+  rectifier1.loadBase1.v[3].re := - z.v[3].re + v.v[3].re
+
+Residual equations:
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+    Iteration variables: v.i[3].im
+  0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5))
+    Iteration variables: v.i[3].re
+
+--- Solved equation ---
+z.omega := der(v.theta)
+
+--- Meta equation block ---
+assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!")
+
+--- Solved equation ---
+pre(systemDef.eventWriteData) := false
+
+--- Solved equation ---
+systemDef.eventWriteData := pre(systemDef.eventWriteData)
+
+--- Solved equation ---
+temp_20 := systemDef.eventWriteData <> pre(systemDef.eventWriteData)
+
+--- Solved equation ---
+pre(systemDef.eventReadData) := false
+
+--- Solved equation ---
+systemDef.eventReadData := pre(systemDef.eventReadData)
+
+--- Solved equation ---
+temp_21 := systemDef.eventReadData <> pre(systemDef.eventReadData)
+
+--- Solved equation ---
+rectifier1.loadBase1.omega := der(v.theta)
+
+--- Solved equation ---
+ground1.pin.iIm[1] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[2] := 0
+
+--- Solved equation ---
+ground1.pin.iIm[3] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[1] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[2] := 0
+
+--- Solved equation ---
+ground1.pin.iRe[3] := 0
+
+--- Solved equation ---
+v.theta := 0
+
+--- Meta equation block ---
+HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
+
+--- Solved equation ---
+z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.vFundArg := Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+
+--- Solved equation ---
+z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+
+--- Solved equation ---
+z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+
+--- Meta equation block ---
+algorithm
+
+
+--- Solved equation ---
+pre(temp_17) := false
+
+--- Solved equation ---
+pre(temp_18) := false
+
+--- Solved equation ---
+pre(temp_19) := false
+
+--- Solved equation ---
+pre(temp_20) := false
+
+--- Solved equation ---
+pre(temp_21) := false
+-------------------------------
+
+Diagnostics for transformed flattened model:
+Diagnostics for flattened class HPF.Test.Test_Rectifier
+Number of independent constants:                   6(    6 scalars)
+  Number of Real independent constants:            5(    5 scalars)
+  Number of Real independent constants:            5(    5 scalars)
+  Number of Integer independent constants:         0(    0 scalars)
+  Number of Enum independent constants:            0(    0 scalars)
+  Number of Boolean independent constants:         0(    0 scalars)
+  Number of String independent constants:          1(    1 scalars)
+Number of dependent constants:                     0(    0 scalars)
+  Number of Real dependent constants:              0(    0 scalars)
+  Number of Integer dependent constants:           0(    0 scalars)
+  Number of Enum dependent constants:              0(    0 scalars)
+  Number of Boolean dependent constants:           0(    0 scalars)
+  Number of String dependent constants:            0(    0 scalars)
+Number of independent parameters:                 68(   68 scalars)
+  Number of Real independent parameters:          37(   37 scalars)
+  Number of Integer independent parameters:       17(   17 scalars)
+  Number of Enum independent parameters:           0(    0 scalars)
+  Number of Boolean independent parameters:       14(   14 scalars)
+  Number of String independent parameters:         0(    0 scalars)
+Number of dependent parameters:                   14(   14 scalars)
+  Number of Real dependent parameters:            14(   14 scalars)
+  Number of Integer dependent parameters:          0(    0 scalars)
+  Number of Enum dependent parameters:             0(    0 scalars)
+  Number of Boolean dependent parameters:          0(    0 scalars)
+  Number of String dependent parameters:           0(    0 scalars)
+Number of initial parameters:                      0(    0 scalars)
+  Number of Real dependent parameters:             0(    0 scalars)
+  Number of Integer dependent parameters:          0(    0 scalars)
+  Number of Enum dependent parameters:             0(    0 scalars)
+  Number of Boolean dependent parameters:          0(    0 scalars)
+  Number of String dependent parameters:           0(    0 scalars)
+Number of variables:                              41(   41 scalars)
+  Number of Real variables:                       33(   33 scalars)
+  Number of Integer variables:                     0(    0 scalars)
+  Number of Enum variables:                        0(    0 scalars)
+  Number of Boolean variables:                     8(    8 scalars)
+  Number of String variables:                      0(    0 scalars)
+Number of Real differentiated variables:           1(    1 scalars)
+Number of Real derivative variables:               1(    1 scalars)
+Number of Real continous algebraic variables:     31(   31 scalars)
+Number of inputs:                                  0(    0 scalars)
+  Number of Real inputs:                           0(    0 scalars)
+  Number of Integer inputs:                        0(    0 scalars)
+  Number of Enum inputs:                           0(    0 scalars)
+  Number of Boolean inputs:                        0(    0 scalars)
+  Number of String inputs:                         0(    0 scalars)
+Number of discrete variables:                      8(    8 scalars)
+  Number of Real discrete variables:               0(    0 scalars)
+  Number of Integer discrete variables:            0(    0 scalars)
+  Number of Enum discrete variables:               0(    0 scalars)
+  Number of Boolean discrete variables:            8(    8 scalars)
+  Number of String discrete variables:             0(    0 scalars)
+Number of equations:                              41(   40 scalars)
+Number of variables with binding expression:       0(    0 scalars)
+  Number of Real variables with binding exp:       0(    0 scalars)
+  Number of Integer variables binding exp:         0(    0 scalars)
+  Number of Enum variables binding exp:            0(    0 scalars)
+  Number of Boolean variables binding exp:         0(    0 scalars)
+  Number of String variables binding exp:          0(    0 scalars)
+Total number of equations:                        41(   40 scalars)
+Number of initial equations:                      10(    9 scalars)
+Number of event indicators in equations:           0
+Number of event indicators in init equations:      0
+
+Independent constants: 
+ z.properties.a: number of uses: 0, isLinear: true
+ rectifier1.S_vect[1].im: number of uses: 0, isLinear: true
+ rectifier1.S_vect[2].re: number of uses: 0, isLinear: true
+ rectifier1.S_vect[2].im: number of uses: 0, isLinear: true
+ rectifier1.globalSeed: number of uses: 0, isLinear: true
+ z.properties.ComponentType: number of uses: 0, isLinear: true
+
+Dependent constants: 
+
+Independent parameters: 
+ systemDef.fFund: number of uses: 1, isLinear: true, evaluated binding exp: 60
+ v.vMag[1]: number of uses: 2, isLinear: true, evaluated binding exp: 100
+ v.vMag[2]: number of uses: 2, isLinear: true, evaluated binding exp: 0.5
+ v.vMag[3]: number of uses: 2, isLinear: true, evaluated binding exp: 0.225
+ v.vArg[1]: number of uses: 2, isLinear: true, evaluated binding exp: 0
+ v.vArg[2]: number of uses: 2, isLinear: true, evaluated binding exp: 0.25
+ v.vArg[3]: number of uses: 2, isLinear: true, evaluated binding exp: -0.5
+ z.z.re: number of uses: 6, isLinear: true, evaluated binding exp: 10.0
+ z.z.im: number of uses: 6, isLinear: true, evaluated binding exp: 2.0
+ resistor1.R: number of uses: 1, isLinear: true, evaluated binding exp: 10
+ resistor1.T_ref: number of uses: 3, isLinear: true, evaluated binding exp: 300.15
+ resistor1.alpha: number of uses: 2, isLinear: true, evaluated binding exp: 0
+ rectifier1.V_Rect: number of uses: 1, isLinear: true, evaluated binding exp: 100
+ rectifier1.efficiency: number of uses: 1, isLinear: true, evaluated binding exp: 0.95
+ rectifier1.hrmMdl_coefMag[1]: number of uses: 6, isLinear: true, evaluated binding exp: 2.70064268049248E-5
+ rectifier1.hrmMdl_coefMag[2]: number of uses: 6, isLinear: true, evaluated binding exp: -0.0015697610131034
+ rectifier1.hrmMdl_coefMag[3]: number of uses: 6, isLinear: true, evaluated binding exp: -0.00600037080602108
+ rectifier1.hrmMdl_coefMag[4]: number of uses: 6, isLinear: true, evaluated binding exp: 0.995516922015768
+ rectifier1.hrmMdl_coefArg[1]: number of uses: 6, isLinear: true, evaluated binding exp: -5.02372881045404E-5
+ rectifier1.hrmMdl_coefArg[2]: number of uses: 6, isLinear: true, evaluated binding exp: 0.00237063924944842
+ rectifier1.hrmMdl_coefArg[3]: number of uses: 6, isLinear: true, evaluated binding exp: -1.49993957428169
+ rectifier1.hrmMdl_coefArg[4]: number of uses: 6, isLinear: true, evaluated binding exp: 1.71994407623008
+ rectifier1.rectifierModel: number of uses: 0, isLinear: true
+ _block_jacobian_check_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-6
+ _cs_rel_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-6
+ _cs_step_size: number of uses: 0, isLinear: true, evaluated binding exp: 0.001
+ _events_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _events_tol_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-4
+ _nle_jacobian_finite_difference_delta: number of uses: 0, isLinear: true, evaluated binding exp: 1.490116119384766E-8
+ _nle_solver_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _nle_solver_max_residual_scaling_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E10
+ _nle_solver_min_residual_scaling_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-10
+ _nle_solver_min_tol: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-12
+ _nle_solver_regularization_tolerance: number of uses: 0, isLinear: true, evaluated binding exp: -1.0
+ _nle_solver_step_limit_factor: number of uses: 0, isLinear: true, evaluated binding exp: 10.0
+ _nle_solver_tol_factor: number of uses: 0, isLinear: true, evaluated binding exp: 1.0E-4
+ _time_events_default_tol: number of uses: 0, isLinear: true, evaluated binding exp: 2.220446049250313E-14
+ systemDef.hrms[1]: number of uses: 2, isLinear: true, evaluated binding exp: 1
+ systemDef.hrms[2]: number of uses: 2, isLinear: true, evaluated binding exp: 3
+ systemDef.hrms[3]: number of uses: 2, isLinear: true, evaluated binding exp: 5
+ systemDef.numPh: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _block_solver_experimental_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _cs_experimental_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _cs_solver: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _iteration_variable_scaling: number of uses: 0, isLinear: true, evaluated binding exp: 1
+ _log_level: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _nle_active_bounds_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _nle_jacobian_calculation_mode: number of uses: 0, isLinear: true, evaluated binding exp: 0
+ _nle_jacobian_update_mode: number of uses: 0, isLinear: true, evaluated binding exp: 2
+ _nle_solver_exit_criterion: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _nle_solver_max_iter: number of uses: 0, isLinear: true, evaluated binding exp: 100
+ _nle_solver_max_iter_no_jacobian: number of uses: 0, isLinear: true, evaluated binding exp: 10
+ _residual_equation_scaling: number of uses: 0, isLinear: true, evaluated binding exp: 1
+ systemDef.numHrm: number of uses: 0, isLinear: true, evaluated binding exp: 3
+ _block_jacobian_check: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _block_solver_profiling: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _enforce_bounds: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _nle_brent_ignore_error: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _nle_solver_check_jac_cond: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _nle_solver_use_last_integrator_step: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _nle_solver_use_nominals_as_fallback: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _rescale_after_singular_jac: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _rescale_each_step: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _runtime_log_to_file: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _use_Brent_in_1d: number of uses: 0, isLinear: true, evaluated binding exp: true
+ _use_jacobian_equilibration: number of uses: 0, isLinear: true, evaluated binding exp: false
+ _use_newton_for_brent: number of uses: 0, isLinear: true, evaluated binding exp: true
+ resistor1.useHeatPort: number of uses: 0, isLinear: true, evaluated binding exp: false
+
+Dependent parameters: 
+ resistor1.T_heatPort: number of uses: 3, isLinear: true
+ rectifier1.constantVoltage1.V: number of uses: 4, isLinear: true
+ v.v[1].re: number of uses: 2, isLinear: true
+ v.v[2].re: number of uses: 2, isLinear: true
+ v.v[3].re: number of uses: 2, isLinear: true
+ v.v[1].im: number of uses: 2, isLinear: true
+ v.v[2].im: number of uses: 2, isLinear: true
+ v.v[3].im: number of uses: 2, isLinear: true
+ resistor1.R_actual: number of uses: 2, isLinear: true
+ resistor1.i: number of uses: 5, isLinear: true
+ resistor1.LossPower: number of uses: 1, isLinear: true
+ ground2.p.i: number of uses: 1, isLinear: true
+ rectifier1.P: number of uses: 2, isLinear: true
+ rectifier1.S_vect[1].re: number of uses: 2, isLinear: true
+
+Differentiated variables: 
+ v.theta: number of uses: 3, isLinear: false
+
+Derivative variables: 
+ der(v.theta): number of uses: 4, isLinear: true
+
+Discrete variables: 
+ systemDef.modeSelect: number of uses: 7, isLinear: true, alias: no
+ systemDef.eventWriteData: number of uses: 2, isLinear: true, alias: no
+ systemDef.eventReadData: number of uses: 2, isLinear: true, alias: no
+ temp_17: number of uses: 2, isLinear: true, alias: no
+ temp_18: number of uses: 2, isLinear: true, alias: no
+ temp_19: number of uses: 2, isLinear: true, alias: no
+ temp_20: number of uses: 2, isLinear: true, alias: no
+ temp_21: number of uses: 2, isLinear: true, alias: no
+
+Algebraic real variables: 
+ v.i[1].re: number of uses: 6, isLinear: false, alias: no
+ v.i[1].im: number of uses: 6, isLinear: false, alias: no
+ v.i[2].re: number of uses: 4, isLinear: false, alias: no
+ v.i[2].im: number of uses: 4, isLinear: false, alias: no
+ v.i[3].re: number of uses: 4, isLinear: false, alias: no
+ v.i[3].im: number of uses: 4, isLinear: false, alias: no
+ v.omega: number of uses: 1, isLinear: true, alias: no
+ z.vFundAbs: number of uses: 1, isLinear: true, alias: no
+ z.vFundArg: number of uses: 1, isLinear: true, alias: no
+ z.iFundAbs: number of uses: 1, isLinear: true, alias: no
+ z.iFundArg: number of uses: 1, isLinear: true, alias: no
+ z.v[1].re: number of uses: 4, isLinear: false, alias: no
+ z.v[1].im: number of uses: 4, isLinear: false, alias: no
+ z.v[2].re: number of uses: 2, isLinear: true, alias: no
+ z.v[2].im: number of uses: 2, isLinear: true, alias: no
+ z.v[3].re: number of uses: 2, isLinear: true, alias: no
+ z.v[3].im: number of uses: 2, isLinear: true, alias: no
+ z.omega: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iIm[1]: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iIm[2]: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iIm[3]: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iRe[1]: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iRe[2]: number of uses: 1, isLinear: true, alias: no
+ ground1.pin.iRe[3]: number of uses: 1, isLinear: true, alias: no
+ rectifier1.loadBase1.v[1].re: number of uses: 2, isLinear: false, alias: no
+ rectifier1.loadBase1.v[1].im: number of uses: 2, isLinear: false, alias: no
+ rectifier1.loadBase1.v[2].re: number of uses: 2, isLinear: false, alias: no
+ rectifier1.loadBase1.v[2].im: number of uses: 2, isLinear: false, alias: no
+ rectifier1.loadBase1.v[3].re: number of uses: 2, isLinear: false, alias: no
+ rectifier1.loadBase1.v[3].im: number of uses: 2, isLinear: false, alias: no
+ rectifier1.loadBase1.omega: number of uses: 1, isLinear: true, alias: no
+
+Input variables: 
+
+Alias sets:
+{v.i[1].re(start=0), v.pin_p.iRe[1], -v.pin_n.iRe[1], -z.i[1].re(start=0), -z.pin_p.iRe[1], z.pin_n.iRe[1], -rectifier1.hPin_P.iRe[1], -rectifier1.loadBase1.i[1].re(start=0), -rectifier1.loadBase1.pin_p.iRe[1], rectifier1.loadBase1.pin_n.iRe[1], rectifier1.hPin_N.iRe[1]}
+{v.i[2].re(start=0), v.pin_p.iRe[2], -v.pin_n.iRe[2], -z.i[2].re(start=0), -z.pin_p.iRe[2], z.pin_n.iRe[2], -rectifier1.hPin_P.iRe[2], -rectifier1.loadBase1.i[2].re(start=0), -rectifier1.loadBase1.pin_p.iRe[2], rectifier1.loadBase1.pin_n.iRe[2], rectifier1.hPin_N.iRe[2]}
+{v.i[3].re(start=0), v.pin_p.iRe[3], -v.pin_n.iRe[3], -z.i[3].re(start=0), -z.pin_p.iRe[3], z.pin_n.iRe[3], -rectifier1.hPin_P.iRe[3], -rectifier1.loadBase1.i[3].re(start=0), -rectifier1.loadBase1.pin_p.iRe[3], rectifier1.loadBase1.pin_n.iRe[3], rectifier1.hPin_N.iRe[3]}
+{v.i[1].im(start=0), v.pin_p.iIm[1], -v.pin_n.iIm[1], -z.i[1].im(start=0), -z.pin_p.iIm[1], z.pin_n.iIm[1], -rectifier1.hPin_P.iIm[1], -rectifier1.loadBase1.i[1].im(start=0), -rectifier1.loadBase1.pin_p.iIm[1], rectifier1.loadBase1.pin_n.iIm[1], rectifier1.hPin_N.iIm[1]}
+{v.i[2].im(start=0), v.pin_p.iIm[2], -v.pin_n.iIm[2], -z.i[2].im(start=0), -z.pin_p.iIm[2], z.pin_n.iIm[2], -rectifier1.hPin_P.iIm[2], -rectifier1.loadBase1.i[2].im(start=0), -rectifier1.loadBase1.pin_p.iIm[2], rectifier1.loadBase1.pin_n.iIm[2], rectifier1.hPin_N.iIm[2]}
+{v.i[3].im(start=0), v.pin_p.iIm[3], -v.pin_n.iIm[3], -z.i[3].im(start=0), -z.pin_p.iIm[3], z.pin_n.iIm[3], -rectifier1.hPin_P.iIm[3], -rectifier1.loadBase1.i[3].im(start=0), -rectifier1.loadBase1.pin_p.iIm[3], rectifier1.loadBase1.pin_n.iIm[3], rectifier1.hPin_N.iIm[3]}
+{-resistor1.i, rectifier1.constantVoltage1.p.i, -rectifier1.constantVoltage1.n.i, rectifier1.constantVoltage1.i, -resistor1.p.i, resistor1.n.i, rectifier1.pin_p.i, -rectifier1.pin_n.i}
+{rectifier1.constantVoltage1.V(start=1), rectifier1.pin_p.v, resistor1.p.v, rectifier1.constantVoltage1.p.v, rectifier1.constantVoltage1.v, resistor1.v}
+{rectifier1.loadBase1.v[1].im(start=0), rectifier1.hPin_P.v[1].im, z.pin_n.v[1].im, rectifier1.loadBase1.pin_p.v[1].im}
+{rectifier1.loadBase1.v[1].re(start=0), rectifier1.hPin_P.v[1].re, z.pin_n.v[1].re, rectifier1.loadBase1.pin_p.v[1].re}
+{rectifier1.loadBase1.v[2].im(start=0), rectifier1.hPin_P.v[2].im, z.pin_n.v[2].im, rectifier1.loadBase1.pin_p.v[2].im}
+{rectifier1.loadBase1.v[2].re(start=0), rectifier1.hPin_P.v[2].re, z.pin_n.v[2].re, rectifier1.loadBase1.pin_p.v[2].re}
+{rectifier1.loadBase1.v[3].im(start=0), rectifier1.hPin_P.v[3].im, z.pin_n.v[3].im, rectifier1.loadBase1.pin_p.v[3].im}
+{rectifier1.loadBase1.v[3].re(start=0), rectifier1.hPin_P.v[3].re, z.pin_n.v[3].re, rectifier1.loadBase1.pin_p.v[3].re}
+{v.v[1].im(start=0), v.pin_p.v[1].im, z.pin_p.v[1].im}
+{v.v[1].re(start=0), v.pin_p.v[1].re, z.pin_p.v[1].re}
+{v.v[2].im(start=0), v.pin_p.v[2].im, z.pin_p.v[2].im}
+{v.v[2].re(start=0), v.pin_p.v[2].re, z.pin_p.v[2].re}
+{v.v[3].im(start=0), v.pin_p.v[3].im, z.pin_p.v[3].im}
+{v.v[3].re(start=0), v.pin_p.v[3].re, z.pin_p.v[3].re}
+{rectifier1.S_vect[2].im(start=0), ground1.pin.v[1].im, rectifier1.hPin_N.v[1].im, v.pin_n.v[1].im, rectifier1.loadBase1.pin_n.v[1].im, ground1.pin.v[2].im, rectifier1.hPin_N.v[2].im, v.pin_n.v[2].im, rectifier1.loadBase1.pin_n.v[2].im, ground1.pin.v[3].im, rectifier1.hPin_N.v[3].im, v.pin_n.v[3].im, rectifier1.loadBase1.pin_n.v[3].im, ground2.p.v, rectifier1.pin_n.v, resistor1.n.v, rectifier1.constantVoltage1.n.v, rectifier1.S_vect[3].im(start=0)}
+{rectifier1.S_vect[2].re(start=0), ground1.pin.v[1].re, rectifier1.hPin_N.v[1].re, v.pin_n.v[1].re, rectifier1.loadBase1.pin_n.v[1].re, ground1.pin.v[2].re, rectifier1.hPin_N.v[2].re, v.pin_n.v[2].re, rectifier1.loadBase1.pin_n.v[2].re, ground1.pin.v[3].re, rectifier1.hPin_N.v[3].re, v.pin_n.v[3].re, rectifier1.loadBase1.pin_n.v[3].re, rectifier1.S_vect[3].re(start=0)}
+{v.theta(start=0), ground1.pin.reference.theta, rectifier1.hPin_N.reference.theta, v.pin_p.reference.theta, v.pin_n.reference.theta, z.pin_p.reference.theta, z.pin_n.reference.theta, rectifier1.hPin_P.reference.theta, rectifier1.loadBase1.pin_p.reference.theta, rectifier1.loadBase1.pin_n.reference.theta}
+{rectifier1.S_vect[1].im(start=0), rectifier1.Q}
+{systemDef.numHrm, v.pin_p.h, v.pin_n.h, z.pin_p.h, z.pin_n.h, ground1.pin.h, rectifier1.hPin_P.h, rectifier1.hPin_N.h, rectifier1.loadBase1.pin_p.h, rectifier1.loadBase1.pin_n.h}
+{resistor1.T_heatPort(start=288.15), resistor1.T(start=288.15)}
+152 variables can be eliminated
+
+Incidence:
+ eq 0: temp_17
+ eq 1: temp_18
+ eq 2: temp_19
+ eq 3: temp_17 systemDef.modeSelect temp_18 systemDef.eventWriteData temp_19 systemDef.eventReadData
+ eq 4: der(v.theta)
+ eq 5: der(v.theta) v.omega
+ eq 6: z.v[1].re v.i[1].re v.i[1].im
+ eq 7: z.v[2].re v.i[2].re v.i[2].im
+ eq 8: z.v[3].re v.i[3].re v.i[3].im
+ eq 9: z.v[1].im v.i[1].im v.i[1].re
+ eq 10: z.v[2].im v.i[2].im v.i[2].re
+ eq 11: z.v[3].im v.i[3].im v.i[3].re
+ eq 12: der(v.theta) z.omega
+ eq 13: z.v[1].re rectifier1.loadBase1.v[1].re
+ eq 14: z.v[1].im rectifier1.loadBase1.v[1].im
+ eq 15: z.v[2].re rectifier1.loadBase1.v[2].re
+ eq 16: z.v[2].im rectifier1.loadBase1.v[2].im
+ eq 17: z.v[3].re rectifier1.loadBase1.v[3].re
+ eq 18: z.v[3].im rectifier1.loadBase1.v[3].im
+ eq 19:
+ eq 20: systemDef.modeSelect rectifier1.loadBase1.v[1].re v.i[1].re
+ eq 21: systemDef.modeSelect rectifier1.loadBase1.v[2].re v.i[2].re
+ eq 22: systemDef.modeSelect rectifier1.loadBase1.v[3].re v.i[3].re
+ eq 23: systemDef.modeSelect rectifier1.loadBase1.v[1].im v.i[1].im
+ eq 24: systemDef.modeSelect rectifier1.loadBase1.v[2].im v.i[2].im
+ eq 25: systemDef.modeSelect rectifier1.loadBase1.v[3].im v.i[3].im
+ eq 26: temp_20 systemDef.eventWriteData
+ eq 27: temp_21 systemDef.eventReadData
+ eq 28: temp_20 temp_21
+ eq 29: der(v.theta) rectifier1.loadBase1.omega
+ eq 30: ground1.pin.iIm[1]
+ eq 31: ground1.pin.iIm[2]
+ eq 32: ground1.pin.iIm[3]
+ eq 33: ground1.pin.iRe[1]
+ eq 34: ground1.pin.iRe[2]
+ eq 35: ground1.pin.iRe[3]
+ eq 36:
+ eq 37: z.vFundAbs z.v[1].re z.v[1].im
+ eq 38: z.vFundArg z.v[1].im z.v[1].re
+ eq 39: z.iFundAbs v.i[1].re v.i[1].im
+ eq 40: z.iFundArg v.i[1].im v.i[1].re
+
+Variable dependencies:
+Derivative variables: 
+ der(v.theta)
+    systemDef.fFund
+
+Differentiated variables: 
+ v.theta
+
+Algebraic real variables: 
+ v.i[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ v.i[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ v.i[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ v.i[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ v.i[3].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[3]
+    v.vMag[3]
+    v.vArg[3]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ v.i[3].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[3]
+    v.vMag[3]
+    v.vArg[3]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ v.omega
+    systemDef.fFund
+ z.vFundAbs
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.vFundArg
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.iFundAbs
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.iFundArg
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.v[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.v[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.v[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.v[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.v[3].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[3]
+    v.vMag[3]
+    v.vArg[3]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.v[3].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[3]
+    v.vMag[3]
+    v.vArg[3]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ z.omega
+    systemDef.fFund
+ ground1.pin.iIm[1]
+ ground1.pin.iIm[2]
+ ground1.pin.iIm[3]
+ ground1.pin.iRe[1]
+ ground1.pin.iRe[2]
+ ground1.pin.iRe[3]
+ rectifier1.loadBase1.v[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ rectifier1.loadBase1.v[1].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vMag[1]
+    v.vArg[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
+    resistor1.T_ref
+    rectifier1.efficiency
+    resistor1.R
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ rectifier1.loadBase1.v[2].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ rectifier1.loadBase1.v[2].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[2]
+    v.vMag[2]
+    v.vArg[2]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ rectifier1.loadBase1.v[3].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[3]
+    v.vMag[3]
+    v.vArg[3]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ rectifier1.loadBase1.v[3].im
+    z.z.re
+    z.z.im
+    systemDef.hrms[3]
+    v.vMag[3]
+    v.vArg[3]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+ rectifier1.loadBase1.omega
+    systemDef.fFund
+
+
+
+Connection sets: 52 sets
+Connection set (flow): {rectifier1.pin_p.i (i), resistor1.p.i (i)}
+Connection set (potential): {rectifier1.pin_p.v (i), resistor1.p.v (i)}
+Connection set (flow): {ground2.p.i (i), rectifier1.pin_n.i (i), resistor1.n.i (i)}
+Connection set (potential): {ground2.p.v (i), rectifier1.pin_n.v (i), resistor1.n.v (i)}
+Connection set (flow): {rectifier1.hPin_P.iIm[1:3] (i), z.pin_n.iIm[1:3] (i)}
+Connection set (flow): {rectifier1.hPin_P.iRe[1:3] (i), z.pin_n.iRe[1:3] (i)}
+Connection set (potential): {rectifier1.hPin_P.v[1].im (i), z.pin_n.v[1].im (i)}
+Connection set (potential): {rectifier1.hPin_P.v[1].re (i), z.pin_n.v[1].re (i)}
+Connection set (potential): {rectifier1.hPin_P.v[2].im (i), z.pin_n.v[2].im (i)}
+Connection set (potential): {rectifier1.hPin_P.v[2].re (i), z.pin_n.v[2].re (i)}
+Connection set (potential): {rectifier1.hPin_P.v[3].im (i), z.pin_n.v[3].im (i)}
+Connection set (potential): {rectifier1.hPin_P.v[3].re (i), z.pin_n.v[3].re (i)}
+Connection set (flow): {v.pin_p.iIm[1:3] (i), z.pin_p.iIm[1:3] (i)}
+Connection set (flow): {v.pin_p.iRe[1:3] (i), z.pin_p.iRe[1:3] (i)}
+Connection set (potential): {v.pin_p.v[1].im (i), z.pin_p.v[1].im (i)}
+Connection set (potential): {v.pin_p.v[1].re (i), z.pin_p.v[1].re (i)}
+Connection set (potential): {v.pin_p.v[2].im (i), z.pin_p.v[2].im (i)}
+Connection set (potential): {v.pin_p.v[2].re (i), z.pin_p.v[2].re (i)}
+Connection set (potential): {v.pin_p.v[3].im (i), z.pin_p.v[3].im (i)}
+Connection set (potential): {v.pin_p.v[3].re (i), z.pin_p.v[3].re (i)}
+Connection set (flow): {ground1.pin.iIm[1:3] (i), rectifier1.hPin_N.iIm[1:3] (i), v.pin_n.iIm[1:3] (i)}
+Connection set (flow): {ground1.pin.iRe[1:3] (i), rectifier1.hPin_N.iRe[1:3] (i), v.pin_n.iRe[1:3] (i)}
+Connection set (potential): {ground1.pin.v[1].im (i), rectifier1.hPin_N.v[1].im (i), v.pin_n.v[1].im (i)}
+Connection set (potential): {ground1.pin.v[1].re (i), rectifier1.hPin_N.v[1].re (i), v.pin_n.v[1].re (i)}
+Connection set (potential): {ground1.pin.v[2].im (i), rectifier1.hPin_N.v[2].im (i), v.pin_n.v[2].im (i)}
+Connection set (potential): {ground1.pin.v[2].re (i), rectifier1.hPin_N.v[2].re (i), v.pin_n.v[2].re (i)}
+Connection set (potential): {ground1.pin.v[3].im (i), rectifier1.hPin_N.v[3].im (i), v.pin_n.v[3].im (i)}
+Connection set (potential): {ground1.pin.v[3].re (i), rectifier1.hPin_N.v[3].re (i), v.pin_n.v[3].re (i)}
+Connection set (flow): {rectifier1.constantVoltage1.p.i (i), rectifier1.pin_p.i (o)}
+Connection set (potential): {rectifier1.constantVoltage1.p.v (i), rectifier1.pin_p.v (o)}
+Connection set (flow): {rectifier1.constantVoltage1.n.i (i), rectifier1.pin_n.i (o)}
+Connection set (potential): {rectifier1.constantVoltage1.n.v (i), rectifier1.pin_n.v (o)}
+Connection set (flow): {rectifier1.hPin_P.iIm[1:3] (o), rectifier1.loadBase1.pin_p.iIm[1:3] (i)}
+Connection set (flow): {rectifier1.hPin_P.iRe[1:3] (o), rectifier1.loadBase1.pin_p.iRe[1:3] (i)}
+Connection set (potential): {rectifier1.hPin_P.v[1].im (o), rectifier1.loadBase1.pin_p.v[1].im (i)}
+Connection set (potential): {rectifier1.hPin_P.v[1].re (o), rectifier1.loadBase1.pin_p.v[1].re (i)}
+Connection set (potential): {rectifier1.hPin_P.v[2].im (o), rectifier1.loadBase1.pin_p.v[2].im (i)}
+Connection set (potential): {rectifier1.hPin_P.v[2].re (o), rectifier1.loadBase1.pin_p.v[2].re (i)}
+Connection set (potential): {rectifier1.hPin_P.v[3].im (o), rectifier1.loadBase1.pin_p.v[3].im (i)}
+Connection set (potential): {rectifier1.hPin_P.v[3].re (o), rectifier1.loadBase1.pin_p.v[3].re (i)}
+Connection set (flow): {rectifier1.hPin_N.iIm[1:3] (o), rectifier1.loadBase1.pin_n.iIm[1:3] (i)}
+Connection set (flow): {rectifier1.hPin_N.iRe[1:3] (o), rectifier1.loadBase1.pin_n.iRe[1:3] (i)}
+Connection set (potential): {rectifier1.hPin_N.v[1].im (o), rectifier1.loadBase1.pin_n.v[1].im (i)}
+Connection set (potential): {rectifier1.hPin_N.v[1].re (o), rectifier1.loadBase1.pin_n.v[1].re (i)}
+Connection set (potential): {rectifier1.hPin_N.v[2].im (o), rectifier1.loadBase1.pin_n.v[2].im (i)}
+Connection set (potential): {rectifier1.hPin_N.v[2].re (o), rectifier1.loadBase1.pin_n.v[2].re (i)}
+Connection set (potential): {rectifier1.hPin_N.v[3].im (o), rectifier1.loadBase1.pin_n.v[3].im (i)}
+Connection set (potential): {rectifier1.hPin_N.v[3].re (o), rectifier1.loadBase1.pin_n.v[3].re (i)}
+Connection set (potential): {v.pin_p.reference.theta (i), z.pin_p.reference.theta (i)}
+Connection set (potential): {rectifier1.hPin_P.reference.theta (i), z.pin_n.reference.theta (i)}
+Connection set (potential): {ground1.pin.reference.theta (i), rectifier1.hPin_N.reference.theta (i), v.pin_n.reference.theta (i)}
+Connection set (potential): {rectifier1.hPin_P.reference.theta (o), rectifier1.loadBase1.pin_p.reference.theta (i)}
+
+Transformed flattened model:
+fclass HPF.Test.Test_Rectifier
+ parameter Integer systemDef.hrms[1] = 1 "Harmonics to simulate" /* 1 */;
+ parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
+ parameter Integer systemDef.hrms[3] = 5 "Harmonics to simulate" /* 5 */;
+ structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
+ parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ discrete Boolean systemDef.modeSelect(start = false);
+ discrete Boolean systemDef.eventWriteData(start = false);
+ discrete Boolean systemDef.eventReadData(start = false);
+ parameter Real v.vMag[1] = 100 "Voltage Magnitude (Volts rms)" /* 100 */;
+ parameter Real v.vMag[2] = 0.5 "Voltage Magnitude (Volts rms)" /* 0.5 */;
+ parameter Real v.vMag[3] = 0.225 "Voltage Magnitude (Volts rms)" /* 0.225 */;
+ parameter Real v.vArg[1] = 0 "Voltage angle (rad)" /* 0 */;
+ parameter Real v.vArg[2] = 0.25 "Voltage angle (rad)" /* 0.25 */;
+ parameter Real v.vArg[3] = -0.5 "Voltage angle (rad)" /* -0.5 */;
+ Modelica.SIunits.Angle v.theta(start = 0);
+ parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_heatPort "Temperature of heatPort";
+ parameter Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.V(start = 1) "Value of constant voltage";
+ parameter Real v.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ parameter Real v.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real v.i[1].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[1].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.i[2].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[2].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.i[3].re(start = 0,nominal = -1) "Real part of complex number";
+ Real v.i[3].im(start = 0,nominal = -1) "Imaginary part of complex number";
+ Real v.omega;
+ constant String z.properties.ComponentType = "asdasd";
+ constant Real z.properties.a = 45;
+ parameter Real z.z.re(start = 1) = 10.0 "Real part of complex number" /* 10.0 */;
+ parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
+ Real z.vFundAbs;
+ Real z.vFundArg;
+ Real z.iFundAbs;
+ Real z.iFundArg;
+ Real z.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real z.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real z.omega;
+ Real ground1.pin.iIm[1];
+ Real ground1.pin.iIm[2];
+ Real ground1.pin.iIm[3];
+ Real ground1.pin.iRe[1];
+ Real ground1.pin.iRe[2];
+ Real ground1.pin.iRe[3];
+ parameter Modelica.SIunits.Resistance resistor1.R(start = 1) = 10 "Resistance at temperature T_ref" /* 10 */;
+ parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_ref = 300.15 "Reference temperature" /* 300.15 */;
+ parameter Modelica.SIunits.LinearTemperatureCoefficient resistor1.alpha = 0 "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))" /* 0 */;
+ parameter Real v.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ parameter Real v.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ eval parameter Boolean resistor1.useHeatPort = false "=true, if heatPort is enabled" /* false */;
+ parameter Modelica.SIunits.Resistance resistor1.R_actual "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
+ parameter Modelica.SIunits.ElectricCurrent resistor1.i "Current flowing from pin p to pin n";
+ parameter Modelica.SIunits.Power resistor1.LossPower "Loss power leaving component via heatPort";
+ parameter Modelica.SIunits.ElectricCurrent ground2.p.i "Current flowing into the pin";
+ parameter Real rectifier1.V_Rect(start = 0) = 100 "Rectifier DC output" /* 100 */;
+ parameter Real rectifier1.efficiency(start = 1) = 0.95 "Rectifier efficiency" /* 0.95 */;
+ parameter Real rectifier1.hrmMdl_coefMag[1] = 2.70064268049248E-5 "Harmonic model magnitude polynomial coefficient" /* 2.70064268049248E-5 */;
+ parameter Real rectifier1.hrmMdl_coefMag[2] = -0.0015697610131034 "Harmonic model magnitude polynomial coefficient" /* -0.0015697610131034 */;
+ parameter Real rectifier1.hrmMdl_coefMag[3] = -0.00600037080602108 "Harmonic model magnitude polynomial coefficient" /* -0.00600037080602108 */;
+ parameter Real rectifier1.hrmMdl_coefMag[4] = 0.995516922015768 "Harmonic model magnitude polynomial coefficient" /* 0.995516922015768 */;
+ parameter Real rectifier1.hrmMdl_coefArg[1] = -5.02372881045404E-5 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* -5.02372881045404E-5 */;
+ parameter Real rectifier1.hrmMdl_coefArg[2] = 0.00237063924944842 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* 0.00237063924944842 */;
+ parameter Real rectifier1.hrmMdl_coefArg[3] = -1.49993957428169 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* -1.49993957428169 */;
+ parameter Real rectifier1.hrmMdl_coefArg[4] = 1.71994407623008 "Harmonic model argument (angle, [rad]) polynomial coefficient" /* 1.71994407623008 */;
+ parameter Real rectifier1.rectifierModel "Rectifier model (Other model parameters passed as a record?)";
+ parameter Real rectifier1.P;
+ Real rectifier1.loadBase1.v[1].re(start = 0,nominal = 1) "Real part of complex number";
+ Real rectifier1.loadBase1.v[1].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real rectifier1.loadBase1.v[2].re(start = 0,nominal = 1) "Real part of complex number";
+ Real rectifier1.loadBase1.v[2].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real rectifier1.loadBase1.v[3].re(start = 0,nominal = 1) "Real part of complex number";
+ Real rectifier1.loadBase1.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
+ Real rectifier1.loadBase1.omega;
+ discrete Boolean temp_17;
+ discrete Boolean temp_18;
+ discrete Boolean temp_19;
+ discrete Boolean temp_20;
+ discrete Boolean temp_21;
+protected
+ parameter Real rectifier1.S_vect[1].re(start = 0,nominal = 1) "Real part of complex number";
+ constant Real rectifier1.S_vect[1].im(start = 0,nominal = 1) = 0.5 "Imaginary part of complex number";
+ constant Real rectifier1.S_vect[2].re(start = 0,nominal = 1) = 0.0 "Real part of complex number";
+ constant Real rectifier1.S_vect[2].im(start = 0,nominal = 1) = 0 "Imaginary part of complex number";
+ constant Real rectifier1.globalSeed = 9854;
+initial equation
+ algorithm
+;
+ v.theta = 0;
+ pre(systemDef.modeSelect) = false;
+ pre(systemDef.eventWriteData) = false;
+ pre(systemDef.eventReadData) = false;
+ pre(temp_17) = false;
+ pre(temp_18) = false;
+ pre(temp_19) = false;
+ pre(temp_20) = false;
+ pre(temp_21) = false;
+parameter equation
+ resistor1.T_heatPort = resistor1.T_ref;
+ rectifier1.constantVoltage1.V = rectifier1.V_Rect;
+ v.v[1].re = v.vMag[1] .* cos(v.vArg[1]);
+ v.v[2].re = v.vMag[2] .* cos(v.vArg[2]);
+ v.v[3].re = v.vMag[3] .* cos(v.vArg[3]);
+ v.v[1].im = v.vMag[1] .* sin(v.vArg[1]);
+ v.v[2].im = v.vMag[2] .* sin(v.vArg[2]);
+ v.v[3].im = v.vMag[3] .* sin(v.vArg[3]);
+ resistor1.R_actual = resistor1.R * (1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref));
+ resistor1.i = (- rectifier1.constantVoltage1.V) / (- resistor1.R_actual);
+ resistor1.LossPower = rectifier1.constantVoltage1.V * resistor1.i;
+ ground2.p.i = - resistor1.i + resistor1.i;
+ rectifier1.P = rectifier1.constantVoltage1.V * (- resistor1.i);
+ rectifier1.S_vect[1].re = rectifier1.P * rectifier1.efficiency;
+equation
+ temp_17 = time > 0.5;
+ temp_18 = time > 0.25;
+ temp_19 = time > 0.4;
+algorithm
+ if temp_17 and not pre(temp_17) then
+  systemDef.modeSelect := true;
+ end if;
+ if temp_18 and not pre(temp_18) then
+  systemDef.eventWriteData := true;
+ end if;
+ if temp_19 and not pre(temp_19) then
+  systemDef.eventReadData := true;
+ end if;
+equation
+ der(v.theta) = 6.283185307179586 * systemDef.fFund;
+ v.omega = der(v.theta);
+ z.v[1].re = z.z.re .* (- v.i[1].re) - z.z.im .* systemDef.hrms[1] .* (- v.i[1].im);
+ z.v[2].re = z.z.re .* (- v.i[2].re) - z.z.im .* systemDef.hrms[2] .* (- v.i[2].im);
+ z.v[3].re = z.z.re .* (- v.i[3].re) - z.z.im .* systemDef.hrms[3] .* (- v.i[3].im);
+ z.v[1].im = z.z.re .* (- v.i[1].im) + z.z.im .* systemDef.hrms[1] .* (- v.i[1].re);
+ z.v[2].im = z.z.re .* (- v.i[2].im) + z.z.im .* systemDef.hrms[2] .* (- v.i[2].re);
+ z.v[3].im = z.z.re .* (- v.i[3].im) + z.z.im .* systemDef.hrms[3] .* (- v.i[3].re);
+ z.omega = der(v.theta);
+ z.v[1].re = v.v[1].re - rectifier1.loadBase1.v[1].re;
+ z.v[1].im = v.v[1].im - rectifier1.loadBase1.v[1].im;
+ z.v[2].re = v.v[2].re - rectifier1.loadBase1.v[2].re;
+ z.v[2].im = v.v[2].im - rectifier1.loadBase1.v[2].im;
+ z.v[3].re = v.v[3].re - rectifier1.loadBase1.v[3].re;
+ z.v[3].im = v.v[3].im - rectifier1.loadBase1.v[3].im;
+ assert(1 + resistor1.alpha * (resistor1.T_heatPort - resistor1.T_ref) >= 1.0E-15, "Temperature outside scope of model!");
+ 0.0 = if systemDef.modeSelect == false then rectifier1.S_vect[1].re - rectifier1.loadBase1.v[1].re .* (- v.i[1].re) else - v.i[1].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].re .* (- v.i[2].re) else - v.i[2].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].re .* (- v.i[3].re) else - v.i[3].re - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* sin(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5));
+ 0.0 = if systemDef.modeSelect == false then 0.5 - rectifier1.loadBase1.v[1].im .* v.i[1].im else - v.i[1].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 1) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 1));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[2].im .* v.i[2].im else - v.i[2].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 3) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 3));
+ 0.0 = if systemDef.modeSelect == false then - rectifier1.loadBase1.v[3].im .* v.i[3].im else - v.i[3].im - HPF.Utilities.polyval({rectifier1.hrmMdl_coefMag[1], rectifier1.hrmMdl_coefMag[2], rectifier1.hrmMdl_coefMag[3], rectifier1.hrmMdl_coefMag[4]}, 5) .* cos(HPF.Utilities.polyval({rectifier1.hrmMdl_coefArg[1], rectifier1.hrmMdl_coefArg[2], rectifier1.hrmMdl_coefArg[3], rectifier1.hrmMdl_coefArg[4]}, 5));
+ temp_20 = systemDef.eventWriteData <> pre(systemDef.eventWriteData);
+ temp_21 = systemDef.eventReadData <> pre(systemDef.eventReadData);
+algorithm
+ if temp_20 and not pre(temp_20) then
+ end if;
+ if temp_21 and not pre(temp_21) then
+ end if;
+equation
+ rectifier1.loadBase1.omega = der(v.theta);
+ ground1.pin.iIm[1] = 0;
+ ground1.pin.iIm[2] = 0;
+ ground1.pin.iIm[3] = 0;
+ ground1.pin.iRe[1] = 0;
+ ground1.pin.iRe[2] = 0;
+ ground1.pin.iRe[3] = 0;
+ HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5;
+ z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0);
+ z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5;
+ z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0);
+
+public
+ function Modelica.Math.atan3
+  input Real u1;
+  input Real u2;
+  input Real y0;
+  output Real y;
+  Real w;
+ algorithm
+  w := atan2(u1, u2);
+  if y0 == 0 then
+   y := w;
+  else
+   y := w + 6.283185307179586 * integer((3.141592653589793 + y0 - w) / 6.283185307179586);
+  end if;
+  return;
+ end Modelica.Math.atan3;
+
+ function HPF.Utilities.polyval
+  input Real[:] a;
+  input Real x;
+  output Real y;
+  Real temp_1;
+  Real temp_2;
+  Real[:] temp_3;
+ algorithm
+  init temp_3 as Real[max(integer(size(a, 1) - 1) + 1, 0)];
+  for i1 in 1:max(integer(size(a, 1) - 1) + 1, 0) loop
+   temp_3[i1] := x ^ (size(a, 1) - 1 + (1 - i1));
+  end for;
+  temp_2 := 0.0;
+  for i1 in 1:max(integer(size(a, 1) - 1) + 1, 0) loop
+   temp_2 := temp_2 + a[i1] * temp_3[i1];
+  end for;
+  temp_1 := temp_2;
+  y := temp_1;
+  return;
+ end HPF.Utilities.polyval;
+
+ function HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint
+  input HPF.Types.Reference reference1;
+  input HPF.Types.Reference reference2;
+  output Real[:] residue;
+ algorithm
+  init residue as Real[0];
+  assert(abs(reference1.theta - reference2.theta) < 1.0E-6 * 2 * 3.141592653589793, "Reference angles should be equal!");
+  return;
+ end HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint;
+
+ record HPF.Types.Reference
+  Modelica.SIunits.Angle theta;
+ end HPF.Types.Reference;
+
+ type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
+ type Modelica.SIunits.Resistance = Real(final quantity = "Resistance",final unit = "Ohm");
+ type Modelica.SIunits.ThermodynamicTemperature = Real(final quantity = "ThermodynamicTemperature",final unit = "K",min = 0.0,start = 288.15,nominal = 300,displayUnit = "degC");
+ type Modelica.SIunits.LinearTemperatureCoefficient = Real(final quantity = "LinearTemperatureCoefficient",final unit = "1/K");
+ type Modelica.SIunits.ElectricPotential = Real(final quantity = "ElectricPotential",final unit = "V");
+ type Modelica.SIunits.ElectricCurrent = Real(final quantity = "ElectricCurrent",final unit = "A");
+ type Modelica.SIunits.Power = Real(final quantity = "Power",final unit = "W");
+end HPF.Test.Test_Rectifier;
+
+Generating code...
+====== Model compiled successfully =======
+make -f /home/avpreetsingh/programfiles/jModelica/Makefiles/MakeFile fmume20_
+make[1]: Entering directory '/tmp/jmc17825851340953539372out'
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_equ.o sources/HPF_Test_Test_Rectifier_equ.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_base.o sources/HPF_Test_Test_Rectifier_base.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_init_dependent.o sources/HPF_Test_Test_Rectifier_init_dependent.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_init_independent.o sources/HPF_Test_Test_Rectifier_init_independent.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -O1 -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_funcs.o sources/HPF_Test_Test_Rectifier_funcs.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier.o sources/HPF_Test_Test_Rectifier.c
+gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_equ_init.o sources/HPF_Test_Test_Rectifier_equ_init.c
+mkdir -p binaries/linux64
+g++ -shared -Wl,-rpath,'$ORIGIN',--no-undefined -pthread -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -o binaries/linux64/HPF_Test_Test_Rectifier.so  HPF_Test_Test_Rectifier_equ.o  HPF_Test_Test_Rectifier_base.o  HPF_Test_Test_Rectifier_init_dependent.o  HPF_Test_Test_Rectifier_init_independent.o  HPF_Test_Test_Rectifier_funcs.o  HPF_Test_Test_Rectifier.o  HPF_Test_Test_Rectifier_equ_init.o  -L/home/avpreetsingh/programfiles/jModelica/lib/RuntimeLibrary -lfmi2 -ljmi -ldl "-L/home/avpreetsingh/programfiles/jModelica/lib"  -ljmi_get_set_default -ljmi_get_set_default -llapack -lblas -lgfortran -lModelicaExternalC -lzlib -ljmi -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/lib -l:libsundials_kinsol.a -l:libsundials_nvecserial.a -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Minpack/lib -l:libcminpack.a -lstdc++ -lm -l:libsundials_cvode.a
+rm -f  HPF_Test_Test_Rectifier_equ.o  HPF_Test_Test_Rectifier_base.o  HPF_Test_Test_Rectifier_init_dependent.o  HPF_Test_Test_Rectifier_init_independent.o  HPF_Test_Test_Rectifier_funcs.o  HPF_Test_Test_Rectifier.o  HPF_Test_Test_Rectifier_equ_init.o 
+make[1]: Leaving directory '/tmp/jmc17825851340953539372out'
+
