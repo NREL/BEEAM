@@ -75,7 +75,18 @@ parameters, such as:
 """
 class ModelParameters:  # retrieve parameters
     def __init__(self, fmu_name):
-        
+        # save last element from the returned vector
+        # retreive number of harmonics
+        self.numHrm = int(res['systemDef.numHrm'][-1])
+        self.hrms = N.zeros(self.numHrm)
+        for h in range(1, self.numHrm + 1):  # modelica indexing starts from 1
+            self.hrms[h-1] = int(res['systemDef.hrms[' + str(h) + ']'][-1])
+        self.fFund = res['systemDef.fFund'][-1]
+        self.numPh = int(res['systemDef.numPh'][-1])
+        self.smplFreq = res['systemDef.smplFreq'][-1]
+
+mdl_conf_3 = ModelParameters(fmu_conf_3)
+
 """
     struct for saving component classes for the purpose of loss calculations
     For consistency, the object names should have the same names used in the

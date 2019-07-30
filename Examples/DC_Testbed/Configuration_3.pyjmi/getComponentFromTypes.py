@@ -33,7 +33,7 @@ def getComponentName(fmu_name, _componentType):
     """
     varName = vars.keys()
     """
-        get reference value for all the vars
+        get reference value for all the vars.
         interpreter is throwing an error when passing the vars list.
         Using for to loop through the list.
     """

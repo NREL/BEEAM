@@ -4,7 +4,7 @@ model Configuration_3
   extends Modelica.Icons.Package;
   import Modelica.ComplexMath.j;
   inner HPF.SystemDef systemDef(hrms = {1, 3, 5}) annotation(
-    Placement(visible = true, transformation(origin = {-105, 15}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-100, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource PhA(vArg = {0, 1, 0.53}, vMag = {125, 0.25, 0.5}) annotation(
     Placement(visible = true, transformation(origin = {-142, -46}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Sources.VoltageSource PhB(vArg = {1.2, 2.5, 0.3}, vMag = {125, 0.25, 0.5}) annotation(
@@ -23,7 +23,7 @@ model Configuration_3
     Placement(visible = true, transformation(origin = {74, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation(
     Placement(visible = true, transformation(origin = {86, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Resistor r(r = 1e6) annotation(
+  HPF.SinglePhase.Components.Resistor terminal(r = 1e6) annotation(
     Placement(visible = true, transformation(origin = {-20, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = 2 + 3.2 * j) annotation(
     Placement(visible = true, transformation(origin = {-40, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -82,9 +82,9 @@ equation
     Line(points = {{-56, -56}, {-30, -56}}));
   connect(test_DY.pinSec_B, z.pin_p) annotation(
     Line(points = {{-56, -46}, {-50, -46}}));
-  connect(test_DY.pinSec_A, r.pin_p) annotation(
+  connect(test_DY.pinSec_A, terminal.pin_p) annotation(
     Line(points = {{-56, -36}, {-30, -36}}));
-  connect(r.pin_n, ground2.pin) annotation(
+  connect(terminal.pin_n, ground2.pin) annotation(
     Line(points = {{-10, -36}, {-4, -36}, {-4, -76}, {-66, -76}}, color = {117, 80, 123}));
   connect(laptop_adpt_1.hPin_N, ground2.pin) annotation(
     Line(points = {{24, 20}, {14, 20}, {14, -76}, {-66, -76}}, color = {117, 80, 123}));
@@ -144,9 +144,11 @@ equation
     Line(points = {{138, -116}, {138, -116}, {138, -112}, {138, -112}}, color = {0, 0, 255}));
   annotation(
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}), graphics = {Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(points = {{-86, 0}, {-80, 16}, {-74, 26}, {-64, 38}, {-50, 32}, {-40, 8}, {-38, -2}, {-24, -30}, {-8, -38}, {8, -22}, {16, 0}}, color = {28, 108, 200}, smooth = Smooth.Bezier)}),
-    Diagram(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics = {Text(origin = {-131, 125}, extent = {{111, -1}, {-17, 23}}, textString = "DC Testbed: Configuration 2
+    Diagram(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics = {Text(origin = {-131, 125}, extent = {{111, -1}, {-17, 23}}, textString = "DC Testbed: Configuration 3
 * AC-DC loads.
-* Delta-wye transformer (Unbalanced)", horizontalAlignment = TextAlignment.Left), Text(origin = {-127, 79}, extent = {{253, -5}, {-17, 23}}, textString = "TODO:
+* Delta-wye transformer (Unbalanced)", horizontalAlignment = TextAlignment.Left), Text(origin = {-133, 97}, extent = {{189, -61}, {-17, 23}}, textString = "TODO:
 * Verify Power calc quantities math (vector multiplication)
- in Voltage source", horizontalAlignment = TextAlignment.Left)}));
+ in Voltage source", horizontalAlignment = TextAlignment.Left), Text(origin = {-131, 99}, extent = {{157, -3}, {-17, 23}}, textString = "Notes:\n* Enable option: 'Save simulation flags inside model'", horizontalAlignment = TextAlignment.Left)}),
+  experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end Configuration_3;
