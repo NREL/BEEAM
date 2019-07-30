@@ -9,10 +9,10 @@ class SystemDef
     Also, numHrm cannot be initialized as Real.
   */
   parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
-
-  parameter Integer numPh = 3 "Number of phases";
-
   parameter Real fFund = 60 "Fundamental frequency";
+  parameter Real smplFreq = 5e3 "Sampling frequency (Hz)";
+  
+  parameter Integer numPh = 3 "Number of phases";
 
   /*
     selects the mode of operation, used by nonlinear harmonic loads 

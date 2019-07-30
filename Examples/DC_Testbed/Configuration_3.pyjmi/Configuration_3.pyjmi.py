@@ -57,10 +57,25 @@ The post processing section would consist of several subsections:
         iii) DC loads
 """
 # load fmu
-conf_3 = load_fmu(fmu_name)
+fmu_conf_3 = load_fmu(fmu_name)
 # simulate fmu
-res = conf_3.simulate(final_time=1)
+res = fmu_conf_3.simulate(final_time=1)
 
+"""
+Struct for HPF model specific definitions.
+These parameters are defined in the 'outer' class called 'SystemDef'. Each simulation
+model can contain only one instance of this class callded 'systemDef'. The 
+systemDef instance contains the system solver algorithm, and other system-wide
+parameters, such as:
+        * Number of harmonics
+        * Fundamental frequency
+        * sampling frequency
+        * Number of phases
+        * etc.
+"""
+class ModelParameters:  # retrieve parameters
+    def __init__(self, fmu_name):
+        
 """
     struct for saving component classes for the purpose of loss calculations
     For consistency, the object names should have the same names used in the
@@ -80,7 +95,7 @@ class CompPwrClass: # Component Power Calculation Classes
         if CompClassName == 'VoltageSource':
             self.expansionRealPwr = '.P'
         elif CompClassName == 'DC_Load':
-            self.expansionRealPwr = ''
+            self.expansionRealPwr = '.pwr'
         else:
             self.expansionRealPwr = ''
         # and so on
@@ -90,7 +105,10 @@ class CompPwrClass: # Component Power Calculation Classes
         self.CompName = CompName
     
         
-# instantiating all the component power calc classes
+"""
+instantiating all the component power calc classes
+These would be globally defined.
+"""
 VoltageSource = CompPwrClass('VoltageSource');
 MultiPhaseTransformer = CompPwrClass('MultiPhaseTransformer')
 DC_Load = CompPwrClass('DC_Load')
@@ -105,14 +123,43 @@ the obtained component base name with the quantity class expansion.
 Example: voltage in a resistor is obtained using the following,
 'ComponentName' + '.v'
 """
+
+"""
+Losses in the system = Power delivered at the sources (Voltage source) - 
+                        Power consumed at the DC Loads
+"""
 # compute input power, 'VoltageSource' -----
-# get component names
-VoltageSource.addCompName(getComponentFromTypes.getComponentName(conf_3, "VoltageSource"))
+VoltageSource.addCompName(getComponentFromTypes.getComponentName(fmu_conf_3, "VoltageSource"))
 inputPwr = 0
-k = 0
 for comp in VoltageSource.CompName:
     inputPwr = inputPwr + res[comp+VoltageSource.expansionRealPwr]
     print(res[comp+VoltageSource.expansionRealPwr])
+# compute consumed power, 'DC_Load5' -----
+DC_Load.addCompName(getComponentFromTypes.getComponentName(fmu_conf_3, 'DC_Load'))
+consumedPwr = 0
+for comp in DC_Load.CompName:
+    consumedPwr = consumedPwr + res[comp+DC_Load.expansionRealPwr]
+    print(res[comp + DC_Load.expansionRealPwr])
+
+pwrLosses = inputPwr - consumedPwr
+print(pwrLosses)
+
+
+
+"""
+Reconstructing time waveforms from frequency domain.
+
+Example:
+    Reconstructing time domain waveforms for the input voltage, phase A.
+    The input voltage variables for all the harmonics have the form:
+        PhA.v[h].re     :: real part of the voltage for hth harmonic
+        
+    1) populate the complex vector by extracting from the simulation
+    
+    2) run ifft on the complex vector
+"""
+
+#plot_gui.startGUI()
 
 
 """
