@@ -38,9 +38,7 @@ fmu_name = compile_fmu(class_name, library_name, compiler_log_level = log_level)
         and current values from components. One must come up with a methodology
         to automate the discovery process so as to crawl over all the 
         components in the simulation and group the losses.
-        Cons:   This would require the user to explicitly name the components
-       
-    -   In a system setup, the losses would be          
+        Cons:   This would require the user to explicitly name the components     
 """
 """
 The post processing section would consist of several subsections:

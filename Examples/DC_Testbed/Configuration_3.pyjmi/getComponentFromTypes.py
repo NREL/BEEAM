@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jul 19 16:54:15 2019
-
 @author: avpreetsingh
 
 Function to get all the components for a specified type.

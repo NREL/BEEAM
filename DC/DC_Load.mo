@@ -6,13 +6,7 @@ model DC_Load
   
   parameter Real pwr(start = 1) = 1 "Power (watts)";
 
-  model DC_DC_Converter
-  equation
 
-    annotation(
-      Icon(coordinateSystem(grid = {0, 0})),
-      Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
-  end DC_DC_Converter;
 equation
   pwr = v * i;
   
