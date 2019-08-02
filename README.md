@@ -1,3 +1,13 @@
+Installation Instructions:
+--------------------------
+Either pull the DC-Design repository into your local machine, or download the repository.
+
+For graphical Modelica environements (example: Dymola, OpenModelica, Wolfram SystemModeler),
+1. Goto File -> Open
+2. Locate the DC-Design repository in your local machine and in the folder, open the file 'package.mo'.
+3. The HPF library would appear in the library browser.
+
+
 A note on Modelica environments:
 -------------------------------
 Primary development environement: OpenModelica (current version (as of 06/10/2019): 1.14; Binary repository: Stable)

@@ -24,7 +24,6 @@ sys.path.insert(0, '../../../Resources/')
 from hpf.modelica import ModelicaModel
 from fftUtils import fftCoefReconsruct
 
-
 class_name = 'HPF.Examples.DC_Testbed.Configuration_3'
 library_name = '../../../../HPF'
 log_level = 'verbose: compile_log.txt'  # options: 'warning'/'w', 'error'/'e', 'verbose'/'v', 'info'/'i' or 'debug'/'d'.
