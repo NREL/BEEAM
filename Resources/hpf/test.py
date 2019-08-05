@@ -14,6 +14,8 @@ fmu_conf_3 = load_fmu('./test_fmus/HPF_Examples_DC_Testbed_Configuration_3.fmu')
 #res = fmu_conf_3.simulate(final_time=1)
 configuration_3 = modelica.ModelicaModel(fmu_conf_3)
 
-a = configuration_3.getComponentTypes('Impedance')
-print (a)
+compTypes = ['MultiPhaseTransformer', 'NonlinearLoad', 'DC_Load', 'VoltageSource', 'Impedance']
+for t in compTypes:
+    print('Components = ')
+    print (configuration_3.getComponentTypes(t))
 

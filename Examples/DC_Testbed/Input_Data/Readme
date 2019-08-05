@@ -1,0 +1,17 @@
+Readme:
+
+avpreet.othee@colostate.edu
+------
+
+Input data directory.
+
+Description:
+------------
+This directory contains input data for the four example configurations.
+
+The files contain time series data in a comma separated value (csv) files for
+the AC to DC converters and DC to DC converters. These files have been truncated
+to only include a small data capture window spanning a few cycles.
+One can find original files in the Google Drive repository.
+
+Please contact me for any further queries.

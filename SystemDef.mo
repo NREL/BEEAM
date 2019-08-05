@@ -72,5 +72,14 @@ algorithm
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "No \"systemDef\" component is defined.
     Drag SystemDef into the top level of your model.",
-  Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Line(origin = {0, 60}, points = {{-100, 0}, {100, 0}}), Text(origin = {-48, 35}, extent = {{-34, 13}, {94, -9}}, textString = "Harmonics=%hrms"), Text(origin = {-48, 7}, extent = {{-34, 13}, {126, -33}}, textString = "Fundamental=%fFund Hz"), Text(origin = {-56, 81}, fillColor = {92, 53, 102}, extent = {{-34, 13}, {150, -15}}, textString = "System Setup", textStyle = {TextStyle.Bold})}));
+  Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Line(origin = {0, 60}, points = {{-100, 0}, {100, 0}}), Text(origin = {-48, 35}, extent = {{-34, 13}, {94, -9}}, textString = "Harmonics=%hrms"), Text(origin = {-48, 7}, extent = {{-34, 13}, {126, -33}}, textString = "Fundamental=%fFund Hz"), Text(origin = {-56, 81}, fillColor = {92, 53, 102}, extent = {{-34, 13}, {150, -15}}, textString = "System Setup", textStyle = {TextStyle.Bold})}),
+  Documentation(info = "<html><head></head><body>
+  <div><br></div>
+  <div><u> Example </u></div>
+  hrms is a vector. User specifies all the harmonics to be simulated as a c/c++ style single dimensional array.absoluteValue = 
+  <br>
+  Example: For simulating the first three odd harmonics, <br> 
+  hrms = {1, 3, 5}
+  
+  <div><br></div><br></body></html>"));
 end SystemDef;
