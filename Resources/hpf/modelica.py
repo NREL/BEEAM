@@ -17,9 +17,7 @@ class ModelicaModel:  # retrieve parameters
     Modelica HPF class for accessing model parameters and other related misc
     model varialbes etc.
     
-    Issue here:
-        how to pass the results object?
-        
+    
     """
     def __init__(self, fmu_name):
         # save last element from the returned vector
