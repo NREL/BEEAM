@@ -4,7 +4,7 @@ model Configuration_3
   extends Modelica.Icons.Package;
   import Modelica.ComplexMath.j;
   inner HPF.SystemDef systemDef(hrms = {1, 3, 5}) annotation(
-    Placement(visible = true, transformation(origin = {-76, 30}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-100, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource PhA(vArg = {0, 1, 0.53}, vMag = {125, 0.25, 0.5}) annotation(
     Placement(visible = true, transformation(origin = {-142, -46}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Sources.VoltageSource PhB(vArg = {1.2, 2.5, 0.3}, vMag = {125, 0.25, 0.5}) annotation(
@@ -59,6 +59,10 @@ model Configuration_3
     Placement(visible = true, transformation(origin = {138, -56}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.DC_Load led_2(pwr = 500) annotation(
     Placement(visible = true, transformation(origin = {138, -102}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.SinglePhase.NonlinearLoads.RectifierModels.Class_1 class_11 annotation(
+    Placement(visible = true, transformation(origin = {36, 62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Systems_Testing.File_RW_parameter_populate.params params1 annotation(
+    Placement(visible = true, transformation(origin = {-140, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(PhA.pin_n, ground1.pin) annotation(
     Line(points = {{-142, -56}, {-142, -80}}, color = {117, 80, 123}));
@@ -71,7 +75,7 @@ equation
   connect(laptop_adpt_3.hPin_P, z1.pin_n) annotation(
     Line(points = {{38, -56}, {-10, -56}}));
   connect(PhA.pin_p, test_DY.pinPrim_A) annotation(
-    Line(points = {{-142, -36}, {-126, -36}, {-126, -36}, {-110, -36}, {-110, -36}, {-93, -36}, {-93, -36}, {-76, -36}}));
+    Line(points = {{-142, -36}, {-76, -36}}));
   connect(PhB.pin_p, test_DY.pinPrim_B) annotation(
     Line(points = {{-122, -46}, {-76, -46}}));
   connect(PhC.pin_p, test_DY.pinPrim_C) annotation(
@@ -146,7 +150,7 @@ equation
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}), graphics = {Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(points = {{-86, 0}, {-80, 16}, {-74, 26}, {-64, 38}, {-50, 32}, {-40, 8}, {-38, -2}, {-24, -30}, {-8, -38}, {8, -22}, {16, 0}}, color = {28, 108, 200}, smooth = Smooth.Bezier)}),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics = {Text(origin = {-131, 125}, extent = {{111, -1}, {-17, 23}}, textString = "DC Testbed: Configuration 3
 * AC-DC loads.
-* Delta-wye transformer (Unbalanced)", horizontalAlignment = TextAlignment.Left), Text(origin = {-121, 89}, extent = {{189, -61}, {-17, 23}}, textString = "TODO:
+* Delta-wye transformer (Unbalanced)", horizontalAlignment = TextAlignment.Left), Text(origin = {-131, 119}, extent = {{189, -61}, {-19, -21}}, textString = "TODO:
 * Verify Power calc quantities math (vector multiplication)
  in Voltage source", horizontalAlignment = TextAlignment.Left), Text(origin = {-131, 99}, extent = {{157, -3}, {-17, 23}}, textString = "Notes:
 * Enable option: 'Save simulation flags inside model'", horizontalAlignment = TextAlignment.Left)}),

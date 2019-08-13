@@ -12,7 +12,11 @@ class Todo
     This can either be achived by setting the start attribute
     or one can use the 'initial equation' block.
     
-  - 
+  - Nonlinear harmonic load read/write operation:
+      The data file used to read write data (workaround for
+      model switch from power flow to current injection),
+      has a static name. One must assign a unique file name
+      to the data (mat) file. 
 
 
 

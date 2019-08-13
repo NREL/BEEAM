@@ -4,7 +4,7 @@ model Configuration_1
   extends Modelica.Icons.Package;
   import Modelica.ComplexMath.j;
   inner HPF.SystemDef systemDef(hrms = {1, 3, 5}) annotation(
-    Placement(visible = true, transformation(origin = {-126, 88}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-135, 85}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource PhA(vArg = {0, 1, 0.53}, vMag = {125, 0.25, 0.5}) annotation(
     Placement(visible = true, transformation(origin = {-140, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Sources.VoltageSource PhB(vArg = {1.2, 2.5, 0.3}, vMag = {125, 0.25, 0.5}) annotation(
@@ -142,7 +142,8 @@ equation
     Line(points = {{20, 36}, {14, 36}, {14, -14}, {-64, -14}, {-64, -26}}, color = {117, 80, 123}));
   annotation(
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}), graphics = {Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(points = {{-86, 0}, {-80, 16}, {-74, 26}, {-64, 38}, {-50, 32}, {-40, 8}, {-38, -2}, {-24, -30}, {-8, -38}, {8, -22}, {16, 0}}, color = {28, 108, 200}, smooth = Smooth.Bezier)}),
-    Diagram(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics = {Text(origin = {-121, 136}, extent = {{-27, 14}, {97, -38}}, textString = "DC-Testbed: Configuration 1\n* Balanced phases", horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics = {Text(origin = {-119, 128}, extent = {{-27, 14}, {107, -10}}, textString = "DC-Testbed: Configuration 1
+* Balanced phases", horizontalAlignment = TextAlignment.Left)}),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_simulationFlags(ls = "totalpivot", lv = "LOG_STATS", nls = "newton", outputFormat = "mat", s = "dassl"));
 end Configuration_1;

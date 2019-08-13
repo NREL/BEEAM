@@ -89,6 +89,36 @@ package Utilities
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
     end readNodeVoltage;
+
+    class loadDataFromFile "Load data from a mat file"
+      /*
+        Template class for loading data from a mat file.
+        Can be used for loading input voltage harmonics data.
+        User would extract harmonics from a steady state waveforms
+        measurement file and save the harmonics in a mat file.
+      */
+      
+      /*
+        File reading caveates:
+        A file in the current modelica model directory can be referenced 
+        using the URI: 'file://'
+        A file in a modelica library structure can be referenced using the 
+        URI: 'modelica://' followed by the path to the file.
+        The path should be a UNIX like directory path. Thus it is always
+        beneficial to create a package class as a folder and not as a 
+        single file. 
+        
+        Refer to documentation on the use of: 'loadResource' from the 
+        Modelica.Utilities sublibrary.
+      */
+      parameter String fileName;
+      
+    equation
+
+      annotation(
+        Icon(coordinateSystem(grid = {0, 0})),
+        Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
+    end loadDataFromFile;
     annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
