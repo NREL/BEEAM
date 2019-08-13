@@ -1,5 +1,6 @@
 within HPF;
 package Utilities
+  extends Modelica.Icons.UtilitiesPackage;
   function polyval
   /*
     Polynomial evaluation of the form,
