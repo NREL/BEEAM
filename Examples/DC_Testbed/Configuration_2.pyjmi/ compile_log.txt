@@ -1,0 +1,14 @@
+Compiler arguments:
+  -log=verbose: compile_log.txt,w|xml|stderr -target=me -version=2.0 -platform=linux64 -out=. -modelicapath=/home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL ../../../HPF HPF.Examples.DC_Testbed.Configuration_2 
+Current working directory:
+  /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Examples/DC_Testbed/Configuration_2.pyjmi
+Compiler version: r12669
+Java version: 11.0.4
+OS name: Linux
+OS architecture: amd64
+MODELICAPATH    = 
+JAVA_HOME       = /usr/lib/jvm/java-11-openjdk-amd64
+JMODELICA_HOME  = /home/avpreetsingh/programfiles/jModelica/
+======= Compiling model =======
+Parsing ../../../HPF...
+Could not find file: ../../../HPF (No such file or directory)

@@ -11,7 +11,7 @@ class SystemDef
   parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
   parameter Real fFund = 60 "Fundamental frequency";
   parameter Real smplFreq = 5e3 "Sampling frequency (Hz)";
-  
+
   parameter Integer numPh = 3 "Number of phases";
 
   /*
@@ -21,7 +21,7 @@ class SystemDef
     false = mode: constant current source
   */
   Boolean modeSelect(start = false);
-  
+
   /*
     Data read write events.
   */
@@ -31,7 +31,7 @@ class SystemDef
 
 initial algorithm
   //modeSelect := false;
-  
+
 equation
 
 algorithm
@@ -43,7 +43,7 @@ algorithm
       System switches from power flow to current sources
     */
     when time > 0.5 then
-      modeSelect := true;  
+      modeSelect := true;
     end when;
 
     /*

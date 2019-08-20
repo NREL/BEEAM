@@ -12,7 +12,7 @@ extends HPF.SinglePhase.Interface.TwoPinBase;
     Properties are saved in a record named Properties.
   */
   HPF.Utilities.ComponentProperties properties(ComponentType = "Impedance");
-  
+
   parameter Complex z(re(start = 1), im(start = 0)) "Impedance, R + jX";
   /*
     Fundamental harmonic values display

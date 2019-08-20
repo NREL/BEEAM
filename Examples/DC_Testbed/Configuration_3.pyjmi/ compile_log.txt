@@ -7495,19 +7495,19 @@ Algebraic real variables:
  PhA.P
     PhA.vMag[1]
     PhA.vArg[1]
-    PhA.vMag[2]
     PhA.vArg[2]
-    PhA.vArg[3]
+    PhA.vMag[2]
     PhA.vMag[3]
+    PhA.vArg[3]
     terminal.r
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -7541,17 +7541,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -7569,11 +7569,11 @@ Algebraic real variables:
     pre(temp_101)
     pre(systemDef.eventReadData)
     pre(systemDef.eventWriteData)
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhC.vArg[2]
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     PhC.vArg[3]
     PhC.vMag[3]
     systemDef.hrms[3]
@@ -7581,16 +7581,16 @@ Algebraic real variables:
     PhB.vMag[3]
  PhA.i[1].re
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -7624,17 +7624,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -7654,16 +7654,16 @@ Algebraic real variables:
     pre(systemDef.eventWriteData)
  PhA.i[1].im
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -7697,17 +7697,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -7726,17 +7726,17 @@ Algebraic real variables:
     pre(systemDef.eventReadData)
     pre(systemDef.eventWriteData)
  PhA.i[2].re
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -7787,17 +7787,17 @@ Algebraic real variables:
     pre(systemDef.eventReadData)
     pre(systemDef.eventWriteData)
  PhA.i[2].im
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -7850,9 +7850,9 @@ Algebraic real variables:
  PhA.i[3].re
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -7911,9 +7911,9 @@ Algebraic real variables:
  PhA.i[3].im
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -7972,10 +7972,10 @@ Algebraic real variables:
  PhA.omega
     systemDef.fFund
  PhB.P
-    PhB.vMag[1]
     PhB.vArg[1]
-    PhB.vArg[2]
+    PhB.vMag[1]
     PhB.vMag[2]
+    PhB.vArg[2]
     PhB.vArg[3]
     PhB.vMag[3]
     test_DY.N
@@ -8017,17 +8017,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -8065,20 +8065,20 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     systemDef.hrms[2]
-    PhA.vMag[2]
     PhA.vArg[2]
-    PhC.vArg[2]
+    PhA.vMag[2]
     PhC.vMag[2]
+    PhC.vArg[2]
     systemDef.hrms[3]
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
     PhC.vArg[3]
     PhC.vMag[3]
  PhB.i[1].re
@@ -8086,9 +8086,9 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -8123,17 +8123,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -8171,20 +8171,20 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  PhB.i[1].im
     test_DY.N
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -8219,17 +8219,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -8267,21 +8267,21 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  PhB.i[2].re
     test_DY.N
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     PhA.vArg[2]
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -8333,8 +8333,8 @@ Algebraic real variables:
     pre(systemDef.eventWriteData)
     z1.z.re
     z1.z.im
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhC.vArg[2]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8356,10 +8356,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     PhA.vArg[2]
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -8411,8 +8411,8 @@ Algebraic real variables:
     pre(systemDef.eventWriteData)
     z1.z.re
     z1.z.im
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhC.vArg[2]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8434,10 +8434,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    PhB.vArg[3]
-    PhB.vMag[3]
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhB.vArg[3]
+    PhA.vArg[3]
+    PhB.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -8512,10 +8512,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    PhB.vArg[3]
-    PhB.vMag[3]
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhB.vArg[3]
+    PhA.vArg[3]
+    PhB.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -8590,19 +8590,19 @@ Algebraic real variables:
  PhC.P
     PhC.vArg[1]
     PhC.vMag[1]
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhC.vArg[2]
     PhC.vArg[3]
     PhC.vMag[3]
     terminal.r
-    PhA.vMag[1]
     test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8619,12 +8619,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -8642,28 +8642,28 @@ Algebraic real variables:
     pre(temp_101)
     pre(systemDef.eventReadData)
     pre(systemDef.eventWriteData)
-    PhA.vMag[2]
     PhA.vArg[2]
+    PhA.vMag[2]
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
-    PhA.vArg[3]
+    PhB.vArg[2]
     PhA.vMag[3]
+    PhA.vArg[3]
     systemDef.hrms[3]
     PhB.vArg[3]
     PhB.vMag[3]
  PhC.i[1].re
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8680,12 +8680,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -8705,16 +8705,16 @@ Algebraic real variables:
     pre(systemDef.eventWriteData)
  PhC.i[1].im
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8731,12 +8731,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -8755,17 +8755,17 @@ Algebraic real variables:
     pre(systemDef.eventReadData)
     pre(systemDef.eventWriteData)
  PhC.i[2].re
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8800,17 +8800,17 @@ Algebraic real variables:
     pre(systemDef.eventReadData)
     pre(systemDef.eventWriteData)
  PhC.i[2].im
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -8847,9 +8847,9 @@ Algebraic real variables:
  PhC.i[3].re
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z1.z.re
     z1.z.im
@@ -8892,9 +8892,9 @@ Algebraic real variables:
  PhC.i[3].im
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z1.z.re
     z1.z.im
@@ -8938,16 +8938,16 @@ Algebraic real variables:
     systemDef.fFund
  ground1.pin.iIm[1]
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -8981,17 +8981,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -9027,24 +9027,24 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  ground1.pin.iIm[2]
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9115,9 +9115,9 @@ Algebraic real variables:
  ground1.pin.iIm[3]
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -9193,16 +9193,16 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[4]
  ground1.pin.iRe[1]
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9236,17 +9236,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -9282,24 +9282,24 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  ground1.pin.iRe[2]
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9370,9 +9370,9 @@ Algebraic real variables:
  ground1.pin.iRe[3]
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -9448,16 +9448,16 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[4]
  ground2.pin.iIm[1]
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9491,17 +9491,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -9537,24 +9537,24 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  ground2.pin.iIm[2]
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9625,9 +9625,9 @@ Algebraic real variables:
  ground2.pin.iIm[3]
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -9703,16 +9703,16 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[4]
  ground2.pin.iRe[1]
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9746,17 +9746,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -9792,24 +9792,24 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  ground2.pin.iRe[2]
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -9880,9 +9880,9 @@ Algebraic real variables:
  ground2.pin.iRe[3]
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -9960,10 +9960,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -9998,17 +9998,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -10030,10 +10030,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -10068,17 +10068,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -10100,11 +10100,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10158,11 +10158,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10216,11 +10216,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10274,11 +10274,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10332,10 +10332,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -10370,17 +10370,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -10402,10 +10402,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -10440,17 +10440,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -10472,11 +10472,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10530,11 +10530,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10588,11 +10588,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10646,11 +10646,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -10706,11 +10706,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10727,12 +10727,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -10754,11 +10754,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10775,12 +10775,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -10802,11 +10802,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10844,11 +10844,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10889,8 +10889,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10931,8 +10931,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10970,11 +10970,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -10991,12 +10991,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11018,11 +11018,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -11039,12 +11039,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11066,11 +11066,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -11108,11 +11108,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -11153,8 +11153,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -11195,8 +11195,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -11238,10 +11238,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11276,17 +11276,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11308,10 +11308,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11346,17 +11346,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11378,10 +11378,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11416,17 +11416,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11448,10 +11448,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11486,17 +11486,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11518,10 +11518,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11556,17 +11556,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11588,10 +11588,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11626,17 +11626,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11658,11 +11658,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -11716,11 +11716,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -11774,11 +11774,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -11832,11 +11832,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -11890,10 +11890,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11928,17 +11928,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -11960,10 +11960,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -11998,17 +11998,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12030,11 +12030,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -12088,11 +12088,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -12146,11 +12146,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -12204,11 +12204,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -12264,11 +12264,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12285,12 +12285,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12312,11 +12312,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12333,12 +12333,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12360,11 +12360,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12381,12 +12381,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12408,11 +12408,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12429,12 +12429,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12456,11 +12456,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12477,12 +12477,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12504,11 +12504,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12525,12 +12525,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12552,11 +12552,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12594,11 +12594,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12639,8 +12639,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12681,8 +12681,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12720,11 +12720,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12741,12 +12741,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12768,11 +12768,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12789,12 +12789,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -12816,11 +12816,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12858,11 +12858,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12903,8 +12903,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12945,8 +12945,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -12987,9 +12987,9 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -13024,17 +13024,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -13057,9 +13057,9 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -13094,17 +13094,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -13127,10 +13127,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     PhA.vArg[2]
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13185,10 +13185,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     PhA.vArg[2]
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13243,10 +13243,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    PhB.vArg[3]
-    PhB.vMag[3]
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhB.vArg[3]
+    PhA.vArg[3]
+    PhB.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13301,10 +13301,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    PhB.vArg[3]
-    PhB.vMag[3]
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhB.vArg[3]
+    PhA.vArg[3]
+    PhB.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13359,10 +13359,10 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
     PhC.vMag[1]
+    PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -13379,12 +13379,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -13407,10 +13407,10 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
     PhC.vMag[1]
+    PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -13427,12 +13427,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -13455,10 +13455,10 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -13497,10 +13497,10 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -13541,8 +13541,8 @@ Algebraic real variables:
     systemDef.hrms[3]
     PhC.vArg[3]
     PhB.vArg[3]
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -13583,8 +13583,8 @@ Algebraic real variables:
     systemDef.hrms[3]
     PhC.vArg[3]
     PhB.vArg[3]
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -13620,16 +13620,16 @@ Algebraic real variables:
     pre(systemDef.eventWriteData)
  test_DY.hPin_N.iIm[1]
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13663,17 +13663,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -13709,24 +13709,24 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  test_DY.hPin_N.iIm[2]
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13797,9 +13797,9 @@ Algebraic real variables:
  test_DY.hPin_N.iIm[3]
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -13875,16 +13875,16 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[4]
  test_DY.hPin_N.iRe[1]
     terminal.r
-    PhA.vMag[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    test_DY.N
+    PhA.vMag[1]
     PhA.vArg[1]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
     PhB.vArg[1]
+    PhB.vMag[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -13918,17 +13918,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -13964,24 +13964,24 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
  test_DY.hPin_N.iRe[2]
+    PhC.vMag[2]
     terminal.r
-    PhA.vMag[2]
-    test_DY.N
     PhA.vArg[2]
     PhC.vArg[2]
-    PhC.vMag[2]
+    test_DY.N
+    PhA.vMag[2]
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
     PhB.vMag[2]
+    PhB.vArg[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14052,9 +14052,9 @@ Algebraic real variables:
  test_DY.hPin_N.iRe[3]
     terminal.r
     PhC.vArg[3]
-    test_DY.N
-    PhA.vArg[3]
     PhA.vMag[3]
+    PhA.vArg[3]
+    test_DY.N
     PhC.vMag[3]
     z.z.re
     z.z.im
@@ -14132,10 +14132,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -14170,17 +14170,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -14202,10 +14202,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -14240,17 +14240,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -14272,11 +14272,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14330,11 +14330,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14388,11 +14388,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14446,11 +14446,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14506,10 +14506,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -14544,17 +14544,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -14576,10 +14576,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -14614,17 +14614,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -14646,11 +14646,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14704,11 +14704,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14762,11 +14762,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14820,11 +14820,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -14880,11 +14880,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -14901,12 +14901,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -14928,11 +14928,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhB.vArg[1]
     PhC.vArg[1]
-    test_DY.N
     PhC.vMag[1]
+    PhB.vArg[1]
+    test_DY.N
+    PhB.vMag[1]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -14949,12 +14949,12 @@ Algebraic real variables:
     laptop_adpt_3.hrmMdl_coefArg[2]
     laptop_adpt_3.hrmMdl_coefArg[3]
     laptop_adpt_3.hrmMdl_coefArg[4]
-    led_driver_3.V_Rect
     led_driver_3.efficiency
     led_3.pwr
+    led_driver_3.V_Rect
+    laptop_adpt_3.efficiency
     laptop_3.pwr
     laptop_adpt_3.V_Rect
-    laptop_adpt_3.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -14976,11 +14976,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -15018,11 +15018,11 @@ Algebraic real variables:
     z1.z.re
     z1.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhB.vMag[2]
-    test_DY.N
-    PhC.vArg[2]
     PhC.vMag[2]
+    PhB.vMag[2]
+    PhB.vArg[2]
+    PhC.vArg[2]
+    test_DY.N
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -15063,8 +15063,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -15105,8 +15105,8 @@ Algebraic real variables:
     PhC.vArg[3]
     PhB.vArg[3]
     test_DY.N
-    PhB.vMag[3]
     PhC.vMag[3]
+    PhB.vMag[3]
     led_driver_3.hrmMdl_coefMag[1]
     led_driver_3.hrmMdl_coefMag[2]
     led_driver_3.hrmMdl_coefMag[3]
@@ -15146,10 +15146,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -15184,17 +15184,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -15216,10 +15216,10 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    PhB.vMag[1]
-    PhA.vMag[1]
     PhB.vArg[1]
     test_DY.N
+    PhA.vMag[1]
+    PhB.vMag[1]
     PhA.vArg[1]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
@@ -15254,17 +15254,17 @@ Algebraic real variables:
     laptop_adpt_1.hrmMdl_coefArg[3]
     laptop_adpt_1.hrmMdl_coefArg[4]
     led_driver_2.efficiency
-    led_2.pwr
     led_driver_2.V_Rect
-    led_driver_1.efficiency
-    led_driver_1.V_Rect
+    led_2.pwr
     led_1.pwr
-    laptop_adpt_2.efficiency
+    led_driver_1.V_Rect
+    led_driver_1.efficiency
     laptop_2.pwr
+    laptop_adpt_2.efficiency
     laptop_adpt_2.V_Rect
-    laptop_adpt_1.efficiency
     laptop_1.pwr
     laptop_adpt_1.V_Rect
+    laptop_adpt_1.efficiency
     pre(temp_112)
     pre(temp_113)
     pre(temp_110)
@@ -15286,11 +15286,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -15344,11 +15344,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[2]
-    PhB.vArg[2]
-    PhA.vMag[2]
     PhB.vMag[2]
-    test_DY.N
+    PhB.vArg[2]
     PhA.vArg[2]
+    test_DY.N
+    PhA.vMag[2]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -15402,11 +15402,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -15460,11 +15460,11 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
+    PhA.vMag[3]
     PhB.vArg[3]
+    PhA.vArg[3]
     test_DY.N
     PhB.vMag[3]
-    PhA.vArg[3]
-    PhA.vMag[3]
     led_driver_2.hrmMdl_coefMag[1]
     led_driver_2.hrmMdl_coefMag[2]
     led_driver_2.hrmMdl_coefMag[3]
@@ -16767,7 +16767,7 @@ end HPF.Examples.DC_Testbed.Configuration_3;
 Generating code...
 ====== Model compiled successfully =======
 make -f /home/avpreetsingh/programfiles/jModelica/Makefiles/MakeFile fmume20_
-make[1]: Entering directory '/tmp/jmc4317634394090270413out'
+make[1]: Entering directory '/tmp/jmc10010618822831073687out'
 gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Examples_DC_Testbed_Configuration_3_base.o sources/HPF_Examples_DC_Testbed_Configuration_3_base.c
 gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Examples_DC_Testbed_Configuration_3_init_dependent.o sources/HPF_Examples_DC_Testbed_Configuration_3_init_dependent.c
 gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Examples_DC_Testbed_Configuration_3_init_independent.o sources/HPF_Examples_DC_Testbed_Configuration_3_init_independent.c
@@ -16778,5 +16778,5 @@ gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfil
 mkdir -p binaries/linux64
 g++ -shared -Wl,-rpath,'$ORIGIN',--no-undefined -pthread -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -o binaries/linux64/HPF_Examples_DC_Testbed_Configuration_3.so  HPF_Examples_DC_Testbed_Configuration_3_base.o  HPF_Examples_DC_Testbed_Configuration_3_init_dependent.o  HPF_Examples_DC_Testbed_Configuration_3_init_independent.o  HPF_Examples_DC_Testbed_Configuration_3_funcs.o  HPF_Examples_DC_Testbed_Configuration_3.o  HPF_Examples_DC_Testbed_Configuration_3_equ_init.o  HPF_Examples_DC_Testbed_Configuration_3_equ.o  -L/home/avpreetsingh/programfiles/jModelica/lib/RuntimeLibrary -lfmi2 -ljmi -ldl "-L/home/avpreetsingh/programfiles/jModelica/lib"  -ljmi_get_set_default -ljmi_get_set_default -llapack -lblas -lgfortran -lModelicaExternalC -lzlib -ljmi -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/lib -l:libsundials_kinsol.a -l:libsundials_nvecserial.a -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Minpack/lib -l:libcminpack.a -lstdc++ -lm -l:libsundials_cvode.a
 rm -f  HPF_Examples_DC_Testbed_Configuration_3_base.o  HPF_Examples_DC_Testbed_Configuration_3_init_dependent.o  HPF_Examples_DC_Testbed_Configuration_3_init_independent.o  HPF_Examples_DC_Testbed_Configuration_3_funcs.o  HPF_Examples_DC_Testbed_Configuration_3.o  HPF_Examples_DC_Testbed_Configuration_3_equ_init.o  HPF_Examples_DC_Testbed_Configuration_3_equ.o 
-make[1]: Leaving directory '/tmp/jmc4317634394090270413out'
+make[1]: Leaving directory '/tmp/jmc10010618822831073687out'
 

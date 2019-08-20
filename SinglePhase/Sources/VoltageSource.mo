@@ -28,7 +28,7 @@ model VoltageSource "Voltage Source"
       = (v.re*i.re + v.im*i.im) + j(v.im*i.re - v.re*i.im) 
   */
   Real P = (v[:].re * i[:].re) + (v[:].im * i[:].im) "Real Power";
-  
+
 equation
 
   /*

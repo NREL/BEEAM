@@ -41,16 +41,16 @@ package Utilities
       
       This can be used to identify components during the post processing.
     */
-    String ComponentType  "Type of the component"; 
-    
-    annotation(
+    String ComponentType  "Type of the component";
+
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
   Documentation(info = "<html><head></head><body>Types of components:<div><br></div><div>* Impedance</div><div>* Resistance</div><div>* Voltage Source</div><div>* Nonlinear load</div><div>...</div><div><br></div><div>(This doc is incomplete)</div></body></html>"));
   end ComponentProperties;
 
   package DataIO
-  
+
   function writeNodeVoltage
     /*
     Writing data to file.    
@@ -67,7 +67,7 @@ package Utilities
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end writeNodeVoltage;
-  
+
     function readNodeVoltage
       /*
       Reading data from file
@@ -97,7 +97,7 @@ package Utilities
         User would extract harmonics from a steady state waveforms
         measurement file and save the harmonics in a mat file.
       */
-      
+
       /*
         File reading caveates:
         A file in the current modelica model directory can be referenced 
@@ -112,10 +112,10 @@ package Utilities
         Modelica.Utilities sublibrary.
       */
       parameter String fileName;
-      
+
     equation
 
-      annotation(
+      annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
     end loadDataFromFile;

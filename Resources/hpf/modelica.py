@@ -179,7 +179,7 @@ def computeLosses():
     """
     A high level function that would compute overall losses in the system.
     
-    Deffered implementation: this would build upon the post processing 
+    Defered implementation: this would build upon the post processing 
     tools being developed above.
     
     """

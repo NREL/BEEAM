@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 # os.environ['PYTHONPATH'] = os.path.expandvars('${JMODELICA_HOME}') + 'Python/::'
 sys.path.insert(0, '../../../Resources/')
 from hpf.modelica import ModelicaModel
-from fftUtils import fftCoefReconsruct
+#from fftUtils import fftCoefReconsruct
 
 class_name = 'HPF.Examples.DC_Testbed.Configuration_3'
 library_name = '../../../../HPF'
@@ -64,10 +64,10 @@ for vs in voltageSources:
     # plotting harmonic magitudes and angles
     plt.stem(configuration_3.hrms, N.abs(ph_i))
     # plotting time waveforms
-    plt.plot(range(0, fft_N), ifft(fftCoefReconsruct(N.abs(ph_v), N.angle(ph_v), fft_N)))
+    #plt.plot(range(0, fft_N), ifft(fftCoefReconsruct(N.abs(ph_v), N.angle(ph_v), fft_N)))
     plt.show()
     plt.figure()
-    plt.plot(range(0, fft_N), ifft(fftCoefReconsruct(N.abs(ph_i), N.angle(ph_i), fft_N)))
+    #plt.plot(range(0, fft_N), ifft(fftCoefReconsruct(N.abs(ph_i), N.angle(ph_i), fft_N)))
     plt.show()
     
 # AC-DC converters ------------------------------------------------------------

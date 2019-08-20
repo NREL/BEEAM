@@ -1,5 +1,6 @@
 within HPF;
 package Types
+  extends Modelica.Icons.TypesPackage;
   record Reference
   /*
   In a system containing lot components connected using connectors,

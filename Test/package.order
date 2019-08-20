@@ -13,3 +13,5 @@ Multiphase_IdealTransformer_D11Y
 Test_Rectifier
 Function_Test_polyval
 Test_DC_Load
+Example_FuchsHPF
+solver_event_test
