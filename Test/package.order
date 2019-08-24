@@ -3,16 +3,15 @@ MultiPhase_Impedance
 SinglePhase_Basic
 SinglePhase_PowerFlow
 Multiphase_Transformer
-Solver_ModeSwitch
 SinglePhase_HarmonicLoad
 Test_ExternalDataWrite
 Test_ExternalDataRead
 SinglePhase_Load
 SinglePhase_CurrentInjection
-Multiphase_IdealTransformer_D11Y
 Test_Rectifier
 Function_Test_polyval
 Test_DC_Load
 Example_FuchsHPF
 solver_event_test
 SinglePhase_HarmonicPowerFlow
+ReadDataFromFile

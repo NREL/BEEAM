@@ -20,14 +20,6 @@ class ModelicaModel:  # retrieve parameters
     
     """
     def __init__(self, fmu_name):
-        # save last element from the returned vector
-        # retreive number of harmonics
-        """
-        this technique is useless. These are intial parameters and these do not
-        change as the simulation progresses. Thus, model parameters must be 
-        extracted from the compiled fmu and not from the results object.
-        
-        """
         self.fmu_name = fmu_name
         #self.numHrm = int(res['systemDef.numHrm'][-1])
         self.numHrm = int(fmu_name.get_integer(fmu_name.get_variable_valueref('systemDef.numHrm')))
