@@ -1,4 +1,4 @@
-within HPF.Input;
+within HPF.InputData;
 class Readme
   extends Modelica.Icons.Information;
 

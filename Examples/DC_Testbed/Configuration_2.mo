@@ -73,7 +73,7 @@ equation
     Line(points = {{-100, -20}, {-74, -20}}));
   connect(test_DY.hPin_N, ground2.pin) annotation (
     Line(points = {{-64, -25}, {-64, -40}}, color = {117, 80, 123}));
-  connect(led_driver_1.hPin_N, led_driver_2.hPin_N) annotation(
+  connect(led_driver_1.hPin_N, led_driver_2.hPin_N) annotation (
     Line(points = {{96, -30}, {93, -30}, {93, -30}, {90, -30}, {90, -76}, {98, -76}, {98, -76}, {96, -76}, {96, -76}}, color = {117, 80, 123}));
   connect(laptop_adpt_1.pin_p, laptop_1.p) annotation (
     Line(points = {{46, 76}, {62, 76}}, color = {0, 0, 255}));
@@ -93,25 +93,25 @@ equation
     Line(points = {{46, -20}, {62, -20}}, color = {0, 0, 255}));
   connect(ground8.p, laptop_3.n) annotation (
     Line(points = {{72, -20}, {62, -20}}, color = {0, 0, 255}));
-  connect(led_driver_3.pin_p, led_3.p) annotation(
+  connect(led_driver_3.pin_p, led_3.p) annotation (
     Line(points = {{118, -104}, {130, -104}, {130, -104}, {131, -104}, {131, -104}, {132, -104}}, color = {0, 0, 255}));
-  connect(led_driver_3.pin_n, led_3.n) annotation(
+  connect(led_driver_3.pin_n, led_3.n) annotation (
     Line(points = {{118, -124}, {125, -124}, {125, -124}, {132, -124}, {132, -124}, {132, -124}}, color = {0, 0, 255}));
-  connect(led_3.n, ground5.p) annotation(
+  connect(led_3.n, ground5.p) annotation (
     Line(points = {{132, -124}, {138, -124}, {138, -124}, {144, -124}, {144, -124}, {144, -124}, {144, -124}, {144, -124}, {144, -124}, {144, -124}, {144, -124}}, color = {0, 0, 255}));
-  connect(led_driver_1.pin_p, led_1.p) annotation(
+  connect(led_driver_1.pin_p, led_1.p) annotation (
     Line(points = {{116, -10}, {128, -10}, {128, -10}, {128, -10}}, color = {0, 0, 255}));
-  connect(led_driver_1.pin_n, led_1.n) annotation(
+  connect(led_driver_1.pin_n, led_1.n) annotation (
     Line(points = {{116, -30}, {122, -30}, {122, -30}, {128, -30}, {128, -30}, {128, -30}}, color = {0, 0, 255}));
-  connect(ground4.p, led_1.n) annotation(
+  connect(ground4.p, led_1.n) annotation (
     Line(points = {{128, -34}, {128, -34}, {128, -30}, {128, -30}}, color = {0, 0, 255}));
-  connect(led_driver_2.pin_p, led_2.p) annotation(
+  connect(led_driver_2.pin_p, led_2.p) annotation (
     Line(points = {{116, -56}, {128, -56}, {128, -56}, {128, -56}}, color = {0, 0, 255}));
-  connect(led_driver_2.pin_n, led_2.n) annotation(
+  connect(led_driver_2.pin_n, led_2.n) annotation (
     Line(points = {{116, -76}, {128, -76}, {128, -76}, {128, -76}}, color = {0, 0, 255}));
-  connect(ground7.p, led_2.n) annotation(
+  connect(ground7.p, led_2.n) annotation (
     Line(points = {{128, -80}, {128, -80}, {128, -76}, {128, -76}, {128, -76}, {128, -76}}, color = {0, 0, 255}));
-  connect(led_driver_3.hPin_N, led_driver_2.hPin_N) annotation(
+  connect(led_driver_3.hPin_N, led_driver_2.hPin_N) annotation (
     Line(points = {{98, -124}, {90, -124}, {90, -76}, {96, -76}, {96, -76}}, color = {117, 80, 123}));
   connect(laptop_adpt_1.hPin_N, laptop_adpt_2.hPin_N) annotation (
     Line(points = {{26, 56}, {20, 56}, {20, 20}, {26, 20}, {26, 20}}, color = {117, 80, 123}));
@@ -131,17 +131,17 @@ equation
     Line(points = {{26, 76}, {8, 76}, {8, 0}, {-6, 0}, {-6, 0}}));
   connect(laptop_adpt_2.hPin_P, z.pin_n) annotation (
     Line(points = {{26, 40}, {8, 40}, {8, 0}, {-6, 0}, {-6, 0}, {-6, 0}}));
-  connect(led_driver_2.hPin_P, z.pin_n) annotation(
+  connect(led_driver_2.hPin_P, z.pin_n) annotation (
     Line(points = {{96, -56}, {8, -56}, {8, 0}, {-6, 0}}));
-  connect(led_driver_1.hPin_P, z.pin_n) annotation(
+  connect(led_driver_1.hPin_P, z.pin_n) annotation (
     Line(points = {{96, -10}, {82, -10}, {82, -56}, {8, -56}, {8, 0}, {-6, 0}}));
-  connect(led_driver_3.hPin_P, z.pin_n) annotation(
+  connect(led_driver_3.hPin_P, z.pin_n) annotation (
     Line(points = {{98, -104}, {82, -104}, {82, -56}, {8, -56}, {8, 0}, {-6, 0}}));
   connect(ground2.pin, terminal_PhC.pin_n) annotation (
     Line(points = {{-64, -40}, {0, -40}, {0, -20}, {-10, -20}, {-10, -20}}));
   connect(laptop_adpt_3.hPin_N, ground2.pin) annotation (
     Line(points = {{26, -20}, {20, -20}, {20, -40}, {-64, -40}, {-64, -40}}, color = {117, 80, 123}));
-  connect(led_driver_3.hPin_N, ground2.pin) annotation(
+  connect(led_driver_3.hPin_N, ground2.pin) annotation (
     Line(points = {{98, -124}, {20, -124}, {20, -40}, {-64, -40}}, color = {117, 80, 123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}), graphics={Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(

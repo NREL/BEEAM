@@ -1,5 +1,4 @@
 within HPF.SinglePhase;
-
 package Interface
   extends Modelica.Icons.InterfacesPackage;
 
@@ -26,7 +25,7 @@ package Interface
     // Real part
     flow Real iRe[h];
     // Imaginary part
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),
       __OpenModelica_commandLineOptions = "");
@@ -41,7 +40,7 @@ package Interface
             */
     extends HPin;
     HPF.Types.Reference reference "Reference";
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(fillColor = {92, 53, 102}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
       __OpenModelica_commandLineOptions = "",
       Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
@@ -50,7 +49,7 @@ package Interface
   connector HPin_N "Negative Terminal"
     extends HPin;
     Types.Reference reference "Reference";
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(lineColor = {117, 80, 123}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Text(origin = {-99, 189}, extent = {{-47, 33}, {261, -123}}, textString = "%name")}),
       __OpenModelica_commandLineOptions = "");
@@ -80,31 +79,31 @@ package Interface
     /*  pin objects for the two pins
                 number of harmonics to be simulated is passed as a parameter.
             */
-    HPF.SinglePhase.Interface.HPin_P pin_p(h = systemDef.numHrm) "Positive pin" annotation(
+    HPF.SinglePhase.Interface.HPin_P pin_p(h = systemDef.numHrm) "Positive pin" annotation (
       Placement(visible = true, transformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0), iconTransformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_N pin_n(h = systemDef.numHrm) "Negative pin" annotation(
+    HPF.SinglePhase.Interface.HPin_N pin_n(h = systemDef.numHrm) "Negative pin" annotation (
       Placement(visible = true, transformation(extent = {{90, -10}, {110, 10}}, rotation = 0), iconTransformation(extent = {{90, -10}, {110, 10}}, rotation = 0)));
   initial equation
 
   equation
-/*
+    /*
       Nonbreakable branch for the overdetermined variable.
     */
     Connections.branch(pin_p.reference, pin_n.reference);
     pin_p.reference.theta = pin_n.reference.theta;
     omega = der(pin_p.reference.theta);
-/*
+    /*
       voltage drop
     */
     v = pin_p.v - pin_n.v;
     i.re = pin_p.iRe;
     i.im = pin_p.iIm;
-/*
+    /*
       Conservation of charge (KCL).
     */
     pin_p.iRe + pin_n.iRe = {0.0 for i in 1:systemDef.numHrm};
     pin_p.iIm + pin_n.iIm = {0.0 for i in 1:systemDef.numHrm};
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(grid = {0, 0})),
       __OpenModelica_commandLineOptions = "");
@@ -123,11 +122,11 @@ package Interface
             */
     Modelica.SIunits.Angle theta(start = 0) = pin_p.reference.theta;
   equation
-/*
+    /*
       Defining root for the graph, root node in a virtual connection graph.
     */
     Connections.root(pin_p.reference);
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end Source;
@@ -143,16 +142,16 @@ package Interface
     Complex iPrim[systemDef.numHrm] "Complex current primary winding";
     Complex vSec[systemDef.numHrm] "Complex voltage secondary winding";
     Complex iSec[systemDef.numHrm] "Complex current secondary winding";
-    HPF.SinglePhase.Interface.HPin_P pinP_Prim(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_P pinP_Prim(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-100, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_N pinN_Prim(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_N pinN_Prim(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-114, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_P pinP_Sec(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_P pinP_Sec(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {92, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_N pinN_Sec(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_N pinN_Sec(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {60, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   equation
-/*
+    /*
         loop breaking connections.
         Taking a cue from 'IdealTransformer:QuasiStationary' library
         
@@ -162,15 +161,15 @@ package Interface
         N1 ---- N2
       */
     Connections.branch(pinP_Prim.reference, pinN_Prim.reference);
-// Pos Prim and sec
+    // Pos Prim and sec
     pinP_Prim.reference.theta = pinN_Prim.reference.theta;
     Connections.branch(pinP_Prim.reference, pinP_Sec.reference);
-// Pos Prim and pos sec
+    // Pos Prim and pos sec
     pinP_Prim.reference.theta = pinP_Sec.reference.theta;
     Connections.branch(pinN_Prim.reference, pinN_Sec.reference);
-// Neg prim and neg prim
+    // Neg prim and neg prim
     pinN_Prim.reference.theta = pinN_Sec.reference.theta;
-/*
+    /*
         voltage drop & current measurement
       */
     vPrim = pinP_Prim.v - pinN_Prim.v;
@@ -179,14 +178,14 @@ package Interface
     iPrim.im = pinP_Prim.iIm;
     iSec.re = pinP_Sec.iRe;
     iSec.im = pinP_Sec.iIm;
-/*
+    /*
         current balance
       */
     pinP_Prim.iRe + pinN_Prim.iRe = {0.0 for i in 1:systemDef.numHrm};
     pinP_Prim.iIm + pinN_Prim.iIm = {0.0 for i in 1:systemDef.numHrm};
     pinP_Sec.iRe + pinN_Sec.iRe = {0.0 for i in 1:systemDef.numHrm};
     pinP_Sec.iIm + pinN_Sec.iIm = {0.0 for i in 1:systemDef.numHrm};
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end TwoPortBase;
@@ -212,18 +211,18 @@ package Interface
         */
     Real vDC "DC voltage";
     Real iDC "DC current";
-    HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-90, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation(
+    HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-90, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation(
+    Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation (
       Placement(visible = true, transformation(origin = {120, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation(
+    Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation (
       Placement(visible = true, transformation(origin = {122, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   initial equation
 
   equation
-/*
+    /*
       Harmonic (AC) side
     */
     Connections.branch(hPin_P.reference, hPin_N.reference);
@@ -234,13 +233,13 @@ package Interface
     hPin_P.iIm + hPin_N.iIm = {0.0 for i in 1:systemDef.numHrm};
     iHrm.re = hPin_P.iRe;
     iHrm.im = hPin_P.iIm;
-/*
+    /*
       DC side
     */
     vDC = pin_p.v - pin_n.v;
     0.0 = pin_p.i + pin_n.i;
     iDC = pin_p.i;
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1)),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end TwoPortBaseAnalog;
@@ -249,11 +248,11 @@ package Interface
     extends HPF.SinglePhase.Interface.TwoPinBase;
   equation
 
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end LoadBase;
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
 end Interface;

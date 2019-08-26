@@ -1,5 +1,4 @@
 within HPF;
-
 package Utilities
   extends Modelica.Icons.UtilitiesPackage;
 
@@ -15,7 +14,7 @@ package Utilities
     output Real y;
   algorithm
     y := a[:] * {x ^ i for i in size(a[:], 1) - 1:(-1):0};
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
       Documentation(info = "<html>
@@ -42,7 +41,7 @@ package Utilities
           This can be used to identify components during the post processing.
         */
     String ComponentType "Type of the component";
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
       Documentation(info = "<html><head></head><body>Types of components:<div><br></div><div>* Impedance</div><div>* Resistance</div><div>* Voltage Source</div><div>* Nonlinear load</div><div>...</div><div><br></div><div>(This doc is incomplete)</div></body></html>"));
@@ -61,7 +60,7 @@ package Utilities
       Real dataMatrix[2, 1] = {{data.re}, {data.im}};
     algorithm
       Modelica.Utilities.Streams.writeRealMatrix(name + ".mat", "data", dataMatrix);
-      annotation(
+      annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
     end writeNodeVoltage;
@@ -77,13 +76,13 @@ package Utilities
     protected
       Real readMatrix[2, 1];
     algorithm
-/*
+      /*
     final parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Data of check matrix 1";
     */
       readMatrix := Modelica.Utilities.Streams.readRealMatrix(name + ".mat", "data", 2, 1);
       v.re := readMatrix[1, 1];
       v.im := readMatrix[2, 1];
-      annotation(
+      annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
     end readNodeVoltage;
@@ -111,7 +110,7 @@ package Utilities
       parameter String fileName;
     equation
 
-      annotation(
+      annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
     end loadDataFromFile;
@@ -143,28 +142,28 @@ package Utilities
       parameter String argVariableName "Name of the argument (phase angle) variable";
       parameter String fileName "File location in UNIX format within Modelica Libarary";
       // get name of the file as a string
-      
-      final parameter String fileNameResource = Modelica.Utilities.Files.loadResource("modelica://" + fileName); 
+
+      final parameter String fileNameResource = Modelica.Utilities.Files.loadResource("modelica://" + fileName);
       // read matrix size
       final parameter Integer magDimMat[2] = Modelica.Utilities.Streams.readMatrixSize(fileNameResource, magVariableName) "Dimension of mag matrix";
       final parameter Integer argDimMat[2] = Modelica.Utilities.Streams.readMatrixSize(fileNameResource, argVariableName) "Dimension of arg matrix";
       // use the file name to read matrix
       final parameter Real magDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "magV", 32, 1);         // Hardcoded dimensions.
-      final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "argV", 32, 1); 
-      
-    equation 
+      final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "argV", 32, 1);
+
+    equation
       //final parameter Real magData[32] = magDataMat[32, 1];
       //final parameter Real argData[32] = magDataMat[32, 1];/\
-      annotation(
+      annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
     Documentation(info = "<html><head></head><body><h1>IMPORTANT:</h1><div><br></div><div>Describe the usage with an example.</div><div><br></div><div>Standardize variable names.</div><div>Minimize user input.</div><div><br></div><div><br></div><div>An imporovement to this would be, let the user just specify the filename. Append the data directory directly in the module code.</div></body></html>"));
     end loadHarmonicData;
-    annotation(
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end DataIO;
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
 end Utilities;

@@ -17,7 +17,7 @@ class Todo
       model switch from power flow to current injection),
       has a static name. One must assign a unique file name
       to the data (mat) file. 
-
+  - Use of 'final' for assigning component properties.
 
 
 */

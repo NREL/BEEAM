@@ -18,23 +18,23 @@ model SinglePhase_Load
   HPF.SinglePhase.Components.Impedance z annotation (
     Placement(visible = true, transformation(origin = {-40, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
-  connect(ground1.pin, v.pin_n) annotation(
+  connect(ground1.pin, v.pin_n) annotation (
     Line(points = {{-60, -60}, {-60, -50}, {-61, -50}, {-61, -30}}));
-  connect(test_Load1.pin_n, ground1.pin) annotation(
+  connect(test_Load1.pin_n, ground1.pin) annotation (
     Line(points = {{44, -32}, {44, -60}, {-60, -60}}, color = {117, 80, 123}));
-  connect(z2.pin_p, z3.pin_n) annotation(
+  connect(z2.pin_p, z3.pin_n) annotation (
     Line(points = {{64, 2}, {32, 2}}));
-  connect(v.pin_p, z.pin_p) annotation(
+  connect(v.pin_p, z.pin_p) annotation (
     Line(points = {{-61, -8}, {-61, 24}, {-40, 24}, {-40, 0}}));
-  connect(z1.pin_p, z.pin_p) annotation(
+  connect(z1.pin_p, z.pin_p) annotation (
     Line(points = {{38, 24}, {-40, 24}, {-40, 0}}));
-  connect(z3.pin_p, z.pin_p) annotation(
+  connect(z3.pin_p, z.pin_p) annotation (
     Line(points = {{12, 2}, {-13, 2}, {-13, 0}, {-40, 0}}));
-  connect(z.pin_n, ground1.pin) annotation(
+  connect(z.pin_n, ground1.pin) annotation (
     Line(points = {{-40, -20}, {-40, -50}}, color = {117, 80, 123}));
-  connect(test_Load1.pin_p, z2.pin_p) annotation(
+  connect(test_Load1.pin_p, z2.pin_p) annotation (
     Line(points = {{44, -12}, {44, 2}, {64, 2}}));
-  connect(z1.pin_n, z2.pin_n) annotation(
+  connect(z1.pin_n, z2.pin_n) annotation (
     Line(points = {{58, 24}, {84, 24}, {84, 2}}, color = {117, 80, 123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),

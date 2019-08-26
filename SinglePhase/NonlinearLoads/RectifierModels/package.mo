@@ -1,6 +1,7 @@
 within HPF.SinglePhase.NonlinearLoads;
 package RectifierModels
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.RecordsPackage;
+
 
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
