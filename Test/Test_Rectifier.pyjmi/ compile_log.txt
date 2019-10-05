@@ -3,7 +3,7 @@ Compiler arguments:
 Current working directory:
   /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/Test_Rectifier.pyjmi
 Compiler version: r12669
-Java version: 11.0.3
+Java version: 11.0.4
 OS name: Linux
 OS architecture: amd64
 MODELICAPATH    = 
@@ -32,12 +32,12 @@ Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/Analog/Basic.mo
 Reading file: ../../../HPF/SinglePhase/NonlinearLoads/package.mo
 Reading file: ../../../HPF/SinglePhase/NonlinearLoads/Rectifier.mo
+Reading file: ../../../HPF/Utilities.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/SIunits.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Complex.mo
 Reading file: ../../../HPF/Types.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Constants.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Math/package.mo
-Reading file: ../../../HPF/Utilities.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/ComplexMath.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Electrical/Analog/Interfaces.mo
 Reading file: /home/avpreetsingh/programfiles/jModelica/ThirdParty/MSL/Modelica/Thermal/package.mo
@@ -51,13 +51,16 @@ Raw flattened model:
 fclass HPF.Test.Test_Rectifier
  parameter Integer systemDef.hrms[3] = {1, 3, 5} "Harmonics to simulate" /* { 1, 3, 5 } */;
  structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
- parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
  parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ parameter Real systemDef.smplFreq = 5000.0 "Sampling frequency (Hz)" /* 5000.0 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
  discrete Boolean systemDef.modeSelect(start = false);
  discrete Boolean systemDef.eventWriteData(start = false);
  discrete Boolean systemDef.eventReadData(start = false);
+ discrete HPF.Utilities.ComponentProperties v.properties(ComponentType = "VoltageSource");
  parameter Real v.vMag[3] = {100, 0.5, 0.225} "Voltage Magnitude (Volts rms)" /* { 100, 0.5, 0.225 } */;
  parameter Real v.vArg[3] = {0, 0.25, -0.5} "Voltage angle (rad)" /* { 0, 0.25, -0.5 } */;
+ Real v.P = v.v[1:3].re * v.i[1:3].re + v.v[1:3].im * v.i[1:3].im "Real Power";
  Modelica.SIunits.Angle v.theta(start = 0) = v.pin_p.reference.theta;
  Complex v.v[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex voltage";
  Complex v.i[3](each re(start = 0,nominal = 1),each im(start = 0,nominal = 1)) "Complex current";
@@ -72,7 +75,7 @@ fclass HPF.Test.Test_Rectifier
  Complex v.pin_n.v[3] "Complex potential at the node";
  Real v.pin_n.iIm[3];
  Real v.pin_n.iRe[3];
- HPF.Utilities.Properties z.properties(ComponentType = "asdasd",a = 45);
+ discrete HPF.Utilities.ComponentProperties z.properties(ComponentType = "Impedance");
  parameter Complex z.z(re(start = 1),im(start = 0)) = Complex.'+'(Complex.'constructor'.fromReal(10, 0), Complex.'*'.multiply(Complex.'constructor'.fromReal(2, 0), Complex(0, 1))) "Impedance, R + jX";
  Real z.vFundAbs = Modelica.ComplexMath.'abs'(z.v[1]);
  Real z.vFundArg = Modelica.ComplexMath.arg(z.v[1], 0);
@@ -91,6 +94,7 @@ fclass HPF.Test.Test_Rectifier
  Complex z.pin_n.v[3] "Complex potential at the node";
  Real z.pin_n.iIm[3];
  Real z.pin_n.iRe[3];
+ discrete HPF.Utilities.ComponentProperties ground1.properties(ComponentType = "Ground");
  HPF.Types.Reference ground1.pin.reference "Reference";
  structural parameter Integer ground1.pin.h = 3 "Numbder of harmonics" /* 3 */;
  Complex ground1.pin.v[3] "Complex potential at the node";
@@ -112,6 +116,7 @@ fclass HPF.Test.Test_Rectifier
  Modelica.SIunits.ThermodynamicTemperature resistor1.T_heatPort "Temperature of heatPort";
  Modelica.SIunits.ElectricPotential ground2.p.v "Potential at the pin";
  Modelica.SIunits.ElectricCurrent ground2.p.i "Current flowing into the pin";
+ discrete HPF.Utilities.ComponentProperties rectifier1.properties(ComponentType = "NonlinearLoad");
  parameter Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.V(start = 1) = rectifier1.V_Rect "Value of constant voltage";
  Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.v "Voltage drop between the two pins (= p.v - n.v)";
  Modelica.SIunits.ElectricCurrent rectifier1.constantVoltage1.i "Current flowing from pin p to pin n";
@@ -386,6 +391,10 @@ public
   return;
  end HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint;
 
+ record HPF.Utilities.ComponentProperties
+  discrete String ComponentType "Type of the component";
+ end HPF.Utilities.ComponentProperties;
+
  record Complex
   Real re "Real part of complex number";
   Real im "Imaginary part of complex number";
@@ -394,11 +403,6 @@ public
  record HPF.Types.Reference
   Modelica.SIunits.Angle theta;
  end HPF.Types.Reference;
-
- record HPF.Utilities.Properties
-  discrete String ComponentType;
-  Real a;
- end HPF.Utilities.Properties;
 
  type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
  type Modelica.SIunits.Resistance = Real(final quantity = "Resistance",final unit = "Ohm");
@@ -448,17 +452,20 @@ fclass HPF.Test.Test_Rectifier
  parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
  parameter Integer systemDef.hrms[3] = 5 "Harmonics to simulate" /* 5 */;
  structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
- parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
  parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ parameter Real systemDef.smplFreq = 5000.0 "Sampling frequency (Hz)" /* 5000.0 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
  discrete Boolean systemDef.modeSelect(start = false);
  discrete Boolean systemDef.eventWriteData(start = false);
  discrete Boolean systemDef.eventReadData(start = false);
+ constant String v.properties.ComponentType = "VoltageSource" "Type of the component";
  parameter Real v.vMag[1] = 100 "Voltage Magnitude (Volts rms)" /* 100 */;
  parameter Real v.vMag[2] = 0.5 "Voltage Magnitude (Volts rms)" /* 0.5 */;
  parameter Real v.vMag[3] = 0.225 "Voltage Magnitude (Volts rms)" /* 0.225 */;
  parameter Real v.vArg[1] = 0 "Voltage angle (rad)" /* 0 */;
  parameter Real v.vArg[2] = 0.25 "Voltage angle (rad)" /* 0.25 */;
  parameter Real v.vArg[3] = -0.5 "Voltage angle (rad)" /* -0.5 */;
+ Real v.P "Real Power";
  Modelica.SIunits.Angle v.theta(start = 0);
  parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_heatPort "Temperature of heatPort";
  parameter Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.V(start = 1) "Value of constant voltage";
@@ -473,8 +480,7 @@ fclass HPF.Test.Test_Rectifier
  Real v.i[3].re(start = 0,nominal = -1) "Real part of complex number";
  Real v.i[3].im(start = 0,nominal = -1) "Imaginary part of complex number";
  Real v.omega;
- constant String z.properties.ComponentType = "asdasd";
- constant Real z.properties.a = 45;
+ constant String z.properties.ComponentType = "Impedance" "Type of the component";
  parameter Real z.z.re(start = 1) = 10.0 "Real part of complex number" /* 10.0 */;
  parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
  Real z.vFundAbs;
@@ -488,6 +494,7 @@ fclass HPF.Test.Test_Rectifier
  Real z.v[3].re(start = 0,nominal = 1) "Real part of complex number";
  Real z.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
  Real z.omega;
+ constant String ground1.properties.ComponentType = "Ground" "Type of the component";
  Real ground1.pin.iIm[1];
  Real ground1.pin.iIm[2];
  Real ground1.pin.iIm[3];
@@ -503,6 +510,7 @@ fclass HPF.Test.Test_Rectifier
  parameter Modelica.SIunits.Resistance resistor1.R_actual "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
  parameter Modelica.SIunits.ElectricCurrent resistor1.i "Current flowing from pin p to pin n";
  parameter Modelica.SIunits.Power resistor1.LossPower "Loss power leaving component via heatPort";
+ constant String rectifier1.properties.ComponentType = "NonlinearLoad" "Type of the component";
  parameter Modelica.SIunits.ElectricCurrent ground2.p.i "Current flowing into the pin";
  parameter Real rectifier1.V_Rect(start = 0) = 100 "Rectifier DC output" /* 100 */;
  parameter Real rectifier1.efficiency(start = 1) = 0.95 "Rectifier efficiency" /* 0.95 */;
@@ -605,6 +613,7 @@ equation
  ground1.pin.iRe[2] = 0;
  ground1.pin.iRe[3] = 0;
  HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im);
  z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5;
  z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0);
  z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5;
@@ -718,6 +727,10 @@ public
   return;
  end HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint;
 
+ record HPF.Utilities.ComponentProperties
+  discrete String ComponentType "Type of the component";
+ end HPF.Utilities.ComponentProperties;
+
  record Complex
   Real re "Real part of complex number";
   Real im "Imaginary part of complex number";
@@ -726,11 +739,6 @@ public
  record HPF.Types.Reference
   Modelica.SIunits.Angle theta;
  end HPF.Types.Reference;
-
- record HPF.Utilities.Properties
-  discrete String ComponentType;
-  Real a;
- end HPF.Utilities.Properties;
 
  type Modelica.SIunits.Angle = Real(final quantity = "Angle",final unit = "rad",displayUnit = "deg");
  type Modelica.SIunits.Resistance = Real(final quantity = "Resistance",final unit = "Ohm");
@@ -742,8 +750,8 @@ public
 end HPF.Test.Test_Rectifier;
 
 DAE BiPGraph
-BiPGraph (43 equations, 40 variables)
-Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 }
+BiPGraph (44 equations, 41 variables)
+Variables: {der(v.theta) v.P v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 }
 eq_1 : temp_17@M // temp_17 = time > 0.5
 eq_2 : temp_18@M // temp_18 = time > 0.25
 eq_3 : temp_19@M // temp_19 = time > 0.4
@@ -798,10 +806,11 @@ eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
 eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
 eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
 eq_37 : // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
-eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
-eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
-eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
-eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_38 : v.P@M v.i[1].re@ v.i[2].re@ v.i[3].re@ v.i[1].im@ v.i[2].im@ v.i[3].im@ // v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
 
 DAE BiPGraph matching
 ----------------------------------------
@@ -842,16 +851,17 @@ eq_33 : ground1.pin.iIm[3]
 eq_34 : ground1.pin.iRe[1]
 eq_35 : ground1.pin.iRe[2]
 eq_36 : ground1.pin.iRe[3]
-eq_38 : z.vFundAbs
-eq_39 : z.vFundArg
-eq_40 : z.iFundAbs
-eq_41 : z.iFundArg
+eq_38 : v.P
+eq_39 : z.vFundAbs
+eq_40 : z.vFundArg
+eq_41 : z.iFundAbs
+eq_42 : z.iFundArg
 Unmatched equations: {}
 Unmatched variables: {}
 ----------------------------------------
 
-BiPGraph (43 equations, 40 variables)
-Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 }
+BiPGraph (44 equations, 41 variables)
+Variables: {der(v.theta) v.P v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 }
 eq_1 : temp_17@M // temp_17 = time > 0.5
 eq_2 : temp_18@M // temp_18 = time > 0.25
 eq_3 : temp_19@M // temp_19 = time > 0.4
@@ -906,10 +916,11 @@ eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
 eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
 eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
 eq_37 : // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
-eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
-eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
-eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
-eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_38 : v.P@M v.i[1].re@ v.i[2].re@ v.i[3].re@ v.i[1].im@ v.i[2].im@ v.i[3].im@ // v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
 
 Starting automatic tearing
 BiPGraph (6 equations, 6 variables)
@@ -1171,6 +1182,9 @@ Residual equations:
     Iteration variables: v.i[3].re
 
 --- Solved equation ---
+v.P := v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+
+--- Solved equation ---
 v.omega := der(v.theta)
 
 --- Solved equation ---
@@ -1392,6 +1406,9 @@ ground1.pin.iRe[3] := 0
 HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
 
 --- Solved equation ---
+v.P := v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+
+--- Solved equation ---
 z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
 
 --- Solved equation ---
@@ -1404,8 +1421,8 @@ z.iFundAbs := ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
 z.iFundArg := Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
 -------------------------------
 
-BiPGraph (39 equations, 49 variables)
-Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+BiPGraph (40 equations, 50 variables)
+Variables: {der(v.theta) v.P v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
 eq_1 : temp_17@M // temp_17 = time > 0.5
 eq_2 : temp_18@M // temp_18 = time > 0.25
 eq_3 : temp_19@M // temp_19 = time > 0.4
@@ -1441,14 +1458,15 @@ eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
 eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
 eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
 eq_37 : v.theta# // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
-eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
-eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
-eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
-eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_38 : v.P@M v.i[1].re@ v.i[2].re@ v.i[3].re@ v.i[1].im@ v.i[2].im@ v.i[3].im@ // v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
 
 Init DAE BiPGraph
-BiPGraph (40 equations, 49 variables)
-Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+BiPGraph (41 equations, 50 variables)
+Variables: {der(v.theta) v.P v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
 eq_1 : temp_17@M // temp_17 = time > 0.5
 eq_2 : temp_18@M // temp_18 = time > 0.25
 eq_3 : temp_19@M // temp_19 = time > 0.4
@@ -1484,11 +1502,12 @@ eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
 eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
 eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
 eq_37 : v.theta# // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
-eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
-eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
-eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
-eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
-eq_42 : // algorithm
+eq_38 : v.P@M v.i[1].re@ v.i[2].re@ v.i[3].re@ v.i[1].im@ v.i[2].im@ v.i[3].im@ // v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : // algorithm
 
 
 Init BiPGraph matching
@@ -1527,10 +1546,11 @@ eq_33 : ground1.pin.iIm[3]
 eq_34 : ground1.pin.iRe[1]
 eq_35 : ground1.pin.iRe[2]
 eq_36 : ground1.pin.iRe[3]
-eq_38 : z.vFundAbs
-eq_39 : z.vFundArg
-eq_40 : z.iFundAbs
-eq_41 : z.iFundArg
+eq_38 : v.P
+eq_39 : z.vFundAbs
+eq_40 : z.vFundArg
+eq_41 : z.iFundAbs
+eq_42 : z.iFundArg
 Unmatched equations: {}
 Unmatched variables: {systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
 ----------------------------------------
@@ -1538,8 +1558,8 @@ Unmatched variables: {systemDef.modeSelect systemDef.eventWriteData systemDef.ev
 Analysing initial system for redundant equations to remove.
 All seems to be ok!
 Init DAE BiPGraph after addition of initial equations
-BiPGraph (52 equations, 49 variables)
-Variables: {der(v.theta) v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
+BiPGraph (53 equations, 50 variables)
+Variables: {der(v.theta) v.P v.i[1].re v.i[1].im v.i[2].re v.i[2].im v.i[3].re v.i[3].im v.omega z.vFundAbs z.vFundArg z.iFundAbs z.iFundArg z.v[1].re z.v[1].im z.v[2].re z.v[2].im z.v[3].re z.v[3].im z.omega ground1.pin.iIm[1] ground1.pin.iIm[2] ground1.pin.iIm[3] ground1.pin.iRe[1] ground1.pin.iRe[2] ground1.pin.iRe[3] rectifier1.loadBase1.v[1].re rectifier1.loadBase1.v[1].im rectifier1.loadBase1.v[2].re rectifier1.loadBase1.v[2].im rectifier1.loadBase1.v[3].re rectifier1.loadBase1.v[3].im rectifier1.loadBase1.omega systemDef.modeSelect systemDef.eventWriteData systemDef.eventReadData temp_17 temp_18 temp_19 temp_20 temp_21 v.theta pre(systemDef.modeSelect) pre(systemDef.eventWriteData) pre(systemDef.eventReadData) pre(temp_17) pre(temp_18) pre(temp_19) pre(temp_20) pre(temp_21) }
 eq_1 : temp_17@M // temp_17 = time > 0.5
 eq_2 : temp_18@M // temp_18 = time > 0.25
 eq_3 : temp_19@M // temp_19 = time > 0.4
@@ -1575,24 +1595,25 @@ eq_34 : ground1.pin.iRe[1]@M // ground1.pin.iRe[1] = 0
 eq_35 : ground1.pin.iRe[2]@M // ground1.pin.iRe[2] = 0
 eq_36 : ground1.pin.iRe[3]@M // ground1.pin.iRe[3] = 0
 eq_37 : v.theta# // HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
-eq_38 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
-eq_39 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
-eq_40 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
-eq_41 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
-eq_42 : // algorithm
+eq_38 : v.P@M v.i[1].re@ v.i[2].re@ v.i[3].re@ v.i[1].im@ v.i[2].im@ v.i[3].im@ // v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+eq_39 : z.vFundAbs@M z.v[1].re@ z.v[1].im@ // z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
+eq_40 : z.vFundArg@M z.v[1].im@ z.v[1].re@ // z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0)
+eq_41 : z.iFundAbs@M v.i[1].re@ v.i[1].im@ // z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5
+eq_42 : z.iFundArg@M v.i[1].im@ v.i[1].re@ // z.iFundArg = Modelica.Math.atan3(- v.i[1].im, - v.i[1].re, 0)
+eq_43 : // algorithm
 
-eq_43 : systemDef.modeSelect@M pre(systemDef.modeSelect)@ // systemDef.modeSelect = pre(systemDef.modeSelect)
-eq_44 : systemDef.eventWriteData@M pre(systemDef.eventWriteData)@ // systemDef.eventWriteData = pre(systemDef.eventWriteData)
-eq_45 : systemDef.eventReadData@M pre(systemDef.eventReadData)@ // systemDef.eventReadData = pre(systemDef.eventReadData)
-eq_46 : v.theta@M // v.theta = 0
-eq_47 : pre(systemDef.modeSelect)@M // pre(systemDef.modeSelect) = false
-eq_48 : pre(systemDef.eventWriteData)@M // pre(systemDef.eventWriteData) = false
-eq_49 : pre(systemDef.eventReadData)@M // pre(systemDef.eventReadData) = false
-eq_50 : pre(temp_17)@M // pre(temp_17) = false
-eq_51 : pre(temp_18)@M // pre(temp_18) = false
-eq_52 : pre(temp_19)@M // pre(temp_19) = false
-eq_53 : pre(temp_20)@M // pre(temp_20) = false
-eq_54 : pre(temp_21)@M // pre(temp_21) = false
+eq_44 : systemDef.modeSelect@M pre(systemDef.modeSelect)@ // systemDef.modeSelect = pre(systemDef.modeSelect)
+eq_45 : systemDef.eventWriteData@M pre(systemDef.eventWriteData)@ // systemDef.eventWriteData = pre(systemDef.eventWriteData)
+eq_46 : systemDef.eventReadData@M pre(systemDef.eventReadData)@ // systemDef.eventReadData = pre(systemDef.eventReadData)
+eq_47 : v.theta@M // v.theta = 0
+eq_48 : pre(systemDef.modeSelect)@M // pre(systemDef.modeSelect) = false
+eq_49 : pre(systemDef.eventWriteData)@M // pre(systemDef.eventWriteData) = false
+eq_50 : pre(systemDef.eventReadData)@M // pre(systemDef.eventReadData) = false
+eq_51 : pre(temp_17)@M // pre(temp_17) = false
+eq_52 : pre(temp_18)@M // pre(temp_18) = false
+eq_53 : pre(temp_19)@M // pre(temp_19) = false
+eq_54 : pre(temp_20)@M // pre(temp_20) = false
+eq_55 : pre(temp_21)@M // pre(temp_21) = false
 
 Init BiPGraph matching after addition of initial equations
 ----------------------------------------
@@ -1630,22 +1651,23 @@ eq_33 : ground1.pin.iIm[3]
 eq_34 : ground1.pin.iRe[1]
 eq_35 : ground1.pin.iRe[2]
 eq_36 : ground1.pin.iRe[3]
-eq_38 : z.vFundAbs
-eq_39 : z.vFundArg
-eq_40 : z.iFundAbs
-eq_41 : z.iFundArg
-eq_43 : systemDef.modeSelect
-eq_44 : systemDef.eventWriteData
-eq_45 : systemDef.eventReadData
-eq_46 : v.theta
-eq_47 : pre(systemDef.modeSelect)
-eq_48 : pre(systemDef.eventWriteData)
-eq_49 : pre(systemDef.eventReadData)
-eq_50 : pre(temp_17)
-eq_51 : pre(temp_18)
-eq_52 : pre(temp_19)
-eq_53 : pre(temp_20)
-eq_54 : pre(temp_21)
+eq_38 : v.P
+eq_39 : z.vFundAbs
+eq_40 : z.vFundArg
+eq_41 : z.iFundAbs
+eq_42 : z.iFundArg
+eq_44 : systemDef.modeSelect
+eq_45 : systemDef.eventWriteData
+eq_46 : systemDef.eventReadData
+eq_47 : v.theta
+eq_48 : pre(systemDef.modeSelect)
+eq_49 : pre(systemDef.eventWriteData)
+eq_50 : pre(systemDef.eventReadData)
+eq_51 : pre(temp_17)
+eq_52 : pre(temp_18)
+eq_53 : pre(temp_19)
+eq_54 : pre(temp_20)
+eq_55 : pre(temp_21)
 Unmatched equations: {}
 Unmatched variables: {}
 ----------------------------------------
@@ -1896,6 +1918,9 @@ v.theta := 0
 HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta))
 
 --- Solved equation ---
+v.P := v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im)
+
+--- Solved equation ---
 z.vFundAbs := (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5
 
 --- Solved equation ---
@@ -1929,21 +1954,21 @@ pre(temp_21) := false
 
 Diagnostics for transformed flattened model:
 Diagnostics for flattened class HPF.Test.Test_Rectifier
-Number of independent constants:                   6(    6 scalars)
-  Number of Real independent constants:            5(    5 scalars)
-  Number of Real independent constants:            5(    5 scalars)
+Number of independent constants:                   8(    8 scalars)
+  Number of Real independent constants:            4(    4 scalars)
+  Number of Real independent constants:            4(    4 scalars)
   Number of Integer independent constants:         0(    0 scalars)
   Number of Enum independent constants:            0(    0 scalars)
   Number of Boolean independent constants:         0(    0 scalars)
-  Number of String independent constants:          1(    1 scalars)
+  Number of String independent constants:          4(    4 scalars)
 Number of dependent constants:                     0(    0 scalars)
   Number of Real dependent constants:              0(    0 scalars)
   Number of Integer dependent constants:           0(    0 scalars)
   Number of Enum dependent constants:              0(    0 scalars)
   Number of Boolean dependent constants:           0(    0 scalars)
   Number of String dependent constants:            0(    0 scalars)
-Number of independent parameters:                 68(   68 scalars)
-  Number of Real independent parameters:          37(   37 scalars)
+Number of independent parameters:                 69(   69 scalars)
+  Number of Real independent parameters:          38(   38 scalars)
   Number of Integer independent parameters:       17(   17 scalars)
   Number of Enum independent parameters:           0(    0 scalars)
   Number of Boolean independent parameters:       14(   14 scalars)
@@ -1960,15 +1985,15 @@ Number of initial parameters:                      0(    0 scalars)
   Number of Enum dependent parameters:             0(    0 scalars)
   Number of Boolean dependent parameters:          0(    0 scalars)
   Number of String dependent parameters:           0(    0 scalars)
-Number of variables:                              41(   41 scalars)
-  Number of Real variables:                       33(   33 scalars)
+Number of variables:                              42(   42 scalars)
+  Number of Real variables:                       34(   34 scalars)
   Number of Integer variables:                     0(    0 scalars)
   Number of Enum variables:                        0(    0 scalars)
   Number of Boolean variables:                     8(    8 scalars)
   Number of String variables:                      0(    0 scalars)
 Number of Real differentiated variables:           1(    1 scalars)
 Number of Real derivative variables:               1(    1 scalars)
-Number of Real continous algebraic variables:     31(   31 scalars)
+Number of Real continous algebraic variables:     32(   32 scalars)
 Number of inputs:                                  0(    0 scalars)
   Number of Real inputs:                           0(    0 scalars)
   Number of Integer inputs:                        0(    0 scalars)
@@ -1981,30 +2006,33 @@ Number of discrete variables:                      8(    8 scalars)
   Number of Enum discrete variables:               0(    0 scalars)
   Number of Boolean discrete variables:            8(    8 scalars)
   Number of String discrete variables:             0(    0 scalars)
-Number of equations:                              41(   40 scalars)
+Number of equations:                              42(   41 scalars)
 Number of variables with binding expression:       0(    0 scalars)
   Number of Real variables with binding exp:       0(    0 scalars)
   Number of Integer variables binding exp:         0(    0 scalars)
   Number of Enum variables binding exp:            0(    0 scalars)
   Number of Boolean variables binding exp:         0(    0 scalars)
   Number of String variables binding exp:          0(    0 scalars)
-Total number of equations:                        41(   40 scalars)
+Total number of equations:                        42(   41 scalars)
 Number of initial equations:                      10(    9 scalars)
 Number of event indicators in equations:           0
 Number of event indicators in init equations:      0
 
 Independent constants: 
- z.properties.a: number of uses: 0, isLinear: true
  rectifier1.S_vect[1].im: number of uses: 0, isLinear: true
  rectifier1.S_vect[2].re: number of uses: 0, isLinear: true
  rectifier1.S_vect[2].im: number of uses: 0, isLinear: true
  rectifier1.globalSeed: number of uses: 0, isLinear: true
+ v.properties.ComponentType: number of uses: 0, isLinear: true
  z.properties.ComponentType: number of uses: 0, isLinear: true
+ ground1.properties.ComponentType: number of uses: 0, isLinear: true
+ rectifier1.properties.ComponentType: number of uses: 0, isLinear: true
 
 Dependent constants: 
 
 Independent parameters: 
  systemDef.fFund: number of uses: 1, isLinear: true, evaluated binding exp: 60
+ systemDef.smplFreq: number of uses: 0, isLinear: true, evaluated binding exp: 5000.0
  v.vMag[1]: number of uses: 2, isLinear: true, evaluated binding exp: 100
  v.vMag[2]: number of uses: 2, isLinear: true, evaluated binding exp: 0.5
  v.vMag[3]: number of uses: 2, isLinear: true, evaluated binding exp: 0.225
@@ -2076,12 +2104,12 @@ Independent parameters:
 Dependent parameters: 
  resistor1.T_heatPort: number of uses: 3, isLinear: true
  rectifier1.constantVoltage1.V: number of uses: 4, isLinear: true
- v.v[1].re: number of uses: 2, isLinear: true
- v.v[2].re: number of uses: 2, isLinear: true
- v.v[3].re: number of uses: 2, isLinear: true
- v.v[1].im: number of uses: 2, isLinear: true
- v.v[2].im: number of uses: 2, isLinear: true
- v.v[3].im: number of uses: 2, isLinear: true
+ v.v[1].re: number of uses: 3, isLinear: true
+ v.v[2].re: number of uses: 3, isLinear: true
+ v.v[3].re: number of uses: 3, isLinear: true
+ v.v[1].im: number of uses: 3, isLinear: true
+ v.v[2].im: number of uses: 3, isLinear: true
+ v.v[3].im: number of uses: 3, isLinear: true
  resistor1.R_actual: number of uses: 2, isLinear: true
  resistor1.i: number of uses: 5, isLinear: true
  resistor1.LossPower: number of uses: 1, isLinear: true
@@ -2106,12 +2134,13 @@ Discrete variables:
  temp_21: number of uses: 2, isLinear: true, alias: no
 
 Algebraic real variables: 
- v.i[1].re: number of uses: 6, isLinear: false, alias: no
- v.i[1].im: number of uses: 6, isLinear: false, alias: no
- v.i[2].re: number of uses: 4, isLinear: false, alias: no
- v.i[2].im: number of uses: 4, isLinear: false, alias: no
- v.i[3].re: number of uses: 4, isLinear: false, alias: no
- v.i[3].im: number of uses: 4, isLinear: false, alias: no
+ v.P: number of uses: 1, isLinear: true, alias: no
+ v.i[1].re: number of uses: 7, isLinear: false, alias: no
+ v.i[1].im: number of uses: 7, isLinear: false, alias: no
+ v.i[2].re: number of uses: 5, isLinear: false, alias: no
+ v.i[2].im: number of uses: 5, isLinear: false, alias: no
+ v.i[3].re: number of uses: 5, isLinear: false, alias: no
+ v.i[3].im: number of uses: 5, isLinear: false, alias: no
  v.omega: number of uses: 1, isLinear: true, alias: no
  z.vFundAbs: number of uses: 1, isLinear: true, alias: no
  z.vFundArg: number of uses: 1, isLinear: true, alias: no
@@ -2207,10 +2236,11 @@ Incidence:
  eq 34: ground1.pin.iRe[2]
  eq 35: ground1.pin.iRe[3]
  eq 36:
- eq 37: z.vFundAbs z.v[1].re z.v[1].im
- eq 38: z.vFundArg z.v[1].im z.v[1].re
- eq 39: z.iFundAbs v.i[1].re v.i[1].im
- eq 40: z.iFundArg v.i[1].im v.i[1].re
+ eq 37: v.P v.i[1].re v.i[2].re v.i[3].re v.i[1].im v.i[2].im v.i[3].im
+ eq 38: z.vFundAbs z.v[1].re z.v[1].im
+ eq 39: z.vFundArg z.v[1].im z.v[1].re
+ eq 40: z.iFundAbs v.i[1].re v.i[1].im
+ eq 41: z.iFundArg v.i[1].im v.i[1].re
 
 Variable dependencies:
 Derivative variables: 
@@ -2221,12 +2251,16 @@ Differentiated variables:
  v.theta
 
 Algebraic real variables: 
- v.i[1].re
+ v.P
+    v.vArg[1]
+    v.vMag[1]
+    v.vMag[2]
+    v.vArg[2]
+    v.vArg[3]
+    v.vMag[3]
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
-    v.vArg[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2237,9 +2271,37 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
+    pre(temp_20)
+    pre(temp_21)
+    pre(temp_17)
+    pre(temp_18)
+    pre(temp_19)
+    pre(systemDef.eventReadData)
+    pre(systemDef.eventWriteData)
+    systemDef.hrms[2]
+    systemDef.hrms[3]
+ v.i[1].re
+    z.z.re
+    z.z.im
+    systemDef.hrms[1]
+    v.vArg[1]
+    v.vMag[1]
+    rectifier1.hrmMdl_coefMag[1]
+    rectifier1.hrmMdl_coefMag[2]
+    rectifier1.hrmMdl_coefMag[3]
+    rectifier1.hrmMdl_coefMag[4]
+    rectifier1.hrmMdl_coefArg[1]
+    rectifier1.hrmMdl_coefArg[2]
+    rectifier1.hrmMdl_coefArg[3]
+    rectifier1.hrmMdl_coefArg[4]
+    resistor1.alpha
+    rectifier1.V_Rect
     resistor1.R
+    resistor1.T_ref
+    rectifier1.efficiency
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2251,8 +2313,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2263,9 +2325,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2319,8 +2381,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    v.vMag[3]
     v.vArg[3]
+    v.vMag[3]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2340,8 +2402,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    v.vMag[3]
     v.vArg[3]
+    v.vMag[3]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2363,8 +2425,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2375,9 +2437,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2389,8 +2451,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2401,9 +2463,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2415,8 +2477,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2427,9 +2489,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2441,8 +2503,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2453,9 +2515,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2467,8 +2529,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2479,9 +2541,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2493,8 +2555,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2505,9 +2567,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2561,8 +2623,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    v.vMag[3]
     v.vArg[3]
+    v.vMag[3]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2582,8 +2644,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    v.vMag[3]
     v.vArg[3]
+    v.vMag[3]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2611,8 +2673,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2623,9 +2685,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2637,8 +2699,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[1]
-    v.vMag[1]
     v.vArg[1]
+    v.vMag[1]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2649,9 +2711,9 @@ Algebraic real variables:
     rectifier1.hrmMdl_coefArg[4]
     resistor1.alpha
     rectifier1.V_Rect
+    resistor1.R
     resistor1.T_ref
     rectifier1.efficiency
-    resistor1.R
     pre(temp_20)
     pre(temp_21)
     pre(temp_17)
@@ -2705,8 +2767,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    v.vMag[3]
     v.vArg[3]
+    v.vMag[3]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2726,8 +2788,8 @@ Algebraic real variables:
     z.z.re
     z.z.im
     systemDef.hrms[3]
-    v.vMag[3]
     v.vArg[3]
+    v.vMag[3]
     rectifier1.hrmMdl_coefMag[1]
     rectifier1.hrmMdl_coefMag[2]
     rectifier1.hrmMdl_coefMag[3]
@@ -2808,17 +2870,20 @@ fclass HPF.Test.Test_Rectifier
  parameter Integer systemDef.hrms[2] = 3 "Harmonics to simulate" /* 3 */;
  parameter Integer systemDef.hrms[3] = 5 "Harmonics to simulate" /* 5 */;
  structural parameter Integer systemDef.numHrm = 3 "Number of harmonics. (Automatically generated from hrms. Do not alter)" /* 3 */;
- parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
  parameter Real systemDef.fFund = 60 "Fundamental frequency" /* 60 */;
+ parameter Real systemDef.smplFreq = 5000.0 "Sampling frequency (Hz)" /* 5000.0 */;
+ parameter Integer systemDef.numPh = 3 "Number of phases" /* 3 */;
  discrete Boolean systemDef.modeSelect(start = false);
  discrete Boolean systemDef.eventWriteData(start = false);
  discrete Boolean systemDef.eventReadData(start = false);
+ constant String v.properties.ComponentType = "VoltageSource" "Type of the component";
  parameter Real v.vMag[1] = 100 "Voltage Magnitude (Volts rms)" /* 100 */;
  parameter Real v.vMag[2] = 0.5 "Voltage Magnitude (Volts rms)" /* 0.5 */;
  parameter Real v.vMag[3] = 0.225 "Voltage Magnitude (Volts rms)" /* 0.225 */;
  parameter Real v.vArg[1] = 0 "Voltage angle (rad)" /* 0 */;
  parameter Real v.vArg[2] = 0.25 "Voltage angle (rad)" /* 0.25 */;
  parameter Real v.vArg[3] = -0.5 "Voltage angle (rad)" /* -0.5 */;
+ Real v.P "Real Power";
  Modelica.SIunits.Angle v.theta(start = 0);
  parameter Modelica.SIunits.ThermodynamicTemperature resistor1.T_heatPort "Temperature of heatPort";
  parameter Modelica.SIunits.ElectricPotential rectifier1.constantVoltage1.V(start = 1) "Value of constant voltage";
@@ -2833,8 +2898,7 @@ fclass HPF.Test.Test_Rectifier
  Real v.i[3].re(start = 0,nominal = -1) "Real part of complex number";
  Real v.i[3].im(start = 0,nominal = -1) "Imaginary part of complex number";
  Real v.omega;
- constant String z.properties.ComponentType = "asdasd";
- constant Real z.properties.a = 45;
+ constant String z.properties.ComponentType = "Impedance" "Type of the component";
  parameter Real z.z.re(start = 1) = 10.0 "Real part of complex number" /* 10.0 */;
  parameter Real z.z.im(start = 0) = 2.0 "Imaginary part of complex number" /* 2.0 */;
  Real z.vFundAbs;
@@ -2848,6 +2912,7 @@ fclass HPF.Test.Test_Rectifier
  Real z.v[3].re(start = 0,nominal = 1) "Real part of complex number";
  Real z.v[3].im(start = 0,nominal = 1) "Imaginary part of complex number";
  Real z.omega;
+ constant String ground1.properties.ComponentType = "Ground" "Type of the component";
  Real ground1.pin.iIm[1];
  Real ground1.pin.iIm[2];
  Real ground1.pin.iIm[3];
@@ -2863,6 +2928,7 @@ fclass HPF.Test.Test_Rectifier
  parameter Modelica.SIunits.Resistance resistor1.R_actual "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
  parameter Modelica.SIunits.ElectricCurrent resistor1.i "Current flowing from pin p to pin n";
  parameter Modelica.SIunits.Power resistor1.LossPower "Loss power leaving component via heatPort";
+ constant String rectifier1.properties.ComponentType = "NonlinearLoad" "Type of the component";
  parameter Modelica.SIunits.ElectricCurrent ground2.p.i "Current flowing into the pin";
  parameter Real rectifier1.V_Rect(start = 0) = 100 "Rectifier DC output" /* 100 */;
  parameter Real rectifier1.efficiency(start = 1) = 0.95 "Rectifier efficiency" /* 0.95 */;
@@ -2974,6 +3040,7 @@ equation
  ground1.pin.iRe[2] = 0;
  ground1.pin.iRe[3] = 0;
  HPF.Test.Test_Rectifier.rectifier1.loadBase1.pin_n.reference.equalityConstraint(HPF.Types.Reference(v.theta), HPF.Types.Reference(v.theta));
+ v.P = v.v[1].re * v.i[1].re + v.v[2].re * v.i[2].re + v.v[3].re * v.i[3].re + (v.v[1].im * v.i[1].im + v.v[2].im * v.i[2].im + v.v[3].im * v.i[3].im);
  z.vFundAbs = (z.v[1].re ^ 2 + z.v[1].im ^ 2) ^ 0.5;
  z.vFundArg = Modelica.Math.atan3(z.v[1].im, z.v[1].re, 0);
  z.iFundAbs = ((- v.i[1].re) ^ 2 + (- v.i[1].im) ^ 2) ^ 0.5;
@@ -3043,7 +3110,7 @@ end HPF.Test.Test_Rectifier;
 Generating code...
 ====== Model compiled successfully =======
 make -f /home/avpreetsingh/programfiles/jModelica/Makefiles/MakeFile fmume20_
-make[1]: Entering directory '/tmp/jmc17825851340953539372out'
+make[1]: Entering directory '/tmp/jmc1010509896519250064out'
 gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_equ.o sources/HPF_Test_Test_Rectifier_equ.c
 gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_base.o sources/HPF_Test_Test_Rectifier_base.c
 gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfiles/jModelica/include/RuntimeLibrary -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/FMI/2.0  -I/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/include -c -o HPF_Test_Test_Rectifier_init_dependent.o sources/HPF_Test_Test_Rectifier_init_dependent.c
@@ -3054,5 +3121,5 @@ gcc -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -I/home/avpreetsingh/programfil
 mkdir -p binaries/linux64
 g++ -shared -Wl,-rpath,'$ORIGIN',--no-undefined -pthread -std=c89 -pedantic -fPIC -msse2 -mfpmath=sse -o binaries/linux64/HPF_Test_Test_Rectifier.so  HPF_Test_Test_Rectifier_equ.o  HPF_Test_Test_Rectifier_base.o  HPF_Test_Test_Rectifier_init_dependent.o  HPF_Test_Test_Rectifier_init_independent.o  HPF_Test_Test_Rectifier_funcs.o  HPF_Test_Test_Rectifier.o  HPF_Test_Test_Rectifier_equ_init.o  -L/home/avpreetsingh/programfiles/jModelica/lib/RuntimeLibrary -lfmi2 -ljmi -ldl "-L/home/avpreetsingh/programfiles/jModelica/lib"  -ljmi_get_set_default -ljmi_get_set_default -llapack -lblas -lgfortran -lModelicaExternalC -lzlib -ljmi -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Sundials/lib -l:libsundials_kinsol.a -l:libsundials_nvecserial.a -L/home/avpreetsingh/programfiles/jModelica/ThirdParty/Minpack/lib -l:libcminpack.a -lstdc++ -lm -l:libsundials_cvode.a
 rm -f  HPF_Test_Test_Rectifier_equ.o  HPF_Test_Test_Rectifier_base.o  HPF_Test_Test_Rectifier_init_dependent.o  HPF_Test_Test_Rectifier_init_independent.o  HPF_Test_Test_Rectifier_funcs.o  HPF_Test_Test_Rectifier.o  HPF_Test_Test_Rectifier_equ_init.o 
-make[1]: Leaving directory '/tmp/jmc17825851340953539372out'
+make[1]: Leaving directory '/tmp/jmc1010509896519250064out'
 

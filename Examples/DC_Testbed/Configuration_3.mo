@@ -2,8 +2,8 @@ within HPF.Examples.DC_Testbed;
 model Configuration_3
   extends Modelica.Icons.Package;
   import Modelica.ComplexMath.j;
-  inner HPF.SystemDef systemDef(hrms = {1, 3, 5}) annotation (
-    Placement(visible = true, transformation(origin = {-100, 20}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  inner HPF.SystemDef systemDef(hrms = {1, 2, 4}) annotation (
+    Placement(visible = true, transformation(origin = {-118, 4}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {-66, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.NonlinearLoads.Rectifier laptop_adpt_1(V_Rect = 100, efficiency = 0.95, hrmMdl_coefArg = {-5.02372881045404e-05, 0.00237063924944842, -1.49993957428169, 1.71994407623008}, hrmMdl_coefMag = {2.70064268049248e-05, -0.00156976101310340, -0.00600037080602108, 0.995516922015768}, rectifierModel = 1) annotation (
@@ -142,7 +142,7 @@ equation
   connect(PhA.pin_p, test_DY.pinPrim_A) annotation (
     Line(points = {{-140, -36}, {-76, -36}}));
   annotation (
-    Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}), graphics={  Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(points = {{-86, 0}, {-80, 16}, {-74, 26}, {-64, 38}, {-50, 32}, {-40, 8}, {-38, -2}, {-24, -30}, {-8, -38}, {8, -22}, {16, 0}}, color = {28, 108, 200}, smooth = Smooth.Bezier)}),
+    Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics={  Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(points = {{-86, 0}, {-80, 16}, {-74, 26}, {-64, 38}, {-50, 32}, {-40, 8}, {-38, -2}, {-24, -30}, {-8, -38}, {8, -22}, {16, 0}}, color = {28, 108, 200}, smooth = Smooth.Bezier)}),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics={  Text(origin = {-131, 125}, extent = {{111, -1}, {-17, 23}}, textString = "DC Testbed: Configuration 3
 * AC-DC loads.
 * Delta-wye transformer (Unbalanced)", horizontalAlignment = TextAlignment.Left), Text(origin = {-129, 119}, extent = {{189, -61}, {-19, -21}}, textString = "TODO:

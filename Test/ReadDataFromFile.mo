@@ -9,8 +9,6 @@ model ReadDataFromFile
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V = loadHarmonicData1.magDataMat[1, 1])  annotation (
     Placement(visible = true, transformation(origin = {-46, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Sources.VoltageSrcLoadData v annotation (
-    Placement(visible = true, transformation(origin = {-18, -70}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 equation
   connect(constantVoltage1.p, resistor1.p) annotation (
     Line(points = {{-46, -8}, {-46, 0}, {-10, 0}}, color = {0, 0, 255}));

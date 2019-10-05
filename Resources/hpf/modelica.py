@@ -8,9 +8,12 @@
 
 import numpy as N
 import pylab as p
+import matplotlib as plt
 
 from pymodelica import compile_fmu
 from pyfmi import load_fmu
+
+import fftUtils 
 
 class ModelicaModel:  # retrieve parameters
     """
@@ -133,6 +136,39 @@ class ModelicaModel:  # retrieve parameters
             tmpIm = resultObject.__getitem__(variableName + '[' + str(h) + '].im')
             cmplxVect[h - 1] = complex(tmpRe[-1], tmpIm[-1])
         return cmplxVect
+    
+    def modelFreq2Time(self):
+        """
+        Plots ifft waveforms for all inputs and converters
+        (Uselful for visualization and debugging)
+        
+        Parameters
+        ----------
+        None
+        
+        Returns
+        -------
+        
+            
+        Example
+        -------
+        mdl.modelFreq2Time()
+        """
+        # get all voltage sources
+        voltageSources = self.getComponentTypes("VoltageSource")
+        for vSrcs in voltageSources:
+            vHrms = self.getComplexVector()
+            iHrms = self.getComplexVector()
+            
+            # get ifft 
+            
+            # plot 
+            
+        # get all harmonic sources
+        hrmSources = self.getComponentTypes("Rectifier")
+        for hrmSrcs in hrmSources:
+            vHrms = self.getComplexVector()
+            iHrms = self.getComplexVector()
 
 class CompPwrClass: # Component Power Calculation Classes
     #TODO: name change
