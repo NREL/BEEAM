@@ -36,6 +36,18 @@ equation
 
 algorithm
     /*
+      solver overview and system structure with room for future improvements.
+      The library components are independent of the solver. If the component
+      does not require an iterative back and forth solver, user can choose
+      to omit implementing it.
+      
+      A component that does require an iterative solver technique, would 
+      have the solver section (derived from a component template that implements
+      a solver section. This would ensure that the library and components are
+      consistent.) and user would implement the required algorithm in that section.
+    */
+    
+    /*
               ____________
       ________|
       0       0.5

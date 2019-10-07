@@ -142,7 +142,7 @@ package Utilities
       parameter String argVariableName "Name of the argument (phase angle) variable";
       parameter String fileName "File location in UNIX format within Modelica Libarary";
       // get name of the file as a string
-
+    
       final parameter String fileNameResource = Modelica.Utilities.Files.loadResource("modelica://" + fileName);
       // read matrix size
       final parameter Integer magDimMat[2] = Modelica.Utilities.Streams.readMatrixSize(fileNameResource, magVariableName) "Dimension of mag matrix";
@@ -150,7 +150,7 @@ package Utilities
       // use the file name to read matrix
       final parameter Real magDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "magV", 32, 1);         // Hardcoded dimensions.
       final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "argV", 32, 1);
-
+    
     equation
       //final parameter Real magData[32] = magDataMat[32, 1];
       //final parameter Real argData[32] = magDataMat[32, 1];/\

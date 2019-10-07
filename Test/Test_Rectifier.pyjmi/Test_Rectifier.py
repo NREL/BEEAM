@@ -9,7 +9,6 @@ import os
 
 import numpy as N
 import pylab as p
-
 from pymodelica import compile_fmu
 from pyfmi import load_fmu
 #from pyjmi.common.plotting import plot_gui

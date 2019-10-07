@@ -144,7 +144,7 @@ equation
   connect(led_driver_3.hPin_N, ground2.pin) annotation (
     Line(points = {{98, -124}, {20, -124}, {20, -40}, {-64, -40}}, color = {117, 80, 123}));
   annotation (
-    Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}), graphics={Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "1"), Line(
+    Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics={Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "2"), Line(
           points={{-86,0},{-80,16},{-74,26},{-64,38},{-50,32},{-40,8},{-38,-2},
               {-24,-30},{-8,-38},{8,-22},{16,0}},
           color={28,108,200},
