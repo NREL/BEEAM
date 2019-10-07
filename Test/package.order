@@ -12,3 +12,4 @@ Test_DC_Load
 Example_FuchsHPF
 solver_event_test
 SinglePhase_HarmonicPowerFlow
+ReadFromFile
