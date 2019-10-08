@@ -1,5 +1,6 @@
 within HPF;
-class SystemDef
+class SystemDef "System Definition block"
+  
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
 
   /*
@@ -8,7 +9,7 @@ class SystemDef
     'constant' or no type prefix has a lower type variability than 'parameter'.
     Also, numHrm cannot be initialized as Real.
   */
-  parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
+  final parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms. Do not alter)";
   parameter Real fFund = 60 "Fundamental frequency";
   parameter Real smplFreq = 5e3 "Sampling frequency (Hz)";
 
