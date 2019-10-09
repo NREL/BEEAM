@@ -13,22 +13,22 @@ model Test_Rectifier
     Placement(visible = true, transformation(origin = {48, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {16, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.NonlinearLoads.Rectifier rectifier annotation(
+  HPF.SinglePhase.NonlinearLoads.Rectifier rectifier annotation (
     Placement(visible = true, transformation(origin = {-10, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(z.pin_p, v.pin_p) annotation(
+  connect(z.pin_p, v.pin_p) annotation (
     Line(points = {{-48, 0}, {-60, 0}}));
-  connect(v.pin_n, ground1.pin) annotation(
+  connect(v.pin_n, ground1.pin) annotation (
     Line(points = {{-60, -20}, {-60, -20}, {-60, -28}, {-60, -28}}, color = {117, 80, 123}));
-  connect(ground2.p, resistor1.n) annotation(
+  connect(ground2.p, resistor1.n) annotation (
     Line(points = {{16, -20}, {48, -20}}, color = {0, 0, 255}));
-  connect(rectifier.pin_p, resistor1.p) annotation(
+  connect(rectifier.pin_p, resistor1.p) annotation (
     Line(points = {{0, 0}, {48, 0}}, color = {0, 0, 255}));
-  connect(ground2.p, rectifier.pin_n) annotation(
+  connect(ground2.p, rectifier.pin_n) annotation (
     Line(points = {{16, -20}, {0, -20}}, color = {0, 0, 255}));
-  connect(rectifier.hPin_N, v.pin_n) annotation(
+  connect(rectifier.hPin_N, v.pin_n) annotation (
     Line(points = {{-20, -20}, {-60, -20}, {-60, -20}, {-60, -20}}, color = {117, 80, 123}));
-  connect(z.pin_n, rectifier.hPin_P) annotation(
+  connect(z.pin_n, rectifier.hPin_P) annotation (
     Line(points = {{-28, 0}, {-20, 0}, {-20, 0}, {-20, 0}}, color = {117, 80, 123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),

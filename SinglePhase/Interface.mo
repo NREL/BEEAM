@@ -77,8 +77,8 @@ package Interface
             */
     Real omega;
     /*  pin objects for the two pins
-                number of harmonics to be simulated is passed as a parameter.
-            */
+        number of harmonics to be simulated is passed as a parameter.
+    */
     HPF.SinglePhase.Interface.HPin_P pin_p(h = systemDef.numHrm) "Positive pin" annotation (
       Placement(visible = true, transformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0), iconTransformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pin_n(h = systemDef.numHrm) "Negative pin" annotation (

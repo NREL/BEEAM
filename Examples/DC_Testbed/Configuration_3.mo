@@ -59,7 +59,7 @@ model Configuration_3
   HPF.SinglePhase.Sources.VoltageSrcLoadData PhC(fileName = "HPF/InputData/Examples/DC_Testbed/hrmsData_volt_prim_confAC_1_C.mat")  annotation (
     Placement(visible = true, transformation(origin = {-88, -78}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
-  connect(laptop_adpt_1.hPin_P, z.pin_n) annotation(
+  connect(laptop_adpt_1.hPin_P, z.pin_n) annotation (
     Line(points = {{28, 28}, {0, 28}, {0, -46}, {-30, -46}}));
   connect(laptop_adpt_3.hPin_P, z1.pin_n) annotation (
     Line(points = {{38, -56}, {-10, -56}}));
@@ -73,13 +73,13 @@ equation
     Line(points = {{-56, -36}, {-30, -36}}));
   connect(terminal.pin_n, ground2.pin) annotation (
     Line(points = {{-10, -36}, {-4, -36}, {-4, -76}, {-66, -76}}, color = {117, 80, 123}));
-  connect(laptop_adpt_1.hPin_N, ground2.pin) annotation(
+  connect(laptop_adpt_1.hPin_N, ground2.pin) annotation (
     Line(points = {{28, 8}, {14, 8}, {14, -76}, {-66, -76}}, color = {117, 80, 123}));
   connect(laptop_adpt_3.hPin_N, ground2.pin) annotation (
     Line(points = {{38, -76}, {-66, -76}}, color = {117, 80, 123}));
-  connect(laptop_adpt_2.hPin_P, z.pin_n) annotation(
+  connect(laptop_adpt_2.hPin_P, z.pin_n) annotation (
     Line(points = {{26, -12}, {0, -12}, {0, -46}, {-30, -46}}));
-  connect(laptop_adpt_2.hPin_N, ground2.pin) annotation(
+  connect(laptop_adpt_2.hPin_N, ground2.pin) annotation (
     Line(points = {{26, -32}, {14, -32}, {14, -76}, {-66, -76}}, color = {117, 80, 123}));
   connect(led_driver_1.hPin_P, z.pin_n) annotation (
     Line(points = {{100, -46}, {-30, -46}}));
@@ -93,15 +93,15 @@ equation
     Line(points = {{40, -116}, {-4, -116}, {-4, -76}, {-66, -76}}, color = {117, 80, 123}));
   connect(led_driver_2.hPin_N, ground2.pin) annotation (
     Line(points = {{100, -112}, {94, -112}, {94, -136}, {-4, -136}, {-4, -76}, {-66, -76}}, color = {117, 80, 123}));
-  connect(laptop_adpt_1.pin_p, laptop_1.p) annotation(
+  connect(laptop_adpt_1.pin_p, laptop_1.p) annotation (
     Line(points = {{48, 28}, {62, 28}}, color = {0, 0, 255}));
-  connect(laptop_adpt_1.pin_n, laptop_1.n) annotation(
+  connect(laptop_adpt_1.pin_n, laptop_1.n) annotation (
     Line(points = {{48, 8}, {62, 8}}, color = {0, 0, 255}));
-  connect(ground6.p, laptop_1.n) annotation(
+  connect(ground6.p, laptop_1.n) annotation (
     Line(points = {{74, 8}, {62, 8}}, color = {0, 0, 255}));
-  connect(laptop_adpt_2.pin_p, laptop_2.p) annotation(
+  connect(laptop_adpt_2.pin_p, laptop_2.p) annotation (
     Line(points = {{46, -12}, {60, -12}}, color = {0, 0, 255}));
-  connect(laptop_adpt_2.pin_n, laptop_2.n) annotation(
+  connect(laptop_adpt_2.pin_n, laptop_2.n) annotation (
     Line(points = {{46, -32}, {60, -32}}, color = {0, 0, 255}));
   connect(laptop_2.n, ground3.p) annotation (
     Line(points = {{60, -32}, {74, -32}}, color = {0, 0, 255}));
@@ -129,17 +129,17 @@ equation
     Line(points = {{120, -112}, {132, -112}}, color = {0, 0, 255}));
   connect(ground7.p, led_2.n) annotation (
     Line(points = {{132, -116}, {132, -112}}, color = {0, 0, 255}));
-  connect(PhA.pin_n, ground1.pin) annotation(
+  connect(PhA.pin_n, ground1.pin) annotation (
     Line(points = {{-128, -56}, {-128, -96}}, color = {117, 80, 123}));
-  connect(PhC.pin_n, ground1.pin) annotation(
+  connect(PhC.pin_n, ground1.pin) annotation (
     Line(points = {{-88, -88}, {-88, -96}, {-128, -96}}, color = {117, 80, 123}));
-  connect(PhB.pin_n, ground1.pin) annotation(
+  connect(PhB.pin_n, ground1.pin) annotation (
     Line(points = {{-108, -74}, {-108, -96}, {-128, -96}}, color = {117, 80, 123}));
-  connect(PhC.pin_p, test_DY.pinPrim_C) annotation(
+  connect(PhC.pin_p, test_DY.pinPrim_C) annotation (
     Line(points = {{-88, -68}, {-88, -56}, {-76, -56}}));
-  connect(PhB.pin_p, test_DY.pinPrim_B) annotation(
+  connect(PhB.pin_p, test_DY.pinPrim_B) annotation (
     Line(points = {{-108, -54}, {-108, -46}, {-76, -46}}));
-  connect(PhA.pin_p, test_DY.pinPrim_A) annotation(
+  connect(PhA.pin_p, test_DY.pinPrim_A) annotation (
     Line(points = {{-128, -36}, {-76, -36}}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics={  Text(lineColor = {102, 44, 145}, extent = {{26, 76}, {102, -72}}, textString = "3"), Line(points = {{-86, 0}, {-80, 16}, {-74, 26}, {-64, 38}, {-50, 32}, {-40, 8}, {-38, -2}, {-24, -30}, {-8, -38}, {8, -22}, {16, 0}}, color = {28, 108, 200}, smooth = Smooth.Bezier)}),

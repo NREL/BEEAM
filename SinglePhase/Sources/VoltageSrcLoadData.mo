@@ -1,5 +1,4 @@
 within HPF.SinglePhase.Sources;
-
 model VoltageSrcLoadData "Harmonic Voltage Source (Load input data from a mat file, Example: \"Input/Directory/FileName\")"
   /*
     
@@ -57,7 +56,7 @@ equation
   omega = 2 * Modelica.Constants.pi * systemDef.fFund;
   v[:].re = magDataMat[1:systemDef.numHrm, 1] .* cos(argDataMat[1:systemDef.numHrm, 1]);
   v[:].im = magDataMat[1:systemDef.numHrm, 1] .* sin(argDataMat[1:systemDef.numHrm, 1]);
-  annotation(
+  annotation (
     defaultComponentName = "v",
     Icon(graphics = {Ellipse(extent = {{-48, 50}, {48, -50}}, endAngle = 360), Line(origin = {-69, 0}, points = {{-21, 0}, {21, 0}}), Line(origin = {69, 0}, points = {{-21, 0}, {21, 0}}), Line(origin = {-8.2246, 18.6487}, points = {{8.50128, 21.0747}, {2.50128, 19.0747}, {-5.49872, 13.0747}, {-9.49872, 7.07465}, {-11.4987, -0.925349}, {-9.49872, -6.92535}, {-5.49872, -10.9253}, {0.501285, -14.9253}, {6.50128, -18.9253}, {8.50128, -18.9253}, {8.5013, -18.9253}}), Line(origin = {7.309, -18.9402}, rotation = 180, points = {{8.50128, 21.0747}, {2.50128, 19.0747}, {-5.49872, 13.0747}, {-9.49872, 7.07465}, {-11.4987, -0.925349}, {-9.49872, -6.92535}, {-5.49872, -10.9253}, {0.501285, -14.9253}, {6.50128, -18.9253}, {8.50128, -18.9253}, {8.5013, -18.9253}}), Text(origin = {-84, 47}, rotation = 90, extent = {{-14, 23}, {56, -19}}, textString = "%name"), Line(origin = {-0.240082, -69.5198}, rotation = 180, points = {{0, 2}, {0, -20}}, arrow = {Arrow.None, Arrow.Filled}, arrowSize = 7), Rectangle(origin = {2, -101}, extent = {{-30, 29}, {26, -19}}), Text(origin = {-7, -105}, rotation = 90, extent = {{-9, 17}, {25, -29}}, textString = "File", textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold})}, coordinateSystem(initialScale = 0.1)));
 end VoltageSrcLoadData;

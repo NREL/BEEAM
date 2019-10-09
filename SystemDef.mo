@@ -1,6 +1,6 @@
 within HPF;
 class SystemDef "System Definition block"
-  
+
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
 
   /*
@@ -47,7 +47,7 @@ algorithm
       a solver section. This would ensure that the library and components are
       consistent.) and user would implement the required algorithm in that section.
     */
-    
+
     /*
               ____________
       ________|
