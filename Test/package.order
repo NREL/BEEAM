@@ -13,3 +13,4 @@ Example_FuchsHPF
 solver_event_test
 SinglePhase_HarmonicPowerFlow
 ReadFromFile
+AC2DC_converter
