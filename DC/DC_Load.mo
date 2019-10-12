@@ -7,7 +7,7 @@ model DC_Load
 
 
 equation
-  pwr = v * i;
+  i = pwr / v;
 
 annotation (
     Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Line(

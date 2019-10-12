@@ -1,3 +1,11 @@
+Roadmap
+-------
+The workflow would be as follows,
+1) User would create the simulation in a graphical Modelica environment.
+2) To run the simulation in standalone mode, user would simulate the system in the above mentioned Modelica environment.
+3) For a co-simulation run or detailed post processing, one must export the simulation to an FMU. OpenModelica, an open source Modelica environment has an FMU export option but it is not very robust. The exported FMU usually fails to load in FMU libraries. The other open source Modelica implementation, jModelica, has a robust FMU export option. The downside is that it lacks a GUI. A potential side project would be to create a GUI that loads the simulation file generated in Step 1 and export an FMU.
+4) There are a few open source FMU loading and simulation libraries. Two of the popular libraries are, PyFMI from Modellon (jModelica, https://github.com/modelon/PyFMI) and FMPy from CATIA (https://github.com/CATIA-Systems/FMPy). PyFMI has additional dependencies (Assimulo https://jmodelica.org/assimulo/) for FMU simulation. FMPy comes with a simulator and a GUI.
+
 Installation Instructions:
 --------------------------
 1) Download the library by either cloning the repository from Github or downloading the repository as a zip file.

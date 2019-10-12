@@ -40,13 +40,11 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
     
 //protected
   Real argS "Phase angle for fundamental apparent power";
-  Real magScale = 1 / Modelica.ComplexMath.'abs'(loadBase.i[1]);
+  Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
   Real argAdj[systemDef.numHrm - 1] = argDataMat[2:(systemDef.numHrm), 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end]);
   
   Complex a[systemDef.numHrm - 1] = Complex(cos(argAdj), sin(argAdj));
   Real c[systemDef.numHrm - 1] = magScale * magDataMat[2:systemDef.numHrm, 1];
-  // reactive power (tmp)
-  //Complex S_vect[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) = cat(1, {Complex(P * efficiency, Q)}, {Complex(0.0) for i in 1:systemDef.numHrm - 1});
 
 algorithm
   //argAdj := argDataMat[1:systemDef.numHrm - 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms);
@@ -61,7 +59,8 @@ equation
   /*
     Get imaginary power. 
   */
-  argS = Modelica.ComplexMath.arg(loadBase.v[1]) - argDataMat[1, 1]; 
+  //argS = Modelica.ComplexMath.arg(loadBase.v[1]) - argDataMat[1, 1]; 
+  argS = argDataMat[1, 1];
   P = S * cos(argS);
   Q = S * sin(argS);
   
