@@ -35,14 +35,18 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
     Power should be negative (power sink)
   */
   Real P = efficiency * (vDC.v * vDC.i);  // DC output power
+  
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.i);
+  
   Real S(start = 1) "Apparent power at fundamental";
   Real Q(start = 1) "Imaginary power at fundamental";
-    
+  
 //protected
   Real argS "Phase angle for fundamental apparent power";
   Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
   Real argAdj[systemDef.numHrm - 1] = argDataMat[2:(systemDef.numHrm), 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end]);
   
+  // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = Complex(cos(argAdj), sin(argAdj));
   Real c[systemDef.numHrm - 1] = magScale * magDataMat[2:systemDef.numHrm, 1];
 
@@ -57,10 +61,10 @@ equation
   */
   
   /*
-    Get imaginary power. 
+    Solve for imaginary power Q_1 (fundamental). 
   */
-  //argS = Modelica.ComplexMath.arg(loadBase.v[1]) - argDataMat[1, 1]; 
-  argS = argDataMat[1, 1];
+  
+  argS = - argDataMat[1, 1];  // power angle is negative of the model fundamental
   P = S * cos(argS);
   Q = S * sin(argS);
   

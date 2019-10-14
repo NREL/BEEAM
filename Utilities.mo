@@ -166,6 +166,18 @@ package Utilities
 
   package Frequency2Time
   end Frequency2Time;
+
+  function fft
+    extends Modelica.Icons.Function;
+  algorithm
+
+  end fft;
+
+  function ifft
+    extends Modelica.Icons.Function;
+  algorithm
+
+  end ifft;
   annotation(
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));

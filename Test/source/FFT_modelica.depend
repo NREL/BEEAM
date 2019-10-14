@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1571030898 source:/media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/source/kiss_fft.c
+	"_kiss_fft_guts.h"
+
+1571030898 /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/source/_kiss_fft_guts.h
+	"kiss_fft.h"
+	<limits.h>
+	<alloca.h>
+
+1571030898 /media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/source/kiss_fft.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<sys/types.h>
+
+1571080377 source:/media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/source/main.c
+	<stdio.h>
+	<stdlib.h>
+	"kiss_fft.h"
+
+1571081509 source:/media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/Test/source/func_FFT.c
+	"kiss_fft.h"
+

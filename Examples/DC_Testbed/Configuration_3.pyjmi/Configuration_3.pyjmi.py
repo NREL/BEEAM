@@ -45,7 +45,7 @@ The post processing section would consist of several subsections:
         ii) AC loads
         iii) DC loads
 """
-# load fmux
+# load fmu
 fmu_conf_3 = load_fmu(fmu_name)
 # simulate fmu
 res = fmu_conf_3.simulate(final_time=1)

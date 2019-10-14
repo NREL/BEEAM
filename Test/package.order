@@ -14,3 +14,8 @@ solver_event_test
 SinglePhase_HarmonicPowerFlow
 ReadFromFile
 AC2DC_converter
+IFFT
+FFT_Example
+FFT_Test
+FFT_wrapper
+func_FFT_Modelica

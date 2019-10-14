@@ -10,7 +10,7 @@ model Test_Rectifier
   HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {-64, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Resistor resistor1(R = 50)  annotation (
-    Placement(visible = true, transformation(origin = {22, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {46, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {8, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerElectronicsConverters.AC2DC_SinglePhase AC2DC_SinglePhase(V_Rect = 50, efficiency = 0.9, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/hrmMdl_laptop.mat")  annotation(
@@ -21,15 +21,15 @@ equation
   connect(v.pin_n, ground1.pin) annotation(
     Line(points = {{-64, -20}, {-64, -26}}, color = {117, 80, 123}));
   connect(ground2.p, resistor1.n) annotation(
-    Line(points = {{8, -28}, {22, -28}, {22, -20}}, color = {0, 0, 255}));
+    Line(points = {{8, -28}, {46, -28}, {46, -20}}, color = {0, 0, 255}));
   connect(z.pin_n, AC2DC_SinglePhase.hPin_P) annotation(
     Line(points = {{-32, 0}, {-26, 0}}, color = {117, 80, 123}));
   connect(AC2DC_SinglePhase.hPin_N, v.pin_n) annotation(
     Line(points = {{-26, -12}, {-40, -12}, {-40, -20}, {-64, -20}}, color = {117, 80, 123}));
   connect(AC2DC_SinglePhase.pin_p, resistor1.p) annotation(
-    Line(points = {{-6, 0}, {22, 0}}, color = {0, 0, 255}));
+    Line(points = {{-6, 0}, {46, 0}}, color = {0, 0, 255}));
   connect(AC2DC_SinglePhase.pin_n, ground2.p) annotation(
-    Line(points = {{-6, -12}, {8, -12}, {8, -28}}, color = {0, 0, 255}));
+    Line(points = {{-6, -12}, {8, -12}, {8, -28}, {8, -28}}, color = {0, 0, 255}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(grid = {0, 0})),

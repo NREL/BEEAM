@@ -1,0 +1,6 @@
+ 
+Compiling and linking the model (GCC). 
+ 
+ 
+Successful generation of dymosim.exe. 
+ 

@@ -1,0 +1,993 @@
+#1
+char Aclass(3,24)
+Adymosim
+1.4
+Modelica experiment file
+
+
+#    Experiment parameters
+double experiment(7,1)
+       0                   # StartTime    Time at which integration starts
+                           #              (and linearization and trimming time)
+       6                   # StopTime     Time at which integration stops
+       0                   # Increment    Communication step size, if > 0
+     500                   # nInterval    Number of communication intervals, if > 0
+  1.0000000000000000E-04   # Tolerance    Relative precision of signals for
+                           #              simulation, linearization and trimming
+       0                   # MaxFixedStep Maximum step size of fixed step size
+                           #              integrators, if > 0.0
+       8                   # Algorithm    Integration algorithm as integer (1...28)
+                           #
+                           #             | model|       |        | dense | state |
+                           # Algorithm   | typ  | stiff | order  | output| event |
+                           # ------------+------+-------+--------+-------+-------+
+                           #  1 | deabm  |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  2 | lsode1 |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  3 | lsode2 |  ode |  yes  |  1-5   |  yes  |   no  |
+                           #  4 | lsodar |  ode |  both |1-12,1-5|  yes  |  yes  |
+                           #  5 | dopri5 |  ode |   no  |   5    |   no  |   no  |
+                           #  6 | dopri8 |  ode |   no  |   8    |   no  |   no  |
+                           #  7 | grk4t  |  ode |  yes  |   4    |   no  |   no  |
+                           #  8 | dassl  |  dae |  yes  |  1-5   |  yes  |  yes  |
+                           #  9 | odassl | hdae |  yes  |  1-5   |  yes  |  yes  |
+                           # 10 | mexx   | hdae |   no  |  2-24  |   no  |   no  |
+                           # 11 | euler  |  ode |   no  |   1    |   no  |  yes  |
+                           # 12 | rkfix2 |  ode |   no  |   2    |   no  |  yes  |
+                           # 13 | rkfix3 |  ode |   no  |   3    |   no  |  yes  |
+                           # 14 | rkfix4 |  ode |   no  |   4    |   no  |  yes  |
+                           #>=14| others |  ode |yes/no |  2-5   |   yes |  yes  |
+                           # ---+--------+------+-------+--------+-------+-------+
+                           # euler and rkfix have fixed stepsize.
+
+
+#    Method tuning parameters
+double method(27,1)
+       1                   # grid     type of communication time grid, defined by
+                           #          = 1: equidistant points ("Increment/nInterval")
+                           #          = 2: vector of grid points ("tgrid")
+                           #          = 3: variable step integrator (automatically)
+                           #          = 4: model (call of "increment" in Dymola, e.g.
+                           #                      incr=Time > 2 then 0 else 0.1
+                           #                      dummy=increment(incr))
+                           #          grid = 1,3 is stopped by "StopTime"
+                           #          grid = 2   is stopped by "tgrid(last)"
+                           #          grid = 4   runs forever (stopped by model)
+       1                   # nt       Use every NT time instant, if grid = 3
+       3                   # dense    1/2/3 restart/step/interpolate GRID points
+       1                   # evgrid   0/1 do not/save event points in comm. time grid
+       1                   # evu      0/1 U-discontinuity does not/trigger events
+       0                   # evuord       U-discontinuity order to consider (0,1,...)
+       0                   # error    0/1/2 One message/warning/error messages
+       0                   # jac      0/1 Compute jacobian numerically/by BLOCKJ
+       0                   # xd0c     0/1 Compute/set XD0
+       0                   # f3       0/1 Ignore/use F3 of HDAE (= index 1)
+       0                   # f4       0/1 Ignore/use F4 of HDAE (= index 2)
+       0                   # f5       0/1 Ignore/use F5 of HDAE (= invar.)
+       0                   # debug    flags for debug information (1<<0 uses pdebug) 
+     100                   # pdebug       priority of debug information (1...100)
+       0                   # fmax     Maximum number of evaluations of BLOCKF, if > 0
+       0                   # ordmax   Maximum allowed integration order, if > 0
+       0                   # hmax     Maximum absolute stepsize, if > 0
+       0                   # hmin     Minimum absolute stepsize, if > 0 (use with care!)
+       0                   # h0       Stepsize to be attempted on first step, if > 0
+  2.0000000000000000E-14   # teps     Bound to check, if 2 equal time instants
+  1.0000000000000000E-10   # eveps    Hysteresis epsilon at event points
+      20                   # eviter   Maximum number of event iterations
+  9.9999999999999995E-07   # delaym   Minimum time increment in delay buffers
+       1                   # fexcep   0/1 floating exception crashes/stops dymosim
+       1                   # tscale   clock-time = tscale*simulation-time, if grid = 5
+                           #          > 1: simulation too slow
+                           #          = 1: simulation-time = real-time
+                           #          < 1: simulation too fast
+       1                   # shared   (not used)
+    2473                   # memkey   (not used)
+
+
+#    Output parameters
+int settings(13,1)
+ 0                         # lprec    0/1 do not/store result data in double
+ 1                         # lx       0/1 do not/store x  (state variables)
+ 1                         # lxd      0/1 do not/store xd (derivative of states)
+ 1                         # lu       0/1 do not/store u  (input     signals)
+ 1                         # ly       0/1 do not/store y  (output    signals)
+ 0                         # lz       0/1 do not/store z  (indicator signals)
+ 1                         # lw       0/1 do not/store w  (auxiliary signals)
+ 1                         # la       0/1 do not/store a  (alias     signals)
+ 0                         # lperf    0/1 do not/store performance indicators
+ 0                         # levent   0/1 do not/store event point
+ 1                         # lres     0/1 do not/store results on result file
+ 0                         # lshare   0/1 do not/store info data for shared memory on dsshare.txt
+ 1                         # lform    0/1 ASCII/Matlab-binary storage format of results
+                           #              (for simulation/linearization; not for trimming)
+
+
+#    Names of initial variables
+char initialName(278,12)
+_dummy
+_derdummy
+f_max
+f_resolution
+f1
+f2
+nfi
+fi[1]
+fi[2]
+fi[3]
+fi[4]
+fi[5]
+fi[6]
+fi[7]
+fi[8]
+fi[9]
+fi[10]
+fi[11]
+fi[12]
+fi[13]
+fi[14]
+fi[15]
+fi[16]
+fi[17]
+fi[18]
+fi[19]
+fi[20]
+fi[21]
+y
+Ai[1]
+Ai[2]
+Ai[3]
+Ai[4]
+Ai[5]
+Ai[6]
+Ai[7]
+Ai[8]
+Ai[9]
+Ai[10]
+Ai[11]
+Ai[12]
+Ai[13]
+Ai[14]
+Ai[15]
+Ai[16]
+Ai[17]
+Ai[18]
+Ai[19]
+Ai[20]
+Ai[21]
+Phii[1]
+Phii[2]
+Phii[3]
+Phii[4]
+Phii[5]
+Phii[6]
+Phii[7]
+Phii[8]
+Phii[9]
+Phii[10]
+Phii[11]
+Phii[12]
+Phii[13]
+Phii[14]
+Phii[15]
+Phii[16]
+Phii[17]
+Phii[18]
+Phii[19]
+Phii[20]
+Phii[21]
+info
+ns
+f_max_FFT
+nf
+Ts
+T
+iTick
+y_buf[1]
+y_buf[2]
+y_buf[3]
+y_buf[4]
+y_buf[5]
+y_buf[6]
+y_buf[7]
+y_buf[8]
+y_buf[9]
+y_buf[10]
+y_buf[11]
+y_buf[12]
+y_buf[13]
+y_buf[14]
+y_buf[15]
+y_buf[16]
+y_buf[17]
+y_buf[18]
+y_buf[19]
+y_buf[20]
+y_buf[21]
+y_buf[22]
+y_buf[23]
+y_buf[24]
+y_buf[25]
+y_buf[26]
+y_buf[27]
+y_buf[28]
+y_buf[29]
+y_buf[30]
+y_buf[31]
+y_buf[32]
+y_buf[33]
+y_buf[34]
+y_buf[35]
+y_buf[36]
+y_buf[37]
+y_buf[38]
+y_buf[39]
+y_buf[40]
+y_buf[41]
+y_buf[42]
+y_buf[43]
+y_buf[44]
+y_buf[45]
+y_buf[46]
+y_buf[47]
+y_buf[48]
+y_buf[49]
+y_buf[50]
+y_buf[51]
+y_buf[52]
+y_buf[53]
+y_buf[54]
+y_buf[55]
+y_buf[56]
+y_buf[57]
+y_buf[58]
+y_buf[59]
+y_buf[60]
+y_buf[61]
+y_buf[62]
+y_buf[63]
+y_buf[64]
+y_buf[65]
+y_buf[66]
+y_buf[67]
+y_buf[68]
+y_buf[69]
+y_buf[70]
+y_buf[71]
+y_buf[72]
+y_buf[73]
+y_buf[74]
+y_buf[75]
+y_buf[76]
+y_buf[77]
+y_buf[78]
+y_buf[79]
+y_buf[80]
+y_buf[81]
+y_buf[82]
+y_buf[83]
+y_buf[84]
+y_buf[85]
+y_buf[86]
+y_buf[87]
+y_buf[88]
+y_buf[89]
+y_buf[90]
+y_buf[91]
+y_buf[92]
+y_buf[93]
+y_buf[94]
+y_buf[95]
+y_buf[96]
+y_buf[97]
+y_buf[98]
+y_buf[99]
+y_buf[100]
+y_buf[101]
+y_buf[102]
+y_buf[103]
+y_buf[104]
+y_buf[105]
+y_buf[106]
+y_buf[107]
+y_buf[108]
+y_buf[109]
+y_buf[110]
+y_buf[111]
+y_buf[112]
+y_buf[113]
+y_buf[114]
+y_buf[115]
+y_buf[116]
+y_buf[117]
+y_buf[118]
+y_buf[119]
+y_buf[120]
+y_buf[121]
+y_buf[122]
+y_buf[123]
+y_buf[124]
+y_buf[125]
+y_buf[126]
+y_buf[127]
+y_buf[128]
+y_buf[129]
+y_buf[130]
+y_buf[131]
+y_buf[132]
+y_buf[133]
+y_buf[134]
+y_buf[135]
+y_buf[136]
+y_buf[137]
+y_buf[138]
+y_buf[139]
+y_buf[140]
+y_buf[141]
+y_buf[142]
+y_buf[143]
+y_buf[144]
+y_buf[145]
+y_buf[146]
+y_buf[147]
+y_buf[148]
+y_buf[149]
+y_buf[150]
+y_buf[151]
+y_buf[152]
+y_buf[153]
+y_buf[154]
+y_buf[155]
+y_buf[156]
+y_buf[157]
+y_buf[158]
+y_buf[159]
+y_buf[160]
+y_buf[161]
+y_buf[162]
+y_buf[163]
+y_buf[164]
+y_buf[165]
+y_buf[166]
+y_buf[167]
+y_buf[168]
+y_buf[169]
+y_buf[170]
+y_buf[171]
+y_buf[172]
+y_buf[173]
+y_buf[174]
+y_buf[175]
+y_buf[176]
+y_buf[177]
+y_buf[178]
+y_buf[179]
+y_buf[180]
+y_buf[181]
+y_buf[182]
+y_buf[183]
+y_buf[184]
+y_buf[185]
+y_buf[186]
+y_buf[187]
+y_buf[188]
+y_buf[189]
+y_buf[190]
+y_buf[191]
+y_buf[192]
+y_buf[193]
+y_buf[194]
+y_buf[195]
+y_buf[196]
+y_buf[197]
+y_buf[198]
+y_buf[199]
+y_buf[200]
+
+double initialValue(278,6)
+ -1       1                  0  0  2     0   # _dummy
+  0       0                  0  0  3     0   # _derdummy
+  0       4                  0  0  6   256   # f_max
+  0  2.0000000000000001E-01  0  0  6   256   # f_resolution
+ -1       2                  0  0  1   280   # f1
+ -1       3                  0  0  1   280   # f2
+  0      21                  0  0  6   258   # nfi
+  0       0                  0  0  6   256   # fi[1]
+  0       0                  0  0  6   256   # fi[2]
+  0       0                  0  0  6   256   # fi[3]
+  0       0                  0  0  6   256   # fi[4]
+  0       0                  0  0  6   256   # fi[5]
+  0       0                  0  0  6   256   # fi[6]
+  0       0                  0  0  6   256   # fi[7]
+  0       0                  0  0  6   256   # fi[8]
+  0       0                  0  0  6   256   # fi[9]
+  0       0                  0  0  6   256   # fi[10]
+  0       0                  0  0  6   256   # fi[11]
+  0       0                  0  0  6   256   # fi[12]
+  0       0                  0  0  6   256   # fi[13]
+  0       0                  0  0  6   256   # fi[14]
+  0       0                  0  0  6   256   # fi[15]
+  0       0                  0  0  6   256   # fi[16]
+  0       0                  0  0  6   256   # fi[17]
+  0       0                  0  0  6   256   # fi[18]
+  0       0                  0  0  6   256   # fi[19]
+  0       0                  0  0  6   256   # fi[20]
+  0       0                  0  0  6   256   # fi[21]
+  0       0                  0  0  6   328   # y
+  0       0                  0  0  4   320   # Ai[1]
+  0       0                  0  0  4   320   # Ai[2]
+  0       0                  0  0  4   320   # Ai[3]
+  0       0                  0  0  4   320   # Ai[4]
+  0       0                  0  0  4   320   # Ai[5]
+  0       0                  0  0  4   320   # Ai[6]
+  0       0                  0  0  4   320   # Ai[7]
+  0       0                  0  0  4   320   # Ai[8]
+  0       0                  0  0  4   320   # Ai[9]
+  0       0                  0  0  4   320   # Ai[10]
+  0       0                  0  0  4   320   # Ai[11]
+  0       0                  0  0  4   320   # Ai[12]
+  0       0                  0  0  4   320   # Ai[13]
+  0       0                  0  0  4   320   # Ai[14]
+  0       0                  0  0  4   320   # Ai[15]
+  0       0                  0  0  4   320   # Ai[16]
+  0       0                  0  0  4   320   # Ai[17]
+  0       0                  0  0  4   320   # Ai[18]
+  0       0                  0  0  4   320   # Ai[19]
+  0       0                  0  0  4   320   # Ai[20]
+  0       0                  0  0  4   320   # Ai[21]
+  0       0                  0  0  4   320   # Phii[1]
+  0       0                  0  0  4   320   # Phii[2]
+  0       0                  0  0  4   320   # Phii[3]
+  0       0                  0  0  4   320   # Phii[4]
+  0       0                  0  0  4   320   # Phii[5]
+  0       0                  0  0  4   320   # Phii[6]
+  0       0                  0  0  4   320   # Phii[7]
+  0       0                  0  0  4   320   # Phii[8]
+  0       0                  0  0  4   320   # Phii[9]
+  0       0                  0  0  4   320   # Phii[10]
+  0       0                  0  0  4   320   # Phii[11]
+  0       0                  0  0  4   320   # Phii[12]
+  0       0                  0  0  4   320   # Phii[13]
+  0       0                  0  0  4   320   # Phii[14]
+  0       0                  0  0  4   320   # Phii[15]
+  0       0                  0  0  4   320   # Phii[16]
+  0       0                  0  0  4   320   # Phii[17]
+  0       0                  0  0  4   320   # Phii[18]
+  0       0                  0  0  4   320   # Phii[19]
+  0       0                  0  0  4   320   # Phii[20]
+  0       0                  0  0  4   320   # Phii[21]
+  0       0                  0  0  4   330   # info
+  0     200                  0  0  6  1282   # ns
+  0      20                  0  0  6  1280   # f_max_FFT
+  0     101                  0  0  6  1282   # nf
+  0  2.5000000000000001E-02  0  0  6  1280   # Ts
+  0  4.9750000000000005E+00  0  0  6  1280   # T
+  0       0                  0  0  6  1354   # iTick
+  0  6.5000000000000000E+00  0  0  6  1344   # y_buf[1]
+  0       0                  0  0  6  1344   # y_buf[2]
+  0       0                  0  0  6  1344   # y_buf[3]
+  0       0                  0  0  6  1344   # y_buf[4]
+  0       0                  0  0  6  1344   # y_buf[5]
+  0       0                  0  0  6  1344   # y_buf[6]
+  0       0                  0  0  6  1344   # y_buf[7]
+  0       0                  0  0  6  1344   # y_buf[8]
+  0       0                  0  0  6  1344   # y_buf[9]
+  0       0                  0  0  6  1344   # y_buf[10]
+  0       0                  0  0  6  1344   # y_buf[11]
+  0       0                  0  0  6  1344   # y_buf[12]
+  0       0                  0  0  6  1344   # y_buf[13]
+  0       0                  0  0  6  1344   # y_buf[14]
+  0       0                  0  0  6  1344   # y_buf[15]
+  0       0                  0  0  6  1344   # y_buf[16]
+  0       0                  0  0  6  1344   # y_buf[17]
+  0       0                  0  0  6  1344   # y_buf[18]
+  0       0                  0  0  6  1344   # y_buf[19]
+  0       0                  0  0  6  1344   # y_buf[20]
+  0       0                  0  0  6  1344   # y_buf[21]
+  0       0                  0  0  6  1344   # y_buf[22]
+  0       0                  0  0  6  1344   # y_buf[23]
+  0       0                  0  0  6  1344   # y_buf[24]
+  0       0                  0  0  6  1344   # y_buf[25]
+  0       0                  0  0  6  1344   # y_buf[26]
+  0       0                  0  0  6  1344   # y_buf[27]
+  0       0                  0  0  6  1344   # y_buf[28]
+  0       0                  0  0  6  1344   # y_buf[29]
+  0       0                  0  0  6  1344   # y_buf[30]
+  0       0                  0  0  6  1344   # y_buf[31]
+  0       0                  0  0  6  1344   # y_buf[32]
+  0       0                  0  0  6  1344   # y_buf[33]
+  0       0                  0  0  6  1344   # y_buf[34]
+  0       0                  0  0  6  1344   # y_buf[35]
+  0       0                  0  0  6  1344   # y_buf[36]
+  0       0                  0  0  6  1344   # y_buf[37]
+  0       0                  0  0  6  1344   # y_buf[38]
+  0       0                  0  0  6  1344   # y_buf[39]
+  0       0                  0  0  6  1344   # y_buf[40]
+  0       0                  0  0  6  1344   # y_buf[41]
+  0       0                  0  0  6  1344   # y_buf[42]
+  0       0                  0  0  6  1344   # y_buf[43]
+  0       0                  0  0  6  1344   # y_buf[44]
+  0       0                  0  0  6  1344   # y_buf[45]
+  0       0                  0  0  6  1344   # y_buf[46]
+  0       0                  0  0  6  1344   # y_buf[47]
+  0       0                  0  0  6  1344   # y_buf[48]
+  0       0                  0  0  6  1344   # y_buf[49]
+  0       0                  0  0  6  1344   # y_buf[50]
+  0       0                  0  0  6  1344   # y_buf[51]
+  0       0                  0  0  6  1344   # y_buf[52]
+  0       0                  0  0  6  1344   # y_buf[53]
+  0       0                  0  0  6  1344   # y_buf[54]
+  0       0                  0  0  6  1344   # y_buf[55]
+  0       0                  0  0  6  1344   # y_buf[56]
+  0       0                  0  0  6  1344   # y_buf[57]
+  0       0                  0  0  6  1344   # y_buf[58]
+  0       0                  0  0  6  1344   # y_buf[59]
+  0       0                  0  0  6  1344   # y_buf[60]
+  0       0                  0  0  6  1344   # y_buf[61]
+  0       0                  0  0  6  1344   # y_buf[62]
+  0       0                  0  0  6  1344   # y_buf[63]
+  0       0                  0  0  6  1344   # y_buf[64]
+  0       0                  0  0  6  1344   # y_buf[65]
+  0       0                  0  0  6  1344   # y_buf[66]
+  0       0                  0  0  6  1344   # y_buf[67]
+  0       0                  0  0  6  1344   # y_buf[68]
+  0       0                  0  0  6  1344   # y_buf[69]
+  0       0                  0  0  6  1344   # y_buf[70]
+  0       0                  0  0  6  1344   # y_buf[71]
+  0       0                  0  0  6  1344   # y_buf[72]
+  0       0                  0  0  6  1344   # y_buf[73]
+  0       0                  0  0  6  1344   # y_buf[74]
+  0       0                  0  0  6  1344   # y_buf[75]
+  0       0                  0  0  6  1344   # y_buf[76]
+  0       0                  0  0  6  1344   # y_buf[77]
+  0       0                  0  0  6  1344   # y_buf[78]
+  0       0                  0  0  6  1344   # y_buf[79]
+  0       0                  0  0  6  1344   # y_buf[80]
+  0       0                  0  0  6  1344   # y_buf[81]
+  0       0                  0  0  6  1344   # y_buf[82]
+  0       0                  0  0  6  1344   # y_buf[83]
+  0       0                  0  0  6  1344   # y_buf[84]
+  0       0                  0  0  6  1344   # y_buf[85]
+  0       0                  0  0  6  1344   # y_buf[86]
+  0       0                  0  0  6  1344   # y_buf[87]
+  0       0                  0  0  6  1344   # y_buf[88]
+  0       0                  0  0  6  1344   # y_buf[89]
+  0       0                  0  0  6  1344   # y_buf[90]
+  0       0                  0  0  6  1344   # y_buf[91]
+  0       0                  0  0  6  1344   # y_buf[92]
+  0       0                  0  0  6  1344   # y_buf[93]
+  0       0                  0  0  6  1344   # y_buf[94]
+  0       0                  0  0  6  1344   # y_buf[95]
+  0       0                  0  0  6  1344   # y_buf[96]
+  0       0                  0  0  6  1344   # y_buf[97]
+  0       0                  0  0  6  1344   # y_buf[98]
+  0       0                  0  0  6  1344   # y_buf[99]
+  0       0                  0  0  6  1344   # y_buf[100]
+  0       0                  0  0  6  1344   # y_buf[101]
+  0       0                  0  0  6  1344   # y_buf[102]
+  0       0                  0  0  6  1344   # y_buf[103]
+  0       0                  0  0  6  1344   # y_buf[104]
+  0       0                  0  0  6  1344   # y_buf[105]
+  0       0                  0  0  6  1344   # y_buf[106]
+  0       0                  0  0  6  1344   # y_buf[107]
+  0       0                  0  0  6  1344   # y_buf[108]
+  0       0                  0  0  6  1344   # y_buf[109]
+  0       0                  0  0  6  1344   # y_buf[110]
+  0       0                  0  0  6  1344   # y_buf[111]
+  0       0                  0  0  6  1344   # y_buf[112]
+  0       0                  0  0  6  1344   # y_buf[113]
+  0       0                  0  0  6  1344   # y_buf[114]
+  0       0                  0  0  6  1344   # y_buf[115]
+  0       0                  0  0  6  1344   # y_buf[116]
+  0       0                  0  0  6  1344   # y_buf[117]
+  0       0                  0  0  6  1344   # y_buf[118]
+  0       0                  0  0  6  1344   # y_buf[119]
+  0       0                  0  0  6  1344   # y_buf[120]
+  0       0                  0  0  6  1344   # y_buf[121]
+  0       0                  0  0  6  1344   # y_buf[122]
+  0       0                  0  0  6  1344   # y_buf[123]
+  0       0                  0  0  6  1344   # y_buf[124]
+  0       0                  0  0  6  1344   # y_buf[125]
+  0       0                  0  0  6  1344   # y_buf[126]
+  0       0                  0  0  6  1344   # y_buf[127]
+  0       0                  0  0  6  1344   # y_buf[128]
+  0       0                  0  0  6  1344   # y_buf[129]
+  0       0                  0  0  6  1344   # y_buf[130]
+  0       0                  0  0  6  1344   # y_buf[131]
+  0       0                  0  0  6  1344   # y_buf[132]
+  0       0                  0  0  6  1344   # y_buf[133]
+  0       0                  0  0  6  1344   # y_buf[134]
+  0       0                  0  0  6  1344   # y_buf[135]
+  0       0                  0  0  6  1344   # y_buf[136]
+  0       0                  0  0  6  1344   # y_buf[137]
+  0       0                  0  0  6  1344   # y_buf[138]
+  0       0                  0  0  6  1344   # y_buf[139]
+  0       0                  0  0  6  1344   # y_buf[140]
+  0       0                  0  0  6  1344   # y_buf[141]
+  0       0                  0  0  6  1344   # y_buf[142]
+  0       0                  0  0  6  1344   # y_buf[143]
+  0       0                  0  0  6  1344   # y_buf[144]
+  0       0                  0  0  6  1344   # y_buf[145]
+  0       0                  0  0  6  1344   # y_buf[146]
+  0       0                  0  0  6  1344   # y_buf[147]
+  0       0                  0  0  6  1344   # y_buf[148]
+  0       0                  0  0  6  1344   # y_buf[149]
+  0       0                  0  0  6  1344   # y_buf[150]
+  0       0                  0  0  6  1344   # y_buf[151]
+  0       0                  0  0  6  1344   # y_buf[152]
+  0       0                  0  0  6  1344   # y_buf[153]
+  0       0                  0  0  6  1344   # y_buf[154]
+  0       0                  0  0  6  1344   # y_buf[155]
+  0       0                  0  0  6  1344   # y_buf[156]
+  0       0                  0  0  6  1344   # y_buf[157]
+  0       0                  0  0  6  1344   # y_buf[158]
+  0       0                  0  0  6  1344   # y_buf[159]
+  0       0                  0  0  6  1344   # y_buf[160]
+  0       0                  0  0  6  1344   # y_buf[161]
+  0       0                  0  0  6  1344   # y_buf[162]
+  0       0                  0  0  6  1344   # y_buf[163]
+  0       0                  0  0  6  1344   # y_buf[164]
+  0       0                  0  0  6  1344   # y_buf[165]
+  0       0                  0  0  6  1344   # y_buf[166]
+  0       0                  0  0  6  1344   # y_buf[167]
+  0       0                  0  0  6  1344   # y_buf[168]
+  0       0                  0  0  6  1344   # y_buf[169]
+  0       0                  0  0  6  1344   # y_buf[170]
+  0       0                  0  0  6  1344   # y_buf[171]
+  0       0                  0  0  6  1344   # y_buf[172]
+  0       0                  0  0  6  1344   # y_buf[173]
+  0       0                  0  0  6  1344   # y_buf[174]
+  0       0                  0  0  6  1344   # y_buf[175]
+  0       0                  0  0  6  1344   # y_buf[176]
+  0       0                  0  0  6  1344   # y_buf[177]
+  0       0                  0  0  6  1344   # y_buf[178]
+  0       0                  0  0  6  1344   # y_buf[179]
+  0       0                  0  0  6  1344   # y_buf[180]
+  0       0                  0  0  6  1344   # y_buf[181]
+  0       0                  0  0  6  1344   # y_buf[182]
+  0       0                  0  0  6  1344   # y_buf[183]
+  0       0                  0  0  6  1344   # y_buf[184]
+  0       0                  0  0  6  1344   # y_buf[185]
+  0       0                  0  0  6  1344   # y_buf[186]
+  0       0                  0  0  6  1344   # y_buf[187]
+  0       0                  0  0  6  1344   # y_buf[188]
+  0       0                  0  0  6  1344   # y_buf[189]
+  0       0                  0  0  6  1344   # y_buf[190]
+  0       0                  0  0  6  1344   # y_buf[191]
+  0       0                  0  0  6  1344   # y_buf[192]
+  0       0                  0  0  6  1344   # y_buf[193]
+  0       0                  0  0  6  1344   # y_buf[194]
+  0       0                  0  0  6  1344   # y_buf[195]
+  0       0                  0  0  6  1344   # y_buf[196]
+  0       0                  0  0  6  1344   # y_buf[197]
+  0       0                  0  0  6  1344   # y_buf[198]
+  0       0                  0  0  6  1344   # y_buf[199]
+  0       0                  0  0  6  1344   # y_buf[200]
+
+
+# Matrix with 6 columns defining the initial value calculation
+# (columns 5 and 6 are not utilized for the calculation but are
+#  reported by dymosim via dymosim -i for user convenience):
+#
+# column 1: Type of initial value
+#           = -2: special case: for continuing simulation (column 2 = value)
+#           = -1: fixed value (column 2 = fixed value)
+#           =  0: free value, i.e., no restriction (column 2 = initial value)
+#           >  0: desired value (column 1 = weight for optimization
+#                                column 2 = desired value)
+#                 use weight=1, since automatic scaling usually
+#                 leads to equally weighted terms
+# column 2: fixed, free or desired value according to column 1.
+# column 3: Minimum value (ignored, if Minimum >= Maximum).
+# column 4: Maximum value (ignored, if Minimum >= Maximum).
+#           Minimum and maximum restrict the search range in initial
+#           value calculation. They might also be used for scaling.
+# column 5: Category of variable.
+#           = 1: parameter.
+#           = 2: state.
+#           = 3: state derivative.
+#           = 4: output.
+#           = 5: input.
+#           = 6: auxiliary variable.
+# column 6: Data type of variable and flags according to dsBaseType
+#  <value>&3= 0: real.
+#  <value>&3= 1: boolean.
+#  <value>&3= 2: integer.
+#
+# Initial values are calculated according to the following procedure:
+#
+# - If parameters, states and inputs are FIXED, and other variables
+#   are FREE, no special action takes place (default setting).
+#
+# - If there are only FIXED and FREE variables and the number of
+#   FREE parameters, states and inputs is IDENTICAL to the number of
+#   FIXED state derivatives, outputs and auxiliary variables, a non-linear
+#   equation is solved to determine a consistent set of initial conditions.
+#
+# - In all other cases the following optimization problem is solved:
+#      min( sum( weight(i)*( (value(i) - DESIRED(i))/scale(i) )^2 ) )
+#   under the constraint that the differential equation is fulfilled
+#   at the initial time. In most cases weight(i)=1 is sufficient, due
+#   to the automatic scaling (if DESIRED(i) is not close to zero,
+#   scale(i) = DESIRED(i). Otherwise, the scaling is based on the
+#   nominal value (and maybe minimum and maximum values given in 
+#   column 3 and 4). If these values are zero, scale(i)=1 is used).
+#
+char initialDescription(278,98)
+dummy
+derdummy
+Maximum frequency of interest [Hz]
+Frequency resolution [Hz]
+Frequency of sine [Hz]
+Frequency of cosine [Hz]
+Number of frequency points of the interested frequency range (only up to f_max) [:#(type=Integer)]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+FFT frequencies of interested frequency points [Hz]
+Signal from which FFT is computed
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT amplitudes of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+FFT phases of interested frequency points
+Information flag from FFT computation; = 0: FFT successfully computed [:#(type=Integer)]
+[:#(type=Integer)]
+Maximum frequency used by FFT [Hz]
+Number of frequency points [:#(type=Integer)]
+Sample period [s]
+Simulation time for one FFT calculation [s]
+[:#(type=Integer)]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
