@@ -19,3 +19,6 @@ FFT_Example
 FFT_Test
 FFT_wrapper
 func_FFT_Modelica
+IFFT_Test
+IFFT_read_data_plot
+FFT_mag_phase_reconstruct

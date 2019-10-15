@@ -1,30 +1,5 @@
-Log-file of program ./dymosim
-(generated: Mon Oct 14 20:16:58 2019)
+Log-file of program .\Modelica.Utilities.Streams.readMatrixSize.exe
+(generated: Tue Oct 15 14:08:05 2019)
 
-dymosim started
-... "dsin.txt" loading (dymosim input file)
-... "RealFFT1.mat" creating (simulation result file)
-
-Integration started at T = 0 using integration method DASSL
-(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dassault Systemes))
-... FFT result computed at time = 4.975 s stored on file: E:/Research/DC Design Tool/Workspace/Modelica_HPF/HPF/RealFFT1_resultFFT.mat
-Integration terminated successfully at T = 6
-  WARNING: You have many time events. This is probably due to fast sampling.
-  Enable logging of event in Simulation/Setup/Debug/Events during simulation
-   CPU-time for integration                : 0.016 seconds
-   CPU-time for one grid interval          : 0.032 milliseconds
-   CPU-time for initialization             : 0.001 seconds
-   Number of result points                 : 961
-   Number of grid points                   : 501
-   Number of accepted steps                : 25
-   Number of f-evaluations (dynamics)      : 25
-   Number of Jacobian-evaluations          : 23
-   Number of model time events             : 240
-   Number of input time events             : 0
-   Number of state events                  : 0
-   Number of step events                   : 0
-   Minimum integration stepsize            : 1.2e-005
-   Maximum integration stepsize            : 2.4
-   Maximum integration order               : 1
-Calling terminal section
-... "dsfinal.txt" creating (final states)
+Modelica.Utilities.Streams.readMatrixSize.exe started
+... "empty.txt" loading (dymosim input file)

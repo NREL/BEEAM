@@ -36,11 +36,13 @@ model FFT_Example
 
   Integer iTick(start=0, fixed=true);
   Real y_buf[ns](each start=0, each fixed=true);
+  
+  Integer k(start = 0);
 initial equation
   for i in 1:nfi loop
      fi[i] = (i-1)*f_resolution;
   end for;
-
+   
 algorithm
   when sample(0,Ts) then
      iTick :=pre(iTick) + 1;
@@ -50,6 +52,7 @@ algorithm
      end if;
 
      if iTick == ns then
+       k := k + 1;
        (info,Ai,Phii) :=  Modelica.Math.FastFourierTransform.realFFT(y_buf, nfi);
        Modelica.Math.FastFourierTransform.realFFTwriteToFile(time,FFT_resultFileName,f_max,Ai,Phii);
      end if;

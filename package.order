@@ -2,6 +2,7 @@ Documentation
 Examples
 SystemDef
 SinglePhase
+Sensors
 MultiPhase
 DC
 Machines
@@ -17,4 +18,3 @@ Todo
 Templates
 Test
 Test_components
-Sensors
