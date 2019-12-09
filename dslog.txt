@@ -1,5 +1,0 @@
-Log-file of program .\Modelica.Utilities.Streams.readMatrixSize.exe
-(generated: Tue Oct 15 14:08:05 2019)
-
-Modelica.Utilities.Streams.readMatrixSize.exe started
-... "empty.txt" loading (dymosim input file)

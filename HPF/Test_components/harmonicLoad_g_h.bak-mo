@@ -1,0 +1,14 @@
+within HPF.Test_components;
+
+function harmonicLoad_g_h
+  input Real alpha;
+  input Real beta;
+  input Real gamma;
+  input Real nu;
+  input Real v1;
+  input Real i1;
+  input Real h[:];
+  output Real i[size(h, 1)];
+algorithm
+  i[1:size(h, 1)] := nu .* exp(-gamma .* i1 .* h) .+ (alpha .* v1) .+ (beta .* v1^2);
+end harmonicLoad_g_h;
