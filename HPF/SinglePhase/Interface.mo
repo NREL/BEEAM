@@ -99,13 +99,13 @@ package Interface
     Connections.branch(pin_p.reference, pin_n.reference);
     pin_p.reference.theta = pin_n.reference.theta;
     omega = der(pin_p.reference.theta);
-/*
+  /*
       voltage drop
     */
     v = pin_p.v - pin_n.v;
     i.re = pin_p.iRe;
     i.im = pin_p.iIm;
-/*
+  /*
       Conservation of charge (KCL).
     */
     pin_p.iRe + pin_n.iRe = {0.0 for i in 1:systemDef.numHrm};

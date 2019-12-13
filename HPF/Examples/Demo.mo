@@ -5,9 +5,9 @@ model Demo
   HPF.SinglePhase.Sources.VoltageSrcLoadData PhA(fileName = "HPF/InputData/Examples/DC_Testbed/hrmsData_volt_prim_confAC_1_A.mat") annotation (
     Placement(visible = true, transformation(origin = {-82, 24}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Sources.VoltageSrcLoadData PhB(fileName = "HPF/InputData/Examples/DC_Testbed/hrmsData_volt_prim_confAC_1_B.mat") annotation (
-    Placement(visible = true, transformation(origin = {-68, 4}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-64, 4}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Sources.VoltageSrcLoadData PhC(fileName = "HPF/InputData/Examples/DC_Testbed/hrmsData_volt_prim_confAC_1_C.mat") annotation (
-    Placement(visible = true, transformation(origin = {-54, -14}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-44, -14}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.Machines.Transformers_iPh.Test_DY test_DY(N = 10) annotation (
     Placement(visible = true, transformation(origin = {-16, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation (
@@ -31,16 +31,16 @@ model Demo
 equation
   connect(PhA.pin_p, test_DY.pinPrim_A) annotation (
     Line(points = {{-82, 34}, {-26, 34}}));
-  connect(PhB.pin_p, test_DY.pinPrim_B) annotation (
-    Line(points = {{-68, 14}, {-68, 24}, {-26, 24}}));
-  connect(PhC.pin_p, test_DY.pinPrim_C) annotation (
-    Line(points = {{-54, -4}, {-54, 14}, {-26, 14}}));
+  connect(PhB.pin_p, test_DY.pinPrim_B) annotation(
+    Line(points = {{-64, 14}, {-64, 24}, {-26, 24}}));
+  connect(PhC.pin_p, test_DY.pinPrim_C) annotation(
+    Line(points = {{-44, -4}, {-44, 14}, {-26, 14}}));
   connect(PhA.pin_n, ground.pin) annotation (
     Line(points = {{-82, 14}, {-82, -32}}, color = {117, 80, 123}));
-  connect(PhB.pin_n, ground.pin) annotation (
-    Line(points = {{-68, -6}, {-70, -6}, {-70, -32}, {-82, -32}}, color = {117, 80, 123}));
-  connect(PhC.pin_n, ground.pin) annotation (
-    Line(points = {{-54, -24}, {-54, -32}, {-82, -32}}, color = {117, 80, 123}));
+  connect(PhB.pin_n, ground.pin) annotation(
+    Line(points = {{-64, -6}, {-64, -32}, {-82, -32}}, color = {117, 80, 123}));
+  connect(PhC.pin_n, ground.pin) annotation(
+    Line(points = {{-44, -24}, {-44, -32}, {-82, -32}}, color = {117, 80, 123}));
   connect(test_DY.pinSec_A, led_driver.hPin_P) annotation (
     Line(points = {{-6, 34}, {48, 34}}));
   connect(laptop2.hPin_P, test_DY.pinSec_B) annotation (

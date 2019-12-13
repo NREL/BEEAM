@@ -2,19 +2,21 @@ within HPF.Test_components;
 model HarmonicSource_MATLAB_Implementation_Cmplx "Harmonic source"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   parameter Real P = 1000 "Real power drawn by DC side";
+  parameter Real phi = 0.3 "angle";
   parameter Real alpha = 3e-2;
   parameter Real beta = 3e-4;
   parameter Real gamma = 0.09544;
   parameter Real nu = 10.7;
   parameter Real m = 0.1 "Phase model coef 1";
   parameter Real c = 0.1 "Phase model coef 2";
+
   Real vMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(v[:]);
   Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
   Real tmp1[systemDef.numHrm - 1] = nu .* exp(-gamma .* i[1].re .* systemDef.hrms[2:systemDef.numHrm]);
   Real tmp2[systemDef.numHrm - 1] = alpha .* v[2:systemDef.numHrm].re + beta .* v[2:systemDef.numHrm].re .^ 2;
 
-  Real magS(start = 1);
-  Real Q(start = 1);
+  //Real magS(start = 1);
+  //Real Q(start = 1);
 equation
 /*
     for h = 1
@@ -27,10 +29,13 @@ equation
   */
   //i[1].re = (P * cos(m*1+c + Modelica.ComplexMath.arg(v[1]))) / (cos(m*1+c)*Modelica.ComplexMath.'abs'(v[1]));
   //i[1].im = (P * sin(m*1+c + Modelica.ComplexMath.arg(v[1]))) / (cos(m*1+c)*Modelica.ComplexMath.'abs'(v[1]));
-
+  /*
   P = magS * cos(- (m*1 + c));
   Q = magS * sin(- (m*1 + c));
-  Complex(P, Q) = v[1] * Modelica.ComplexMath.conj(i[1]);
+  */
+  P = v[:].re * i[:].re + v[:].im * i[:].im;
+  P * tan(phi) = v[:].im * i[:].re - v[:].re * i[:].im;
+  //Complex(P, Q) = v[1] * Modelica.ComplexMath.conj(i[1]);
 /*
     for h > 1
     ---------
