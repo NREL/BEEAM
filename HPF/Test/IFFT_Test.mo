@@ -1,6 +1,6 @@
 within HPF.Test;
 model IFFT_Test
-  
+
   /*
     IFFT section. 
     Read the mat file containing data. 
@@ -11,13 +11,13 @@ model IFFT_Test
   final parameter String resourceRetVal = Modelica.Utilities.Files.loadResource("modelica://" + "HPF.Test/test_waveform.mat");
   final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetVal, "data");
   final parameter Real data[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetVal, "data", matDim[1], 1);
-  
-  
+
+
   parameter Real uRe[matDim[1]](each start = 0) = data[:, 1];
   parameter Real uIm[matDim[1]](each start = 0);  // imaginary part is zero for real data
   final output Real y_fftRe[matDim[1]](each start = 0, each fixed = true);
   final output Real y_fftIm[matDim[1]](each start = 0, each fixed = true);
-  
+
   // reading fft data from file
   final parameter String resourceRetVal_fft = Modelica.Utilities.Files.loadResource("modelica://" + "HPF.Test/test_waveform_fft.mat");
   final parameter Integer matDim_fft[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetVal_fft, "uRe");
@@ -30,7 +30,7 @@ model IFFT_Test
  // parameter Real uRe[matDim[1]](each start = 0) = data[:, 1];
   //parameter Real uIm[matDim[1]](each start = 0);  // imaginary part is zero for real data
   Real y1(start = 0);
-  
+
   Real y(start = 0);
   Integer k1(start = 1);
   Integer k2(start = 1);
@@ -54,24 +54,24 @@ algorithm
     data plotting using sample()
   */
   //if k >= 1
-  when sample(1e-3, 2*1e-3) and k2 == 0 then 
+  when sample(1e-3, 2*1e-3) and k2 == 0 then
     y := data[k1, 1];
     y1 := y_ifftRe[k1];
     k1 := k1 + 1;
   end when;
-  
+
   when sample( 1e-3, 2*1e-3) and k2 == 1 then
     k2 := 0;
-    
+
       // do an fft
       (y_fftRe, y_fftIm) := HPF.Utilities.fft(uRe, uIm);
       // do an ifft
       (y_ifftRe, y_ifftIm) := HPF.Utilities.ifft(u_FFTRe, u_FFTIm);
       k3 := k3 + 1;
-      
+
   end when;
-  
-  
+
+
 equation
 
 end IFFT_Test;

@@ -1,5 +1,4 @@
 within HPF.Test;
-
 model FFT_mag_phase_reconstruct_oddHarmonics
   parameter Real f = 60;
   parameter Real fs = 1 / 1e-4;
@@ -32,10 +31,10 @@ model FFT_mag_phase_reconstruct_oddHarmonics
   Real arg[matDim_fft_EZ[1]] = data_arg_all[:, 1];
   Real y_all[N](each start = 0);
   Real y_wv_all(start = 0);
-  
+
   Integer k1(start = 1);
   Integer k2(start = 1);
-  
+
   // simulating a scenario in simulation with only odd harmonics
 
   final parameter Integer M = integer(floor(matDim_fft[1]/2));
@@ -46,13 +45,14 @@ model FFT_mag_phase_reconstruct_oddHarmonics
  // Real magEvenZero[M * 2](each start = 0);
   //Real argEvenZero[M * 2](each start = 0);
 initial algorithm
-  
-algorithm
+
+equation
 // get fft complex data from file mag and phase data
   //(yRe[1:N], yIm[1:N]) := HPF.Utilities.fft_fromMagPhase(mag1, arg1, N);
 // odd harmonics
-  
-  
+
+
+algorithm
   when sample(2*ts, 3 * ts) and k2 == 0 then
     y_wv := y[k1];
     y_wv_EZ := y_EZ[k1];
@@ -68,7 +68,7 @@ algorithm
   end when;
 equation
 
-  annotation(
+  annotation (
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
   __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));

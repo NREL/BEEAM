@@ -2,7 +2,7 @@ within HPF.Test;
 model IFFT_read_data_plot
   //Integer ret = FFT_wrapper({Complex(1, 3), Complex(3, 5)});
   Complex a[16] = {Complex(1, 0.0), Complex(1, 0), Complex(1, 0), Complex(1, 0), Complex(1, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(0, 0), Complex(1, 0), Complex(1, 0)};
-  
+
   final output Real yRe1[16](each start = 0, each fixed = true);
   final output Real yIm1[16](each start = 0, each fixed = true);
   Integer k(start = 0); // keeps track of number of events

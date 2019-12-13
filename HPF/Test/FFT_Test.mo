@@ -2,7 +2,7 @@ within HPF.Test;
 model FFT_Test
 
   //Integer ret = FFT_wrapper({Complex(1, 3), Complex(3, 5)});
-  
+
   Complex a[16] = {Complex(1, 0.0),
                   Complex(1, 0),
                   Complex(1, 0),
@@ -19,12 +19,12 @@ model FFT_Test
                   Complex(0, 0),
                   Complex(1, 0),
                   Complex(1, 0)};
-   
+
   final Integer retVal(each start=0, each fixed=true);
   final output Real yRe1[16](each start=0, each fixed=true);
   final output Real yIm1[16](each start=0, each fixed=true);
-  
-  Integer k(start = 0); // keeps track of number of events 
+
+  Integer k(start = 0); // keeps track of number of events
 algorithm
   /*
     When running the model in the algorithm block without a time
@@ -33,13 +33,13 @@ algorithm
     A workaround is, to put the fft function call in a when block.
     
   */
-  
+
   when time >  1e-3 then
     k := k + 1;
       (retVal, yRe1, yIm1) := HPF.Utilities.fft(a.re, a.im);
   end when;
-  
-  
+
+
 
 equation
   //aRe[:] = a[:].re;

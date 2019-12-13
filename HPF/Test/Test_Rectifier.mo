@@ -15,12 +15,8 @@ model Test_Rectifier
     Placement(visible = true, transformation(origin = {30, -48}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Impedance z(z = 5 + 2 * j) annotation (
     Placement(visible = true, transformation(origin = {-62, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.Ammeter_Freq2Time iMsr_Mains annotation (
-    Placement(visible = true, transformation(origin = {-88, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z1(z = 5 + 2 * j) annotation (
     Placement(visible = true, transformation(origin = {46, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.Ammeter_Freq2Time iMsr_laptop annotation (
-    Placement(visible = true, transformation(origin = {-34, -22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(v.pin_n, ground1.pin) annotation (
     Line(points = {{-120, -20}, {-120, -30}}, color = {117, 80, 123}));
@@ -32,18 +28,14 @@ equation
     Line(points = {{30, -58}, {30, -64}, {8, -64}, {8, -68}}, color = {0, 0, 255}));
   connect(laptop_adapter.hPin_N, v.pin_n) annotation (
     Line(points = {{-18, -50}, {-65, -50}, {-65, -20}, {-120, -20}}, color = {117, 80, 123}));
-  connect(v.pin_p, iMsr_Mains.pin_p) annotation (
-    Line(points = {{-120, 0}, {-98, 0}}));
-  connect(iMsr_Mains.pin_n, z.pin_p) annotation (
-    Line(points = {{-78, 0}, {-72, 0}, {-72, 0}, {-72, 0}}, color = {117, 80, 123}));
   connect(z1.pin_n, ground1.pin) annotation (
     Line(points = {{56, 0}, {66, 0}, {66, -80}, {-98, -80}, {-98, -30}, {-120, -30}}, color = {117, 80, 123}));
   connect(z.pin_n, z1.pin_p) annotation (
     Line(points = {{-52, 0}, {36, 0}, {36, 0}, {36, 0}}, color = {117, 80, 123}));
-  connect(iMsr_laptop.pin_p, z.pin_n) annotation (
-    Line(points = {{-34, -12}, {-34, 0}, {-52, 0}}));
-  connect(iMsr_laptop.pin_n, laptop_adapter.hPin_P) annotation (
-    Line(points = {{-34, -32}, {-34, -38}, {-18, -38}}, color = {117, 80, 123}));
+  connect(v.pin_p, z.pin_p) annotation (Line(points={{-120,0},{-98,0},{-98,0},{
+          -72,0}}, color={0,0,0}));
+  connect(z.pin_n, laptop_adapter.hPin_P) annotation (Line(points={{-52,0},{-32,
+          0},{-32,-38},{-18,-38}}, color={117,80,123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),

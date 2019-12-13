@@ -1,5 +1,4 @@
 within HPF.Test;
-
 model FFT_Example
   "Example demonstrating the use of an FFT calculation during simulation (and storing both amplitudes and phases on file)"
   import Modelica.Constants.pi;
@@ -36,13 +35,13 @@ model FFT_Example
 
   Integer iTick(start=0, fixed=true);
   Real y_buf[ns](each start=0, each fixed=true);
-  
+
   Integer k(start = 0);
 initial equation
   for i in 1:nfi loop
      fi[i] = (i-1)*f_resolution;
   end for;
-   
+
 algorithm
   when sample(0,Ts) then
      iTick :=pre(iTick) + 1;
