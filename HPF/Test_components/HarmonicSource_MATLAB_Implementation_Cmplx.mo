@@ -27,12 +27,7 @@ equation
     S = P + jQ = V*conj(I)
       = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
   */
-  //i[1].re = (P * cos(m*1+c + Modelica.ComplexMath.arg(v[1]))) / (cos(m*1+c)*Modelica.ComplexMath.'abs'(v[1]));
-  //i[1].im = (P * sin(m*1+c + Modelica.ComplexMath.arg(v[1]))) / (cos(m*1+c)*Modelica.ComplexMath.'abs'(v[1]));
-  /*
-  P = magS * cos(- (m*1 + c));
-  Q = magS * sin(- (m*1 + c));
-  */
+  
   P = v[:].re * i[:].re + v[:].im * i[:].im;
   P * tan(phi) = v[:].im * i[:].re - v[:].re * i[:].im;
   //Complex(P, Q) = v[1] * Modelica.ComplexMath.conj(i[1]);
@@ -44,11 +39,13 @@ equation
     Complex(g_h_out, 0)
   */
 
-/*
-  i[2:systemDef.numHrm].re = (nu*exp(-gamma*Modelica.ComplexMath.'abs'(i[1])).*systemDef.hrms[2:systemDef.numHrm]).*cos((m.*systemDef.hrms[2:systemDef.numHrm]) + Modelica.ComplexMath.arg(i[1]) .* systemDef.hrms[2:systemDef.numHrm] .+ c);
+
+  i[2:systemDef.numHrm].re = (nu*exp(-gamma*Modelica.ComplexMath.'abs'(i[1])).*systemDef.hrms[2:systemDef.numHrm]) .* cos((m.*systemDef.hrms[2:systemDef.numHrm]) + Modelica.ComplexMath.arg(i[1]) .* systemDef.hrms[2:systemDef.numHrm] .+ c);
+  
   i[2:systemDef.numHrm].im = (nu*exp(-gamma*Modelica.ComplexMath.'abs'(i[1])).*systemDef.hrms[2:systemDef.numHrm]).*sin((m.*systemDef.hrms[2:systemDef.numHrm]) + Modelica.ComplexMath.arg(i[1]) .* systemDef.hrms[2:systemDef.numHrm] .+ c);
-  */
-  i[2:systemDef.numHrm].im = {0 for i in 1:systemDef.numHrm-1};
+  
+  //i[2:systemDef.numHrm].im = {0 for i in 1:systemDef.numHrm-1};
+  
   annotation (
     Icon(graphics={  Rectangle(extent = {{-80, 80}, {80, -80}}), Line(origin = {-90, 0}, points = {{-10, 0}, {10, 0}}), Line(origin = {90, 0}, points = {{10, 0}, {-10, 0}}), Text(origin = {-20, -47}, rotation = 90, extent = {{-20, 15}, {112, -45}}, textString = "g(.)", textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold}), Text(origin = {20, 138}, rotation = 90, extent = {{-46, 50}, {192, -8}}, textString = "%name",
             horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}, coordinateSystem(initialScale = 0.1)),

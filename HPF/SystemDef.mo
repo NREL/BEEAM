@@ -14,20 +14,22 @@ class SystemDef "System Definition block"
   final parameter Integer N = integer(floor(fs / fFund)) "Size of FFT";
   parameter Integer numPh = 3 "Number of phases";
 
+  // removing mode selection section
   /*
     selects the mode of operation, used by nonlinear harmonic loads 
     Modes definition: (selecting boolean as the modes would have only 2 states)
     true = mode: power sink / source
     false = mode: constant current source
   */
-  Boolean modeSelect(start = false);
+ // Boolean modeSelect(start = false);
 
   /*
     Data read write events.
   */
+  /*
   Boolean eventWriteData(start = false);
   Boolean eventReadData(start = false);
-
+  */
 
 initial algorithm
   //modeSelect := false;
@@ -54,13 +56,12 @@ algorithm
       
       System switches from power flow to current sources
     */
+    
+    /*
     when time > 0.5 then
       modeSelect := true;
     end when;
-
-    /*
-      Additional time events for saving and reading node voltages
-    */
+    // Additional time events for saving and reading node voltages
     when time > 0.25 then
       eventWriteData := true;
     end when;
@@ -68,6 +69,11 @@ algorithm
     when time > 0.4 then
       eventReadData := true;
     end when;
+    */
+    
+    
+    
+    
     /*
       Annotation:
       This sets the default name for the model when used in a simulation. There can
