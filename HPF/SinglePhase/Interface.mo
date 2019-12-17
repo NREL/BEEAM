@@ -69,8 +69,8 @@ package Interface
               lead to solver failing to solve. Nominal value of one 
               seems to work! 
             */
-    Complex v[systemDef.numHrm](each re(start = 0, nominal = 100), each im(start = 0, nominal = 1)) "Complex voltage";
-    Complex i[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex current";
+    Complex v[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex voltage";
+    Complex i[systemDef.numHrm](each re(start = 0, nominal = 0), each im(start = 0, nominal = 0)) "Complex current";
     /*
                   Defining omega for the overconstrained system workaround.
                   omega would the derivative of alpha. ( additional constraint,
