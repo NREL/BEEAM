@@ -1,5 +1,6 @@
 within HPF.PowerElectronicsConverters;
-model AC2DC_SinglePhase "AC to DC Converter Single Phase"
+
+model AC2DC_basic
   outer SystemDef systemDef;
   // component properties for post processing
   HPF.Utilities.ComponentProperties properties(ComponentType = "NonlinearLoad");
@@ -20,8 +21,7 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
   parameter Real efficiency(start = 1) = 0.9 "Rectifier efficiency (replace with efficiency model or curve)";
 
 
-  parameter Real rectifierModel = 0
-                                   "Rectifier model (Other model parameters passed as a record?)";
+  //parameter Real rectifierModel = 0 "Rectifier model (Other model parameters passed as a record?)";
 
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation (
     Placement(visible = true, transformation(origin = {16, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -45,19 +45,15 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
 
 //protected
   // read model from file
-  parameter String modelFileName "Rectifier harmonic model mat file";
-  final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
-  final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "mag");
-  // assuming magnitude and angle vectors have same dimension
-  final parameter Real magDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "mag", matDim[1], 1);
-  final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "arg", matDim[1], 1);
-
+  parameter Real mdlMag[:] = {1} "Harmonic magnitudes (normalized wrt fundamental)";
+  parameter Real mdlArg[:] = {1}"Harmonic phases (modeled w/ voltage fundamental at zero rad)";
+  
   Real argS "Phase angle for fundamental apparent power";
   Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
-  Real argAdj[systemDef.numHrm - 1] = argDataMat[2:(systemDef.numHrm), 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end]);
+  Real argAdj[systemDef.numHrm - 1] = mdlArg[2:(systemDef.numHrm)] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end]);
   // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = {Complex(cos(argAdj[i]), sin(argAdj[i])) for i in 1:systemDef.numHrm - 1};
-  Real c[systemDef.numHrm - 1] = magScale * magDataMat[2:systemDef.numHrm, 1];
+  Real c[systemDef.numHrm - 1] = magScale * mdlMag[2:systemDef.numHrm];
   
 algorithm
   //argAdj := argDataMat[1:systemDef.numHrm - 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms);
@@ -66,7 +62,7 @@ equation
   /*
     Solve for imaginary power Q_1 (fundamental). 
   */
-  argS = - argDataMat[1, 1];  // power angle is negative of the model fundamental
+  argS = - mdlArg[1];  // power angle is negative of the model fundamental
   P = S * cos(argS);
   Q = S * sin(argS);
 
@@ -114,4 +110,5 @@ Test documentation using a word processor.
 </p>
 
 </body></html>"));
-end AC2DC_SinglePhase;
+
+end AC2DC_basic;
