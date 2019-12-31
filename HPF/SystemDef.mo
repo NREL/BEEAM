@@ -56,7 +56,7 @@ algorithm
       
       System switches from power flow to current sources
     */
-    
+
     /*
     when time > 0.5 then
       modeSelect := true;
@@ -70,10 +70,10 @@ algorithm
       eventReadData := true;
     end when;
     */
-    
-    
-    
-    
+
+
+
+
     /*
       Annotation:
       This sets the default name for the model when used in a simulation. There can
@@ -90,7 +90,11 @@ algorithm
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "No \"systemDef\" component is defined.
     Drag SystemDef into the top level of your model.",
-  Icon(coordinateSystem(grid = {0, 0}, extent = {{-140, -140}, {140, 100}}, initialScale = 0.1), graphics = {Rectangle(origin = {-40, 0}, lineColor = {92, 53, 102}, extent = {{-100, 100}, {180, -140}}), Line(origin = {-41.812, 59.8666}, points = {{-98, 0}, {182, 0}}, color = {92, 53, 102}), Text(origin = {-94, 25}, extent = {{-34, 15}, {234, -5}}, textString = "Harmonics=", horizontalAlignment = TextAlignment.Left), Text(origin = {-96, -53}, extent = {{-34, 13}, {334, -7}}, textString = "Fundamental=%fFund Hz", horizontalAlignment = TextAlignment.Left), Text(origin = {-54, 81}, lineColor = {92, 53, 102}, fillColor = {92, 53, 102}, extent = {{-34, 13}, {150, -15}}, textString = "System Setup", textStyle = {TextStyle.Bold, TextStyle.Bold}), Text(origin = {-90, -13}, extent = {{-34, 13}, {444, -7}}, textString = "%hrms", horizontalAlignment = TextAlignment.Left), Text(origin = {-96, -93}, extent = {{-34, 13}, {476, -7}}, textString = "Sampling Freq=%fs Hz", horizontalAlignment = TextAlignment.Left)}),
+  Icon(coordinateSystem(grid = {0, 0}, extent = {{-140, -140}, {140, 100}}, initialScale = 0.1), graphics={  Rectangle(origin = {-40, 0}, lineColor = {92, 53, 102}, extent = {{-100, 100}, {180, -140}}), Line(origin = {-41.812, 59.8666}, points = {{-98, 0}, {182, 0}}, color = {92, 53, 102}), Text(origin = {-94, 25}, extent = {{-34, 15}, {234, -5}}, textString = "Harmonics=",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-96, -53}, extent = {{-34, 13}, {334, -7}}, textString = "Fundamental=%fFund Hz",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-54, 81}, lineColor = {92, 53, 102}, fillColor = {92, 53, 102}, extent = {{-34, 13}, {150, -15}}, textString = "System Setup", textStyle = {TextStyle.Bold, TextStyle.Bold}), Text(origin = {-90, -13}, extent = {{-34, 13}, {444, -7}}, textString = "%hrms",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-96, -93}, extent = {{-34, 13}, {476, -7}}, textString = "Sampling Freq=%fs Hz",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
   Documentation(info = "<html><head></head><body>
   <div><br></div>
   <div><u> Example </u></div>

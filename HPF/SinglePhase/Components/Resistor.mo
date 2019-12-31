@@ -12,7 +12,7 @@ model Resistor "Resistive element"
   Real vFundArg = Modelica.ComplexMath.arg(v[1]);
   Real iFundAbs = Modelica.ComplexMath.'abs'(i[1]);
   Real iFundArg = Modelica.ComplexMath.arg(i[1]);
- 
+
 equation
   /*
     vRe + j*vIm = (zRe*iRe - zIm*iIm) + j*(zRe*iIm + zIm*iRe);

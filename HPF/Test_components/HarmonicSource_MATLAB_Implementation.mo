@@ -9,7 +9,7 @@ model HarmonicSource_MATLAB_Implementation "Harmonic source"
 
   Real vMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(v[:]);
   Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
-  
+
  Real tmp1[systemDef.numHrm-1] =  nu .* exp(-gamma .* i[1].re .* systemDef.hrms[2:systemDef.numHrm]);
  Real tmp2[systemDef.numHrm-1] =  (alpha .* v[2:systemDef.numHrm].re + beta .* (v[2:systemDef.numHrm].re).^2);
 equation
@@ -22,7 +22,7 @@ equation
     S = P + jQ = V*conj(I)
       = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
   */
-  P = i[1].re*v[1].re + (v[1].im*i[1].im) - (alpha * (v[1].re)^2) - (beta * (v[1].re)^3) ;
+  P = i[1].re*v[1].re + (v[1].im*i[1].im) - (alpha * (v[1].re)^2) - (beta * (v[1].re)^3);
   0 = v[1].im*i[1].re - v[1].re*i[1].im;
 
   /*

@@ -5,9 +5,9 @@ import Modelica.ComplexMath.j;
 
   parameter Real P1 = 1 "Real Power";
   parameter Real argS = 1 "angle";
-  
+
   Real magV = Modelica.ComplexMath.'abs'(v[1]);
-  
+
 equation
 
   P1 = v[:].re*i[:].re + v[:].im*i[:].im;

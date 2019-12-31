@@ -23,20 +23,20 @@ model DeltaWye_tmp
     Placement(visible = true, transformation(origin={80,-20},    extent = {{-6, -6}, {6, 6}}, rotation = 0), iconTransformation(origin={100, -100},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation (Placement(visible = true,transformation(
           extent = {{70, -72}, {82, -60}}, rotation = 0), iconTransformation(extent = {{-10, -160}, {10, -140}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z annotation(
+  HPF.SinglePhase.Components.Impedance z annotation (
     Placement(visible = true, transformation(origin = {-46, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z1 annotation(
+  HPF.SinglePhase.Components.Impedance z1 annotation (
     Placement(visible = true, transformation(origin = {-44, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z2 annotation(
+  HPF.SinglePhase.Components.Impedance z2 annotation (
     Placement(visible = true, transformation(origin = {-40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z3 annotation(
+  HPF.SinglePhase.Components.Impedance z3 annotation (
     Placement(visible = true, transformation(origin = {36, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z4 annotation(
+  HPF.SinglePhase.Components.Impedance z4 annotation (
     Placement(visible = true, transformation(origin = {36, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z5 annotation(
+  HPF.SinglePhase.Components.Impedance z5 annotation (
     Placement(visible = true, transformation(origin = {38, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(z.pin_n, idealTransformer1.pinP_Prim) annotation(
+  connect(z.pin_n, idealTransformer1.pinP_Prim) annotation (
     Line(points = {{-36, 60}, {-10, 60}, {-10, 60}, {-10, 60}}, color = {117, 80, 123}));
 
 annotation (

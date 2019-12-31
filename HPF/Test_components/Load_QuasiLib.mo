@@ -1,5 +1,4 @@
 within HPF.Test_components;
-
 model Load_QuasiLib
   import Modelica.ComplexMath.j;
   extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
@@ -7,9 +6,9 @@ model Load_QuasiLib
   //parameter Complex S1(re(start = 1), im(start = 1)) = 1 + 0*j;
   parameter Real P1 = 1000;
   parameter Real arg_S = 1.3;
-  
+
   Real Q1(start = 1);
-  
+
   Real mag_S(start = 1);
 equation
 

@@ -13,22 +13,22 @@ model MATLAB_Implementation_Cmplx
     Placement(visible = true, transformation(origin = {-64, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource V0(vArg = {0 for i in 1:systemDef.numHrm}, vMag = cat(1, {120}, {1e-3 for i in 2:systemDef.numHrm})) annotation (
     Placement(visible = true, transformation(origin = {-64, -4}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Components.Impedance z(z = Complex(0, 0)) annotation(
+  HPF.SinglePhase.Components.Impedance z(z = Complex(0, 0)) annotation (
     Placement(visible = true, transformation(origin = {-8, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(load.pin_n, ground.pin) annotation(
+  connect(load.pin_n, ground.pin) annotation (
     Line(points = {{8, -16}, {8, -30}, {-64, -30}}, color = {117, 80, 123}));
-  connect(V0.pin_n, ground.pin) annotation(
+  connect(V0.pin_n, ground.pin) annotation (
     Line(points = {{-64, -14}, {-64, -30}}, color = {117, 80, 123}));
-  connect(Z01.pin_p, V0.pin_p) annotation(
+  connect(Z01.pin_p, V0.pin_p) annotation (
     Line(points = {{-56, 20}, {-64, 20}, {-64, 6}}));
-  connect(load.pin_p, Z1g.pin_p) annotation(
+  connect(load.pin_p, Z1g.pin_p) annotation (
     Line(points = {{8, 4}, {8, 20}, {28, 20}}));
-  connect(Z1g.pin_n, ground.pin) annotation(
+  connect(Z1g.pin_n, ground.pin) annotation (
     Line(points = {{48, 20}, {58, 20}, {58, -30}, {-64, -30}}, color = {117, 80, 123}));
-  connect(Z01.pin_n, z.pin_p) annotation(
+  connect(Z01.pin_n, z.pin_p) annotation (
     Line(points = {{-36, 20}, {-18, 20}}, color = {117, 80, 123}));
-  connect(z.pin_n, load.pin_p) annotation(
+  connect(z.pin_n, load.pin_p) annotation (
     Line(points = {{2, 20}, {8, 20}, {8, 4}}, color = {117, 80, 123}));
   annotation (
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),

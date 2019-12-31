@@ -18,9 +18,9 @@ model MATLAB_Implementation
   SinglePhase.Components.Resistor     r3(r= 0)  annotation (
     Placement(visible = true, transformation(origin={12,-32},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
-  connect(V_0h.pin_n, ground.pin) annotation(
+  connect(V_0h.pin_n, ground.pin) annotation (
     Line(points = {{-36, -4}, {-36, -48}}, color = {117, 80, 123}));
-  connect(r1.pin_p, V_0h.pin_p) annotation(
+  connect(r1.pin_p, V_0h.pin_p) annotation (
     Line(points = {{-18, 38}, {-36, 38}, {-36, 16}}));
   connect(r2.pin_p, r1.pin_n) annotation (
     Line(points = {{22, 38}, {2, 38}}));

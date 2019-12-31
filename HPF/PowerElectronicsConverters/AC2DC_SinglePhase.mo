@@ -13,9 +13,9 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
     Placement(visible = true, transformation(origin = {-94, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-96, -56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealOutput PLoss annotation(
+  Modelica.Blocks.Interfaces.RealOutput PLoss annotation (
     Placement(visible = true, transformation(origin = {10, 122}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
-    
+
   parameter Real V_Rect(start = 0) = 1 "Rectifier DC output";
   parameter Real efficiency(start = 1) = 0.9 "Rectifier efficiency (replace with efficiency model or curve)";
 
@@ -32,7 +32,7 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
     Fundamental power drawn on the AC harmonic side
   */
   Real P = abs((vDC.v * vDC.i) / efficiency);  // DC output power
-  
+
   /*
     Measurements
   */
@@ -58,7 +58,7 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
   // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = {Complex(cos(argAdj[i]), sin(argAdj[i])) for i in 1:systemDef.numHrm - 1};
   Real c[systemDef.numHrm - 1] = magScale * magDataMat[2:systemDef.numHrm, 1];
-  
+
 algorithm
   //argAdj := argDataMat[1:systemDef.numHrm - 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms);
 equation
@@ -72,7 +72,7 @@ equation
 
   // power flow for the fundamental
   Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
-  
+
   /*
     current injection for the rest of the harmonics.
     One must also model the effect of error resulting from 
@@ -82,9 +82,9 @@ equation
   */
   loadBase.i[2:1:systemDef.numHrm] = {c[i]*a[i] for i in 1:systemDef.numHrm-1};
   //loadBase.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm-1};
-  
+
   PLoss = P * (1 - efficiency) / efficiency;
-  
+
   connect(vDC.p, pin_p) annotation (
     Line(points = {{16, -2}, {16, 38}, {74, 38}}, color = {0, 0, 255}));
   connect(vDC.n, pin_n) annotation (
