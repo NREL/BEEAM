@@ -1047,7 +1047,7 @@
     district_cooling;         !- FMU Variable Name
   
   ExternalInterface:FunctionalMockupUnitExport:From:Variable,
-    Thermal Zone: Steca_Freezer_Cooling_Chamber Ideal Loads Air System,  !- Output:Variable Index Key Name
+    Thermal Zone: Steca_Freezer_Cooling_Chamber,  !- Output:Variable Index Key Name
     Zone Mean Air Temperature,  !- Output:Variable Name
     zone_temp;         !- FMU Variable Name  
     

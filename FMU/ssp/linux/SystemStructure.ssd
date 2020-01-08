@@ -4,13 +4,13 @@
     xsi:schemaLocation="http://www.pmsf.net/xsd/SystemStructureDescriptionDraft http://www.pmsf.net/xsd/SSP/Draft20171219/SystemStructureDescription.xsd">
     <System name="dc_test">
         <Elements>
-            <Component type="application/x-fmu-sharedlibrary" source="resources/in_fmu.fmu" name="space">
+            <Component type="application/x-fmu-sharedlibrary" source="resources/in.fmu" name="space">
                 <Connectors>
                     <Connector name="Q" kind="input"/>
                     <Connector name="electric_demand" kind="output"/>
                 </Connectors>
             </Component>
-            <Component type="application/x-fmu-sharedlibrary" source="resources/demo_FMU_fmu.fmu" name="electric">
+            <Component type="application/x-fmu-sharedlibrary" source="resources/HPF_Examples_Demo.fmu" name="electric">
                 <Connectors>
                     <Connector name="y" kind="output"/>
                     <Connector name="u" kind="input"/>
