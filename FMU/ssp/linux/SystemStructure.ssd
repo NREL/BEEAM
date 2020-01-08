@@ -8,6 +8,9 @@
                 <Connectors>
                     <Connector name="Q" kind="input"/>
                     <Connector name="electric_demand" kind="output"/>
+                    <Connector name="district_heating" kind="output"/>
+                    <Connector name="district_cooling" kind="output"/>
+                    <Connector name="zone_temp" kind="output"/>
                 </Connectors>
             </Component>
             <Component type="application/x-fmu-sharedlibrary" source="resources/HPF_Examples_Demo.fmu" name="electric">
