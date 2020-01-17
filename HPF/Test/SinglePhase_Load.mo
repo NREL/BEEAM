@@ -19,9 +19,9 @@ model SinglePhase_Load
     Placement(visible = true, transformation(origin = {-40, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(ground1.pin, v.pin_n) annotation (
-    Line(points = {{-60, -60}, {-60, -50}, {-61, -50}, {-61, -30}}));
+    Line(points={{-40,-50},{-40,-50},{-61,-50},{-61,-30}}));
   connect(test_Load1.pin_n, ground1.pin) annotation (
-    Line(points = {{44, -32}, {44, -60}, {-60, -60}}, color = {117, 80, 123}));
+    Line(points={{44,-32},{44,-50},{-40,-50}},        color = {117, 80, 123}));
   connect(z2.pin_p, z3.pin_n) annotation (
     Line(points = {{64, 2}, {32, 2}}));
   connect(v.pin_p, z.pin_p) annotation (
@@ -38,7 +38,7 @@ equation
     Line(points = {{58, 24}, {84, 24}, {84, 2}}, color = {117, 80, 123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
-    Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-81, 84}, extent = {{-17, 6}, {171, -22}}, textString = "OpenModelica: Simulation fails with default solver settings.
+    Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Text(origin = {-81, 84}, extent = {{-17, 6}, {171, -22}}, textString = "OpenModelica: Simulation fails with default solver settings.
 Set the nonlinear solver to 'Newton' and linear
 solver to 'totalpivot'", horizontalAlignment = TextAlignment.Left)}));
 end SinglePhase_Load;

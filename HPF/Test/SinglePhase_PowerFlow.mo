@@ -22,7 +22,8 @@ equation
 
 annotation (
     Icon(coordinateSystem(grid = {0, 0})),
-    Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Text(origin = {-74, 64}, extent = {{-20, 6}, {86, -14}}, textString = "Single Phase test:\nTesting power flow for single phase system", horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Text(origin = {-74, 64}, extent = {{-20, 6}, {86, -14}}, textString = "Single Phase test:\nTesting power flow for single phase system",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
   experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
   __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
   __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
