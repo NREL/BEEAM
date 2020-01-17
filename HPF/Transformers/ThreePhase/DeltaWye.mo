@@ -26,18 +26,21 @@ model DeltaWye
     Placement(visible = true, transformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinSec_N(h = systemDef.numHrm)  annotation (
     Placement(visible = true, transformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T1 annotation (
-    Placement(visible = true, transformation(origin = {4, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Simplified                  T2 annotation (
+  HPF.Transformers.SinglePhase.Simplified T1(N=N)
+                                             annotation (
+    Placement(visible = true, transformation(origin={6,70},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  SinglePhase.Simplified                  T2(N=N)
+                                             annotation (
     Placement(visible = true, transformation(origin={4,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Simplified                  T3 annotation (
+  SinglePhase.Simplified                  T3(N=N)
+                                             annotation (
     Placement(visible = true, transformation(origin={6,-50},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground
     annotation (Placement(transformation(extent={{18,-144},{38,-124}})));
 equation
   connect(pinSec_C, pinSec_C) annotation (
     Line(points = {{100, -40}, {100, -40}}, color = {0, 0, 0}));
-  connect(T1.pinP_prim, pinPrim_A) annotation (Line(points={{-6,80},{-14,80},{
+  connect(T1.pinP_prim, pinPrim_A) annotation (Line(points={{-4,80},{-14,80},{
           -14,100},{-102,100}}, color={0,0,0}));
   connect(T2.pinP_prim, pinPrim_B) annotation (Line(points={{-6,20},{-50,20},{
           -50,0},{-100,0}}, color={0,0,0}));
@@ -47,15 +50,15 @@ equation
     annotation (Line(points={{16,-40},{100,-40}}, color={0,0,0}));
   connect(T2.pinP_sec, pinSec_B) annotation (Line(points={{14,20},{48,20},{48,
           40},{100,40}}, color={0,0,0}));
-  connect(T1.pinP_sec, pinSec_A) annotation (Line(points={{14,80},{20,80},{20,
+  connect(T1.pinP_sec, pinSec_A) annotation (Line(points={{16,80},{20,80},{20,
           120},{100,120}}, color={0,0,0}));
   connect(pinSec_N, T3.pinN_sec) annotation (Line(points={{100,-120},{28,-120},
           {28,-60},{16,-60}}, color={117,80,123}));
   connect(T2.pinN_sec, T3.pinN_sec) annotation (Line(points={{14,0},{28,0},{28,
           -60},{16,-60}}, color={117,80,123}));
-  connect(T1.pinN_sec, T3.pinN_sec) annotation (Line(points={{14,60},{28,60},{
+  connect(T1.pinN_sec, T3.pinN_sec) annotation (Line(points={{16,60},{28,60},{
           28,-60},{16,-60}}, color={117,80,123}));
-  connect(T1.pinN_prim, pinPrim_C) annotation (Line(points={{-6,60},{-24,60},{
+  connect(T1.pinN_prim, pinPrim_C) annotation (Line(points={{-4,60},{-24,60},{
           -24,-40},{-60,-40},{-60,-100},{-100,-100}}, color={117,80,123}));
   connect(T3.pinN_prim, pinPrim_B) annotation (Line(points={{-4,-60},{-50,-60},
           {-50,0},{-100,0}}, color={117,80,123}));
