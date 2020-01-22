@@ -9,7 +9,7 @@ model Ammeter_Freq2Time "Current sensor. Converts harmonics (freq domain) to tim
   //final output Real y_wv[systemDef.N](each start = 0) "Temporary waveform output storage buffer";
 
   Integer iTick(start = 1);
-
+//protected
   // debugging
   final output Real y_wv_2[systemDef.N](each start = 0) "Temporary waveform output storage buffer";
   //Real y_2(start = 0);
@@ -20,25 +20,21 @@ algorithm
     Frequency domain to time.
     Using sample() and when 
   */
-  when sample(0, 1 / systemDef.fs) and k == 0 then
+  when sample(2*(1/systemDef.N), 3*(1/systemDef.fs)) and k == 0 then
     y := y_wv_2[iTick];
     /*
       if k is < some increment k_1, the sensor would read the frequency domain 
       measurement from the port. This is assuming that the simulation 
       has reached the solution in the first increment k.
     */
-    //if iTick < 100 then
-    //  y_wv := HPF.Utilities.ifft_fromMagPhase(Modelica.ComplexMath.'abs'(i), Modelica.ComplexMath.arg(i), systemDef.N);
-    //end if;
-
-    //y_2 := y_wv_2[iTick];
 
     iTick := iTick + 1;
   end when;
 
   //if time > 1/systemDef.fs and time
 
-  when sample(1 / systemDef.fs, 2*(1 / systemDef.fs)) and k == 1 then
+  //when sample(1 / systemDef.fs, 2*(1 / systemDef.fs)) and k == 1 then
+  when sample(0, 1 / systemDef.fs) and k == 1 then
       k := 0;
       y_wv_2 := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(i), Modelica.ComplexMath.arg(i), systemDef.N);
   end when;

@@ -12,21 +12,22 @@ model sensors
     Placement(visible = true, transformation(origin = {24, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation (
     Placement(visible = true, transformation(origin = {-40, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.VoltageSensor voltageSensor1 annotation (
-    Placement(visible = true, transformation(origin = {72, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Sensors.Voltmeter_Freq2Time voltmeter_Freq2Time annotation(
+    Placement(visible = true, transformation(origin = {60, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(v.pin_p, r1.pin_p) annotation (
+  connect(v.pin_p, r1.pin_p) annotation(
     Line(points = {{-40, 20}, {-40, 34}, {-20, 34}}));
-  connect(v.pin_n, r.pin_n) annotation (
+  connect(v.pin_n, r.pin_n) annotation(
     Line(points = {{-40, 0}, {-40, -10}, {40, -10}, {40, 2}}, color = {117, 80, 123}));
-  connect(r1.pin_n, currentSensor.pin_p) annotation (
+  connect(r1.pin_n, currentSensor.pin_p) annotation(
     Line(points = {{0, 34}, {14, 34}}, color = {117, 80, 123}));
-  connect(currentSensor.pin_n, r.pin_p) annotation (
+  connect(currentSensor.pin_n, r.pin_p) annotation(
     Line(points = {{34, 34}, {40, 34}, {40, 22}}, color = {117, 80, 123}));
-  connect(ground.pin, v.pin_n) annotation (
+  connect(ground.pin, v.pin_n) annotation(
     Line(points = {{-40, -16}, {-40, -16}, {-40, 0}, {-40, 0}}));
-  connect(voltageSensor1.pin_p, currentSensor.pin_n) annotation (
-    Line(points = {{62, 34}, {36, 34}, {36, 34}, {34, 34}, {34, 34}}));
-  connect(voltageSensor1.pin_n, r.pin_n) annotation (
-    Line(points = {{82, 34}, {90, 34}, {90, -10}, {40, -10}, {40, 2}}, color = {117, 80, 123}));
+  connect(voltmeter_Freq2Time.pin_p, currentSensor.pin_n) annotation(
+    Line(points = {{50, 34}, {34, 34}, {34, 34}, {34, 34}}));
+  connect(voltmeter_Freq2Time.pin_n, ground.pin) annotation(
+    Line(points = {{70, 34}, {102, 34}, {102, -10}, {-40, -10}, {-40, -16}, {-40, -16}}, color = {117, 80, 123}));
+protected
 end sensors;

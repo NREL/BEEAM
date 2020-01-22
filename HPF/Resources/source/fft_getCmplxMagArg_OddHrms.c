@@ -43,7 +43,6 @@ int func_fft_getCmplxMagArg_OddHrms(double *mag, size_t szMag, double *arg, size
             tmp[k] = *(arg + k) - 1.570796326794897;
         else 
             tmp[k] = 0.0;
-
     }
         
     // populating first half of symmetric coefficients

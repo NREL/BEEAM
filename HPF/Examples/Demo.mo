@@ -16,10 +16,10 @@ model Demo
     Placement(visible = true, transformation(origin = {-8, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.Load load annotation(
     Placement(visible = true, transformation(origin = {26, 16}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Modelica.Blocks.Interfaces.RealInput u annotation(
-    Placement(visible = true, transformation(extent = {{68, 2}, {42, 28}}, rotation = 0), iconTransformation(extent = {{68, 2}, {42, 28}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput y annotation(
     Placement(visible = true, transformation(extent = {{42, 52}, {68, 78}}, rotation = 0), iconTransformation(extent = {{42, 52}, {68, 78}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealInput u annotation(
+    Placement(visible = true, transformation(extent = {{68, 2}, {42, 28}}, rotation = 0), iconTransformation(extent = {{68, 2}, {42, 28}}, rotation = 0)));
 equation
   connect(v.pin_p, z.pin_p) annotation(
     Line(points = {{-78, 26}, {-60, 26}}));
