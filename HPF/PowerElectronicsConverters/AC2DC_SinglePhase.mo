@@ -71,8 +71,14 @@ equation
   Q = S * sin(argS);
 
   // power flow for the fundamental
-  Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
-
+  /*
+     In complex notation,
+    S = P + jQ = V*conj(I)
+      = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
+  */
+  //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
+  P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
+  Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);
   /*
     current injection for the rest of the harmonics.
     One must also model the effect of error resulting from 
@@ -84,9 +90,9 @@ equation
   //loadBase.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm-1};
 
   PLoss = P * (1 - efficiency) / efficiency;
-  connect(vDC.p, pin_p) annotation (
+  connect(vDC.p, pin_p) annotation(
     Line(points = {{20, -2}, {20, 40}, {80, 40}}, color = {0, 0, 255}));
-  connect(vDC.n, pin_n) annotation (
+  connect(vDC.n, pin_n) annotation(
     Line(points = {{20, -22}, {20, -60}, {80, -60}}, color = {0, 0, 255}));
   connect(loadBase.pin_n, hPin_N) annotation (
     Line(points = {{-20, -20}, {-20, -60}, {-80, -60}}, color = {117, 80, 123}));

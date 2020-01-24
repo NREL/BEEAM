@@ -25,8 +25,6 @@ equation
     Line(points = {{-78, 26}, {-60, 26}}));
   connect(v.pin_n, ground.pin) annotation(
     Line(points = {{-78, 6}, {-78, 0}}, color = {117, 80, 123}));
-  connect(z.pin_n, led_driver.hPin_P) annotation(
-    Line(points = {{-40, 26}, {-20, 26}, {-20, 26}, {-18, 26}}, color = {117, 80, 123}));
   connect(v.pin_n, led_driver.hPin_N) annotation(
     Line(points = {{-78, 6}, {-40, 6}, {-40, 14}, {-18, 14}, {-18, 14}, {-18, 14}}, color = {117, 80, 123}));
   connect(led_driver.pin_n, ground2.p) annotation(
@@ -37,6 +35,8 @@ equation
     Line(points = {{26, 0}, {26, 0}, {26, 6}, {26, 6}}, color = {0, 0, 255}));
   connect(led_driver.PLoss, y) annotation(
     Line(points = {{-8, 31}, {-8, 65}, {55, 65}}, color = {0, 0, 127}));
+  connect(z.pin_n, led_driver.hPin_P) annotation(
+    Line(points = {{-40, 26}, {-20, 26}, {-20, 26}, {-18, 26}}, color = {117, 80, 123}));
   connect(u, load.u) annotation(
     Line(points = {{55, 15}, {48.5, 15}, {48.5, 16.2}, {33.8, 16.2}}, color = {0, 0, 127}));
   annotation(
@@ -44,6 +44,6 @@ equation
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"),
-    Diagram(graphics = {Rectangle(origin = {-6, 26}, pattern = LinePattern.DashDot, extent = {{-20, 16}, {22, -30}}), Text(origin = {-14, 40}, extent = {{-20, 8}, {10, 2}}, textString = "zone 1"), Text(origin = {-12, -6}, lineColor = {28, 108, 200}, extent = {{-68, 90}, {-6, 82}}, textString = "Setup demonstrating HPF library.", fontSize = 11, textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold}, horizontalAlignment = TextAlignment.Left)}, coordinateSystem(extent = {{-150, -150}, {150, 150}}, initialScale = 0.1)),
+    Diagram(graphics = {Rectangle(origin = {-6, 26}, pattern = LinePattern.DashDot, extent = {{-20, 16}, {22, -30}}), Text(origin = {-14, 40}, extent = {{-20, 8}, {10, 2}}, textString = "zone 1"), Text(origin = {-12, 10}, lineColor = {28, 108, 200}, extent = {{-68, 90}, {-6, 82}}, textString = "Setup demonstrating HPF library.", fontSize = 11, textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold}, horizontalAlignment = TextAlignment.Left)}, coordinateSystem(extent = {{-150, -150}, {150, 150}}, initialScale = 0.1)),
     Icon(coordinateSystem(extent = {{-150, -150}, {150, 150}})));
 end Demo;

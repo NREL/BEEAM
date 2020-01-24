@@ -151,8 +151,8 @@ package Utilities
       // Hardcoded dimensions.
       final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "argV", 32, 1);
     equation
-      //final parameter Real magData[32] = magDataMat[32, 1];
-      //final parameter Real argData[32] = magDataMat[32, 1];/\
+//final parameter Real magData[32] = magDataMat[32, 1];
+//final parameter Real argData[32] = magDataMat[32, 1];/\
       annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
@@ -312,6 +312,13 @@ package Utilities
   annotation (
       Documentation(info = "<html><head></head><body>This function computes an FFT from magnitude and phase information (odd harmonics only). Inputs are magnitude, phase and the sampling frequency.&nbsp;<div><br></div><div>Most of the relevant information of a Fourier transform of a time series waveform is present in the the first few harmonics. The rest of the higher harmonics are small in magnitude and hence can be set to zero. Given the sampling frequency, the function reconstructs the fft (complex form) of the given magnitude and phase data.</div><div><br></div><div>User would then use the output complex FFT values to run an IFFT and get a time domain waveform.</div><div><br></div><div>The input data is of the form,</div><div><br></div><div>Harmonic number <span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span>| Input vector index</div><div>1 (fundamental)<span class=\"Apple-tab-span\" style=\"white-space: pre;\">	</span><span class=\"Apple-tab-span\" style=\"white-space: pre;\">	</span>| 1</div><div>3 <span class=\"Apple-tab-span\" style=\"white-space:pre\">			</span>| 2</div><div>5<span class=\"Apple-tab-span\" style=\"white-space:pre\">			</span>| 3</div><div>.</div><div>..</div><div>...</div><div><span class=\"Apple-tab-span\" style=\"white-space:pre\">	</span></div><div>(Modelica implementation of the function from matlab (Avpreet Othee, Colorado State University)</div><div>)</div></body></html>"));
   end fft_fromMagPhaseOddHrms;
+
+  function phaseShift
+    extends Modelica.Icons.Function;
+    
+  algorithm
+
+  end phaseShift;
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));

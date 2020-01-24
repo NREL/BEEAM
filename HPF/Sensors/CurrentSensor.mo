@@ -14,7 +14,9 @@ equation
     An ammeter is a zero impedance device connected in series.
     Therefore voltage drop = 0.
   */
-  v = {Complex(0) for i in 1:1:systemDef.numHrm};
+  v[:].re = {0.0 for i in 1:1:systemDef.numHrm};
+  v[:].im = {0.0 for i in 1:1:systemDef.numHrm};
+  
 annotation (
     Icon(graphics={  Ellipse(origin = {1, -1}, extent = {{-69, 67}, {69, -67}}, endAngle = 360), Line(origin = {-82, 0}, points = {{-14, 0}, {14, 0}}), Line(origin = {84.0747, -0.214932}, points = {{-14, 0}, {14, 0}}), Text(origin = {12, -38}, lineColor = {92, 53, 102},
             lineThickness =                                                                                                                                                                                                        1, extent = {{-36, 76}, {12, -6}}, textString = "A"),

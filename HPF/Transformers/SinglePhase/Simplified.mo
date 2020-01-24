@@ -29,7 +29,7 @@ model Simplified "Simplified transformer harmonic model"
   HPF.SinglePhase.Components.HarmonicImpedance Zs annotation(
     Placement(transformation(extent = {{48, 20}, {68, 40}})));
   HPF.SinglePhase.Components.Impedance z(z = Complex(0, Xc))  annotation(
-    Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-14, 0})));
+    Placement(visible = true, transformation(origin = {-12, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
   connect(idealTransformer.pinN_Prim, pinN_prim) annotation(
     Line(points = {{6, -9.8}, {6, -40}, {-100, -40}}, color = {117, 80, 123}));
@@ -44,11 +44,11 @@ equation
   connect(Zs.pin_p, idealTransformer.pinP_Sec) annotation(
     Line(points = {{48, 30}, {26, 30}, {26, 10}}, color = {0, 0, 0}));
   connect(R.pin_p, z.pin_n) annotation(
-    Line(points = {{-30, 10}, {-14, 10}}, color = {0, 0, 0}));
+    Line(points = {{-30, 10}, {-12, 10}}));
   connect(z.pin_n, idealTransformer.pinP_Prim) annotation(
-    Line(points = {{-14, 10}, {-20, 10}, {-20, 30}, {6, 30}, {6, 10}}, color = {117, 80, 123}));
+    Line(points = {{-12, 10}, {-20, 10}, {-20, 30}, {6, 30}, {6, 10}}, color = {117, 80, 123}));
   connect(R.pin_n, z.pin_p) annotation(
-    Line(points = {{-30, -10}, {-14, -10}}, color = {117, 80, 123}));
+    Line(points = {{-30, -10}, {-12, -10}}, color = {117, 80, 123}));
   connect(R.pin_n, pinN_prim) annotation(
     Line(points = {{-30, -10}, {-22, -10}, {-22, -24}, {6, -24}, {6, -40}, {-100, -40}}, color = {117, 80, 123}));
   annotation(
