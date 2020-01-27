@@ -231,7 +231,7 @@ package Utilities
     int func_fft_getCmplxMagArg(double *mag, size_t szMag, double *arg, size_t szArg, int N, double *fftRe, double *fftIm)
    */
    external "C" func_fft_getCmplxMagArg(mag, size(mag, 1), arg, size(arg, 1), N, yRe, yIm) annotation (
-      Include = "#include \"fft_getCmplxMagArg.c\"",
+      Include = "#include \"fft_utils.c\"",
       IncludeDirectory = "modelica://HPF/Resources/source");
 
   annotation (
@@ -306,7 +306,7 @@ package Utilities
     int func_fft_getCmplxMagArg_OddHrms(double *mag, size_t szMag, double *arg, size_t szArg, int N, double *fftRe, double *fftIm)
    */
    external "C" func_fft_getCmplxMagArg_OddHrms(mag, size(mag, 1), arg, size(arg, 1), N, yRe, yIm) annotation (
-      Include = "#include \"fft_getCmplxMagArg_OddHrms.c\"",
+      Include = "#include \"fft_utils.c\"",
       IncludeDirectory = "modelica://HPF/Resources/source");
 
   annotation (

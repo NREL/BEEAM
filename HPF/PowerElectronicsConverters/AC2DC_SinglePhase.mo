@@ -60,7 +60,7 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
   Real c[systemDef.numHrm - 1] = magScale * magDataMat[2:systemDef.numHrm, 1];
 
 algorithm
-  //argAdj := argDataMat[1:systemDef.numHrm - 1] - (Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms);
+ // assert(V_mag[1] < 100, "Incorrect solution ");
 equation
 
   /*

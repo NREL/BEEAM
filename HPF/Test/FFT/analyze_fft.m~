@@ -26,24 +26,10 @@ arg = res.laptop_adapter.I_arg(1:numHrm);
 
 I.mag = zeros(2*length(mag), 1);
 I.arg = zeros(2*length(arg), 1);
-I.mag(2:2:end) = mag;
-I.arg(2:2:end) = arg;
-
+I.
 [fftCoef, fftMag, fftArg] = fftCoefReconstruct(I.mag, I.arg, 1302);
 
 figure
 plot(real(ifft(fftCoef)))
 
-V = struct();
-mag = res.laptop_adapter.V_mag(1:numHrm);
-arg = res.laptop_adapter.V_arg(1:numHrm);
-
-V.mag = zeros(2*length(mag), 1);
-V.arg = zeros(2*length(arg), 1);
-V.mag(2:2:end) = mag;
-V.arg(2:2:end) = arg;
-
-[fftCoef, fftMag, fftArg] = fftCoefReconstruct(V.mag, V.arg, 1302);
-
-figure
-plot(real(ifft(fftCoef)))
+v

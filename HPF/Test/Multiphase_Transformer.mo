@@ -14,9 +14,9 @@ model Multiphase_Transformer
   HPF.SinglePhase.Components.Ground ground1
     annotation (Placement(visible = true, transformation(extent = {{62, -36}, {82, -16}}, rotation = 0)));
   HPF.SinglePhase.Components.Resistor r1(r = 500)  annotation (
-    Placement(visible = true, transformation(origin = {52, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {50, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Resistor r2(r = 500)  annotation (
-    Placement(visible = true, transformation(origin = {52, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {50, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = Complex(500, 20))  annotation (
     Placement(visible = true, transformation(origin = {52, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
@@ -33,9 +33,9 @@ equation
   connect(PhA.pin_n, ground.pin) annotation(
     Line(points = {{-70, 8}, {-70, -30}}, color = {117, 80, 123}));
   connect(r2.pin_n, ground1.pin) annotation(
-    Line(points = {{62, 2}, {72, 2}, {72, -26}}, color = {117, 80, 123}));
+    Line(points = {{60, -4}, {72, -4}, {72, -26}}, color = {117, 80, 123}));
   connect(r1.pin_n, ground1.pin) annotation(
-    Line(points = {{62, 14}, {72, 14}, {72, -26}}, color = {117, 80, 123}));
+    Line(points = {{60, 12}, {72, 12}, {72, -26}}, color = {117, 80, 123}));
   connect(z.pin_n, ground1.pin) annotation(
     Line(points = {{62, 28}, {72, 28}, {72, -26}}, color = {117, 80, 123}));
   connect(test_DY1.hPin_N, ground1.pin) annotation(
@@ -43,9 +43,9 @@ equation
   connect(test_DY1.pinSec_A, z.pin_p) annotation(
     Line(points = {{2, 28}, {42, 28}}));
   connect(test_DY1.pinSec_B, r1.pin_p) annotation(
-    Line(points = {{2, 18}, {13, 18}, {13, 14}, {42, 14}}));
+    Line(points = {{2, 18}, {13, 18}, {13, 12}, {40, 12}}));
   connect(test_DY1.pinSec_C, r2.pin_p) annotation(
-    Line(points = {{2, 8}, {13, 8}, {13, 2}, {42, 2}}));
+    Line(points = {{2, 8}, {13, 8}, {13, -4}, {40, -4}}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent={{-120,-100},{120,100}})),
     Diagram(coordinateSystem(extent = {{-120, -100}, {120, 100}}, grid = {0, 0}, initialScale = 0.1)));

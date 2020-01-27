@@ -42,6 +42,10 @@ model MultiPhase_Transformer_Modeling
     Placement(visible = true, transformation(origin = {20, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {44, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Sources.ThreePhase.VoltageSrc_ReadFile voltageSrc_ReadFile annotation(
+    Placement(visible = true, transformation(origin = {-30, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Transformers.ThreePhase.DeltaWye deltaWye annotation(
+    Placement(visible = true, transformation(origin = {28, -10}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
 equation
   connect(l.pin_n, R2.pin_p) annotation (
     Line(points = {{-42, 176}, {-18, 176}, {-18, 164}, {-28, 164}}, color = {117, 80, 123}));
