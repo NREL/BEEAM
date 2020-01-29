@@ -1,4 +1,6 @@
 within HPF.Examples.ModelingValidation;
 
-package Scenario_2
+model Scenario_2
+equation
+
 end Scenario_2;

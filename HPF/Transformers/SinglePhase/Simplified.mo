@@ -24,11 +24,11 @@ model Simplified "Simplified transformer harmonic model"
     Placement(visible = true, transformation(extent = {{-110, -50}, {-90, -30}}, rotation = 0), iconTransformation(extent = {{-110, -110}, {-90, -90}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinN_sec(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(extent = {{90, -50}, {110, -30}}, rotation = 0), iconTransformation(extent = {{90, -108}, {110, -88}}, rotation = 0)));
-  HPF.SinglePhase.Components.HarmonicImpedance Zp annotation(
+  HPF.SinglePhase.Components.HarmonicImpedance Zp(Rh = Rp .+ Rp .* fEC .* systemDef.hrms .^ 2 + Rp .* fOSL .* systemDef.hrms .^ 0.8, Xh = systemDef.hrms .* Xp)  annotation(
     Placement(transformation(extent = {{-66, 20}, {-46, 40}})));
-  HPF.SinglePhase.Components.HarmonicImpedance Zs annotation(
+  HPF.SinglePhase.Components.HarmonicImpedance Zs(Rh = Rs .+ Rs .* fEC .* systemDef.hrms .^ 2 + Rs .* fOSL .* systemDef.hrms .^ 0.8, Xh = systemDef.hrms .* Xs)  annotation(
     Placement(transformation(extent = {{48, 20}, {68, 40}})));
-  HPF.SinglePhase.Components.Impedance z(z = Complex(0, Xc))  annotation(
+  HPF.SinglePhase.Components.Impedance z(z = Complex(0, Xm))  annotation(
     Placement(visible = true, transformation(origin = {-12, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
   connect(idealTransformer.pinN_Prim, pinN_prim) annotation(

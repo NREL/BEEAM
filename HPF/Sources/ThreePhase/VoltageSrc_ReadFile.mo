@@ -1,16 +1,44 @@
 within HPF.Sources.ThreePhase;
 
 model VoltageSrc_ReadFile
-  HPF.SinglePhase.Interface.HPin_P pinP_phA annotation(
-    Placement(visible = true, transformation(origin = {98, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {102, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Interface.HPin_P pinP_phB annotation(
-    Placement(visible = true, transformation(origin = {102, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Interface.HPin_P pinP_phC annotation(
-    Placement(visible = true, transformation(origin = {76, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Interface.HPin_N pinN annotation(
-    Placement(visible = true, transformation(origin = {98, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  outer SystemDef systemDef;
+  HPF.SinglePhase.Interface.HPin_P pinP_phA(h = systemDef.numHrm)  annotation(
+    Placement(visible = true, transformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {102, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Interface.HPin_P pinP_phB(h = systemDef.numHrm)  annotation(
+    Placement(visible = true, transformation(origin = {102, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Interface.HPin_P pinP_phC(h = systemDef.numHrm)  annotation(
+    Placement(visible = true, transformation(origin = {100, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Interface.HPin_N pinN(h = systemDef.numHrm)  annotation(
+    Placement(visible = true, transformation(origin = {100, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Sources.VoltageSource vSrc_phA annotation(
+    Placement(visible = true, transformation(origin = {-10, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+  HPF.SinglePhase.Sources.VoltageSource vSrc_phC annotation(
+    Placement(visible = true, transformation(origin = {-10, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+  HPF.SinglePhase.Sources.VoltageSource vSrc_phB annotation(
+    Placement(visible = true, transformation(origin = {-10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+
+// protected
+  final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
+  final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "mag");
+  // assuming magnitude and angle vectors have same dimension
+  final parameter Real magDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "mag", matDim[1], 1);
+  final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "arg", matDim[1], 1);
+
+
 equation
+  connect(vSrc_phA.pin_n, vSrc_phB.pin_n) annotation(
+    Line(points = {{-20, 54}, {-40, 54}, {-40, 0}, {-20, 0}, {-20, 0}}, color = {117, 80, 123}));
+  connect(vSrc_phC.pin_n, vSrc_phB.pin_n) annotation(
+    Line(points = {{-20, -40}, {-40, -40}, {-40, 0}, {-20, 0}, {-20, 0}}, color = {117, 80, 123}));
+  connect(pinP_phB, vSrc_phB.pin_p) annotation(
+    Line(points = {{102, 0}, {0, 0}}));
+  connect(vSrc_phA.pin_p, pinP_phC) annotation(
+    Line(points = {{0, 54}, {100, 54}}));
+  connect(vSrc_phC.pin_p, pinP_phA) annotation(
+    Line(points = {{0, -40}, {100, -40}}));
+  connect(pinN, vSrc_phC.pin_n) annotation(
+    Line(points = {{100, -80}, {-40, -80}, {-40, -40}, {-20, -40}}));
 
 annotation(
-    Icon(graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Ellipse(origin = {61, 1}, extent = {{-39, 39}, {39, -39}}, endAngle = 360), Line(origin = {-155.095, 0.481023}, points = {{-19, 24}, {11, 24}, {21, 14}, {21, -24}, {-19, -24}, {-19, 24}}), Line(origin = {-156.035, 14.611}, points = {{-12, 0}, {12, 0}}), Line(origin = {-155.824, 7.67872}, points = {{-12, 0}, {12, 0}}), Text(origin = {-187, -7}, extent = {{-11, 7}, {73, -9}}, textString = ".mat"), Polygon(origin = {-105, -2}, fillPattern = FillPattern.Solid, points = {{-9, 10}, {-9, -10}, {9, 0}, {-9, 10}}), Rectangle(origin = {-122, -2}, fillPattern = FillPattern.Solid, extent = {{-8, 2}, {8, -2}}), Line(origin = {-120.688, 4.7503}, points = {{-49.9999, 60}, {-49.9999, -60}, {50.0001, -60}, {50.0001, 40}, {30.0001, 60}, {-49.9999, 60}})}, coordinateSystem(initialScale = 0.1)));
+    Icon(graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Ellipse(origin = {-15, 7}, extent = {{-45, 53}, {75, -67}}, endAngle = 360), Text(origin = {-215, -13}, extent = {{-11, 3}, {115, -37}}, textString = ".mat"), Polygon(origin = {-83, 0}, fillPattern = FillPattern.Solid, points = {{-9, 10}, {-9, -10}, {9, 0}, {-9, 10}}), Rectangle(origin = {-106, 0}, fillPattern = FillPattern.Solid, extent = {{-8, 2}, {14, -2}}), Line(origin = {-158.442, -0.482898}, points = {{-49.9999, 60}, {-49.9999, -60}, {50.0001, -60}, {50.0001, 40}, {30.0001, 60}, {-49.9999, 60}}), Line(origin = {-156.476, 39.2524}, points = {{-33, 0}, {33, 0}}), Line(origin = {-156.569, 24.5816}, points = {{-33, 0}, {33, 0}}), Line(origin = {-156.288, 10.6584}, points = {{-33, 0}, {33, 0}}), Line(origin = {0.249088, 0.860912}, points = {{-40.0807, -1.02713}, {-38.0807, 8.97287}, {-32.0807, 20.9729}, {-26.0807, 28.9729}, {-18.0807, 32.9729}, {-8.08074, 24.9729}, {-4.08074, 12.9729}, {-0.0807397, -1.02713}, {3.91926, -13.0271}, {5.91926, -19.0271}, {11.9193, -29.0271}, {21.9193, -35.0271}, {31.9193, -25.0271}, {35.9193, -17.0271}, {37.9193, -7.02713}, {39.9193, -1.02713}, {39.9193, -1.02713}}, smooth = Smooth.Bezier), Text(origin = {105, -93}, extent = {{-11, 3}, {35, -37}}, textString = "C"), Text(origin = {109, -15}, extent = {{-11, 3}, {35, -37}}, textString = "B"), Text(origin = {105, 69}, extent = {{-11, 3}, {35, -37}}, textString = "A"), Text(origin = {-56, 40}, lineColor = {92, 53, 102}, extent = {{-150, 60}, {254, 100}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
 end VoltageSrc_ReadFile;

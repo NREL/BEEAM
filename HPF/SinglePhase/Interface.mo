@@ -3,29 +3,32 @@ within HPF.SinglePhase;
 package Interface
   extends Modelica.Icons.InterfacesPackage;
 
-  connector HPin
+  connector HPin 
     /*
-                      Specialized connector for the harmonic power flow. 
-                      HPin, where H is for harmonics. The name signifies the special nature of the connector and its intended usage.
+      Specialized connector for the harmonic power flow. 
+      HPin, where H is for harmonics. The name signifies the special nature of the connector and its intended usage.
                                   
-                    h_max specifies the maximum harmonics to be simulated. The default value 
-                    (What should be a nominal value?) is used when user does not explicitly specify. 
-                    */
+      h_max specifies the maximum harmonics to be simulated. The default value 
+      (What should be a nominal value?) is used when user does not explicitly specify. 
+    */
+    
     /*
-                      potential variables
-                    */
+      potential variables
+    */
     parameter Integer h(start = 1) "Numbder of harmonics";
     Complex v[h] "Complex potential at the node";
     /*
-                      Flow variables.
-                      (It was necessary to define the flow variables separately
-                      (real and imaginart) as some of the modelica implementations
-                      donot resolve the Complex record when it is defined as a vector)
-                    */
+      Flow variables.
+      (It was necessary to define the flow variables separately
+      (real and imaginart) as some of the modelica implementations
+      donot resolve the Complex record when it is defined as a vector)
+    */
+    
+    // Imaginary part
     flow Real iIm[h];
     // Real part
     flow Real iRe[h];
-    // Imaginary part
+  
     annotation(
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),
