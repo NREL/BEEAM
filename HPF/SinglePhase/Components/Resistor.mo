@@ -10,7 +10,7 @@ model Resistor "Resistive element"
   */
   Modelica.SIunits.Voltage vFundAbs = Modelica.ComplexMath.'abs'(v[1]);
   Modelica.SIunits.Angle vFundArg = Modelica.ComplexMath.arg(v[1]);
-  Modelica.SIunits.Voltage iFundAbs = Modelica.ComplexMath.'abs'(i[1]);
+  Modelica.SIunits.Current iFundAbs = Modelica.ComplexMath.'abs'(i[1]);
   Modelica.SIunits.Angle iFundArg = Modelica.ComplexMath.arg(i[1]);
 
 equation
