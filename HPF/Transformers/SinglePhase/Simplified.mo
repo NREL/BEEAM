@@ -12,6 +12,7 @@ model Simplified "Simplified transformer harmonic model"
   parameter Real fW = 0 "Resistive losses";
   parameter Real fEC = 0 "Eddy current losses";
   parameter Real fOSL = 0 "Other stray losses";
+  
   HPF.SinglePhase.Interface.HPin_P pinP_prim(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {-102, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P pinP_sec(h = systemDef.numHrm)  annotation(
