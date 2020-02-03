@@ -3,12 +3,12 @@ within HPF.Examples.ModelingValidation;
 model Scenario_2
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-120, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.ThreePhase.DeltaWye deltaWye(fEC = 0.1, fOSL = 0.1, fW = 0.1) annotation(
+  HPF.Transformers.ThreePhase.DeltaWye deltaWye(VPrimRated = 480, VSecRated = 208,fEC = 0.1, fOSL = 0.1, fW = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-16, 36}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {-6, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  inner SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
-    Placement(visible = true, transformation(origin = {-96, 86}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
+  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
+    Placement(visible = true, transformation(origin = {-118, 88}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
   HPF.Sources.ThreePhase.VotlageSource votlageSource(vArg_phA = {0.52192, 6.1952, 3.641, 8.2279, 4.6037, 6.1521, 9.054, 11.1771, 11.547, 9.5299}, vArg_phB = {4.7065, 3.5627, 4.2216, 5.9383, 4.7501, 8.371, 6.837, 8.9513, 7.4465, 13.0091}, vArg_phC = {2.6138, 1.127, 6.9575, 3.4123, 7.8346, 10.4191, 11.1108, 6.5894, 9.3993, 10.5656}, vMag_phA = {282.8166, 0.45117, 0.39336, 0.76549, 0.19582, 0.74027, 0.44753, 0.031767, 0.56648, 0.11503}, vMag_phB = {282.9682, 0.65765, 0.17303, 1.3199, 0.3038, 0.75239, 0.43691, 0.046575, 0.5116, 0.15362}, vMag_phC = {281.8661, 0.35229, 0.54619, 0.99899, 0.49719, 0.66452, 0.39451, 0.037451, 0.50007, 0.058614}) annotation(
     Placement(visible = true, transformation(origin = {-120, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.Voltmeter_Freq2Time voltmeter_Freq2Time annotation(
@@ -29,7 +29,7 @@ model Scenario_2
     Placement(visible = true, transformation(origin = {128, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {132, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Laptop_3(pwr = 50) annotation(
+  HPF.DC.DC_Load Laptop_3(pwr = 120) annotation(
     Placement(visible = true, transformation(origin = {132, 36}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation(
     Placement(visible = true, transformation(origin = {118, 62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -41,12 +41,10 @@ model Scenario_2
     Placement(visible = true, transformation(origin = {78, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground7 annotation(
     Placement(visible = true, transformation(origin = {74, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.Ammeter_Freq2Time ammeter_Freq2Time annotation(
-    Placement(visible = true, transformation(origin = {66, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.Ammeter_Freq2Time ammeter_Freq2Time1 annotation(
-    Placement(visible = true, transformation(origin = {44, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.Ammeter_Freq2Time ammeter_Freq2Time2 annotation(
-    Placement(visible = true, transformation(origin = {40, 96}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Sensors.Ammeter_Freq2Time ammeter_Freq2Time annotation(
+    Placement(visible = true, transformation(origin = {44, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Sensors.Voltmeter_Freq2Time voltmeter_Freq2Time3 annotation(
+    Placement(visible = true, transformation(origin = {20, 4}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(deltaWye.pinSec_N, ground2.pin) annotation(
     Line(points = {{-6, 24}, {-6, 14}}, color = {117, 80, 123}));
@@ -94,22 +92,22 @@ equation
     Line(points = {{74, -22}, {80, -22}, {80, -20}, {88, -20}}, color = {92, 53, 102}));
   connect(Laptop_charger_3.hPin_N, ground6.pin) annotation(
     Line(points = {{92, 34}, {78, 34}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_B, ammeter_Freq2Time.pin_p) annotation(
-    Line(points = {{-6, 40}, {44, 40}, {44, 46}, {56, 46}}, color = {92, 53, 102}));
-  connect(ammeter_Freq2Time.pin_n, Laptop_charger_3.hPin_P) annotation(
-    Line(points = {{76, 46}, {92, 46}, {92, 46}, {92, 46}, {92, 46}}, color = {117, 80, 123}));
-  connect(ammeter_Freq2Time1.pin_p, deltaWye.pinSec_C) annotation(
-    Line(points = {{34, 16}, {20, 16}, {20, 32}, {-6, 32}, {-6, 32}}, color = {92, 53, 102}));
-  connect(ammeter_Freq2Time1.pin_n, Power_Supply_1.hPin_P) annotation(
-    Line(points = {{54, 16}, {64, 16}, {64, -8}, {88, -8}, {88, -8}}, color = {117, 80, 123}));
-  connect(ammeter_Freq2Time2.pin_n, LED_Driver_1.hPin_P) annotation(
-    Line(points = {{50, 96}, {72, 96}}, color = {117, 80, 123}));
-  connect(ammeter_Freq2Time2.pin_p, deltaWye.pinSec_A) annotation(
-    Line(points = {{30, 96}, {14, 96}, {14, 48}, {-6, 48}, {-6, 48}}, color = {92, 53, 102}));
+  connect(deltaWye.pinSec_A, LED_Driver_1.hPin_P) annotation(
+    Line(points = {{-6, 48}, {38, 48}, {38, 96}, {72, 96}, {72, 96}}, color = {92, 53, 102}));
+  connect(deltaWye.pinSec_C, Power_Supply_1.hPin_P) annotation(
+    Line(points = {{-6, 32}, {48, 32}, {48, -8}, {88, -8}, {88, -8}}, color = {92, 53, 102}));
+  connect(Laptop_charger_3.hPin_P, ammeter_Freq2Time.pin_n) annotation(
+    Line(points = {{92, 46}, {56, 46}, {56, 40}, {54, 40}, {54, 40}}, color = {92, 53, 102}));
+  connect(ammeter_Freq2Time.pin_p, deltaWye.pinSec_B) annotation(
+    Line(points = {{34, 40}, {-6, 40}, {-6, 40}, {-6, 40}}, color = {92, 53, 102}));
+  connect(voltmeter_Freq2Time3.pin_n, ground2.pin) annotation(
+    Line(points = {{20, -6}, {6, -6}, {6, 14}, {-6, 14}, {-6, 14}}, color = {117, 80, 123}));
+  connect(voltmeter_Freq2Time3.pin_p, deltaWye.pinSec_C) annotation(
+    Line(points = {{20, 14}, {20, 14}, {20, 32}, {-6, 32}, {-6, 32}}, color = {92, 53, 102}));
   annotation(
     Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
     Icon(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
-    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
+    experiment(StartTime = 0, StopTime = 0.25, Tolerance = 1e-10, Interval = 0.0005),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end Scenario_2;

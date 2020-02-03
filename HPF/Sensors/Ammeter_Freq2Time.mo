@@ -15,24 +15,24 @@ model Ammeter_Freq2Time "Current sensor. Converts harmonics (freq domain) to tim
   //Real y_2(start = 0);
   Integer k(start = 1);
 algorithm
-/*
+  /*
     Frequency domain to time.
     Using sample() and when 
   */
-  when sample(2 * (1 / systemDef.N), 3 * (1 / systemDef.fs)) and k == 0 then
+  when sample(0, (1 / systemDef.fs)) and k == 0 then
     if iTick <= systemDef.N then
       y := y_wv_2[iTick];
       iTick := iTick + 1;
+    else 
+      iTick := 1;
     end if;
   end when;
-/*
+  /*
         if k is < some increment k_1, the sensor would read the frequency domain 
         measurement from the port. This is assuming that the simulation 
-        has reached the solution in the first increment k.
+        has reached the solution in the first increment.
       */
-//if time > 1/systemDef.fs and time
-//when sample(1 / systemDef.fs, 2*(1 / systemDef.fs)) and k == 1 then
-  when sample(0, 1 / systemDef.fs) and k == 1 then
+  when sample((1 / systemDef.fs)*2, 1 / systemDef.fs) and k == 1 then
     k := 0;
     y_wv_2 := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(i), Modelica.ComplexMath.arg(i), systemDef.N);
   end when;
@@ -68,8 +68,8 @@ equation
         numerical stability issues.
       * Modeling voltmeter as a very low impedance series device.
   */
-  v[:].re = 0 .* i[:].re - 0 .* i[:].im;
-  v[:].im = 0 .* i[:].im + 0 .* i[:].re;
+  v[:].re = 1e-10 .* i[:].re - 1e-10 .* i[:].im;
+  v[:].im = 1e-10 .* i[:].im + 1e-10 .* i[:].re;
   
   annotation(
     Icon(graphics = {Ellipse(origin = {-11, 0}, extent = {{-49, 60}, {71, -60}}, endAngle = 360), Line(origin = {-75, 0}, points = {{-15, 0}, {15, 0}}), Line(origin = {75, 0}, points = {{-15, 0}, {15, 0}}), Text(origin = {12, -60}, lineColor = {92, 53, 102}, lineThickness = 1, extent = {{-36, 76}, {12, -6}}, textString = "A"), Line(origin = {-0.18, 22.4}, points = {{-4.85355, -2.20711}, {5.14645, -2.20711}, {1.14645, 1.79289}}, color = {92, 53, 102}), Line(origin = {31.19, 19.07}, rotation = 180, points = {{-13.593, -0.947214}, {-11.593, 3.05279}, {-9.59296, 7.05279}, {-5.59296, 9.05279}, {-1.59296, 5.05279}, {0.407041, -0.947214}, {4.40704, -8.94721}, {10.407, -8.94721}, {14.407, -2.94721}, {14.407, -0.947214}, {14.407, -0.947214}}, color = {92, 53, 102}, smooth = Smooth.Bezier), Line(origin = {-19.0342, 25.5073}, points = {{0, -1}, {0, -11}}, color = {92, 53, 102}), Line(origin = {-28.6708, 25.4946}, points = {{0, 11}, {0, -11}}, color = {92, 53, 102}), Line(origin = {-23.7489, 25.4493}, points = {{0, 5}, {0, -11}}, color = {92, 53, 102}), Line(origin = {-14.2268, 25.4062}, points = {{0, -5}, {0, -11}}, color = {92, 53, 102}), Line(origin = {2.97, 18.19}, points = {{2, 2}, {-2, -2}}, color = {92, 53, 102}), Line(origin = {-42.1537, 21.4132}, points = {{10, -7}, {30, -7}}, color = {92, 53, 102}), Text(origin = {-132, -160}, lineColor = {92, 53, 102}, extent = {{-150, 60}, {410, 100}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));

@@ -35,7 +35,17 @@ model DeltaWye
     Placement(visible = true, transformation(origin = {2, -110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 // private
-  final parameter Real N = VPrimRated / VSecRated "Turns ratio N:1";
+  /*
+    Transformer ration N:1 is defined for volatges at the input and output 
+    port. 
+    For a delta-Y transformer, the input voltage is phase 2 phase.
+    The output voltage is phase to ground. For consistency, the parameters
+    are defined phase-phase. 
+    Performing appropriate conversion for the secondary. 
+  */
+  final parameter Real N = VPrimRated / (VSecRated / sqrt(3)) "Turns ratio N:1";
+  HPF.Sensors.VoltageSensor voltageSensor annotation(
+    Placement(visible = true, transformation(origin = {-58, 60}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(pinSec_A, T1.pinP_sec) annotation (
     Line(points = {{100, 120}, {14, 120}, {14, 80}, {14, 80}}));
@@ -61,6 +71,10 @@ equation
     Line(points = {{100, -120}, {36, -120}, {36, 60}, {14, 60}, {14, 60}}));
   connect(pinSec_N, T2.pinN_sec) annotation(
     Line(points = {{100, -120}, {36, -120}, {36, -20}, {14, -20}, {14, -20}}));
+  connect(voltageSensor.pin_p, T1.pinP_prim) annotation(
+    Line(points = {{-58, 70}, {-58, 70}, {-58, 80}, {-6, 80}, {-6, 80}}, color = {92, 53, 102}));
+  connect(voltageSensor.pin_n, T1.pinN_prim) annotation(
+    Line(points = {{-58, 50}, {-6, 50}, {-6, 60}, {-6, 60}}, color = {117, 80, 123}));
   annotation (
     Diagram(coordinateSystem(extent = {{-160, -160}, {160, 160}})),
     Icon(coordinateSystem(extent = {{-160, -160}, {160, 160}}, initialScale = 0.1), graphics={  Rectangle(origin = {10, 40}, extent = {{-100, 100}, {80, -180}}), Line(origin = {-1.36, -25.17}, points = {{-74, -26}, {-44, 42}, {-16, -26}, {-74, -26}}, color = {92, 53, 102}), Line(origin = {-0.204807, -24.3999}, points = {{42, 36}, {60, 0}, {78, 36}}, color = {92, 53, 102}), Line(origin = {-0.208107, -24.0148}, points = {{60, 0}, {60, -30}}, color = {92, 53, 102}), Text(origin = {28, -50}, lineColor = {92, 53, 102}, extent = {{-88, -20}, {32, -50}}, textString = "D11Y"), Ellipse(origin = {-15, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Ellipse(origin = {17, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Line(origin = {-50.5497, 80.1482}, points = {{11, 0}, {-11, 0}}), Line(origin = {53.2923, 79.9842}, points = {{11, 0}, {-11, 0}}), Text(origin = {0, 172}, lineColor = {92, 53, 102}, extent = {{-318, 28}, {320, -32}}, textString = "%name")}));

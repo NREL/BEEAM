@@ -5,32 +5,42 @@ model Voltmeter_Freq2Time "Voltage sensor. Converts harmonics (freq domain) to t
   Modelica.Blocks.Interfaces.RealOutput y annotation(
     Placement(visible = true, transformation(origin = {12, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 76}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   Integer iTick(start = 1);
-protected
+//protected
   final output Real y_wv_2[systemDef.N](each start = 0) "Temporary waveform output storage buffer";
   //Real y_2(start = 0);
   Integer k(start = 1);
 algorithm
-/*
+  /*
     Frequency domain to time.
     Using sample() and when 
   */
-  when sample(2 * (1 / systemDef.N), 3 * (1 / systemDef.fs)) and k == 0 then
+  when sample(0, (1 / systemDef.fs)) and k == 2 then
     if iTick <= systemDef.N then
       y := y_wv_2[iTick];
       iTick := iTick + 1;
+    else   // reset tick and repeat waveform
+      iTick := 1;
     end if;
+
   end when;
-/*
+  /*
         if k is < some increment k_1, the sensor would read the frequency domain 
         measurement from the port. This is assuming that the simulation 
-        has reached the solution in the first increment k.
-      */
-//if time > 1/systemDef.fs and time
-//when sample(1 / systemDef.fs, 2*(1 / systemDef.fs)) and k == 1 then
-  when sample(0, 1 / systemDef.fs) and k == 1 then
-    k := 0;
-    y_wv_2 := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(v), Modelica.ComplexMath.arg(v), systemDef.N);
+        has reached the solution in the first increment.
+        
+        Observation:
+        In some instances, the voltmeter is seen to spit out garbage results.
+        This error might be similar to initialization condition failure observed in 
+        Dymola. Upon observation of the output variable, it was observerd that the 
+        varaibles had a value transition at time t = 0;
+        
+  */
+  
+  when sample((1 / systemDef.fs)*2, 1 / systemDef.fs) and k == 1 then
+    k := k + 1;
+    y_wv_2[:] := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(v), Modelica.ComplexMath.arg(v), systemDef.N);
   end when;
+  
 equation
 /*
     A voltmeter is an infinite impedance device connected in parallel.

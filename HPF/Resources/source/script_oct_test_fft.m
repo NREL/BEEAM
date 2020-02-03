@@ -22,15 +22,15 @@ y = fft(u)
 % testing out mag arg to fft coefficient reconstruction ------------------------
 load('../../PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_4.mat')
 
-stem(mdl.mag)
+stem(mag)
 
-c = fftCoefReconstruct(mdl.mag, mdl.arg, 1302);
+c = fftCoefReconstruct(mag, arg, 1302);
 figure
 plot(real(ifft(c)))
 grid on
 hold on
 
-[yRe, yIm] = oct_test_fft(mdl.mag, mdl.arg, 2);
+[yRe, yIm] = oct_test_fft(mag, arg, 2);
 c2 = yRe + yIm.*j;
 plot(real(ifft(c2)))
 legend('c', 'c2')
@@ -52,12 +52,12 @@ legend('c', 'c2')
 
 
 %% testing out mag arg to fft coefficient reconstruction ------------------------
-mdl.mag = mdl.mag(2:2:end);
-mdl.arg = mdl.arg(2:2:end);
+ mag =  mag(2:2:end);
+ arg =  arg(2:2:end);
 figure
-stem(mdl.mag)
+stem( mag)
 
-[yRe, yIm] = oct_test_fft(mdl.mag, mdl.arg, 3); 
+[yRe, yIm] = oct_test_fft( mag,  arg, 3); 
 c2_odd = yRe + yIm.*j;
 
 % plotting
