@@ -16,7 +16,7 @@ model Test_Rectifier
   HPF.SinglePhase.Components.Impedance z(z = 0.1 + 0.23 * j) annotation (
     Placement(visible = true, transformation(origin = {-82, -6.66134e-16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z1(z = 0.6 + 2 * j) annotation (
-    Placement(visible = true, transformation(origin = {10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {10, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.Voltmeter_Freq2Time voltmeter_Freq2Time annotation(
     Placement(visible = true, transformation(origin = {-26, -66}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.Sensors.Ammeter_Freq2Time ammeter_Freq2Time annotation(
@@ -33,9 +33,9 @@ equation
   connect(laptop_adapter.hPin_N, v.pin_n) annotation(
     Line(points = {{0, -50}, {-65, -50}, {-65, -20}, {-120, -20}}, color = {117, 80, 123}));
   connect(z1.pin_n, ground1.pin) annotation(
-    Line(points = {{20, 0}, {66, 0}, {66, -80}, {-98, -80}, {-98, -30}, {-120, -30}}, color = {117, 80, 123}));
+    Line(points = {{20, 2}, {66, 2}, {66, -80}, {-98, -80}, {-98, -30}, {-120, -30}}, color = {117, 80, 123}));
   connect(z.pin_n, z1.pin_p) annotation(
-    Line(points = {{-72, 0}, {0, 0}}, color = {117, 80, 123}));
+    Line(points = {{-72, 0}, {-36, 0}, {-36, 2}, {0, 2}}, color = {117, 80, 123}));
   connect(v.pin_p, z.pin_p) annotation(
     Line(points = {{-120, 0}, {-92, 0}}));
   connect(voltmeter_Freq2Time.pin_p, laptop_adapter.hPin_P) annotation(

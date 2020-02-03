@@ -1,5 +1,6 @@
 within HPF;
 class SystemDef "System Definition block"
+  import Modelica.ComplexMath.j;
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
   /*
       INFO: Type variability

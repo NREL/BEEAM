@@ -3,19 +3,19 @@ model SinglePhase_Transformer
   import Modelica.ComplexMath.j;
   HPF.SinglePhase.Components.IdealTransformer idealTransformer1(N = 10)  annotation (
     Placement(visible = true, transformation(origin={-10,48},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  inner HPF.SystemDef systemDef(hrms = {1})  annotation (
+  inner HPF.SystemDef systemDef(hrms = {1, 3})  annotation (
     Placement(visible = true, transformation(origin={-50,90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin={-66,18},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = 10 + 5 * j)  annotation (
     Placement(visible = true, transformation(origin={30,58},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource v(theta(fixed = true, start = 0),vArg = {0}, vMag = {10})  annotation (
+  HPF.SinglePhase.Sources.VoltageSource v(theta(fixed = true, start = 0),vArg = {0, -0.1}, vMag = {120, 0.5})  annotation (
     Placement(visible = true, transformation(origin={-66,48},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Impedance z1(z = 1 + 0 * j) annotation (
     Placement(visible = true, transformation(origin={-42,58},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin={0,18},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Transformers.SinglePhase.Simplified simplified
+  Transformers.SinglePhase.Simplified simplified(fEC = 0.1, fOSL = 0.1, fW = 0.1) 
     annotation (Placement(transformation(extent={{-22,-38},{-2,-18}})));
   SinglePhase.Components.Impedance     z2(z=1 + 0*j)     annotation (
     Placement(visible = true, transformation(origin={-50,-20},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -23,8 +23,8 @@ model SinglePhase_Transformer
     Placement(visible = true, transformation(origin={-72,-50},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Sources.VoltageSource     v1(
     theta(fixed=true, start=0),
-    vArg={0},
-    vMag={10})                                                                                     annotation (
+    vArg={0, -0.1},
+    vMag={120, 0.5})                                                                                     annotation (
     Placement(visible = true, transformation(origin={-72,-30},  extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   SinglePhase.Components.Ground     ground4 annotation (
     Placement(visible = true, transformation(origin={4,-50},       extent = {{-10, -10}, {10, 10}}, rotation = 0)));
