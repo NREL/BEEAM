@@ -14,7 +14,7 @@ algorithm
     Frequency domain to time.
     Using sample() and when 
   */
-  when sample(0, (1 / systemDef.fs)) and k == 2 then
+  when sample(4*(1 / systemDef.fs), (1 / systemDef.fs)) and k == 2 then
     if iTick <= systemDef.N then
       y := y_wv_2[iTick];
       iTick := iTick + 1;
@@ -38,7 +38,7 @@ algorithm
   
   when sample((1 / systemDef.fs)*2, 1 / systemDef.fs) and k == 1 then
     k := k + 1;
-    y_wv_2[:] := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(v), Modelica.ComplexMath.arg(v), systemDef.N);
+    y_wv_2[:] := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(v[:]), Modelica.ComplexMath.arg(v[:]), systemDef.N);
   end when;
   
 equation

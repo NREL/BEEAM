@@ -1,7 +1,7 @@
 within HPF.Test;
 model SinglePhase_Transformer
   import Modelica.ComplexMath.j;
-  HPF.SinglePhase.Components.IdealTransformer T_HPD(N = 480 / 208)  annotation (
+  HPF.SinglePhase.Components.IdealTransformer T_HPF(N = 480 / 208)  annotation (
     Placement(visible = true, transformation(origin={-12, 60},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(hrms = {1, 3})  annotation (
     Placement(visible = true, transformation(origin={-50,90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -49,17 +49,17 @@ model SinglePhase_Transformer
 equation
   connect(vSrc_HPF.pin_n, ground1.pin) annotation(
     Line(points = {{-68, 50}, {-68, 30}}, color = {117, 80, 123}));
-  connect(vSrc_HPF.pin_n, T_HPD.pinN_Prim) annotation(
+  connect(vSrc_HPF.pin_n, T_HPF.pinN_Prim) annotation(
     Line(points = {{-68, 50}, {-46, 50}, {-46, 50.2}, {-32, 50.2}, {-32, 50}, {-22, 50}}, color = {117, 80, 123}));
-  connect(z.pin_n, T_HPD.pinN_Sec) annotation(
+  connect(z.pin_n, T_HPF.pinN_Sec) annotation(
     Line(points = {{38, 70}, {44, 70}, {44, 50}, {-2, 50}}, color = {117, 80, 123}));
-  connect(T_HPD.pinP_Sec, z.pin_p) annotation(
+  connect(T_HPF.pinP_Sec, z.pin_p) annotation(
     Line(points = {{-2, 70}, {18, 70}}));
-  connect(z1.pin_n, T_HPD.pinP_Prim) annotation(
+  connect(z1.pin_n, T_HPF.pinP_Prim) annotation(
     Line(points = {{-34, 70}, {-22, 70}}, color = {117, 80, 123}));
   connect(vSrc_HPF.pin_p, z1.pin_p) annotation(
     Line(points = {{-68, 70}, {-54, 70}}));
-  connect(ground2.pin, T_HPD.pinN_Sec) annotation(
+  connect(ground2.pin, T_HPF.pinN_Sec) annotation(
     Line(points = {{-2, 30}, {-2, 50}}));
   connect(z2.pin_n, simplified.pinP_prim) annotation(
     Line(points = {{-36, 14}, {-10, 14}}, color = {117, 80, 123}));

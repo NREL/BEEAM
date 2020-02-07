@@ -28,7 +28,7 @@ model Test_Rectifier
   HPF.SinglePhase.Components.Ground ground4 annotation(
     Placement(visible = true, transformation(origin = {78, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.Ammeter_Freq2Time ammeter_Freq2Time annotation(
-    Placement(visible = true, transformation(origin = {-36, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-34, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(v.pin_n, ground1.pin) annotation(
     Line(points = {{-120, -20}, {-120, -30}}, color = {117, 80, 123}));
@@ -55,9 +55,9 @@ equation
   connect(z1.pin_n, ground4.pin) annotation(
     Line(points = {{20, 0}, {78, 0}, {78, -44}, {78, -44}}, color = {117, 80, 123}));
   connect(ammeter_Freq2Time.pin_n, laptop_adapter.hPin_P) annotation(
-    Line(points = {{-24, -36}, {0, -36}}, color = {117, 80, 123}));
+    Line(points = {{-24, -34}, {-12, -34}, {-12, -36}, {0, -36}}, color = {117, 80, 123}));
   connect(ammeter_Freq2Time.pin_p, z.pin_n) annotation(
-    Line(points = {{-44, -36}, {-52, -36}, {-52, 0}, {-72, 0}, {-72, 0}}, color = {92, 53, 102}));
+    Line(points = {{-44, -34}, {-52, -34}, {-52, 0}, {-72, 0}}, color = {92, 53, 102}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),

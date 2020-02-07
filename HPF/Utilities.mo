@@ -151,8 +151,8 @@ package Utilities
       // Hardcoded dimensions.
       final parameter Real argDataMat[:, :] = Modelica.Utilities.Streams.readRealMatrix(fileNameResource, "argV", 32, 1);
     equation
-//final parameter Real magData[32] = magDataMat[32, 1];
-//final parameter Real argData[32] = magDataMat[32, 1];/\
+      //final parameter Real magData[32] = magDataMat[32, 1];
+      //final parameter Real argData[32] = magDataMat[32, 1];/\
       annotation (
         Icon(coordinateSystem(grid = {0, 0})),
         Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
@@ -275,8 +275,8 @@ package Utilities
     output Real y[N];
 
   protected
-    Real y_fftRe[N](each start = 0);
-    Real y_fftIm[N](each start = 0);
+    Real y_fftRe[N];
+    Real y_fftIm[N];
 
   algorithm
     /*
@@ -291,7 +291,7 @@ package Utilities
 
 
   annotation (
-      Documentation(info = "<html><head></head><body>Wrapper function for ifft_fromMagPhaseOddHrms. Input is magnitude and phase for only odd harmonics. The function zero pads all the even harmonics and then run call the function, ifft_fromMagPhase.<div><br></div><div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">The input data is of the form,</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\"><br></div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">Harmonic number&nbsp;<span class=\"Apple-tab-span\" style=\"white-space: pre;\">	</span>| Input vector index</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">1 (fundamental)<span class=\"Apple-tab-span\" style=\"white-space: pre;\">		</span>| 1</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">3<span class=\"Apple-tab-span\" style=\"white-space: pre;\">			</span>| 2</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">5<span class=\"Apple-tab-span\" style=\"white-space:pre\">			</span>| 3</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">.</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">..</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">...</div></div></body></html>"));
+      Documentation(info = "<html><head></head><body>Wrapper function for ifft_fromMagPhaseOddHrms. Input is magnitude and phase for only odd harmonics. The function zero pads all the even harmonics and then run call the function, ifft_fromMagPhase.<div><br></div><div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">The input data is of the form,</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\"><br></div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">Harmonic number&nbsp;<span class=\"Apple-tab-span\" style=\"white-space: pre;\">        </span>| Input vector index</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">1 (fundamental)<span class=\"Apple-tab-span\" style=\"white-space: pre;\">                </span>| 1</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">3<span class=\"Apple-tab-span\" style=\"white-space: pre;\">                        </span>| 2</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">5<span class=\"Apple-tab-span\" style=\"white-space:pre\">                        </span>| 3</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">.</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">..</div><div style=\"font-family: 'DejaVu Sans Mono'; font-size: 12px;\">...</div></div></body></html>"));
   end ifft_fromMagPhaseOddHrms;
 
   function fft_fromMagPhaseOddHrms "Get FFT (complex) from magnitudes and phase (Odd harmonics)"
@@ -315,7 +315,7 @@ package Utilities
 
   function phaseShift
     extends Modelica.Icons.Function;
-    
+
   algorithm
 
   end phaseShift;
