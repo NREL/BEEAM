@@ -12,7 +12,7 @@
 addpath('./lib')
 
 % model name
-modelName = 'SinglePhase_Transformer';
+modelName = 'Scenario_1';
 %% file path for OpenModelica mat file
 matFile_path = '/home/avpreetsingh/OpenModelica_workspace/HPF.Test.SinglePhase_Transformer/HPF.Test.SinglePhase_Transformer_res.mat';
 %% file path for Dymola mat file
@@ -41,7 +41,7 @@ T_simplified = struct();
 % structName.(dynamicExpression)
 
 %% some commonly used functions would be:
-% given a 2 port device. compute all the necessary power computations
+% given a 2 pin (1 port) device. compute all the necessary power computations
 % * Real power
 % * Imaginary power
 % * Apparent power
@@ -52,7 +52,7 @@ T_simplified = struct();
 %
 
 %% Devices:
-% * Two port devices
+% * Two pin devices
 % * Rectifiers
 % * Transformer
 % * Voltage source.
