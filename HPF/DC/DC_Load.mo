@@ -3,7 +3,7 @@ model DC_Load
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   HPF.Utilities.ComponentProperties properties(ComponentType = "DC_Load");
 
-  parameter Real pwr(start = 1) = 1 "Power (watts)";
+  parameter Modelica.SIunits.Power pwr(start = 1) = 1 "Power (watts)";
 
 
 equation

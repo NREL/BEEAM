@@ -1,7 +1,7 @@
 within HPF.Examples;
 model MATLAB_Implementation_Cmplx
   import Modelica.ComplexMath.j;
-  inner HPF.SystemDef systemDef(hrms={i for i in 1:2:3})    annotation (
+  inner HPF.SystemDef systemDef(hrms={i for i in 1:2:25})    annotation (
     Placement(visible = true, transformation(origin={-80.1847, 12.4921},    extent = {{-9.81534, -9.81533}, {9.81534, 7.01095}}, rotation = 0)));
   HPF.Test_components.HarmonicSource_MATLAB_Implementation_Cmplx load annotation (
     Placement(visible = true, transformation(origin={-26,0},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));

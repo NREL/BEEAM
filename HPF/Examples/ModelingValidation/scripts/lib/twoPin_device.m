@@ -34,9 +34,11 @@ s = struct();
 % indexed. Matlab is throwing an error if we try to access variables in the 
 % i for the first re element. 
 % Workaround: use a for loop and iterate.
+
 for k = 1:1:h
    s.v(k) = u.v(k).re(1) + u.v(k).im(1)*1j;
    s.i(k) = u.i(k).re(1) + u.i(k).im(1)*1j;
+   s.v
 end
 % struct for voltage and current in polar form
 s.V = struct();

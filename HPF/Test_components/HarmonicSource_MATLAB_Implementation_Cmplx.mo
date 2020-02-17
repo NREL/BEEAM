@@ -39,7 +39,10 @@ equation
 
 
   annotation (
-    Icon(graphics={  Rectangle(extent = {{-80, 80}, {80, -80}}), Line(origin = {-90, 0}, points = {{-10, 0}, {10, 0}}), Line(origin = {90, 0}, points = {{10, 0}, {-10, 0}}), Text(origin = {-20, -47}, rotation = 90, extent = {{-20, 15}, {112, -45}}, textString = "g(.)", textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold}), Text(origin = {12, 136}, rotation = 90, extent = {{-46, 50}, {260, -6}}, textString = "%name",
+    Icon(graphics={  Rectangle(extent = {{-80, 80}, {80, -80}}), Line(origin = {-90, 0}, points = {{-10, 0}, {10, 0}}), Line(origin = {90, 0}, points = {{10, 0}, {-10, 0}}), Text(origin={
+              -25,-69.6977},                                                                                                                                                                            rotation = 90, extent={{
+              -30.3023,15},{169.698,-45}},                                                                                                                                                                                                        textString = "g(.)", textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold}), Text(origin={18,
+              146},                                                                                                                                                                                                        rotation = 90, extent = {{-46, 50}, {260, -6}}, textString = "%name",
             horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}, coordinateSystem(initialScale = 0.1)),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",

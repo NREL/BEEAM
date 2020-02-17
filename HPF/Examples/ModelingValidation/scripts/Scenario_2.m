@@ -24,7 +24,7 @@ res = modelicaImport(matFile_path);
 h = res.systemDef.numHrm;
 
 % input voltage
-inputVoltage = voltageSrc_3ph(h, res.votlageSource);
+inputVoltage = voltageSrc_3ph(h, res.voltageSource);
 
 % converters
 LaptopCharger_1 = AC2DC_converter_1ph(h, res.Laptop_charger_3);
