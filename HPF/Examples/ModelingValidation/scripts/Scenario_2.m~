@@ -1,7 +1,11 @@
-% MATLAB post processing scripts
-% using the output mat file to run the post processing analysis.
+% MATLAB test scripts
+% Using MATLAB with Modelica environments is difficult as there are numerous 
+% tools. An easier and more efficient way is to simulate Modelica model and
+% use the output mat file to run the post processing analysis.
 %
 % For now sticking with OpenModelica and Dymola.
+%
+% Testing sensors and rectifier
 %
 
 %% script initializations
@@ -37,35 +41,5 @@ PowerSupply_1 = AC2DC_converter_1ph(h, res.Power_Supply_1);
 
 % DC loads
 
-%% system losses -----
-% Transformer losses
 
-% converter losses
-
-% input power 
-
-% Output DC power for converters
-
-% System losses
-
-%% do some plotting
-% input voltage
-figure 
-subplot(2,1,1)
-hold on
-grid on
-plot(inputVoltage.phA.wv.v);
-plot(inputVoltage.phB.wv.v);
-plot(inputVoltage.phC.wv.v);
-subplot(2,1,2)
-hold on
-grid on
-plot(inputVoltage.phA.wv.i);
-plot(inputVoltage.phB.wv.i);
-plot(inputVoltage.phC.wv.i);
-
-figure
-plot(LedDriver_1.AC.wv.v)
-grid on
-figure
-plot(LaptopCharger_1.AC.wv.v)
+% d

@@ -1,0 +1,8 @@
+
+
+function y = getTimeWvform(mag, arg, N)
+    % pad even harmonics with zeros
+    magAll = m
+    % get ifft coefficients
+    coefs = fftCoefReconstruct(mag, arg, N);
+    y = iift(real)

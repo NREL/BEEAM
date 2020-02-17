@@ -15,3 +15,10 @@ s.DC.i = u.vDC.i(1);
 
 %% Power computations --------
 s.Ploss = 0;
+
+% real power 
+s.Preal = 0;
+% imaginary power
+s.Pimag = 0;
+% distortion power
+s.Pdist = 0;

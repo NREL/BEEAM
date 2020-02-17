@@ -36,8 +36,8 @@ s = struct();
 % Workaround: use a for loop and iterate.
 
 for k = 1:1:h
-   s.v(k) = u.v(k).re(end) + u.v(k).im(end)*1j;
-   s.i(k) = u.i(k).re(end) + u.i(k).im(end)*1j;
+   s.v(k) = u.v(k).re(1) + u.v(k).im(1)*1j;
+   s.i(k) = u.i(k).re(1) + u.i(k).im(1)*1j;
 end
 % struct for voltage and current in polar form
 s.V = struct();
@@ -50,9 +50,7 @@ s.I.arg = angle(s.i);
 % computing powers.
 
 % computing waveforms
-N = 1302;
-s.wv = struct();
-s.wv.v = getTimeWvform(s.V.mag, s.V.arg, N);
-s.wv.i = getTimeWvform(s.I.mag, s.I.arg, N);
+s.wv = struct
+s.wv.v = g
 
 
