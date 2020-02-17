@@ -19,7 +19,7 @@ model Simplified "Simplified transformer harmonic model"
   HPF.SinglePhase.Interface.HPin_P pinP_sec(h = systemDef.numHrm)  annotation(
     Placement(visible = true, transformation(origin = {100, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.IdealTransformer idealTransformer(N = N) annotation(
-    Placement(visible = true, transformation(origin = {18, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {22, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Resistor R(r = Rc) annotation(
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Interface.HPin_N pinN_prim(h = systemDef.numHrm) annotation(
@@ -34,21 +34,21 @@ model Simplified "Simplified transformer harmonic model"
     Placement(visible = true, transformation(origin = {-12, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
   connect(idealTransformer.pinN_Prim, pinN_prim) annotation(
-    Line(points = {{8, -14}, {8, -40}, {-100, -40}}, color = {117, 80, 123}));
+    Line(points = {{12, -14}, {12, -40}, {-100, -40}}, color = {117, 80, 123}));
   connect(pinN_sec, idealTransformer.pinN_Sec) annotation(
-    Line(points = {{100, -40}, {28, -40}, {28, -14}}, color = {117, 80, 123}));
+    Line(points = {{100, -40}, {32, -40}, {32, -14}}, color = {117, 80, 123}));
   connect(Zp.pin_p, pinP_prim) annotation(
     Line(points = {{-66, 30}, {-102, 30}}, color = {0, 0, 0}));
   connect(Zp.pin_n, idealTransformer.pinP_Prim) annotation(
-    Line(points = {{-46, 30}, {8, 30}, {8, 6}}, color = {117, 80, 123}));
+    Line(points = {{-46, 30}, {12, 30}, {12, 6}}, color = {117, 80, 123}));
   connect(Zs.pin_n, pinP_sec) annotation(
     Line(points = {{66, 30}, {100, 30}}, color = {117, 80, 123}));
   connect(Zs.pin_p, idealTransformer.pinP_Sec) annotation(
-    Line(points = {{46, 30}, {28, 30}, {28, 6}}));
+    Line(points = {{46, 30}, {32, 30}, {32, 6}}));
   connect(R.pin_p, z.pin_n) annotation(
     Line(points = {{-30, 10}, {-12, 10}}));
   connect(z.pin_n, idealTransformer.pinP_Prim) annotation(
-    Line(points = {{-12, 10}, {-20, 10}, {-20, 30}, {8, 30}, {8, 6}}, color = {117, 80, 123}));
+    Line(points = {{-12, 10}, {-20, 10}, {-20, 30}, {12, 30}, {12, 6}}, color = {117, 80, 123}));
   connect(R.pin_n, z.pin_p) annotation(
     Line(points = {{-30, -10}, {-12, -10}}, color = {117, 80, 123}));
   connect(pinN_prim, R.pin_n) annotation(
