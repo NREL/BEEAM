@@ -58,10 +58,6 @@ model Scenario_2_tmp
     Placement(visible = true, transformation(origin = {166, -34}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation(
     Placement(visible = true, transformation(origin = {166, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z(z = 1e-5 + 1e-5 * j) annotation(
-    Placement(visible = true, transformation(origin = {106, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  HPF.SinglePhase.Components.Impedance z2(z = 1e-5 + 1e-5 * j) annotation(
-    Placement(visible = true, transformation(origin = {104, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   HPF.SinglePhase.Components.Impedance z3(z = 1e-5 + 1e-5 * j) annotation(
     Placement(visible = true, transformation(origin = {8, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   HPF.SinglePhase.Components.Impedance z4(z = 1e-5 + 1e-5 * j) annotation(
@@ -121,14 +117,6 @@ equation
     Line(points = {{142, -36}, {158, -36}, {158, -44}, {166, -44}}, color = {0, 0, 255}));
   connect(Power_Supply_2.pin_p, Load_2.p) annotation(
     Line(points = {{144, 22}, {168, 22}, {168, 22}, {166, 22}, {166, 22}}, color = {0, 0, 255}));
-  connect(z.pin_p, Power_Supply_2.hPin_P) annotation(
-    Line(points = {{116, 22}, {124, 22}, {124, 22}, {124, 22}}, color = {92, 53, 102}));
-  connect(z2.pin_p, Laptop_Charger_4.hPin_P) annotation(
-    Line(points = {{114, -24}, {122, -24}, {122, -24}, {122, -24}}, color = {92, 53, 102}));
-  connect(z2.pin_n, deltaWye.pinSec_B) annotation(
-    Line(points = {{94, -24}, {82, -24}, {82, 4}, {-26, 4}, {-26, 52}, {-58, 52}, {-58, 52}}, color = {117, 80, 123}));
-  connect(z.pin_n, deltaWye.pinSec_B) annotation(
-    Line(points = {{96, 22}, {88, 22}, {88, 4}, {-26, 4}, {-26, 52}, {-58, 52}, {-58, 52}}, color = {117, 80, 123}));
   connect(deltaWye.pinSec_A, z4.pin_n) annotation(
     Line(points = {{-58, 60}, {-6, 60}, {-6, 50}, {2, 50}, {2, 50}}, color = {92, 53, 102}));
   connect(z3.pin_n, deltaWye.pinSec_A) annotation(
@@ -141,6 +129,10 @@ equation
     Line(points = {{-114, 48}, {-78, 48}, {-78, 48}, {-78, 48}}, color = {117, 80, 123}));
   connect(LED_Driver_3.hPin_P, deltaWye.pinSec_C) annotation(
     Line(points = {{28, -10}, {-38, -10}, {-38, 44}, {-58, 44}, {-58, 44}, {-58, 44}}, color = {92, 53, 102}));
+  connect(deltaWye.pinSec_B, Power_Supply_2.hPin_P) annotation(
+    Line(points = {{-58, 52}, {-20, 52}, {-20, 0}, {102, 0}, {102, 22}, {124, 22}, {124, 22}}, color = {92, 53, 102}));
+  connect(deltaWye.pinSec_B, Laptop_Charger_4.hPin_P) annotation(
+    Line(points = {{-58, 52}, {-20, 52}, {-20, 0}, {98, 0}, {98, -24}, {122, -24}, {122, -24}}, color = {92, 53, 102}));
   annotation(
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics = {Text(origin = {-12, 4}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
 Load Phase a-n	Total Load - 300W      Load Bank 1 (78W), LED 1 (22W), Resistor 2 (200W)

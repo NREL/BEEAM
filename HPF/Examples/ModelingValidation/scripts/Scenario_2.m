@@ -64,8 +64,28 @@ plot(inputVoltage.phA.wv.i);
 plot(inputVoltage.phB.wv.i);
 plot(inputVoltage.phC.wv.i);
 
+% diagnosing
+inputVoltage.phA.V.arg(1)
+inputVoltage.phB.V.arg(1)
+inputVoltage.phC.V.arg(1)
+
 figure
 plot(LedDriver_1.AC.wv.v)
 grid on
 figure
 plot(LaptopCharger_1.AC.wv.v)
+
+figure
+m = struct();
+a = struct();
+m.AB = res.vMsr_AB.vMag(:, end);
+a.AB = res.vMsr_AB.vArg(:, end);
+m.BC = res.vMsr_BC.vMag(:, end);
+a.BC = res.vMsr_BC.vArg(:, end);
+m.CA = res.vMsr_CA.vMag(:, end);
+a.CA = res.vMsr_CA.vArg(:, end);
+
+plot(getTimeWvform(m.AB, m.AB, 1302));
+hold on
+plot(getTimeWvform(m.BC, m.BC, 1302));
+plot(getTimeWvform(m.CA, a.CA, 1302));

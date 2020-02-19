@@ -79,9 +79,15 @@ equation
     S = P + jQ = V*conj(I)
       = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
   */
+  /*
   //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
   P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
-  Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);
+  Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+  //rewriting the power relation
+  */
+  loadBase.i[1].re = (P*loadBase.v[1].re + Q*loadBase.v[1].im) / (loadBase.v[1].re^2 + loadBase.v[1].im^2);
+  loadBase.i[1].im = (P*loadBase.v[1].im - Q*loadBase.v[1].re) / (loadBase.v[1].re^2 + loadBase.v[1].im^2);
+  
   /*
     current injection for the rest of the harmonics.
     One must also model the effect of error resulting from 

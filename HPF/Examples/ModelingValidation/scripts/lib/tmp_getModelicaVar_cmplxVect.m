@@ -25,8 +25,6 @@ function res = getModelicaVar(fileName, varName)
     % search through the variable tree.
     % Locate the variable and return.
     res = getVar(varName, name, dataInfo, data_1, data_2);
-
-
 end
 
 function y = getVar(varName, name, dataInfo, data_1, data_2)
