@@ -13,11 +13,15 @@ s.phB = twoPin_device(h, u.vSrc_phB);
 s.phC = twoPin_device(h, u.vSrc_phC);
 
 %% computing powers -----------------
+
+% Traditional definition of power, computing power for same voltage and current
+% harmonics
+s.S_tmp = sum((s.phA.v .* conj(s.phA.i)) + (s.phB.v .* conj(s.phB.i)) + ...
+                (s.phC.v .* conj(s.phC.i))); 
 % Real power
-
+s.P = abs(real(s.S_tmp));
 % Imaginary power
-
-% Apparent power
-
+s.Q = abs(imag(s.S_tmp));
 % Distortion power
 
+% Apparent power

@@ -1,11 +1,11 @@
 within HPF.Examples.ModelingValidation;
-model Scenario_2
+model Scenario_2_Data_Set_2_4
   HPF.SinglePhase.Components.Ground ground annotation (
     Placement(visible = true, transformation(origin={-184, -18},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.ThreePhase.DeltaWye deltaWye(Rc = 3.5366e3, Rp = 2.7672, Rs = 0.2576,VPrimRated = 480, VSecRated = 208, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003,fEC = 0.067, fOSL = 0.033, fW = 0.9) annotation (
+  HPF.Transformers.ThreePhase.DeltaWye deltaWye(Rc = 5.0392e+03, Rp = 2.7672, Rs = 0.2576,VPrimRated = 480, VSecRated = 208, Xm = 777.0164, Xp = 1.1006, Xs = 0.5003,fEC = 0.067, fOSL = 0.033, fW = 0.9) annotation (
     Placement(visible = true, transformation(origin={-46, 0},    extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
-    Placement(visible = true, transformation(origin={-32, -22},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-33, -21},    extent = {{-11, -11}, {11, 11}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
     Placement(visible = true, transformation(origin={-176, 60},    extent = {{-14, -14}, {14, 10}}, rotation = 0)));
   HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {0.52192, 6.1952, 3.641, 8.2279, 4.6037, 6.1521, 9.054, 11.1771, 11.547, 9.5299}, vArg_phB = {4.7065, 3.5627, 4.2216, 5.9383, 4.7501, 8.371, 6.837, 8.9513, 7.4465, 13.0091}, vArg_phC = {2.6138, 1.127, 6.9575, 3.4123, 7.8346, 10.4191, 11.1108, 6.5894, 9.3993, 10.5656}, vMag_phA = {282.8166, 0.45117, 0.39336, 0.76549, 0.19582, 0.74027, 0.44753, 0.031767, 0.56648, 0.11503}, vMag_phB = {282.9682, 0.65765, 0.17303, 1.3199, 0.3038, 0.75239, 0.43691, 0.046575, 0.5116, 0.15362}, vMag_phC = {281.8661, 0.35229, 0.54619, 0.99899, 0.49719, 0.66452, 0.39451, 0.037451, 0.50007, 0.058614}) annotation (
@@ -16,7 +16,7 @@ model Scenario_2
     Placement(visible = true, transformation(origin={48, 44},       extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_3(V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_3.mat") annotation (
     Placement(visible = true, transformation(origin={50, -4},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Load_1(pwr = 200) annotation (
+  HPF.DC.DC_Load Load_1(pwr = 600) annotation (
     Placement(visible = true, transformation(origin={82,40},      extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation (
     Placement(visible = true, transformation(origin={82, 12},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -38,7 +38,7 @@ model Scenario_2
     Placement(visible = true, transformation(origin={78, -94},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerElectronicsConverters.AC2DC_SinglePhase LED_Driver_1(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_LED_Driver_1.mat") annotation (
     Placement(visible = true, transformation(origin = {50, 88}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load LED_3(pwr = 22) annotation (
+  HPF.DC.DC_Load LED_3(pwr = 1e-2) annotation (
     Placement(visible = true, transformation(origin={78, -68},     extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.DC_Load LED_1(pwr = 22) annotation (
     Placement(visible = true, transformation(origin = {82, 84}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -58,7 +58,7 @@ model Scenario_2
     Placement(visible = true, transformation(origin={184, -62},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground13 annotation (
     Placement(visible = true, transformation(origin={78, -142},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load(pwr = 600) annotation (
+  HPF.DC.DC_Load dC_Load(pwr = 1e-2) annotation (
     Placement(visible = true, transformation(origin={78, -116},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.DC_Load dC_Load1(pwr = 78) annotation (
     Placement(visible = true, transformation(origin={184, -82},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -68,7 +68,7 @@ model Scenario_2
     Placement(visible = true, transformation(origin={122, -96},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation (
     Placement(visible = true, transformation(origin={80, -190},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load2(pwr = 78) annotation (
+  HPF.DC.DC_Load dC_Load2(pwr = 1e-2) annotation (
     Placement(visible = true, transformation(origin={80, -164},     extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Ground ground19 annotation (
     Placement(visible = true, transformation(origin={18, -176},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -144,7 +144,7 @@ equation
   connect(ground16.p, dC_Load1.n) annotation (
     Line(points = {{184, -98}, {184, -92}}, color = {0, 0, 255}));
   connect(deltaWye.pinSec_N, ground2.pin) annotation (
-    Line(points = {{-36, -12}, {-32, -12}, {-32, -22}}, color = {117, 80, 123}));
+    Line(points = {{-36, -12}, {-33, -12}, {-33, -21}}, color = {117, 80, 123}));
   connect(Power_Supply_1.pin_n, Load_1.n) annotation (
     Line(points = {{58, 38}, {78, 38}, {78, 30}, {82, 30}}, color = {0, 0, 255}));
   connect(Power_Supply_3.pin_n, dC_Load.n) annotation (
@@ -202,11 +202,11 @@ equation
   connect(Laptop_Charger_4.hPin_P, deltaWye.pinSec_B) annotation (
     Line(points = {{140, -72}, {102, -72}, {102, -46}, {-10, -46}, {-10, 4}, {-36, 4}, {-36, 4}}, color = {92, 53, 102}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics={Text(origin = {-10, -52}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
-Load Phase a-n	Total Load - 300W      Load Bank 1 (78W), LED 1 (22W), Resistor 2 (200W)
-Load Phase b-n	Total Load - 500W      Load Bank 2 (78W), LED 2 (22W), Resistor 3 (400W)
-Load Phase c-n	Total Load - 700W      Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)", fontSize = 9, horizontalAlignment = TextAlignment.Left), Text(origin = {106, -146}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-98, 164}}, textString = "Changed Rs 2.7672 -> 1.1", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics={Text(origin = {-10, -32}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.4
+Load Phase a-n	Total Load - 700W		Load Bank 1 (78W), LED 1 (22W), Resistor 4 (600W)
+Load Phase b-n	Total Load - 500W		Load Bank 2 (78W), LED 2 (22W), Resistor 3 (400W)
+Load Phase c-n	Total Load - 0W		", fontSize = 9, horizontalAlignment = TextAlignment.Left), Text(origin = {106, -146}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-98, 164}}, textString = "Changed Rs 2.7672 -> 1.1", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
-end Scenario_2;
+end Scenario_2_Data_Set_2_4;

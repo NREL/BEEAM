@@ -38,7 +38,7 @@ model FFT_mag_phase_reconstruct_oddHarmonics
   // simulating a scenario in simulation with only odd harmonics
 
   final parameter Integer M = integer(floor(matDim_fft[1]/2));
- 
+
 initial algorithm
 
 equation
@@ -56,7 +56,7 @@ algorithm
     y_all := HPF.Utilities.ifft_fromMagPhase(mag, arg, N);
     k2 := 0;
   end when;
-  
+
 equation
 
   annotation (

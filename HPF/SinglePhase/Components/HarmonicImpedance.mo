@@ -1,5 +1,4 @@
 within HPF.SinglePhase.Components;
-
 model HarmonicImpedance "Pass impedance as harmonic dependent vector, Z = R + jX"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   import Modelica.ComplexMath.j;
@@ -11,7 +10,7 @@ equation
     */
   v[:].re = Rh[:] .* i[:].re - Xh[:] .* i[:].im;
   v[:].im = Rh[:] .* i[:].im + Xh[:] .* i[:].re;
-  annotation(
+  annotation (
     Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Rectangle(lineColor = {92, 53, 102}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-70, 30}, {70, -30}}), Text(origin = {-40.4, 3.2}, lineColor = {92, 53, 102}, extent = {{-27.6, 8.8}, {110.4, -13.2}}, textString = "Z(h)=R(h)+jX(h)"), Line(origin = {-85.07, -0.21}, points = {{-15, 0}, {15, 0}}, color = {92, 53, 102}), Line(origin = {85.0205, -0.21}, points = {{-15, 0}, {15, 0}}, color = {92, 53, 102}), Text(origin = {-24, -20}, lineColor = {92, 53, 102}, extent = {{-156, 60}, {204, 100}}, textString = "%name")}),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
     Documentation(info = "<html>

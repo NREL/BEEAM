@@ -9,4 +9,5 @@ function y = getTimeWvform(mag, arg, N)
     
     % get ifft coefficients
     coefs = fftCoefReconstruct(magAll, argAll, N);
-    y = ifft(real(coefs));
+    y = real(ifft(coefs));
+    

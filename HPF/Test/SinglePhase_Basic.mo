@@ -11,8 +11,8 @@ model SinglePhase_Basic
     Placement(visible = true, transformation(origin={54,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {-44, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.HarmonicImpedance harmonicImpedance(Rh={0.5 for i in 1
-        :1:systemDef.numHrm}, Xh={0.5*h for h in systemDef.hrms})
+  SinglePhase.Components.HarmonicImpedance harmonicImpedance(Rh={0.5 for i in 1:
+         1:systemDef.numHrm}, Xh={0.5*h for h in systemDef.hrms})
     annotation (Placement(transformation(extent={{-2,10},{18,30}})));
 equation
   connect(voltageSource1.pin_n, ground1.pin) annotation (

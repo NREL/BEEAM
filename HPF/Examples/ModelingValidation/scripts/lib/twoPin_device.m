@@ -39,15 +39,14 @@ for k = 1:1:h
    s.v(k) = u.v(k).re(end) + u.v(k).im(end)*1j;
    s.i(k) = u.i(k).re(end) + u.i(k).im(end)*1j;
 end
+
 % struct for voltage and current in polar form
 s.V = struct();
 s.V.mag = abs(s.v);
 s.V.arg = angle(s.v);
 s.I = struct();
 s.I.mag = abs(s.i);
-s.I.arg = angle(s.i);
-
-% computing powers.
+s.I.arg = angle(s.i);   
 
 % computing waveforms
 N = 1302;

@@ -10,15 +10,24 @@ s = struct();
 s.AC = twoPin_device(h, u.loadBase);
 
 %% DC side -----------
-s.DC.v = u.vDC.v(1);
-s.DC.i = u.vDC.i(1);
+s.DC.v = u.vDC.v(end);
+s.DC.i = u.vDC.i(end);
 
 %% Power computations --------
-s.Ploss = 0;
+tmp = s.AC.v .* conj(s.AC.i);
+S_tmp = sum(s.AC.v .* conj(s.AC.i));
+
+s.AC.Ptmp = sum(s.AC.V.mag .* s.AC.I.mag .* cos(s.AC.V.arg - s.AC.I.arg));
 
 % real power 
-s.Preal = 0;
+s.AC.P = real(S_tmp);
 % imaginary power
-s.Pimag = 0;
+s.AC.Q = imag(S_tmp);
 % distortion power
-s.Pdist = 0;
+s.AC.Pdist = 0;
+
+% DC power draw
+s.DC.P = abs(s.DC.v * s.DC.i);
+
+% losses
+s.Ploss = s.AC.P - s.DC.P;

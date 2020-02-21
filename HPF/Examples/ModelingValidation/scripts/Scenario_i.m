@@ -1,0 +1,143 @@
+% MATLAB post processing scripts
+% using the output mat file to run the post processing analysis.
+%
+% For now sticking with OpenModelica and Dymola.
+%
+% TODO: add harmonic vector for easy harmonics plotting.
+
+close all
+
+%% script initializations
+addpath('./lib')
+
+% if scenario variable exists, skip
+% this means one is running the external run script.
+% one would iterate the variable and run all the scenarios.
+if exist('scenario', 'var') ~= 1
+    scenarios ={'Scenario_1_Data_Set_1_1';      % 1
+            'Scenario_1_Data_Set_1_2';      % 2
+            'Scenario_1_Data_Set_1_3';      % 3
+            'Scenario_1_Data_Set_1_4';      % 4
+            'Scenario_2_Data_Set_2_1';      % 5 
+            'Scenario_2_Data_Set_2_2';      % 6
+            'Scenario_2_Data_Set_2_3';      % 7
+            'Scenario_2_Data_Set_2_4'};     % 8
+    scenario = 5;
+end
+        
+modelicaWorkingDir = '/home/avpreetsingh/OpenModelica_workspace/';
+% file path for OpenModelica mat file
+matFile_path = [modelicaWorkingDir, 'HPF.Examples.ModelingValidation.', scenarios{scenario}, '/HPF.Examples.ModelingValidation.', scenarios{scenario}, '_res.mat'];
+
+% speedup execution, prevents reloading matfile everytime.
+% to load mat file, clear all the variables using 'clear'
+if exist('res', 'var') ~= 1
+    res = modelicaImport(matFile_path);
+end
+% correction ---------------
+% There is a bug in the 'modelicaImport.m' function. It fails to populate the varaible
+% voltageSource.vSrc_phC.v
+% Therefore, manually doing that.. functions with prefix 'tmp_' are all 
+% temporary fix.
+tmpVar = tmp_getModelicaVar_cmplxVect(matFile_path, 'voltageSource.vSrc_phC.v');
+res.voltageSource.vSrc_phC.v = tmpVar;
+
+
+numHrm = res.systemDef.numHrm;   % number of harmonics
+h = res.systemDef.hrms; % system harmonics
+% getting data from all the devices
+
+%% getting data
+% input 
+inputVoltageSource = voltageSrc_3ph(numHrm, res.voltageSource);
+
+% converters
+LaptopCharger_3 = AC2DC_converter_1ph(numHrm, res.Laptop_Charger_3);
+LaptopCharger_4 = AC2DC_converter_1ph(numHrm, res.Laptop_Charger_4);
+LaptopCharger_5 = AC2DC_converter_1ph(numHrm, res.Laptop_Charger_5);
+LedDriver_1 = AC2DC_converter_1ph(numHrm, res.LED_Driver_1);
+LedDriver_2 = AC2DC_converter_1ph(numHrm, res.LED_Driver_2);
+LedDriver_3 = AC2DC_converter_1ph(numHrm, res.LED_Driver_3);
+PowerSupply_1 = AC2DC_converter_1ph(numHrm, res.Power_Supply_1);
+PowerSupply_2 = AC2DC_converter_1ph(numHrm, res.Power_Supply_2);
+PowerSupply_3 = AC2DC_converter_1ph(numHrm, res.Power_Supply_3);
+
+% plotting 
+figure
+plot(inputVoltageSource.phA.wv.v)
+hold on
+plot(inputVoltageSource.phB.wv.v)
+plot(inputVoltageSource.phC.wv.v)
+legend('Ph A', 'Ph B', 'Ph C')
+
+figure
+plot(PowerSupply_2.AC.wv.i)
+legend('Power Supply 2')
+
+
+%% system losses -----
+% Output DC power for converters
+DC_power = LaptopCharger_3.DC.P + LaptopCharger_4.DC.P + LaptopCharger_5.DC.P + ...
+            LedDriver_1.DC.P + LedDriver_2.DC.P + LedDriver_3.DC.P + ...
+            PowerSupply_1.DC.P + PowerSupply_2.DC.P + PowerSupply_3.DC.P;
+
+disp( ' ========================================')        
+disp([' Results for:  ', scenarios{scenario}]) 
+disp( ' ========================================')
+disp(['Output DC power:    ', num2str(DC_power), ' W']);
+% converter losses 
+disp('Converter losses ------')
+disp(['Laptop_Charger_3:   ', num2str(LaptopCharger_3.Ploss), ' W']);
+disp(['Laptop_Charger_4:   ', num2str(LaptopCharger_4.Ploss), ' W']);
+disp(['Laptop_Charger_5:   ', num2str(LaptopCharger_5.Ploss), ' W']);
+disp(['LED_Driver_1:       ', num2str(LedDriver_1.Ploss), ' W']);
+disp(['LED_Driver_2:       ', num2str(LedDriver_2.Ploss), ' W']);
+disp(['LED_Driver_3:       ', num2str(LedDriver_3.Ploss), ' W']);
+disp(['Power_Supply_1:     ', num2str(PowerSupply_1.Ploss), ' W']);
+disp(['Power_Supply_2:     ', num2str(PowerSupply_2.Ploss), ' W']);
+disp(['Power_Supply_3:     ', num2str(PowerSupply_3.Ploss), ' W']);
+disp('-----------------------')
+% input power 
+disp(['System losses'])
+disp(['Input power:        ', num2str(inputVoltageSource.P), ' W']);
+disp(['Output DC power:    ', num2str(DC_power), ' W']);
+% System losses
+disp(['System Losses:      ', num2str(inputVoltageSource.P - DC_power), ' W']);
+
+%% plotting harmonics
+figure
+subplot(2,1,1)
+stem(h, LaptopCharger_4.AC.V.mag)
+grid on
+ylabel('Voltage (volts)')
+subplot(2,1,2)
+stem(h, LaptopCharger_4.AC.I.mag)
+grid on
+ylabel('Current (amps)')
+xlabel('Harmonics')
+%% Analyzing power 
+% laptop charger
+v = LaptopCharger_4.AC.wv.v;
+i = LaptopCharger_4.AC.wv.i;
+T = 1/60;
+dt = 1 / (1302 * 60);   % dt = 1/fs = 1 / (f * N)
+t = 0:dt:T;
+t = t(1:end-1);
+% plotting waveforms
+figure
+subplot(2,1,1)
+plot(t, v)
+grid on
+ylabel('Voltage (volts)')
+subplot(2,1,2)
+plot(t, i)
+grid on
+ylabel('Current (amps)')
+xlabel('Time (seconds)')
+
+
+Pavg = (1/T)*trapz(t, v.*i);
+disp('-----------------------')
+disp(['Laptop charger 4 - Power Analysis'])
+disp(['Average power (time-domain): ', num2str(Pavg), ' W'])
+disp(['Average power (HPF):         ', num2str(LaptopCharger_4.AC.P), ' W'])

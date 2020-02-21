@@ -9,11 +9,11 @@ model VotlageSource "Three phase voltage source. Specify parameters as a Modelic
     Placement(visible = true, transformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinN(h = systemDef.numHrm)  annotation (
     Placement(visible = true, transformation(origin = {100, -80}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource vSrc_phA(vMag = vMag_phA[:], vArg = vArg_phA[:])  annotation (
+  HPF.SinglePhase.Sources.VoltageSource vSrc_phA( vArg = vArg_phA[1:systemDef.numHrm],vMag = vMag_phA[1:systemDef.numHrm])  annotation (
      Placement(visible = true, transformation(origin = {-10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  HPF.SinglePhase.Sources.VoltageSource vSrc_phC(vMag = vMag_phC[:], vArg = vArg_phC[:]) annotation (
+  HPF.SinglePhase.Sources.VoltageSource vSrc_phC(vMag = vMag_phC[1:systemDef.numHrm], vArg = vArg_phC[1:systemDef.numHrm]) annotation (
     Placement(visible = true, transformation(origin = {-10, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  HPF.SinglePhase.Sources.VoltageSource vSrc_phB(vMag = vMag_phB[:], vArg = vArg_phB[:]) annotation (
+  HPF.SinglePhase.Sources.VoltageSource vSrc_phB(vMag = vMag_phB[1:systemDef.numHrm], vArg = vArg_phB[1:systemDef.numHrm]) annotation (
     Placement(visible = true, transformation(origin = {-10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 
   parameter Modelica.SIunits.Voltage vMag_phA[:] = {1} "Phase A magnitude";
@@ -26,17 +26,17 @@ model VotlageSource "Three phase voltage source. Specify parameters as a Modelic
 //protected
 
 equation
-  connect(vSrc_phA.pin_p, pinP_phA) annotation(
+  connect(vSrc_phA.pin_p, pinP_phA) annotation (
     Line(points = {{0, 60}, {98, 60}, {98, 60}, {100, 60}}, color = {92, 53, 102}));
-  connect(vSrc_phA.pin_n, pinN) annotation(
+  connect(vSrc_phA.pin_n, pinN) annotation (
     Line(points = {{-20, 60}, {-60, 60}, {-60, -80}, {100, -80}, {100, -80}}, color = {117, 80, 123}));
-  connect(vSrc_phC.pin_p, pinP_phC) annotation(
+  connect(vSrc_phC.pin_p, pinP_phC) annotation (
     Line(points = {{0, -40}, {100, -40}, {100, -40}, {100, -40}}, color = {92, 53, 102}));
-  connect(vSrc_phB.pin_p, pinP_phB) annotation(
+  connect(vSrc_phB.pin_p, pinP_phB) annotation (
     Line(points = {{0, 0}, {100, 0}, {100, 0}, {102, 0}}, color = {92, 53, 102}));
-  connect(vSrc_phB.pin_n, pinN) annotation(
+  connect(vSrc_phB.pin_n, pinN) annotation (
     Line(points = {{-20, 0}, {-60, 0}, {-60, -80}, {100, -80}, {100, -80}}, color = {117, 80, 123}));
-  connect(vSrc_phC.pin_n, pinN) annotation(
+  connect(vSrc_phC.pin_n, pinN) annotation (
     Line(points = {{-20, -40}, {-60, -40}, {-60, -80}, {100, -80}, {100, -80}}, color = {117, 80, 123}));
 
 annotation (

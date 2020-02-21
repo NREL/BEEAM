@@ -1,5 +1,4 @@
 within HPF.Examples.ModelingValidation;
-
 model Scenario_2_tmp2
   import Modelica.ComplexMath.j;
   HPF.SinglePhase.Components.Ground ground annotation (
@@ -68,8 +67,8 @@ equation
     annotation (Line(points={{22,26},{50,26}}, color={117,80,123}));
   connect(deltaWye.pinSec_B, test_harmonic_load1.pin_p)
     annotation (Line(points={{-56,54},{2,54}}, color={92,53,102}));
-  connect(test_harmonic_load2.pin_p, deltaWye.pinSec_C) annotation (Line(points
-        ={{2,26},{-28,26},{-28,46},{-56,46},{-56,46.2}}, color={92,53,102}));
+  connect(test_harmonic_load2.pin_p, deltaWye.pinSec_C) annotation (Line(points=
+         {{2,26},{-28,26},{-28,46},{-56,46},{-56,46.2}}, color={92,53,102}));
   connect(test_harmonic_load.pin_n, ground4.pin)
     annotation (Line(points={{22,80},{50,80}}, color={117,80,123}));
   connect(test_harmonic_load1.pin_n, ground3.pin)
@@ -83,5 +82,4 @@ Load Phase c-n	Total Load - 700W      Load Bank 3 (78W), LED 3 (22W), Resistor 4
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
-
 end Scenario_2_tmp2;
