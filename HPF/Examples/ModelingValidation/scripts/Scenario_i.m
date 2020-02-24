@@ -22,7 +22,7 @@ if exist('scenario', 'var') ~= 1
             'Scenario_2_Data_Set_2_2';      % 6
             'Scenario_2_Data_Set_2_3';      % 7
             'Scenario_2_Data_Set_2_4'};     % 8
-    scenario = 5;
+    scenario = 8;
 end
         
 modelicaWorkingDir = '/home/avpreetsingh/OpenModelica_workspace/';
@@ -31,7 +31,7 @@ matFile_path = [modelicaWorkingDir, 'HPF.Examples.ModelingValidation.', scenario
 
 % speedup execution, prevents reloading matfile everytime.
 % to load mat file, clear all the variables using 'clear'
-if exist('res', 'var') ~= 1
+if exist('res', 'var') ~= 1 || exist('loadOk', 'var') == 1
     res = modelicaImport(matFile_path);
 end
 % correction ---------------
@@ -134,10 +134,75 @@ plot(t, i)
 grid on
 ylabel('Current (amps)')
 xlabel('Time (seconds)')
-
-
+%% futher power analysis
 Pavg = (1/T)*trapz(t, v.*i);
 disp('-----------------------')
 disp(['Laptop charger 4 - Power Analysis'])
 disp(['Average power (time-domain): ', num2str(Pavg), ' W'])
 disp(['Average power (HPF):         ', num2str(LaptopCharger_4.AC.P), ' W'])
+
+%% Generating csv files for data entry
+% defining columns for each device, All powers are real
+% AC input power | DC output power | Loss
+
+dataRow = [ % Laptop charger 3
+            LaptopCharger_3.AC.P;
+            LaptopCharger_3.DC.P;
+            LaptopCharger_3.AC.P - LaptopCharger_3.DC.P;
+            % Laptop charger 4
+            LaptopCharger_4.AC.P;
+            LaptopCharger_4.DC.P;
+            LaptopCharger_4.AC.P - LaptopCharger_4.DC.P;
+            % Laptop charger 5
+            LaptopCharger_5.AC.P;
+            LaptopCharger_5.DC.P;
+            LaptopCharger_5.AC.P - LaptopCharger_5.DC.P;
+            % LED 1
+            LedDriver_1.AC.P;
+            LedDriver_1.DC.P;
+            LedDriver_1.AC.P - LedDriver_1.DC.P;
+            % LED 2
+            LedDriver_2.AC.P;
+            LedDriver_2.DC.P;
+            LedDriver_2.AC.P - LedDriver_2.DC.P;
+            % LED 3
+            LedDriver_3.AC.P;
+            LedDriver_3.DC.P;
+            LedDriver_3.AC.P - LedDriver_3.DC.P;
+            % Power supply 1
+            PowerSupply_1.AC.P;
+            PowerSupply_1.DC.P;
+            PowerSupply_1.AC.P - PowerSupply_1.DC.P;
+            % Power supply 2
+            PowerSupply_2.AC.P;
+            PowerSupply_2.DC.P;
+            PowerSupply_2.AC.P - PowerSupply_2.DC.P;
+            % Power supply 3
+            PowerSupply_3.AC.P;
+            PowerSupply_3.DC.P;
+            PowerSupply_3.AC.P - PowerSupply_3.DC.P;
+            % Input power
+            inputVoltageSource.P
+            % output power
+            DC_power
+            % total loss
+            inputVoltageSource.P - DC_power
+            ];
+
+
+dataRow = dataRow';
+if exist('indx', 'var') ~= 1
+    indx = 1;
+end
+
+csvDataMatrix(indx, :) = dataRow;
+indx = indx + 1 % indx var for csv row increment
+if(indx == 9)
+    writematrix(csvDataMatrix,'dataEntry_modifiedT.csv','Delimiter','comma')
+end
+
+
+
+
+
+
