@@ -1,0 +1,3530 @@
+
+OS:Version,
+  {f852d2b7-c213-40c6-8851-e7e4e9045c4f}, !- Handle
+  2.9.1;                                  !- Version Identifier
+
+OS:Schedule:Constant,
+  {18d34a83-cef2-4913-8a05-fe866cf964e3}, !- Handle
+  Always On Discrete,                     !- Name
+  ,                                       !- Schedule Type Limits Name
+  1;                                      !- Value
+
+OS:Rendering:Color,
+  {6378dbec-eb36-48ce-bad0-f6c4e6eb1a52}, !- Handle
+  Rendering Color 1,                      !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {6b77b5a5-0094-4c17-83c3-7caa815065cc}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  11.6250232500465,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:ScheduleTypeLimits,
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Handle
+  Fraction,                               ! Name
+  0,                                      ! Lower Limit Value
+  1,                                      ! Upper Limit Value
+  CONTINUOUS;                             ! Numeric Type
+
+OS:DesignSpecification:OutdoorAir,
+  {275b2507-2551-4c6b-9576-0694f401735c}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.007079211648,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {368c2aa8-6199-4c7a-afed-072001ce48c9}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.538195520835486,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {7b738bdd-2763-406d-995b-25758a6d1018}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  48.0070404585254,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {ba1f766f-181c-458c-9ef5-bb86302e4a6d}, !- Handle
+  Rendering Color 2,                      !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {41457983-c160-47a9-95d8-f0bd22f90cd5}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {1bd42bc7-ba48-4bab-8bd8-c05a26eb63e0}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {a35af567-e53b-4870-9c38-425d78127e44}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0511285744793712,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {76dd79c7-3e16-4add-9fcd-d58e3f4eb0b0}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  6.88890266669422,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {6ead6b3f-309f-49fb-902f-df18e88201ae}, !- Handle
+  Rendering Color 3,                      !- Name
+  230,                                    !- Rendering Red Value
+  196,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {60eaba92-a4a7-4556-b900-28264995134e}, !- Handle
+  189.1-2009 - Office - Conference - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  12.5937751875504,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {efbb3cc1-cd4b-4dc5-8eb7-eebc742afbdc}, !- Handle
+  189.1-2009 - Office - Conference - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {fbc6250e-d8ef-44d2-b711-da173185763b}, !- Handle
+  189.1-2009 - Office - Conference - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.538195520835486,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {6df9f412-3d2b-4a3d-9931-a8ea39c9851a}, !- Handle
+  189.1-2009 - Office - Conference - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  3.9826468541826,                        !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {f2532a3e-1ca1-4db9-998c-227431dfa48e}, !- Handle
+  Rendering Color 4,                      !- Name
+  169,                                    !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  31;                                     !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {5cfd67b5-9f61-444a-82e6-5eb49bd2067a}, !- Handle
+  189.1-2009 - Office - Corridor - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  4.84375968751938,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {92dce51d-bb1c-4f88-86ed-bc5545e26f09}, !- Handle
+  189.1-2009 - Office - Corridor - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {dc325083-bd71-4ade-8229-bbf6f67f2d09}, !- Handle
+  189.1-2009 - Office - Corridor - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0107639104167097,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {87fcf9c3-cd46-47e9-a1f2-d899c31ca1a7}, !- Handle
+  189.1-2009 - Office - Corridor - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  1.72222566667356,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {1f1f3d07-6d31-4834-9dcb-30d44551a6f6}, !- Handle
+  Rendering Color 5,                      !- Name
+  41,                                     !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  169;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {301c279a-dea0-4774-b91d-cf67fdb795dd}, !- Handle
+  189.1-2009 - Office - Elec/MechRoom - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  14.5312790625581,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {890f4b3a-8ddf-43e6-aa80-3b305b723267}, !- Handle
+  189.1-2009 - Office - Elec/MechRoom - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:ElectricEquipment:Definition,
+  {030e169d-c316-4dea-b4c4-8cc0a7b258c2}, !- Handle
+  189.1-2009 - Office - Elec/MechRoom - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  2.90625581251162,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {e45237c0-fb92-4607-bd04-df09fc52bb34}, !- Handle
+  Rendering Color 6,                      !- Name
+  41,                                     !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  169;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {7be7bbc7-40ac-4f36-a70b-854f360947fa}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {514bdf65-6520-4040-8ce1-c99180e69ac4}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {402b3f9c-3c0d-4782-8305-9804bb2bc388}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {4b027da5-4100-48fb-8eb7-41891e4f3791}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  16.7917002500672,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {f2ffe214-9259-4b2f-8e48-35543d5fba21}, !- Handle
+  Rendering Color 7,                      !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {1957c863-db51-4299-824a-a6fa5efa61d2}, !- Handle
+  189.1-2009 - Office - Lobby - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  12.5937751875504,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {f86340de-6056-4920-a25b-2457bbcdf377}, !- Handle
+  189.1-2009 - Office - Lobby - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.007079211648,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {79df7e5b-7b57-41f8-9b67-dc44e30876e5}, !- Handle
+  189.1-2009 - Office - Lobby - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.107639104167097,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {0e27137e-b1f9-4169-ba9f-5244845ab5f4}, !- Handle
+  189.1-2009 - Office - Lobby - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  0.753473729169681,                      !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {a2c602da-91b1-4db5-892c-de58e18075ce}, !- Handle
+  Rendering Color 8,                      !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {fd67ef29-ad38-4da2-a7ee-ccc333568103}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {1c52920b-7e50-4069-8337-699cc915ed7c}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {b7845f09-fae5-4c0e-8ce1-546c35ae55ed}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.056510529687726,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {4e2672a1-29ca-4e64-8fa3-e249b6e30add}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  7.6423763958639,                        !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Building,
+  {161a51f0-9700-4aa1-8ba8-f2513d0eecae}, !- Handle
+  Building 1,                             !- Name
+  ,                                       !- Building Sector Type
+  ,                                       !- North Axis {deg}
+  ,                                       !- Nominal Floor to Floor Height {m}
+  ,                                       !- Space Type Name
+  {c843ac02-1e81-40be-b7ce-59ca34e6922f}, !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  ,                                       !- Standards Number of Stories
+  ,                                       !- Standards Number of Above Ground Stories
+  ,                                       !- Standards Template
+  ,                                       !- Standards Building Type
+  ,                                       !- Standards Number of Living Units
+  ,                                       !- Relocatable
+  ;                                       !- Nominal Floor to Ceiling Height {m}
+
+OS:Rendering:Color,
+  {15265381-e5e1-46ed-aa83-2328823b2654}, !- Handle
+  Rendering Color 9,                      !- Name
+  41,                                     !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  169;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {337f608c-2383-4d09-a7d1-408a1b4e96c8}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {58570dd6-8afc-4dcd-b069-b470e899067e}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {b78656fa-8fd8-4315-b07a-eb10095d49f5}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.107639104167097,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {fa758148-18dd-4f33-a852-d9f823a00812}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  30.0313100626201,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {dd022378-ee6c-48ca-9a39-68a7adc126bd}, !- Handle
+  Rendering Color 10,                     !- Name
+  169,                                    !- Rendering Red Value
+  169,                                    !- Rendering Green Value
+  31;                                     !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {999ec759-6d28-4f7c-a7ad-9345a6a2fb13}, !- Handle
+  189.1-2009 - Office - Restroom - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  8.71876743753488,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {bde92cb9-71ea-4377-ba7a-5ec383b04669}, !- Handle
+  189.1-2009 - Office - Restroom - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.0048768,                              !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {a55d766c-a8d6-49f5-b50e-60acd8d7dddc}, !- Handle
+  189.1-2009 - Office - Restroom - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.107639104167097,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {32b578ed-1d51-417c-b3db-8dc955445ff4}, !- Handle
+  189.1-2009 - Office - Restroom - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  0.753473729169681,                      !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {a3d4d349-0de7-4e4f-ac21-f62447e12181}, !- Handle
+  Rendering Color 11,                     !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {0d4e581c-e0c4-44fc-8f5d-95c980b0c923}, !- Handle
+  189.1-2009 - Office - Stair - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  5.81251162502325,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {874a5fad-e186-4960-9b2a-0fba73083a6e}, !- Handle
+  189.1-2009 - Office - Stair - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:Rendering:Color,
+  {abf602e1-5689-4887-bc4d-e6f2fc2451e4}, !- Handle
+  Rendering Color 12,                     !- Name
+  120,                                    !- Rendering Red Value
+  149,                                    !- Rendering Green Value
+  230;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {750674c4-8a0a-42e6-9296-3a9888975fc8}, !- Handle
+  189.1-2009 - Office - Storage - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  7.750015500031,                         !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {4b03ea2e-ed8e-4436-b327-2f6e8ab4b5fb}, !- Handle
+  189.1-2009 - Office - Storage - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:Rendering:Color,
+  {5d8d43b8-7e07-431a-89e4-e65ffc0a4f50}, !- Handle
+  Rendering Color 13,                     !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {23b38a17-da96-4059-b455-7203e631952a}, !- Handle
+  189.1-2009 - Office - Vending - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  4.84375968751938,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {b486263b-55be-4328-a2c1-e999b7a6be2a}, !- Handle
+  189.1-2009 - Office - Vending - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {a07c1938-cf88-4075-b95b-3ac5e676c6e8}, !- Handle
+  189.1-2009 - Office - Vending - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0107639104167097,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {04557d7d-dbd9-43c1-a596-203bb1590a16}, !- Handle
+  189.1-2009 - Office - Vending - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  41.4410551043324,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {ae6193b8-9d13-45ab-a3c0-13ea1b2d2000}, !- Handle
+  Rendering Color 14,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {a1566ecf-9382-4c1b-969a-c465410b19c9}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  9.68751937503875,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:ScheduleTypeLimits,
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Handle
+  Fractional,                             !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Continuous;                             !- Numeric Type
+
+OS:DesignSpecification:OutdoorAir,
+  {b212614e-35f5-4376-9ba6-f2029aa777a8}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {df5e5b07-0ba2-4350-bced-e29846c19b1c}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {ab0065c9-7378-4aac-b981-6c37402b65b0}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  5.81251412763851,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {5975c023-a3df-4e88-aa90-8dff615de763}, !- Handle
+  Rendering Color 15,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {c6c38ed5-6ac0-40fe-a0b6-d2b29886d364}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  9.68751937503875,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {7851d678-e330-4e18-a2dc-5b9884d95f5d}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {288dcbc8-bd0e-498a-b9e6-ba1296af4c4b}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {cbe742e9-158d-4107-a571-99725288afb4}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  5.81251162502325,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {6b14889b-0e4f-4f9c-b271-99b0da5e1a5b}, !- Handle
+  Rendering Color 16,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {8a7cefef-9754-4d19-ab97-201b694ce98b}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ1-3 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  9.68751937503875,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {aadd82c0-abc4-48dc-965e-f55d797a6f83}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ1-3 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {33227efe-a9f2-4ef2-8fb5-c47e101e0f4d}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ1-3 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {b8b8ed7d-507c-4df3-b72a-3240a935b07b}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ1-3 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  5.81251162502325,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:ScheduleTypeLimits,
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Handle
+  Temperature,                            !- Name
+  ,                                       !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  Temperature;                            !- Unit Type
+
+OS:Rendering:Color,
+  {1ed40ce3-764d-4f1c-9541-cc382456360f}, !- Handle
+  Rendering Color 17,                     !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {889408a4-720d-4e9f-9237-0ad782961ad9}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  11.6250232500465,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {ede6a50d-2362-413c-be0a-bdd7b6d2c9d0}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.007079211648,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {9ba519b1-43bf-4f63-abe8-a33693fa2181}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.538195520835486,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {1f0ca437-bd97-4e44-8740-45fdb664c304}, !- Handle
+  189.1-2009 - Office - BreakRoom - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  48.0070404585254,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {5a97a52e-68b4-4e2f-81c9-ef166edd12b7}, !- Handle
+  Rendering Color 18,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {ef70e39d-f993-4955-9a0c-8bff5e6cc117}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {2b42e002-98dd-4f77-80c3-8b0dfe621cbd}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {cf2b0478-80f5-46b5-aa66-fa233ea7c1fa}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0511285744793712,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {352f2658-17a5-498c-abf7-98878c75c5a6}, !- Handle
+  189.1-2009 - Office - ClosedOffice - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  6.88890266669422,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {9db44ca4-e829-4339-9e20-ab6d324a2f13}, !- Handle
+  Rendering Color 19,                     !- Name
+  230,                                    !- Rendering Red Value
+  196,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {2407094e-b192-4e4e-bf48-bb4d44e67c33}, !- Handle
+  189.1-2009 - Office - Conference - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  12.5937751875504,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {3254b270-d949-4693-9412-a307428311f3}, !- Handle
+  189.1-2009 - Office - Conference - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {58cee6f0-be52-4eac-a63a-fe8f03ae56f7}, !- Handle
+  189.1-2009 - Office - Conference - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.538195520835486,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {d63c3157-863c-4020-a011-ccabf0a89bb8}, !- Handle
+  189.1-2009 - Office - Conference - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  3.9826468541826,                        !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {443e22e7-6eeb-4aff-b50d-5194717eb0c9}, !- Handle
+  Rendering Color 20,                     !- Name
+  169,                                    !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  31;                                     !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {22506379-e54e-4b52-ab76-efd50d87c058}, !- Handle
+  189.1-2009 - Office - Corridor - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  4.84375968751938,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {c0a4b775-f7e6-42e2-bdf4-0bffce82561e}, !- Handle
+  189.1-2009 - Office - Corridor - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {e40cf1b6-3f00-44f2-b550-a691c716a89d}, !- Handle
+  189.1-2009 - Office - Corridor - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0107639104167097,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {2ee5bf1f-af5b-4e3d-9d79-a2abddcc7b55}, !- Handle
+  189.1-2009 - Office - Corridor - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  1.72222566667356,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {6b853132-842e-4b4c-87a0-08e9ec11a8b4}, !- Handle
+  Rendering Color 21,                     !- Name
+  41,                                     !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  169;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {cd36d465-f9a9-43de-91e0-2f716f8bd0ad}, !- Handle
+  189.1-2009 - Office - Elec/MechRoom - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  14.5312790625581,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {5989f72c-8f33-401b-b226-56e3e1abb858}, !- Handle
+  189.1-2009 - Office - Elec/MechRoom - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:ElectricEquipment:Definition,
+  {9f71dcec-4c1e-4b63-8fed-e28e736c6435}, !- Handle
+  189.1-2009 - Office - Elec/MechRoom - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  2.90625581251162,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {e316459c-6c67-447f-b244-fafe96fcff21}, !- Handle
+  Rendering Color 22,                     !- Name
+  41,                                     !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  169;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {6d44cfb4-9408-419e-b2c1-87f0e0f06c2a}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {f91e193c-4dfa-4e1f-891d-1bb64193ea5b}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {64812af5-9790-4f34-bed9-ef012321ce96}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {377a5705-a05f-4850-b19e-b9742a9310bd}, !- Handle
+  189.1-2009 - Office - IT_Room - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  16.7917002500672,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {f005d03e-0b41-4986-84d0-fadf1332ea93}, !- Handle
+  Rendering Color 23,                     !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {02ab1bd2-d5bd-4e09-80bf-bdbadcb66ed0}, !- Handle
+  189.1-2009 - Office - Lobby - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  12.5937751875504,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {9fdbf61f-10d9-4b28-9ae1-1b51b92263e7}, !- Handle
+  189.1-2009 - Office - Lobby - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.007079211648,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {cc799a0e-5fb5-47d3-a0e6-1fada8c2e56b}, !- Handle
+  189.1-2009 - Office - Lobby - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.107639104167097,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {02dca3e4-0d5d-45c7-8219-04140147dae5}, !- Handle
+  189.1-2009 - Office - Lobby - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  0.753473729169681,                      !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {3f9553ae-707b-4ca2-9ad4-508d4a337b65}, !- Handle
+  Rendering Color 24,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:DefaultScheduleSet,
+  {ba53edd6-5b2b-478b-a905-cda25e2ad585}, !- Handle
+  Test_Schedule,                          !- Name
+  ,                                       !- Hours of Operation Schedule Name
+  ,                                       !- Number of People Schedule Name
+  ,                                       !- People Activity Level Schedule Name
+  ,                                       !- Lighting Schedule Name
+  ,                                       !- Electric Equipment Schedule Name
+  ,                                       !- Gas Equipment Schedule Name
+  ,                                       !- Hot Water Equipment Schedule Name
+  ,                                       !- Infiltration Schedule Name
+  ,                                       !- Steam Equipment Schedule Name
+  ;                                       !- Other Equipment Schedule Name
+
+OS:Lights:Definition,
+  {e1ffda63-4158-4ea6-9762-f28ae36fc302}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {732b6e8d-3ef7-48e5-8767-bf2a7dd07286}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {3e035d50-7cdf-4b7e-9529-71187fada49c}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.056510529687726,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {463c2de0-323d-4832-a2db-4a81df8ffdbc}, !- Handle
+  189.1-2009 - Office - OpenOffice - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  7.6423763958639,                        !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {49ec93b0-9819-4bc1-abb0-0362d9489542}, !- Handle
+  Rendering Color 25,                     !- Name
+  41,                                     !- Rendering Red Value
+  31,                                     !- Rendering Green Value
+  169;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {f21171ea-dcf9-428a-8618-ce0d6572d957}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  10.6562713125426,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {22b64ce4-85f1-4486-ba51-0520b58b4036}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {5dd1a9ed-5e8f-4572-bf72-cc8d30c5af5c}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.107639104167097,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {6061b0e7-ba26-4cf8-af43-80a81d176b22}, !- Handle
+  189.1-2009 - Office - PrintRoom - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  30.0313100626201,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {0ce100a3-8370-4435-8ece-bb19c786174d}, !- Handle
+  Rendering Color 26,                     !- Name
+  169,                                    !- Rendering Red Value
+  169,                                    !- Rendering Green Value
+  31;                                     !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {c77b2d14-c551-435e-bf0b-e27f25653123}, !- Handle
+  189.1-2009 - Office - Restroom - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  8.71876743753488,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {1d1baaa5-7430-41b6-bee8-7d557cf9ef11}, !- Handle
+  189.1-2009 - Office - Restroom - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.0048768,                              !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {4c8d19cd-1a3c-49e9-8923-d7d4491db1c0}, !- Handle
+  189.1-2009 - Office - Restroom - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.107639104167097,                      !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {4ef9fd48-3e8a-43a0-bdfe-ab83158ed5b1}, !- Handle
+  189.1-2009 - Office - Restroom - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  0.753473729169681,                      !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {d95685b7-d199-47d9-836d-5cfeadd0d02d}, !- Handle
+  Rendering Color 27,                     !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {3a7c0968-bfe1-4512-ae37-95a7502485e8}, !- Handle
+  189.1-2009 - Office - Stair - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  5.81251162502325,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {b23e46f7-9428-4374-b1e1-95dc075b9e8f}, !- Handle
+  189.1-2009 - Office - Stair - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:Rendering:Color,
+  {c7c07727-31ed-467f-b95f-c553a9d8cefa}, !- Handle
+  Rendering Color 28,                     !- Name
+  120,                                    !- Rendering Red Value
+  149,                                    !- Rendering Green Value
+  230;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {bc0d0450-0eb1-49a3-a0c3-e81257d0ed74}, !- Handle
+  189.1-2009 - Office - Storage - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  7.750015500031,                         !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {6bd2ae33-3b8d-41c5-af06-a8c2741a36e6}, !- Handle
+  189.1-2009 - Office - Storage - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:Rendering:Color,
+  {0963579a-0629-49d6-b65b-e2668ce49487}, !- Handle
+  Rendering Color 29,                     !- Name
+  230,                                    !- Rendering Red Value
+  157,                                    !- Rendering Green Value
+  120;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {add79377-2a7e-4ec0-b78a-95d24d8cc9ce}, !- Handle
+  189.1-2009 - Office - Vending - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  4.84375968751938,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {183fab5d-7028-4226-9cb5-a62ab42d5281}, !- Handle
+  189.1-2009 - Office - Vending - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  ,                                       !- Outdoor Air Flow per Person {m3/s-person}
+  0.000254,                               !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {2dd4317b-62e3-4800-ba0c-a765c67bfbfe}, !- Handle
+  189.1-2009 - Office - Vending - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0107639104167097,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {f29b3e98-398a-4594-9902-c427f11e41a0}, !- Handle
+  189.1-2009 - Office - Vending - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  41.4410551043324,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {895a3c08-736f-4eb5-b38f-47b931baf61d}, !- Handle
+  Rendering Color 30,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {760d75f8-bfda-40b6-aa35-d3391cd0c635}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  9.68751937503875,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {3363fbbc-9f8e-4798-9f00-77f9b1cd0205}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {8630c756-279b-403a-b407-130ee34f4c79}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {9b296f5a-7eb1-43e3-895d-23df7cd3960e}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Lg Office - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  5.81251412763851,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {db7493ef-58a7-41dc-898e-5b22bdb034c4}, !- Handle
+  Rendering Color 31,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {412e0cd3-9929-4ec0-aadc-1a2e20bf20ba}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  9.68751937503875,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {8b7b5719-1328-4ea2-81d7-406171c96a5f}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {205bfe39-deb6-44db-8c62-84bafd6e9f79}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {f1a1f164-3792-4119-b27a-1f0560285e4f}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Md Office - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  5.81251162502325,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Rendering:Color,
+  {1188d48c-a7ad-4b93-a4bb-209e009e0771}, !- Handle
+  Rendering Color 32,                     !- Name
+  120,                                    !- Rendering Red Value
+  230,                                    !- Rendering Green Value
+  199;                                    !- Rendering Blue Value
+
+OS:Lights:Definition,
+  {178b7807-f7c0-4022-8f6b-47411e4bd72f}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ4-8 Lights Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Lighting Level {W}
+  9.68751937503875,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:DesignSpecification:OutdoorAir,
+  {e1dd38dc-047c-4596-aff9-f45b7d535229}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ4-8 Ventilation, !- Name
+  Sum,                                    !- Outdoor Air Method
+  0.009438948864,                         !- Outdoor Air Flow per Person {m3/s-person}
+  ,                                       !- Outdoor Air Flow per Floor Area {m3/s-m2}
+  ,                                       !- Outdoor Air Flow Rate {m3/s}
+  ,                                       !- Outdoor Air Flow Air Changes per Hour {1/hr}
+  ;                                       !- Outdoor Air Flow Rate Fraction Schedule Name
+
+OS:People:Definition,
+  {bc1dcc4c-3dbc-47db-ba0b-46b759505db9}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ4-8 People Definition, !- Name
+  People/Area,                            !- Number of People Calculation Method
+  ,                                       !- Number of People {people}
+  0.0538195520835486,                     !- People per Space Floor Area {person/m2}
+  ,                                       !- Space Floor Area per Person {m2/person}
+  0.3;                                    !- Fraction Radiant
+
+OS:ElectricEquipment:Definition,
+  {e4b7bce2-70b6-495e-95eb-b42b745841a9}, !- Handle
+  189.1-2009 - Office - WholeBuilding - Sm Office - CZ4-8 Electric Equipment Definition, !- Name
+  Watts/Area,                             !- Design Level Calculation Method
+  ,                                       !- Design Level {W}
+  5.81251162502325,                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:Material:NoMass,
+  {f9d8d3d0-67dd-44ee-b650-ac57d9c4fdc9}, !- Handle
+  CP02 CARPET PAD,                        !- Name
+  Smooth,                                 !- Roughness
+  0.1,                                    !- Thermal Resistance {m2-K/W}
+  0.9,                                    !- Thermal Absorptance
+  0.8,                                    !- Solar Absorptance
+  0.8;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {c379f087-1159-45ad-a5ee-77aeed34b608}, !- Handle
+  {f9d8d3d0-67dd-44ee-b650-ac57d9c4fdc9}; !- Material Name
+
+OS:Material,
+  {f599e234-5bef-4b8b-a29e-b0e66ba90d1c}, !- Handle
+  1IN Stucco,                             !- Name
+  Smooth,                                 !- Roughness
+  0.0253,                                 !- Thickness {m}
+  0.691799999999999,                      !- Conductivity {W/m-K}
+  1858,                                   !- Density {kg/m3}
+  836.999999999999,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.92,                                   !- Solar Absorptance
+  0.92;                                   !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {3f2378f2-c512-4598-9498-b17a58efe749}, !- Handle
+  {f599e234-5bef-4b8b-a29e-b0e66ba90d1c}; !- Material Name
+
+OS:Material,
+  {86ce4850-8b71-4fc3-8156-58e01dd0d672}, !- Handle
+  8IN Concrete HW,                        !- Name
+  MediumRough,                            !- Roughness
+  0.2033,                                 !- Thickness {m}
+  1.72959999999999,                       !- Conductivity {W/m-K}
+  2242.99999999999,                       !- Density {kg/m3}
+  836.999999999999,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.65,                                   !- Solar Absorptance
+  0.65;                                   !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {7d29a534-72a3-4752-ba2f-8b5daf0eca62}, !- Handle
+  {86ce4850-8b71-4fc3-8156-58e01dd0d672}; !- Material Name
+
+OS:Material,
+  {adfa9abe-33e8-4914-a062-5f8dacc4064e}, !- Handle
+  1/2IN Gypsum,                           !- Name
+  Smooth,                                 !- Roughness
+  0.1016,                                 !- Thickness {m}
+  0.158650677750711,                      !- Conductivity {W/m-K}
+  784.9,                                  !- Density {kg/m3}
+  830.000000000001,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.4,                                    !- Solar Absorptance
+  0.4;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {fb853046-b735-487f-80f5-3b870ff8f926}, !- Handle
+  {adfa9abe-33e8-4914-a062-5f8dacc4064e}; !- Material Name
+
+OS:Construction,
+  {0b0018dc-e472-468b-a845-7af44941b4e4}, !- Handle
+  Interior Floor,                         !- Name
+  {8ac13c4c-206d-4940-885d-d6ce6186e91c}, !- Surface Rendering Name
+  {f35e4ce9-d5ea-4f23-b69d-7ba4ccb2817f}, !- Layer 1
+  {2a614ed8-fa53-404f-bed4-f1093e6c32d5}, !- Layer 2
+  {0ed2a254-f2fa-403e-8ba1-79175fd0ed3d}; !- Layer 3
+
+OS:StandardsInformation:Construction,
+  {ebd8e846-4b74-484c-bd74-a4236031e331}, !- Handle
+  {0b0018dc-e472-468b-a845-7af44941b4e4}, !- Construction Name
+  InteriorFloor,                          !- Intended Surface Type
+  ,                                       !- Standards Construction Type
+  ,                                       !- Perturbable Layer
+  ,                                       !- Perturbable Layer Type
+  ,                                       !- Other Perturbable Layer Type
+  ;                                       !- Construction Standard
+
+OS:Material,
+  {f35e4ce9-d5ea-4f23-b69d-7ba4ccb2817f}, !- Handle
+  F16 Acoustic tile,                      !- Name
+  MediumSmooth,                           !- Roughness
+  0.0191,                                 !- Thickness {m}
+  0.06,                                   !- Conductivity {W/m-K}
+  368,                                    !- Density {kg/m3}
+  590.000000000002,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.3,                                    !- Solar Absorptance
+  0.3;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {d60c6a28-e870-4cd1-a49b-31d604f0abdc}, !- Handle
+  {f35e4ce9-d5ea-4f23-b69d-7ba4ccb2817f}; !- Material Name
+
+OS:Material:AirGap,
+  {2a614ed8-fa53-404f-bed4-f1093e6c32d5}, !- Handle
+  F05 Ceiling air space resistance,       !- Name
+  0.18;                                   !- Thermal Resistance {m2-K/W}
+
+OS:StandardsInformation:Material,
+  {545bf2d6-a5b7-4745-87db-374675b9adf6}, !- Handle
+  {2a614ed8-fa53-404f-bed4-f1093e6c32d5}; !- Material Name
+
+OS:Material,
+  {0ed2a254-f2fa-403e-8ba1-79175fd0ed3d}, !- Handle
+  M11 100mm lightweight concrete,         !- Name
+  MediumRough,                            !- Roughness
+  0.1016,                                 !- Thickness {m}
+  0.53,                                   !- Conductivity {W/m-K}
+  1280,                                   !- Density {kg/m3}
+  840.000000000002,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.5,                                    !- Solar Absorptance
+  0.5;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {c6bb8f7b-dff1-4814-9cd3-13319696813c}, !- Handle
+  {0ed2a254-f2fa-403e-8ba1-79175fd0ed3d}; !- Material Name
+
+OS:Construction,
+  {53884ea6-a192-41b5-81c2-1408e285d41a}, !- Handle
+  Interior Wall,                          !- Name
+  {371ff492-e3b8-4b55-b591-2e81cc4c923a}, !- Surface Rendering Name
+  {8850cc38-8245-483b-8e4e-5b6f1e5b6292}, !- Layer 1
+  {d1f8070f-6ca4-4646-a468-2ea72351c34f}, !- Layer 2
+  {8850cc38-8245-483b-8e4e-5b6f1e5b6292}; !- Layer 3
+
+OS:StandardsInformation:Construction,
+  {45108b41-acd8-479b-9872-a6a347e65f3e}, !- Handle
+  {53884ea6-a192-41b5-81c2-1408e285d41a}, !- Construction Name
+  InteriorWall,                           !- Intended Surface Type
+  ,                                       !- Standards Construction Type
+  ,                                       !- Perturbable Layer
+  ,                                       !- Perturbable Layer Type
+  ,                                       !- Other Perturbable Layer Type
+  ;                                       !- Construction Standard
+
+OS:Material,
+  {8850cc38-8245-483b-8e4e-5b6f1e5b6292}, !- Handle
+  G01a 19mm gypsum board,                 !- Name
+  MediumSmooth,                           !- Roughness
+  0.019,                                  !- Thickness {m}
+  0.16,                                   !- Conductivity {W/m-K}
+  800,                                    !- Density {kg/m3}
+  1090,                                   !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.4,                                    !- Solar Absorptance
+  0.4;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {cf820310-55e8-41e7-88e3-dbd28419050f}, !- Handle
+  {8850cc38-8245-483b-8e4e-5b6f1e5b6292}; !- Material Name
+
+OS:Material:AirGap,
+  {d1f8070f-6ca4-4646-a468-2ea72351c34f}, !- Handle
+  F04 Wall air space resistance,          !- Name
+  0.15;                                   !- Thermal Resistance {m2-K/W}
+
+OS:StandardsInformation:Material,
+  {8d2ea389-7bd9-4546-ae34-6680cbe58334}, !- Handle
+  {d1f8070f-6ca4-4646-a468-2ea72351c34f}; !- Material Name
+
+OS:Construction,
+  {5ec6d64f-0911-4526-a0bf-dc24257386ae}, !- Handle
+  Interior Ceiling,                       !- Name
+  {7749bd21-da0e-4927-9ef2-e4e93c238f7d}, !- Surface Rendering Name
+  {0ed2a254-f2fa-403e-8ba1-79175fd0ed3d}, !- Layer 1
+  {2a614ed8-fa53-404f-bed4-f1093e6c32d5}, !- Layer 2
+  {f35e4ce9-d5ea-4f23-b69d-7ba4ccb2817f}; !- Layer 3
+
+OS:StandardsInformation:Construction,
+  {8deb4e7f-8a9b-4e73-bf92-5cd6dbabcf04}, !- Handle
+  {5ec6d64f-0911-4526-a0bf-dc24257386ae}, !- Construction Name
+  InteriorCeiling,                        !- Intended Surface Type
+  ,                                       !- Standards Construction Type
+  ,                                       !- Perturbable Layer
+  ,                                       !- Perturbable Layer Type
+  ,                                       !- Other Perturbable Layer Type
+  ;                                       !- Construction Standard
+
+OS:WindowMaterial:Glazing,
+  {c51ec9e3-f684-42f4-b67d-591666991784}, !- Handle
+  Theoretical Glass [167],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.2374,                                 !- Solar Transmittance at Normal Incidence
+  0.7126,                                 !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.2512,                                 !- Visible Transmittance at Normal Incidence
+  0.6988,                                 !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.985,                                  !- Front Side Infrared Hemispherical Emissivity
+  0.985,                                  !- Back Side Infrared Hemispherical Emissivity
+  2.1073,                                 !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {c83efe52-5ee7-4bb9-8aca-7cbd030b1945}, !- Handle
+  {c51ec9e3-f684-42f4-b67d-591666991784}; !- Material Name
+
+OS:WindowMaterial:Glazing,
+  {32f534d4-997e-48dd-9996-adc31dca1449}, !- Handle
+  Clear 3mm,                              !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.837,                                  !- Solar Transmittance at Normal Incidence
+  0.075,                                  !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.898,                                  !- Visible Transmittance at Normal Incidence
+  0.081,                                  !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.84,                                   !- Front Side Infrared Hemispherical Emissivity
+  0.84,                                   !- Back Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {0f9193bf-9f04-461d-997b-ca2cb6f9e99b}, !- Handle
+  {32f534d4-997e-48dd-9996-adc31dca1449}; !- Material Name
+
+OS:WindowMaterial:Glazing,
+  {0fb74a22-0b3c-44c3-9ecb-fdedafb63fda}, !- Handle
+  Theoretical Glass [197],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.2349,                                 !- Solar Transmittance at Normal Incidence
+  0.7151,                                 !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.2512,                                 !- Visible Transmittance at Normal Incidence
+  0.6988,                                 !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.9,                                    !- Front Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Back Side Infrared Hemispherical Emissivity
+  0.0415,                                 !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {7c1eec51-2f97-4855-b2d1-dee396b10b9a}, !- Handle
+  {0fb74a22-0b3c-44c3-9ecb-fdedafb63fda}; !- Material Name
+
+OS:WindowMaterial:Glazing,
+  {8e3b0056-5c77-4812-936e-a0acb51c8d43}, !- Handle
+  Theoretical Glass [202],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.2325,                                 !- Solar Transmittance at Normal Incidence
+  0.7175,                                 !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.3192,                                 !- Visible Transmittance at Normal Incidence
+  0.6308,                                 !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.9,                                    !- Front Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Back Side Infrared Hemispherical Emissivity
+  0.0192,                                 !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {384d3391-bf2d-4019-8c1f-e8ec3fd12fa4}, !- Handle
+  {8e3b0056-5c77-4812-936e-a0acb51c8d43}; !- Material Name
+
+OS:WindowMaterial:Glazing,
+  {6b986149-4d27-4395-8784-6f01e63a470b}, !- Handle
+  Theoretical Glass [207],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.3311,                                 !- Solar Transmittance at Normal Incidence
+  0.6189,                                 !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.44,                                   !- Visible Transmittance at Normal Incidence
+  0.51,                                   !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.9,                                    !- Front Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Back Side Infrared Hemispherical Emissivity
+  0.0133,                                 !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {4396f391-93ca-4fe4-af94-05cf696c9435}, !- Handle
+  {6b986149-4d27-4395-8784-6f01e63a470b}; !- Material Name
+
+OS:DefaultConstructionSet,
+  {c843ac02-1e81-40be-b7ce-59ca34e6922f}, !- Handle
+  Steca_Frezeer_Construction_Set,         !- Name
+  {5087102c-c07c-40d4-acaf-15aea71334e6}, !- Default Exterior Surface Constructions Name
+  {9077730e-2e9e-40da-bde3-f6dccf02df74}, !- Default Interior Surface Constructions Name
+  {ab3fedaf-36af-4082-a9eb-bf2c9086fdf9}, !- Default Ground Contact Surface Constructions Name
+  {2708fc51-1b62-41e8-a280-a10f13e07cb0}, !- Default Exterior SubSurface Constructions Name
+  {79a07fa0-d367-4700-91ec-6cb78907d458}, !- Default Interior SubSurface Constructions Name
+  ,                                       !- Interior Partition Construction Name
+  ,                                       !- Space Shading Construction Name
+  ,                                       !- Building Shading Construction Name
+  ,                                       !- Site Shading Construction Name
+  ;                                       !- Adiabatic Surface Construction Name
+
+OS:DefaultSurfaceConstructions,
+  {5087102c-c07c-40d4-acaf-15aea71334e6}, !- Handle
+  Default Surface Constructions 13,       !- Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Floor Construction Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Wall Construction Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}; !- Roof Ceiling Construction Name
+
+OS:Construction,
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Handle
+  Cyclopentance_wall,                     !- Name
+  {cf97ee75-0460-4c01-b8ab-ff16f7f804f9}, !- Surface Rendering Name
+  {3c17d746-76db-4667-8275-e69b2edc4990}, !- Layer 1
+  {64130473-de67-47ce-9f1e-2f3740030574}, !- Layer 2
+  {7526fcc4-0065-430b-a06c-5a33dcf9e893}; !- Layer 3
+
+OS:StandardsInformation:Construction,
+  {df82085e-4812-49e2-ae52-5a48096fc3c4}, !- Handle
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Construction Name
+  ExteriorWall,                           !- Intended Surface Type
+  Mass,                                   !- Standards Construction Type
+  ,                                       !- Perturbable Layer
+  ,                                       !- Perturbable Layer Type
+  ,                                       !- Other Perturbable Layer Type
+  ;                                       !- Construction Standard
+
+OS:Material,
+  {4a8d2e13-f63a-4207-9dda-3f2e6e1de10d}, !- Handle
+  Wall Insulation [40],                   !- Name
+  MediumRough,                            !- Roughness
+  0.0793999999999999,                     !- Thickness {m}
+  0.0432,                                 !- Conductivity {W/m-K}
+  91,                                     !- Density {kg/m3}
+  836.999999999999,                       !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.5,                                    !- Solar Absorptance
+  0.5;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {9e8cba4f-4037-42f6-84ee-5779fcec866b}, !- Handle
+  {4a8d2e13-f63a-4207-9dda-3f2e6e1de10d}; !- Material Name
+
+OS:DefaultSurfaceConstructions,
+  {9077730e-2e9e-40da-bde3-f6dccf02df74}, !- Handle
+  Default Surface Constructions 14,       !- Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Floor Construction Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Wall Construction Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}; !- Roof Ceiling Construction Name
+
+OS:DefaultSurfaceConstructions,
+  {ab3fedaf-36af-4082-a9eb-bf2c9086fdf9}, !- Handle
+  Default Surface Constructions 15,       !- Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Floor Construction Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Wall Construction Name
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}; !- Roof Ceiling Construction Name
+
+OS:DefaultSubSurfaceConstructions,
+  {2708fc51-1b62-41e8-a280-a10f13e07cb0}, !- Handle
+  Default Sub Surface Constructions 9,    !- Name
+  ,                                       !- Fixed Window Construction Name
+  ,                                       !- Operable Window Construction Name
+  ,                                       !- Door Construction Name
+  ,                                       !- Glass Door Construction Name
+  ,                                       !- Overhead Door Construction Name
+  ,                                       !- Skylight Construction Name
+  ,                                       !- Tubular Daylight Dome Construction Name
+  ;                                       !- Tubular Daylight Diffuser Construction Name
+
+OS:DefaultSubSurfaceConstructions,
+  {79a07fa0-d367-4700-91ec-6cb78907d458}, !- Handle
+  Default Sub Surface Constructions 10,   !- Name
+  ,                                       !- Fixed Window Construction Name
+  ,                                       !- Operable Window Construction Name
+  ,                                       !- Door Construction Name
+  ,                                       !- Glass Door Construction Name
+  ,                                       !- Overhead Door Construction Name
+  ,                                       !- Skylight Construction Name
+  ,                                       !- Tubular Daylight Dome Construction Name
+  ;                                       !- Tubular Daylight Diffuser Construction Name
+
+OS:WindowMaterial:Glazing,
+  {8fb7ea74-e85a-45a7-b167-4b76e2fea79e}, !- Handle
+  Theoretical Glass [216],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.3801,                                 !- Solar Transmittance at Normal Incidence
+  0.5699,                                 !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.5079,                                 !- Visible Transmittance at Normal Incidence
+  0.4421,                                 !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.9,                                    !- Front Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Back Side Infrared Hemispherical Emissivity
+  0.0133,                                 !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {c85bff12-19de-453f-b9bf-7ee6e3f75853}, !- Handle
+  {8fb7ea74-e85a-45a7-b167-4b76e2fea79e}; !- Material Name
+
+OS:WindowMaterial:Glazing,
+  {1ef57f0c-fcc7-4d22-aceb-27f65b882b32}, !- Handle
+  Theoretical Glass [221],                !- Name
+  SpectralAverage,                        !- Optical Data Type
+  ,                                       !- Window Glass Spectral Data Set Name
+  0.00299999999999999,                    !- Thickness {m}
+  0.4296,                                 !- Solar Transmittance at Normal Incidence
+  0.5204,                                 !- Front Side Solar Reflectance at Normal Incidence
+  0,                                      !- Back Side Solar Reflectance at Normal Incidence
+  0.4503,                                 !- Visible Transmittance at Normal Incidence
+  0.4997,                                 !- Front Side Visible Reflectance at Normal Incidence
+  0,                                      !- Back Side Visible Reflectance at Normal Incidence
+  0,                                      !- Infrared Transmittance at Normal Incidence
+  0.9,                                    !- Front Side Infrared Hemispherical Emissivity
+  0.9,                                    !- Back Side Infrared Hemispherical Emissivity
+  0.0089,                                 !- Conductivity {W/m-K}
+  1,                                      !- Dirt Correction Factor for Solar and Visible Transmittance
+  No;                                     !- Solar Diffusing
+
+OS:StandardsInformation:Material,
+  {ac2c1735-2d57-4704-b274-13338f136c51}, !- Handle
+  {1ef57f0c-fcc7-4d22-aceb-27f65b882b32}; !- Material Name
+
+OS:Material:AirWall,
+  {9c2e9d3e-294f-43b6-a35a-50ee1f5a6da4}, !- Handle
+  Air Wall Material;                      !- Name
+
+OS:Site,
+  {67954095-e568-4057-a467-6d726fa7832a}, !- Handle
+  EL-MONTE,                               !- Name
+  34.08,                                  !- Latitude {deg}
+  -118.03,                                !- Longitude {deg}
+  -8,                                     !- Time Zone {hr}
+  90,                                     !- Elevation {m}
+  ;                                       !- Terrain
+
+OS:YearDescription,
+  {ced9d852-3dbd-4e6c-ade7-1e572711c3f2}, !- Handle
+  2017,                                   !- Calendar Year
+  ,                                       !- Day of Week for Start Day
+  ;                                       !- Is Leap Year
+
+OS:ClimateZones,
+  {f9298a12-fa75-446c-a6a6-301b9e4dc7b8}, !- Handle
+  ,                                       !- Active Institution
+  ,                                       !- Active Year
+  ASHRAE,                                 !- Climate Zone Institution Name 1
+  ANSI/ASHRAE Standard 169,               !- Climate Zone Document Name 1
+  2006,                                   !- Climate Zone Document Year 1
+  ,                                       !- Climate Zone Value 1
+  CEC,                                    !- Climate Zone Institution Name 2
+  California Climate Zone Descriptions,   !- Climate Zone Document Name 2
+  1995,                                   !- Climate Zone Document Year 2
+  ;                                       !- Climate Zone Value 2
+
+OS:LifeCycleCost:Parameters,
+  {fb618376-732f-4376-831c-e5bee8e3ceba}, !- Handle
+  FEMP,                                   !- Analysis Type
+  ,                                       !- Discounting Convention
+  ,                                       !- Inflation Approach
+  ,                                       !- Real Discount Rate
+  ,                                       !- Nominal Discount Rate
+  ,                                       !- Inflation
+  ,                                       !- Base Date Month
+  ,                                       !- Base Date Year
+  ,                                       !- Service Date Month
+  ,                                       !- Service Date Year
+  ,                                       !- Length of Study Period in Years
+  ,                                       !- Tax Rate
+  ,                                       !- Depreciation Method
+  Yes;                                    !- Use NIST Fuel Escalation Rates
+
+OS:Facility,
+  {67aa9559-41cc-4015-a2b3-ee95a9bcd8ad}; !- Handle
+
+OS:StandardsInformation:Material,
+  {05225216-2b25-4f29-8135-2765309693d9}, !- Handle
+  {9c2e9d3e-294f-43b6-a35a-50ee1f5a6da4}; !- Material Name
+
+OS:WindowMaterial:Blind,
+  {57a656b0-06ef-4771-ad1b-2a27d4d72bbc}, !- Handle
+  Window Material Blind 1,                !- Name
+  ,                                       !- Slat Orientation
+  0.025,                                  !- Slat Width {m}
+  0.01875,                                !- Slat Separation {m}
+  ,                                       !- Slat Thickness {m}
+  ,                                       !- Slat Angle {deg}
+  ,                                       !- Slat Conductivity {W/m-K}
+  ,                                       !- Slat Beam Solar Transmittance
+  0.5,                                    !- Front Side Slat Beam Solar Reflectance
+  0.5,                                    !- Back Side Slat Beam Solar Reflectance
+  ,                                       !- Slat Diffuse Solar Transmittance
+  0.5,                                    !- Front Side Slat Diffuse Solar Reflectance
+  0.5,                                    !- Back Side Slat Diffuse Solar Reflectance
+  0,                                      !- Slat Beam Visible Transmittance
+  ,                                       !- Front Side Slat Beam Visible Reflectance
+  ,                                       !- Back Side Slat Beam Visible Reflectance
+  ,                                       !- Slat Diffuse Visible Transmittance
+  ,                                       !- Front Side Slat Diffuse Visible Reflectance
+  ,                                       !- Back Side Slat Diffuse Visible Reflectance
+  ,                                       !- Slat Infrared Hemispherical Transmittance
+  ,                                       !- Front Side Slat Infrared Hemispherical Emissivity
+  ,                                       !- Back Side Slat Infrared Hemispherical Emissivity
+  ,                                       !- Blind to Glass Distance {m}
+  ,                                       !- Blind Top Opening Multiplier
+  ,                                       !- Blind Bottom Opening Multiplier
+  ,                                       !- Blind Left Side Opening Multiplier
+  ,                                       !- Blind Right Side Opening Multiplier
+  ,                                       !- Minimum Slat Angle {deg}
+  ;                                       !- Maximum Slat Angle {deg}
+
+OS:ShadingControl,
+  {64b03060-09c8-45a6-be3e-0f0090086f6a}, !- Handle
+  Shading Control 1,                      !- Name
+  InteriorBlind,                          !- Shading Type
+  ,                                       !- Construction with Shading Name
+  {57a656b0-06ef-4771-ad1b-2a27d4d72bbc}; !- Shading Device Material Name
+
+OS:WindowProperty:FrameAndDivider,
+  {98241f7b-1b8e-4151-8ed1-52b764874a82}, !- Handle
+  Window Property Frame And Divider 1,    !- Name
+  0.05081016,                             !- Frame Width {m}
+  0.05081016,                             !- Frame Outside Projection {m}
+  0.05081016,                             !- Frame Inside Projection {m}
+  ,                                       !- Frame Conductance {W/m2-K}
+  ,                                       !- Ratio of Frame-Edge Glass Conductance to Center-Of-Glass Conductance
+  ,                                       !- Frame Solar Absorptance
+  ,                                       !- Frame Visible Absorptance
+  ,                                       !- Frame Thermal Hemispherical Emissivity
+  ,                                       !- Divider Type
+  0,                                      !- Divider Width {m}
+  0,                                      !- Number of Horizontal Dividers
+  ,                                       !- Number of Vertical Dividers
+  ,                                       !- Divider Outside Projection {m}
+  ,                                       !- Divider Inside Projection {m}
+  ,                                       !- Divider Conductance {W/m2-K}
+  ,                                       !- Ratio of Divider-Edge Glass Conductance to Center-Of-Glass Conductance
+  ,                                       !- Divider Solar Absorptance
+  ,                                       !- Divider Visible Absorptance
+  ,                                       !- Divider Thermal Hemispherical Emissivity
+  ,                                       !- Outside Reveal Depth {m}
+  ,                                       !- Outside Reveal Solar Absorptance
+  ,                                       !- Inside Sill Depth {m}
+  ,                                       !- Inside Sill Solar Absorptance
+  ,                                       !- Inside Reveal Depth {m}
+  ;                                       !- Inside Reveal Solar Absorptance
+
+OS:Rendering:Color,
+  {64521fd3-8fee-4d26-86ce-17ae94c2f998}, !- Handle
+  Rendering Color 33,                     !- Name
+  255,                                    !- Rendering Red Value
+  248,                                    !- Rendering Green Value
+  220;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {7d7fe447-6654-4178-ade9-a5ad82c80b6c}, !- Handle
+  Rendering Color 34,                     !- Name
+  210,                                    !- Rendering Red Value
+  105,                                    !- Rendering Green Value
+  30;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {16867afa-6302-4029-9278-760e056275ca}, !- Handle
+  Rendering Color 35,                     !- Name
+  255,                                    !- Rendering Red Value
+  127,                                    !- Rendering Green Value
+  80;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {55cb73ff-e0b1-44d2-81d4-6de3085de451}, !- Handle
+  Rendering Color 36,                     !- Name
+  205,                                    !- Rendering Red Value
+  92,                                     !- Rendering Green Value
+  92;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {d6b5d6cb-406c-425c-976c-a13be60af014}, !- Handle
+  Rendering Color 37,                     !- Name
+  0,                                      !- Rendering Red Value
+  128,                                    !- Rendering Green Value
+  0;                                      !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {35a170fc-cd4e-47c1-884a-8ac9dd7994f3}, !- Handle
+  Rendering Color 38,                     !- Name
+  143,                                    !- Rendering Red Value
+  188,                                    !- Rendering Green Value
+  143;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {58ab26fb-d459-46aa-8642-cfb81fde3416}, !- Handle
+  Rendering Color 39,                     !- Name
+  72,                                     !- Rendering Red Value
+  61,                                     !- Rendering Green Value
+  139;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {843b33d3-1ce0-4732-a16f-d4686c464db7}, !- Handle
+  Rendering Color 40,                     !- Name
+  34,                                     !- Rendering Red Value
+  139,                                    !- Rendering Green Value
+  34;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {7a2d5d92-1a1c-405d-bce5-d88daf44ee14}, !- Handle
+  Rendering Color 41,                     !- Name
+  0,                                      !- Rendering Red Value
+  100,                                    !- Rendering Green Value
+  0;                                      !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {7749bd21-da0e-4927-9ef2-e4e93c238f7d}, !- Handle
+  Rendering Color 42,                     !- Name
+  255,                                    !- Rendering Red Value
+  127,                                    !- Rendering Green Value
+  80;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {e2ebbf9c-f878-4b9e-a4e3-1aee342e0d01}, !- Handle
+  Rendering Color 43,                     !- Name
+  186,                                    !- Rendering Red Value
+  85,                                     !- Rendering Green Value
+  211;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {bc58822b-5028-48ab-b936-8d8068a8fed8}, !- Handle
+  Rendering Color 44,                     !- Name
+  135,                                    !- Rendering Red Value
+  206,                                    !- Rendering Green Value
+  250;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {cf97ee75-0460-4c01-b8ab-ff16f7f804f9}, !- Handle
+  Rendering Color 45,                     !- Name
+  255,                                    !- Rendering Red Value
+  20,                                     !- Rendering Green Value
+  147;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {8ac13c4c-206d-4940-885d-d6ce6186e91c}, !- Handle
+  Rendering Color 46,                     !- Name
+  205,                                    !- Rendering Red Value
+  133,                                    !- Rendering Green Value
+  63;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {b03fe369-97ac-4b63-8004-2f9192dd38f9}, !- Handle
+  Rendering Color 47,                     !- Name
+  255,                                    !- Rendering Red Value
+  255,                                    !- Rendering Green Value
+  0;                                      !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {5ce8294a-e1fd-4033-aa6a-7e168978f2bf}, !- Handle
+  Rendering Color 48,                     !- Name
+  233,                                    !- Rendering Red Value
+  150,                                    !- Rendering Green Value
+  122;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {560f6264-cb4a-4dc1-a667-a3e904280316}, !- Handle
+  Rendering Color 49,                     !- Name
+  255,                                    !- Rendering Red Value
+  222,                                    !- Rendering Green Value
+  173;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {a11ea822-4fbb-4773-82d2-50e929b02898}, !- Handle
+  Rendering Color 50,                     !- Name
+  178,                                    !- Rendering Red Value
+  34,                                     !- Rendering Green Value
+  34;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {0cd904fc-6703-447e-a9de-68650185ae7f}, !- Handle
+  Rendering Color 51,                     !- Name
+  188,                                    !- Rendering Red Value
+  143,                                    !- Rendering Green Value
+  143;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {8ad8fe71-5de3-4099-8ac8-a6c8f9153f58}, !- Handle
+  Rendering Color 52,                     !- Name
+  0,                                      !- Rendering Red Value
+  0,                                      !- Rendering Green Value
+  128;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {333f700c-3749-477c-9a5b-861d229f4d03}, !- Handle
+  Rendering Color 53,                     !- Name
+  216,                                    !- Rendering Red Value
+  191,                                    !- Rendering Green Value
+  216;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {b6b988ec-6edd-488a-8915-e90af0ad1481}, !- Handle
+  Rendering Color 54,                     !- Name
+  255,                                    !- Rendering Red Value
+  99,                                     !- Rendering Green Value
+  71;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {cbe56658-36cf-4934-8baa-4ee9929e7683}, !- Handle
+  Rendering Color 55,                     !- Name
+  255,                                    !- Rendering Red Value
+  248,                                    !- Rendering Green Value
+  220;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {1466ff6c-09fa-4400-843a-5aa4728b5e80}, !- Handle
+  Rendering Color 56,                     !- Name
+  154,                                    !- Rendering Red Value
+  205,                                    !- Rendering Green Value
+  50;                                     !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {acb4a44d-b09c-487b-97c6-75154889193d}, !- Handle
+  Rendering Color 57,                     !- Name
+  176,                                    !- Rendering Red Value
+  196,                                    !- Rendering Green Value
+  222;                                    !- Rendering Blue Value
+
+OS:Rendering:Color,
+  {371ff492-e3b8-4b55-b591-2e81cc4c923a}, !- Handle
+  Rendering Color 58,                     !- Name
+  240,                                    !- Rendering Red Value
+  248,                                    !- Rendering Green Value
+  255;                                    !- Rendering Blue Value
+
+OS:BuildingStory,
+  {520b7cc0-c789-41a5-a673-b6079b810196}, !- Handle
+  Building Story 1,                       !- Name
+  0,                                      !- Nominal Z Coordinate {m}
+  0.381,                                  !- Nominal Floor to Floor Height {m}
+  ,                                       !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  {fbaa0d4f-2687-4e3e-b6b7-c0bd6c3fb703}, !- Group Rendering Name
+  ;                                       !- Nominal Floor to Ceiling Height {m}
+
+OS:Rendering:Color,
+  {fbaa0d4f-2687-4e3e-b6b7-c0bd6c3fb703}, !- Handle
+  Rendering Color 59,                     !- Name
+  255,                                    !- Rendering Red Value
+  215,                                    !- Rendering Green Value
+  0;                                      !- Rendering Blue Value
+
+OS:ThermalZone,
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}, !- Handle
+  Conditioned_Zone,                       !- Name
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ,                                       !- Zone Outside Convection Algorithm
+  ,                                       !- Zone Conditioning Equipment List Name
+  {4b33a74f-db34-426e-b42b-28267d44c473}, !- Zone Air Inlet Port List
+  {030b365c-bd0a-4c3e-9daa-9aa7daec05f3}, !- Zone Air Exhaust Port List
+  {ec8555bf-28f8-4cbe-b0b6-b5807d01bcf1}, !- Zone Air Node Name
+  {5940f796-5006-413c-9ed8-748a524c5ab4}, !- Zone Return Air Port List
+  ,                                       !- Primary Daylighting Control Name
+  ,                                       !- Fraction of Zone Controlled by Primary Daylighting Control
+  ,                                       !- Secondary Daylighting Control Name
+  ,                                       !- Fraction of Zone Controlled by Secondary Daylighting Control
+  ,                                       !- Illuminance Map Name
+  {90bc3e3f-b63e-4dcb-a7b0-dfd469877584}, !- Group Rendering Name
+  {f04b1e25-b451-436e-b58c-20bb65e73335}, !- Thermostat Name
+  Yes,                                    !- Use Ideal Air Loads
+  ;                                       !- Humidistat Name
+
+OS:Node,
+  {e197adbf-a4b5-4efb-8bfd-6695f00836b9}, !- Handle
+  Node 1,                                 !- Name
+  {ec8555bf-28f8-4cbe-b0b6-b5807d01bcf1}, !- Inlet Port
+  ;                                       !- Outlet Port
+
+OS:Connection,
+  {ec8555bf-28f8-4cbe-b0b6-b5807d01bcf1}, !- Handle
+  {73885ddf-0134-4833-8520-18bfdcd222b3}, !- Name
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}, !- Source Object
+  11,                                     !- Outlet Port
+  {e197adbf-a4b5-4efb-8bfd-6695f00836b9}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:PortList,
+  {4b33a74f-db34-426e-b42b-28267d44c473}, !- Handle
+  {cb27a12c-d57f-4905-b86b-3edd088516ca}, !- Name
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}; !- HVAC Component
+
+OS:PortList,
+  {030b365c-bd0a-4c3e-9daa-9aa7daec05f3}, !- Handle
+  {419f347e-d2ff-4a85-85ac-c6c8cb1f5737}, !- Name
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}; !- HVAC Component
+
+OS:PortList,
+  {5940f796-5006-413c-9ed8-748a524c5ab4}, !- Handle
+  {f2d1712a-6eb9-466f-bc3b-797ecdd4cc9c}, !- Name
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}; !- HVAC Component
+
+OS:Sizing:Zone,
+  {96515fcd-852f-4f00-9a2e-8daeaf1b69db}, !- Handle
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}, !- Zone or ZoneList Name
+  SupplyAirTemperature,                   !- Zone Cooling Design Supply Air Temperature Input Method
+  14,                                     !- Zone Cooling Design Supply Air Temperature {C}
+  11.11,                                  !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+  SupplyAirTemperature,                   !- Zone Heating Design Supply Air Temperature Input Method
+  40,                                     !- Zone Heating Design Supply Air Temperature {C}
+  11.11,                                  !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+  0.0085,                                 !- Zone Cooling Design Supply Air Humidity Ratio {kg-H2O/kg-air}
+  0.008,                                  !- Zone Heating Design Supply Air Humidity Ratio {kg-H2O/kg-air}
+  ,                                       !- Zone Heating Sizing Factor
+  ,                                       !- Zone Cooling Sizing Factor
+  DesignDay,                              !- Cooling Design Air Flow Method
+  ,                                       !- Cooling Design Air Flow Rate {m3/s}
+  ,                                       !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+  ,                                       !- Cooling Minimum Air Flow {m3/s}
+  ,                                       !- Cooling Minimum Air Flow Fraction
+  DesignDay,                              !- Heating Design Air Flow Method
+  ,                                       !- Heating Design Air Flow Rate {m3/s}
+  ,                                       !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+  ,                                       !- Heating Maximum Air Flow {m3/s}
+  ,                                       !- Heating Maximum Air Flow Fraction
+  ,                                       !- Design Zone Air Distribution Effectiveness in Cooling Mode
+  ,                                       !- Design Zone Air Distribution Effectiveness in Heating Mode
+  No,                                     !- Account for Dedicated Outdoor Air System
+  NeutralSupplyAir,                       !- Dedicated Outdoor Air System Control Strategy
+  autosize,                               !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
+  autosize;                               !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+
+OS:ZoneHVAC:EquipmentList,
+  {aa35a0c9-edca-415e-857b-8ffe53a0a92e}, !- Handle
+  Zone HVAC Equipment List 1,             !- Name
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}; !- Thermal Zone
+
+OS:Rendering:Color,
+  {90bc3e3f-b63e-4dcb-a7b0-dfd469877584}, !- Handle
+  Rendering Color 60,                     !- Name
+  245,                                    !- Rendering Red Value
+  245,                                    !- Rendering Green Value
+  220,                                    !- Rendering Blue Value
+  ;                                       !- Rendering Alpha Value
+
+OS:SimulationControl,
+  {c2f1c2f7-f1af-4380-9ba4-fb0ec5f72dd6}, !- Handle
+  No,                                     !- Do Zone Sizing Calculation
+  No,                                     !- Do System Sizing Calculation
+  No,                                     !- Do Plant Sizing Calculation
+  No;                                     !- Run Simulation for Sizing Periods
+
+OS:Sizing:Parameters,
+  {0ee04131-f970-42da-b2be-98abd7075467}, !- Handle
+  1.25,                                   !- Heating Sizing Factor
+  1.15;                                   !- Cooling Sizing Factor
+
+OS:Timestep,
+  {0e0006af-41c9-4cff-943e-7269323b11cb}, !- Handle
+  60;                                     !- Number of Timesteps per Hour
+
+OS:ShadowCalculation,
+  {3ea99394-a352-4e30-844e-7425b01d305e}, !- Handle
+  20,                                     !- Calculation Frequency
+  15000;                                  !- Maximum Figures in Shadow Overlap Calculations
+
+OS:HeatBalanceAlgorithm,
+  {05a65ae2-452f-4dc7-bfc7-9908e6a6bc0e}, !- Handle
+  ConductionTransferFunction,             !- Algorithm
+  200;                                    !- Surface Temperature Upper Limit {C}
+
+OS:RunPeriod,
+  {f54056ed-4d17-4503-844c-58779360665c}, !- Handle
+  Run Period 1,                           !- Name
+  1,                                      !- Begin Month
+  1,                                      !- Begin Day of Month
+  12,                                     !- End Month
+  31,                                     !- End Day of Month
+  ,                                       !- Use Weather File Holidays and Special Days
+  ,                                       !- Use Weather File Daylight Saving Period
+  ,                                       !- Apply Weekend Holiday Rule
+  ,                                       !- Use Weather File Rain Indicators
+  ,                                       !- Use Weather File Snow Indicators
+  ;                                       !- Number of Times Runperiod to be Repeated
+
+OS:StandardsInformation:Material,
+  {58087194-68a5-4b9d-81ce-d4adee8d7d33}, !- Handle
+  {57a656b0-06ef-4771-ad1b-2a27d4d72bbc}; !- Material Name
+
+OS:Material,
+  {64130473-de67-47ce-9f1e-2f3740030574}, !- Handle
+  Cyclopentance,                          !- Name
+  MediumRough,                            !- Roughness
+  0.01,                                   !- Thickness {m}
+  0.019,                                  !- Conductivity {W/m-K}
+  35,                                     !- Density {kg/m3}
+  1400,                                   !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.5,                                    !- Solar Absorptance
+  0.5;                                    !- Visible Absorptance
+
+OS:StandardsInformation:Material,
+  {8ca1845e-0b5e-44cd-852b-ac4fe7d8c84a}, !- Handle
+  {64130473-de67-47ce-9f1e-2f3740030574}; !- Material Name
+
+OS:RadianceParameters,
+  {41c1b2da-3792-4cc5-9100-85a52479acf5}, !- Handle
+  1,                                      !- Accumulated Rays per Record
+  0,                                      !- Direct Threshold
+  1,                                      !- Direct Certainty
+  1,                                      !- Direct Jitter
+  1,                                      !- Direct Pretest
+  6,                                      !- Ambient Bounces VMX
+  2,                                      !- Ambient Bounces DMX
+  4050,                                   !- Ambient Divisions VMX
+  512,                                    !- Ambient Divisions DMX
+  256,                                    !- Ambient Supersamples
+  0.001,                                  !- Limit Weight VMX
+  0.001,                                  !- Limit Weight DMX
+  500,                                    !- Klems Sampling Density
+  146;                                    !- Sky Discretization Resolution
+
+OS:ProgramControl,
+  {f3a8d122-710e-4560-9e3b-b99d9eaf5a1f}; !- Handle
+
+OS:OutputControl:ReportingTolerances,
+  {5f150943-6b0e-4cc1-a4ee-d150975536d4}; !- Handle
+
+OS:ConvergenceLimits,
+  {c78e37cb-daaa-4a1d-b63b-f9e7eb7fa7fc}, !- Handle
+  1;                                      !- Minimum System Timestep {minutes}
+
+OS:SurfaceConvectionAlgorithm:Inside,
+  {f8c96113-7345-43c3-8a1e-00ef4e5a6bed}, !- Handle
+  TARP;                                   !- Algorithm
+
+OS:SurfaceConvectionAlgorithm:Outside,
+  {52c40451-f894-44d0-9584-45432d418836}, !- Handle
+  DOE-2;                                  !- Algorithm
+
+OS:ZoneAirHeatBalanceAlgorithm,
+  {71f09b07-f5c2-4886-9584-f93a743a0b24}, !- Handle
+  ThirdOrderBackwardDifference;           !- Algorithm
+
+OS:ZoneAirContaminantBalance,
+  {9ade5fa8-a95c-4d63-8918-2733f2062c9d}; !- Handle
+
+OS:ZoneCapacitanceMultiplier:ResearchSpecial,
+  {ff2b45ba-a982-46a7-9a81-f85a38aeb7cb}, !- Handle
+  ,                                       !- Temperature Capacity Multiplier
+  ,                                       !- Humidity Capacity Multiplier
+  ;                                       !- Carbon Dioxide Capacity Multiplier
+
+OS:Schedule:Constant,
+  {eeff19ed-2911-4dfc-8d41-c8cd23fcad6e}, !- Handle
+  CONSTANT AMBIENT TEMEPERATURE,          !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  24;                                     !- Value
+
+OS:ThermostatSetpoint:DualSetpoint,
+  {f04b1e25-b451-436e-b58c-20bb65e73335}, !- Handle
+  Thermal Zone: Steca_Freezer_Cooling_Chamber Dual Setpoint Thermostats, !- Name
+  {4fe8ad2c-ae10-43b3-9eae-abb30ab96cee}, !- Heating Setpoint Temperature Schedule Name
+  {4fe8ad2c-ae10-43b3-9eae-abb30ab96cee}; !- Cooling Setpoint Temperature Schedule Name
+
+OS:ElectricEquipment:Definition,
+  {3e1e7d55-0555-4ff1-b4eb-7fa2d8905606}, !- Handle
+  TestInternal_gain_60W,                  !- Name
+  EquipmentLevel,                         !- Design Level Calculation Method
+  60,                                     !- Design Level {W}
+  ,                                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:External:File,
+  {a38bb95e-35fb-4339-adfe-794f4765527b}, !- Handle
+  ExternalFileTest,                       !- Name
+  test_input_in.csv;                      !- File Name
+
+OS:Space,
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Handle
+  Conditioned_Space,                      !- Name
+  ,                                       !- Space Type Name
+  ,                                       !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  ,                                       !- Direction of Relative North {deg}
+  2.37469753706411,                       !- X Origin {m}
+  0.530048201779473,                      !- Y Origin {m}
+  1.80477854883065e-16,                   !- Z Origin {m}
+  ,                                       !- Building Story Name
+  {fc8ed495-999a-421d-b2da-0ea04baca0bd}, !- Thermal Zone Name
+  ,                                       !- Part of Total Floor Area
+  ,                                       !- Design Specification Outdoor Air Object Name
+  ;                                       !- Building Unit Name
+
+OS:Surface,
+  {33f6e21e-2192-4fe7-ba8d-0bd61cf8586a}, !- Handle
+  Conditioned_Zone_East_RoofCeiling_Ext,  !- Name
+  RoofCeiling,                            !- Surface Type
+  ,                                       !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.67, 0, 0.67,                          !- X,Y,Z Vertex 1 {m}
+  0.67, 0.445, 0.67,                      !- X,Y,Z Vertex 2 {m}
+  0, 0.445, 0.67,                         !- X,Y,Z Vertex 3 {m}
+  0, 0, 0.67;                             !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {0205955a-870b-4502-9cb5-0365d1d6b0a8}, !- Handle
+  Conditioned_Zone_West_Wall_Ext,         !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0.445, 0.67,                         !- X,Y,Z Vertex 1 {m}
+  0, 0.445, 0,                            !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 0.67;                             !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {0f4a0369-90d3-42ea-9138-73d602c1590a}, !- Handle
+  Conditioned_Zone_North_Wall_Ext,        !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.67, 0.445, 0.67,                      !- X,Y,Z Vertex 1 {m}
+  0.67, 0.445, 0.27,                      !- X,Y,Z Vertex 2 {m}
+  0.4, 0.445, 0.27,                       !- X,Y,Z Vertex 3 {m}
+  0.4, 0.445, 0,                          !- X,Y,Z Vertex 4 {m}
+  0, 0.445, 0,                            !- X,Y,Z Vertex 5 {m}
+  0, 0.445, 0.67;                         !- X,Y,Z Vertex 6 {m}
+
+OS:Surface,
+  {5de691bb-bab2-4ea9-ab86-c88f2e467f4a}, !- Handle
+  Conditioned_Zone_South_Wall_Ext,        !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0.67,                             !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  0.4, 0, 0,                              !- X,Y,Z Vertex 3 {m}
+  0.4, 0, 0.27,                           !- X,Y,Z Vertex 4 {m}
+  0.67, 0, 0.27,                          !- X,Y,Z Vertex 5 {m}
+  0.67, 0, 0.67;                          !- X,Y,Z Vertex 6 {m}
+
+OS:Surface,
+  {13fd2984-812d-4418-9f42-ab84389b41fc}, !- Handle
+  Conditioned_Zone_East_Wall_Int,         !- Name
+  Wall,                                   !- Surface Type
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Surface,                                !- Outside Boundary Condition
+  {502ed0fd-f58a-4653-8a6e-c928e296b001}, !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.67, 0.445, 0.27,                      !- X,Y,Z Vertex 1 {m}
+  0.67, 0, 0.27,                          !- X,Y,Z Vertex 2 {m}
+  0.4, 0, 0.27,                           !- X,Y,Z Vertex 3 {m}
+  0.4, 0.445, 0.27;                       !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {0c0f66fa-52d8-4815-87a7-af9890e96b9e}, !- Handle
+  Conditioned_Zone_East_Floor_Ext,        !- Name
+  Floor,                                  !- Surface Type
+  ,                                       !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.4, 0.445, 0,                          !- X,Y,Z Vertex 1 {m}
+  0.4, 0, 0,                              !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0.445, 0;                            !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {98cdee3f-e601-49bb-8878-6ab523001ce6}, !- Handle
+  Conditioned_Zone_East_Wall_Ext,         !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.67, 0, 0.67,                          !- X,Y,Z Vertex 1 {m}
+  0.67, 0, 0.27,                          !- X,Y,Z Vertex 2 {m}
+  0.67, 0.445, 0.27,                      !- X,Y,Z Vertex 3 {m}
+  0.67, 0.445, 0.67;                      !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {c66c776e-dc19-4fc3-9b6f-17d35415c6f7}, !- Handle
+  Conditioned_Zone_East_Wall_Int 1,       !- Name
+  Wall,                                   !- Surface Type
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Construction Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space Name
+  Surface,                                !- Outside Boundary Condition
+  {60d7ea62-3e2d-4b49-af47-c834c1147274}, !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.4, 0, 0.27,                           !- X,Y,Z Vertex 1 {m}
+  0.4, 0, 0,                              !- X,Y,Z Vertex 2 {m}
+  0.4, 0.445, 0,                          !- X,Y,Z Vertex 3 {m}
+  0.4, 0.445, 0.27;                       !- X,Y,Z Vertex 4 {m}
+
+OS:Space,
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Handle
+  Steca_Freezer_Compressor_Chamber,       !- Name
+  ,                                       !- Space Type Name
+  ,                                       !- Default Construction Set Name
+  ,                                       !- Default Schedule Set Name
+  -0,                                     !- Direction of Relative North {deg}
+  2.77469753706411,                       !- X Origin {m}
+  0.530048201779473,                      !- Y Origin {m}
+  1.80477854883065e-16,                   !- Z Origin {m}
+  ,                                       !- Building Story Name
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}, !- Thermal Zone Name
+  ,                                       !- Part of Total Floor Area
+  ,                                       !- Design Specification Outdoor Air Object Name
+  ;                                       !- Building Unit Name
+
+OS:Surface,
+  {8b1cbdc4-cb98-4937-8c21-7beb1e11df2a}, !- Handle
+  Surface 15,                             !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.27, 0.445000000000001, 0.27,          !- X,Y,Z Vertex 1 {m}
+  0.27, 0.445000000000001, 0,             !- X,Y,Z Vertex 2 {m}
+  0, 0.445000000000001, 0,                !- X,Y,Z Vertex 3 {m}
+  0, 0.445000000000001, 0.27;             !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {502ed0fd-f58a-4653-8a6e-c928e296b001}, !- Handle
+  Surface 16,                             !- Name
+  Wall,                                   !- Surface Type
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Construction Name
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Space Name
+  Surface,                                !- Outside Boundary Condition
+  {13fd2984-812d-4418-9f42-ab84389b41fc}, !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.27, 0, 0.27,                          !- X,Y,Z Vertex 1 {m}
+  0.27, 0.445000000000001, 0.27,          !- X,Y,Z Vertex 2 {m}
+  0, 0.445000000000001, 0.27,             !- X,Y,Z Vertex 3 {m}
+  0, 0, 0.27;                             !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {1bac1f8a-a221-4874-8c5e-46e622dd1e2c}, !- Handle
+  Surface 17,                             !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0, 0.27,                             !- X,Y,Z Vertex 1 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 2 {m}
+  0.27, 0, 0,                             !- X,Y,Z Vertex 3 {m}
+  0.27, 0, 0.27;                          !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {d6e2f6bb-3ae9-410e-80d3-598313feedcb}, !- Handle
+  Surface 18,                             !- Name
+  Wall,                                   !- Surface Type
+  ,                                       !- Construction Name
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.27, 0, 0.27,                          !- X,Y,Z Vertex 1 {m}
+  0.27, 0, 0,                             !- X,Y,Z Vertex 2 {m}
+  0.27, 0.445000000000001, 0,             !- X,Y,Z Vertex 3 {m}
+  0.27, 0.445000000000001, 0.27;          !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {60d7ea62-3e2d-4b49-af47-c834c1147274}, !- Handle
+  Surface 19,                             !- Name
+  Wall,                                   !- Surface Type
+  {d5c64026-fa3b-4ab3-bb89-7b01cf2c44f5}, !- Construction Name
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Space Name
+  Surface,                                !- Outside Boundary Condition
+  {c66c776e-dc19-4fc3-9b6f-17d35415c6f7}, !- Outside Boundary Condition Object
+  NoSun,                                  !- Sun Exposure
+  NoWind,                                 !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0, 0.445000000000001, 0.27,             !- X,Y,Z Vertex 1 {m}
+  0, 0.445000000000001, 0,                !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0, 0.27;                             !- X,Y,Z Vertex 4 {m}
+
+OS:Surface,
+  {7335aabf-c099-43e5-90f6-5f648e7453ce}, !- Handle
+  Surface 20,                             !- Name
+  Floor,                                  !- Surface Type
+  ,                                       !- Construction Name
+  {cfb0e731-685a-49f5-a666-e739c71859a4}, !- Space Name
+  Outdoors,                               !- Outside Boundary Condition
+  ,                                       !- Outside Boundary Condition Object
+  SunExposed,                             !- Sun Exposure
+  WindExposed,                            !- Wind Exposure
+  ,                                       !- View Factor to Ground
+  ,                                       !- Number of Vertices
+  0.27, 0.445000000000001, 0,             !- X,Y,Z Vertex 1 {m}
+  0.27, 0, 0,                             !- X,Y,Z Vertex 2 {m}
+  0, 0, 0,                                !- X,Y,Z Vertex 3 {m}
+  0, 0.445000000000001, 0;                !- X,Y,Z Vertex 4 {m}
+
+OS:ThermalZone,
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber, !- Name
+  ,                                       !- Multiplier
+  ,                                       !- Ceiling Height {m}
+  ,                                       !- Volume {m3}
+  ,                                       !- Floor Area {m2}
+  ,                                       !- Zone Inside Convection Algorithm
+  ,                                       !- Zone Outside Convection Algorithm
+  ,                                       !- Zone Conditioning Equipment List Name
+  {1aed108b-5c73-4d0b-a5ae-1d10d5483db5}, !- Zone Air Inlet Port List
+  {edb6724f-ced5-4d09-8411-30d8411b7ca7}, !- Zone Air Exhaust Port List
+  {c98ffdf7-f4fe-4537-b817-fcf4cf939c73}, !- Zone Air Node Name
+  {bfed367d-cedd-4b46-bcd8-1ead4b8ae461}, !- Zone Return Air Port List
+  ,                                       !- Primary Daylighting Control Name
+  ,                                       !- Fraction of Zone Controlled by Primary Daylighting Control
+  ,                                       !- Secondary Daylighting Control Name
+  ,                                       !- Fraction of Zone Controlled by Secondary Daylighting Control
+  ,                                       !- Illuminance Map Name
+  {48a5e69e-9b2b-49b9-98ec-18bcf39a49ef}, !- Group Rendering Name
+  {e44b18c2-09a4-47c6-907e-755fb1af5525}, !- Thermostat Name
+  Yes,                                    !- Use Ideal Air Loads
+  ;                                       !- Humidistat Name
+
+OS:Node,
+  {6c203994-00bf-405e-8928-ec709c4c414a}, !- Handle
+  Node 2,                                 !- Name
+  {c98ffdf7-f4fe-4537-b817-fcf4cf939c73}, !- Inlet Port
+  ;                                       !- Outlet Port
+
+OS:Connection,
+  {c98ffdf7-f4fe-4537-b817-fcf4cf939c73}, !- Handle
+  {11b504b3-1e05-4b64-bc27-06b2f04da302}, !- Name
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}, !- Source Object
+  11,                                     !- Outlet Port
+  {6c203994-00bf-405e-8928-ec709c4c414a}, !- Target Object
+  2;                                      !- Inlet Port
+
+OS:PortList,
+  {1aed108b-5c73-4d0b-a5ae-1d10d5483db5}, !- Handle
+  {dd6ca4b1-69b7-4052-a1ee-d3eab735d5ba}, !- Name
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}; !- HVAC Component
+
+OS:PortList,
+  {edb6724f-ced5-4d09-8411-30d8411b7ca7}, !- Handle
+  {0a439855-078a-4127-a573-0b9c690a2bd7}, !- Name
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}; !- HVAC Component
+
+OS:PortList,
+  {bfed367d-cedd-4b46-bcd8-1ead4b8ae461}, !- Handle
+  {6ca4b40c-e104-4218-a22b-4aa884819836}, !- Name
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}; !- HVAC Component
+
+OS:Sizing:Zone,
+  {40aa3262-2194-4692-b1ae-f5b0342d8a0a}, !- Handle
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}, !- Zone or ZoneList Name
+  SupplyAirTemperature,                   !- Zone Cooling Design Supply Air Temperature Input Method
+  14,                                     !- Zone Cooling Design Supply Air Temperature {C}
+  11.11,                                  !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
+  SupplyAirTemperature,                   !- Zone Heating Design Supply Air Temperature Input Method
+  40,                                     !- Zone Heating Design Supply Air Temperature {C}
+  11.11,                                  !- Zone Heating Design Supply Air Temperature Difference {deltaC}
+  0.0085,                                 !- Zone Cooling Design Supply Air Humidity Ratio {kg-H2O/kg-air}
+  0.008,                                  !- Zone Heating Design Supply Air Humidity Ratio {kg-H2O/kg-air}
+  ,                                       !- Zone Heating Sizing Factor
+  ,                                       !- Zone Cooling Sizing Factor
+  DesignDay,                              !- Cooling Design Air Flow Method
+  ,                                       !- Cooling Design Air Flow Rate {m3/s}
+  ,                                       !- Cooling Minimum Air Flow per Zone Floor Area {m3/s-m2}
+  ,                                       !- Cooling Minimum Air Flow {m3/s}
+  ,                                       !- Cooling Minimum Air Flow Fraction
+  DesignDay,                              !- Heating Design Air Flow Method
+  ,                                       !- Heating Design Air Flow Rate {m3/s}
+  ,                                       !- Heating Maximum Air Flow per Zone Floor Area {m3/s-m2}
+  ,                                       !- Heating Maximum Air Flow {m3/s}
+  ,                                       !- Heating Maximum Air Flow Fraction
+  ,                                       !- Design Zone Air Distribution Effectiveness in Cooling Mode
+  ,                                       !- Design Zone Air Distribution Effectiveness in Heating Mode
+  No,                                     !- Account for Dedicated Outdoor Air System
+  NeutralSupplyAir,                       !- Dedicated Outdoor Air System Control Strategy
+  autosize,                               !- Dedicated Outdoor Air Low Setpoint Temperature for Design {C}
+  autosize;                               !- Dedicated Outdoor Air High Setpoint Temperature for Design {C}
+
+OS:ZoneHVAC:EquipmentList,
+  {d9c618d9-9b4f-4cd9-9812-c17a9989c82d}, !- Handle
+  Zone HVAC Equipment List 2,             !- Name
+  {81b6383e-cfd1-4b9a-9b79-f072d4463eba}; !- Thermal Zone
+
+OS:Rendering:Color,
+  {48a5e69e-9b2b-49b9-98ec-18bcf39a49ef}, !- Handle
+  Rendering Color 61,                     !- Name
+  245,                                    !- Rendering Red Value
+  255,                                    !- Rendering Green Value
+  250;                                    !- Rendering Blue Value
+
+OS:Material,
+  {7526fcc4-0065-430b-a06c-5a33dcf9e893}, !- Handle
+  inside_aluminum,                        !- Name
+  Smooth,                                 !- Roughness
+  0.0007,                                 !- Thickness {m}
+  138,                                    !- Conductivity {W/m-K}
+  2700,                                   !- Density {kg/m3}
+  963;                                    !- Specific Heat {J/kg-K}
+
+OS:StandardsInformation:Material,
+  {750bbe8e-b3c6-4dbc-9eb3-e0c98b0f66e7}, !- Handle
+  {7526fcc4-0065-430b-a06c-5a33dcf9e893}; !- Material Name
+
+OS:Material,
+  {3c17d746-76db-4667-8275-e69b2edc4990}, !- Handle
+  outside_steel,                          !- Name
+  Smooth,                                 !- Roughness
+  0.0007,                                 !- Thickness {m}
+  36,                                     !- Conductivity {W/m-K}
+  7753,                                   !- Density {kg/m3}
+  460;                                    !- Specific Heat {J/kg-K}
+
+OS:StandardsInformation:Material,
+  {60df26e3-f166-40e6-a3f1-8349f7bd990e}, !- Handle
+  {3c17d746-76db-4667-8275-e69b2edc4990}; !- Material Name
+
+OS:ThermostatSetpoint:DualSetpoint,
+  {e44b18c2-09a4-47c6-907e-755fb1af5525}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber Dual Setpoint Thermostats, !- Name
+  {333148f2-f7b4-4d45-b6e7-e206ca20900f}, !- Heating Setpoint Temperature Schedule Name
+  {333148f2-f7b4-4d45-b6e7-e206ca20900f}; !- Cooling Setpoint Temperature Schedule Name
+
+OS:Material,
+  {c54ba1a8-fd36-4a67-8161-66d624fa8fde}, !- Handle
+  Bronze_Draw_wire,                       !- Name
+  Smooth,                                 !- Roughness
+  0.12,                                   !- Thickness {m}
+  287,                                    !- Conductivity {W/m-K}
+  8800,                                   !- Density {kg/m3}
+  376;                                    !- Specific Heat {J/kg-K}
+
+OS:StandardsInformation:Material,
+  {a01e1eb8-93a2-44c9-8ce5-4658a94d26c6}, !- Handle
+  {c54ba1a8-fd36-4a67-8161-66d624fa8fde}; !- Material Name
+
+OS:Construction,
+  {5f1e1ad2-ab49-472b-80df-298863bb18dc}, !- Handle
+  ThermalMass_Construction,               !- Name
+  ,                                       !- Surface Rendering Name
+  {c54ba1a8-fd36-4a67-8161-66d624fa8fde}; !- Layer 1
+
+OS:StandardsInformation:Construction,
+  {d95ee88f-8a96-41a5-80e7-1fca84016e65}, !- Handle
+  {5f1e1ad2-ab49-472b-80df-298863bb18dc}; !- Construction Name
+
+OS:ElectricEquipment:Definition,
+  {17eca6c0-2e01-49a3-8a5c-e486572e7aa3}, !- Handle
+  Convective_Internal_gain_100.0W,        !- Name
+  EquipmentLevel,                         !- Design Level Calculation Method
+  100,                                    !- Design Level {W}
+  ,                                       !- Watts per Space Floor Area {W/m2}
+  ;                                       !- Watts per Person {W/person}
+
+OS:ElectricEquipment:Definition,
+  {c5ead132-6d31-489d-9886-17e74d0e5a59}, !- Handle
+  Radiative_Internal_gain_100.0W,         !- Name
+  EquipmentLevel,                         !- Design Level Calculation Method
+  100,                                    !- Design Level {W}
+  ,                                       !- Watts per Space Floor Area {W/m2}
+  ,                                       !- Watts per Person {W/person}
+  ,                                       !- Fraction Latent
+  1;                                      !- Fraction Radiant
+
+OS:External:File,
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- Handle
+  ExternalFileTest 1,                     !- Name
+  Experiment3_200124_input_out.csv;       !- File Name
+
+OS:ScheduleTypeLimits,
+  {8e60decf-9c4c-43a3-a465-bb88a71a2be8}, !- Handle
+  HeatGainSchedule,                       !- Name
+  ,                                       !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  CONTINUOUS,                             !- Numeric Type
+  Power;                                  !- Unit Type
+
+OS:ScheduleTypeLimits,
+  {e77383da-eef0-41b1-89ac-f8df536a1dd2}, !- Handle
+  ACHSchedule,                            !- Name
+  ,                                       !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  CONTINUOUS;                             !- Numeric Type
+
+OS:InternalMass:Definition,
+  {8f2cd620-26bb-47e1-ae87-074ad02118b9}, !- Handle
+  bronze_thermal_mass_def,                !- Name
+  {5f1e1ad2-ab49-472b-80df-298863bb18dc}, !- Construction Name
+  SurfaceArea,                            !- Design Level Calculation Method
+  0.05,                                   !- Surface Area {m2}
+  ,                                       !- Surface Area per Space Floor Area {dimensionless}
+  ;                                       !- Surface Area per Person {m2/person}
+
+OS:InternalMass,
+  {40cae0b4-491c-4ff4-affb-a79d249823d4}, !- Handle
+  Conditioned_Space_bronze_thermal_mass,  !- Name
+  {8f2cd620-26bb-47e1-ae87-074ad02118b9}, !- Internal Mass Definition Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space or SpaceType Name
+  1;                                      !- Multiplier
+
+OS:Output:Variable,
+  {0ae9203f-3323-45c3-b5a0-036fe8b440a5}, !- Handle
+  Conditioned_Zone Output Variable,       !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Electric Equipment Electric Power, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {3d51d957-8c32-495a-aa5f-925e7d322241}, !- Handle
+  Conditioned_Zone Output Variable 1,     !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Electric Equipment Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {7bd03370-11a0-4222-95bf-8fb9760c3b5a}, !- Handle
+  Conditioned_Zone Output Variable 2,     !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Total Internal Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {2f03ef02-8a73-4e42-94fa-6f31dad6fa5c}, !- Handle
+  Conditioned_Zone Output Variable 3,     !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Total Internal Convective Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {4b44cb01-5fcd-493f-8c97-3127ec3e01c4}, !- Handle
+  Conditioned_Zone Output Variable 4,     !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Total Internal Radiant Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:ElectricEquipment,
+  {769637e6-b4cd-4444-bc65-74c078a06b20}, !- Handle
+  Conditioned_Space_ConvectiveInternalGain, !- Name
+  {17eca6c0-2e01-49a3-8a5c-e486572e7aa3}, !- Electric Equipment Definition Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space or SpaceType Name
+  {9bd153fd-d80b-4a63-93dc-5a133310702f}, !- Schedule Name
+  ,                                       !- Multiplier
+  General;                                !- End-Use Subcategory
+
+OS:Schedule:File,
+  {9bd153fd-d80b-4a63-93dc-5a133310702f}, !- Handle
+  CONVECTIVE_LOAD_SCHEDULE,               !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- External File Name
+  6,                                      !- Column Number
+  1,                                      !- Rows to Skip at Top
+  ,                                       !- Number of Hours of Data
+  ,                                       !- Column Separator
+  Yes,                                    !- Interpolate to Timestep
+  1;                                      !- Minutes per Item
+
+OS:Output:Variable,
+  {734f5cd2-bc7a-4c6d-829d-aad0c9405e44}, !- Handle
+  CONVECTIVE_LOAD_SCHEDULE Output Variable, !- Name
+  CONVECTIVE_LOAD_SCHEDULE,               !- Key Value
+  Schedule Value,                         !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Sensor,
+  {bb7f892e-19b5-4d2d-9dcf-da6e166338f1}, !- Handle
+  CONVECTIVE_LOAD_SCHEDULE_EMS_SENSOR,    !- Name
+  CONVECTIVE_LOAD_SCHEDULE,               !- Output Variable or Output Meter Index Key Name
+  {734f5cd2-bc7a-4c6d-829d-aad0c9405e44}; !- Output Variable or Output Meter Name
+
+OS:Output:Variable,
+  {2486f78c-1e92-4d8a-81e0-d3d0a56fee44}, !- Handle
+  Conditioned_Space_ConvectiveInternalGain Output Variable, !- Name
+  Conditioned_Space_ConvectiveInternalGain, !- Key Value
+  Electric Equipment Electric Power,      !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:ElectricEquipment,
+  {c0778c5a-bda7-402a-bdfb-9df2bca4d7a6}, !- Handle
+  Conditioned_Space_radiationInternalGain, !- Name
+  {c5ead132-6d31-489d-9886-17e74d0e5a59}, !- Electric Equipment Definition Name
+  {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space or SpaceType Name
+  {f90571a3-2efe-4aa6-91ba-1512bb7c5fd1}, !- Schedule Name
+  ,                                       !- Multiplier
+  General;                                !- End-Use Subcategory
+
+OS:Schedule:File,
+  {f90571a3-2efe-4aa6-91ba-1512bb7c5fd1}, !- Handle
+  RADIATION_LOAD_SCHEDULE,                !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- External File Name
+  7,                                      !- Column Number
+  1,                                      !- Rows to Skip at Top
+  ,                                       !- Number of Hours of Data
+  ,                                       !- Column Separator
+  Yes,                                    !- Interpolate to Timestep
+  1;                                      !- Minutes per Item
+
+OS:Output:Variable,
+  {edde08ef-2e16-4615-8d2d-26cfdc9ceaf6}, !- Handle
+  RADIATION_LOAD_SCHEDULE Output Variable, !- Name
+  RADIATION_LOAD_SCHEDULE,                !- Key Value
+  Schedule Value,                         !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Sensor,
+  {179fa21a-5969-4c92-a890-96445d0b0b06}, !- Handle
+  RADIATION_LOAD_SCHEDULE_EMS_SENSOR,     !- Name
+  RADIATION_LOAD_SCHEDULE,                !- Output Variable or Output Meter Index Key Name
+  {edde08ef-2e16-4615-8d2d-26cfdc9ceaf6}; !- Output Variable or Output Meter Name
+
+OS:Output:Variable,
+  {2562a4f7-3d0a-4b49-9b0a-d63946b4da9e}, !- Handle
+  Conditioned_Space_radiationInternalGain Output Variable, !- Name
+  Conditioned_Space_radiationInternalGain, !- Key Value
+  Electric Equipment Electric Power,      !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:WeatherFile,
+  {e9aa4d23-ba34-41aa-a117-37acb56c92d7}, !- Handle
+  EL-MONTE,                               !- City
+  -,                                      !- State Province Region
+  USA,                                    !- Country
+  Custom-747043,                          !- Data Source
+  747043,                                 !- WMO Number
+  34.08,                                  !- Latitude {deg}
+  -118.03,                                !- Longitude {deg}
+  -8,                                     !- Time Zone {hr}
+  90,                                     !- Elevation {m}
+  file:CA_EL-MONTE_747043_17.epw,         !- Url
+  3FBD4248;                               !- Checksum
+
+OS:Output:Variable,
+  {73ffbd27-5da4-433b-8140-e9090463ccdd}, !- Handle
+  Site drybulb temperature output variable, !- Name
+  ,                                       !- Key Value
+  Site Outdoor Air Drybulb Temperature,   !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {2577eec9-653c-4838-a0eb-7602dcf2de50}, !- Handle
+  Site direct solar output variable,      !- Name
+  ,                                       !- Key Value
+  Site Direct Solar Radiation Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {04f30d2f-9895-40a3-a9db-a52fb68121bf}, !- Handle
+  Site diffuse solar output variable,     !- Name
+  ,                                       !- Key Value
+  Site Diffuse Solar Radiation Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {5208dcc7-dbde-4be9-bb20-a8ca61980969}, !- Handle
+  Site Wind Speed output variable,        !- Name
+  ,                                       !- Key Value
+  Site Wind Speed,                        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {08de60c8-0dca-48b7-aeb0-8d525146b7b1}, !- Handle
+  EnviromentOdbActuator,                  !- Name
+  {e9aa4d23-ba34-41aa-a117-37acb56c92d7}, !- Actuated Component Name
+  Weather Data,                           !- Actuated Component Type
+  Outdoor Dry Bulb;                       !- Actuated Component Control Type
+
+OS:EnergyManagementSystem:Sensor,
+  {be53f7db-d5f9-46f9-b933-79e1a85e3e41}, !- Handle
+  WEATHER_DBT_SENSOR,                     !- Name
+  ,                                       !- Output Variable or Output Meter Index Key Name
+  {73ffbd27-5da4-433b-8140-e9090463ccdd}; !- Output Variable or Output Meter Name
+
+OS:EnergyManagementSystem:Actuator,
+  {c16f913b-48b2-4762-8b52-34f85c5f2869}, !- Handle
+  EnviromentDirectSolarActuator,          !- Name
+  {e9aa4d23-ba34-41aa-a117-37acb56c92d7}, !- Actuated Component Name
+  Weather Data,                           !- Actuated Component Type
+  Direct Solar;                           !- Actuated Component Control Type
+
+OS:EnergyManagementSystem:Actuator,
+  {a159a739-583b-4a54-bd0e-1b4a8665f146}, !- Handle
+  EnviromentDiffSolarActuator,            !- Name
+  {e9aa4d23-ba34-41aa-a117-37acb56c92d7}, !- Actuated Component Name
+  Weather Data,                           !- Actuated Component Type
+  Diffuse Solar;                          !- Actuated Component Control Type
+
+OS:EnergyManagementSystem:Actuator,
+  {2d8d93d9-0d88-43dc-85e6-8851c2dfd325}, !- Handle
+  EnviromentWindSpeedActuator,            !- Name
+  {e9aa4d23-ba34-41aa-a117-37acb56c92d7}, !- Actuated Component Name
+  Weather Data,                           !- Actuated Component Type
+  Wind Speed;                             !- Actuated Component Control Type
+
+OS:Schedule:File,
+  {333148f2-f7b4-4d45-b6e7-e206ca20900f}, !- Handle
+  MEASURED_EXTERNAL_TEMPERATURE,          !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- External File Name
+  3,                                      !- Column Number
+  1,                                      !- Rows to Skip at Top
+  ,                                       !- Number of Hours of Data
+  ,                                       !- Column Separator
+  Yes,                                    !- Interpolate to Timestep
+  1;                                      !- Minutes per Item
+
+OS:Output:Variable,
+  {1e6bd857-9f7b-4c9f-995a-9c8267f50496}, !- Handle
+  MEASURED_EXTERNAL_TEMPERATURE Output Variable, !- Name
+  MEASURED_EXTERNAL_TEMPERATURE,          !- Key Value
+  Schedule Value,                         !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Sensor,
+  {f1e0a5f8-2ce6-4f3e-bd37-542e87db95a1}, !- Handle
+  EMS_OUTDOOR_SENSOR,                     !- Name
+  MEASURED_EXTERNAL_TEMPERATURE,          !- Output Variable or Output Meter Index Key Name
+  {1e6bd857-9f7b-4c9f-995a-9c8267f50496}; !- Output Variable or Output Meter Name
+
+OS:Schedule:File,
+  {f982b306-1476-473e-82f5-9514a3a069aa}, !- Handle
+  HVAC_SCHEDULE,                          !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- External File Name
+  5,                                      !- Column Number
+  1,                                      !- Rows to Skip at Top
+  ,                                       !- Number of Hours of Data
+  ,                                       !- Column Separator
+  Yes,                                    !- Interpolate to Timestep
+  1;                                      !- Minutes per Item
+
+OS:Output:Variable,
+  {32ec5d17-213d-4bba-9287-c74e5edf214e}, !- Handle
+  HVAC_SCHEDULE Output Variable,          !- Name
+  HVAC_SCHEDULE,                          !- Key Value
+  Schedule Value,                         !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Sensor,
+  {9fadbf27-5d1e-4edb-b3ff-b4bf598fe310}, !- Handle
+  HVAC_SCHEDULE_SENSOR,                   !- Name
+  HVAC_SCHEDULE,                          !- Output Variable or Output Meter Index Key Name
+  {32ec5d17-213d-4bba-9287-c74e5edf214e}; !- Output Variable or Output Meter Name
+
+OS:Schedule:File,
+  {3868ba46-5cbe-4832-8aca-541e418a38fc}, !- Handle
+  MEASURED_TOTAL_HEAT_GAIN,               !- Name
+  {8e60decf-9c4c-43a3-a465-bb88a71a2be8}, !- Schedule Type Limits Name
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- External File Name
+  2,                                      !- Column Number
+  1,                                      !- Rows to Skip at Top
+  ,                                       !- Number of Hours of Data
+  ,                                       !- Column Separator
+  Yes,                                    !- Interpolate to Timestep
+  1;                                      !- Minutes per Item
+
+OS:Output:Variable,
+  {be4cece8-1d0d-47cb-9fa8-e00c536edb12}, !- Handle
+  MEASURED_TOTAL_HEAT_GAIN Output Variable, !- Name
+  MEASURED_TOTAL_HEAT_GAIN,               !- Key Value
+  Schedule Value,                         !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Sensor,
+  {e90c6ad7-5088-4b23-a1b3-5ffaa150c421}, !- Handle
+  MEASURED_TOTAL_HEAT_GAIN_SENSOR,        !- Name
+  MEASURED_TOTAL_HEAT_GAIN,               !- Output Variable or Output Meter Index Key Name
+  {be4cece8-1d0d-47cb-9fa8-e00c536edb12}; !- Output Variable or Output Meter Name
+
+OS:Schedule:File,
+  {4fe8ad2c-ae10-43b3-9eae-abb30ab96cee}, !- Handle
+  MEASURED_CHAMBER_TEMPERATURE,           !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  {c63e0c61-d7e2-4257-8c91-3ad25ad57199}, !- External File Name
+  4,                                      !- Column Number
+  1,                                      !- Rows to Skip at Top
+  ,                                       !- Number of Hours of Data
+  ,                                       !- Column Separator
+  Yes,                                    !- Interpolate to Timestep
+  1;                                      !- Minutes per Item
+
+OS:Output:Variable,
+  {38071a9e-65f0-4c55-8b7e-1603a4ead19d}, !- Handle
+  MEASURED_CHAMBER_TEMPERATURE Output Variable, !- Name
+  MEASURED_CHAMBER_TEMPERATURE,           !- Key Value
+  Schedule Value,                         !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Schedule:Constant,
+  {cee10e9a-bed7-4ef2-b6ae-6840a71e97fb}, !- Handle
+  Schedule Constant 1,                    !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  21.69;                                  !- Value
+
+OS:Output:EnergyManagementSystem,
+  {5a7528b7-ea25-46bd-926e-842a51f2aa0a}, !- Handle
+  Weather_Test,                           !- Name
+  Verbose,                                !- Actuator Availability Dictionary Reporting
+  Verbose,                                !- Internal Variable Availability Dictionary Reporting
+  ErrorsOnly;                             !- EMS Runtime Language Debug Output Level
+
+OS:Output:Variable,
+  {2276d0f7-c625-4f91-9d2e-97a490db03bb}, !- Handle
+  Conditioned_Zone_East_RoofCeiling_Ext Output Variable, !- Name
+  Conditioned_Zone_East_RoofCeiling_Ext,  !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {b95286f7-b23d-4781-8625-a125227d9773}, !- Handle
+  Conditioned_Zone_East_RoofCeiling_Ext Output Variable 1, !- Name
+  Conditioned_Zone_East_RoofCeiling_Ext,  !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {f048335d-c92d-4fb0-ab32-af8c130d15a5}, !- Handle
+  Conditioned_Zone_East_RoofCeiling_Ext Output Variable 2, !- Name
+  Conditioned_Zone_East_RoofCeiling_Ext,  !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {f2125ddb-a17a-4afc-9b98-ce8730312df7}, !- Handle
+  Conditioned_Zone_East_RoofCeiling_Ext Output Variable 3, !- Name
+  Conditioned_Zone_East_RoofCeiling_Ext,  !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {69d8f3e4-c17a-45bc-b672-11dade66df50}, !- Handle
+  Conditioned_Zone_East_RoofCeiling_Ext_inside_convection_actuator, !- Name
+  {33f6e21e-2192-4fe7-ba8d-0bd61cf8586a}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {252926fb-f225-4a89-8b7b-0f89dee71c7b}, !- Handle
+  Conditioned_Zone_West_Wall_Ext Output Variable, !- Name
+  Conditioned_Zone_West_Wall_Ext,         !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {961e8b91-befc-467f-a7f9-3952ecf2dd7f}, !- Handle
+  Conditioned_Zone_West_Wall_Ext Output Variable 1, !- Name
+  Conditioned_Zone_West_Wall_Ext,         !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {2d1f3387-7e3a-4c7b-9c9d-95f959ae63e6}, !- Handle
+  Conditioned_Zone_West_Wall_Ext Output Variable 2, !- Name
+  Conditioned_Zone_West_Wall_Ext,         !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {71a2ee6e-e994-4172-94bb-17843d97cf40}, !- Handle
+  Conditioned_Zone_West_Wall_Ext Output Variable 3, !- Name
+  Conditioned_Zone_West_Wall_Ext,         !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {f60f0f1c-f115-4f25-90f9-58d60f569c64}, !- Handle
+  Conditioned_Zone_West_Wall_Ext_inside_convection_actuator, !- Name
+  {0205955a-870b-4502-9cb5-0365d1d6b0a8}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {a0fab428-090b-4125-bbf2-962f1f007479}, !- Handle
+  Conditioned_Zone_North_Wall_Ext Output Variable, !- Name
+  Conditioned_Zone_North_Wall_Ext,        !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {afb1e24b-0a20-4d7c-b30e-492608f0e325}, !- Handle
+  Conditioned_Zone_North_Wall_Ext Output Variable 1, !- Name
+  Conditioned_Zone_North_Wall_Ext,        !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {39e8b984-1551-4763-b0f5-3a437a49a393}, !- Handle
+  Conditioned_Zone_North_Wall_Ext Output Variable 2, !- Name
+  Conditioned_Zone_North_Wall_Ext,        !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {c1c266ef-b1ba-4a85-ae1b-ea539070b391}, !- Handle
+  Conditioned_Zone_North_Wall_Ext Output Variable 3, !- Name
+  Conditioned_Zone_North_Wall_Ext,        !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {f1cadfd4-f82d-4eea-835d-b4ec0b01b6a4}, !- Handle
+  Conditioned_Zone_North_Wall_Ext_inside_convection_actuator, !- Name
+  {0f4a0369-90d3-42ea-9138-73d602c1590a}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {073d2adb-8089-4a95-adfa-679d76aeddb3}, !- Handle
+  Conditioned_Zone_South_Wall_Ext Output Variable, !- Name
+  Conditioned_Zone_South_Wall_Ext,        !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {09d39d2c-d282-409d-b244-5b370145230e}, !- Handle
+  Conditioned_Zone_South_Wall_Ext Output Variable 1, !- Name
+  Conditioned_Zone_South_Wall_Ext,        !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {2c28263a-9545-4c8c-b114-bba7e42275ba}, !- Handle
+  Conditioned_Zone_South_Wall_Ext Output Variable 2, !- Name
+  Conditioned_Zone_South_Wall_Ext,        !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {f2723ee5-5b9d-4a4f-98c3-90eb91131d11}, !- Handle
+  Conditioned_Zone_South_Wall_Ext Output Variable 3, !- Name
+  Conditioned_Zone_South_Wall_Ext,        !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {f44d3a21-b26d-439c-95c9-a819b1ea2242}, !- Handle
+  Conditioned_Zone_South_Wall_Ext_inside_convection_actuator, !- Name
+  {5de691bb-bab2-4ea9-ab86-c88f2e467f4a}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {531fba97-d649-478b-9aca-a28f339d1060}, !- Handle
+  Conditioned_Zone_East_Wall_Int Output Variable, !- Name
+  Conditioned_Zone_East_Wall_Int,         !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {a62895dc-6f42-4149-a00c-db296ea2be9e}, !- Handle
+  Conditioned_Zone_East_Wall_Int Output Variable 1, !- Name
+  Conditioned_Zone_East_Wall_Int,         !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {5ec4d671-1dee-44bc-bee1-bc1b91d6d5b1}, !- Handle
+  Conditioned_Zone_East_Wall_Int Output Variable 2, !- Name
+  Conditioned_Zone_East_Wall_Int,         !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {b9093b7d-0ff0-4e3a-9fc4-8be077908e70}, !- Handle
+  Conditioned_Zone_East_Wall_Int Output Variable 3, !- Name
+  Conditioned_Zone_East_Wall_Int,         !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {a59237de-9c15-456e-89c7-82c11db162aa}, !- Handle
+  Conditioned_Zone_East_Wall_Int_inside_convection_actuator, !- Name
+  {13fd2984-812d-4418-9f42-ab84389b41fc}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {d6eabf8e-86b1-4bac-bbcf-5d76d0897dd5}, !- Handle
+  Conditioned_Zone_East_Floor_Ext Output Variable, !- Name
+  Conditioned_Zone_East_Floor_Ext,        !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {74736d39-7355-4358-b613-16351484c7cd}, !- Handle
+  Conditioned_Zone_East_Floor_Ext Output Variable 1, !- Name
+  Conditioned_Zone_East_Floor_Ext,        !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {6c7e682f-7fa9-4382-be37-49923cf49a83}, !- Handle
+  Conditioned_Zone_East_Floor_Ext Output Variable 2, !- Name
+  Conditioned_Zone_East_Floor_Ext,        !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {0bbb0a8c-9ef9-4a96-8e48-f64697d8f2f3}, !- Handle
+  Conditioned_Zone_East_Floor_Ext Output Variable 3, !- Name
+  Conditioned_Zone_East_Floor_Ext,        !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {ab7d4731-07b6-4655-9070-6e90ea3998b7}, !- Handle
+  Conditioned_Zone_East_Floor_Ext_inside_convection_actuator, !- Name
+  {0c0f66fa-52d8-4815-87a7-af9890e96b9e}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {9c791f4a-dc8f-4426-a6f0-d5783120b603}, !- Handle
+  Conditioned_Zone_East_Wall_Ext Output Variable, !- Name
+  Conditioned_Zone_East_Wall_Ext,         !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {fb5183e4-efe1-4ea3-9666-5124b460fb54}, !- Handle
+  Conditioned_Zone_East_Wall_Ext Output Variable 1, !- Name
+  Conditioned_Zone_East_Wall_Ext,         !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {ddc64bdc-8e5e-41bd-9156-3439079356dc}, !- Handle
+  Conditioned_Zone_East_Wall_Ext Output Variable 2, !- Name
+  Conditioned_Zone_East_Wall_Ext,         !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {ec927d56-f4dd-4fbd-952a-c8c554de0513}, !- Handle
+  Conditioned_Zone_East_Wall_Ext Output Variable 3, !- Name
+  Conditioned_Zone_East_Wall_Ext,         !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {353a5c0e-bc61-4ca5-bd6e-2b701183fae2}, !- Handle
+  Conditioned_Zone_East_Wall_Ext_inside_convection_actuator, !- Name
+  {98cdee3f-e601-49bb-8878-6ab523001ce6}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {1c8e451c-9bd1-43f4-99bb-8e637d292ee5}, !- Handle
+  Conditioned_Zone_East_Wall_Int 1 Output Variable, !- Name
+  Conditioned_Zone_East_Wall_Int 1,       !- Key Value
+  Surface Inside Face Convection Heat Transfer Coefficient, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {a1d90e8f-65f3-4aa4-b965-0736c69b0173}, !- Handle
+  Conditioned_Zone_East_Wall_Int 1 Output Variable 1, !- Name
+  Conditioned_Zone_East_Wall_Int 1,       !- Key Value
+  Surface Inside Face Convection Heat Gain Rate per Area, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {73f825ae-a51f-4166-bc17-fc1db6d20ae4}, !- Handle
+  Conditioned_Zone_East_Wall_Int 1 Output Variable 2, !- Name
+  Conditioned_Zone_East_Wall_Int 1,       !- Key Value
+  Surface Inside Face Temperature,        !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {c504333b-5c97-49bc-9741-50100ddfe318}, !- Handle
+  Conditioned_Zone_East_Wall_Int 1 Output Variable 3, !- Name
+  Conditioned_Zone_East_Wall_Int 1,       !- Key Value
+  Surface Outside Face Temperature,       !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Actuator,
+  {615d22a8-d75f-4bfa-9907-65e7d4138e1f}, !- Handle
+  Conditioned_Zone_East_Wall_Int_1_inside_convection_actuator, !- Name
+  {c66c776e-dc19-4fc3-9b6f-17d35415c6f7}, !- Actuated Component Name
+  Surface,                                !- Actuated Component Type
+  Interior Surface Convection Heat Transfer Coefficient; !- Actuated Component Control Type
+
+OS:Output:Variable,
+  {cb16589f-8d39-4bb1-b175-8e73054021ef}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber Zone Air Temperature, !- Name
+  Thermal Zone: Steca_Freezer_Compressor_Chamber, !- Key Value
+  Zone Air Temperature,                   !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {37c6a4ec-dccb-4ef6-bb54-b85486d41c58}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber Zone Air Heat Balance Internal Convective Heat Gain Rate, !- Name
+  Thermal Zone: Steca_Freezer_Compressor_Chamber, !- Key Value
+  Zone Air Heat Balance Internal Convective Heat Gain Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {9e704bce-19eb-4655-a3a0-1f100314f3de}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber Zone Air Heat Balance Surface Convection Rate, !- Name
+  Thermal Zone: Steca_Freezer_Compressor_Chamber, !- Key Value
+  Zone Air Heat Balance Surface Convection Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {d827fbaf-da96-4f2f-8d7d-9084abd1361c}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber Zone Air Heat Balance Outdoor Air Transfer Rate, !- Name
+  Thermal Zone: Steca_Freezer_Compressor_Chamber, !- Key Value
+  Zone Air Heat Balance Outdoor Air Transfer Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {00b869a3-9d9a-476c-adea-7382edfb04bf}, !- Handle
+  Thermal Zone: Steca_Freezer_Compressor_Chamber Zone Air Heat Balance System Air Transfer Rate, !- Name
+  Thermal Zone: Steca_Freezer_Compressor_Chamber, !- Key Value
+  Zone Air Heat Balance System Air Transfer Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {3b4a4677-7de9-49bd-8ccb-09e16cfd16eb}, !- Handle
+  Conditioned_Zone Zone Air Temperature,  !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Temperature,                   !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {719d58ae-2215-461d-a463-e705fcd03e61}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance Internal Convective Heat Gain Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance Internal Convective Heat Gain Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {0fb110a4-7286-45e2-91db-1125b762f601}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance Surface Convection Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance Surface Convection Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {05dcfb6e-6985-41bf-9074-6b9b4b46e061}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance Outdoor Air Transfer Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance Outdoor Air Transfer Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {88b0a369-4687-4d0f-a5a3-e68503685801}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance System Air Transfer Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance System Air Transfer Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {06ba2149-4686-455b-88ca-dc6408a5f081}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance System Convective Heat Gain Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance System Convective Heat Gain Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {b5ffeb4e-3254-4dcc-a11a-99fb689e8954}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance Deviation Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance Deviation Rate,   !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {1c41064b-2d79-4010-96a6-8ff7c5d50039}, !- Handle
+  Conditioned_Zone Zone Air Heat Balance Air Energy Storage Rate, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air Heat Balance Air Energy Storage Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {95b6d6b9-8415-42bd-bcbc-d47e5e442d4b}, !- Handle
+  Conditioned_Zone Zone Electric Equipment Total Heating Energy, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Electric Equipment Total Heating Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {949bec55-a5fd-486d-ba39-7dbbaf2de0ff}, !- Handle
+  Conditioned_Zone Zone Opaque Surface Inside Faces Total Conduction Heat Gain Energy, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Opaque Surface Inside Faces Total Conduction Heat Gain Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {feaa7b1e-80c6-4452-8da4-57d9cfb3b522}, !- Handle
+  Conditioned_Zone Zone Air System Sensible Heating Energy, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air System Sensible Heating Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {cc6cc6ec-0f7e-43d2-b1f3-f9b9d6c6a2f5}, !- Handle
+  Conditioned_Zone Zone Opaque Surface Inside Faces Total Conduction Heat Loss Energy, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Opaque Surface Inside Faces Total Conduction Heat Loss Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:Output:Variable,
+  {848db21b-0604-454c-97e8-646ccffb6ff7}, !- Handle
+  Conditioned_Zone Zone Air System Sensible Cooling Energy, !- Name
+  Conditioned_Zone,                       !- Key Value
+  Zone Air System Sensible Cooling Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+OS:EnergyManagementSystem:Program,
+  {ad8a0193-4e8d-4187-bc24-d126292bfaa0}, !- Handle
+  AmbientConditionAndInsideConvectionOveride, !- Name
+  IF HVAC_SCHEDULE_SENSOR == 1.0,         !- Program Line 1
+  SET Conditioned_Zone_East_RoofCeiling_Ext_inside_convection_actuator = Null, !- Program Line 2
+  SET Conditioned_Zone_West_Wall_Ext_inside_convection_actuator = Null, !- Program Line 3
+  SET Conditioned_Zone_North_Wall_Ext_inside_convection_actuator = Null, !- Program Line 4
+  SET Conditioned_Zone_South_Wall_Ext_inside_convection_actuator = Null, !- Program Line 5
+  SET Conditioned_Zone_East_Wall_Int_inside_convection_actuator = Null, !- Program Line 6
+  SET Conditioned_Zone_East_Floor_Ext_inside_convection_actuator = Null, !- Program Line 7
+  SET Conditioned_Zone_East_Wall_Ext_inside_convection_actuator = Null, !- Program Line 8
+  SET Conditioned_Zone_East_Wall_Int_1_inside_convection_actuator = Null, !- Program Line 9
+  SET EnviromentOdbActuator = Null,       !- Program Line 10
+  SET EnviromentDirectSolarActuator = Null, !- Program Line 11
+  SET EnviromentDiffSolarActuator = Null, !- Program Line 12
+  SET EnviromentWindSpeedActuator = Null, !- Program Line 13
+  ELSE,                                   !- Program Line 14
+  SET Conditioned_Zone_East_RoofCeiling_Ext_inside_convection_actuator = 0.395, !- Program Line 15
+  SET Conditioned_Zone_West_Wall_Ext_inside_convection_actuator = 0.395, !- Program Line 16
+  SET Conditioned_Zone_North_Wall_Ext_inside_convection_actuator = 0.395, !- Program Line 17
+  SET Conditioned_Zone_South_Wall_Ext_inside_convection_actuator = 0.395, !- Program Line 18
+  SET Conditioned_Zone_East_Wall_Int_inside_convection_actuator = 0.395, !- Program Line 19
+  SET Conditioned_Zone_East_Floor_Ext_inside_convection_actuator = 0.395, !- Program Line 20
+  SET Conditioned_Zone_East_Wall_Ext_inside_convection_actuator = 0.395, !- Program Line 21
+  SET Conditioned_Zone_East_Wall_Int_1_inside_convection_actuator = 0.395, !- Program Line 22
+  SET EnviromentOdbActuator = EMS_OUTDOOR_SENSOR, !- Program Line 23
+  SET EnviromentDirectSolarActuator = 0,  !- Program Line 24
+  SET EnviromentDiffSolarActuator = 0,    !- Program Line 25
+  SET EnviromentWindSpeedActuator = 0,    !- Program Line 26
+  ENDIF;                                  !- Program Line 27
+
+OS:EnergyManagementSystem:ProgramCallingManager,
+  {7f9f2e00-cdf6-4675-956d-a698e5f31c77}, !- Handle
+  ValidateMeasuredData,                   !- Name
+  BeginTimestepBeforePredictor,           !- EnergyPlus Model Calling Point
+  {ad8a0193-4e8d-4187-bc24-d126292bfaa0}; !- Program Name 1
+

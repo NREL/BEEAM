@@ -1,0 +1,73 @@
+{
+   "created_at" : "20200225T204950Z",
+   "seed_file" : "../05_NewFreezer_Thermal_mass_20191212_Experiment2_200114_input_out_schedulefile.osm",
+   "steps" : [
+      {
+         "arguments" : {
+            "column_number" : 4,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "MEASURED_HEAT_LOAD"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_MEASURED_HEAT_LOAD"
+      },
+      {
+         "arguments" : {
+            "electric_equipment_name" : "Steca_Freezer_Cooling_Chamber_TestInternalGain",
+            "schedule_name" : "MEASURED_HEAT_LOAD"
+         },
+         "description" : "Add Schedule:File to ElectricEquipment object",
+         "measure_dir_name" : "ScheduleFileElectricEquipment",
+         "modeler_description" : "Adds a ScheduleFile object to an ElectricEquipment object",
+         "name" : "ScheduleFileElectricEquipment"
+      },
+      {
+         "arguments" : {
+            "column_number" : 3,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "MEASURED_EXTERNAL_TEMPERATURE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_MEASURED_EXTERNAL_TEMPERATURE"
+      },
+      {
+         "arguments" : {
+            "schedule_name" : "MEASURED_EXTERNAL_TEMPERATURE",
+            "thermostat_dual_setpoint_name" : "Thermal Zone: Steca_Freezer_Compressor_ChamberDual Setpoint Thermostats"
+         },
+         "description" : "Add Schedule:File to ThermostatDualSetpoint object",
+         "measure_dir_name" : "ScheduleFileThermostatDualSetpoint",
+         "modeler_description" : "Adds a ScheduleFile object to an ThermostatDualSetpoint object",
+         "name" : "ScheduleFileThermostatDualSetpoint"
+      },
+      {
+         "arguments" : {
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "MEASURED_CHAMBER_TEMPERATURE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_MEASURED_CHAMBER_TEMPERATURE"
+      },
+      {
+         "arguments" : {
+            "csv_name" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "csv_time_header" : "TimePST",
+            "csv_var" : "Internal_Temperature_C",
+            "key_value" : "MEASURED_CHAMBER_TEMPERATURE",
+            "timeseries_name" : "Schedule Value"
+         },
+         "description" : "Creates Objective Function from Timeseries Data",
+         "measure_dir_name" : "TimeseriesObjectiveFunction",
+         "modeler_description" : "Creates Objective Function from Timeseries Data.  The measure applies a Norm at each timestep between the difference of CSV metered data and SQL model data. A timeseries plot can also be created.  Possible outputs are 'cvrmse', 'nmbe', 'simdata' = sum of the simulated data, 'csvdata' = sum of metered data, 'diff' = P Norm between the metered and simulated data if Norm is 1 or 2, else its just the Difference.",
+         "name" : "TimeSeries Objective Function"
+      }
+   ],
+   "updated_at" : "20200225T205044Z",
+   "weather_file" : "CA_EL-MONTE_747043_17.epw"
+}

@@ -1,0 +1,7 @@
+{
+   "created_at" : "20200225T205156Z",
+   "seed_file" : "../05_NewFreezer_Thermal_mass_20191212_Experiment3_200124_input_out_schedulefile.osm",
+   "steps" : [],
+   "updated_at" : "20200225T205212Z",
+   "weather_file" : "CA_EL-MONTE_747043_17.epw"
+}
