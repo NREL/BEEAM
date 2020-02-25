@@ -1,0 +1,88 @@
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>schedule_file_electric_equipment</name>
+  <uid>12a63d3b-b28c-40ea-9b4a-4fe6cb9172df</uid>
+  <version_id>8b02e9fa-3b56-4682-9765-901d37c76f94</version_id>
+  <version_modified>20191015T170710Z</version_modified>
+  <xml_checksum>9A202986</xml_checksum>
+  <class_name>ScheduleFileElectricEquipment</class_name>
+  <display_name>ScheduleFileElectricEquipment</display_name>
+  <description>Add Schedule:File to ElectricEquipment object</description>
+  <modeler_description>Adds a ScheduleFile object to an ElectricEquipment object</modeler_description>
+  <arguments>
+    <argument>
+      <name>schedule_name</name>
+      <display_name>schedule_name</display_name>
+      <description>Schedule:file Name</description>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>electric_equipment_name</name>
+      <display_name>electric_equipment_name</display_name>
+      <description>ElectricEquipment Name</description>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+  </arguments>
+  <outputs/>
+  <provenances/>
+  <tags>
+    <tag>Equipment.Electric Equipment</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Apply Measure Now</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Parametric Analysis Tool</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>CD7F5672</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.8.1</identifier>
+        <min_compatible>2.8.1</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>F99A3A31</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>A8B72548</checksum>
+    </file>
+  </files>
+</measure>

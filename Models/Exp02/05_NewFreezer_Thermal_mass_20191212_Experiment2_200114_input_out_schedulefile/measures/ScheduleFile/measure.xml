@@ -1,0 +1,107 @@
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>schedule_file</name>
+  <uid>34358d82-7438-4e6d-8c2d-900b19fa7f9d</uid>
+  <version_id>a2aada55-82c2-4d4a-8ee8-bd94117d846b</version_id>
+  <version_modified>20191015T163941Z</version_modified>
+  <xml_checksum>FC9586A7</xml_checksum>
+  <class_name>ScheduleFile</class_name>
+  <display_name>ScheduleFile</display_name>
+  <description>This adds a schedule:file to the model</description>
+  <modeler_description>This adds a schedule:file to the model</modeler_description>
+  <arguments>
+    <argument>
+      <name>schedule_name</name>
+      <display_name>schedule_name</display_name>
+      <description>Schedule:file Name</description>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>schedule_csv</name>
+      <display_name>full path to the schedule.csv file</display_name>
+      <description>full path to the schedule.csv file.</description>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>c:/OpenStudio/schedule.csv</default_value>
+    </argument>
+    <argument>
+      <name>column_number</name>
+      <display_name>column_number</display_name>
+      <description>column_number</description>
+      <type>Integer</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>2</default_value>
+    </argument>
+    <argument>
+      <name>rows_to_skip</name>
+      <display_name>rows_to_skip</display_name>
+      <description>rows_to_skip</description>
+      <type>Integer</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>1</default_value>
+    </argument>
+  </arguments>
+  <outputs/>
+  <provenances/>
+  <tags>
+    <tag>Whole Building.Whole Building Schedules</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Apply Measure Now</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Parametric Analysis Tool</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>CD7F5672</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>892B398B</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.8.1</identifier>
+        <min_compatible>2.8.1</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>CF8F97A9</checksum>
+    </file>
+  </files>
+</measure>

@@ -2205,8 +2205,8 @@ OS:RunPeriod,
   Run Period 1,                           !- Name
   1,                                      !- Begin Month
   1,                                      !- Begin Day of Month
-  12,                                     !- End Month
-  31,                                     !- End Day of Month
+  1,                                      !- End Month
+  10,                                     !- End Day of Month
   ,                                       !- Use Weather File Holidays and Special Days
   ,                                       !- Use Weather File Daylight Saving Period
   ,                                       !- Apply Weekend Holiday Rule
@@ -2291,8 +2291,8 @@ OS:Schedule:Constant,
 OS:ThermostatSetpoint:DualSetpoint,
   {f04b1e25-b451-436e-b58c-20bb65e73335}, !- Handle
   Thermal Zone: Steca_Freezer_Cooling_Chamber Dual Setpoint Thermostats, !- Name
-  {dc4bdd63-f267-4a79-8683-eac1a07381fc}, !- Heating Setpoint Temperature Schedule Name
-  {dc4bdd63-f267-4a79-8683-eac1a07381fc}; !- Cooling Setpoint Temperature Schedule Name
+  ,                                       !- Heating Setpoint Temperature Schedule Name
+  ;                                       !- Cooling Setpoint Temperature Schedule Name
 
 OS:ElectricEquipment:Definition,
   {3e1e7d55-0555-4ff1-b4eb-7fa2d8905606}, !- Handle
@@ -2301,11 +2301,6 @@ OS:ElectricEquipment:Definition,
   60,                                     !- Design Level {W}
   ,                                       !- Watts per Space Floor Area {W/m2}
   ;                                       !- Watts per Person {W/person}
-
-OS:External:File,
-  {a38bb95e-35fb-4339-adfe-794f4765527b}, !- Handle
-  ExternalFileTest,                       !- Name
-  test_input_in.csv;                      !- File Name
 
 OS:Space,
   {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Handle
@@ -2705,8 +2700,8 @@ OS:StandardsInformation:Material,
 OS:ThermostatSetpoint:DualSetpoint,
   {e44b18c2-09a4-47c6-907e-755fb1af5525}, !- Handle
   Thermal Zone: Steca_Freezer_Compressor_Chamber Dual Setpoint Thermostats, !- Name
-  {4fec9e91-6233-4f21-b7f5-c0bebbf2616c}, !- Heating Setpoint Temperature Schedule Name
-  {4fec9e91-6233-4f21-b7f5-c0bebbf2616c}; !- Cooling Setpoint Temperature Schedule Name
+  ,                                       !- Heating Setpoint Temperature Schedule Name
+  ;                                       !- Cooling Setpoint Temperature Schedule Name
 
 OS:Material,
   {c54ba1a8-fd36-4a67-8161-66d624fa8fde}, !- Handle
@@ -2748,11 +2743,6 @@ OS:ElectricEquipment:Definition,
   ,                                       !- Watts per Person {W/person}
   ,                                       !- Fraction Latent
   1;                                      !- Fraction Radiant
-
-OS:External:File,
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- Handle
-  ExternalFileTest 1,                     !- Name
-  Experiment2_200114_input_out.csv;       !- File Name
 
 OS:ScheduleTypeLimits,
   {b93dbdad-eaa1-4aee-8fb7-9de86cb05df5}, !- Handle
@@ -2825,21 +2815,9 @@ OS:ElectricEquipment,
   Conditioned_Space_ConvectiveInternalGain, !- Name
   {a5602f64-42e5-4cd2-a475-3cb8218f4e63}, !- Electric Equipment Definition Name
   {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space or SpaceType Name
-  {8b055bba-7d07-472e-a120-79e3428d3242}, !- Schedule Name
+  ,                                       !- Schedule Name
   ,                                       !- Multiplier
   General;                                !- End-Use Subcategory
-
-OS:Schedule:File,
-  {8b055bba-7d07-472e-a120-79e3428d3242}, !- Handle
-  CONVECTIVE_LOAD_SCHEDULE,               !- Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- External File Name
-  6,                                      !- Column Number
-  1,                                      !- Rows to Skip at Top
-  ,                                       !- Number of Hours of Data
-  ,                                       !- Column Separator
-  Yes,                                    !- Interpolate to Timestep
-  1;                                      !- Minutes per Item
 
 OS:Output:Variable,
   {16d93c5e-5a23-49d1-9f72-67328200f0cd}, !- Handle
@@ -2866,21 +2844,9 @@ OS:ElectricEquipment,
   Conditioned_Space_radiationInternalGain, !- Name
   {7e675b09-471e-463c-bd7a-941e96193ee9}, !- Electric Equipment Definition Name
   {7f60fefd-5b22-4542-891f-ac8262109e0f}, !- Space or SpaceType Name
-  {c84d896b-9f5e-4083-81f0-6f25dcc317fa}, !- Schedule Name
+  ,                                       !- Schedule Name
   ,                                       !- Multiplier
   General;                                !- End-Use Subcategory
-
-OS:Schedule:File,
-  {c84d896b-9f5e-4083-81f0-6f25dcc317fa}, !- Handle
-  RADIATION_LOAD_SCHEDULE,                !- Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- External File Name
-  7,                                      !- Column Number
-  1,                                      !- Rows to Skip at Top
-  ,                                       !- Number of Hours of Data
-  ,                                       !- Column Separator
-  Yes,                                    !- Interpolate to Timestep
-  1;                                      !- Minutes per Item
 
 OS:Output:Variable,
   {88141be9-fbdf-4ef3-8c44-94c023046ac2}, !- Handle
@@ -2978,18 +2944,6 @@ OS:EnergyManagementSystem:Actuator,
   Weather Data,                           !- Actuated Component Type
   Wind Speed;                             !- Actuated Component Control Type
 
-OS:Schedule:File,
-  {4fec9e91-6233-4f21-b7f5-c0bebbf2616c}, !- Handle
-  MEASURED_EXTERNAL_TEMPERATURE,          !- Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- External File Name
-  3,                                      !- Column Number
-  1,                                      !- Rows to Skip at Top
-  ,                                       !- Number of Hours of Data
-  ,                                       !- Column Separator
-  Yes,                                    !- Interpolate to Timestep
-  1;                                      !- Minutes per Item
-
 OS:Output:Variable,
   {fc868d27-2cf1-4ae1-836d-06f038eefefa}, !- Handle
   MEASURED_EXTERNAL_TEMPERATURE Output Variable, !- Name
@@ -3002,18 +2956,6 @@ OS:EnergyManagementSystem:Sensor,
   EMS_OUTDOOR_SENSOR,                     !- Name
   MEASURED_EXTERNAL_TEMPERATURE,          !- Output Variable or Output Meter Index Key Name
   {fc868d27-2cf1-4ae1-836d-06f038eefefa}; !- Output Variable or Output Meter Name
-
-OS:Schedule:File,
-  {87364acf-fba5-4d35-9ac2-dba2c3464e44}, !- Handle
-  HVAC_SCHEDULE,                          !- Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- External File Name
-  5,                                      !- Column Number
-  1,                                      !- Rows to Skip at Top
-  ,                                       !- Number of Hours of Data
-  ,                                       !- Column Separator
-  Yes,                                    !- Interpolate to Timestep
-  1;                                      !- Minutes per Item
 
 OS:Output:Variable,
   {7366139d-62df-4254-b10d-cc4585b758bf}, !- Handle
@@ -3028,18 +2970,6 @@ OS:EnergyManagementSystem:Sensor,
   HVAC_SCHEDULE,                          !- Output Variable or Output Meter Index Key Name
   {7366139d-62df-4254-b10d-cc4585b758bf}; !- Output Variable or Output Meter Name
 
-OS:Schedule:File,
-  {9a7c2dd6-24f5-42b8-9b1f-d0477ae0502a}, !- Handle
-  MEASURED_TOTAL_HEAT_GAIN,               !- Name
-  {b93dbdad-eaa1-4aee-8fb7-9de86cb05df5}, !- Schedule Type Limits Name
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- External File Name
-  2,                                      !- Column Number
-  1,                                      !- Rows to Skip at Top
-  ,                                       !- Number of Hours of Data
-  ,                                       !- Column Separator
-  Yes,                                    !- Interpolate to Timestep
-  1;                                      !- Minutes per Item
-
 OS:Output:Variable,
   {f2a9d5a3-e788-43cf-8f4d-031581a26ebe}, !- Handle
   MEASURED_TOTAL_HEAT_GAIN Output Variable, !- Name
@@ -3052,18 +2982,6 @@ OS:EnergyManagementSystem:Sensor,
   MEASURED_TOTAL_HEAT_GAIN_SENSOR,        !- Name
   MEASURED_TOTAL_HEAT_GAIN,               !- Output Variable or Output Meter Index Key Name
   {f2a9d5a3-e788-43cf-8f4d-031581a26ebe}; !- Output Variable or Output Meter Name
-
-OS:Schedule:File,
-  {dc4bdd63-f267-4a79-8683-eac1a07381fc}, !- Handle
-  MEASURED_CHAMBER_TEMPERATURE,           !- Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
-  {6e166de3-f6f3-4d28-b3ac-3832da9fddb8}, !- External File Name
-  4,                                      !- Column Number
-  1,                                      !- Rows to Skip at Top
-  ,                                       !- Number of Hours of Data
-  ,                                       !- Column Separator
-  Yes,                                    !- Interpolate to Timestep
-  1;                                      !- Minutes per Item
 
 OS:Output:Variable,
   {08763c34-2b4c-4fd8-b503-8c8d7670dce1}, !- Handle

@@ -1,0 +1,519 @@
+{
+   "completed_at" : "20200225T213419Z",
+   "completed_status" : "Success",
+   "created_at" : "20200225T204950Z",
+   "current_step" : 10,
+   "eplusout_err" : "Program Version,EnergyPlus, Version 9.2.0-921312fa1d, YMD=2020.02.25 14:34,\n   ** Warning ** For Schedule:File=\"HVAC_SCHEDULE\", Blank Schedule Type Limits Name input -- will not be validated.\n   ** Warning ** For Schedule:File=\"MEASURED_TOTAL_HEAT_GAIN\", Blank Schedule Type Limits Name input -- will not be validated.\n   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS ON DISCRETE\", Blank Schedule Type Limits Name input -- will not be validated.\n   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS ON DISCRETE 1\", Blank Schedule Type Limits Name input -- will not be validated.\n   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS OFF DISCRETE\", Blank Schedule Type Limits Name input -- will not be validated.\n   ** Warning ** ProcessScheduleInput: Schedule:Constant=\"ALWAYS ON CONTINUOUS\", Blank Schedule Type Limits Name input -- will not be validated.\n   ** Warning ** CheckUsedConstructions: There are 3 nominally unused constructions in input.\n   **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;\n   ** Warning ** Output:Meter: invalid Key Name=\"GAS:FACILITY\" - not found.\n   ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name=\"GAS:FACILITY\" - not found.\n   ** Warning ** Output:Meter:MeterFileOnly requested for \"Electricity:Facility\" (TimeStep), already on \"Output:Meter\". Will report to both eplusout.eso and eplusout.mtr\n   ************* Testing Individual Branch Integrity\n   ************* All Branches passed integrity testing\n   ************* Testing Individual Supply Air Path Integrity\n   ************* All Supply Air Paths passed integrity testing\n   ************* Testing Individual Return Air Path Integrity\n   ************* All Return Air Paths passed integrity testing\n   ************* No node connection errors were found.\n   ************* Beginning Simulation\n   ** Warning ** Processing Monthly Tabular Reports: Variable names not valid for this simulation\n   **   ~~~   ** ...use Output:Diagnostics,DisplayExtraWarnings; to show more details on individual variables.\n   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-ELECTRICITY\" has no energy cost. \n   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.\n   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-DISTILLATE OIL\" has no energy cost. \n   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.\n   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-RESIDUAL OIL\" has no energy cost. \n   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.\n   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-NATURAL GAS\" has no energy cost. \n   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.\n   ** Warning ** The resource referenced by LifeCycleCost:UsePriceEscalation= \"U.S. AVG  COMMERCIAL-COAL\" has no energy cost. \n   **   ~~~   ** ... It is likely that the wrong resource is used. The resource should match the meter used in Utility:Tariff.\n   ************* Simulation Error Summary *************\n   ** Warning ** The following Report Variables were requested but not generated -- check.rdd file\n   **   ~~~   ** Either the IDF did not contain these elements, the variable name is misspelled,\n   **   ~~~   ** or the requested variable is an advanced output which requires Output : Diagnostics, DisplayAdvancedReportVariables;\n   ************* Key=Conditioned_Zone, VarName=ZONE AIR HEAT BALANCE DEVIATION RATE, Frequency=TimeStep\n   ************* Key=Conditioned_Zone, VarName=ZONE OPAQUE SURFACE INSIDE FACES TOTAL CONDUCTION HEAT GAIN ENERGY, Frequency=TimeStep\n   ************* Key=Conditioned_Zone, VarName=ZONE OPAQUE SURFACE INSIDE FACES TOTAL CONDUCTION HEAT LOSS ENERGY, Frequency=TimeStep\n   ************* There are 6 unused schedules in input.\n   ************* There are 6 unused week schedules in input.\n   ************* There are 6 unused day schedules in input.\n   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.\n   *************\n   ************* ===== Final Error Summary =====\n   ************* The following error categories occurred.  Consider correcting or noting.\n   ************* Nominally Unused Constructions\n   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause\n   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm\n   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).\n   *************\n   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.\n   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.\n   ************* EnergyPlus Completed Successfully-- 17 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  2.72sec\n",
+   "file_paths" : [
+      "C:/Users/Brian/AppData/Local/Temp/OpenStudioApp.D11356/resources/generated_files",
+      "./files",
+      "./weather",
+      "../../files",
+      "../../weather",
+      "./"
+   ],
+   "hash" : "6DEAE8A4",
+   "seed_file" : "../05_NewFreezer_Thermal_mass_20191212_Experiment2_200114_input_out_schedulefile.osm",
+   "started_at" : "20200225T213413Z",
+   "steps" : [
+      {
+         "arguments" : {
+            "column_number" : 6,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "CONVECTIVE_LOAD_SCHEDULE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_CONVECTIVE_LOAD_SCHEDULE",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFile",
+            "measure_display_name" : "ScheduleFile",
+            "measure_name" : "schedule_file",
+            "measure_taxonomy" : "Whole Building.Whole Building Schedules",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "34358d82-7438-4e6d-8c2d-900b19fa7f9d",
+            "measure_version_id" : "a2aada55-82c2-4d4a-8ee8-bd94117d846b",
+            "measure_version_modified" : "20191015T163941Z",
+            "measure_xml_checksum" : "FC9586A7",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_final_condition" : "The building finished with 2 spaces.",
+            "step_info" : [
+               "schedule_csv is C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "Measure is looking here for the file: C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "schedule:file CONVECTIVE_LOAD_SCHEDULE was added."
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "CONVECTIVE_LOAD_SCHEDULE"
+               },
+               {
+                  "name" : "schedule_csv",
+                  "value" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv"
+               },
+               {
+                  "name" : "column_number",
+                  "value" : 6
+               },
+               {
+                  "name" : "rows_to_skip",
+                  "value" : 1
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "electric_equipment_name" : "Conditioned_Space_ConvectiveInternalGain",
+            "schedule_name" : "CONVECTIVE_LOAD_SCHEDULE"
+         },
+         "description" : "Add Schedule:File to ElectricEquipment object",
+         "measure_dir_name" : "ScheduleFileElectricEquipment",
+         "modeler_description" : "Adds a ScheduleFile object to an ElectricEquipment object",
+         "name" : "ScheduleFileElectricEquipment_convective",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFileElectricEquipment",
+            "measure_display_name" : "ScheduleFileElectricEquipment",
+            "measure_name" : "schedule_file_electric_equipment",
+            "measure_taxonomy" : "Equipment.Electric Equipment",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "12a63d3b-b28c-40ea-9b4a-4fe6cb9172df",
+            "measure_version_id" : "8b02e9fa-3b56-4682-9765-901d37c76f94",
+            "measure_version_modified" : "20191015T170710Z",
+            "measure_xml_checksum" : "9A202986",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_info" : [
+               "found schedule:file OS:Schedule:File,\n  {b277dcd9-9a82-492d-80c7-751ddcc50232}, !- Handle\n  CONVECTIVE_LOAD_SCHEDULE,               !- Name\n  ,                                       !- Schedule Type Limits Name\n  {de92efd4-3cbd-442b-81e5-3eaf4d594999}, !- External File Name\n  6,                                      !- Column Number\n  1;                                      !- Rows to Skip at Top\n\n",
+               "setting electric:equipment Conditioned_Space_ConvectiveInternalGain schedule to: CONVECTIVE_LOAD_SCHEDULE"
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "CONVECTIVE_LOAD_SCHEDULE"
+               },
+               {
+                  "name" : "electric_equipment_name",
+                  "value" : "Conditioned_Space_ConvectiveInternalGain"
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "column_number" : 7,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "RADIATION_LOAD_SCHEDULE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_RADIATION_LOAD_SCHEDULE",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFile",
+            "measure_display_name" : "ScheduleFile",
+            "measure_name" : "schedule_file",
+            "measure_taxonomy" : "Whole Building.Whole Building Schedules",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "34358d82-7438-4e6d-8c2d-900b19fa7f9d",
+            "measure_version_id" : "a2aada55-82c2-4d4a-8ee8-bd94117d846b",
+            "measure_version_modified" : "20191015T163941Z",
+            "measure_xml_checksum" : "FC9586A7",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_final_condition" : "The building finished with 2 spaces.",
+            "step_info" : [
+               "schedule_csv is C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "Measure is looking here for the file: C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "schedule:file RADIATION_LOAD_SCHEDULE was added."
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "RADIATION_LOAD_SCHEDULE"
+               },
+               {
+                  "name" : "schedule_csv",
+                  "value" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv"
+               },
+               {
+                  "name" : "column_number",
+                  "value" : 7
+               },
+               {
+                  "name" : "rows_to_skip",
+                  "value" : 1
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "electric_equipment_name" : "Conditioned_Space_radiationInternalGain",
+            "schedule_name" : "RADIATION_LOAD_SCHEDULE"
+         },
+         "description" : "Add Schedule:File to ElectricEquipment object",
+         "measure_dir_name" : "ScheduleFileElectricEquipment",
+         "modeler_description" : "Adds a ScheduleFile object to an ElectricEquipment object",
+         "name" : "ScheduleFileElectricEquipment_radiation",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFileElectricEquipment",
+            "measure_display_name" : "ScheduleFileElectricEquipment",
+            "measure_name" : "schedule_file_electric_equipment",
+            "measure_taxonomy" : "Equipment.Electric Equipment",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "12a63d3b-b28c-40ea-9b4a-4fe6cb9172df",
+            "measure_version_id" : "8b02e9fa-3b56-4682-9765-901d37c76f94",
+            "measure_version_modified" : "20191015T170710Z",
+            "measure_xml_checksum" : "9A202986",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_info" : [
+               "found schedule:file OS:Schedule:File,\n  {eb936a78-158c-4d20-8437-b02c9a24cf2d}, !- Handle\n  RADIATION_LOAD_SCHEDULE,                !- Name\n  ,                                       !- Schedule Type Limits Name\n  {de92efd4-3cbd-442b-81e5-3eaf4d594999}, !- External File Name\n  7,                                      !- Column Number\n  1;                                      !- Rows to Skip at Top\n\n",
+               "setting electric:equipment Conditioned_Space_radiationInternalGain schedule to: RADIATION_LOAD_SCHEDULE"
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "RADIATION_LOAD_SCHEDULE"
+               },
+               {
+                  "name" : "electric_equipment_name",
+                  "value" : "Conditioned_Space_radiationInternalGain"
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "column_number" : 3,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "MEASURED_EXTERNAL_TEMPERATURE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_MEASURED_EXTERNAL_TEMPERATURE",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFile",
+            "measure_display_name" : "ScheduleFile",
+            "measure_name" : "schedule_file",
+            "measure_taxonomy" : "Whole Building.Whole Building Schedules",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "34358d82-7438-4e6d-8c2d-900b19fa7f9d",
+            "measure_version_id" : "a2aada55-82c2-4d4a-8ee8-bd94117d846b",
+            "measure_version_modified" : "20191015T163941Z",
+            "measure_xml_checksum" : "FC9586A7",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_final_condition" : "The building finished with 2 spaces.",
+            "step_info" : [
+               "schedule_csv is C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "Measure is looking here for the file: C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "schedule:file MEASURED_EXTERNAL_TEMPERATURE was added."
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "MEASURED_EXTERNAL_TEMPERATURE"
+               },
+               {
+                  "name" : "schedule_csv",
+                  "value" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv"
+               },
+               {
+                  "name" : "column_number",
+                  "value" : 3
+               },
+               {
+                  "name" : "rows_to_skip",
+                  "value" : 1
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "schedule_name" : "MEASURED_EXTERNAL_TEMPERATURE",
+            "thermostat_dual_setpoint_name" : "Thermal Zone: Steca_Freezer_Compressor_Chamber Dual Setpoint Thermostats"
+         },
+         "description" : "Add Schedule:File to ThermostatDualSetpoint object",
+         "measure_dir_name" : "ScheduleFileThermostatDualSetpoint",
+         "modeler_description" : "Adds a ScheduleFile object to an ThermostatDualSetpoint object",
+         "name" : "ScheduleFileThermostatDualSetpoint_compressor",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFileThermostatDualSetpoint",
+            "measure_display_name" : "ScheduleFileThermostatDualSetpoint",
+            "measure_name" : "schedule_file_thermostat_dual_setpoint",
+            "measure_taxonomy" : "Equipment.Electric Equipment",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "12a63d3b-b28c-40ea-9b4a-4fe6cb9172ef",
+            "measure_version_id" : "11278e39-0205-4948-affb-3858b0554f92",
+            "measure_version_modified" : "20191211T182119Z",
+            "measure_xml_checksum" : "9A202986",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_info" : [
+               "found schedule:file OS:Schedule:File,\n  {98a1b68b-6fc8-4b35-ac6b-b69782702bc0}, !- Handle\n  MEASURED_EXTERNAL_TEMPERATURE,          !- Name\n  ,                                       !- Schedule Type Limits Name\n  {de92efd4-3cbd-442b-81e5-3eaf4d594999}, !- External File Name\n  3,                                      !- Column Number\n  1;                                      !- Rows to Skip at Top\n\n",
+               "setting ThermostatDualSetpoint Thermal Zone: Steca_Freezer_Compressor_Chamber Dual Setpoint Thermostats HeatingSetpointTemperatureSchedule to: MEASURED_EXTERNAL_TEMPERATURE",
+               "setting ThermostatDualSetpoint Thermal Zone: Steca_Freezer_Compressor_Chamber Dual Setpoint Thermostats CoolingSetpointTemperatureSchedule to: MEASURED_EXTERNAL_TEMPERATURE"
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "MEASURED_EXTERNAL_TEMPERATURE"
+               },
+               {
+                  "name" : "thermostat_dual_setpoint_name",
+                  "value" : "Thermal Zone: Steca_Freezer_Compressor_Chamber Dual Setpoint Thermostats"
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "column_number" : 4,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "MEASURED_CHAMBER_TEMPERATURE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_MEASURED_CHAMBER_TEMPERATURE",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFile",
+            "measure_display_name" : "ScheduleFile",
+            "measure_name" : "schedule_file",
+            "measure_taxonomy" : "Whole Building.Whole Building Schedules",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "34358d82-7438-4e6d-8c2d-900b19fa7f9d",
+            "measure_version_id" : "a2aada55-82c2-4d4a-8ee8-bd94117d846b",
+            "measure_version_modified" : "20191015T163941Z",
+            "measure_xml_checksum" : "FC9586A7",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_final_condition" : "The building finished with 2 spaces.",
+            "step_info" : [
+               "schedule_csv is C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "Measure is looking here for the file: C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "schedule:file MEASURED_CHAMBER_TEMPERATURE was added."
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "MEASURED_CHAMBER_TEMPERATURE"
+               },
+               {
+                  "name" : "schedule_csv",
+                  "value" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv"
+               },
+               {
+                  "name" : "column_number",
+                  "value" : 4
+               },
+               {
+                  "name" : "rows_to_skip",
+                  "value" : 1
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "schedule_name" : "MEASURED_CHAMBER_TEMPERATURE",
+            "thermostat_dual_setpoint_name" : "Thermal Zone: Steca_Freezer_Cooling_Chamber Dual Setpoint Thermostats"
+         },
+         "description" : "Add Schedule:File to ThermostatDualSetpoint object",
+         "measure_dir_name" : "ScheduleFileThermostatDualSetpoint",
+         "modeler_description" : "Adds a ScheduleFile object to an ThermostatDualSetpoint object",
+         "name" : "ScheduleFileThermostatDualSetpoint_cooling",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFileThermostatDualSetpoint",
+            "measure_display_name" : "ScheduleFileThermostatDualSetpoint",
+            "measure_name" : "schedule_file_thermostat_dual_setpoint",
+            "measure_taxonomy" : "Equipment.Electric Equipment",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "12a63d3b-b28c-40ea-9b4a-4fe6cb9172ef",
+            "measure_version_id" : "11278e39-0205-4948-affb-3858b0554f92",
+            "measure_version_modified" : "20191211T182119Z",
+            "measure_xml_checksum" : "9A202986",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_info" : [
+               "found schedule:file OS:Schedule:File,\n  {04396798-2483-42be-9eb6-3b7da5be23a9}, !- Handle\n  MEASURED_CHAMBER_TEMPERATURE,           !- Name\n  ,                                       !- Schedule Type Limits Name\n  {de92efd4-3cbd-442b-81e5-3eaf4d594999}, !- External File Name\n  4,                                      !- Column Number\n  1;                                      !- Rows to Skip at Top\n\n",
+               "setting ThermostatDualSetpoint Thermal Zone: Steca_Freezer_Cooling_Chamber Dual Setpoint Thermostats HeatingSetpointTemperatureSchedule to: MEASURED_CHAMBER_TEMPERATURE",
+               "setting ThermostatDualSetpoint Thermal Zone: Steca_Freezer_Cooling_Chamber Dual Setpoint Thermostats CoolingSetpointTemperatureSchedule to: MEASURED_CHAMBER_TEMPERATURE"
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "MEASURED_CHAMBER_TEMPERATURE"
+               },
+               {
+                  "name" : "thermostat_dual_setpoint_name",
+                  "value" : "Thermal Zone: Steca_Freezer_Cooling_Chamber Dual Setpoint Thermostats"
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "column_number" : 5,
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "HVAC_SCHEDULE"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_HVAC_SCHEDULE",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFile",
+            "measure_display_name" : "ScheduleFile",
+            "measure_name" : "schedule_file",
+            "measure_taxonomy" : "Whole Building.Whole Building Schedules",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "34358d82-7438-4e6d-8c2d-900b19fa7f9d",
+            "measure_version_id" : "a2aada55-82c2-4d4a-8ee8-bd94117d846b",
+            "measure_version_modified" : "20191015T163941Z",
+            "measure_xml_checksum" : "FC9586A7",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_final_condition" : "The building finished with 2 spaces.",
+            "step_info" : [
+               "schedule_csv is C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "Measure is looking here for the file: C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "schedule:file HVAC_SCHEDULE was added."
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "HVAC_SCHEDULE"
+               },
+               {
+                  "name" : "schedule_csv",
+                  "value" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv"
+               },
+               {
+                  "name" : "column_number",
+                  "value" : 5
+               },
+               {
+                  "name" : "rows_to_skip",
+                  "value" : 1
+               }
+            ],
+            "step_warnings" : []
+         }
+      },
+      {
+         "arguments" : {
+            "schedule_csv" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+            "schedule_name" : "MEASURED_TOTAL_HEAT_GAIN"
+         },
+         "description" : "This adds a schedule:file to the model",
+         "measure_dir_name" : "ScheduleFile",
+         "modeler_description" : "This adds a schedule:file to the model",
+         "name" : "ScheduleFile_MEASURED_TOTAL_HEAT_GAIN",
+         "result" : {
+            "completed_at" : "20200225T213413Z",
+            "measure_class_name" : "ScheduleFile",
+            "measure_display_name" : "ScheduleFile",
+            "measure_name" : "schedule_file",
+            "measure_taxonomy" : "Whole Building.Whole Building Schedules",
+            "measure_type" : "ModelMeasure",
+            "measure_uid" : "34358d82-7438-4e6d-8c2d-900b19fa7f9d",
+            "measure_version_id" : "a2aada55-82c2-4d4a-8ee8-bd94117d846b",
+            "measure_version_modified" : "20191015T163941Z",
+            "measure_xml_checksum" : "FC9586A7",
+            "started_at" : "20200225T213413Z",
+            "stderr" : "",
+            "stdout" : "",
+            "step_errors" : [],
+            "step_files" : [],
+            "step_final_condition" : "The building finished with 2 spaces.",
+            "step_info" : [
+               "schedule_csv is C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "Measure is looking here for the file: C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv",
+               "schedule:file MEASURED_TOTAL_HEAT_GAIN was added."
+            ],
+            "step_result" : "Success",
+            "step_values" : [
+               {
+                  "name" : "schedule_name",
+                  "value" : "MEASURED_TOTAL_HEAT_GAIN"
+               },
+               {
+                  "name" : "schedule_csv",
+                  "value" : "C:/Projects/DC-Design-develop/Models/Exp02/Experiment2_200114_input_out.csv"
+               },
+               {
+                  "name" : "column_number",
+                  "value" : 2
+               },
+               {
+                  "name" : "rows_to_skip",
+                  "value" : 1
+               }
+            ],
+            "step_warnings" : []
+         }
+      }
+   ],
+   "updated_at" : "20200225T213419Z",
+   "weather_file" : "CA_EL-MONTE_747043_17.epw"
+}
