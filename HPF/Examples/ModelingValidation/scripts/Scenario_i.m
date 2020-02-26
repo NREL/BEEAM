@@ -22,12 +22,14 @@ if exist('scenario', 'var') ~= 1
             'Scenario_2_Data_Set_2_2';      % 6
             'Scenario_2_Data_Set_2_3';      % 7
             'Scenario_2_Data_Set_2_4'};     % 8
-    scenario = 8;
+    scenario = 7;
 end
         
 modelicaWorkingDir = '/home/avpreetsingh/OpenModelica_workspace/';
 % file path for OpenModelica mat file
-matFile_path = [modelicaWorkingDir, 'HPF.Examples.ModelingValidation.', scenarios{scenario}, '/HPF.Examples.ModelingValidation.', scenarios{scenario}, '_res.mat'];
+matFile_path = [modelicaWorkingDir, 'HPF.Examples.ModelingValidation.', ...
+            scenarios{scenario}, '/HPF.Examples.ModelingValidation.', ...
+            scenarios{scenario}, '_res.mat'];
 
 % speedup execution, prevents reloading matfile everytime.
 % to load mat file, clear all the variables using 'clear'
@@ -196,7 +198,7 @@ if exist('indx', 'var') ~= 1
 end
 
 csvDataMatrix(indx, :) = dataRow;
-indx = indx + 1 % indx var for csv row increment
+indx = indx + 1; % indx var for csv row increment
 if(indx == 9)
     writematrix(csvDataMatrix,'dataEntry_modifiedT.csv','Delimiter','comma')
 end
