@@ -11,7 +11,8 @@ model HarmonicSource_MATLAB_Implementation_Cmplx "Harmonic source"
   parameter Real c = -0.18722 "Phase model coef 2";
   Real vMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(v[:]);
   Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
-
+  Real iArg[systemDef.numHrm] = Modelica.ComplexMath.arg(i[:]);
+  Real vArg[systemDef.numHrm] = Modelica.ComplexMath.arg(v[:]);
   // temp variables
   //Real tmp1[systemDef.numHrm - 1] = nu .* exp(gamma .* systemDef.hrms[2:systemDef.numHrm]);
   //Real tmp2[systemDef.numHrm - 1] = (m .* systemDef.hrms[2:systemDef.numHrm] + c) + (angle(i[1]) .* systemDef.hrms[2:systemDef.numHrm]);

@@ -11,7 +11,7 @@ model MATLAB_Implementation_Cmplx
     Placement(visible = true, transformation(origin={-4,20},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation (
     Placement(visible = true, transformation(origin = {-64, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource V0(vArg = {0 for i in 1:systemDef.numHrm}, vMag = cat(1, {120}, {1e-3 for i in 2:systemDef.numHrm})) annotation (
+  HPF.SinglePhase.Sources.VoltageSource V0(vArg = {0 for i in 1:systemDef.numHrm}, vMag = cat(1, {120}, {0 for i in 2:systemDef.numHrm})) annotation (
     Placement(visible = true, transformation(origin = {-64, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(load.pin_n, ground.pin) annotation (
