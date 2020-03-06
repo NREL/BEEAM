@@ -53,7 +53,7 @@ t = (0:dt:(T-dt));
 Ns = length(t);
 
 % Harmonics
-h = [1; 3; 5; 7; 9; 11];
+h = [1; 3; 5; 7; 9; 11; 13; 15; 17; 19];
 
 %% Example 1: Simple FFT
 % Simple triangle wave (typical for a single-phase rectifier)
@@ -193,7 +193,8 @@ plot(h, angle(Ia), '-ok', h, angle(Ib), '-or', h, angle(Ic), '-ob', ...
     h, angle(Ia2), '--dk', h, angle(Ib2), '--dr', h, angle(Ic2), '--db');
 xlabel('Harmonic index'); ylabel('Angle');
 
-% Note: Phase angles may look off due to machine precision
+% Note: Phase angles for zero magnitude currents may look off due to machine
+% precision
 
 %% Example 4: Unbalanced Three-Phase Rectifier Through D-Y Transformer
 % Synthesize phase A, B, C current spectra
