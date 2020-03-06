@@ -3,3 +3,6 @@
 *.zip
 
 # Ignore Directories
+efficiency-curves
+static-data
+waveforms
