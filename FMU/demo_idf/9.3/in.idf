@@ -1,4 +1,4 @@
-  Version,9.2;
+  Version,9.3;
 
   Timestep,60;
 
@@ -55,7 +55,7 @@
 
   LifeCycleCost:UsePriceEscalation,
     U.S. Avg  Commercial-Distillate Oil,  !- LCC Price Escalation Name
-    FuelOil#1,               !- Resource
+    FuelOilNo1,              !- Resource
     2011,                    !- Escalation Start Year
     January,                 !- Escalation Start Month
     0.9714,                  !- Year 1 Escalation
@@ -91,7 +91,7 @@
 
   LifeCycleCost:UsePriceEscalation,
     U.S. Avg  Commercial-Residual Oil,  !- LCC Price Escalation Name
-    FuelOil#2,               !- Resource
+    FuelOilNo2,              !- Resource
     2011,                    !- Escalation Start Year
     January,                 !- Escalation Start Month
     0.8469,                  !- Year 1 Escalation
@@ -201,7 +201,7 @@
     Building 1,              !- Name
     ,                        !- North Axis {deg}
     ,                        !- Terrain
-    ,                        !- Loads Convergence Tolerance Value
+    ,                        !- Loads Convergence Tolerance Value {W}
     ,                        !- Temperature Convergence Tolerance Value {deltaC}
     ,                        !- Solar Distribution
     ,                        !- Maximum Number of Warmup Days
@@ -629,8 +629,9 @@
     Yes;                     !- Use Weather File Snow Indicators
 
   ShadowCalculation,
-    AverageOverDaysInFrequency,  !- Calculation Method
-    20,                      !- Calculation Frequency
+    PolygonClipping,         !- Shading Calculation Method
+    Periodic,                !- Shading Calculation Update Frequency Method
+    20,                      !- Shading Calculation Update Frequency
     15000;                   !- Maximum Figures in Shadow Overlap Calculations
 
   SurfaceConvectionAlgorithm:Inside,TARP;
@@ -1012,9 +1013,9 @@
   Output:Variable,Thermal Zone: Steca_Freezer_Cooling_Chamber,Zone Operative Temperature,timestep;
 
   Output:Variable,Thermal Zone: Steca_Freezer_Cooling_Chamber,Zone Predicted Sensible Load to Setpoint Heat Transfer Rate,timestep;
-  
+
   Output:Variable,Thermal Zone: Steca_Freezer_Cooling_Chamber Ideal Loads Air System,Zone Ideal Loads Zone Total Heating Rate,timestep;
-  
+
   Output:Variable,Thermal Zone: Steca_Freezer_Cooling_Chamber Ideal Loads Air System,Zone Ideal Loads Zone Total Cooling Rate,timestep;
 
   Output:EnergyManagementSystem,
@@ -1039,18 +1040,18 @@
   ExternalInterface:FunctionalMockupUnitExport:From:Variable,
     Thermal Zone: Steca_Freezer_Cooling_Chamber Ideal Loads Air System,  !- Output:Variable Index Key Name
     Zone Ideal Loads Zone Total Heating Rate,  !- Output:Variable Name
-    district_heating;         !- FMU Variable Name
-    
+    district_heating;        !- FMU Variable Name
+
   ExternalInterface:FunctionalMockupUnitExport:From:Variable,
     Thermal Zone: Steca_Freezer_Cooling_Chamber Ideal Loads Air System,  !- Output:Variable Index Key Name
     Zone Ideal Loads Zone Total Cooling Rate,  !- Output:Variable Name
-    district_cooling;         !- FMU Variable Name
-  
+    district_cooling;        !- FMU Variable Name
+
   ExternalInterface:FunctionalMockupUnitExport:From:Variable,
     Thermal Zone: Steca_Freezer_Cooling_Chamber,  !- Output:Variable Index Key Name
     Zone Mean Air Temperature,  !- Output:Variable Name
-    zone_temp;         !- FMU Variable Name  
-    
+    zone_temp;               !- FMU Variable Name
+
   OutputControl:Table:Style,
     HTML;                    !- Column Separator
 
@@ -1330,15 +1331,9 @@
     1.0,                     !- Upper Limit Value
     Continuous;              !- Numeric Type
 
-  Schedule:Constant,
-    Thermal Zone: Steca_Freezer_Compressor_Chamber Equipment CoolingFrac1,  !- Name
-    ZoneEqList ScheduleTypeLimts,  !- Schedule Type Limits Name
-    1;                       !- Hourly Value
+  Schedule:Constant,Thermal Zone: Steca_Freezer_Compressor_Chamber Equipment CoolingFrac1,ZoneEqList ScheduleTypeLimts,1;
 
-  Schedule:Constant,
-    Thermal Zone: Steca_Freezer_Compressor_Chamber Equipment HeatingFrac1,  !- Name
-    ZoneEqList ScheduleTypeLimts,  !- Schedule Type Limits Name
-    1;                       !- Hourly Value
+  Schedule:Constant,Thermal Zone: Steca_Freezer_Compressor_Chamber Equipment HeatingFrac1,ZoneEqList ScheduleTypeLimts,1;
 
   ZoneHVAC:EquipmentList,
     Thermal Zone: Steca_Freezer_Compressor_Chamber Equipment,  !- Name
@@ -1387,15 +1382,9 @@
     Thermal Zone: Steca_Freezer_Cooling_Chamber Zone Air Node,  !- Zone Air Node Name
     Thermal Zone: Steca_Freezer_Cooling_Chamber Return Outlet;  !- Zone Return Air Node or NodeList Name
 
-  Schedule:Constant,
-    Thermal Zone: Steca_Freezer_Cooling_Chamber Equipment CoolingFrac1,  !- Name
-    ZoneEqList ScheduleTypeLimts,  !- Schedule Type Limits Name
-    1;                       !- Hourly Value
+  Schedule:Constant,Thermal Zone: Steca_Freezer_Cooling_Chamber Equipment CoolingFrac1,ZoneEqList ScheduleTypeLimts,1;
 
-  Schedule:Constant,
-    Thermal Zone: Steca_Freezer_Cooling_Chamber Equipment HeatingFrac1,  !- Name
-    ZoneEqList ScheduleTypeLimts,  !- Schedule Type Limits Name
-    1;                       !- Hourly Value
+  Schedule:Constant,Thermal Zone: Steca_Freezer_Cooling_Chamber Equipment HeatingFrac1,ZoneEqList ScheduleTypeLimts,1;
 
   ZoneHVAC:EquipmentList,
     Thermal Zone: Steca_Freezer_Cooling_Chamber Equipment,  !- Name
