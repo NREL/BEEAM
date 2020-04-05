@@ -193,8 +193,8 @@ equation
   connect(voltageSource.pinP_phC, vMsr_Sec_phC.pin_p) annotation(
     Line(points = {{-162, -20}, {-64, -20}, {-64, -30}}, color = {92, 53, 102}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics = {Text(origin = {-6, -12}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 1 | Data Set 1.1
-No Load", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics = {Text(origin = {-6, -12}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {106, 164}}, textString = "Scenario 1 | Data Set 1.1
+No Load", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-230, -230}, {230, 230}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));

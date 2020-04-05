@@ -64,16 +64,36 @@ PowerSupply_1 = AC2DC_converter_1ph(numHrm, res.Power_Supply_1);
 PowerSupply_2 = AC2DC_converter_1ph(numHrm, res.Power_Supply_2);
 PowerSupply_3 = AC2DC_converter_1ph(numHrm, res.Power_Supply_3);
 
+% measurement device
+iMsr = struct();
+vMsr = struct();
+
+vMsr.trfmrSec.phA = twoPin_device(numHrm, res.vMsr_Sec_phA);
+vMsr.trfmrSec.phB = twoPin_device(numHrm, res.vMsr_Sec_phB);
+vMsr.trfmrSec.phC = twoPin_device(numHrm, res.vMsr_Sec_phC);
+
+iMsr.trfmrSec.phA = twoPin_device(numHrm, res.iMsr_Sec_phA);
+iMsr.trfmrSec.phB = twoPin_device(numHrm, res.iMsr_Sec_phB);
+iMsr.trfmrSec.phC = twoPin_device(numHrm, res.iMsr_Sec_phC);
+
 % plotting 
 figure
-plot(inputVoltageSource.phA.wv.v)
+plot(inputVoltageSource.phA.v.wv)
 hold on
-plot(inputVoltageSource.phB.wv.v)
-plot(inputVoltageSource.phC.wv.v)
+plot(inputVoltageSource.phB.v.wv)
+plot(inputVoltageSource.phC.v.wv)
+legend('Ph A', 'Ph B', 'Ph C')
+% plotting tfmr sec voltage
+figure
+plot(vMsr.trfmrSec.phA.v.wv)
+hold on
+plot(vMsr.trfmrSec.phB.v.wv)
+plot(vMsr.trfmrSec.phC.v.wv)
 legend('Ph A', 'Ph B', 'Ph C')
 
+
 figure
-plot(PowerSupply_2.AC.wv.i)
+plot(PowerSupply_2.AC.i.wv)
 legend('Power Supply 2')
 
 
@@ -109,18 +129,18 @@ disp(['System Losses:      ', num2str(inputVoltageSource.P - DC_power), ' W']);
 %% plotting harmonics
 figure
 subplot(2,1,1)
-stem(h, LaptopCharger_4.AC.V.mag)
+stem(h, LaptopCharger_4.AC.v.mag)
 grid on
 ylabel('Voltage (volts)')
 subplot(2,1,2)
-stem(h, LaptopCharger_4.AC.I.mag)
+stem(h, LaptopCharger_4.AC.i.mag)
 grid on
 ylabel('Current (amps)')
 xlabel('Harmonics')
 %% Analyzing power 
 % laptop charger
-v = LaptopCharger_4.AC.wv.v;
-i = LaptopCharger_4.AC.wv.i;
+v = LaptopCharger_4.AC.v.wv;
+i = LaptopCharger_4.AC.i.wv;
 T = 1/60;
 dt = 1 / (1302 * 60);   % dt = 1/fs = 1 / (f * N)
 t = 0:dt:T;

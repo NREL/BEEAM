@@ -1,0 +1,51 @@
+within HPF.Examples.ModelingValidation.NewConverterMdl;
+
+model Test1
+  Sensors.VoltageSensor vMsr_Sec_phA annotation(
+    Placement(visible = true, transformation(origin = {-100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  SinglePhase.Components.Ground ground2 annotation(
+    Placement(visible = true, transformation(origin = {-100, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Sensors.VoltageSensor vMsr_Sec_phC annotation(
+    Placement(visible = true, transformation(origin = {-64, -40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  Sensors.CurrentSensor iMsr_Sec_phA annotation(
+    Placement(visible = true, transformation(origin = {-38, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Sensors.VoltageSensor vMsr_Sec_phB annotation(
+    Placement(visible = true, transformation(origin = {-82, -62}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  Sensors.CurrentSensor iMsr_Sec_phB annotation(
+    Placement(visible = true, transformation(origin = {-6, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Sensors.CurrentSensor iMsr_Sec_phC annotation(
+    Placement(visible = true, transformation(origin = {-40, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  inner SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
+    Placement(visible = true, transformation(origin = {-200, 50}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
+  Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {6.2808, 1.3356, 5.1671, 3.2428, 0.52133, 4.9112, 1.4033, 5.2872, 2.7797, 3.4676}, vArg_phB = {2.0858, 0.69389, 2.1489, 3.5016, 4.0778, 3.5841, 3.5607, 4.1192, 4.9941, 4.4393}, vArg_phC = {4.1755, 0.6632, 5.9913, 4.8381, 3.7992, 0.89103, 5.0685, 3.071, 0.72683, 5.2035}, vMag_phA = {121.7072, 0.31681, 0.6334, 0.7985, 1.0105, 0.41401, 0.50139, 0.15983, 0.24518, 0.089198}, vMag_phB = {120.5151, 2.8247, 2.3865, 1.2257, 0.74308, 0.39997, 0.45536, 0.31732, 0.20532, 0.24204}, vMag_phC = {119.9592, 3.9741, 3.3892, 1.1801, 0.41086, 0.45951, 0.75226, 0.4302, 0.20971, 0.36991}) annotation(
+    Placement(visible = true, transformation(origin = {-172, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  SinglePhase.Components.Ground ground annotation(
+    Placement(visible = true, transformation(origin = {-172, -28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+equation
+  connect(voltageSource.pinP_phB, iMsr_Sec_phB.pin_p) annotation(
+    Line(points = {{-162, -12}, {-16, -12}}, color = {92, 53, 102}));
+  connect(voltageSource.pinP_phA, iMsr_Sec_phA.pin_p) annotation(
+    Line(points = {{-162, -6}, {-106, -6}, {-106, 2}, {-48, 2}}, color = {92, 53, 102}));
+  connect(vMsr_Sec_phB.pin_n, ground2.pin) annotation(
+    Line(points = {{-82, -72}, {-100, -72}, {-100, -102}}, color = {117, 80, 123}));
+  connect(voltageSource.pinP_phC, iMsr_Sec_phC.pin_p) annotation(
+    Line(points = {{-162, -20}, {-74, -20}, {-74, -22}, {-50, -22}, {-50, -24}}, color = {92, 53, 102}));
+  connect(vMsr_Sec_phC.pin_n, ground2.pin) annotation(
+    Line(points = {{-64, -50}, {-64, -78}, {-100, -78}, {-100, -102}}, color = {117, 80, 123}));
+  connect(voltageSource.pinN, ground.pin) annotation(
+    Line(points = {{-172, -22}, {-172, -28}}, color = {117, 80, 123}));
+  connect(vMsr_Sec_phA.pin_p, voltageSource.pinP_phA) annotation(
+    Line(points = {{-100, -30}, {-100, -6}, {-162, -6}}, color = {92, 53, 102}));
+  connect(vMsr_Sec_phB.pin_p, voltageSource.pinP_phB) annotation(
+    Line(points = {{-82, -52}, {-82, -12}, {-162, -12}}, color = {92, 53, 102}));
+  connect(voltageSource.pinP_phC, vMsr_Sec_phC.pin_p) annotation(
+    Line(points = {{-162, -20}, {-64, -20}, {-64, -30}}, color = {92, 53, 102}));
+  connect(vMsr_Sec_phA.pin_n, ground2.pin) annotation(
+    Line(points = {{-100, -50}, {-100, -102}}, color = {117, 80, 123}));
+  annotation(
+    Diagram(graphics = {Text(origin = {-26, -20}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
+LLoad Phase a-n	Total Load - 300W		Load Bank 1 (78W), LED 1 (22W), Resistor 2 (200W)
+Load Phase b-n	Total Load - 500W		Load Bank 2 (78W), LED 2 (22W), Resistor 3 (400W)
+Load Phase c-n	Total Load - 700W		Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)", fontSize = 9, horizontalAlignment = TextAlignment.Left)}, coordinateSystem(extent = {{-250, -250}, {250, 250}}, initialScale = 0.1)),
+    Icon(coordinateSystem(extent = {{-250, -250}, {250, 250}})));
+end Test1;

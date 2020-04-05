@@ -4,21 +4,37 @@ clear
 close all
 
 
-scenarios ={%'Scenario_1_Data_Set_1_1';      % 1
-            'Scenario_1_Data_Set_1_2';      % 2
-            'Scenario_1_Data_Set_1_3';      % 3
-            'Scenario_1_Data_Set_1_4';      % 4
-            %'Scenario_2_Data_Set_2_1';      % 5 
-            'Scenario_2_Data_Set_2_2';      % 6
-            'Scenario_2_Data_Set_2_3';      % 7
-            %'Scenario_2_Data_Set_2_4'      % 8
-            };     
 loadOk = 1;
+dataEntry(1, :) = {'P_sec [W]',	'P_lossConv [W]'};
+%% Scenarios 1-2
 indx = 1;
-for scenario = [1:length(scenarios)]
-    % run script
-    %Scenario_i
-    no_tfmr_scenario_i
-    %no_tfmr__manual_load_scenario_i
-end
+% for scenario = [1:2] % iterate through scenarios
+%     for dataSet = [1:4]   % iterate through data sets
+%         modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
+%                     '_', num2str(dataSet)];
+%         % call script
+%         Scenario_1_2_no_tfmr
+%         
+%         % write data to csv file
+%         % P_sec [W]	P_lossConv [W]
+%         dataEntry(indx+1, :) = {inputVoltageSource.P, convLosses};
+%         indx = indx + 1;
+%     end
+%     
+% end
+% write to csv
+%writecell
 
+%% Scenarios 3-4
+indx = 1
+for scenario = [3:4] % iterate through scenarios
+    for dataSet = [1:4]   % iterate through data sets
+        modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
+                    '_', num2str(dataSet)];
+        Scenario_3_4_no_tfmr
+        % P_sec [W]	P_lossConv [W]
+        dataEntry(indx+1, :) = {inputVoltageSource.P, convLosses};
+        indx = indx + 1;
+    end
+    
+end

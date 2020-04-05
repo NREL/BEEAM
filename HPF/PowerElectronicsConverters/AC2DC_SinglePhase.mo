@@ -99,7 +99,6 @@ equation
     Scale the current and phase shift the harmonic angles
   */
   loadBase.i[2:1:systemDef.numHrm] = {c[i]*a[i] for i in 1:systemDef.numHrm-1};
-  //loadBase.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm-1};
 
   PLoss = P - P_DC;
 

@@ -26,7 +26,7 @@ if exist('scenario', 'var') ~= 1
             'Scenario_2_Data_Set_2_2';      % 6
             'Scenario_2_Data_Set_2_3';      % 7
             'Scenario_2_Data_Set_2_4'};     % 8
-    scenario = 2;
+    scenario = 7;
 end
 
 scn = str2num(scenarios{scenario}(strfind(scenarios{scenario}, '_Data')-1));
@@ -166,6 +166,17 @@ fprintf('Lap_5    %f	 %f      %f      %f      %f      %f     %f      %f\n', msr.
 fprintf('PS(1)    %f	 %f      %f      %f      %f      %f     %f      %f\n', msr.PS(1).Pin(pwrSel.PS1), PowerSupply_1.AC.P, msr.PS(1).Pout(pwrSel.PS1), PowerSupply_1.DC.P, msr.PS(1).Pout(pwrSel.PS1)/msr.PS(1).Pin(pwrSel.PS1), PowerSupply_1.DC.P/PowerSupply_1.AC.P, msr.PS(1).Pin(pwrSel.PS1)-msr.PS(1).Pout(pwrSel.PS1), PowerSupply_1.Ploss)
 fprintf('PS(2)    %f	 %f      %f      %f      %f      %f     %f      %f\n', msr.PS(2).Pin(pwrSel.PS2), PowerSupply_2.AC.P, msr.PS(2).Pout(pwrSel.PS2), PowerSupply_2.DC.P, msr.PS(2).Pout(pwrSel.PS2)/msr.PS(2).Pin(pwrSel.PS2), PowerSupply_2.DC.P/PowerSupply_2.AC.P, msr.PS(2).Pin(pwrSel.PS2)-msr.PS(2).Pout(pwrSel.PS2), PowerSupply_2.Ploss)
 fprintf('PS(3)    %f	 %f      %f      %f      %f      %f     %f      %f\n', msr.PS(3).Pin(pwrSel.PS3), PowerSupply_3.AC.P, msr.PS(3).Pout(pwrSel.PS3), PowerSupply_3.DC.P, msr.PS(3).Pout(pwrSel.PS3)/msr.PS(3).Pin(pwrSel.PS3), PowerSupply_3.DC.P/PowerSupply_3.AC.P, msr.PS(3).Pin(pwrSel.PS3)-msr.PS(3).Pout(pwrSel.PS3), PowerSupply_3.Ploss)
+fprintf('--- Error ----\n')
+fprintf('         Pin_msr     Pin_sim     Error(%%)\n')
+fprintf('Led(1)   %f     %f      %f\n', msr.Led(1).Pin, LedDriver_1.AC.P, abs(msr.Led(1).Pin-LedDriver_1.AC.P)/msr.Led(1).Pin*100)
+fprintf('Led(2)   %f	 %f      %f\n', msr.Led(2).Pin, LedDriver_2.AC.P, abs(msr.Led(2).Pin-LedDriver_2.AC.P)/msr.Led(2).Pin*100)
+fprintf('Led(3)   %f	 %f      %f\n', msr.Led(3).Pin, LedDriver_3.AC.P, abs(msr.Led(3).Pin-LedDriver_3.AC.P)/msr.Led(3).Pin*100)
+fprintf('Lap_3    %f	 %f      %f\n', msr.Laptop(1).Pin, LaptopCharger_3.AC.P, abs(msr.Laptop(1).Pin-LaptopCharger_3.AC.P)/msr.Laptop(1).Pin*100)
+fprintf('Lap_4    %f	 %f      %f\n', msr.Laptop(2).Pin, LaptopCharger_4.AC.P, abs(msr.Laptop(2).Pin-LaptopCharger_4.AC.P)/msr.Laptop(2).Pin*100)
+fprintf('Lap_5    %f	 %f      %f\n', msr.Laptop(3).Pin, LaptopCharger_5.AC.P, abs(msr.Laptop(3).Pin-LaptopCharger_5.AC.P)/msr.Laptop(3).Pin*100)
+fprintf('PS(1)    %f	 %f      %f\n', msr.PS(1).Pin(pwrSel.PS1), PowerSupply_1.AC.P, abs(msr.PS(1).Pin(pwrSel.PS1)-PowerSupply_1.AC.P)/msr.PS(1).Pin(pwrSel.PS1)*100)
+fprintf('PS(2)    %f	 %f      %f\n', msr.PS(2).Pin(pwrSel.PS2), PowerSupply_2.AC.P, abs(msr.PS(2).Pin(pwrSel.PS2)-PowerSupply_2.AC.P)/msr.PS(2).Pin(pwrSel.PS2)*100)
+fprintf('PS(3)    %f	 %f      %f\n', msr.PS(3).Pin(pwrSel.PS3), PowerSupply_3.AC.P, abs(msr.PS(3).Pin(pwrSel.PS3)-PowerSupply_3.AC.P)/msr.PS(3).Pin(pwrSel.PS3)*100)
 
 
 %% plot figures

@@ -55,17 +55,31 @@ PowerSupply_3 = AC2DC_converter_1ph(numHrm, res.Power_Supply_3);
 % measurement device
 iMsr = struct();
 vMsr = struct();
-vMsr.trfmrSec.phA = twoPin_device(numHrm, res.vMsr_Sec_phA);
-iMsr.trfmrSec.phA = twoPin_device(numHrm, res.iMsr_Sec_phA);
-vMsr.trfmrSec.phB = twoPin_device(numHrm, res.vMsr_Sec_phB);
 
-% plotting 
+vMsr.trfmrSec.phA = twoPin_device(numHrm, res.vMsr_Sec_phA);
+vMsr.trfmrSec.phB = twoPin_device(numHrm, res.vMsr_Sec_phB);
+vMsr.trfmrSec.phC = twoPin_device(numHrm, res.vMsr_Sec_phC);
+
+iMsr.trfmrSec.phA = twoPin_device(numHrm, res.iMsr_Sec_phA);
+iMsr.trfmrSec.phB = twoPin_device(numHrm, res.iMsr_Sec_phB);
+iMsr.trfmrSec.phC = twoPin_device(numHrm, res.iMsr_Sec_phC);
+
+% plotting input voltage
 figure
 plot(inputVoltageSource.phA.wv.v)
 hold on
 plot(inputVoltageSource.phB.wv.v)
 plot(inputVoltageSource.phC.wv.v)
 legend('Ph A', 'Ph B', 'Ph C')
+% plotting tfmr sec voltage
+figure
+plot(vMsr.trfmrSec.phA.wv.v)
+hold on
+plot(vMsr.trfmrSec.phB.wv.v)
+plot(vMsr.trfmrSec.phC.wv.v)
+legend('Ph A', 'Ph B', 'Ph C')
+
+
 
 figure
 plot(PowerSupply_2.AC.wv.i)
@@ -126,6 +140,8 @@ disp('-----------------------')
 disp(['Laptop charger 4 - Power Analysis'])
 disp(['Average power (time-domain): ', num2str(Pavg), ' W'])
 disp(['Average power (HPF):         ', num2str(LaptopCharger_4.AC.P), ' W'])
+
+
 
 
 %% measurements ================================================================

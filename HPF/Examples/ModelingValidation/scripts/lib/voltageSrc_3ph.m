@@ -16,8 +16,8 @@ s.phC = twoPin_device(h, u.vSrc_phC);
 
 % Traditional definition of power, computing power for same voltage and current
 % harmonics
-s.S_tmp = sum((s.phA.v .* conj(s.phA.i)) + (s.phB.v .* conj(s.phB.i)) + ...
-                (s.phC.v .* conj(s.phC.i))); 
+s.S_tmp = sum((s.phA.v.cmplx .* conj(s.phA.i.cmplx)) + (s.phB.v.cmplx .* conj(s.phB.i.cmplx)) + ...
+                (s.phC.v.cmplx .* conj(s.phC.i.cmplx))); 
 % Real power
 s.P = abs(real(s.S_tmp));
 % Imaginary power

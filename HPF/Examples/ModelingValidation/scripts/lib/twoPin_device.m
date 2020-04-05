@@ -35,23 +35,32 @@ s = struct();
 % i for the first re element. 
 % Workaround: use a for loop and iterate.
 
+%% redefining struct. 03/18/2020
+% moving waveforms, mag and arg together into one struct field
+% struct for voltage and current in polar form
+s.v = struct();
+s.i = struct();
+
 for k = 1:1:h
-   s.v(k) = u.v(k).re(end) + u.v(k).im(end)*1j;
-   s.i(k) = u.i(k).re(end) + u.i(k).im(end)*1j;
+   s.v.cmplx(k) = u.v(k).re(end) + u.v(k).im(end)*1j;
+   s.i.cmplx(k) = u.i(k).re(end) + u.i(k).im(end)*1j;
 end
 
-% struct for voltage and current in polar form
-s.V = struct();
-s.V.mag = abs(s.v);
-s.V.arg = angle(s.v);
-s.I = struct();
-s.I.mag = abs(s.i);
-s.I.arg = angle(s.i);   
+s.v.mag = abs(s.v.cmplx);
+s.v.arg = angle(s.v.cmplx);
+s.i.mag = abs(s.i.cmplx);
+s.i.arg = angle(s.i.cmplx);   
+s.S = s.v.cmplx .* conj(s.i.cmplx);
+% real power 
+s.P = real(sum(s.S));
+% imaginary power
+s.Q = imag(sum(s.S));
+% distortion power
+s.D = 0;
 
 % computing waveforms
 N = 1302;
-s.wv = struct();
-s.wv.v = getTimeWvform(s.V.mag, s.V.arg, N);
-s.wv.i = getTimeWvform(s.I.mag, s.I.arg, N);
+s.v.wv = getTimeWvform(s.v.mag, s.v.arg, N);
+s.i.wv = getTimeWvform(s.i.mag, s.i.arg, N);
 
 

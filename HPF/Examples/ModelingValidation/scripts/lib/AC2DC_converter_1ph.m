@@ -14,17 +14,15 @@ s.DC.v = u.vDC.v(end);
 s.DC.i = u.vDC.i(end);
 
 %% Power computations --------
-tmp = s.AC.v .* conj(s.AC.i);
-S_tmp = sum(s.AC.v .* conj(s.AC.i));
-
-s.AC.Ptmp = sum(s.AC.V.mag .* s.AC.I.mag .* cos(s.AC.V.arg - s.AC.I.arg));
+tmp = s.AC.v.cmplx .* conj(s.AC.i.cmplx);
+s.AC.S = s.AC.v.cmplx .* conj(s.AC.i.cmplx);
 
 % real power 
-s.AC.P = real(S_tmp);
+s.AC.P = real(sum(s.AC.S));
 % imaginary power
-s.AC.Q = imag(S_tmp);
+s.AC.Q = imag(sum(s.AC.S));
 % distortion power
-s.AC.Pdist = 0;
+s.AC.D = 0;
 
 % DC power draw
 s.DC.P = abs(s.DC.v * s.DC.i);
