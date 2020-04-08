@@ -4,7 +4,9 @@
 % For now sticking with OpenModelica and Dymola.
 %
 % TODO: add harmonic vector for easy harmonics plotting.
-
+% Scenario 1-2
+% No transformer
+% Using transformer sec voltage data as input
 
 
 %% script initializations
@@ -15,8 +17,8 @@ addpath('./lib')
 % one would iterate the variable and run all the sims.
 if exist('modelicaSim', 'var') ~= 1
     %% defining variables:
-    scenario = 2;
-    dataSet = 3;
+    scenario = 1;
+    dataSet = 2;
 
     modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
                     '_', num2str(dataSet)];
@@ -120,11 +122,6 @@ disp(['Output DC power:    ', num2str(DC_power), ' W']);
 % System losses
 disp(['System Losses:      ', num2str(inputVoltageSource.P - DC_power), ' W']);
 
-%% Line powers
-disp('------ Line powers (sim) ----------')
-fprintf('PhA : %f\n', LedDriver_1.AC.P + PowerSupply_1.AC.P + LaptopCharger_3.AC.P)
-fprintf('PhB : %f\n', LedDriver_2.AC.P + PowerSupply_2.AC.P + LaptopCharger_4.AC.P)
-fprintf('PhC : %f\n', LedDriver_3.AC.P + PowerSupply_3.AC.P + LaptopCharger_5.AC.P)
 %% get measured data
 msrData = struct();
 fileName = tmp_getDataDir(scenario, dataSet);
@@ -132,10 +129,51 @@ msrData.sec.phA = getLineData(fileName, 'A', 'secondary');
 msrData.sec.phB = getLineData(fileName, 'B', 'secondary');
 msrData.sec.phC = getLineData(fileName, 'C', 'secondary');
 
+linePwr = struct();
+linePwr.msr.phA = sum(real(msrData.sec.phA.v.cmplx .* conj(msrData.sec.phA.i.cmplx)));
+linePwr.msr.phB = sum(real(msrData.sec.phB.v.cmplx .* conj(msrData.sec.phB.i.cmplx)));
+linePwr.msr.phC = sum(real(msrData.sec.phC.v.cmplx .* conj(msrData.sec.phC.i.cmplx)));
+linePwr.sim.phA = LedDriver_1.AC.P + PowerSupply_1.AC.P + LaptopCharger_3.AC.P;
+linePwr.sim.phB = LedDriver_2.AC.P + PowerSupply_2.AC.P + LaptopCharger_4.AC.P;
+linePwr.sim.phC = LedDriver_3.AC.P + PowerSupply_3.AC.P + LaptopCharger_5.AC.P;
+linePwr.msr.total = linePwr.msr.phA + linePwr.msr.phB + linePwr.msr.phC;
+linePwr.sim.total = linePwr.sim.phA + linePwr.sim.phB + linePwr.sim.phC;
+
+%% Line powers
+disp('------ Line powers (sim) ----------')
+fprintf('PhA : %f\n', linePwr.sim.phA )
+fprintf('PhB : %f\n', linePwr.sim.phB )
+fprintf('PhC : %f\n', linePwr.sim.phC )
+fprintf('Total : %f W\n', linePwr.sim.phA + linePwr.sim.phB + linePwr.sim.phC)
+
+
+
 disp('------ Line powers (msr) ----------')
 fprintf('PhA : %f\n', sum(real(msrData.sec.phA.v.cmplx .* conj(msrData.sec.phA.i.cmplx))));
 fprintf('PhB : %f\n', sum(real(msrData.sec.phB.v.cmplx .* conj(msrData.sec.phB.i.cmplx))));
 fprintf('PhC : %f\n', sum(real(msrData.sec.phC.v.cmplx .* conj(msrData.sec.phC.i.cmplx))));
+fprintf('Total : %f W\n', linePwr.msr.total)
+
+%% errors 
+
+
+err = struct();
+err.phA = linePwr.msr.phA - linePwr.sim.phA;
+err.phB = linePwr.msr.phB - linePwr.sim.phB;
+err.phC = linePwr.msr.phC - linePwr.sim.phC;
+err.total = err.phA + err.phB + err.phC;
+
+disp('------- Errors ---------')
+fprintf('PhA :   %f %%\n', (err.phA/linePwr.msr.phA)*100)
+fprintf('PhB :   %f %%\n', (err.phB/linePwr.msr.phB)*100)
+fprintf('PhC :   %f %%\n', (err.phC/linePwr.msr.phC)*100)
+fprintf('Total : %f %%\n', ((linePwr.msr.total - linePwr.sim.total)/linePwr.msr.total)*100)
+disp('------- Converter loss Errors ---------')
+fprintf('Msr loss :   %f W\n', linePwr.msr.total - DC_power)
+fprintf('Sim loss :   %f W\n', linePwr.sim.total - DC_power)
+err.convLosses = (linePwr.msr.total - DC_power) - (linePwr.sim.total - DC_power);
+fprintf('Loss Error : %f %%\n', err.convLosses/ (linePwr.msr.total - DC_power)*100)
+err.convLosses_pc = err.convLosses/ (linePwr.msr.total - DC_power)*100;
 
 %% data entry 
 convLosses = LaptopCharger_3.Ploss + LaptopCharger_4.Ploss + ...
@@ -143,7 +181,6 @@ convLosses = LaptopCharger_3.Ploss + LaptopCharger_4.Ploss + ...
             LedDriver_2.Ploss +  LedDriver_3.Ploss + ...
             PowerSupply_1.Ploss + PowerSupply_2.Ploss + ...
             PowerSupply_3.Ploss;
-
 
 figure
 stem(h, iMsr.trfmrSec.phA.i.mag);

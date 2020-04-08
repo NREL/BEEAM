@@ -19,18 +19,20 @@ indx = 1;
 maxHrm = 30;
 s = struct();
 % only for scenarios 3-4
-for scenario = [3:4] % iterate through scenarios
+for scenario = [1:2] % iterate through scenarios
     for dataSet = [1:4]   % iterate through data sets
         dir = tmp_getDataDir(scenario, dataSet);
-        s.phA = getLineData(dir, 'A', 'secondary');
-        s.phB = getLineData(dir, 'B', 'secondary');
-        s.phC = getLineData(dir, 'C', 'secondary');
+        s.phA = getLineData(dir, 'A', 'primary');
+        s.phB = getLineData(dir, 'B', 'primary');
+        s.phC = getLineData(dir, 'C', 'primary');
         disp('----------------------------')
         disp(['Scenario ', num2str(scenario), ' Data Set ', num2str(dataSet)])
-        str = strcat('vArg_phA = ', print_modelica_vector(s.phA.v.arg(1:2:maxHrm)), ...
-            'vArg_phA = ', print_modelica_vector(s.phB.v.arg(1:2:maxHrm)), ...
-            'vArg_phA = ', print_modelica_vector(s.phA.v.arg(1:2:maxHrm)), ...
-            )
+        str = strcat('vArg_phA = ', print_modelica_vector(s.phA.v.arg(1:2:maxHrm)), ',' ,...
+            'vArg_phB = ', print_modelica_vector(s.phB.v.arg(1:2:maxHrm)), ',' ,...
+            'vArg_phC = ', print_modelica_vector(s.phC.v.arg(1:2:maxHrm)), ',' ,...
+            'vMag_phA = ', print_modelica_vector(s.phA.v.mag(1:2:maxHrm)), ',' ,...
+            'vMag_phB = ', print_modelica_vector(s.phB.v.mag(1:2:maxHrm)), ',' ,...
+            'vMag_phC = ', print_modelica_vector(s.phC.v.mag(1:2:maxHrm)))
     end
     indx = indx + 1;
 end

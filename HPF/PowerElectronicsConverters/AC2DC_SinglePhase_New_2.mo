@@ -28,6 +28,7 @@ model AC2DC_SinglePhase_New_2 "AC to DC Converter Single Phase"
       Pin = Pout + alpha + beta*Pout + gamma*Pout^2
     */
   Real P_DC = abs(vDC.v * vDC.i);
+  // Input output power relation (Total input AC Power (sum over all harmonics))
   Real P = P_DC + alpha[1, 1] + beta[1, 1] * P_DC + gamma[1, 1] * P_DC ^ 2;
   /*
       Measurements
@@ -42,7 +43,7 @@ model AC2DC_SinglePhase_New_2 "AC to DC Converter Single Phase"
   
   // diagnostics: Check if the computed h=1 current mag matches the input surface model
   Real diag_I_mag_h1 = HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, 1, P);
-//protected
+protected
   final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
   final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
   // assuming matrices have same dimension
@@ -106,6 +107,7 @@ equation
   loadBase.i[2:1:systemDef.numHrm] = {c[i] * a[i] for i in 1:systemDef.numHrm - 1};
   
   PLoss = P - P_DC;
+  
   connect(vDC.p, pin_p) annotation(
     Line(points = {{20, -2}, {20, 40}, {80, 40}}, color = {0, 0, 255}));
   connect(vDC.n, pin_n) annotation(
