@@ -6,7 +6,7 @@ model Scenario_2
     Placement(visible = true, transformation(origin={-38, -4},    extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin={-32, -22},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
+  inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:3}) annotation (
     Placement(visible = true, transformation(origin={-176, 60},    extent = {{-14, -14}, {14, 10}}, rotation = 0)));
   HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {3.7931e-05, -1.3747, 2.3203, 4.4576, 0.33338, 0.061743, 1.8595, 2.0775, 2.596, 0.078826, -0.12461, -0.070035, 0.23351, 0.39809, 0.76912}, vArg_phB = {4.1877, 2.2326, -0.46785, 2.271, -0.085554, 2.3883, -0.27274, 1.8949, -1.5378, 3.7162, 2.658, 1.5528, 3.3069, 3.8177, 3.2929}, vArg_phC = {2.0944, 0.039264, 3.081, -0.070956, 3.2809, 4.2851, 3.8663, -1.1772, 0.51965, 1.8601, 3.3803, 3.4573, 3.6469, 3.2203, 4.652}, vMag_phA = {486.6785, 1.036, 0.35126, 1.5367, 0.3716, 1.144, 0.27467, 0.01309, 0.35543, 0.12006, 0.028935, 0.042556, 0.02346, 0.023496, 0.052121}, vMag_phB = {486.4142, 1.2575, 0.61231, 2.106, 0.32711, 1.0656, 0.29567, 0.03861, 0.35203, 0.12269, 0.015397, 0.016859, 0.014564, 0.010917, 0.036942}, vMag_phC = {486.0805, 0.58812, 0.30739, 1.7486, 0.68217, 0.87821, 0.27744, 0.051501, 0.33709, 0.05818, 0.015414, 0.046161, 0.007833, 0.012964, 0.029759}) annotation (
     Placement(visible = true, transformation(origin={-184, 0},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -208,5 +208,6 @@ Load Phase b-n	Total Load - 500W      Load Bank 2 (78W), LED 2 (22W), Resistor 3
 Load Phase c-n	Total Load - 700W      Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)", fontSize = 9, horizontalAlignment = TextAlignment.Left), Text(origin = {102, -136}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-98, 164}}, textString = "Changed Rs 2.7672 -> 1.1", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
-    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"),
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ");
 end Scenario_2;

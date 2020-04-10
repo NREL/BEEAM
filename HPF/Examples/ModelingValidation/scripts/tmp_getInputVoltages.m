@@ -1,6 +1,6 @@
 
 
-%% get voltage for scenarios at the secondary
+%% get voltage for scenarios at the primary
 % the modelica input should be of the form,
 % vArg_phA = {6.2746, 0.98224, 5.9594, 2.9177, 0.34672, 4.9702, 1.3017,
 % 4.9878, 2.2162, 2.0372}, vArg_phB = {2.0856, 0.72153, 2.1146, 3.4627, 
@@ -14,7 +14,8 @@
 clc
 clear
 close all
-
+addpath('./lib')
+transformerSide = 'primary'; % options: 'primary' or 'secondary'
 indx = 1;
 maxHrm = 30;
 s = struct();
@@ -22,9 +23,17 @@ s = struct();
 for scenario = [1:2] % iterate through scenarios
     for dataSet = [1:4]   % iterate through data sets
         dir = tmp_getDataDir(scenario, dataSet);
-        s.phA = getLineData(dir, 'A', 'primary');
-        s.phB = getLineData(dir, 'B', 'primary');
-        s.phC = getLineData(dir, 'C', 'primary');
+        s.phA = getLineData(dir, 'A', transformerSide);
+        s.phB = getLineData(dir, 'B', transformerSide);
+        s.phC = getLineData(dir, 'C', transformerSide);
+        % ph-ph -> ph-N
+        s.phA.v.mag = s.phA.v.mag / sqrt(3);
+        s.phB.v.mag = s.phB.v.mag / sqrt(3);
+        s.phC.v.mag = s.phC.v.mag / sqrt(3);
+        s.phA.v.arg = s.phA.v.arg + deg2rad(30);
+        s.phB.v.arg = s.phB.v.arg + deg2rad(30);
+        s.phC.v.arg = s.phC.v.arg + deg2rad(30);
+        
         disp('----------------------------')
         disp(['Scenario ', num2str(scenario), ' Data Set ', num2str(dataSet)])
         str = strcat('vArg_phA = ', print_modelica_vector(s.phA.v.arg(1:2:maxHrm)), ',' ,...
@@ -33,6 +42,7 @@ for scenario = [1:2] % iterate through scenarios
             'vMag_phA = ', print_modelica_vector(s.phA.v.mag(1:2:maxHrm)), ',' ,...
             'vMag_phB = ', print_modelica_vector(s.phB.v.mag(1:2:maxHrm)), ',' ,...
             'vMag_phC = ', print_modelica_vector(s.phC.v.mag(1:2:maxHrm)))
+        
     end
     indx = indx + 1;
 end

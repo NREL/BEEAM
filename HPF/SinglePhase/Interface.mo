@@ -72,7 +72,7 @@ package Interface
                   seems to work! 
                 */
     Complex v[systemDef.numHrm](each re(start = 100), each im(start = 100)) "Complex voltage";
-    Complex i[systemDef.numHrm](each re(start = 0), each im(start = 0)) "Complex current";
+    Complex i[systemDef.numHrm](each re(start = -1), each im(start = 1)) "Complex current";
     /*
                       Defining omega for the overconstrained system workaround.
                       omega would the derivative of alpha. ( additional constraint,

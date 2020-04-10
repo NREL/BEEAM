@@ -1,7 +1,7 @@
 within HPF.Test;
 model Test_Rectifier_new_2
   import Modelica.ComplexMath.j;
-  inner HPF.SystemDef systemDef(fs = 10e3, hrms={i for i in 1:2:1})    annotation (
+  inner HPF.SystemDef systemDef(fs = 10e3, hrms={i for i in 1:2:3})    annotation (
     Placement(visible = true, transformation(origin = {-113, 71.5}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource v(vArg = {0 for i in 1:systemDef.numHrm}, vMag = cat(1, {120}, {0 for i in 2:systemDef.numHrm})) annotation (
     Placement(visible = true, transformation(origin = {-120, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -14,7 +14,7 @@ model Test_Rectifier_new_2
   HPF.SinglePhase.Components.Impedance z(z = 0.1 + 5 * j) annotation (
     Placement(visible = true, transformation(origin = {-78, -6.66134e-16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation (
-    Placement(visible = true, transformation(origin = {-50, -52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-42, -62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.CurrentSensor currentSensor annotation (
     Placement(visible = true, transformation(origin = {-46, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Impedance z1(z = 20 + 60 * j) annotation (
@@ -41,9 +41,9 @@ equation
   connect(currentSensor.pin_n, aC2DC_SinglePhase_New.hPin_P) annotation(
     Line(points = {{-46, -28}, {-2, -28}}, color = {117, 80, 123}));
   connect(aC2DC_SinglePhase_New.hPin_N, ground.pin) annotation(
-    Line(points = {{-2, -40}, {-50, -40}, {-50, -52}}, color = {117, 80, 123}));
-  connect(z1.pin_p, v.pin_p) annotation(
-    Line(points = {{0, 20}, {-120, 20}, {-120, 0}, {-120, 0}}, color = {92, 53, 102}));
+    Line(points = {{-2, -40}, {-42, -40}, {-42, -51}}, color = {117, 80, 123}));
+  connect(z1.pin_p, z.pin_n) annotation(
+    Line(points = {{0, 20}, {-12, 20}, {-12, 0}, {-68, 0}, {-68, 0}}, color = {92, 53, 102}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),
