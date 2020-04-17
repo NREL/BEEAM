@@ -14,11 +14,10 @@ FFT_Example
 IFFT_Test
 sensors
 FFT_mag_phase_reconstruct_oddHarmonics
-g_h
 Basic_Components
 Test_Freq2Time
 MultiPhase_Transformer_Modeling
 Test_Rectifier
 Test_Rectifier_new
 Test_Rectifier_new_2
-tmp_tfmr_scenario_2
+Tfmr_Convergence_mdl
