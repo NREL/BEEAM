@@ -1,6 +1,6 @@
 within HPF.PowerElectronicsConverters;
 
-model AC2DC_SinglePhase_New_2 "AC to DC Converter Single Phase"
+model AC2DC_SinglePhase_InitiMdl "AC to DC Converter Single Phase"
   outer SystemDef systemDef;
   // component properties for post processing
   HPF.Utilities.ComponentProperties properties(ComponentType = "NonlinearLoad");
@@ -17,7 +17,9 @@ model AC2DC_SinglePhase_New_2 "AC to DC Converter Single Phase"
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
   parameter String modelFileName "Rectifier harmonic model mat file";
   parameter Real V_Rect(start = 0) = 1 "Rectifier DC output";
-  //parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
+  parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power";
+  parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
+  
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation(
     Placement(visible = true, transformation(origin = {20, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Interface.LoadBase loadBase annotation(
@@ -38,8 +40,8 @@ model AC2DC_SinglePhase_New_2 "AC to DC Converter Single Phase"
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.v);
-  Real P1(start = 1) "Real power at fundamental";
-  Real S1(start = 1) "Apparent power at fundamental";
+  Real P1(start = nomP) "Real power at fundamental";
+  Real S1(start = nomV) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";
   
   // diagnostics: Check if the computed h=1 current mag matches the input surface model
@@ -138,4 +140,4 @@ Test documentation using a word processor.
 </p>
 
 </body></html>"));
-end AC2DC_SinglePhase_New_2;
+end AC2DC_SinglePhase_InitiMdl;

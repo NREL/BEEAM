@@ -2,7 +2,7 @@ within HPF.Examples.ModelingValidation.NewConverterMdl;
 
 model Scenario_2_Data_Set_2_3
   HPF.SinglePhase.Components.Ground ground annotation(
-    Placement(visible = true, transformation(origin = {-172, -28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-172, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {-100, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
@@ -83,7 +83,7 @@ model Scenario_2_Data_Set_2_3
     Placement(visible = true, transformation(origin = {180, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation(
-    Line(points = {{-172, -22}, {-172, -28}}, color = {117, 80, 123}));
+    Line(points = {{-172, -25}, {-172, -39}}, color = {117, 80, 123}));
   connect(ground1.p, Load_1.n) annotation(
     Line(points = {{112, 22}, {112, 30}}, color = {0, 0, 255}));
   connect(ground3.p, Laptop_3.n) annotation(
@@ -193,7 +193,7 @@ equation
   connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation(
     Line(points = {{170, -84}, {169, -84}, {169, -96}, {152, -96}}, color = {117, 80, 123}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics = {Text(origin = {-26, -20}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
+    Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics = {Text(origin = {-30, -34}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
 LLoad Phase a-n	Total Load - 300W		Load Bank 1 (78W), LED 1 (22W), Resistor 2 (200W)
 Load Phase b-n	Total Load - 500W		Load Bank 2 (78W), LED 2 (22W), Resistor 3 (400W)
 Load Phase c-n	Total Load - 700W		Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)", horizontalAlignment = TextAlignment.Left)}),

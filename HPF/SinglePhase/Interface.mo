@@ -62,26 +62,27 @@ package Interface
     outer SystemDef systemDef;
     // instantiate systemDef as outer for global scope
     /*
-                  Complex v(re(start = 0), im(start = 0));
-                  Note on start and nominal value:
-                  The power flow solution is a nonlinear problem solved using 
-                  any of the nonlinear solver techniques (Example Newton).
-                  Simulation fails if the initial values are off by a large 
-                  margin. It was observed that a nominal value of zero
-                  lead to solver failing to solve. Nominal value of one 
-                  seems to work! 
-                */
+      Complex v(re(start = 0), im(start = 0));
+      Note on start and nominal value:
+      The power flow solution is a nonlinear problem solved using 
+      any of the nonlinear solver techniques (Example Newton).
+      Simulation fails if the initial values are off by a large 
+      margin. It was observed that a nominal value of zero
+      lead to solver failing to solve. Nominal value of one 
+      seems to work! 
+    */
+    
     Complex v[systemDef.numHrm](each re(start = 100), each im(start = 100)) "Complex voltage";
     Complex i[systemDef.numHrm](each re(start = -1), each im(start = 1)) "Complex current";
     /*
-                      Defining omega for the overconstrained system workaround.
-                      omega would the derivative of alpha. ( additional constraint,
-                      as defined in pin.reference.theta)
-                    */
+      Defining omega for the overconstrained system workaround.
+      omega would the derivative of alpha. ( additional constraint,
+      as defined in pin.reference.theta)
+    */
     Real omega;
     /*  pin objects for the two pins
-                number of harmonics to be simulated is passed as a parameter.
-            */
+        number of harmonics to be simulated is passed as a parameter.
+    */
     HPF.SinglePhase.Interface.HPin_P pin_p(h = systemDef.numHrm) "Positive pin" annotation (
       Placement(visible = true, transformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0), iconTransformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pin_n(h = systemDef.numHrm) "Negative pin" annotation (
@@ -113,7 +114,8 @@ package Interface
     annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(grid = {0, 0})),
-      __OpenModelica_commandLineOptions = "");
+      __OpenModelica_commandLineOptions = "",
+  Documentation(info = "<html><head></head><body>Partial model for a two pin element. Defines the voltage and current relation for the input and output pin.&nbsp;<div><br></div><div>Used as a building block to construct all two pin elements such as voltage source, impedance, etc.</div></body></html>"));
   end TwoPinBase;
 
   partial model Source
@@ -145,7 +147,7 @@ package Interface
                     a one port component such as resistance).
                   */
     outer SystemDef systemDef;
-    Complex vPrim[systemDef.numHrm] "Complex voltage primary winding";
+    Complex vPrim[systemDef.numHrm] (each re(start = 0), each im(start = 0))  "Complex voltage primary winding";
     Complex iPrim[systemDef.numHrm] "Complex current primary winding";
     Complex vSec[systemDef.numHrm] "Complex voltage secondary winding";
     Complex iSec[systemDef.numHrm] "Complex current secondary winding";
