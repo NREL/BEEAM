@@ -202,10 +202,10 @@ equation
   connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation(
     Line(points = {{140, -84}, {122, -84}, {122, -96}, {122, -96}}, color = {117, 80, 123}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics={Text(origin = {-10, -12}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 1 | Data Set 1.4
+    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics={Text(origin = {-14.44, 1.71}, lineColor = {28, 108, 200}, extent = {{-177.56, 178.29}, {142.44, 152.29}}, textString = "Scenario 1 | Data Set 1.4
 Load Phase a-n	Total Load - 500W		Load Bank (78W), LED (22W), Resistor (400W)
 Load Phase b-n	Total Load - 500W		Load Bank (78W), LED (22W), Resistor (400W)
-Load Phase c-n	Total Load - 500W		Load Bank (78W), LED (22W), Resistor (400W)", fontSize = 9, horizontalAlignment = TextAlignment.Left), Text(origin = {106, -142}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-132, 176}}, textString = "Rc: 5.0392e+03 -> 5.5e+03
+Load Phase c-n	Total Load - 500W		Load Bank (78W), LED (22W), Resistor (400W)", horizontalAlignment = TextAlignment.Left), Text(origin = {106, -142}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-132, 176}}, textString = "Rc: 5.0392e+03 -> 5.5e+03
 (This prevents solver crashing).", fontSize = 9, horizontalAlignment = TextAlignment.Left), Text(origin = {104, -154}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-132, 176}}, textString = "Rc: 5.0392e+03 -> 8.4e3", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
