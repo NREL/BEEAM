@@ -2,7 +2,13 @@ within HPF.Transformers.SinglePhase;
 model Simplified "Simplified transformer harmonic model"
   outer SystemDef systemDef;
   import Modelica.ComplexMath.j;
-  parameter Real N = 1 "Turns ratio N:1";
+  
+  parameter Modelica.SIunits.Voltage nomV_prim = 280 "Primary nominal voltage magnitude (at fundamental)";
+  parameter Modelica.SIunits.Voltage nomV_sec = 120 "Secondary nominal voltage magnitude (at fundamental)";
+  parameter Modelica.SIunits.Angle phi_prim = 0 "Primary nominal phase";
+  parameter Modelica.SIunits.Angle phi_sec = 0 "Secondary nominal phase";
+  
+  //final parameter Real N = nomV_prim / nomV_sec "Turns ratio N:1";
   parameter Modelica.SIunits.Resistance Rp = 1 "Primary winding resistance (at fundamental)";
   parameter Modelica.SIunits.Reactance Xp = 1 "Primary winding reactance";
   parameter Modelica.SIunits.Resistance Rs = 1 "Secondary winding resistance";
@@ -13,13 +19,22 @@ model Simplified "Simplified transformer harmonic model"
   parameter Real fEC = 0 "Eddy current losses";
   parameter Real fOSL = 0 "Other stray losses";
 
+  /*
+    Polar to rectangular conversion for start conditions.
+  */
+  /*
+  Complex nomV_primCmplx = nomV_sec * (cos(phi_prim) * sin(phi_prim)*j);
+  Complex nomV_secCmplx = nomV_prim * (cos(phi_sec) * sin(phi_sec)*j);
+  */
+  //final Real nomV_primCmplx_re = nomV_sec * cos(phi_prim);
+  
   HPF.SinglePhase.Interface.HPin_P pinP_prim(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-102, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P pinP_sec(h = systemDef.numHrm)  annotation (
     Placement(visible = true, transformation(origin = {100, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.IdealTransformer idealTransformer(N = N) annotation (
+  HPF.SinglePhase.Components.IdealTransformer idealTransformer( N = nomV_prim / nomV_sec, start_v_im_prim = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_im_sec = cat(1, {nomV_sec * sin(phi_sec)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re_prim = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re_sec = cat(1, {nomV_sec * cos(phi_sec)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin = {22, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Resistor R(r = Rc) annotation (
+  HPF.SinglePhase.Components.Resistor R(r = Rc, start_v_re = cat(1, {280}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Interface.HPin_N pinN_prim(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(extent = {{-110, -50}, {-90, -30}}, rotation = 0), iconTransformation(extent = {{-110, -110}, {-90, -90}}, rotation = 0)));
@@ -29,8 +44,11 @@ model Simplified "Simplified transformer harmonic model"
     Placement(transformation(extent = {{-66, 20}, {-46, 40}})));
   HPF.SinglePhase.Components.HarmonicImpedance Zs(Rh = Rs .+ Rs .* fEC .* systemDef.hrms .^ 2 + Rs .* fOSL .* systemDef.hrms .^ 0.8, Xh = systemDef.hrms .* Xs)  annotation (
     Placement(visible = true, transformation(extent = {{46, 20}, {66, 40}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z(z = 1e-8 + Xm * j)  annotation (
+  HPF.SinglePhase.Components.Impedance z(start_v_re = cat(1, {280}, {0.0 for i in 1:systemDef.numHrm - 1}), z = 1e10 + Xm * j)  annotation (
     Placement(visible = true, transformation(origin = {-12, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
+  
+
+  
 equation
   connect(idealTransformer.pinN_Prim, pinN_prim) annotation (
     Line(points = {{12, -14}, {12, -40}, {-100, -40}}, color = {117, 80, 123}));

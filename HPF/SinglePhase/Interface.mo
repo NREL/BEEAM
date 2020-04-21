@@ -71,9 +71,12 @@ package Interface
       lead to solver failing to solve. Nominal value of one 
       seems to work! 
     */
-    
-    Complex v[systemDef.numHrm](each re(start = 100), each im(start = 100)) "Complex voltage";
-    Complex i[systemDef.numHrm](each re(start = -1), each im(start = 1)) "Complex current";
+    parameter Real start_v_re[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part";
+    parameter Real start_v_im[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part";
+    parameter Real start_i_re[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part";
+    parameter Real start_i_im[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part";
+    Complex v[systemDef.numHrm](re(start = start_v_re), im(start = start_v_im)) "Complex voltage";
+    Complex i[systemDef.numHrm](re(start = start_i_re), im(start = start_i_im)) "Complex current";
     /*
       Defining omega for the overconstrained system workaround.
       omega would the derivative of alpha. ( additional constraint,
@@ -147,10 +150,20 @@ package Interface
                     a one port component such as resistance).
                   */
     outer SystemDef systemDef;
-    Complex vPrim[systemDef.numHrm] (each re(start = 0), each im(start = 0))  "Complex voltage primary winding";
-    Complex iPrim[systemDef.numHrm] "Complex current primary winding";
-    Complex vSec[systemDef.numHrm] "Complex voltage secondary winding";
-    Complex iSec[systemDef.numHrm] "Complex current secondary winding";
+    parameter Real start_v_re_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part (primary)";
+    parameter Real start_v_im_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part (primary)";
+    parameter Real start_i_re_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part (primary)";
+    parameter Real start_i_im_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part (primary)";
+    
+      parameter Real start_v_re_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part (secondary)";
+    parameter Real start_v_im_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part (secondary)";
+    parameter Real start_i_re_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part (secondary)";
+    parameter Real start_i_im_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part (secondary)";
+    
+    Complex vPrim[systemDef.numHrm] (re(start = start_v_re_prim), im(start = start_v_im_prim))  "Complex voltage primary winding";
+    Complex iPrim[systemDef.numHrm] (re(start = start_i_re_prim), im(start = start_i_im_prim)) "Complex current primary winding";
+    Complex vSec[systemDef.numHrm] (re(start = start_i_re_sec), im(start = start_i_im_sec)) "Complex voltage secondary winding";
+    Complex iSec[systemDef.numHrm] (re(start = start_i_re_sec), im(start = start_i_im_sec)) "Complex current secondary winding";
     HPF.SinglePhase.Interface.HPin_P pinP_Prim(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-100, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pinN_Prim(h = systemDef.numHrm) annotation (

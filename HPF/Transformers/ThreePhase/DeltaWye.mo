@@ -27,11 +27,11 @@ model DeltaWye
     Placement(visible = true, transformation(origin = {100, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {106, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinSec_N(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {106, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T1(N = N, Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW) annotation(
+  HPF.Transformers.SinglePhase.Simplified T1(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, phi_prim = 0.523599) annotation(
     Placement(visible = true, transformation(origin = {4, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T2(N = N, Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW) annotation(
+  HPF.Transformers.SinglePhase.Simplified T2(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, phi_prim = -1.5708, phi_sec = -2.0944) annotation(
     Placement(visible = true, transformation(origin = {4, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T3(N = N, Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW) annotation(
+  HPF.Transformers.SinglePhase.Simplified T3(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, phi_prim = 2.61799, phi_sec = 2.0944) annotation(
     Placement(visible = true, transformation(origin = {2, -110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   /* Measurements
     * Total power loss
@@ -40,7 +40,7 @@ model DeltaWye
   */
   // private
   /*
-      Transformer ration N:1 is defined for volatges at the input and output 
+      Transformer ratio N:1 is defined for volatges at the input and output 
       port. 
       For a delta-Y transformer, the input voltage is phase 2 phase.
       The output voltage is phase to ground. For consistency, the parameters
