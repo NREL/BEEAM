@@ -27,11 +27,11 @@ model DeltaWye
     Placement(visible = true, transformation(origin = {100, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {106, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinSec_N(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {106, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T1(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, phi_prim = 0.523599) annotation(
+  HPF.Transformers.SinglePhase.Simplified T1(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = 0, phi_sec = 0) annotation(
     Placement(visible = true, transformation(origin = {4, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T2(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, phi_prim = -1.5708, phi_sec = -2.0944) annotation(
+  HPF.Transformers.SinglePhase.Simplified T2(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = -2.0944, phi_sec = -2.0944) annotation(
     Placement(visible = true, transformation(origin = {4, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified T3(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, phi_prim = 2.61799, phi_sec = 2.0944) annotation(
+  HPF.Transformers.SinglePhase.Simplified T3(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = 2.0944, phi_sec = 2.0944) annotation(
     Placement(visible = true, transformation(origin = {2, -110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   /* Measurements
     * Total power loss

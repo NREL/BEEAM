@@ -34,7 +34,7 @@ model Simplified "Simplified transformer harmonic model"
     Placement(visible = true, transformation(origin = {100, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.IdealTransformer idealTransformer( N = nomV_prim / nomV_sec, start_v_im_prim = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_im_sec = cat(1, {nomV_sec * sin(phi_sec)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re_prim = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re_sec = cat(1, {nomV_sec * cos(phi_sec)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin = {22, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Resistor R(r = Rc, start_v_re = cat(1, {280}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
+  HPF.SinglePhase.Components.Resistor R(r = Rc, start_v_im = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Interface.HPin_N pinN_prim(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(extent = {{-110, -50}, {-90, -30}}, rotation = 0), iconTransformation(extent = {{-110, -110}, {-90, -90}}, rotation = 0)));
@@ -44,7 +44,7 @@ model Simplified "Simplified transformer harmonic model"
     Placement(transformation(extent = {{-66, 20}, {-46, 40}})));
   HPF.SinglePhase.Components.HarmonicImpedance Zs(Rh = Rs .+ Rs .* fEC .* systemDef.hrms .^ 2 + Rs .* fOSL .* systemDef.hrms .^ 0.8, Xh = systemDef.hrms .* Xs)  annotation (
     Placement(visible = true, transformation(extent = {{46, 20}, {66, 40}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z(start_v_re = cat(1, {280}, {0.0 for i in 1:systemDef.numHrm - 1}), z = 1e10 + Xm * j)  annotation (
+  HPF.SinglePhase.Components.Impedance z(start_v_im = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), z = 1e10 + Xm * j)  annotation (
     Placement(visible = true, transformation(origin = {-12, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 90)));
   
 

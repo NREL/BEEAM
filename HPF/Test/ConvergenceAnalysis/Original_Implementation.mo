@@ -14,15 +14,15 @@ model Original_Implementation
     Placement(visible = true, transformation(origin = {-14, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:7}) annotation(
     Placement(visible = true, transformation(origin = {-109, 63.3333}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified simplified(N = 277 / 120, Rc = 1e6, Rp = 1e-5, Rs = 1e-5, Xm = 1e6, Xp = 1e-5, Xs = 1e-5, fEC = 0.1, fOSL = 0.1, fW = 1) annotation(
+  HPF.Transformers.SinglePhase.Simplified simplified(Rc = 1e6, Rp = 1e-5, Rs = 1e-5, Xm = 1e6, Xp = 1e-5, Xs = 1e-5, fEC = 0.1, fOSL = 0.1, fW = 1) annotation(
     Placement(visible = true, transformation(origin = {-74, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {-48, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Impedance z1(z = 100 + 60 * j) annotation(
+  HPF.SinglePhase.Components.Impedance z1(z = 100 + 60 * j) annotation(
     Placement(visible = true, transformation(origin = {54, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Ground ground4 annotation(
+  HPF.SinglePhase.Components.Ground ground4 annotation(
     Placement(visible = true, transformation(origin = {122, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase_New_2 aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat") annotation(
+  HPF.PowerElectronicsConverters.AC2DC_SinglePhase_New_2 aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat") annotation(
     Placement(visible = true, transformation(origin = {36, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(laptop.n, ground2.p) annotation(
