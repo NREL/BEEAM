@@ -1,6 +1,6 @@
 within HPF.Test.ConvergenceAnalysis;
 
-model Converter_initialization
+model ToyMdl_Tfmr
   import Modelica.ComplexMath.j;
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {74, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -14,7 +14,7 @@ model Converter_initialization
     Placement(visible = true, transformation(origin = {-40, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:5}) annotation(
     Placement(visible = true, transformation(origin = {-109, 63.3333}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified simplified(Rc = 1e6, Rp = 1e-5, Rs = 1e-5, Xm = 1e6, Xp = 1e-5, Xs = 1e-5, fEC = 0.1, fOSL = 0.1, fW = 1) annotation(
+  HPF.Transformers.SinglePhase.Simplified_test simplified(Rc = 1e6, Rp = 1e-5, Rs = 1e-5, Xm = 1e6, Xp = 1e-5, Xs = 1e-5, fEC = 0.1, fOSL = 0.1, fW = 1) annotation(
     Placement(visible = true, transformation(origin = {-74, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerElectronicsConverters.AC2DC_SinglePhase_InitiMdl aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat", nomP = 120) annotation(
     Placement(visible = true, transformation(origin = {34, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -46,10 +46,10 @@ equation
   connect(simplified.pinN_sec, ground.pin) annotation(
     Line(points = {{-64, 6}, {-40, 6}, {-40, -25}}, color = {117, 80, 123}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
+    Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}), graphics = {Text(origin = {-8, 103}, extent = {{-124, 21}, {124, -21}}, textString = "Toy model with a single phase transformer.\nThe transformer mdl is modified and does not have a parallel core reactance branch.", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
     Documentation(info = "<html><head></head><body>Test model based on the punch list. Simulating a single phase transformer with a converter.</body></html>"),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
     __OpenModelica_simulationFlags(lv = "LOG_SOLVER,LOG_STATS,LOG_SUCCESS", outputFormat = "mat", s = "dassl", nls = "newton"));
-end Converter_initialization;
+end ToyMdl_Tfmr;
