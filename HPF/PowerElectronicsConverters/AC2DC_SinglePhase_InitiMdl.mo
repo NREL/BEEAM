@@ -20,7 +20,7 @@ model AC2DC_SinglePhase_InitiMdl "AC to DC Converter Single Phase"
   
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation(
     Placement(visible = true, transformation(origin = {20, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Interface.LoadBase loadBase(start_v_re = cat(1, {nomV}, {0.0 for i in 1:systemDef.numHrm - 1}))  annotation(
+  HPF.SinglePhase.Interface.LoadBase loadBase(start_v_im = {72.1814, 1.8828, -1.3135, -2.0003, -0.015246, 0.14437, 0.68999, 0.64342, 0.29795, -0.065609}, start_v_re = {-97.0063, -1.0253, -2.5206, 0.57322, 1.037, 0.62158, 0.29525, -0.37854, -0.37598, -0.49608})  annotation(
     Placement(visible = true, transformation(origin = {-20, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   /*
       Fundamental power drawn on the AC harmonic side.
