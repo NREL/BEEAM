@@ -3,4 +3,6 @@ Converter_initialization
 Scenario_1_Data_Set_1_3
 ToyMdl_IdealTfmr
 ToyMdl_Tfmr
+ToyMdl
+ToyMdl_ExactInitValues
 ThreePh_Tfmr_simple

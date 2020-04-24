@@ -35,7 +35,7 @@ model Simplified_test "Simplified transformer harmonic model"
   HPF.SinglePhase.Components.IdealTransformer idealTransformer( N = nomV_prim / nomV_sec, start_v_im_prim = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_im_sec = cat(1, {nomV_sec * sin(phi_sec)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re_prim = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re_sec = cat(1, {nomV_sec * cos(phi_sec)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin = {26, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Resistor R(r = Rc, start_v_im = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
-    Placement(visible = true, transformation(origin = {-32, 0}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-32, -2}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Interface.HPin_N pinN_prim(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(extent = {{-110, -50}, {-90, -30}}, rotation = 0), iconTransformation(extent = {{-110, -110}, {-90, -90}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinN_sec(h = systemDef.numHrm) annotation (
@@ -44,7 +44,7 @@ model Simplified_test "Simplified transformer harmonic model"
     Placement(transformation(extent = {{-66, 20}, {-46, 40}})));
   HPF.SinglePhase.Components.HarmonicImpedance Zs(Rh = Rs .+ Rs .* fEC .* systemDef.hrms .^ 2 + Rs .* fOSL .* systemDef.hrms .^ 0.8, Xh = systemDef.hrms .* Xs)  annotation (
     Placement(visible = true, transformation(extent = {{46, 20}, {66, 40}}, rotation = 0)));
-  HPF.SinglePhase.Components.HarmonicImpedance harmonicImpedance(Rh = {0.0 for i in 1:systemDef.numHrm}, Xh = systemDef.hrms .* Xm)  annotation(
+  HPF.SinglePhase.Components.HarmonicImpedance harmonicImpedance(Rh = {0.0 for i in 1:systemDef.numHrm}, Xh = systemDef.hrms .* Xm, start_v_im = cat(1, {nomV_prim * sin(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re = cat(1, {nomV_prim * cos(phi_prim)}, {0.0 for i in 1:systemDef.numHrm - 1}))  annotation(
     Placement(visible = true, transformation(origin = {-6, -2}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(idealTransformer.pinN_Prim, pinN_prim) annotation(
@@ -60,9 +60,9 @@ equation
   connect(Zs.pin_p, idealTransformer.pinP_Sec) annotation(
     Line(points = {{46, 30}, {36, 30}, {36, 8}}));
   connect(pinN_prim, R.pin_n) annotation(
-    Line(points = {{-100, -40}, {-22, -40}, {-22, -10}, {-32, -10}}));
+    Line(points = {{-100, -40}, {-22, -40}, {-22, -12}, {-32, -12}}));
   connect(R.pin_p, idealTransformer.pinP_Prim) annotation(
-    Line(points = {{-32, 10}, {-32, 10}, {-32, 16}, {-14, 16}, {-14, 30}, {16, 30}, {16, 8}, {16, 8}, {16, 8}}, color = {92, 53, 102}));
+    Line(points = {{-32, 8}, {-32, 16}, {-14, 16}, {-14, 30}, {16, 30}, {16, 8}}, color = {92, 53, 102}));
   connect(harmonicImpedance.pin_p, idealTransformer.pinP_Prim) annotation(
     Line(points = {{-6, 8}, {-6, 8}, {-6, 16}, {-14, 16}, {-14, 30}, {16, 30}, {16, 8}, {16, 8}}, color = {92, 53, 102}));
   connect(harmonicImpedance.pin_n, idealTransformer.pinN_Prim) annotation(
