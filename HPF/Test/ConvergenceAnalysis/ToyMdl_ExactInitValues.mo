@@ -11,7 +11,7 @@ model ToyMdl_ExactInitValues
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
     Placement(visible = true, transformation(origin = {-109, 51.3333}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
   HPF.Test.ConvergenceAnalysis.Simplified_init T(Rc = 3.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.0670, fOSL = 0.0330, fW = 0.9, nomV_prim = 480) annotation(
-    Placement(visible = true, transformation(origin = {-74, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-76, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance Z(z = 100 + 3.7699e-04 * j) annotation(
     Placement(visible = true, transformation(origin = {22, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground4 annotation(
@@ -26,15 +26,15 @@ equation
   connect(a_vSrc.pin_n, ground1.pin) annotation(
     Line(points = {{-122, -4}, {-122, -30.75}}, color = {117, 80, 123}));
   connect(a_vSrc.pin_p, T.pinP_prim) annotation(
-    Line(points = {{-122, 16}, {-122, 26}, {-84, 26}}, color = {92, 53, 102}));
+    Line(points = {{-122, 16}, {-122, 24}, {-86, 24}}, color = {92, 53, 102}));
   connect(ground1.pin, T.pinN_prim) annotation(
-    Line(points = {{-122, -30.75}, {-104, -30.75}, {-104, 6}, {-84, 6}}, color = {92, 53, 102}));
+    Line(points = {{-122, -30.75}, {-104, -30.75}, {-104, 4}, {-86, 4}}, color = {92, 53, 102}));
   connect(Z.pin_p, T.pinP_sec) annotation(
-    Line(points = {{12, 46}, {-10, 46}, {-10, 26}, {-64, 26}}, color = {92, 53, 102}));
+    Line(points = {{12, 46}, {-10, 46}, {-10, 24}, {-66, 24}}, color = {92, 53, 102}));
   connect(Z.pin_n, ground4.pin) annotation(
     Line(points = {{32, 46}, {50, 46}, {50, 35}}, color = {117, 80, 123}));
   connect(T.pinN_sec, ground.pin) annotation(
-    Line(points = {{-64, 6}, {-40, 6}, {-40, -25}}, color = {117, 80, 123}));
+    Line(points = {{-66, 4}, {-40, 4}, {-40, -25}}, color = {117, 80, 123}));
   connect(laptop.n, ground2.p) annotation(
     Line(points = {{44, -18}, {44, -22}}, color = {0, 0, 255}));
   connect(conv.hPin_N, ground.pin) annotation(
@@ -44,7 +44,7 @@ equation
   connect(conv.pin_n, laptop.n) annotation(
     Line(points = {{14, -10}, {14, -18}, {44, -18}}, color = {0, 0, 255}));
   connect(conv.hPin_P, T.pinP_sec) annotation(
-    Line(points = {{-6, 2}, {-16, 2}, {-16, 26}, {-64, 26}}, color = {92, 53, 102}));
+    Line(points = {{-6, 2}, {-16, 2}, {-16, 24}, {-66, 24}}, color = {92, 53, 102}));
   annotation(
     Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}), graphics = {Text(origin = {-27, 130}, extent = {{-101, 10}, {101, -10}}, textString = "Toy model:
 Exace initialization values from time domain simulation.", horizontalAlignment = TextAlignment.Left), Text(origin = {-37, 105}, extent = {{-91, 7}, {91, -7}}, textString = "Simulating for first 10 odd harmonics.
@@ -54,5 +54,5 @@ Using the measured voltage data as input.", horizontalAlignment = TextAlignment.
     Documentation(info = "<html><head></head><body>Test model based on the punch list. Simulating a single phase transformer with a converter.</body></html>"),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
-    __OpenModelica_simulationFlags(lv = "LOG_SOLVER,LOG_STATS,LOG_STATS_V,LOG_SUCCESS", outputFormat = "mat", s = "dassl", nls = "newton"));
+    __OpenModelica_simulationFlags(lv = "LOG_INIT,LOG_INIT_HOMOTOPY,LOG_INIT_V,LOG_RES_INIT,LOG_SIMULATION,LOG_SOLVER,LOG_SOLVER_CONTEXT,LOG_SOTI,LOG_STATS,LOG_STATS_V,LOG_SUCCESS", outputFormat = "mat", s = "dassl", nls = "newton", iim = "none"));
 end ToyMdl_ExactInitValues;
