@@ -52,7 +52,7 @@ equation
   connect(pinN_sec, idealTransformer.pinN_Sec) annotation(
     Line(points = {{100, -40}, {36, -40}, {36, -12}}, color = {117, 80, 123}));
   connect(Zp.pin_p, pinP_prim) annotation(
-    Line(points = {{-66, 30}, {-102, 30}}, color = {0, 0, 0}));
+    Line(points = {{-66, 30}, {-102, 30}}));
   connect(Zp.pin_n, idealTransformer.pinP_Prim) annotation(
     Line(points = {{-46, 30}, {16, 30}, {16, 8}}, color = {117, 80, 123}));
   connect(Zs.pin_n, pinP_sec) annotation(

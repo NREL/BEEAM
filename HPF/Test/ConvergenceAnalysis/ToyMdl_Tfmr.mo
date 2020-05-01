@@ -16,7 +16,7 @@ model ToyMdl_Tfmr
     Placement(visible = true, transformation(origin = {-109, 63.3333}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
   HPF.Transformers.SinglePhase.Simplified_test simplified(Rc = 1e6, Rp = 1e-5, Rs = 1e-5, Xm = 1e6, Xp = 1e-5, Xs = 1e-5, fEC = 0.1, fOSL = 0.1, fW = 1) annotation(
     Placement(visible = true, transformation(origin = {-74, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerElectronicsConverters.AC2DC_SinglePhase_InitiMdl aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat", nomP = 120) annotation(
+  HPF.Test.ConvergenceAnalysis.AC2DC_SinglePhase_InitiMdl aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat", nomP = 120) annotation(
     Placement(visible = true, transformation(origin = {34, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z1(z = 100 + 60 * j) annotation(
     Placement(visible = true, transformation(origin = {52, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -80,6 +80,6 @@ equation
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics = {Text(origin = {-16, 135}, extent = {{-178, 23}, {178, -23}}, textString = "Simplified 3phase toy model with modified transformer.\nThe transformer mdl has a simplified core reactance branch.", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
-    __OpenModelica_simulationFlags(lv = "LOG_NLS,LOG_NLS_V,LOG_NLS_JAC,LOG_NLS_RES,LOG_SOLVER,LOG_STATS,LOG_SUCCESS", outputFormat = "mat", s = "dassl", nls = "newton"),
+    __OpenModelica_simulationFlags(lv = "LOG_INIT,LOG_INIT_V,LOG_RES_INIT,LOG_SIMULATION,LOG_SOLVER,LOG_SOLVER_V,LOG_SOLVER_CONTEXT,LOG_STATS,LOG_STATS_V,LOG_SUCCESS", outputFormat = "mat", s = "dassl", nls = "newton"),
   __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ");
 end ThreePh_Tfmr_simple;

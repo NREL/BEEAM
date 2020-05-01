@@ -1,4 +1,4 @@
-within HPF.PowerElectronicsConverters;
+within HPF.Test;
 
 model AC2DC_SinglePhase_InitiMdl "AC to DC Converter Single Phase"
   outer SystemDef systemDef;
@@ -20,7 +20,7 @@ model AC2DC_SinglePhase_InitiMdl "AC to DC Converter Single Phase"
   
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation(
     Placement(visible = true, transformation(origin = {20, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Interface.LoadBase loadBase(start_v_re = cat(1, {nomV}, {0.0 for i in 1:systemDef.numHrm - 1}))  annotation(
+  HPF.SinglePhase.Interface.LoadBase loadBase annotation(
     Placement(visible = true, transformation(origin = {-20, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   /*
       Fundamental power drawn on the AC harmonic side.

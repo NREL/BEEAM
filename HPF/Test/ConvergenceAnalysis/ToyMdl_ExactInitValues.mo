@@ -13,15 +13,15 @@ model ToyMdl_ExactInitValues
   HPF.Test.ConvergenceAnalysis.Simplified_init T(Rc = 3.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.0670, fOSL = 0.0330, fW = 0.9, nomV_prim = 480) annotation(
     Placement(visible = true, transformation(origin = {-76, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance Z(z = 100 + 3.7699e-04 * j) annotation(
-    Placement(visible = true, transformation(origin = {22, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {64, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground4 annotation(
-    Placement(visible = true, transformation(origin = {50, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load laptop(pwr = 200) annotation(
-    Placement(visible = true, transformation(origin = {44, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {92, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load laptop(pwr = 200) annotation(
+    Placement(visible = true, transformation(origin = {86, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation(
-    Placement(visible = true, transformation(origin = {44, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase_InitiMdl conv(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/mld_timeDomSim_3D.mat", nomP = 200, nomV = 120) annotation(
-    Placement(visible = true, transformation(origin = {4, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {86, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.PowerElectronicsConverters.AC2DC_SinglePhase_InitiMdl conv(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/mld_timeDomSim_3D.mat", nomP = 200, nomV = 120) annotation(
+    Placement(visible = true, transformation(origin = {46, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(a_vSrc.pin_n, ground1.pin) annotation(
     Line(points = {{-122, -4}, {-122, -30.75}}, color = {117, 80, 123}));
@@ -29,22 +29,22 @@ equation
     Line(points = {{-122, 16}, {-122, 24}, {-86, 24}}, color = {92, 53, 102}));
   connect(ground1.pin, T.pinN_prim) annotation(
     Line(points = {{-122, -30.75}, {-104, -30.75}, {-104, 4}, {-86, 4}}, color = {92, 53, 102}));
-  connect(Z.pin_p, T.pinP_sec) annotation(
-    Line(points = {{12, 46}, {-10, 46}, {-10, 24}, {-66, 24}}, color = {92, 53, 102}));
   connect(Z.pin_n, ground4.pin) annotation(
-    Line(points = {{32, 46}, {50, 46}, {50, 35}}, color = {117, 80, 123}));
+    Line(points = {{74, 46}, {92, 46}, {92, 35}}, color = {117, 80, 123}));
   connect(T.pinN_sec, ground.pin) annotation(
     Line(points = {{-66, 4}, {-40, 4}, {-40, -25}}, color = {117, 80, 123}));
   connect(laptop.n, ground2.p) annotation(
-    Line(points = {{44, -18}, {44, -22}}, color = {0, 0, 255}));
+    Line(points = {{86, -18}, {86, -22}}, color = {0, 0, 255}));
   connect(conv.hPin_N, ground.pin) annotation(
-    Line(points = {{-6, -10}, {-40, -10}, {-40, -25}}, color = {117, 80, 123}));
+    Line(points = {{36, -10}, {-40, -10}, {-40, -25}}, color = {117, 80, 123}));
   connect(conv.pin_p, laptop.p) annotation(
-    Line(points = {{14, 2}, {44, 2}}, color = {0, 0, 255}));
+    Line(points = {{56, 2}, {86, 2}}, color = {0, 0, 255}));
   connect(conv.pin_n, laptop.n) annotation(
-    Line(points = {{14, -10}, {14, -18}, {44, -18}}, color = {0, 0, 255}));
+    Line(points = {{56, -10}, {56, -18}, {86, -18}}, color = {0, 0, 255}));
+  connect(T.pinP_sec, Z.pin_p) annotation(
+    Line(points = {{-66, 24}, {18, 24}, {18, 46}, {54, 46}, {54, 46}}, color = {92, 53, 102}));
   connect(conv.hPin_P, T.pinP_sec) annotation(
-    Line(points = {{-6, 2}, {-16, 2}, {-16, 24}, {-66, 24}}, color = {92, 53, 102}));
+    Line(points = {{36, 2}, {18, 2}, {18, 24}, {-66, 24}, {-66, 24}}, color = {92, 53, 102}));
   annotation(
     Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}), graphics = {Text(origin = {-27, 130}, extent = {{-101, 10}, {101, -10}}, textString = "Toy model:
 Exace initialization values from time domain simulation.", horizontalAlignment = TextAlignment.Left), Text(origin = {-37, 105}, extent = {{-91, 7}, {91, -7}}, textString = "Simulating for first 10 odd harmonics.
