@@ -82,12 +82,6 @@ model Scenario_2_Data_Set_2_4
     Placement(visible = true, transformation(origin = {-146, -40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.Sensors.VoltageSensor vMsr_CA annotation (
     Placement(visible = true, transformation(origin = {-130, -60}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.Sensors.VoltageSensor vMsr_Sec_phA annotation(
-    Placement(visible = true, transformation(origin = {-36, -22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.Sensors.VoltageSensor vMsr_Sec_phB annotation(
-    Placement(visible = true, transformation(origin = {-18, -44}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.Sensors.VoltageSensor vMsr_Sec_phC annotation(
-    Placement(visible = true, transformation(origin = {0, -22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation(
     Line(points = {{-200, -12}, {-200, -20}}, color = {117, 80, 123}));
@@ -207,18 +201,6 @@ equation
     Line(points = {{-52, 2}, {20, 2}, {20, -46}, {126, -46}, {126, -26}, {166, -26}}, color = {92, 53, 102}));
   connect(Laptop_Charger_4.hPin_P, deltaWye.pinSec_B) annotation(
     Line(points = {{164, -72}, {126, -72}, {126, -46}, {20, -46}, {20, 2}, {-52, 2}}, color = {92, 53, 102}));
-  connect(vMsr_Sec_phA.pin_p, deltaWye.pinSec_A) annotation(
-    Line(points = {{-36, -12}, {-36, 10}, {-52, 10}}, color = {92, 53, 102}));
-  connect(vMsr_Sec_phA.pin_n, ground2.pin) annotation(
-    Line(points = {{-36, -32}, {-50, -32}, {-50, -70}}, color = {117, 80, 123}));
-  connect(vMsr_Sec_phB.pin_p, deltaWye.pinSec_B) annotation(
-    Line(points = {{-18, -34}, {-18, -34}, {-18, 2}, {-52, 2}, {-52, 2}}, color = {92, 53, 102}));
-  connect(vMsr_Sec_phB.pin_n, ground2.pin) annotation(
-    Line(points = {{-18, -54}, {-50, -54}, {-50, -70}}, color = {117, 80, 123}));
-  connect(vMsr_Sec_phC.pin_n, ground2.pin) annotation(
-    Line(points = {{0, -32}, {0, -62}, {-50, -62}, {-50, -70}}, color = {117, 80, 123}));
-  connect(vMsr_Sec_phC.pin_p, deltaWye.pinSec_C) annotation(
-    Line(points = {{0, -12}, {0, -12}, {0, -6}, {-52, -6}, {-52, -6}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-220, -220}, {220, 220}}), graphics={Text(origin = {-10, -32}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.4
 Load Phase a-n	Total Load - 700W		Load Bank 1 (78W), LED 1 (22W), Resistor 4 (600W)

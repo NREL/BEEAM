@@ -86,12 +86,6 @@ model Scenario_1_Data_Set_1_1
     Placement(visible = true, transformation(origin = {10, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.CurrentSensor iMsr_Sec_phC annotation(
     Placement(visible = true, transformation(origin = {10, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sensors.VoltageSensor vMsr_Sec_phB annotation(
-    Placement(visible = true, transformation(origin = {-34, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.Sensors.VoltageSensor vMsr_Sec_phA annotation(
-    Placement(visible = true, transformation(origin = {-52, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.Sensors.VoltageSensor vMsr_Sec_phC annotation(
-    Placement(visible = true, transformation(origin = {-16, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.Sensors.CurrentSensor iMsr_Sec_phB annotation(
     Placement(visible = true, transformation(origin = {42, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
@@ -219,18 +213,6 @@ equation
     Line(points = {{20, 28}, {38, 28}, {38, -66}, {96, -66}, {96, -66}}, color = {117, 80, 123}));
   connect(iMsr_Sec_phC.pin_n, Laptop_Charger_5.hPin_P) annotation(
     Line(points = {{20, 28}, {38, 28}, {38, -114}, {92, -114}, {92, -114}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_A, vMsr_Sec_phA.pin_p) annotation(
-    Line(points = {{-72, 50}, {-52, 50}, {-52, 20}, {-52, 20}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_B, vMsr_Sec_phB.pin_p) annotation(
-    Line(points = {{-72, 42}, {-34, 42}, {-34, -2}, {-34, -2}}, color = {92, 53, 102}));
-  connect(vMsr_Sec_phC.pin_p, deltaWye.pinSec_C) annotation(
-    Line(points = {{-16, 20}, {-16, 20}, {-16, 34}, {-72, 34}, {-72, 34}}, color = {92, 53, 102}));
-  connect(vMsr_Sec_phA.pin_n, ground2.pin) annotation(
-    Line(points = {{-52, 0}, {-68, 0}, {-68, -42}, {-68, -42}}, color = {117, 80, 123}));
-  connect(vMsr_Sec_phB.pin_n, ground2.pin) annotation(
-    Line(points = {{-34, -22}, {-68, -22}, {-68, -42}, {-68, -42}}, color = {117, 80, 123}));
-  connect(vMsr_Sec_phC.pin_n, ground2.pin) annotation(
-    Line(points = {{-16, 0}, {-16, 0}, {-16, -30}, {-68, -30}, {-68, -42}, {-68, -42}}, color = {117, 80, 123}));
   annotation (
     Diagram(coordinateSystem(extent = {{-250, -250}, {250, 250}}, initialScale = 0.1), graphics={Text(origin = {8, -14}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 1 | Data Set 1.1
 No Load", fontSize = 9, horizontalAlignment = TextAlignment.Left), Text(origin = {54, -114}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {-58, 176}}, textString = "Rc: 5.0392e+03 -> 8.4e3", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),

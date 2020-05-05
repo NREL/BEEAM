@@ -10,7 +10,8 @@ import sys
 # Second append the folder path
 
 #sys.path.insert(0, '../../Utilities/external_lib/buildingspy/')
-sys.path.insert(0, '/media/avpreetsingh/Documents/Research/DC Design Tool/Workspace/Modelica_HPF/DC-Design/HPF/Utilities/external_lib/buildingspy/')
+sys.path.append('/media/avpreetsingh/Documents/Tools_n_libs/python/BuildingsPy-master/buildingspy')
+
 """
 Third Make a blank file called __ init __.py in your subdirectory (this tells Python it is a module)
 
