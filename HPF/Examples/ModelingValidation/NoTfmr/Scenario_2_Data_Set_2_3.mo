@@ -82,7 +82,7 @@ model Scenario_2_Data_Set_2_3
     Placement(visible = true, transformation(origin = {-40, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
-    Line(points = {{-172, -22}, {-172, -28}}, color = {117, 80, 123}));
+    Line(points={{-172,-24.75},{-172,-16.75}},color = {117, 80, 123}));
   connect(Power_Supply_1.pin_p, Load_1.p) annotation (
     Line(points = {{88, 50}, {112, 50}}, color = {0, 0, 255}));
   connect(ground1.p, Load_1.n) annotation (
@@ -94,7 +94,7 @@ equation
   connect(Laptop_Charger_3.pin_p, Laptop_3.p) annotation (
     Line(points = {{90, 2}, {114, 2}}, color = {0, 0, 255}));
   connect(Laptop_Charger_3.hPin_N, ground6.pin) annotation (
-    Line(points = {{70, -10}, {54, -10}, {54, -22}}, color = {117, 80, 123}));
+    Line(points={{70,-10},{54,-10},{54,-10.75}},     color = {117, 80, 123}));
   connect(LED_Driver_2.pin_p, LED_2.p) annotation (
     Line(points = {{192, 20}, {212, 20}}, color = {0, 0, 255}));
   connect(ground4.p, LED_2.n) annotation (
@@ -130,9 +130,9 @@ equation
   connect(ground18.p, dC_Load2.n) annotation (
     Line(points = {{110, -180}, {110, -174}}, color = {0, 0, 255}));
   connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation (
-    Line(points = {{48, -176}, {48, -166}, {64, -166}}, color = {92, 53, 102}));
+    Line(points={{48,-164.75},{48,-166},{64,-166}},     color = {92, 53, 102}));
   connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation (
-    Line(points = {{170, -84}, {169, -84}, {169, -96}, {152, -96}}, color = {117, 80, 123}));
+    Line(points={{170,-84},{169,-84},{169,-84.75},{152,-84.75}},    color = {117, 80, 123}));
   connect(Laptop_Charger_4.pin_p, dC_Load1.p) annotation (
     Line(points = {{190, -72}, {214, -72}}, color = {0, 0, 255}));
   connect(Laptop_Charger_4.pin_n, dC_Load1.n) annotation (
@@ -144,23 +144,23 @@ equation
   connect(Power_Supply_3.pin_n, dC_Load.n) annotation (
     Line(points = {{88, -118}, {98, -118}, {98, -126}, {108, -126}}, color = {0, 0, 255}));
   connect(LED_Driver_1.hPin_N, ground6.pin) annotation (
-    Line(points = {{70, 82}, {54, 82}, {54, -22}}, color = {117, 80, 123}));
+    Line(points={{70,82},{54,82},{54,-10.75}},     color = {117, 80, 123}));
   connect(Power_Supply_1.hPin_N, ground6.pin) annotation (
-    Line(points = {{68, 38}, {54, 38}, {54, -22}}, color = {117, 80, 123}));
+    Line(points={{68,38},{54,38},{54,-10.75}},     color = {117, 80, 123}));
   connect(LED_Driver_2.hPin_N, ground17.pin) annotation (
-    Line(points = {{172, 8}, {152, 8}, {152, -96}}, color = {117, 80, 123}));
+    Line(points={{172,8},{152,8},{152,-84.75}},     color = {117, 80, 123}));
   connect(Power_Supply_2.hPin_N, ground17.pin) annotation (
-    Line(points = {{172, -38}, {152, -38}, {152, -96}}, color = {117, 80, 123}));
+    Line(points={{172,-38},{152,-38},{152,-84.75}},     color = {117, 80, 123}));
   connect(LED_Driver_3.hPin_N, ground19.pin) annotation (
-    Line(points = {{72, -70}, {48, -70}, {48, -176}}, color = {117, 80, 123}));
+    Line(points={{72,-70},{48,-70},{48,-164.75}},     color = {117, 80, 123}));
   connect(Power_Supply_3.hPin_N, ground19.pin) annotation (
-    Line(points = {{68, -118}, {48, -118}, {48, -176}}, color = {117, 80, 123}));
+    Line(points={{68,-118},{48,-118},{48,-164.75}},     color = {117, 80, 123}));
   connect(vMsr_Sec_phA.pin_n, ground2.pin) annotation (
-    Line(points = {{-100, -50}, {-100, -102}}, color = {117, 80, 123}));
+    Line(points={{-100,-50},{-100,-90.75}},    color = {117, 80, 123}));
   connect(vMsr_Sec_phB.pin_n, ground2.pin) annotation (
-    Line(points = {{-82, -72}, {-100, -72}, {-100, -102}}, color = {117, 80, 123}));
+    Line(points={{-82,-72},{-100,-72},{-100,-90.75}},      color = {117, 80, 123}));
   connect(vMsr_Sec_phC.pin_n, ground2.pin) annotation (
-    Line(points = {{-64, -50}, {-64, -78}, {-100, -78}, {-100, -102}}, color = {117, 80, 123}));
+    Line(points={{-64,-50},{-64,-78},{-100,-78},{-100,-90.75}},        color = {117, 80, 123}));
   connect(iMsr_Sec_phA.pin_n, LED_Driver_1.hPin_P) annotation (
     Line(points = {{-28, 2}, {42, 2}, {42, 94}, {70, 94}}, color = {117, 80, 123}));
   connect(iMsr_Sec_phA.pin_n, Power_Supply_1.hPin_P) annotation (
@@ -180,22 +180,23 @@ equation
   connect(iMsr_Sec_phC.pin_n, Laptop_Charger_5.hPin_P) annotation (
     Line(points = {{-30, -24}, {4, -24}, {4, -154}, {64, -154}, {64, -154}}, color = {117, 80, 123}));
   connect(voltageSource.pinP_phA, iMsr_Sec_phA.pin_p) annotation (
-    Line(points = {{-162, -6}, {-106, -6}, {-106, 2}, {-48, 2}}, color = {92, 53, 102}));
+    Line(points={{-159.5,-2},{-106,-2},{-106,2},{-48,2}},        color = {92, 53, 102}));
   connect(voltageSource.pinP_phB, iMsr_Sec_phB.pin_p) annotation (
-    Line(points = {{-162, -12}, {-16, -12}}, color = {92, 53, 102}));
+    Line(points={{-159.5,-12},{-16,-12}},    color = {92, 53, 102}));
   connect(voltageSource.pinP_phC, iMsr_Sec_phC.pin_p) annotation (
-    Line(points = {{-162, -20}, {-74, -20}, {-74, -22}, {-50, -22}, {-50, -24}}, color = {92, 53, 102}));
+    Line(points={{-159.5,-22},{-74,-22},{-74,-22},{-50,-22},{-50,-24}},          color = {92, 53, 102}));
   connect(vMsr_Sec_phA.pin_p, voltageSource.pinP_phA) annotation (
-    Line(points = {{-100, -30}, {-100, -6}, {-162, -6}}, color = {92, 53, 102}));
+    Line(points={{-100,-30},{-100,-2},{-159.5,-2}},      color = {92, 53, 102}));
   connect(vMsr_Sec_phB.pin_p, voltageSource.pinP_phB) annotation (
-    Line(points = {{-82, -52}, {-82, -12}, {-162, -12}}, color = {92, 53, 102}));
+    Line(points={{-82,-52},{-82,-12},{-159.5,-12}},      color = {92, 53, 102}));
   connect(voltageSource.pinP_phC, vMsr_Sec_phC.pin_p) annotation (
-    Line(points = {{-162, -20}, {-64, -20}, {-64, -30}}, color = {92, 53, 102}));
+    Line(points={{-159.5,-22},{-64,-22},{-64,-30}},      color = {92, 53, 102}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics = {Text(origin = {-24, 0}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
+    Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics={  Text(origin = {-24, 0}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 2 | Data Set 2.3
 LLoad Phase a-n	Total Load - 300W		Load Bank 1 (78W), LED 1 (22W), Resistor 2 (200W)
 Load Phase b-n	Total Load - 500W		Load Bank 2 (78W), LED 2 (22W), Resistor 3 (400W)
-Load Phase c-n	Total Load - 700W		Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)", horizontalAlignment = TextAlignment.Left), Text(origin = {-26, -36}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Changelog:
+Load Phase c-n	Total Load - 700W		Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)",
+            horizontalAlignment =                                                                           TextAlignment.Left), Text(origin = {-26, -36}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Changelog:
 * Using new converter model", fontSize = 8, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-230, -230}, {230, 230}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),

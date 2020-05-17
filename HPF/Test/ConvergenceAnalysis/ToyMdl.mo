@@ -22,7 +22,7 @@ model ToyMdl
   HPF.SinglePhase.Components.Ground ground4 annotation (
     Placement(visible = true, transformation(origin = {114, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.CurrentSensor iMsr_node2 annotation (
-    Placement(visible = true, transformation(origin = {-12, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-22, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(laptop.n, ground2.p) annotation (
     Line(points = {{74, -24}, {74, -28}}, color = {0, 0, 255}));
@@ -42,12 +42,12 @@ equation
     Line(points={{64,26},{114,26},{114,15.25}},     color = {117, 80, 123}));
   connect(T.pinN_sec, ground.pin) annotation (
     Line(points={{-60,6.2},{-50,6.2},{-50,-26.75}}, color = {117, 80, 123}));
-  connect(T.pinP_sec, iMsr_node2.pin_p) annotation (
-    Line(points = {{-60, 26}, {-22, 26}}, color = {92, 53, 102}));
-  connect(iMsr_node2.pin_n, Z.pin_p) annotation (
-    Line(points = {{-2, 26}, {44, 26}}, color = {117, 80, 123}));
-  connect(conv.hPin_P, iMsr_node2.pin_n) annotation (
-    Line(points = {{24, -4}, {6, -4}, {6, 26}, {-2, 26}}, color = {92, 53, 102}));
+  connect(T.pinP_sec, iMsr_node2.pin_p) annotation(
+    Line(points = {{-60, 26}, {-32, 26}}, color = {92, 53, 102}));
+  connect(iMsr_node2.pin_n, Z.pin_p) annotation(
+    Line(points = {{-12, 26}, {44, 26}}, color = {117, 80, 123}));
+  connect(conv.hPin_P, iMsr_node2.pin_n) annotation(
+    Line(points = {{24, -4}, {6, -4}, {6, 26}, {-12, 26}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}), graphics={  Text(origin = {-27, 116}, extent = {{-101, 10}, {101, -10}}, textString = "Toy model:
 Nominal initialization values.", horizontalAlignment = TextAlignment.Left), Text(origin = {-60, -59}, extent = {{-76, 7}, {76, -7}}, textString = "Renaming voltage source

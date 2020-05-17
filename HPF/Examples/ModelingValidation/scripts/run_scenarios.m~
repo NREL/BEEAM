@@ -23,7 +23,7 @@ for scenario = [1:2] % iterate through scenarios
         % P_sec [W]	P_lossConv [W]
         dataEntry(indx, :) = {modelicaSim, linePwr.sim.prim.total, linePwr.sim.sec.total, ...
             linePwr.sim.prim.total - linePwr.sim.sec.total, ...
-            convLosses, linePwr.sim.prim.total - DC_power};
+            convLosses, };
         indx = indx + 1;
     end
     
