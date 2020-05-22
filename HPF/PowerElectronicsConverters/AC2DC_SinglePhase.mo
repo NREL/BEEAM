@@ -37,6 +37,8 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.v);
+  
+  // intermediary variables
   Real P1(start = nomP, fixed = false) "Real power at fundamental";
   Real S1(start = nomP) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";

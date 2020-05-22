@@ -9,7 +9,7 @@ model Scenario_1_Data_Set_1_2
     Placement(visible = true, transformation(origin = {-138, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {-70, -56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Transformers.ThreePhase.DeltaWye deltaWye(Rp = 2.7672, Xp = 1.1006, Rs = 0.2576, Xs = 0.5003, Rc = 3.7626e+03, Xm = 711.1091, fW = 0.9, fEC = 0.0670, fOSL = 0.0330) annotation(
+  Transformers.ThreePhase.DeltaWye deltaWye(Rc = 8.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.067, fOSL = 0.033, fW = 0.08) annotation(
     Placement(transformation(extent = {{-92, -28}, {-72, -8}})));
   PowerElectronicsConverters.AC2DC_SinglePhase LED_Driver_2(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_LED_Driver_2_3D.mat", nomP = 28) annotation(
     Placement(visible = true, transformation(origin = {178, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

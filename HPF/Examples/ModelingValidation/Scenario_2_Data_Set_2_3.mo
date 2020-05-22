@@ -22,15 +22,7 @@ model Scenario_2_Data_Set_2_3
     Placement(visible = true, transformation(origin={-116,-24},    extent={{-10,-10},
             {10,10}},                                                                               rotation = 0)));
   Transformers.ThreePhase.DeltaWye deltaWye(
-    Rp=2.7672,
-    Xp=1.1006,
-    Rs=0.2576,
-    Xs=0.5003,
-    Rc=3.7626e+03,
-    Xm=711.1091,
-    fW=0.9,
-    fEC=0.0670,
-    fOSL=0.0330)
+    Rc = 8.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.067, fOSL = 0.033, fW = 0.08)
     annotation (Placement(transformation(extent={{-138,4},{-118,24}})));
   PowerElectronicsConverters.AC2DC_SinglePhase     LED_Driver_2(V_Rect=24,
       modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_LED_Driver_2_3D.mat",
