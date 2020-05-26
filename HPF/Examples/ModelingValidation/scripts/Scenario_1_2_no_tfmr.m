@@ -10,7 +10,7 @@
 
 
 %% script initializations
-addpath('./lib')
+addpath('../../../Utilities/external_lib/lib')
 
 % if scenario variable exists, skip
 % this means one is running the external run script.
