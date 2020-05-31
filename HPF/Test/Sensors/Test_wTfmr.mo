@@ -13,7 +13,7 @@ model Test_wTfmr
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-50, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation(
-    Placement(visible = true, transformation(origin = {-109, 63.3333}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-111, 71.3333}, extent = {{-13, -15.1667}, {13, 10.8333}}, rotation = 0)));
   HPF.PowerElectronicsConverters.AC2DC_SinglePhase conv(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/mld_timeDomSim_3D.mat", nomP = 200) annotation(
     Placement(visible = true, transformation(origin = {34, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance Z(z = 100 + 3.7699e-04 * j) annotation(

@@ -1,0 +1,30 @@
+# ignoring all files except .py and .m 
+#
+# Openmodelica generates an executable that is the main simulation file.
+# The executable in GNU/Linux does not have an extension. This results in
+# a scenario where git cannot ignore the executable as the .gitignore rules
+# does not allow negation for files in directories that are ignored.
+# Example, an easy way would be to ignore all files except the scipt files
+# such as one ending in .m or .py . As mentioned above, this is not allowed
+# Add a provision to manually remove the executable
+
+# ignore for JModelica files
+
+Scripts/**/*.mat
+Scripts/**/*.fmu
+Scripts/**/*_log.txt
+
+# ignore for OpenModelica files
+
+Scripts/**/*.c
+Scripts/**/*.h
+Scripts/**/*.o
+Scripts/**/*.makefile
+Scripts/**/*.libs
+Scripts/**/*.xml
+Scripts/**/*.log
+Scripts/**/*.json
+Scripts/**/*.xml
+Scripts/**/*.exe
+
+

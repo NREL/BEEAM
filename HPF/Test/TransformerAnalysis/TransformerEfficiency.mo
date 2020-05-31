@@ -3,7 +3,7 @@ within HPF.Test.TransformerAnalysis;
 model TransformerEfficiency
   HPF.SinglePhase.Components.Resistor a_r2(r = 500) annotation(
     Placement(visible = true, transformation(origin = {92, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.ThreePhase.DeltaWye deltaWye(Rc = 3.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.067, fOSL = 0.033, fW = 0.08) annotation(
+  HPF.Transformers.ThreePhase.DeltaWye deltaWye(Rc = 1.5117e+04, Rp = 8.3300, Rs = 0.1440, Xm = 2.3311e+03, Xp = 3.3175, Xs = 0.6197, fEC = 0.067, fOSL = 0.033, fW = 0.9) annotation(
     Placement(visible = true, transformation(origin = {-16, 12}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   inner SystemDef systemDef(hrms = {1, 3, 5, 7}) annotation(
     Placement(visible = true, transformation(origin = {-90, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -18,7 +18,7 @@ model TransformerEfficiency
   SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(extent = {{-108, -36}, {-88, -16}}, rotation = 0)));
   HPF.SinglePhase.Components.Resistor a_r1(r = 500) annotation(
-    Placement(visible = true, transformation(origin = {66, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {60, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(ground.pin, a_vSrc.pinN) annotation(
     Line(points = {{-98, -14.75}, {-98, 1}}, color = {92, 53, 102}));
@@ -39,9 +39,9 @@ equation
   connect(a_r3.pin_n, ground1.pin) annotation(
     Line(points = {{74, 8}, {116, 8}, {116, -10}, {116, -10}, {116, -10}}, color = {117, 80, 123}));
   connect(deltaWye.pinSec_A, a_r1.pin_p) annotation(
-    Line(points = {{0, 31}, {27, 31}, {27, 34}, {56, 34}}, color = {92, 53, 102}));
+    Line(points = {{0, 31}, {27, 31}, {27, 32}, {50, 32}}, color = {92, 53, 102}));
   connect(a_r1.pin_n, ground1.pin) annotation(
-    Line(points = {{76, 34}, {116, 34}, {116, -10}, {116, -10}, {116, -10}, {116, -10}}, color = {117, 80, 123}));
+    Line(points = {{70, 32}, {116, 32}, {116, -11}}, color = {117, 80, 123}));
   annotation(
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),

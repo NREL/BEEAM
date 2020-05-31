@@ -40,6 +40,7 @@ for k = 1:length(pwr)
     tmp_pwrSec(k, 1) = pwr(k).sec;
 end
 
+figure
 plot(tmp_pwrSec, losses)
 
                             

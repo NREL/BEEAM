@@ -81,8 +81,7 @@ model Scenario_1_Data_Set_1_1
     Placement(visible = true, transformation(origin={122,-114},      extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Ground ground19 annotation (
     Placement(visible = true, transformation(origin={60,-126},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Transformers.ThreePhase.DeltaWye deltaWye(
-    Rc = 8.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.067, fOSL = 0.033, fW = 0.08)
+  Transformers.ThreePhase.DeltaWye deltaWye(Rc = 1.5117e+04, Rp = 8.3300, Rs = 0.1440, Xm = 2.3311e+03, Xp = 3.3175, Xs = 0.6197, fEC = 0.067, fOSL = 0.033, fW = 0.9)
     annotation (Placement(transformation(extent={{-86,28},{-66,48}})));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
