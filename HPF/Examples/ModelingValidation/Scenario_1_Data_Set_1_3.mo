@@ -9,7 +9,7 @@ model Scenario_1_Data_Set_1_3
     Placement(visible = true, transformation(origin = {-172, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {-88, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.ThreePhase.DeltaWye deltaWye(Rc = 1.5117e+04, Rp = 8.3300, Rs = 0.1440, Xm = 2.3311e+03, Xp = 3.3175, Xs = 0.6197, fEC = 0.067, fOSL = 0.033, fW = 0.9) annotation(
+  HPF.Transformers.ThreePhase.DeltaWye_Unsymmetric deltaWye(Rc = {10609.74, 11965.56, 22777.2}, Rp = {8.3016, 8.34, 8.3574}, Rs = {1.4511E-01, 1.4292E-01, 1.4410E-01}, Xm = {2.1333e3, 2.2514e3, 2.6085e3}, Xp = {0.6197, 0.6197, 0.6197}, Xs = {0.6197, 0.6197, 0.6197}) annotation(
     Placement(visible = true, transformation(extent = {{-110, -4}, {-90, 16}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation(
     Placement(visible = true, transformation(origin = {72, -146}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -173,7 +173,7 @@ equation
   connect(Laptop_Charger_5.hPin_P, LED_Driver_3.hPin_P) annotation(
     Line(points = {{26, -110}, {-6, -110}, {-6, -14}, {34, -14}}, color = {92, 53, 102}));
   annotation(
-    Diagram(coordinateSystem(extent = {{-300, -220}, {300, 240}}, initialScale = 0.1), graphics = {Text(origin = {-80, 20}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 1 | Data Set 1.3
+    Diagram(coordinateSystem(extent = {{-300, -220}, {300, 240}}, initialScale = 0.1), graphics = {Text(origin = {-80, 20}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {236, 156}}, textString = "Scenario 1 | Data Set 1.3
 Load Phase a-n        Total Load - 300W                Load Bank (78W), LED (22W), Resistor (200W)
 Load Phase b-n        Total Load - 300W                Load Bank (78W), LED (22W), Resistor (200W)
 Load Phase c-n        Total Load - 300W                Load Bank (78W), LED (22W), Resistor (200W)", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
