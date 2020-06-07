@@ -9,13 +9,11 @@
 # Add a provision to manually remove the executable
 
 # ignore for JModelica files
-
 Scripts/**/*.mat
 Scripts/**/*.fmu
 Scripts/**/*_log.txt
 
 # ignore for OpenModelica files
-
 Scripts/**/*.c
 Scripts/**/*.h
 Scripts/**/*.o
@@ -27,4 +25,5 @@ Scripts/**/*.json
 Scripts/**/*.xml
 Scripts/**/*.exe
 
-
+# misc
+**/.fuse*

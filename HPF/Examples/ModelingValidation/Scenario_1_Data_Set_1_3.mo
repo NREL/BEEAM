@@ -9,7 +9,7 @@ model Scenario_1_Data_Set_1_3
     Placement(visible = true, transformation(origin = {-172, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground2 annotation(
     Placement(visible = true, transformation(origin = {-88, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.ThreePhase.DeltaWye_Unsymmetric deltaWye(Rc = {10609.74, 11965.56, 22777.2}, Rp = {8.3016, 8.34, 8.3574}, Rs = {1.4511E-01, 1.4292E-01, 1.4410E-01}, Xm = {2.1333e3, 2.2514e3, 2.6085e3}, Xp = {0.6197, 0.6197, 0.6197}, Xs = {0.6197, 0.6197, 0.6197}) annotation(
+  HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-110, -4}, {-90, 16}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation(
     Placement(visible = true, transformation(origin = {72, -146}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -30,7 +30,7 @@ model Scenario_1_Data_Set_1_3
   HPF.DC.DC_Load Laptop_3(pwr = 72.714547) annotation(
     Placement(visible = true, transformation(origin = {76, 36}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation(
-    Placement(visible = true, transformation(origin = {176, -64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {174, -66}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation(
     Placement(visible = true, transformation(origin = {174, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load LED_1(pwr = 27.749389) annotation(
@@ -115,7 +115,7 @@ equation
   connect(Laptop_Charger_3.hPin_N, ground6.pin) annotation(
     Line(points = {{32, 34}, {16, 34}, {16, 33.25}}, color = {117, 80, 123}));
   connect(ground16.p, dC_Load1.n) annotation(
-    Line(points = {{176, -54}, {176, -48}}, color = {0, 0, 255}));
+    Line(points = {{174, -56}, {174, -52}, {176, -52}, {176, -48}}, color = {0, 0, 255}));
   connect(Power_Supply_3.pin_n, dC_Load.n) annotation(
     Line(points = {{50, -74}, {60, -74}, {60, -82}, {70, -82}}, color = {0, 0, 255}));
   connect(Laptop_Charger_4.pin_p, dC_Load1.p) annotation(
