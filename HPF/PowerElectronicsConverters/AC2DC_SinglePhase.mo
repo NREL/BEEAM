@@ -16,7 +16,9 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
   parameter Real V_Rect(start = 0) = 1 "Rectifier DC output";
   parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power";
   parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
-  
+  parameter Modelica.SIunits.Voltage P_DCmin = 0.5 "P_DC minimum";
+  parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power";
+  // TODO: Document that a default value of zero sets the stanby power as computed by efficiency relation.
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation(
     Placement(visible = true, transformation(origin = {20, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Interface.LoadBase loadBase(start_v_re = cat(1, {nomV}, {0.0 for i in 1:systemDef.numHrm - 1}))  annotation(
@@ -28,11 +30,13 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
       Pin = Pout + alpha + beta*Pout + gamma*Pout^2
     */
   Real P_DC = abs(vDC.v * vDC.i);
-  // Input output power relation (Total input AC Power (sum over all harmonics))
-  Real P = P_DC + alpha[1, 1] + beta[1, 1] * P_DC + gamma[1, 1] * P_DC ^ 2;
+  /* Input output power relation (Total input AC Power (sum over all harmonics))
+    P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
+  */
+  Real P = HPF.PowerElectronicsConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC)*P_stby + (1 - HPF.PowerElectronicsConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC))*(P_DC + alpha[1, 1] + beta[1, 1] * P_DC + gamma[1, 1] * P_DC ^ 2);
   /*
       Measurements
-    */
+  */
   Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
@@ -45,6 +49,7 @@ model AC2DC_SinglePhase "AC to DC Converter Single Phase"
   
   // diagnostics: Check if the computed h=1 current mag matches the input surface model
   Real diag_I_mag_h1 = HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, 1, P);
+  
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation(
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 protected
@@ -79,29 +84,28 @@ algorithm
 equation
   /*
     Power draw at the fundamental
+    Power at harmonics > 1.
   */
-  //tmp_Ph[:] = Modelica.ComplexMath.real(loadBase.v[2:systemDef.numHrm] .* Modelica.ComplexMath.conj(loadBase.i[2:systemDef.numHrm]));
   tmp_Ph[:] = (loadBase.v[2:systemDef.numHrm].re .* loadBase.i[2:systemDef.numHrm].re) .+ (loadBase.v[2:systemDef.numHrm].im .* loadBase.i[2:systemDef.numHrm].im);
   P1 = P - sum(tmp_Ph);
 
   /*
     Solve for imaginary power Q_1 (fundamental). 
+    power angle is negative of the model fundamental
   */
   argS1 = - HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P);
-// power angle is negative of the model fundamental
   P1 = S1 * cos(argS1);
   Q1 = S1 * sin(argS1);
-// power flow for the fundamental
-/*
+  
+  /*
      In complex notation,
     S = P + jQ = V*conj(I)
       = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
-  */
-/*
-  //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
-  P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
-  Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-  //rewriting the power relation
+
+    //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
+    P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
+    Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    //rewriting the power relation
   */
   loadBase.i[1].re = (P1 * loadBase.v[1].re + Q1 * loadBase.v[1].im) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2);
   loadBase.i[1].im = (P1 * loadBase.v[1].im - Q1 * loadBase.v[1].re) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2);

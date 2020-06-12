@@ -15,7 +15,7 @@ addpath('../../lib')
 if exist('modelicaSim', 'var') ~= 1
     %% defining variables:
     scenario = 1;
-    dataSet = 3;
+    dataSet = 1;
 
     modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
                     '_', num2str(dataSet)];

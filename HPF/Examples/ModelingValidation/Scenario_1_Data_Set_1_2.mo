@@ -13,9 +13,9 @@ model Scenario_1_Data_Set_1_2
     Placement(transformation(extent = {{-92, -28}, {-72, -8}})));
   PowerElectronicsConverters.AC2DC_SinglePhase LED_Driver_2(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_LED_Driver_2_3D.mat", nomP = 28) annotation(
     Placement(visible = true, transformation(origin = {178, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase Power_Supply_1(V_Rect = 48, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_1_3D.mat", nomP = 1e-2) annotation(
+  PowerElectronicsConverters.AC2DC_SinglePhase Power_Supply_1(P_DCmin = 8, P_stby = 23.34,V_Rect = 48, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_1_3D.mat", nomP = 1e-2) annotation(
     Placement(visible = true, transformation(origin = {74, 78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_3(V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_3_3D.mat", nomP = 72) annotation(
+  PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_3(P_DCmin = 2, P_stby = 0.44,V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_3_3D.mat", nomP = 72) annotation(
     Placement(visible = true, transformation(origin = {76, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Load_1(pwr = 1e-2) annotation(
     Placement(visible = true, transformation(origin = {108, 74}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -43,13 +43,13 @@ model Scenario_1_Data_Set_1_2
     Placement(visible = true, transformation(origin = {108, 118}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation(
     Placement(visible = true, transformation(origin = {108, 92}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_4(V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_4_3D.mat", nomP = 72) annotation(
+  PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_4(P_DCmin = 2, P_stby = 0.33,V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_4_3D.mat", nomP = 72) annotation(
     Placement(visible = true, transformation(origin = {176, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_5(V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat", nomP = 70) annotation(
+  PowerElectronicsConverters.AC2DC_SinglePhase Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27,V_Rect = 18.5, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat", nomP = 70) annotation(
     Placement(visible = true, transformation(origin = {70, -126}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase Power_Supply_2(V_Rect = 48, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_2_3D.mat", nomP = 1e-2) annotation(
+  PowerElectronicsConverters.AC2DC_SinglePhase Power_Supply_2(P_DCmin = 10, P_stby = 4.89,V_Rect = 48, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_2_3D.mat", nomP = 1e-2) annotation(
     Placement(visible = true, transformation(origin = {178, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase Power_Supply_3(V_Rect = 48, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_3_3D.mat", nomP = 1e-2) annotation(
+  PowerElectronicsConverters.AC2DC_SinglePhase Power_Supply_3(P_DCmin = 10, P_stby = 17.7, V_Rect = 48, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_3_3D.mat", nomP = 1e-2) annotation(
     Placement(visible = true, transformation(origin = {74, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Load_2(pwr = 1e-2) annotation(
     Placement(visible = true, transformation(origin = {210, -2}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));

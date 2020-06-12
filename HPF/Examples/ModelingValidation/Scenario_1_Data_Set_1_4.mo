@@ -27,11 +27,11 @@ model Scenario_1_Data_Set_1_4
       modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_LED_Driver_2_3D.mat",
     nomP=28)                                                                                                                                                                         annotation (
     Placement(visible = true, transformation(origin={146,50},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase     Power_Supply_1(V_Rect=48,
+  PowerElectronicsConverters.AC2DC_SinglePhase     Power_Supply_1(P_DCmin = 8, P_stby = 23.34,V_Rect=48,
       modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_1_3D.mat",
     nomP=400)                                                                                                                                                                            annotation (
     Placement(visible = true, transformation(origin={42,80},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase     Laptop_Charger_3(V_Rect=
+  PowerElectronicsConverters.AC2DC_SinglePhase     Laptop_Charger_3(P_DCmin = 2, P_stby = 0.44,V_Rect=
         18.5, modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_3_3D.mat",
     nomP=72)                                                                                                                                                                                   annotation (
     Placement(visible = true, transformation(origin={44,32},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -63,19 +63,19 @@ model Scenario_1_Data_Set_1_4
     Placement(visible = true, transformation(origin={76,120},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
     Placement(visible = true, transformation(origin={76,94},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase     Laptop_Charger_4(V_Rect=
+  PowerElectronicsConverters.AC2DC_SinglePhase     Laptop_Charger_4(P_DCmin = 2, P_stby = 0.33,V_Rect=
         18.5, modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_4_3D.mat",
     nomP=72)                                                                                                                                                                                   annotation (
     Placement(visible = true, transformation(origin={144,-42},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase     Laptop_Charger_5(V_Rect=
+  PowerElectronicsConverters.AC2DC_SinglePhase     Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27,V_Rect=
         18.5, modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_5_3D.mat",
     nomP=72)                                                                                                                                                                                   annotation (
     Placement(visible = true, transformation(origin={38,-124},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase     Power_Supply_2(V_Rect=48,
+  PowerElectronicsConverters.AC2DC_SinglePhase     Power_Supply_2(P_DCmin = 10, P_stby = 4.89,V_Rect=48,
       modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_2_3D.mat",
     nomP=400)                                                                                                                                                                            annotation (
     Placement(visible = true, transformation(origin={146,4},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerElectronicsConverters.AC2DC_SinglePhase     Power_Supply_3(V_Rect=48,
+  PowerElectronicsConverters.AC2DC_SinglePhase     Power_Supply_3(P_DCmin = 10, P_stby = 17.7,V_Rect=48,
       modelFileName="HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Power_Supply_3_3D.mat",
     nomP=400)                                                                                                                                                                            annotation (
     Placement(visible = true, transformation(origin={42,-76},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
