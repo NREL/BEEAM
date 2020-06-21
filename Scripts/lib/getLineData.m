@@ -2,7 +2,14 @@
 % scnDataDirPath: path to the scenario data dir containing the processed harmonics
 % qPh: query phase; options, 'A', 'B', 'C'
 % qSide: query side; options, 'primary', 'secondary'
-function s = getLineData(scnDataDirPath, qPh, qSide)
+% dataSel: select type of data to be read. Options: 'harmonics', 'waveform'
+% 06/19/2020: adding support to get waveform data.
+%             Maintaining legacy usage
+function s = getLineData(scnDataDirPath, qPh, qSide, dataSel)
+
+if nargin < 4
+    dataSel = 'harmonics'; % maintains legacy usage of the function
+end
 
 % Two power analyzers are connected as follows:
 % Power Analyzer 1:
@@ -29,7 +36,12 @@ function s = getLineData(scnDataDirPath, qPh, qSide)
 % Secondary : PA_2_harmonics.csv
 % query side
 if strcmp(qSide, 'primary') == 1
-    dataFileName = 'PA_1_harmonics.csv';
+    % read processed harmonics or waveforms data
+    if strcmp(dataSel, 'harmonics') == 1
+        dataFileName = 'PA_1_harmonics.csv';
+    elseif strcmp(dataSel, 'waveform') == 1
+        dataFileName = 'PA_1_wave_forms_one_cycle.csv';
+    end
     % query channel
     if strcmp(qPh, 'A') == 1
         channel = 1;
@@ -41,7 +53,11 @@ if strcmp(qSide, 'primary') == 1
 
     end
 elseif strcmp(qSide, 'secondary') == 1
-    dataFileName = 'PA_2_harmonics.csv';
+    if strcmp(dataSel, 'harmonics') == 1
+        dataFileName = 'PA_2_harmonics.csv';
+    elseif strcmp(dataSel, 'waveform') == 1
+        dataFileName = 'PA_2_wave_forms_one_cycle.csv';
+    end
     % query channel
     if strcmp(qPh, 'A') == 1
         channel = 2;
@@ -61,6 +77,9 @@ fileName = [scnDataDirPath, dataFileName];
 % 
 % fileData = readcell(fileName);
 
-s = getChannelData(fileName, channel, 40);
-
+if strcmp(dataSel, 'harmonics') == 1
+    s = getChannelData(fileName, channel, 40);
+elseif strcmp(dataSel, 'waveform') == 1
+    s = getChannelDataWaveform(fileName, channel);
+end
 

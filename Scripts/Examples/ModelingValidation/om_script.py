@@ -25,7 +25,7 @@ cmdOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateS
 
 # run simulation
 scenario = 1
-dataSet = 1
+dataSet = 6
 
 model = "HPF.Examples.ModelingValidation.Scenario_" + str(scenario) + \
             "_Data_Set_" + str(scenario) + "_" + str(dataSet)

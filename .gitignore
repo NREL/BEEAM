@@ -27,3 +27,5 @@ Scripts/**/*.exe
 
 # misc
 **/.fuse*
+# temporary matlab scripts
+**/tmpScript*
