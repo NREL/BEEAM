@@ -15,7 +15,7 @@ addpath('../../lib')
 if exist('modelicaSim', 'var') ~= 1
     %% defining variables:
     scenario = 1;
-    dataSet = 3;
+    dataSet = 4;
 
     modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
                     '_', num2str(dataSet)];
@@ -265,45 +265,14 @@ xlabel('Time (seconds)')
 ylabel('Current (A)')
 grid on
 
-%% plotting harmonics, phase B, primary
+%% plotting harmonics, phase B
 figure
-subplot(2, 2, 1)
+subplot(2, 1, 1)
 stem(h, msrData.prim.phB.i.mag(h))
 hold on
 stem(h, inputVoltageSource.phB.i.mag)
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
-grid on
 
-subplot(2, 2, 3)
-plot(h, unwrap(msrData.prim.phA.i.arg(h)))
+subplot(2, 1, 2)
+plot(unwrap(msrData.prim.phA.i.arg))
 hold on
-plot(h, unwrap(inputVoltageSource.phA.i.arg))
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
-grid on
-
-% plotting harmonics, phase B, primary
-subplot(2, 2, 2)
-stem(h, msrData.sec.phB.i.mag(h))
-hold on
-stem(h, simData.sec.phB.i.mag)
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
-grid on
-
-subplot(2, 2, 4)
-plot(h, unwrap(msrData.sec.phA.i.arg(h)))
-hold on
-plot(h, unwrap(simData.sec.phB.i.arg))
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
-grid on
+plot(unwrap(inputVoltageSource.phA.i.arg))

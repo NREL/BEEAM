@@ -59,7 +59,7 @@ s.Q = imag(sum(s.S));
 s.D = 0;
 
 % computing waveforms
-N = 1302;
+N = 257;
 s.v.wv = getTimeWvform(s.v.mag, s.v.arg, N);
 s.i.wv = getTimeWvform(s.i.mag, s.i.arg, N);
 
