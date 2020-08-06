@@ -1,4 +1,4 @@
-within HPF.Documentation;
+within HPF.UsersGuide;
 package Usage
   extends Modelica.Icons.Information;
 

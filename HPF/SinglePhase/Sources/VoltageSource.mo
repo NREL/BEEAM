@@ -1,5 +1,4 @@
 within HPF.SinglePhase.Sources;
-
 model VoltageSource "Voltage Source"
   /*
       Constant voltage source.
@@ -39,7 +38,7 @@ equation
    */
   v[:].re = vMag[1:systemDef.numHrm] .* cos(vArg[1:systemDef.numHrm]);
   v[:].im = vMag[1:systemDef.numHrm] .* sin(vArg[1:systemDef.numHrm]);
-  annotation(
+  annotation (
     defaultComponentName = "v",
     Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics = {Ellipse(extent = {{-48, 50}, {48, -50}}, endAngle = 360), Line(origin = {-69, 0}, points = {{-21, 0}, {21, 0}}), Line(origin = {69, 0}, points = {{-21, 0}, {21, 0}}), Line(origin = {-8.2246, 18.6487}, points = {{8.50128, 21.0747}, {2.50128, 19.0747}, {-5.49872, 13.0747}, {-9.49872, 7.07465}, {-11.4987, -0.925349}, {-9.49872, -6.92535}, {-5.49872, -10.9253}, {0.501285, -14.9253}, {6.50128, -18.9253}, {8.50128, -18.9253}, {8.5013, -18.9253}}), Line(origin = {7.309, -18.9402}, rotation = 180, points = {{8.50128, 21.0747}, {2.50128, 19.0747}, {-5.49872, 13.0747}, {-9.49872, 7.07465}, {-11.4987, -0.925349}, {-9.49872, -6.92535}, {-5.49872, -10.9253}, {0.501285, -14.9253}, {6.50128, -18.9253}, {8.50128, -18.9253}, {8.5013, -18.9253}}), Text(origin = {6, 75}, rotation = 90, extent = {{-14, 27}, {172, -11}}, textString = "%name", horizontalAlignment = TextAlignment.Left)}),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),

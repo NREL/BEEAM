@@ -19,30 +19,30 @@ model ToyMdl
     Placement(visible = true, transformation(origin = {54, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground4 annotation (
     Placement(visible = true, transformation(origin = {114, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Test.ConvergenceAnalysis.Tfmr T(Rc = 3.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.0670, fOSL = 0.0330, fW = 0.9, nomV_prim = 480) annotation(
+  HPF.Test.ConvergenceAnalysis.Tfmr T(Rc = 3.7626e+03, Rp = 2.7672, Rs = 0.2576, Xm = 711.1091, Xp = 1.1006, Xs = 0.5003, fEC = 0.0670, fOSL = 0.0330, fW = 0.9, nomV_prim = 480) annotation (
     Placement(visible = true, transformation(origin = {-68, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(laptop.n, ground2.p) annotation(
+  connect(laptop.n, ground2.p) annotation (
     Line(points = {{74, -24}, {74, -28}}, color = {0, 0, 255}));
-  connect(a_vSrc.pin_n, ground1.pin) annotation(
+  connect(a_vSrc.pin_n, ground1.pin) annotation (
     Line(points = {{-122, -4}, {-122, -28.75}}, color = {117, 80, 123}));
-  connect(conv.pin_n, laptop.n) annotation(
+  connect(conv.pin_n, laptop.n) annotation (
     Line(points = {{44, -16}, {44, -24}, {74, -24}}, color = {0, 0, 255}));
-  connect(conv.pin_p, laptop.p) annotation(
+  connect(conv.pin_p, laptop.p) annotation (
     Line(points = {{44, -4}, {74, -4}}, color = {0, 0, 255}));
-  connect(conv.hPin_N, ground.pin) annotation(
+  connect(conv.hPin_N, ground.pin) annotation (
     Line(points = {{24, -16}, {-50, -16}, {-50, -26.75}}, color = {117, 80, 123}));
-  connect(Z.pin_n, ground4.pin) annotation(
+  connect(Z.pin_n, ground4.pin) annotation (
     Line(points = {{64, 26}, {114, 26}, {114, 15.25}}, color = {117, 80, 123}));
-  connect(a_vSrc.pin_p, T.pinP_prim) annotation(
+  connect(a_vSrc.pin_p, T.pinP_prim) annotation (
     Line(points = {{-122, 16}, {-122, 26}, {-78, 26}}, color = {92, 53, 102}));
-  connect(T.pinP_sec, Z.pin_p) annotation(
+  connect(T.pinP_sec, Z.pin_p) annotation (
     Line(points = {{-58, 26}, {44, 26}}, color = {92, 53, 102}));
-  connect(T.pinN_prim, ground1.pin) annotation(
+  connect(T.pinN_prim, ground1.pin) annotation (
     Line(points = {{-78, 6}, {-92, 6}, {-92, -16}, {-122, -16}, {-122, -28}}, color = {117, 80, 123}));
-  connect(T.pinN_sec, ground.pin) annotation(
+  connect(T.pinN_sec, ground.pin) annotation (
     Line(points = {{-58, 6}, {-50, 6}, {-50, -26}, {-50, -26}, {-50, -26}}, color = {117, 80, 123}));
-  connect(conv.hPin_P, T.pinP_sec) annotation(
+  connect(conv.hPin_P, T.pinP_sec) annotation (
     Line(points = {{24, -4}, {-18, -4}, {-18, 26}, {-58, 26}, {-58, 26}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}, initialScale = 0.1), graphics={  Text(origin = {-27, 116}, extent = {{-101, 10}, {101, -10}}, textString = "Toy model:

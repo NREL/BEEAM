@@ -1,5 +1,4 @@
 within HPF.Utilities;
-
 function interpolateBilinear
   extends Modelica.Icons.Function;
   /*
@@ -81,6 +80,6 @@ algorithm
   y1 := Y[j, i];
   y2 := Y[j + 1, i];
   z_q := (f_xi_yi * (x2 - x_q) * (y2 - y_q) + f_xin_yi * (x_q - x1) * (y2 - y_q) + f_xi_yin * (x2 - x_q) * (y_q - y1) + f_xin_yin * (x_q - x1) * (y_q - y1)) / ((x2 - x1) * (y2 - y1));
-  annotation(
+  annotation (
     Documentation(info = "<html><head></head><body>Perform 2D interpolation.<div><br></div><div>Ouput is a single interpolated point corresponding to the x and y query values.</div><div><br></div><div>Input data is in MATLAB/Octave meshgrid format.</div></body></html>"));
 end interpolateBilinear;

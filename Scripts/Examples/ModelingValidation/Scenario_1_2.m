@@ -15,7 +15,7 @@ addpath('../../lib')
 if exist('modelicaSim', 'var') ~= 1
     %% defining variables:
     scenario = 1;
-    dataSet = 3;
+    dataSet = 1;
 
     modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
                     '_', num2str(dataSet)];
@@ -184,126 +184,125 @@ msrData.sec.phC.wvData = getLineData(fileName, 'C', 'secondary', 'waveform');
 % Waveforms from the measurements were not aligned with the simulation.
 % performing necessary phase shits on the simulated data
 N = 257;
+% struct for phase corrected simulation time domain waveform
+simData = struct();
 tmpPhAdj_phA = phaseShift(inputVoltageSource.phA.i.arg, h, deg2rad(-120));
-wv_phA = getTimeWvform(inputVoltageSource.phA.i.mag, tmpPhAdj_phA, N);
+simData.prim.phA.i.wv = getTimeWvform(inputVoltageSource.phA.i.mag, tmpPhAdj_phA, N);
 tmpPhAdj_phB = phaseShift(inputVoltageSource.phB.i.arg, h, deg2rad(-120));
-wv_phB = getTimeWvform(inputVoltageSource.phB.i.mag, tmpPhAdj_phB, N);
+simData.prim.phB.i.wv = getTimeWvform(inputVoltageSource.phB.i.mag, tmpPhAdj_phB, N);
 tmpPhAdj_phC = phaseShift(inputVoltageSource.phC.i.arg, h, deg2rad(-120));
-wv_phC = getTimeWvform(inputVoltageSource.phC.i.mag, tmpPhAdj_phC, N);
+simData.prim.phC.i.wv = getTimeWvform(inputVoltageSource.phC.i.mag, tmpPhAdj_phC, N);
 % time data from the measurements is in a weird decreasing order starting 
 % at -0.5 seconds. Correcting time data.
 wv_time = msrData.prim.phA.wvData.time - msrData.prim.phA.wvData.time(1);
+
 figure
+% primary
+subplot(3, 2, 1)
 plot(wv_time, msrData.prim.phA.wvData.wv.i)
 hold on
-plot(wv_time, wv_phA)
+plot(wv_time, simData.prim.phA.i.wv)
 legend('Measured', 'Simulation')
 title('Phase A, primary (current)')
-xlabel('Time (seconds)')
 ylabel('Current (A)')
 grid on
 
-figure
+subplot(3, 2, 3)
 plot(wv_time, msrData.prim.phB.wvData.wv.i)
 hold on
-plot(wv_time, wv_phB)
+plot(wv_time, simData.prim.phB.i.wv)
 legend('Measured', 'Simulation')
 title('Phase B, primary (current)')
-xlabel('Time (seconds)')
-ylabel('Current (A)')
 grid on
 
-figure
+subplot(3, 2, 5)
 plot(wv_time, msrData.prim.phC.wvData.wv.i)
 hold on
-plot(wv_time, wv_phC)
+plot(wv_time, simData.prim.phC.i.wv)
 legend('Measured', 'Simulation')
 title('Phase C, primary (current)')
 xlabel('Time (seconds)')
 ylabel('Current (A)')
 grid on
 
-%% reading secondary side current from transformer secondary winding impedance
+% secondary
+% reading secondary side current from transformer secondary winding impedance
 simData.sec.phA = twoPin_device(numHrm, res.deltaWye.T1.Zs);
 simData.sec.phB = twoPin_device(numHrm, res.deltaWye.T2.Zs);
 simData.sec.phC = twoPin_device(numHrm, res.deltaWye.T3.Zs);
 % phase adjust on simulated data
 tmpPhAdj_phA = phaseShift(simData.sec.phA.i.arg, h, deg2rad(0));
-wv_phA = getTimeWvform(simData.sec.phA.i.mag, tmpPhAdj_phA, N);
+simData.sec.phA.i.wv = getTimeWvform(simData.sec.phA.i.mag, tmpPhAdj_phA, N);
 tmpPhAdj_phB = phaseShift(simData.sec.phB.i.arg, h, deg2rad(120));
-wv_phB = getTimeWvform(simData.sec.phB.i.mag, tmpPhAdj_phB, N);
+simData.sec.phB.i.wv = getTimeWvform(simData.sec.phB.i.mag, tmpPhAdj_phB, N);
 tmpPhAdj_phC = phaseShift(simData.sec.phC.i.arg, h, deg2rad(-120));
-wv_phC = getTimeWvform(simData.sec.phC.i.mag, tmpPhAdj_phC, N);
+simData.sec.phC.i.wv = getTimeWvform(simData.sec.phC.i.mag, tmpPhAdj_phC, N);
 
-figure
-plot(msrData.sec.phA.wvData.wv.i)
+subplot(3, 2, 2)
+plot(wv_time, msrData.sec.phA.wvData.wv.i)
 hold on
-plot(wv_phA)
+plot(wv_time, simData.sec.phA.i.wv)
 legend('Measured', 'Simulation')
 title('Phase A, secondary (current)')
-xlabel('Time (seconds)')
 ylabel('Current (A)')
 grid on
 
-figure
-plot(msrData.sec.phB.wvData.wv.i)
+subplot(3, 2, 4)
+plot(wv_time, msrData.sec.phB.wvData.wv.i)
 hold on
-plot(wv_phB)
+plot(wv_time, simData.sec.phB.i.wv)
 legend('Measured', 'Simulation')
 title('Phase B, secondary (current)')
-xlabel('Time (seconds)')
 ylabel('Current (A)')
 grid on
 
-figure
-plot(msrData.sec.phC.wvData.wv.i)
+subplot(3, 2, 6)
+plot(wv_time, msrData.sec.phC.wvData.wv.i)
 hold on
-plot(wv_phC)
+plot(wv_time, simData.sec.phC.i.wv)
 legend('Measured', 'Simulation')
 title('Phase C, secondary (current)')
 xlabel('Time (seconds)')
 ylabel('Current (A)')
 grid on
 
-%% plotting harmonics, phase B, primary
+%% averaging over three phases
+% overall harmonic content validation
+avgData = struct();
+avgData.msr.prim.i.mag = mean([msrData.prim.phA.i.mag(h), msrData.prim.phB.i.mag(h), ...
+                            msrData.prim.phC.i.mag(h)], 2);
+                        
+avgData.sim.prim.i.mag = mean([inputVoltageSource.phA.i.mag', inputVoltageSource.phB.i.mag', ...
+                        inputVoltageSource.phC.i.mag'], 2);
+% plotting harmonics
 figure
-subplot(2, 2, 1)
-stem(h, msrData.prim.phB.i.mag(h))
+stem(h, avgData.msr.prim.i.mag)
 hold on
-stem(h, inputVoltageSource.phB.i.mag)
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
+stem(h, avgData.sim.prim.i.mag)
+title('Harmoncis - Average over three phases')
+xlabel('Harmoncis')
 ylabel('Current (A rms)')
-grid on
+legend('Measured', 'Simulation')
 
-subplot(2, 2, 3)
-plot(h, unwrap(msrData.prim.phA.i.arg(h)))
-hold on
-plot(h, unwrap(inputVoltageSource.phA.i.arg))
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
-grid on
+% plotting waveform
+% using measured harmonic phase angles
+avgData.msr.prim.i.wv = getTimeWvform(avgData.msr.prim.i.mag, msrData.prim.phA.i.arg(h), N);
+avgData.sim.prim.i.wv = getTimeWvform(avgData.sim.prim.i.mag, msrData.prim.phA.i.arg(h), N);
 
-% plotting harmonics, phase B, primary
-subplot(2, 2, 2)
-stem(h, msrData.sec.phB.i.mag(h))
+figure
+plot(wv_time, avgData.msr.prim.i.wv)
 hold on
-stem(h, simData.sec.phB.i.mag)
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
+plot(wv_time, avgData.sim.prim.i.wv)
 grid on
+xlabel('Time (seconds)')
+ylabel('Current (A)')
+title('Time domain waveform - Average')
+legend('Measured', 'Simulation')
 
-subplot(2, 2, 4)
-plot(h, unwrap(msrData.sec.phA.i.arg(h)))
-hold on
-plot(h, unwrap(simData.sec.phB.i.arg))
-legend('Measured', 'Simulation')
-title('Phase B, primary (current)')
-xlabel('Harmonics')
-ylabel('Current (A rms)')
-grid on
+
+
+
+
+
+
+

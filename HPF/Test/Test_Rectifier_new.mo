@@ -21,28 +21,28 @@ model Test_Rectifier_new
     Placement(visible = true, transformation(origin = {10, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground4 annotation (
     Placement(visible = true, transformation(origin = {78, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerElectronicsConverters.AC2DC_SinglePhase_New aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_4_3D.mat")  annotation(
+  HPF.PowerElectronicsConverters.AC2DC_SinglePhase_New aC2DC_SinglePhase_New(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_4_3D.mat")  annotation (
     Placement(visible = true, transformation(origin = {8, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(v.pin_n, ground1.pin) annotation(
+  connect(v.pin_n, ground1.pin) annotation (
     Line(points = {{-120, -20}, {-120, -30}}, color = {117, 80, 123}));
-  connect(laptop.n, ground2.p) annotation(
+  connect(laptop.n, ground2.p) annotation (
     Line(points = {{46, -50}, {46, -54}}, color = {0, 0, 255}));
-  connect(v.pin_p, z.pin_p) annotation(
+  connect(v.pin_p, z.pin_p) annotation (
     Line(points = {{-120, 0}, {-92, 0}}));
-  connect(z.pin_n, currentSensor.pin_p) annotation(
+  connect(z.pin_n, currentSensor.pin_p) annotation (
     Line(points = {{-72, 0}, {-46, 0}, {-46, -10}}, color = {117, 80, 123}));
-  connect(z.pin_n, z1.pin_p) annotation(
+  connect(z.pin_n, z1.pin_p) annotation (
     Line(points = {{-72, 0}, {0, 0}}, color = {117, 80, 123}));
-  connect(z1.pin_n, ground4.pin) annotation(
+  connect(z1.pin_n, ground4.pin) annotation (
     Line(points = {{20, 0}, {78, 0}, {78, -44}, {78, -44}}, color = {117, 80, 123}));
-  connect(aC2DC_SinglePhase_New.pin_p, laptop.p) annotation(
+  connect(aC2DC_SinglePhase_New.pin_p, laptop.p) annotation (
     Line(points = {{18, -28}, {46, -28}, {46, -30}}, color = {0, 0, 255}));
-  connect(aC2DC_SinglePhase_New.pin_n, laptop.n) annotation(
+  connect(aC2DC_SinglePhase_New.pin_n, laptop.n) annotation (
     Line(points = {{18, -40}, {26, -40}, {26, -50}, {46, -50}}, color = {0, 0, 255}));
-  connect(currentSensor.pin_n, aC2DC_SinglePhase_New.hPin_P) annotation(
+  connect(currentSensor.pin_n, aC2DC_SinglePhase_New.hPin_P) annotation (
     Line(points = {{-46, -30}, {-2, -30}, {-2, -28}, {-2, -28}}, color = {117, 80, 123}));
-  connect(aC2DC_SinglePhase_New.hPin_N, ground.pin) annotation(
+  connect(aC2DC_SinglePhase_New.hPin_N, ground.pin) annotation (
     Line(points = {{-2, -40}, {-26, -40}, {-26, -48}}, color = {117, 80, 123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),

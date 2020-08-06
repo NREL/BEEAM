@@ -8,7 +8,7 @@ model Scenario_1_Data_Set_1_3
     Placement(visible = true, transformation(origin={-32, -22},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:7}) annotation (
     Placement(visible = true, transformation(origin={-176, 60},    extent = {{-14, -14}, {14, 10}}, rotation = 0)));
-  HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA ={0.52406, 5.0908, 2.7353, -1.0003, 0.97323, 0.42852, 2.9318, 3.273, 3.1779, 1.0524, -0.90651, 0.38665, 4.8192, 0.51793, 5.138},vArg_phB ={4.712, 2.6669, 0.37275, 3.1562, 0.56625, 2.7166, 0.39734, 1.9367, -0.98733, 4.6398, 1.562, 1.6431, 2.5776, 2.5043, 0.82506},vArg_phC ={2.6181, 0.43059, 4.5456, 0.73198, 3.8644, 4.6169, 5.1979, -0.47092, 1.0167, 3.0367, 4.0791, 4.1524, -0.091213, -0.89305, 2.7012},vMag_phA ={281.6797, 0.51434, 0.3247, 0.78514, 0.16922, 0.96932, 0.48741, 0.064592, 0.43814, 0.13655, 0.028123, 0.098279, 0.028236, 0.0057443, 0.09023},vMag_phB ={281.6536, 0.65391, 0.36748, 1.1786, 0.27284, 0.88682, 0.37492, 0.055632, 0.40086, 0.12545, 0.045425, 0.098068, 0.06053, 0.022172, 0.061761},vMag_phC ={281.4759, 0.44087, 0.26515, 1.0144, 0.43251, 0.77137, 0.2798, 0.095414, 0.4125, 0.058608, 0.028499, 0.1592, 0.048177, 0.021064, 0.087493}) annotation (
+  HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA= {0.52406, 5.0908, 2.7353, -1.0003, 0.97323, 0.42852, 2.9318, 3.273, 3.1779, 1.0524, -0.90651, 0.38665, 4.8192, 0.51793, 5.138},vArg_phB= {4.712, 2.6669, 0.37275, 3.1562, 0.56625, 2.7166, 0.39734, 1.9367, -0.98733, 4.6398, 1.562, 1.6431, 2.5776, 2.5043, 0.82506},vArg_phC= {2.6181, 0.43059, 4.5456, 0.73198, 3.8644, 4.6169, 5.1979, -0.47092, 1.0167, 3.0367, 4.0791, 4.1524, -0.091213, -0.89305, 2.7012},vMag_phA= {281.6797, 0.51434, 0.3247, 0.78514, 0.16922, 0.96932, 0.48741, 0.064592, 0.43814, 0.13655, 0.028123, 0.098279, 0.028236, 0.0057443, 0.09023},vMag_phB= {281.6536, 0.65391, 0.36748, 1.1786, 0.27284, 0.88682, 0.37492, 0.055632, 0.40086, 0.12545, 0.045425, 0.098068, 0.06053, 0.022172, 0.061761},vMag_phC= {281.4759, 0.44087, 0.26515, 1.0144, 0.43251, 0.77137, 0.2798, 0.095414, 0.4125, 0.058608, 0.028499, 0.1592, 0.048177, 0.021064, 0.087493}) annotation (
     Placement(visible = true, transformation(origin={-184, 0},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerElectronicsConverters.AC2DC_SinglePhase_InitiMdl LED_Driver_2(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_LED_Driver_2_3D.mat", nomP = 30) annotation (
     Placement(visible = true, transformation(origin={152, 14},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -97,7 +97,7 @@ equation
     Line(points = {{60, 2}, {84, 2}}, color = {0, 0, 255}));
   connect(Laptop_Charger_3.hPin_N, ground6.pin) annotation (
     Line(points = {{40, -10}, {24, -10}, {24, -22}}, color = {117, 80, 123}));
-  connect(iMsr_prim_PhA.pin_n, deltaWye.pinPrim_A) annotation(
+  connect(iMsr_prim_PhA.pin_n, deltaWye.pinPrim_A) annotation (
     Line(points = {{-90, 10}, {-73, 10}, {-73, 16}, {-60, 16}}, color = {117, 80, 123}));
   connect(LED_Driver_2.pin_p, LED_2.p) annotation (
     Line(points = {{162, 20}, {182, 20}}, color = {0, 0, 255}));
@@ -143,29 +143,29 @@ equation
     Line(points = {{160, -84}, {180, -84}, {180, -88}, {184, -88}, {184, -92}}, color = {0, 0, 255}));
   connect(ground16.p, dC_Load1.n) annotation (
     Line(points = {{184, -98}, {184, -92}}, color = {0, 0, 255}));
-  connect(deltaWye.pinSec_N, ground2.pin) annotation(
+  connect(deltaWye.pinSec_N, ground2.pin) annotation (
     Line(points = {{-27, -19}, {-32, -19}, {-32, -22}}, color = {117, 80, 123}));
   connect(Power_Supply_1.pin_n, Load_1.n) annotation (
     Line(points = {{58, 38}, {78, 38}, {78, 30}, {82, 30}}, color = {0, 0, 255}));
   connect(Power_Supply_3.pin_n, dC_Load.n) annotation (
     Line(points = {{58, -118}, {68, -118}, {68, -126}, {78, -126}}, color = {0, 0, 255}));
-  connect(LED_Driver_1.hPin_P, deltaWye.pinSec_A) annotation(
+  connect(LED_Driver_1.hPin_P, deltaWye.pinSec_A) annotation (
     Line(points = {{40, 94}, {0, 94}, {0, 19}, {-27, 19}}, color = {92, 53, 102}));
-  connect(Power_Supply_1.hPin_P, deltaWye.pinSec_A) annotation(
+  connect(Power_Supply_1.hPin_P, deltaWye.pinSec_A) annotation (
     Line(points = {{38, 50}, {0, 50}, {0, 19}, {-27, 19}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_3.hPin_P, deltaWye.pinSec_A) annotation(
+  connect(Laptop_Charger_3.hPin_P, deltaWye.pinSec_A) annotation (
     Line(points = {{40, 2}, {0, 2}, {0, 19}, {-27, 19}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_B, LED_Driver_2.hPin_P) annotation(
+  connect(deltaWye.pinSec_B, LED_Driver_2.hPin_P) annotation (
     Line(points = {{-27, 6}, {-10, 6}, {-10, -46}, {102, -46}, {102, 20}, {142, 20}}, color = {92, 53, 102}));
-  connect(iMsr_prim_PhC.pin_n, deltaWye.pinPrim_C) annotation(
+  connect(iMsr_prim_PhC.pin_n, deltaWye.pinPrim_C) annotation (
     Line(points = {{-84, -10}, {-70, -10}, {-70, -16}, {-60, -16}}, color = {117, 80, 123}));
-  connect(iMsr_prim_PhB.pin_n, deltaWye.pinPrim_B) annotation(
+  connect(iMsr_prim_PhB.pin_n, deltaWye.pinPrim_B) annotation (
     Line(points = {{-62, 0}, {-60, 0}}, color = {117, 80, 123}));
   connect(Power_Supply_3.hPin_P, LED_Driver_3.hPin_P) annotation (
     Line(points = {{38, -106}, {-20, -106}, {-20, -58}, {42, -58}}, color = {92, 53, 102}));
   connect(Laptop_Charger_5.hPin_P, LED_Driver_3.hPin_P) annotation (
     Line(points = {{34, -154}, {-20, -154}, {-20, -58}, {42, -58}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation(
+  connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation (
     Line(points = {{-27, -6}, {-20, -6}, {-20, -58}, {42, -58}}, color = {92, 53, 102}));
   connect(LED_Driver_1.hPin_N, ground6.pin) annotation (
     Line(points = {{40, 82}, {24, 82}, {24, -22}}, color = {117, 80, 123}));
@@ -197,9 +197,9 @@ equation
     Line(points = {{-114, -48}, {-114, -8}, {-174, -8}}, color = {92, 53, 102}));
   connect(vMsr_CA.pin_n, voltageSource.pinP_phA) annotation (
     Line(points = {{-114, -68}, {-114, -72}, {-170, -72}, {-170, 6}, {-174, 6}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_B, Power_Supply_2.hPin_P) annotation(
+  connect(deltaWye.pinSec_B, Power_Supply_2.hPin_P) annotation (
     Line(points = {{-27, 6}, {-10, 6}, {-10, -46}, {102, -46}, {102, -26}, {142, -26}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_4.hPin_P, deltaWye.pinSec_B) annotation(
+  connect(Laptop_Charger_4.hPin_P, deltaWye.pinSec_B) annotation (
     Line(points = {{140, -72}, {102, -72}, {102, -46}, {-10, -46}, {-10, 6}, {-27, 6}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics={Text(origin = {-8, -24}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 1 | Data Set 1.3

@@ -154,16 +154,16 @@ package Interface
     parameter Real start_v_im_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part (primary)";
     parameter Real start_i_re_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part (primary)";
     parameter Real start_i_im_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part (primary)";
-    
+
       parameter Real start_v_re_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part (secondary)";
     parameter Real start_v_im_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part (secondary)";
     parameter Real start_i_re_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part (secondary)";
     parameter Real start_i_im_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part (secondary)";
-    
-    Complex vPrim[systemDef.numHrm] (re(start = start_v_re_prim, each fixed = false), im(start = start_v_im_prim, each fixed = false))  "Complex voltage primary winding";
-    Complex iPrim[systemDef.numHrm] (re(start = start_i_re_prim), im(start = start_i_im_prim)) "Complex current primary winding";
-    Complex vSec[systemDef.numHrm] (re(start = start_i_re_sec, each fixed = false), im(start = start_i_im_sec, each fixed = false)) "Complex voltage secondary winding";
-    Complex iSec[systemDef.numHrm] (re(start = start_i_re_sec), im(start = start_i_im_sec)) "Complex current secondary winding";
+
+    Complex vPrim[systemDef.numHrm]( re(start = start_v_re_prim, each fixed = false), im(start = start_v_im_prim, each fixed = false))  "Complex voltage primary winding";
+    Complex iPrim[systemDef.numHrm]( re(start = start_i_re_prim), im(start = start_i_im_prim)) "Complex current primary winding";
+    Complex vSec[systemDef.numHrm]( re(start = start_i_re_sec, each fixed = false), im(start = start_i_im_sec, each fixed = false)) "Complex voltage secondary winding";
+    Complex iSec[systemDef.numHrm]( re(start = start_i_re_sec), im(start = start_i_im_sec)) "Complex current secondary winding";
     HPF.SinglePhase.Interface.HPin_P pinP_Prim(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-100, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pinN_Prim(h = systemDef.numHrm) annotation (

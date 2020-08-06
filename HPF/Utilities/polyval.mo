@@ -1,5 +1,4 @@
 within HPF.Utilities;
-
 function polyval
   /*
                                           Polynomial evaluation of the form,
@@ -12,7 +11,7 @@ function polyval
   output Real y;
 algorithm
   y := a[:] * {x ^ i for i in size(a[:], 1) - 1:(-1):0};
-  annotation(
+  annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
     Documentation(info = "<html>

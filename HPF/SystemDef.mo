@@ -56,14 +56,23 @@ algorithm
             horizontalAlignment=TextAlignment.Left,
           textString="Sampling Freq=%fs",
           lineColor={0,0,0})}),
-    Documentation(info = "<html><head></head><body>
-  <div><br></div>
-  <div><u> Example </u></div>
-  hrms is a vector. User specifies all the harmonics to be simulated as a c/c++ style single dimensional array.absoluteValue = 
-  <br>
-  Example: For simulating the first three odd harmonics, <br> 
-  hrms = {1, 3, 5}
-  
-  <div><br></div><br></body></html>"),
+    Documentation(info="<html>
+<p><br><span style=\"font-family: Courier New;\">SystemDef </span>is the top level block in an HPF model. The block has parameter fields for defining system-wide options and simulation settings. In a typical harmonics analysis simulation, major simulation parameters are:</p>
+<p>Parameter fields available in the block are:</p>
+<ul>
+<li>Harmonics: This determines the accuracy of the simulation (Higher the better).</li>
+<li>Fundamental frequency (60hz default)</li>
+<li>Sampling frequency</li>
+</ul>
+<p><br>Modelica determines the total number of harmonics from the harmonics vector. A simulation with a large number of harmonics results in increased accuracy with the tradeoff of increased simulation time and system complexity.</p>
+<h4>Note:</h4>
+<p>A model without a SystemDef block would through an error on compilation. A model can only have a single instance of the <span style=\"font-family: Courier New;\">SystemDef</span> class. Including a <span style=\"font-family: Courier New;\">SystemDef</span> block automatically generates the correct class instance <span style=\"font-family: Courier New;\">systemDef</span>. </p>
+<p><br><u>Example </u></p>
+<p>hrms is a vector. User specifies all the harmonics to be simulated as a c/c++ style single dimensional array.absoluteValue = </p>
+<p>Example: For simulating the first three odd harmonics, </p>
+<p><span style=\"font-family: Courier New;\">hrms = {1, 3, 5}</span> </p>
+<p>One can automate entry by specifying a range. Example: odd harmonics uptil 15,</p>
+<p><code>hrms = {1:2:15}</code></p>
+</html>"),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-140, -140}, {140, 100}})));
 end SystemDef;

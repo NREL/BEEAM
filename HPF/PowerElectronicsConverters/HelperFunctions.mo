@@ -1,5 +1,4 @@
 within HPF.PowerElectronicsConverters;
-
 package HelperFunctions
   extends Modelica.Icons.FunctionsPackage;
 
@@ -17,8 +16,9 @@ package HelperFunctions
     else
       p := (P_DCmin - P_DC) ./ P_DCmin;
     end if;
-      
-  annotation(
-      Documentation(info = "<html><head></head><body>Helper function for standy power transition.<div><br></div><div>Function returns a dimensionless coefficient that ranges from 0 to 1.</div><div><br></div><div>This ensures the converter has a smooth transition when going into standby mode.</div><div><br></div></body></html>"));end stbyPwrTransition;
-  
+
+  annotation (
+      Documentation(info = "<html><head></head><body>Helper function for standy power transition.<div><br></div><div>Function returns a dimensionless coefficient that ranges from 0 to 1.</div><div><br></div><div>This ensures the converter has a smooth transition when going into standby mode.</div><div><br></div></body></html>"));
+  end stbyPwrTransition;
+
 end HelperFunctions;

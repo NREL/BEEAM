@@ -1,5 +1,4 @@
 within HPF.Utilities;
-
 function ifft
   extends Modelica.Icons.Function;
   input Real uRe[:] "Input complex vector, real part";
@@ -17,9 +16,9 @@ function ifft
               * IFFT = 1
           */
 
-  external "C" func_FFT(uRe, size(uRe, 1), uIm, size(uIm, 1), yRe, yIm, 1) annotation(
+  external "C" func_FFT(uRe, size(uRe, 1), uIm, size(uIm, 1), yRe, yIm, 1) annotation (
     Include = "#include \"func_FFT.c\"",
     IncludeDirectory = "modelica://HPF/Resources/source");
-  annotation(
+  annotation (
     Documentation(info = "<html><head></head><body>Using kiss_fft library. (https://github.com/mborgerding/kissfft)</body></html>"));
 end ifft;

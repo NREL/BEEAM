@@ -3,7 +3,7 @@ clc
 clear
 close all
 
-% additional flag for loading the Modelica resutls mat file
+% additional flag for loading the Modelica results mat file
 % Set this to 1 to force loading the resutls file even if res variable
 % exists in the workspace
 loadOk = 1; 

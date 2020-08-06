@@ -44,5 +44,10 @@ annotation (
     Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={Rectangle(lineColor = {92, 53, 102}, fillColor = {255, 255, 255},
             fillPattern =                                                                                                                               FillPattern.Solid, extent = {{-70, 30}, {70, -30}}), Text(origin = {-42, 6}, lineColor = {92, 53, 102}, extent = {{-28, 24}, {112, -36}}, textString = "Z"), Line(origin = {-85.07, -0.21}, points = {{-15, 0}, {15, 0}}, color = {92, 53, 102}), Line(origin = {85.0205, -0.21}, points = {{-15, 0}, {15, 0}}, color = {92, 53, 102}), Text(origin = {-24, -20}, lineColor = {92, 53, 102}, extent = {{-156, 60}, {204, 100}}, textString = "%name"), Text(origin = {-2, -140}, extent = {{-150, 60}, {150, 100}}, textString = "Z = %z")}),
     Diagram(coordinateSystem(grid = {0, 0})),
-    __OpenModelica_commandLineOptions = "");
+    __OpenModelica_commandLineOptions = "",
+    Documentation(info="<html>
+<p>Impedance element... Specify the impedance as a Modelica Complex number <i>Z = R + jX</i></p>
+<p><br><i>...</i></p>
+<p><br>Modelica internally computes the impedance for all the harmonics in the system.</p>
+</html>"));
 end Impedance;

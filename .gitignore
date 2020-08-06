@@ -29,3 +29,4 @@ Scripts/**/*.exe
 **/.fuse*
 # temporary matlab scripts
 **/tmpScript*
+.vscode/

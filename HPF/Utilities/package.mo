@@ -1,5 +1,4 @@
 within HPF;
-
 package Utilities
     extends Modelica.Icons.UtilitiesPackage;
 

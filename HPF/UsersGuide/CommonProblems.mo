@@ -1,4 +1,4 @@
-within HPF.Documentation;
+within HPF.UsersGuide;
 class CommonProblems
   extends Modelica.Icons.Information;
   annotation (

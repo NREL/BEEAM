@@ -1,5 +1,6 @@
 within HPF.Sources.ThreePhase;
-model VotlageSource_Ideal "Three phase voltage source. Specify parameters as a Modelica vector {x1, x2, ...}."
+model VotlageSource_InternalImpedance
+  "Three phase voltage source. Specify parameters as a Modelica vector {x1, x2, ...}."
   outer SystemDef systemDef;
   HPF.SinglePhase.Interface.HPin_P pinP_phA(h = systemDef.numHrm)  annotation (
     Placement(visible = true, transformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -42,4 +43,4 @@ equation
 annotation (
     Icon(graphics={  Rectangle(extent = {{-100, 100}, {100, -100}}), Ellipse(origin = {-15, 7}, extent = {{-45, 53}, {75, -67}}, endAngle = 360),                                                                                                                     Line(origin = {0.249088, 0.860912}, points = {{-40.0807, -1.02713}, {-38.0807, 8.97287}, {-32.0807, 20.9729}, {-26.0807, 28.9729}, {-18.0807, 32.9729}, {-8.08074, 24.9729}, {-4.08074, 12.9729}, {-0.0807397, -1.02713}, {3.91926, -13.0271}, {5.91926, -19.0271}, {11.9193, -29.0271}, {21.9193, -35.0271}, {31.9193, -25.0271}, {35.9193, -17.0271}, {37.9193, -7.02713}, {39.9193, -1.02713}, {39.9193, -1.02713}}, smooth = Smooth.Bezier), Text(origin = {105, -93}, extent = {{-11, 3}, {35, -37}}, textString = "C"), Text(origin = {109, -15}, extent = {{-11, 3}, {35, -37}}, textString = "B"), Text(origin = {109, 61}, extent = {{-11, 3}, {35, -37}}, textString = "A"), Text(origin = {-56, 40}, lineColor = {92, 53, 102}, extent = {{-150, 60}, {254, 100}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)),
     Documentation(info = "<html><head></head><body>Input data should be a Modelica or C/C++ style vector.<br><div><br></div><div>Ideal voltage source with no internal impedance.</div></body></html>"));
-end VotlageSource_Ideal;
+end VotlageSource_InternalImpedance;

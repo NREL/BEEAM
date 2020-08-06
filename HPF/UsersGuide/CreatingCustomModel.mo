@@ -1,4 +1,4 @@
-within HPF.Documentation;
+within HPF.UsersGuide;
 class CreatingCustomModel "Instructions for creating a custom model."
   extends Modelica.Icons.Information;
   annotation (

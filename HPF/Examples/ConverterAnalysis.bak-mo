@@ -1,0 +1,51 @@
+within HPF.Examples;
+model ConverterAnalysis
+  import Modelica.ComplexMath.j;
+  HPF.SinglePhase.Sources.VoltageSource vSrc(vArg = {0.0 for i in 1:systemDef.numHrm}, vMag = cat(1, {120}, {0 for i in 2:systemDef.numHrm})) annotation (
+    Placement(visible = true, transformation(origin = {-48, 22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.SinglePhase.Components.Ground ground annotation (
+    Placement(visible = true, transformation(origin = {-48, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.Impedance Z01(z = 2 + 3.7699e-07 * j) annotation (
+    Placement(visible = true, transformation(origin = {-6, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.PowerElectronicsConverters.AC2DC_SinglePhase_New_2 rect1(V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/mld_timeDomSim_3D.mat") annotation (
+    Placement(visible = true, transformation(origin = {56, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load dC_Load(pwr = 150) annotation (
+    Placement(visible = true, transformation(origin = {84, 8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  Modelica.Electrical.Analog.Basic.Ground ground1 annotation (
+    Placement(visible = true, transformation(origin = {84, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.Impedance Z12(z = 100 + 3.7699e-04 * j) annotation (
+    Placement(visible = true, transformation(origin = {68, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.Ground ground2 annotation (
+    Placement(visible = true, transformation(origin = {94, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.Ground ground3 annotation (
+    Placement(visible = true, transformation(origin = {34, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  inner HPF.SystemDef systemDef(hrms = {i for i in 1:2:20}) annotation (
+    Placement(visible = true, transformation(origin = {-34, 102}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
+equation
+  connect(vSrc.pin_p, Z01.pin_p) annotation(
+    Line(points = {{-48, 32}, {-48, 32}, {-48, 46}, {-16, 46}, {-16, 46}}, color = {92, 53, 102}));
+  connect(vSrc.pin_n, ground.pin) annotation(
+    Line(points = {{-48, 12}, {-48, 12}, {-48, 11.25}, {-48, 11.25}}, color = {117, 80, 123}));
+  connect(rect1.pin_p, dC_Load.p) annotation(
+    Line(points = {{56, 12}, {74, 12}}, color = {0, 0, 255}));
+  connect(dC_Load.n, ground1.p) annotation(
+    Line(points = {{84, -2}, {84, -8}}, color = {0, 0, 255}));
+  connect(rect1.pin_n, dC_Load.n) annotation(
+    Line(points = {{56, 12}, {62, 12}, {62, 4}, {74, 4}}, color = {0, 0, 255}));
+  connect(Z12.pin_p, Z01.pin_n) annotation(
+    Line(points = {{58, 46}, {4, 46}, {4, 46}, {4, 46}}, color = {92, 53, 102}));
+  connect(Z12.pin_n, ground2.pin) annotation(
+    Line(points = {{78, 46}, {94, 46}, {94, 53.25}, {94, 53.25}}, color = {117, 80, 123}));
+  connect(rect1.hPin_N, ground3.pin) annotation(
+    Line(points = {{56, 12}, {44, 12}, {44, 17.25}}, color = {117, 80, 123}));
+  connect(rect1.hPin_P, Z01.pin_n) annotation(
+    Line(points = {{56, 12}, {34, 12}, {34, 40}, {14, 40}}, color = {92, 53, 102}));
+  annotation (
+    Diagram(graphics={Text(origin = {-35, 75}, extent = {{-35, 11}, {289, -9}}, textString = "Converter model analysis
+Simulation model is an exact implementation of a time domain simulation
+implemented in Simulink.", fontSize = 8, horizontalAlignment = TextAlignment.Left)}, coordinateSystem(extent = {{-150, -150}, {150, 150}}, initialScale = 0.1)),
+    Icon(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
+  experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
+  __OpenModelica_simulationFlags( lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
+end ConverterAnalysis;
