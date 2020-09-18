@@ -14,8 +14,8 @@ addpath('../../lib')
 % one would iterate the variable and run all the sims.
 if exist('modelicaSim', 'var') ~= 1
     %% defining variables:
-    scenario = 1;
-    dataSet = 1;
+    scenario = 2;
+    dataSet = 3;
 
     modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
                     '_', num2str(dataSet)];

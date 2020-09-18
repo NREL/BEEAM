@@ -1,10 +1,5 @@
 within HPF.SinglePhase.Components;
 model Impedance
-  /*
-    Impedance is defined at the fundamental.
-    At hth harmonic, the impedance is z_h = h*z
-  */
-
   extends HPF.SinglePhase.Interface.TwoPinBase;
   import Modelica.ComplexMath.j;
   /*

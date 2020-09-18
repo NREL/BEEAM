@@ -1,5 +1,5 @@
-within HPF.Test_components;
-model HarmonicSource_MATLAB_Implementation_Coupled "Harmonic source"
+within HPF.Examples.MATLABVerification;
+model HarmonicLoad "Nonlinear harmonics producing load"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   parameter Real P = 1000 "Real power drawn by DC side";
   parameter Real phi = -0.4261 "angle";
@@ -55,4 +55,4 @@ equation
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
-end HarmonicSource_MATLAB_Implementation_Coupled;
+end HarmonicLoad;

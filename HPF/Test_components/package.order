@@ -8,3 +8,5 @@ HarmonicSource_MATLAB_Implementation_Cmplx
 Load_Terminal
 Load_QuasiLib
 HarmonicSource_MATLAB_Implementation_Coupled
+NonlinearLoad
+HarmonicLoad

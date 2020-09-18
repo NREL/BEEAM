@@ -1,5 +1,5 @@
-ExternalInterface
 UsersGuide
+ExternalInterface
 SystemDef
 Examples
 SinglePhase
@@ -14,8 +14,6 @@ Utilities
 InputData
 Types
 DistributionEquipment
-Machines
-MultiPhase
 Todo
 Templates
 Test

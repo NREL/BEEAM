@@ -14,5 +14,5 @@ equation
   P * tan(phi) = hPin_P.v[:].im * hPin_P.iRe[:] - hPin_P.v[:].re * hPin_P.iIm[:];
 
 annotation (
-    Icon(graphics = {Rectangle(extent = {{-100, 100}, {100, -100}})}));
+    Icon(graphics={  Rectangle(extent = {{-100, 100}, {100, -100}})}));
 end Load_Terminal;

@@ -29,7 +29,7 @@ model Test_1
     Placement(visible = true, transformation(origin = {-52, -16}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(v.pin_n, ground1.pin) annotation (
-    Line(points = {{-120, -20}, {-120, -37}}, color = {117, 80, 123}));
+    Line(points={{-120,-20},{-120,-36.75}},   color = {117, 80, 123}));
   connect(laptop_adapter.pin_n, ground2.p) annotation (
     Line(points = {{20, -48}, {20, -59}, {22, -59}, {22, -68}}, color = {0, 0, 255}));
   connect(laptop_adapter.pin_p, laptop.p) annotation (
@@ -37,9 +37,9 @@ equation
   connect(laptop.n, ground2.p) annotation (
     Line(points = {{42, -56}, {42, -64}, {22, -64}, {22, -68}}, color = {0, 0, 255}));
   connect(ground.pin, laptop_adapter.hPin_N) annotation (
-    Line(points = {{-46, -59}, {-46, -48}, {0, -48}}, color = {92, 53, 102}));
+    Line(points={{-46,-58.75},{-46,-48},{0,-48}},     color = {92, 53, 102}));
   connect(z1.pin_n, ground4.pin) annotation (
-    Line(points = {{18, 8}, {78, 8}, {78, -44}}, color = {117, 80, 123}));
+    Line(points={{18,8},{78,8},{78,-32.75}},     color = {117, 80, 123}));
   connect(r.pin_n, z1.pin_p) annotation (
     Line(points = {{-68, 8}, {-2, 8}}, color = {117, 80, 123}));
   connect(r.pin_p, v.pin_p) annotation (
@@ -47,7 +47,7 @@ equation
   connect(voltageSensor.pin_p, z1.pin_p) annotation (
     Line(points = {{-16, 0}, {-16, 8}, {-2, 8}}, color = {92, 53, 102}));
   connect(voltageSensor.pin_n, ground3.pin) annotation (
-    Line(points = {{-16, -20}, {-16, -20}, {-16, -24}, {-16, -24}}, color = {117, 80, 123}));
+    Line(points={{-16,-20},{-16,-20},{-16,-24.75},{-16,-24.75}},    color = {117, 80, 123}));
   connect(currentSensor.pin_p, r.pin_n) annotation (
     Line(points = {{-52, -6}, {-52, -6}, {-52, 8}, {-68, 8}, {-68, 8}}, color = {92, 53, 102}));
   connect(currentSensor.pin_n, laptop_adapter.hPin_P) annotation (
