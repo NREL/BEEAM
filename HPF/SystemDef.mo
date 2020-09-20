@@ -65,7 +65,7 @@ algorithm
 <p>hrms is a vector. User specifies all the harmonics to be simulated as a c/c++ style single dimensional array.absoluteValue = </p>
 <p>Example: For simulating the first three odd harmonics, </p>
 <p><span style=\"font-family: Courier New;\">hrms = {1, 3, 5}</span> </p>
-<p>One can automate entry by specifying a range. Example: odd harmonics uptil 15,</p>
+<p>One can automate entry by specifying a range. Example: odd harmonics upto 15,</p>
 <p><span style=\"font-family: Courier New;\">hrms = {1:2:15}</span></p>
 </html>"),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-140, -140}, {140, 100}})));

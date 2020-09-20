@@ -26,7 +26,15 @@ equation
 // setting voltage potential to zero
   pin.v = {Complex(0.0) for i in 1:systemDef.numHrm};
   annotation (
-    Icon(coordinateSystem(initialScale = 0.1, extent = {{-80, -80}, {80, 80}}), graphics={  Line(origin = {-0.776405, 70.3863}, points = {{0, 10}, {0, -20}}, color = {117, 80, 123}, thickness = 0.5), Line(origin = {-22.3416, 50.1545}, rotation = -90, points = {{0, 50}, {0, -10}}, color = {117, 80, 123}, thickness = 0.5), Line(origin = {-10.9251, 40.073}, rotation = -90, points = {{0, 30}, {0, -10}}, color = {117, 80, 123}, thickness = 0.5), Line(origin = {2.26489, 30.0932}, rotation = -90, points = {{0, 4}, {0, -10}}, color = {117, 80, 123}, thickness = 0.5), Text(origin = {-4, -70}, lineColor = {92, 53, 102}, extent = {{-150, 60}, {150, 100}}, textString = "%name")}),
+    Icon(coordinateSystem(initialScale = 0.1, extent = {{-80, -80}, {80, 80}}), graphics={  Line(
+          origin={0,70.3863},
+          points={{0,10},{0,-20}},
+          color={117,80,123},
+          thickness=0.5),                                                                                                                                                                               Line(origin = {-22.3416, 50.1545}, rotation = -90, points = {{0, 50}, {0, -10}}, color = {117, 80, 123}, thickness = 0.5), Line(origin = {-10.9251, 40.073}, rotation = -90, points = {{0, 30}, {0, -10}}, color = {117, 80, 123}, thickness = 0.5), Line(origin = {2.26489, 30.0932}, rotation = -90, points = {{0, 4}, {0, -10}}, color = {117, 80, 123}, thickness = 0.5),
+        Text(
+          extent={{-152,20},{148,-20}},
+          lineColor={102,44,145},
+          textString="%name")}),
     Diagram(coordinateSystem(extent = {{-80, -80}, {80, 80}}, initialScale = 0.1)),
     Documentation(info="<html>
 <p>Ground of an electrical circuit. There should be atleast one ground object. All nodes ending with a ground are at zero potential.</p>

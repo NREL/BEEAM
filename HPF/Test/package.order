@@ -12,7 +12,6 @@ AC2DC_converter
 IFFT
 FFT_Example
 IFFT_Test
-sensors
 FFT_mag_phase_reconstruct_oddHarmonics
 Basic_Components
 Test_Freq2Time
