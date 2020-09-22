@@ -2,19 +2,19 @@ within HPF.Examples.Basics;
 model SimpleHarmonicLoad
   extends Modelica.Icons.Example;
   import Modelica.ComplexMath.j;
-  inner SystemDef     systemDef(hrms={i for i in 1:2:11})    annotation (
+  inner HPF.SystemDef     systemDef(hrms={i for i in 1:2:11})    annotation (
     Placement(visible = true, transformation(origin={-56.1847,38.4921},     extent = {{-9.81534, -9.81533}, {9.81534, 7.01095}}, rotation = 0)));
-  SinglePhase.Components.Impedance     Z01(z=0.8 + 0.008*j)     annotation (
+  HPF.SinglePhase.Components.Impedance     Z01(z=0.8 + 0.008*j)     annotation (
     Placement(visible = true, transformation(origin={-4,44},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Ground     ground annotation (
+  HPF.SinglePhase.Components.Ground     ground annotation (
     Placement(visible = true, transformation(origin={-28,-18},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Sources.VoltageSource     V0(vArg={0 for i in 1:systemDef.numHrm},
+  HPF.SinglePhase.Sources.VoltageSource     V0(vArg={0 for i in 1:systemDef.numHrm},
       vMag=cat(
         1,
         {120},
         {0 for i in 2:systemDef.numHrm}))                                                                                                 annotation (
     Placement(visible = true, transformation(origin = {-28, 24}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  SinglePhase.Sources.CurrentSource harmonicLoad(iMag={11.3802,6.6631,1.8123,1.3356,
+  HPF.SinglePhase.Sources.CurrentSource harmonicLoad(iMag={11.3802,6.6631,1.8123,1.3356,
         0.6466,0.5229}, iArg={0.351,-2.0293,2.4134,1.5971,-0.068,-0.7582})
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

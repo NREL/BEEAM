@@ -18,7 +18,11 @@ package HelperFunctions
     end if;
 
   annotation (
-      Documentation(info = "<html><head></head><body>Helper function for standy power transition.<div><br></div><div>Function returns a dimensionless coefficient that ranges from 0 to 1.</div><div><br></div><div>This ensures the converter has a smooth transition when going into standby mode.</div><div><br></div></body></html>"));
+      Documentation(info="<html>
+<p>Helper function for standy power transition. Function returns a dimensionless coefficient that ranges from 0 to 1.</p>
+<p><br>This ensures the converter has a smooth transition when going into standby mode.</p>
+<p><br><img src=\"modelica://HPF/Resources/images/ConverterModels/HelperFunctions/eq_lambda.png\"/></p>
+</html>"));
   end stbyPwrTransition;
 
 end HelperFunctions;

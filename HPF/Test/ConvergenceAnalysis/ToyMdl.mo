@@ -39,9 +39,9 @@ equation
   connect(T.pinP_sec, Z.pin_p) annotation (
     Line(points = {{-58, 26}, {44, 26}}, color = {92, 53, 102}));
   connect(T.pinN_prim, ground1.pin) annotation (
-    Line(points = {{-78, 6}, {-92, 6}, {-92, -16}, {-122, -16}, {-122, -28}}, color = {117, 80, 123}));
+    Line(points={{-78,6},{-92,6},{-92,-16},{-122,-16},{-122,-28.75}},         color = {117, 80, 123}));
   connect(T.pinN_sec, ground.pin) annotation (
-    Line(points = {{-58, 6}, {-50, 6}, {-50, -26}, {-50, -26}, {-50, -26}}, color = {117, 80, 123}));
+    Line(points={{-58,6.2},{-50,6.2},{-50,-26},{-50,-26.75},{-50,-26.75}},  color = {117, 80, 123}));
   connect(conv.hPin_P, T.pinP_sec) annotation (
     Line(points = {{24, -4}, {-18, -4}, {-18, 26}, {-58, 26}, {-58, 26}}, color = {92, 53, 102}));
   annotation (

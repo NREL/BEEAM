@@ -75,8 +75,10 @@ equation
 
   annotation (
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, initialScale = 0.1)),
-    Icon(coordinateSystem(initialScale = 0.1), graphics = {Rectangle(origin = {10, 40}, extent = {{-100, 100}, {80, -180}}), Line(origin = {-1.36, -25.17}, points = {{-74, -26}, {-44, 42}, {-16, -26}, {-74, -26}}, color = {92, 53, 102}), Line(origin = {-0.204807, -24.3999}, points = {{42, 36}, {60, 0}, {78, 36}}, color = {92, 53, 102}), Line(origin = {-0.208107, -24.0148}, points = {{60, 0}, {60, -30}}, color = {92, 53, 102}), Text(origin = {28, -50}, lineColor = {92, 53, 102}, extent = {{-88, -20}, {32, -50}}, textString = "D1Y"), Ellipse(origin = {-15, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Ellipse(origin = {17, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Line(origin = {-50.5497, 80.1482}, points = {{11, 0}, {-11, 0}}), Line(origin = {53.2923, 79.9842}, points = {{11, 0}, {-11, 0}}), Text(origin = {-6.01881, 156}, lineColor = {92, 53, 102}, extent = {{-323.981, 14}, {326.019, -16}}, textString = "%name")}),
-    Documentation(info = "<html><head></head><body>Delta-Wye transformer model with an unsymmetric core.<div><br></div><div>Parameters for the underlying three transformers are passed as a Modelica vector.</div><div><br></div><div>Example: Primary winding resistance, Rp[3] = {0.1, 0.1, 0.1}</div>
-<img src=\"modelica://HPF/Resources/images/D1_connections.png\" width=\"260\" height=\"255\">
-    </body></html>"));
+    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {10, 40}, extent = {{-100, 100}, {80, -180}}), Line(origin = {-1.36, -25.17}, points = {{-74, -26}, {-44, 42}, {-16, -26}, {-74, -26}}, color = {92, 53, 102}), Line(origin = {-0.204807, -24.3999}, points = {{42, 36}, {60, 0}, {78, 36}}, color = {92, 53, 102}), Line(origin = {-0.208107, -24.0148}, points = {{60, 0}, {60, -30}}, color = {92, 53, 102}), Text(origin = {28, -50}, lineColor = {92, 53, 102}, extent = {{-88, -20}, {32, -50}}, textString = "D1Y"), Ellipse(origin = {-15, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Ellipse(origin = {17, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Line(origin = {-50.5497, 80.1482}, points = {{11, 0}, {-11, 0}}), Line(origin = {53.2923, 79.9842}, points = {{11, 0}, {-11, 0}}), Text(origin = {-6.01881, 156}, lineColor = {92, 53, 102}, extent = {{-323.981, 14}, {326.019, -16}}, textString = "%name")}),
+    Documentation(info="<html>
+<p>Delta-Wye transformer model with an unsymmetric core.</p>
+<p>Parameters for the underlying three transformers are passed as a Modelica vector.</p>
+<p>Example: Primary winding resistance, Rp[3] = {0.1, 0.1, 0.1}</p>
+</html>"));
 end D1Y;

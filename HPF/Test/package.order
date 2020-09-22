@@ -2,13 +2,11 @@ SinglePhase_Transformer
 SinglePhase_Basic
 SinglePhase_PowerFlow
 Multiphase_Transformer
-SinglePhase_HarmonicLoad
 SinglePhase_Load
 SinglePhase_CurrentInjection
 Function_Test_polyval
 Test_DC_Load
 SinglePhase_HarmonicPowerFlow
-AC2DC_converter
 IFFT
 FFT_Example
 IFFT_Test

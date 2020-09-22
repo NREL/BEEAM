@@ -16,12 +16,12 @@ model SinglePhase_Basic
     annotation (Placement(transformation(extent={{-2,10},{18,30}})));
 equation
   connect(voltageSource1.pin_n, ground1.pin) annotation (
-    Line(points={{-44,-10},{-44,-18},{-44,-18},{-44,-16}},          color = {117, 80, 123}));
+    Line(points={{-44,-10},{-44,-18},{-44,-4.75},{-44,-4.75}},      color = {117, 80, 123}));
 
   connect(z1.pin_n, z2.pin_n) annotation (Line(points={{64,20},{76,20},{76,0},{
           64,0}},    color={117,80,123}));
-  connect(ground1.pin, z2.pin_n) annotation (Line(points={{-44,-16},{76,-16},{
-          76,0},{64,0}},     color={0,0,0}));
+  connect(ground1.pin, z2.pin_n) annotation (Line(points={{-44,-4.75},{76,-4.75},
+          {76,0},{64,0}},    color={0,0,0}));
   connect(harmonicImpedance.pin_n, z1.pin_p)
     annotation (Line(points={{18,20},{44,20}}, color={117,80,123}));
   connect(z2.pin_p, z1.pin_p)

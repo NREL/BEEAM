@@ -37,9 +37,10 @@ equation
   connect(idealTransformer.pinP_Prim, v.pin_p) annotation (
     Line(points = {{-80, 32}, {-122, 32}, {-122, 16}, {-122, 16}, {-122, 16}}, color = {92, 53, 102}));
   connect(idealTransformer.pinN_Prim, ground1.pin) annotation (
-    Line(points = {{-80, 12}, {-82, 12}, {-82, -8}, {-122, -8}, {-122, -30}, {-122, -30}}, color = {117, 80, 123}));
+    Line(points={{-80,12.2},{-82,12.2},{-82,-8},{-122,-8},{-122,-30.75},{-122,
+          -30.75}},                                                                        color = {117, 80, 123}));
   connect(idealTransformer.pinN_Sec, ground.pin) annotation (
-    Line(points = {{-60, 12}, {-40, 12}, {-40, -24}, {-40, -24}}, color = {117, 80, 123}));
+    Line(points={{-60,12.2},{-40,12.2},{-40,-24.75},{-40,-24.75}},color = {117, 80, 123}));
   connect(idealTransformer.pinP_Sec, aC2DC_SinglePhase_New.hPin_P) annotation (
     Line(points = {{-60, 32}, {8, 32}, {8, -4}, {24, -4}, {24, -4}}, color = {92, 53, 102}));
   connect(z1.pin_p, idealTransformer.pinP_Sec) annotation (

@@ -21,9 +21,6 @@ model HarmonicLoad "Nonlinear harmonics producing load"
   Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
   Real iArg[systemDef.numHrm] = Modelica.ComplexMath.arg(i[:]);
   Real vArg[systemDef.numHrm] = Modelica.ComplexMath.arg(v[:]);
-  // temp variables
-  //Real tmp1[systemDef.numHrm - 1] = nu .* exp(gamma .* systemDef.hrms[2:systemDef.numHrm]);
-  //Real tmp2[systemDef.numHrm - 1] = (m .* systemDef.hrms[2:systemDef.numHrm] + c) + (angle(i[1]) .* systemDef.hrms[2:systemDef.numHrm]);
 equation
 /*
     for h = 1
@@ -47,8 +44,7 @@ equation
   */
   i[2:systemDef.numHrm].re = nu .* exp(gamma .* systemDef.hrms[2:systemDef.numHrm]) .* cos(m .* systemDef.hrms[2:systemDef.numHrm] .+ c .+ Modelica.ComplexMath.arg(i[1]) .* systemDef.hrms[2:systemDef.numHrm]);
   i[2:systemDef.numHrm].im = nu .* exp(gamma .* systemDef.hrms[2:systemDef.numHrm]) .* sin(m .* systemDef.hrms[2:systemDef.numHrm] .+ c .+ Modelica.ComplexMath.arg(i[1]) .* systemDef.hrms[2:systemDef.numHrm]);
-//i[2:systemDef.numHrm].re = {0 for i in 1:systemDef.numHrm-1};
-//i[2:systemDef.numHrm].im = {0 for i in 1:systemDef.numHrm-1};
+
   annotation (
     Icon(graphics={  Rectangle(extent = {{-80, 80}, {80, -80}}), Line(origin = {-90, 0}, points = {{-10, 0}, {10, 0}}), Line(origin = {90, 0}, points = {{10, 0}, {-10, 0}}), Text(origin = {-25, -69.6977}, rotation = 90, extent = {{-30.3023, 15}, {169.698, -45}}, textString = "g(.)", textStyle = {TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold, TextStyle.Bold}), Text(origin = {18, 146}, rotation = 90, extent = {{-46, 50}, {260, -6}}, textString = "%name",
             horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}, coordinateSystem(initialScale = 0.1)),

@@ -27,7 +27,7 @@ model Test_Freq2Time
     Placement(visible = true, transformation(origin = {64, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(v.pin_n, ground1.pin) annotation (
-    Line(points = {{-120, -20}, {-120, -30}}, color = {117, 80, 123}));
+    Line(points={{-120,-20},{-120,-18.75}},   color = {117, 80, 123}));
   connect(laptop_adapter.pin_n, ground2.p) annotation (
     Line(points = {{2, -50}, {8, -50}, {8, -68}}, color = {0, 0, 255}));
   connect(laptop_adapter.pin_p, laptop.p) annotation (
@@ -45,9 +45,9 @@ equation
   connect(iMsr_laptop.pin_n, laptop_adapter.hPin_P) annotation (
     Line(points = {{-34, -32}, {-34, -38}, {-18, -38}}, color = {117, 80, 123}));
   connect(ground.pin, laptop_adapter.hPin_N) annotation (
-    Line(points = {{-36, -58}, {-36, -58}, {-36, -50}, {-18, -50}, {-18, -50}}));
+    Line(points={{-36,-46.75},{-36,-46.75},{-36,-50},{-18,-50},{-18,-50}}));
   connect(z1.pin_n, ground3.pin) annotation (
-    Line(points = {{56, 0}, {64, 0}, {64, -24}, {64, -24}}, color = {117, 80, 123}));
+    Line(points={{56,0},{64,0},{64,-12.75},{64,-12.75}},    color = {117, 80, 123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),

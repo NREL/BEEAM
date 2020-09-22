@@ -23,11 +23,12 @@ equation
   connect(z.pin_n, currentSource1.pin_p) annotation (
     Line(points = {{0, 20}, {38, 20}, {38, 2}}, color = {117, 80, 123}));
   connect(ground.pin, currentSource1.pin_n) annotation (
-    Line(points = {{-40, -34}, {38, -34}, {38, -18}}));
+    Line(points={{-40,-22.75},{38,-22.75},{38,-18}}));
   connect(v.pin_p, z.pin_p)
     annotation (Line(points={{-40,0},{-40,20},{-20,20}}, color={0,0,0}));
   connect(v.pin_n, ground.pin)
-    annotation (Line(points={{-40,-20},{-40,-34}}, color={117,80,123}));
+    annotation (Line(points={{-40,-20},{-40,-22.75}},
+                                                   color={117,80,123}));
   connect(z1.pin_p, currentSource1.pin_p) annotation (
     Line(points = {{10, -4}, {12, -4}, {12, 20}, {38, 20}, {38, 2}}));
   connect(z1.pin_n, currentSource1.pin_n) annotation (

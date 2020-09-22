@@ -47,6 +47,6 @@ equation
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p>This example demonstrates the harmonic power flow technique using in a circuit containg an AC to DC converter. </p>
+<p>This example demonstrates the harmonic power flow technique in a circuit containg an AC to DC converter. </p>
 </html>"));
 end AC2DC_Converter;

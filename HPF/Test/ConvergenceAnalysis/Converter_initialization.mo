@@ -43,7 +43,7 @@ equation
   connect(z1.pin_n, ground4.pin) annotation (
     Line(points = {{62, 26}, {120, 26}, {120, 17.25}}, color = {117, 80, 123}));
   connect(simplified.pinN_sec, ground.pin) annotation (
-    Line(points = {{-64, 6}, {-40, 6}, {-40, -25}}, color = {117, 80, 123}));
+    Line(points={{-64,6.2},{-40,6.2},{-40,-24.75}}, color = {117, 80, 123}));
   annotation (
     Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
     Icon(coordinateSystem(extent = {{-150, -150}, {150, 150}})),

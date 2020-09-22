@@ -37,15 +37,16 @@ equation
   connect(aC2DC_SinglePhase_New.pin_p, laptop.p) annotation (
     Line(points = {{44, -4}, {74, -4}}, color = {0, 0, 255}));
   connect(aC2DC_SinglePhase_New.hPin_N, ground.pin) annotation (
-    Line(points = {{24, -16}, {-40, -16}, {-40, -25}}, color = {117, 80, 123}));
+    Line(points={{24,-16},{-40,-16},{-40,-24.75}},     color = {117, 80, 123}));
   connect(z1.pin_p, simplified.pinP_sec) annotation (
     Line(points = {{42, 26}, {-64, 26}}, color = {92, 53, 102}));
   connect(z1.pin_n, ground4.pin) annotation (
     Line(points = {{62, 26}, {120, 26}, {120, 17.25}}, color = {117, 80, 123}));
   connect(simplified.pinN_sec, ground.pin) annotation (
-    Line(points = {{-64, 6}, {-40, 6}, {-40, -25}}, color = {117, 80, 123}));
+    Line(points={{-64,6.2},{-40,6.2},{-40,-24.75}}, color = {117, 80, 123}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}), graphics = {Text(origin = {-8, 103}, extent = {{-124, 21}, {124, -21}}, textString = "Toy model with a single phase transformer.\nThe transformer model has a simplified core reactance branch.", horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(extent = {{-150, -150}, {150, 150}}), graphics={  Text(origin = {-8, 103}, extent = {{-124, 21}, {124, -21}}, textString = "Toy model with a single phase transformer.\nThe transformer model has a simplified core reactance branch.",
+            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-150, -150}, {150, 150}})),
     Documentation(info = "<html><head></head><body>Test model based on the punch list. Simulating a single phase transformer with a converter.</body></html>"),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002),

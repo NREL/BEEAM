@@ -45,5 +45,5 @@ equation
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-06, Interval = 0.002),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
-    __OpenModelica_simulationFlags(ls = "totalpivot", lv = "LOG_STATS", nls = "newton", outputFormat = "mat", s = "dassl"));
+    __OpenModelica_simulationFlags(ls = "totalpivot", lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end Test_Rectifier;

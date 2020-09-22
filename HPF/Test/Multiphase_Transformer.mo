@@ -27,39 +27,39 @@ model Multiphase_Transformer
     Placement(visible = true, transformation(origin = {62, -8}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(r2.pin_n, ground1.pin) annotation (
-    Line(points = {{104, 2}, {104, 13.5}, {118, 13.5}, {118, -13}}, color = {117, 80, 123}));
+    Line(points={{104,2},{104,13.5},{118,13.5},{118,-12.75}},       color = {117, 80, 123}));
   connect(r1.pin_n, ground1.pin) annotation (
-    Line(points = {{104, 18}, {104, 21.5}, {118, 21.5}, {118, -13}}, color = {117, 80, 123}));
+    Line(points={{104,18},{104,21.5},{118,21.5},{118,-12.75}},       color = {117, 80, 123}));
   connect(z.pin_n, ground1.pin) annotation (
-    Line(points = {{104, 34}, {104, 29.5}, {118, 29.5}, {118, -13}}, color = {117, 80, 123}));
+    Line(points={{104,34},{104,29.5},{118,29.5},{118,-12.75}},       color = {117, 80, 123}));
   connect(ground.pin, votlageSource.pinN) annotation (
-    Line(points = {{-98, -14.75}, {-98, 5.25}}, color = {92, 53, 102}));
+    Line(points={{-98,-14.75},{-98,7.8}},       color = {92, 53, 102}));
   connect(z.pin_p, deltaWye.pinSec_A) annotation (
-    Line(points = {{84, 34}, {72, 34}, {72, 33}, {-1, 33}}, color = {92, 53, 102}));
+    Line(points={{84,34},{72,34},{72,33.2},{-2,33.2}},      color = {92, 53, 102}));
   connect(deltaWye.pinSec_N, ground2.pin) annotation (
-    Line(points = {{-1, -5}, {6, -5}, {6, -57}}, color = {117, 80, 123}));
+    Line(points={{-2,-5.2},{6,-5.2},{6,-56.75}}, color = {117, 80, 123}));
   connect(deltaWye.pinSec_C, r2.pin_p) annotation (
-    Line(points = {{-1, 8}, {72, 8}, {72, 2}, {84, 2}}, color = {92, 53, 102}));
+    Line(points={{-2,7.6},{72,7.6},{72,2},{84,2}},      color = {92, 53, 102}));
   connect(deltaWye.pinSec_B, r1.pin_p) annotation (
-    Line(points = {{-1, 20}, {71.5, 20}, {71.5, 18}, {84, 18}}, color = {92, 53, 102}));
+    Line(points={{-2,20.4},{71.5,20.4},{71.5,18},{84,18}},      color = {92, 53, 102}));
   connect(votlageSource.pinP_phC, deltaWye.pinPrim_C) annotation (
-    Line(points = {{-85.5, 8}, {-43, 8}, {-43, -2}, {-34, -2}}, color = {92, 53, 102}));
+    Line(points={{-88,10},{-43,10},{-43,-2},{-34,-2}},          color = {92, 53, 102}));
   connect(votlageSource.pinP_phA, deltaWye.pinPrim_A) annotation (
-    Line(points = {{-85.5, 25.5}, {-52, 25.5}, {-52, 30}, {-34, 30}}, color = {92, 53, 102}));
+    Line(points={{-88,26},{-52,26},{-52,30},{-34,30}},                color = {92, 53, 102}));
   connect(votlageSource.pinP_phB, deltaWye.pinPrim_B) annotation (
-    Line(points = {{-85.5, 18}, {-53, 18}, {-53, 14}, {-34, 14}}, color = {92, 53, 102}));
+    Line(points={{-88,18},{-53,18},{-53,14},{-34,14}},            color = {92, 53, 102}));
   connect(vMsrSec_phA.pin_n, ground2.pin) annotation (
-    Line(points = {{22, -18}, {22, -45}, {6, -45}, {6, -57}}, color = {117, 80, 123}));
+    Line(points={{22,-18},{22,-45},{6,-45},{6,-56.75}},       color = {117, 80, 123}));
   connect(vMsrSec_phA.pin_p, deltaWye.pinSec_A) annotation (
-    Line(points = {{22, 2}, {22, 33}, {-1, 33}}, color = {92, 53, 102}));
+    Line(points={{22,2},{22,33.2},{-2,33.2}},    color = {92, 53, 102}));
   connect(vMsrSec_phB.pin_n, ground2.pin) annotation (
-    Line(points = {{44, -42}, {44, -46}, {6, -46}, {6, -56}}, color = {117, 80, 123}));
+    Line(points={{44,-42},{44,-46},{6,-46},{6,-56.75}},       color = {117, 80, 123}));
   connect(vMsrSec_pbC.pin_n, ground2.pin) annotation (
-    Line(points = {{62, -18}, {62, -18}, {62, -46}, {6, -46}, {6, -56}, {6, -56}}, color = {117, 80, 123}));
+    Line(points={{62,-18},{62,-18},{62,-46},{6,-46},{6,-56.75},{6,-56.75}},        color = {117, 80, 123}));
   connect(vMsrSec_phB.pin_p, deltaWye.pinSec_B) annotation (
-    Line(points = {{44, -22}, {44, -22}, {44, 20}, {-2, 20}, {-2, 20}}, color = {92, 53, 102}));
+    Line(points={{44,-22},{44,-22},{44,20},{-2,20},{-2,20.4}},          color = {92, 53, 102}));
   connect(vMsrSec_pbC.pin_p, deltaWye.pinSec_C) annotation (
-    Line(points = {{62, 2}, {62, 2}, {62, 8}, {-2, 8}, {-2, 8}}, color = {92, 53, 102}));
+    Line(points={{62,2},{62,2},{62,8},{-2,8},{-2,7.6}},          color = {92, 53, 102}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0}, extent = {{-120, -100}, {120, 100}})),
     Diagram(coordinateSystem(extent = {{-120, -100}, {120, 100}}, grid = {0, 0}, initialScale = 0.1)),

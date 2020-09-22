@@ -55,18 +55,18 @@ algorithm
 <p>Parameter fields available in the block are:</p>
 <ul>
 <li>Harmonics: This sets the number of harmonics in the simulation.</li>
-<li>Fundamental frequency (60hz default)</li>
+<li>Fundamental frequency (60 Hz default)</li>
 <li>Sampling frequency</li>
 </ul>
 <p><br>Modelica determines the total number of harmonics from the harmonics vector. A simulation with a large number of harmonics results in increased accuracy with the tradeoff of increased simulation time and system complexity.</p>
 <h4>Note:</h4>
 <p>A model without a SystemDef block would through an error on compilation. A model can only have a single instance of the <span style=\"font-family: Courier New;\">SystemDef</span> class. Including a <span style=\"font-family: Courier New;\">SystemDef</span> block automatically generates the correct class instance <span style=\"font-family: Courier New;\">systemDef</span>. </p>
 <p><br><u>Example </u></p>
-<p>hrms is a vector. User specifies all the harmonics to be simulated as a c/c++ style single dimensional array.absoluteValue = </p>
+<p>hrms is a vector. User specifies all the harmonics to be simulated as a c/c++ style single dimensional array.</p>
 <p>Example: For simulating the first three odd harmonics, </p>
 <p><span style=\"font-family: Courier New;\">hrms = {1, 3, 5}</span> </p>
 <p>One can automate entry by specifying a range. Example: odd harmonics upto 15,</p>
-<p><span style=\"font-family: Courier New;\">hrms = {1:2:15}</span></p>
+<p><span style=\"font-family: Courier New;\">hrms = {1:2:15}={1,3,5,7,9,11,13,15}</span></p>
 </html>"),
     Diagram(coordinateSystem(grid = {0, 0}, extent = {{-140, -140}, {140, 100}})));
 end SystemDef;

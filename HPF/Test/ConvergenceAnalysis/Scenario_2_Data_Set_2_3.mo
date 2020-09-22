@@ -72,7 +72,7 @@ model Scenario_2_Data_Set_2_3
     Placement(visible = true, transformation(origin = {110, -164}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
-    Line(points = {{-208, -20.2}, {-208, -28}}, color = {117, 80, 123}));
+    Line(points={{-208,-20.2},{-208,-16.75}},   color = {117, 80, 123}));
   connect(Power_Supply_1.pin_p, Load_1.p) annotation (
     Line(points = {{88, 50}, {112, 50}}, color = {0, 0, 255}));
   connect(ground1.p, Load_1.n) annotation (
@@ -122,23 +122,24 @@ equation
   connect(Laptop_Charger_3.hPin_P, iMsr_Sec_phA.pin_n) annotation (
     Line(points = {{70, 2}, {34, 2}, {34, 16}, {2, 16}}, color = {92, 53, 102}));
   connect(voltageSource.pinP_phA, iMsr_prim_PhA.pin_p) annotation (
-    Line(points = {{-198, -4}, {-172, -4}, {-172, 0}, {-138, 0}}, color = {92, 53, 102}));
+    Line(points={{-198,-2},{-172,-2},{-172,0},{-138,0}},          color = {92, 53, 102}));
   connect(voltageSource.pinP_phC, iMsr_prim_PhC.pin_p) annotation (
     Line(points = {{-198, -18}, {-166, -18}, {-166, -20}, {-134, -20}}, color = {92, 53, 102}));
   connect(voltageSource.pinP_phB, iMsr_prim_PhB.pin_p) annotation (
-    Line(points = {{-198, -10.2}, {-154, -10.2}, {-154, -10}, {-108, -10}}, color = {92, 53, 102}));
+    Line(points={{-198,-10},{-154,-10},{-154,-10},{-108,-10}},              color = {92, 53, 102}));
   connect(deltaWye.pinSec_A, iMsr_Sec_phA.pin_p) annotation (
-    Line(points = {{-51, 9}, {-41, 9}, {-41, 16}, {-18, 16}}, color = {92, 53, 102}));
+    Line(points={{-51.04,9.2},{-41,9.2},{-41,16},{-18,16}},   color = {92, 53, 102}));
   connect(iMsr_prim_PhB.pin_n, deltaWye.pinPrim_B) annotation (
     Line(points = {{-88, -10}, {-84, -10}}, color = {117, 80, 123}));
   connect(iMsr_prim_PhC.pin_n, deltaWye.pinPrim_C) annotation (
     Line(points = {{-114, -20}, {-97, -20}, {-97, -26}, {-84, -26}}, color = {117, 80, 123}));
   connect(deltaWye.pinSec_N, ground2.pin) annotation (
-    Line(points = {{-51, -29}, {-51, -52}, {-58, -52}, {-58, -82}}, color = {117, 80, 123}));
+    Line(points={{-51.04,-29.2},{-51.04,-52},{-58,-52},{-58,-70.75}},
+                                                                    color = {117, 80, 123}));
   connect(iMsr_prim_PhA.pin_n, deltaWye.pinPrim_A) annotation (
     Line(points = {{-118, 0}, {-99, 0}, {-99, 6}, {-84, 6}}, color = {117, 80, 123}));
   connect(iMsr_Sec_phB.pin_p, deltaWye.pinSec_B) annotation (
-    Line(points = {{4, -6}, {-18.5, -6}, {-18.5, -4}, {-51, -4}}, color = {92, 53, 102}));
+    Line(points={{4,-6},{-18.5,-6},{-18.5,-3.6},{-51.04,-3.6}},   color = {92, 53, 102}));
   connect(iMsr_Sec_phB.pin_n, Power_Supply_2.hPin_P) annotation (
     Line(points = {{24, -6}, {40, -6}, {40, -46}, {142, -46}, {142, -26}, {172, -26}}, color = {117, 80, 123}));
   connect(iMsr_Sec_phB.pin_n, Laptop_Charger_4.hPin_P) annotation (
@@ -162,7 +163,7 @@ equation
   connect(Laptop_Charger_5.pin_p, dC_Load2.p) annotation (
     Line(points = {{84, -154}, {110, -154}}, color = {0, 0, 255}));
   connect(deltaWye.pinSec_C, iMsr_Sec_phC.pin_p) annotation (
-    Line(points = {{-52, -16}, {-14, -16}, {-14, -32}, {10, -32}, {10, -32}}, color = {92, 53, 102}));
+    Line(points={{-51.04,-16.08},{-14,-16.08},{-14,-32},{10,-32},{10,-32}},   color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-230, -230}, {230, 230}}, initialScale = 0.1), graphics={Text(origin = {-28, 0}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {208, 154}}, textString = "Scenario 2 | Data Set 2.3
 LLoad Phase a-n	Total Load - 300W		Load Bank 1 (78W), LED 1 (22W), Resistor 2 (200W)

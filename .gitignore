@@ -30,3 +30,5 @@ Scripts/**/*.exe
 # temporary matlab scripts
 **/tmpScript*
 .vscode/
+.db		# thumbnail database file
+

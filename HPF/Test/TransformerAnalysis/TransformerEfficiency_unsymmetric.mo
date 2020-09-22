@@ -20,27 +20,27 @@ model TransformerEfficiency_unsymmetric
     Placement(visible = true, transformation(origin = {60, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(ground.pin, a_vSrc.pinN) annotation (
-    Line(points = {{-98, -14.75}, {-98, 1}}, color = {92, 53, 102}));
+    Line(points={{-98,-14.75},{-98,3.8}},    color = {92, 53, 102}));
   connect(a_vSrc.pinP_phC, deltaWye.pinPrim_C) annotation (
-    Line(points = {{-85.5, 4}, {-43, 4}, {-43, -4}, {-32, -4}}, color = {92, 53, 102}));
+    Line(points={{-88,6},{-43,6},{-43,-4},{-32,-4}},            color = {92, 53, 102}));
   connect(deltaWye.pinSec_C, a_r3.pin_p) annotation (
-    Line(points = {{0, 6}, {26.5, 6}, {26.5, 8}, {54, 8}}, color = {92, 53, 102}));
+    Line(points={{0,5.6},{26.5,5.6},{26.5,8},{54,8}},      color = {92, 53, 102}));
   connect(deltaWye.pinSec_B, a_r2.pin_p) annotation (
-    Line(points = {{0, 18}, {40.5, 18}, {40.5, 20}, {82, 20}}, color = {92, 53, 102}));
+    Line(points={{0,18.4},{40.5,18.4},{40.5,20},{82,20}},      color = {92, 53, 102}));
   connect(a_vSrc.pinP_phB, deltaWye.pinPrim_B) annotation (
-    Line(points = {{-85.5, 14}, {-59.75, 14}, {-59.75, 12}, {-32, 12}}, color = {92, 53, 102}));
+    Line(points={{-88,14},{-59.75,14},{-59.75,12},{-32,12}},            color = {92, 53, 102}));
   connect(deltaWye.pinSec_N, ground2.pin) annotation (
-    Line(points = {{0, -7}, {14, -7}, {14, -19}}, color = {117, 80, 123}));
+    Line(points={{0,-7.2},{14,-7.2},{14,-18.75}}, color = {117, 80, 123}));
   connect(a_vSrc.pinP_phA, deltaWye.pinPrim_A) annotation (
-    Line(points = {{-85.5, 24}, {-52, 24}, {-52, 28}, {-32, 28}}, color = {92, 53, 102}));
+    Line(points={{-88,22},{-52,22},{-52,28},{-32,28}},            color = {92, 53, 102}));
   connect(a_r2.pin_n, ground1.pin) annotation (
-    Line(points = {{102, 20}, {116, 20}, {116, -10}, {116, -10}}, color = {117, 80, 123}));
+    Line(points={{102,20},{116,20},{116,-10.75},{116,-10.75}},    color = {117, 80, 123}));
   connect(a_r3.pin_n, ground1.pin) annotation (
-    Line(points = {{74, 8}, {116, 8}, {116, -10}, {116, -10}, {116, -10}}, color = {117, 80, 123}));
+    Line(points={{74,8},{116,8},{116,-10},{116,-10.75},{116,-10.75}},      color = {117, 80, 123}));
   connect(deltaWye.pinSec_A, a_r1.pin_p) annotation (
-    Line(points = {{0, 31}, {27, 31}, {27, 32}, {50, 32}}, color = {92, 53, 102}));
+    Line(points={{0,31.2},{27,31.2},{27,32},{50,32}},      color = {92, 53, 102}));
   connect(a_r1.pin_n, ground1.pin) annotation (
-    Line(points = {{70, 32}, {116, 32}, {116, -11}}, color = {117, 80, 123}));
+    Line(points={{70,32},{116,32},{116,-10.75}},     color = {117, 80, 123}));
   annotation (
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
