@@ -9,9 +9,6 @@ model D1Y
   parameter Modelica.SIunits.Reactance Xs[3] = {1e-3, 1e-3, 1e-3} "Secondary winding reactance";
   parameter Modelica.SIunits.Resistance Rc[3] = {1e5, 1e5, 1e5} "Core resistance";
   parameter Modelica.SIunits.Reactance Xm[3] = {1e5, 1e5, 1e5} "Magnetizing reactance";
-  parameter Real fW[3] = {0, 0, 0} "Resistive losses";
-  parameter Real fEC[3] = {0, 0, 0} "Eddy current losses";
-  parameter Real fOSL[3] = {0, 0, 0} "Other stray losses";
   HPF.SinglePhase.Interface.HPin_P pinPrim_A(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-102, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P pinPrim_B(h = systemDef.numHrm) annotation (
@@ -26,12 +23,54 @@ model D1Y
     Placement(visible = true, transformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinSec_N(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified_test T1(Rc = Rc[1], Rp = Rp[1], Rs = Rs[1], Xm = Xm[1], Xp = Xp[1], Xs = Xs[1], fEC = fEC[1], fOSL = fOSL[1], fW = fW[1], nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = 0, phi_sec = 0) annotation (
-    Placement(visible = true, transformation(origin = {4, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified_test T2(Rc = Rc[2], Rp = Rp[2], Rs = Rs[2], Xm = Xm[2], Xp = Xp[2], Xs = Xs[2], fEC = fEC[2], fOSL = fOSL[2], fW = fW[2], nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = -2.0944, phi_sec = -2.0944) annotation (
-    Placement(visible = true, transformation(origin = {4, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified_test T3(Rc = Rc[3], Rp = Rp[3], Rs = Rs[3], Xm = Xm[3], Xp = Xp[3], Xs = Xs[3], fEC = fEC[3], fOSL = fOSL[3], fW = fW[3], nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = 2.0944, phi_sec = 2.0944) annotation (
-    Placement(visible = true, transformation(origin = {2, -110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Transformers.SinglePhase.TModel T1(
+    Rc=Rc[1],
+    Rp=Rp[1],
+    Rs=Rs[1],
+    Xm=Xm[1],
+    Xp=Xp[1],
+    Xs=Xs[1],
+    nomV_prim=VPrimRated,
+    nomV_sec=VSecRated/sqrt(3),
+    phi_prim=0,
+    phi_sec=0) annotation (Placement(visible=true, transformation(
+        origin={4,70},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  HPF.Transformers.SinglePhase.TModel T2(
+    Rc=Rc[2],
+    Rp=Rp[2],
+    Rs=Rs[2],
+    Xm=Xm[2],
+    Xp=Xp[2],
+    Xs=Xs[2],
+    fEC=fEC[2],
+    fOSL=fOSL[2],
+    fW=fW[2],
+    nomV_prim=VPrimRated,
+    nomV_sec=VSecRated/sqrt(3),
+    phi_prim=-2.0944,
+    phi_sec=-2.0944) annotation (Placement(visible=true, transformation(
+        origin={4,-10},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  HPF.Transformers.SinglePhase.TModel T3(
+    Rc=Rc[3],
+    Rp=Rp[3],
+    Rs=Rs[3],
+    Xm=Xm[3],
+    Xp=Xp[3],
+    Xs=Xs[3],
+    fEC=fEC[3],
+    fOSL=fOSL[3],
+    fW=fW[3],
+    nomV_prim=VPrimRated,
+    nomV_sec=VSecRated/sqrt(3),
+    phi_prim=2.0944,
+    phi_sec=2.0944) annotation (Placement(visible=true, transformation(
+        origin={2,-110},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   /* Measurements
         * Total power loss
         * Core losses

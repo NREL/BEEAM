@@ -19,5 +19,6 @@ equation
   v[:].im = {0.0 for i in 1:1:systemDef.numHrm};
 
   annotation (
-    Icon(graphics = {Ellipse(origin = {1, -1}, extent = {{-69, 67}, {69, -67}}, endAngle = 360), Line(origin = {-82, 0}, points = {{-14, 0}, {14, 0}}), Line(origin = {84.0747, -0.214932}, points = {{-14, 0}, {14, 0}}), Text(origin = {12, -38}, lineColor = {92, 53, 102}, lineThickness = 1, extent = {{-36, 76}, {12, -6}}, textString = "A"),   Text(origin = {-12, -2}, extent = {{-94, 70}, {12, 42}}, textString = "Mag"), Text(origin = {-4, 2}, extent = {{4, 66}, {114, 38}}, textString = "Angle"),Text(origin = {-6, -86}, extent = {{-316, 24}, {316, -24}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
+    Icon(graphics={  Ellipse(origin = {1, -1}, extent = {{-69, 67}, {69, -67}}, endAngle = 360), Line(origin = {-82, 0}, points = {{-14, 0}, {14, 0}}), Line(origin = {84.0747, -0.214932}, points = {{-14, 0}, {14, 0}}), Text(origin = {12, -38}, lineColor = {92, 53, 102},
+            lineThickness =                                                                                                                                                                                                        1, extent = {{-36, 76}, {12, -6}}, textString = "A"),   Text(origin = {-12, -2}, extent = {{-94, 70}, {12, 42}}, textString = "Mag"), Text(origin = {-4, 2}, extent = {{4, 66}, {114, 38}}, textString = "Angle"),Text(origin = {-6, -86}, extent = {{-316, 24}, {316, -24}}, textString = "%name")}, coordinateSystem(initialScale = 0.1)));
 end CurrentSensor;

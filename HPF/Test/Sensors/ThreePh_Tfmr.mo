@@ -2,7 +2,7 @@ within HPF.Test.Sensors;
 model ThreePh_Tfmr
   HPF.SinglePhase.Components.Ground ground annotation (
     Placement(visible = true, transformation(origin = {-160, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.ThreePhase.DeltaWye_test deltaWye(Rc = 8.4e3, Rp = 3.7672, Rs = 0.2576, VPrimRated = 480, VSecRated = 208, Xm = 777.0164, Xp = 1.1006, Xs = 0.5003, fEC = 0.067, fOSL = 0.033, fW = 0.9) annotation (
+  Transformers.ThreePhase.Symmetric.D1Y     deltaWye(Rc = 8.4e3, Rp = 3.7672, Rs = 0.2576, VPrimRated = 480, VSecRated = 208, Xm = 777.0164, Xp = 1.1006, Xs = 0.5003)                                      annotation (
     Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {0, -110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -42,7 +42,7 @@ model ThreePh_Tfmr
     Placement(visible = true, transformation(origin = {-56, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
-    Line(points = {{-160, -13}, {-160, -29}}, color = {117, 80, 123}));
+    Line(points={{-160,-12.75},{-160,-28.75}},color = {117, 80, 123}));
   connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation (
     Line(points = {{70, 50}, {84, 50}, {84, 42}, {96, 42}}, color = {0, 0, 255}));
   connect(ground3.p, Laptop_3.n) annotation (
@@ -50,7 +50,7 @@ equation
   connect(Laptop_Charger_3.pin_p, Laptop_3.p) annotation (
     Line(points = {{70, 62}, {96, 62}}, color = {0, 0, 255}));
   connect(Laptop_Charger_3.hPin_N, ground6.pin) annotation (
-    Line(points = {{50, 50}, {34, 50}, {34, 28}}, color = {117, 80, 123}));
+    Line(points={{50,50},{34,50},{34,39.25}},     color = {117, 80, 123}));
   connect(Laptop_Charger_5.pin_p, dC_Load2.p) annotation (
     Line(points = {{74, -6}, {100, -6}}, color = {0, 0, 255}));
   connect(Laptop_Charger_5.pin_n, dC_Load2.n) annotation (
@@ -64,34 +64,37 @@ equation
   connect(ground16.p, dC_Load1.n) annotation (
     Line(points = {{176, -20}, {176, -14}}, color = {0, 0, 255}));
   connect(Laptop_Charger_3.hPin_P, deltaWye.pinSec_A) annotation (
-    Line(points = {{50, 62}, {20, 62}, {20, 19}, {-63, 19}}, color = {92, 53, 102}));
+    Line(points={{50,62},{20,62},{20,19.2},{-64,19.2}},      color = {92, 53, 102}));
   connect(Laptop_Charger_4.hPin_P, deltaWye.pinSec_B) annotation (
-    Line(points = {{132, 6}, {-63, 6}}, color = {92, 53, 102}));
+    Line(points={{132,6},{34,6},{34,6.4},{-64,6.4}},
+                                        color = {92, 53, 102}));
   connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation (
-    Line(points = {{132, -6}, {132, -6.5}, {122, -6.5}, {122, -23}}, color = {117, 80, 123}));
+    Line(points={{132,-6},{132,-6.5},{122,-6.5},{122,-22.75}},       color = {117, 80, 123}));
   connect(deltaWye.pinSec_C, Laptop_Charger_5.hPin_P) annotation (
-    Line(points = {{-63, -6}, {54, -6}}, color = {92, 53, 102}));
+    Line(points={{-64,-6.4},{-4,-6.4},{-4,-6},{54,-6}},
+                                         color = {92, 53, 102}));
   connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation (
-    Line(points = {{40, -33}, {40, -18.75}, {54, -18.75}, {54, -18}}, color = {92, 53, 102}));
+    Line(points={{40,-32.75},{40,-18.75},{54,-18.75},{54,-18}},       color = {92, 53, 102}));
   connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation (
-    Line(points = {{-147.5, 7.5}, {-98, 7.5}, {-98, 16}, {-96, 16}}, color = {92, 53, 102}));
+    Line(points={{-147.5,10},{-98,10},{-98,16},{-96,16}},            color = {92, 53, 102}));
   connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation (
     Line(points = {{-147.5, 0}, {-96, 0}}, color = {92, 53, 102}));
   connect(deltaWye.pinPrim_C, voltageSource.pinP_phC) annotation (
     Line(points = {{-96, -16}, {-121.75, -16}, {-121.75, -10}, {-147.5, -10}}, color = {92, 53, 102}));
   connect(deltaWye.pinSec_A, vMsr_PhA.pin_p) annotation (
-    Line(points = {{-64, 20}, {-26, 20}, {-26, -42}}, color = {92, 53, 102}));
+    Line(points={{-64,19.2},{-26,19.2},{-26,-42}},    color = {92, 53, 102}));
   connect(vMsr_PhA.pin_n, ground2.pin) annotation (
-    Line(points = {{-26, -62}, {-26, -74}, {0, -74}, {0, -99}}, color = {117, 80, 123}));
+    Line(points={{-26,-62},{-26,-74},{0,-74},{0,-98.75}},       color = {117, 80, 123}));
   connect(deltaWye.pinSec_N, ground2.pin) annotation (
-    Line(points = {{-64, -20}, {0, -20}, {0, -98}, {0, -98}}, color = {117, 80, 123}));
+    Line(points={{-64,-19.2},{0,-19.2},{0,-98.75},{0,-98.75}},color = {117, 80, 123}));
   connect(voltageSensor.pin_p, deltaWye.pinSec_B) annotation (
-    Line(points = {{-54, -48}, {-52, -48}, {-52, 6}, {-64, 6}, {-64, 6}}, color = {92, 53, 102}));
+    Line(points={{-54,-48},{-52,-48},{-52,6},{-64,6},{-64,6.4}},          color = {92, 53, 102}));
   connect(voltageSensor.pin_n, ground1.pin) annotation (
-    Line(points = {{-54, -68}, {-56, -68}, {-56, -86}, {-56, -86}, {-56, -86}}, color = {117, 80, 123}));
+    Line(points={{-54,-68},{-56,-68},{-56,-86},{-56,-86.75},{-56,-86.75}},      color = {117, 80, 123}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics = {Text(origin = {-16, 135}, extent = {{-178, 23}, {178, -23}}, textString = "Simplified 3phase toy model with modified transformer.
-The transformer mdl has a simplified core reactance branch.", horizontalAlignment = TextAlignment.Left)}),
+    Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, initialScale = 0.1), graphics={  Text(origin = {-16, 135}, extent = {{-178, 23}, {178, -23}}, textString = "Simplified 3phase toy model with modified transformer.
+The transformer mdl has a simplified core reactance branch.",
+            horizontalAlignment =                                                   TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-200, -200}, {200, 200}})),
     experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
     __OpenModelica_simulationFlags(lv = "LOG_INIT,LOG_NLS_RES,LOG_RES_INIT,LOG_SIMULATION,LOG_SOLVER,LOG_SOLVER_V,LOG_SOLVER_CONTEXT,LOG_SOTI,LOG_STATS,LOG_STATS_V,LOG_SUCCESS", outputFormat = "mat", s = "dassl", nls = "newton"),

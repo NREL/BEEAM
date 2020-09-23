@@ -9,9 +9,6 @@ model D1Y
   parameter Modelica.SIunits.Reactance Xs = 1 "Secondary winding reactance";
   parameter Modelica.SIunits.Resistance Rc = 1 "Core resistance";
   parameter Modelica.SIunits.Reactance Xm = 1 "Magnetizing reactance";
-  parameter Real fW = 0 "Resistive losses";
-  parameter Real fEC = 0 "Eddy current losses";
-  parameter Real fOSL = 0 "Other stray losses";
   HPF.SinglePhase.Interface.HPin_P pinPrim_A(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-102, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P pinPrim_B(h = systemDef.numHrm) annotation (
@@ -26,12 +23,48 @@ model D1Y
     Placement(visible = true, transformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_N pinSec_N(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -120}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified_test T1(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = 0, phi_sec = 0) annotation (
-    Placement(visible = true, transformation(origin = {4, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified_test T2(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = -2.0944, phi_sec = -2.0944) annotation (
-    Placement(visible = true, transformation(origin = {4, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Transformers.SinglePhase.Simplified_test T3(Rc = Rc, Rp = Rp, Rs = Rs, Xm = Xm, Xp = Xp, Xs = Xs, fEC = fEC, fOSL = fOSL, fW = fW, nomV_prim = VPrimRated, nomV_sec = VSecRated / sqrt(3), phi_prim = 2.0944, phi_sec = 2.0944) annotation (
-    Placement(visible = true, transformation(origin = {2, -110}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Transformers.SinglePhase.TModel T1(
+    Rc=Rc,
+    Rp=Rp,
+    Rs=Rs,
+    Xm=Xm,
+    Xp=Xp,
+    Xs=Xs,
+    nomV_prim=VPrimRated,
+    nomV_sec=VSecRated/sqrt(3),
+    phi_prim=0,
+    phi_sec=0) annotation (Placement(visible=true, transformation(
+        origin={4,70},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  HPF.Transformers.SinglePhase.TModel T2(
+    Rc=Rc,
+    Rp=Rp,
+    Rs=Rs,
+    Xm=Xm,
+    Xp=Xp,
+    Xs=Xs,
+    nomV_prim=VPrimRated,
+    nomV_sec=VSecRated/sqrt(3),
+    phi_prim=-2.0944,
+    phi_sec=-2.0944) annotation (Placement(visible=true, transformation(
+        origin={4,-10},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  HPF.Transformers.SinglePhase.TModel T3(
+    Rc=Rc,
+    Rp=Rp,
+    Rs=Rs,
+    Xm=Xm,
+    Xp=Xp,
+    Xs=Xs,
+    nomV_prim=VPrimRated,
+    nomV_sec=VSecRated/sqrt(3),
+    phi_prim=2.0944,
+    phi_sec=2.0944) annotation (Placement(visible=true, transformation(
+        origin={2,-110},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
   /* Measurements
       * Total power loss
       * Core losses
@@ -76,5 +109,5 @@ equation
     Line(points = {{100, 120}, {104, 120}, {104, 120}, {100, 120}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, initialScale = 0.1)),
-    Icon(coordinateSystem(initialScale = 0.1), graphics = {Rectangle(origin = {10, 40}, extent = {{-100, 100}, {80, -180}}), Line(origin = {-1.36, -25.17}, points = {{-74, -26}, {-44, 42}, {-16, -26}, {-74, -26}}, color = {92, 53, 102}), Line(origin = {-0.204807, -24.3999}, points = {{42, 36}, {60, 0}, {78, 36}}, color = {92, 53, 102}), Line(origin = {-0.208107, -24.0148}, points = {{60, 0}, {60, -30}}, color = {92, 53, 102}), Text(origin = {28, -50}, lineColor = {92, 53, 102}, extent = {{-88, -20}, {32, -50}}, textString = "D1Y"), Ellipse(origin = {-15, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Ellipse(origin = {17, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Line(origin = {-50.5497, 80.1482}, points = {{11, 0}, {-11, 0}}), Line(origin = {53.2923, 79.9842}, points = {{11, 0}, {-11, 0}}), Text(origin = {-6.01881, 156}, lineColor = {92, 53, 102}, extent = {{-323.981, 14}, {326.019, -16}}, textString = "%name")}));
+    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {10, 40}, extent = {{-100, 100}, {80, -180}}), Line(origin = {-1.36, -25.17}, points = {{-74, -26}, {-44, 42}, {-16, -26}, {-74, -26}}, color = {92, 53, 102}), Line(origin = {-0.204807, -24.3999}, points = {{42, 36}, {60, 0}, {78, 36}}, color = {92, 53, 102}), Line(origin = {-0.208107, -24.0148}, points = {{60, 0}, {60, -30}}, color = {92, 53, 102}), Text(origin = {28, -50}, lineColor = {92, 53, 102}, extent = {{-88, -20}, {32, -50}}, textString = "D1Y"), Ellipse(origin = {-15, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Ellipse(origin = {17, 79}, extent = {{-25, 27}, {25, -27}}, endAngle = 360), Line(origin = {-50.5497, 80.1482}, points = {{11, 0}, {-11, 0}}), Line(origin = {53.2923, 79.9842}, points = {{11, 0}, {-11, 0}}), Text(origin = {-6.01881, 156}, lineColor = {92, 53, 102}, extent = {{-323.981, 14}, {326.019, -16}}, textString = "%name")}));
 end D1Y;

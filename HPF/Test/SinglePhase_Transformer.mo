@@ -2,9 +2,9 @@ within HPF.Test;
 model SinglePhase_Transformer
   import Modelica.ComplexMath.j;
   HPF.SinglePhase.Components.IdealTransformer T_HPF(N = 480 / 208)  annotation (
-    Placement(visible = true, transformation(origin={8, 40},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={8,40},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(hrms = {1, 3})  annotation (
-    Placement(visible = true, transformation(origin={-30, 70},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-40,80},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin={-48, 10},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = 10 + 5 * j)  annotation (
@@ -30,18 +30,16 @@ model SinglePhase_Transformer
 equation
   connect(vSrc_HPF.pin_n, ground1.pin) annotation (
     Line(points={{-48,30},{-48,21.25}},   color = {117, 80, 123}));
-  connect(vSrc_HPF.pin_n, T_HPF.pinN_Prim) annotation (
-    Line(points={{-48,30},{-26,30},{-26,30.2},{-12,30.2},{-12,30.2},{-2,30.2}},          color = {117, 80, 123}));
   connect(z.pin_n, T_HPF.pinN_Sec) annotation (
-    Line(points={{58,50},{64,50},{64,30.2},{18,30.2}},      color = {117, 80, 123}));
+    Line(points={{58,50},{64,50},{64,30},{18,30}},          color = {117, 80, 123}));
   connect(T_HPF.pinP_Sec, z.pin_p) annotation (
-    Line(points = {{18, 50}, {38, 50}}));
+    Line(points={{18,50},{38,50}}));
   connect(z1.pin_n, T_HPF.pinP_Prim) annotation (
-    Line(points = {{-14, 50}, {-2, 50}}, color = {117, 80, 123}));
+    Line(points={{-14,50},{-2,50}},      color = {117, 80, 123}));
   connect(vSrc_HPF.pin_p, z1.pin_p) annotation (
     Line(points = {{-48, 50}, {-34, 50}}));
   connect(ground2.pin, T_HPF.pinN_Sec) annotation (
-    Line(points={{18,21.25},{18,30.2}}));
+    Line(points={{18,21.25},{18,30}}));
   connect(vSrc_Quasi.pin_n, ground.pin) annotation (
     Line(points = {{-46, -36}, {-46, -44}}, color = {85, 170, 255}));
   connect(vSrc_Quasi.pin_n, T_Quasi.pin_n1) annotation (
@@ -56,6 +54,8 @@ equation
     Line(points={{18,-35.8},{42,-35.8},{42,-33},{64,-33},{64,-16},{60,-16}},          color = {85, 170, 255}));
   connect(T_Quasi.pin_n2, ground5.pin) annotation (
     Line(points={{18,-35.8},{26,-35.8},{26,-32},{27,-32},{27,-44},{24,-44}},          color = {85, 170, 255}));
+  connect(vSrc_HPF.pin_n, T_HPF.pinN_Prim) annotation (Line(points={{-48,30},{
+          -26,30},{-26,30},{-2,30}}, color={117,80,123}));
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {0, 0})));

@@ -35,6 +35,16 @@ extends Modelica.Icons.Information;
 <p><span style=\"font-family: Courier;\">modelica://ExampleLib/Data/dataFile.mat</span></p>
 </html>"));
     end PathToFile;
+
+    model TransformerGround "Placing ground on transformer secondary"
+      extends Modelica.Icons.Information;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+            coordinateSystem(preserveAspectRatio=false)),
+        Documentation(info="<html>
+<p><br>Transformer secondary is modeled as a source, therefore the internal Modelica loop breaking algorithm (for an overconstrained system containing multiple loops) requires the placement of atleast one ground element on the secondary side.</p>
+<p><img src=\"modelica://HPF/Resources/images/UsersGuide/fig_transformerGround.png\" style=\"width:30px;height:30px;\"/></p>
+</html>"));
+    end TransformerGround;
     annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));

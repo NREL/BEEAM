@@ -169,11 +169,12 @@ package Interface
     HPF.SinglePhase.Interface.HPin_P pinP_Prim(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-100, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pinN_Prim(h = systemDef.numHrm) annotation (
-      Placement(visible = true, transformation(origin = {-114, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      Placement(visible = true, transformation(origin = {-114, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={-100,
+              -100},                                                                                                                                          extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_P pinP_Sec(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {92, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pinN_Sec(h = systemDef.numHrm) annotation (
-      Placement(visible = true, transformation(origin = {60, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      Placement(visible = true, transformation(origin = {60, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={100,-100},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   equation
     /*
         loop breaking connections.
