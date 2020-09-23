@@ -9,7 +9,7 @@ model Test_Rectifier
     Placement(visible = true, transformation(origin = {-120, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {22, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerElectronicsConverters.AC2DC_SinglePhase laptop_adapter(P_stby = 4.8918,V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_3_3D.mat", nomP = 100) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl          laptop_adapter(P_stby = 4.8918,V_Rect = 24, modelFileName = "HPF/PowerElectronicsConverters/AC2DC_ConverterModels/AC2DC_Laptop_Charger_3_3D.mat", nomP = 100) annotation (
     Placement(visible = true, transformation(origin = {10, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load laptop(pwr = 0.1) annotation (
     Placement(visible = true, transformation(origin = {42, -46}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -23,7 +23,7 @@ model Test_Rectifier
     Placement(visible = true, transformation(origin = {-78, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(v.pin_n, ground1.pin) annotation (
-    Line(points = {{-120, -20}, {-120, -37}}, color = {117, 80, 123}));
+    Line(points={{-120,-20},{-120,-36.75}},   color = {117, 80, 123}));
   connect(laptop_adapter.pin_n, ground2.p) annotation (
     Line(points = {{20, -48}, {20, -59}, {22, -59}, {22, -68}}, color = {0, 0, 255}));
   connect(laptop_adapter.pin_p, laptop.p) annotation (
@@ -31,9 +31,9 @@ equation
   connect(laptop.n, ground2.p) annotation (
     Line(points = {{42, -56}, {42, -64}, {22, -64}, {22, -68}}, color = {0, 0, 255}));
   connect(ground.pin, laptop_adapter.hPin_N) annotation (
-    Line(points = {{-40, -57}, {-40, -48}, {0, -48}}, color = {92, 53, 102}));
+    Line(points={{-40,-56.75},{-40,-48},{0,-48}},     color = {92, 53, 102}));
   connect(z1.pin_n, ground4.pin) annotation (
-    Line(points = {{18, 8}, {78, 8}, {78, -44}}, color = {117, 80, 123}));
+    Line(points={{18,8},{78,8},{78,-32.75}},     color = {117, 80, 123}));
   connect(r.pin_n, z1.pin_p) annotation (
     Line(points = {{-68, 8}, {-2, 8}}, color = {117, 80, 123}));
   connect(r.pin_p, v.pin_p) annotation (
