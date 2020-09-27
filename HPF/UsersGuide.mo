@@ -13,9 +13,9 @@ extends Modelica.Icons.Information;
 <li>Performing Harmonic power flow analysis;</li>
 <li>Harmonic analysis for single, multiphase and unbalanced circuits;</li>
 </ul>
-<p><br>In a system containing nonsinusoidal waveforms, the current and voltage transformation from time domain to frequency domain is represented as:</p>
+<p><br>In a system containing nonsinusoidal waveforms, the current and voltage transformation from time domain to frequency domain (phasor notation) is represented as:</p>
 <p><img src=\"modelica://HPF/Resources/images/UsersGuide/eq_phasorsHrm.png\"/>,</p>
-<p>where <i>h</i> is the harmonic number with respect to base frequency <i>&omega;</i>. </p>
+<p>where <i>f</i> can represent voltage or current, <i>h</i> is the harmonic number with respect to base frequency <i>&omega;</i>. The voltage and current is modeled as vectors of complex numbers (Re +<i>j</i>Im). Elements of vectors correspond to the value of the electrical quantity for a harmonic defined in the system level harmonics vector <span style=\"font-family: Courier;\">hrms</span>.</p>
 <p>Figure 1 shows current harmonics in a circuit containing a nonlinear load such as an AC to DC converter. Current <i>I<sub>0</i></sub> through impedance <i>Z<sub>01</i></sub> is represented in Modelica as a vector of Complex type, example (system with three odd harmonics): <span style=\"font-family: Courier;\">Z01.i[1:numHrm].re = {1,0.5,0.3}</span> and <span style=\"font-family: Courier;\">Z01.i[1:numHrm].im = {-1,0.8,0.1}</span></p>
 <p><br><img src=\"modelica://HPF/Resources/images/UsersGuide/fig_harmonicsDescription.png\"/></p>
 <p><br>Figure 1. Current harmonics in a circuit containing nonlinear load.</p>
@@ -96,6 +96,6 @@ extends Modelica.Icons.Information;
     Icon(coordinateSystem(extent = {{-130, -100}, {100, 100}}, grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
   Documentation(info="<html>
-<p>See the user&apos;s guide <a href=\"modelica://HPF.UsersGuide.Overview\">overview</a> and the <a href=\"modelica://HPF.Examples.Basics\">basic examples</a> to get started.</p>
+<p>See the user&apos;s guide <a href=\"modelica://HPF.UsersGuide.Overview\">overview</a> and <a href=\"modelica://HPF.Examples.Basics\">basic examples</a> to get started.</p>
 </html>"));
 end UsersGuide;

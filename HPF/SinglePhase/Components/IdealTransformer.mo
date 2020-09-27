@@ -20,11 +20,10 @@ equation
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
     Documentation(info="<html>
 <p>The ideal transformer is a two-port circuit element</p>
-<p>i2 = -i1*n;</p>
-<p>v2 = v1/n;</p>
-<p>where n is a real number called the turns ratio.</p>
-<p><br>..</p>
-<p><br>parameters</p>
-<p><br>mention the use of ground on the secondary side.. (with a diagram)</p>
+<p>	i2 = -i1*N;</p>
+<p>	v2 = v1/N;</p>
+<p>where <i>N</i> is the turns ratio.</p>
+<p><br><b>Note:</b></p>
+<p><br>Please refer to <a href=\"modelica://HPF.UsersGuide.Usage.TransformerGround\">UsersGuide/Usage/TransformerGround</a> for proper connections to a transformer.</p>
 </html>"));
 end IdealTransformer;

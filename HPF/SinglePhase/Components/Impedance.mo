@@ -1,14 +1,9 @@
 within HPF.SinglePhase.Components;
-model Impedance
+model Impedance "Harmonic impedance element"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   import Modelica.ComplexMath.j;
-  /*
-    Assigning property values to componens for easy classification in post processing.
-    Properties are saved in a record named Properties.
-  */
-  HPF.Utilities.ComponentProperties properties(ComponentType = "Impedance");
 
-  parameter Complex z(re(start = 1), im(start = 0)) "Impedance, R + jX";
+  parameter Complex z(re(start = 1), im(start = 0))  "Impedance, R + jX";
   /*
     Fundamental harmonic values display
   */
@@ -41,8 +36,7 @@ annotation (
     Diagram(coordinateSystem(grid = {0, 0})),
     __OpenModelica_commandLineOptions = "",
     Documentation(info="<html>
-<p>Impedance element... Specify the impedance as a Modelica Complex number <i>Z = R + jX</i></p>
-<p><br><i>...</i></p>
-<p><br>Modelica internally computes the impedance for all the harmonics in the system.</p>
+<p><br>Harmonic impedance element. Specify the impedance (at fundamental frequency) as a Modelica Complex number <i>Z = R + jX.</i></p>
+<p>Modelica internally computes the impedance for all the harmonics in the system.</p>
 </html>"));
 end Impedance;
