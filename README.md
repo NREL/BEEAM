@@ -22,16 +22,14 @@ BEEAM may be combined with other Modelica libraries to develop more complex mode
 Current Release
 ---------------
 
-BEEAM is still under development and does not yet have any releases.
-
-*TO DO: Update with first release; add link*
+[BEEAM 0.1.0-beta](https://github.com/NREL/DC-Design/releases/v0.1.0-beta/) (2020-09-29)
 
 Installation
 ------------
 
 To install and use BEEAM with a graphical Modelica simulation environment (OpenModelica, Dymola, Wolfram System Modeler, MapleSim, etc.), follow these instructions:
 
-1. Download BEEAM by cloning this repository or downloading a [release](https://github.com/NREL/DC-Design/releases)
+1. Download BEEAM by cloning this repository or downloading a [release](https://github.com/NREL/DC-Design/releases/)
 2. Extract the archive at a convenient location
 3. Go to the *File* menu and select *Open*
 4. Navigate to and select `HPF/package.mo` (relative to the respository root directory)
