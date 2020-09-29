@@ -42,7 +42,7 @@ The library will load and the user should be able to *HPF* listed in the library
 Workflow
 --------
 
-The primary way to use BEEAM is to create and simulate a model within a graphical Modelica environment. Simulation results can be post-processed, if desired, using the scripts found in the [Scripts](Scripts) directory.
+The primary way to use BEEAM is to create and simulate a model within a graphical Modelica environment. Simulation results can be post-processed, if desired, using the scripts found in the [Scripts](Scripts/) directory.
 
 Executing BEEAM via co-simulation requires the following steps:
 
