@@ -10,5 +10,7 @@ package HPF
           fillPattern =                                                                                                                                                                                                        FillPattern.Solid, extent = {{-2, -11}, {2, -49}})}),
     Diagram(coordinateSystem(grid = {0, 0})),
     uses(Modelica(version = "3.2.2")),
-    version = "");
+    version = "0.9.0-beta",
+    versionDate = "2020-09-29",
+    dateModified = "2020-09-28");
 end HPF;
