@@ -4,27 +4,30 @@ package Interface
 
   connector HPin
     /*
-                  Specialized connector for the harmonic power flow. 
-                  HPin, where H is for harmonics. The name signifies the special nature of the connector and its intended usage.
-                              
-                h_max specifies the maximum harmonics to be simulated. The default value 
-                (What should be a nominal value?) is used when user does not explicitly specify. 
-                */
+      Specialized connector for the harmonic power flow. 
+      HPin, where H is for harmonics. The name signifies the special nature of the connector and its intended usage.
+                                  
+      h_max specifies the maximum harmonics to be simulated. The default value 
+      (What should be a nominal value?) is used when user does not explicitly specify. 
+    */
+
     /*
-                  potential variables
-                */
+      potential variables
+    */
     parameter Integer h(start = 1) "Numbder of harmonics";
     Complex v[h] "Complex potential at the node";
     /*
-                  Flow variables.
-                  (It was necessary to define the flow variables separately
-                  (real and imaginart) as some of the modelica implementations
-                  donot resolve the Complex record when it is defined as a vector)
-                */
+      Flow variables.
+      (It was necessary to define the flow variables separately
+      (real and imaginart) as some of the modelica implementations
+      donot resolve the Complex record when it is defined as a vector)
+    */
+
+    // Imaginary part
     flow Real iIm[h];
     // Real part
     flow Real iRe[h];
-    // Imaginary part
+
     annotation (
       Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(extent = {{-100, 100}, {100, -100}})}),
       Diagram(coordinateSystem(grid = {0, 0})),
@@ -33,16 +36,16 @@ package Interface
 
   connector HPin_P "Positive Terminal"
     /* positive pin
-                  Redefinition of HPin.
-                  This explicity defines the pin as a positive pin
-                  making it easier for defining polarity sensitive 
-                  components and devices.
-                */
+                      Redefinition of HPin.
+                      This explicity defines the pin as a positive pin
+                      making it easier for defining polarity sensitive 
+                      components and devices.
+                    */
     extends HPin;
     HPF.Types.Reference reference "Reference";
     annotation (
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(fillColor = {92, 53, 102},
-              fillPattern =                                                                                                    FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
+      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Rectangle(lineColor = {92, 53, 102},fillColor = {92, 53, 102},
+              fillPattern =                                                                                                                              FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}),
       __OpenModelica_commandLineOptions = "",
       Diagram(coordinateSystem(grid = {0, 0}, initialScale = 0.1), graphics={  Text(origin = {-81, 258}, extent = {{-45, 22}, {197, -260}}, textString = "%name"), Rectangle(extent = {{-100, 100}, {-100, 100}}), Rectangle(extent = {{100, -100}, {-100, 100}})}));
   end HPin_P;
@@ -61,36 +64,38 @@ package Interface
     outer SystemDef systemDef;
     // instantiate systemDef as outer for global scope
     /*
-              Complex v(re(start = 0), im(start = 0));
-              Note on start and nominal value:
-              The power flow solution is a nonlinear problem solved using 
-              any of the nonlinear solver techniques (Example Newton).
-              Simulation fails if the initial values are off by a large 
-              margin. It was observed that a nominal value of zero
-              lead to solver failing to solve. Nominal value of one 
-              seems to work! 
-            */
-    Complex v[systemDef.numHrm](each re(start = 0), each im(start = 0)) "Complex voltage";
-    Complex i[systemDef.numHrm](each re(start = 0), each im(start = 0)) "Complex current";
+      Complex v(re(start = 0), im(start = 0));
+      Note on start and nominal value:
+      The power flow solution is a nonlinear problem solved using 
+      any of the nonlinear solver techniques (Example Newton).
+      Simulation fails if the initial values are off by a large 
+      margin. It was observed that a nominal value of zero
+      lead to solver failing to solve. Nominal value of one 
+      seems to work! 
+    */
+    parameter Real start_v_re[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part" annotation(Dialog(tab="Initialization"));
+    parameter Real start_v_im[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part" annotation(Dialog(tab="Initialization"));
+    parameter Real start_i_re[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part" annotation(Dialog(tab="Initialization"));
+    parameter Real start_i_im[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part" annotation(Dialog(tab="Initialization"));
+    Complex v[systemDef.numHrm](re(start = start_v_re), im(start = start_v_im)) "Complex voltage";
+    Complex i[systemDef.numHrm](re(start = start_i_re), im(start = start_i_im)) "Complex current";
     /*
-                  Defining omega for the overconstrained system workaround.
-                  omega would the derivative of alpha. ( additional constraint,
-                  as defined in pin.reference.theta)
-                */
+      Defining omega for the overconstrained system workaround.
+      omega would the derivative of alpha. ( additional constraint,
+      as defined in pin.reference.theta)
+    */
     Real omega;
     /*  pin objects for the two pins
-            number of harmonics to be simulated is passed as a parameter.
-        */
+        number of harmonics to be simulated is passed as a parameter.
+    */
     HPF.SinglePhase.Interface.HPin_P pin_p(h = systemDef.numHrm) "Positive pin" annotation (
       Placement(visible = true, transformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0), iconTransformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pin_n(h = systemDef.numHrm) "Negative pin" annotation (
       Placement(visible = true, transformation(extent = {{90, -10}, {110, 10}}, rotation = 0), iconTransformation(extent = {{90, -10}, {110, 10}}, rotation = 0)));
-
     /* Port power computations */
     // Real S = v[:] .* Modelica.ComplexMath.conj(i[:]);
     // Real P = Modelica.ComplexMath.real(S);
     // Real Q = Modelica.ComplexMath.imag(S);
-
   initial equation
 
   equation
@@ -100,13 +105,13 @@ package Interface
     Connections.branch(pin_p.reference, pin_n.reference);
     pin_p.reference.theta = pin_n.reference.theta;
     omega = der(pin_p.reference.theta);
-  /*
+    /*
       voltage drop
     */
     v = pin_p.v - pin_n.v;
     i.re = pin_p.iRe;
     i.im = pin_p.iIm;
-  /*
+    /*
       Conservation of charge (KCL).
     */
     pin_p.iRe + pin_n.iRe = {0.0 for i in 1:systemDef.numHrm};
@@ -114,20 +119,21 @@ package Interface
     annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(grid = {0, 0})),
-      __OpenModelica_commandLineOptions = "");
+      __OpenModelica_commandLineOptions = "",
+  Documentation(info = "<html><head></head><body>Partial model for a two pin element. Defines the voltage and current relation for the input and output pin.&nbsp;<div><br></div><div>Used as a building block to construct all two pin elements such as voltage source, impedance, etc.</div></body></html>"));
   end TwoPinBase;
 
   partial model Source
     /*
-                Partial model class for voltage sources.
-                This partial model extends the two pin base partial model
-                to include the additional type used in the loop reduction
-                algorithm (overconstrained connection based equation systems)
-              */
+                    Partial model class for voltage sources.
+                    This partial model extends the two pin base partial model
+                    to include the additional type used in the loop reduction
+                    algorithm (overconstrained connection based equation systems)
+                  */
     extends HPF.SinglePhase.Interface.TwoPinBase;
     /*
-                  Defining an additional type 
-                */
+                      Defining an additional type 
+                    */
     Modelica.SIunits.Angle theta(start = 0) = pin_p.reference.theta;
   equation
     /*
@@ -141,23 +147,34 @@ package Interface
 
   partial model TwoPortBase
     /*
-                Partial model for defining a transformer or other two port (four pin)
-                device. This partial model is different from TwoPinBase (used to define 
-                a one port component such as resistance).
-              */
+                    Partial model for defining a transformer or other two port (four pin)
+                    device. This partial model is different from TwoPinBase (used to define 
+                    a one port component such as resistance).
+                  */
     outer SystemDef systemDef;
-    Complex vPrim[systemDef.numHrm] "Complex voltage primary winding";
-    Complex iPrim[systemDef.numHrm] "Complex current primary winding";
-    Complex vSec[systemDef.numHrm] "Complex voltage secondary winding";
-    Complex iSec[systemDef.numHrm] "Complex current secondary winding";
+    parameter Real start_v_re_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part (primary)";
+    parameter Real start_v_im_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part (primary)";
+    parameter Real start_i_re_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part (primary)";
+    parameter Real start_i_im_prim[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part (primary)";
+
+      parameter Real start_v_re_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage real part (secondary)";
+    parameter Real start_v_im_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for voltage imag part (secondary)";
+    parameter Real start_i_re_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current real part (secondary)";
+    parameter Real start_i_im_sec[systemDef.numHrm] = {0.0 for i in 1:systemDef.numHrm} "Start value for current imag part (secondary)";
+
+    Complex vPrim[systemDef.numHrm]( re(start = start_v_re_prim, each fixed = false), im(start = start_v_im_prim, each fixed = false))  "Complex voltage primary winding";
+    Complex iPrim[systemDef.numHrm]( re(start = start_i_re_prim), im(start = start_i_im_prim)) "Complex current primary winding";
+    Complex vSec[systemDef.numHrm]( re(start = start_i_re_sec, each fixed = false), im(start = start_i_im_sec, each fixed = false)) "Complex voltage secondary winding";
+    Complex iSec[systemDef.numHrm]( re(start = start_i_re_sec), im(start = start_i_im_sec)) "Complex current secondary winding";
     HPF.SinglePhase.Interface.HPin_P pinP_Prim(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {-100, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pinN_Prim(h = systemDef.numHrm) annotation (
-      Placement(visible = true, transformation(origin = {-114, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      Placement(visible = true, transformation(origin = {-114, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={-100,
+              -100},                                                                                                                                          extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_P pinP_Sec(h = systemDef.numHrm) annotation (
       Placement(visible = true, transformation(origin = {92, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     HPF.SinglePhase.Interface.HPin_N pinN_Sec(h = systemDef.numHrm) annotation (
-      Placement(visible = true, transformation(origin = {60, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      Placement(visible = true, transformation(origin = {60, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin={100,-100},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   equation
     /*
         loop breaking connections.
@@ -200,23 +217,23 @@ package Interface
 
   partial model TwoPortBaseAnalog
     /*
-            Two port (two one port classes) partial class for a rectifier.
-            AC side is the multi harmonic side. The DC side 
-            consists of analog connector from Modelica std library,
-            Modelica.Electrical.Analog
-            
-          */
+                Two port (two one port classes) partial class for a rectifier.
+                AC side is the multi harmonic side. The DC side 
+                consists of analog connector from Modelica std library,
+                Modelica.Electrical.Analog
+                
+              */
     outer SystemDef systemDef;
     /*
-              Harmonic (AC) side voltage and current.
-            */
+                  Harmonic (AC) side voltage and current.
+                */
     Complex vHrm[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex voltage";
     Complex iHrm[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex current";
     // overdetermined variable
     Real omega;
     /*
-              DC side voltage and current. (Redefining directly from Modelica.Electrical.Analog.Interfaces.OnePort)
-            */
+                  DC side voltage and current. (Redefining directly from Modelica.Electrical.Analog.Interfaces.OnePort)
+                */
     Real vDC "DC voltage";
     Real iDC "DC current";
     HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation (

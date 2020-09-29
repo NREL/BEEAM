@@ -1,123 +1,62 @@
-<<<<<<< HEAD
 within HPF.Test;
 model SinglePhase_Transformer
   import Modelica.ComplexMath.j;
-  HPF.SinglePhase.Components.IdealTransformer idealTransformer1(N = 10)  annotation (
-    Placement(visible = true, transformation(origin={-10,48},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  inner HPF.SystemDef systemDef(hrms = {1})  annotation (
-    Placement(visible = true, transformation(origin={-50,90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.IdealTransformer T_HPF(N = 480 / 208)  annotation (
+    Placement(visible = true, transformation(origin={8,40},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  inner HPF.SystemDef systemDef(hrms = {1, 3})  annotation (
+    Placement(visible = true, transformation(origin={-40,80},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
-    Placement(visible = true, transformation(origin={-66,18},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-48, 10},      extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = 10 + 5 * j)  annotation (
-    Placement(visible = true, transformation(origin={30,58},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource v(theta(fixed = true, start = 0),vArg = {0}, vMag = {10})  annotation (
-    Placement(visible = true, transformation(origin={-66,48},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin={48, 50},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Sources.VoltageSource vSrc_HPF(theta(fixed = true, start = 0),vArg = {0, -0.1}, vMag = {480, 0.5})  annotation (
+    Placement(visible = true, transformation(origin={-48, 40},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Impedance z1(z = 1 + 0 * j) annotation (
-    Placement(visible = true, transformation(origin={-42,58},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={-24, 50},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
-    Placement(visible = true, transformation(origin={0,18},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Transformers.SinglePhase.Simplified simplified
-    annotation (Placement(transformation(extent={{-22,-38},{-2,-18}})));
-  SinglePhase.Components.Impedance     z2(z=1 + 0*j)     annotation (
-    Placement(visible = true, transformation(origin={-50,-20},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Ground     ground3 annotation (
-    Placement(visible = true, transformation(origin={-72,-50},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Sources.VoltageSource     v1(
-    theta(fixed=true, start=0),
-    vArg={0},
-    vMag={10})                                                                                     annotation (
-    Placement(visible = true, transformation(origin={-72,-30},  extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  SinglePhase.Components.Ground     ground4 annotation (
-    Placement(visible = true, transformation(origin={4,-50},       extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Impedance     z3(z=10 + 5*j)     annotation (
-    Placement(visible = true, transformation(origin={32,-20},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={18, 10},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealTransformer T_Quasi(n = 480 / 208)  annotation (
+    Placement(visible = true, transformation(origin = {8, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource vSrc_Quasi(V = 480, f = 60, phi = 0)  annotation (
+    Placement(visible = true, transformation(origin = {-46, -26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground annotation (
+    Placement(visible = true, transformation(origin = {-46, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance(Z_ref = 1 + 0 * j)  annotation (
+    Placement(visible = true, transformation(origin = {-22, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance1(Z_ref = 10 + 5 * j)  annotation (
+    Placement(visible = true, transformation(origin = {50, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground5 annotation (
+    Placement(visible = true, transformation(origin = {24, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(v.pin_n, ground1.pin) annotation (
-    Line(points={{-66,38},{-66,18}},       color = {117, 80, 123}));
-  connect(v.pin_n, idealTransformer1.pinN_Prim) annotation (
-    Line(points={{-66,38},{-44,38},{-44,38.2},{-20,38.2}},
-                                          color = {117, 80, 123}));
-  connect(z.pin_n, idealTransformer1.pinN_Sec) annotation (
-    Line(points={{40,58},{46,58},{46,38.2},{0,38.2}},      color = {117, 80, 123}));
-  connect(idealTransformer1.pinP_Sec, z.pin_p) annotation (
-    Line(points={{0,58},{20,58}}));
-  connect(z1.pin_n, idealTransformer1.pinP_Prim) annotation (
-    Line(points={{-32,58},{-20,58}},      color = {117, 80, 123}));
-  connect(v.pin_p, z1.pin_p) annotation (
-    Line(points={{-66,58},{-52,58}}));
-  connect(ground2.pin, idealTransformer1.pinN_Sec) annotation (
-    Line(points={{0,18},{0,38.2}}));
-
-  connect(z2.pin_n, simplified.pinP_prim) annotation (Line(points={{-40,-20},{
-          -32,-20},{-32,-18},{-22,-18}}, color={117,80,123}));
-  connect(v1.pin_p, z2.pin_p)
-    annotation (Line(points={{-72,-20},{-60,-20}}, color={0,0,0}));
-  connect(v1.pin_n, ground3.pin)
-    annotation (Line(points={{-72,-40},{-72,-50}}, color={117,80,123}));
-  connect(v1.pin_n, simplified.pinN_prim) annotation (Line(points={{-72,-40},{
-          -48,-40},{-48,-38},{-22,-38}}, color={117,80,123}));
-  connect(simplified.pinN_sec, ground4.pin)
-    annotation (Line(points={{-2,-38},{4,-38},{4,-50}}, color={117,80,123}));
-  connect(simplified.pinP_sec, z3.pin_p) annotation (Line(points={{-2,-18},{10,
-          -18},{10,-20},{22,-20}}, color={0,0,0}));
-  connect(z3.pin_n, simplified.pinN_sec) annotation (Line(points={{42,-20},{46,
-          -20},{46,-24},{54,-24},{54,-38},{-2,-38}}, color={117,80,123}));
-annotation (
+  connect(vSrc_HPF.pin_n, ground1.pin) annotation (
+    Line(points={{-48,30},{-48,21.25}},   color = {117, 80, 123}));
+  connect(z.pin_n, T_HPF.pinN_Sec) annotation (
+    Line(points={{58,50},{64,50},{64,30},{18,30}},          color = {117, 80, 123}));
+  connect(T_HPF.pinP_Sec, z.pin_p) annotation (
+    Line(points={{18,50},{38,50}}));
+  connect(z1.pin_n, T_HPF.pinP_Prim) annotation (
+    Line(points={{-14,50},{-2,50}},      color = {117, 80, 123}));
+  connect(vSrc_HPF.pin_p, z1.pin_p) annotation (
+    Line(points = {{-48, 50}, {-34, 50}}));
+  connect(ground2.pin, T_HPF.pinN_Sec) annotation (
+    Line(points={{18,21.25},{18,30}}));
+  connect(vSrc_Quasi.pin_n, ground.pin) annotation (
+    Line(points = {{-46, -36}, {-46, -44}}, color = {85, 170, 255}));
+  connect(vSrc_Quasi.pin_n, T_Quasi.pin_n1) annotation (
+    Line(points = {{-46, -36}, {-2, -36}}, color = {85, 170, 255}));
+  connect(vSrc_Quasi.pin_p, impedance.pin_p) annotation (
+    Line(points = {{-46, -16}, {-32, -16}}, color = {85, 170, 255}));
+  connect(impedance.pin_n, T_Quasi.pin_p1) annotation (
+    Line(points = {{-12, -16}, {-2, -16}}, color = {85, 170, 255}));
+  connect(impedance1.pin_p, T_Quasi.pin_p2) annotation (
+    Line(points = {{40, -16}, {18, -16}}, color = {85, 170, 255}));
+  connect(T_Quasi.pin_n2, impedance1.pin_n) annotation (
+    Line(points={{18,-35.8},{42,-35.8},{42,-33},{64,-33},{64,-16},{60,-16}},          color = {85, 170, 255}));
+  connect(T_Quasi.pin_n2, ground5.pin) annotation (
+    Line(points={{18,-35.8},{26,-35.8},{26,-32},{27,-32},{27,-44},{24,-44}},          color = {85, 170, 255}));
+  connect(vSrc_HPF.pin_n, T_HPF.pinN_Prim) annotation (Line(points={{-48,30},{
+          -26,30},{-26,30},{-2,30}}, color={117,80,123}));
+  annotation (
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {0, 0})));
 end SinglePhase_Transformer;
-=======
-within HPF.Test;
-model SinglePhase_Transformer
-  import Modelica.ComplexMath.j;
-  HPF.SinglePhase.Components.IdealTransformer idealTransformer1(N = 10)  annotation (
-    Placement(visible = true, transformation(origin={0, 38},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  inner HPF.SystemDef systemDef(hrms = {1})  annotation (
-    Placement(visible = true, transformation(origin = {-56, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Ground ground1 annotation (
-    Placement(visible = true, transformation(origin={-86, 8},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Impedance z_s(z = 0.5 + 0.1 * j)  annotation (
-    Placement(visible = true, transformation(origin = {30, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource v(theta(fixed = true, start = 0),vArg = {0}, vMag = {120})  annotation (
-    Placement(visible = true, transformation(origin = {-86, 38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Components.Impedance z_p(z = 1 + 0 * j) annotation (
-    Placement(visible = true, transformation(origin = {-62, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Ground ground2 annotation (
-    Placement(visible = true, transformation(origin = {10, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Inductor l_c annotation(
-    Placement(visible = true, transformation(origin = {-20, 38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Components.Resistor r_c(r = 500)  annotation(
-    Placement(visible = true, transformation(origin = {-38, 38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Components.Resistor load(r = 0.5)  annotation(
-    Placement(visible = true, transformation(origin = {56, 38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-equation
-  connect(v.pin_n, ground1.pin) annotation(
-    Line(points = {{-86, 28}, {-86, 8}}, color = {117, 80, 123}));
-  connect(idealTransformer1.pinP_Sec, z_s.pin_p) annotation(
-    Line(points = {{10, 48}, {20, 48}}));
-  connect(v.pin_p, z_p.pin_p) annotation(
-    Line(points = {{-86, 48}, {-72, 48}}));
-  connect(ground2.pin, idealTransformer1.pinN_Sec) annotation(
-    Line(points = {{10, 8}, {10, 28}}));
-  connect(z_p.pin_n, r_c.pin_p) annotation(
-    Line(points = {{-52, 48}, {-38, 48}, {-38, 48}, {-38, 48}}, color = {117, 80, 123}));
-  connect(r_c.pin_p, l_c.pin_p) annotation(
-    Line(points = {{-38, 48}, {-20, 48}, {-20, 48}, {-20, 48}}));
-  connect(idealTransformer1.pinP_Prim, l_c.pin_p) annotation(
-    Line(points = {{-10, 48}, {-20, 48}, {-20, 48}, {-20, 48}}));
-  connect(idealTransformer1.pinN_Prim, l_c.pin_n) annotation(
-    Line(points = {{-10, 28}, {-20, 28}, {-20, 28}, {-20, 28}}, color = {117, 80, 123}));
-  connect(l_c.pin_n, r_c.pin_n) annotation(
-    Line(points = {{-20, 28}, {-38, 28}, {-38, 28}, {-38, 28}}, color = {117, 80, 123}));
-  connect(r_c.pin_n, v.pin_n) annotation(
-    Line(points = {{-38, 28}, {-86, 28}, {-86, 28}, {-86, 28}}, color = {117, 80, 123}));
-  connect(z_s.pin_n, load.pin_p) annotation(
-    Line(points = {{40, 48}, {56, 48}, {56, 48}, {56, 48}}, color = {117, 80, 123}));
-  connect(idealTransformer1.pinN_Sec, load.pin_n) annotation(
-    Line(points = {{10, 28}, {56, 28}, {56, 28}, {56, 28}}, color = {117, 80, 123}));
-
-annotation (
-    Icon(coordinateSystem(grid = {0, 0})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {0, 0})));
-end SinglePhase_Transformer;
->>>>>>> master

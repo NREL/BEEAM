@@ -14,15 +14,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 
 
-Modified by: Avpreet Othee, Colorado State University
+Modified by: Avpreet Othee, Colorado State University, 2020
 */
+
 
 
 #ifndef _FUNC_FFT_C_
 #define _FUNC_FFT_C_
 
-#include "kiss_fft.h"
+
+//#include "kiss_fft.h"
 #include "_kiss_fft_guts.h"
+
 
 /* The guts header contains all the multiplication and addition macros that are defined for
  fixed or floating point complex numbers.  It also delares the kf_ internal functions.
@@ -409,9 +412,22 @@ int kiss_fft_next_fast_size(int n) {
 #define COMPUTE_FFT 0
 #define COMPUTE_IFFT 1
 /**
+ * @brief Computes FFT.
+ *
+ * This function is based on the Kiss FFT library. The function itself is derived 
+ * from the FFT implementation in the Modelica Standard Library.
+ * 
+ * @param[in] uRe, Pointer to the real part vector (C/C++ single dim matrix).
+ * @param[in] uRe_sz, Size of the real part vector.
+ * @param[in] uIm, Pointer to the imaginary part vector.
+ * @param[in] uIm_sz, Size of the imaginary part vector.
+ * @param[out] yRe, Pointer to the real part vector.
+ * @param[out] yIm, Pointer to the imaginary part vector. 
+ *
+ * @return Diagnostic info. Returns -1 if error in mem allocation. Returns 3 on success.
+ */
+ 
 
-
-*/
 int func_FFT(double *uRe, size_t uRe_sz, double *uIm, size_t uIm_sz, double *yRe, double *yIm, int fftModeSel){
 
     kiss_fft_cpx in[uRe_sz], out[uRe_sz]; // kiss-fft complex datatype

@@ -1,5 +1,6 @@
 within HPF;
 package Test_components
+  extends Modelica.Icons.InternalPackage;
 
   annotation (
     Icon(coordinateSystem(grid = {0, 0})),
