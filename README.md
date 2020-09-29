@@ -26,7 +26,6 @@ BEEAM is still under development and does not yet have any releases.
 
 *TO DO: Update with first release; add link*
 
-
 Installation
 ------------
 
@@ -42,7 +41,7 @@ The library will load and the user should be able to *HPF* listed in the library
 Workflow
 --------
 
-The primary way to use BEEAM is to create and simulate a model within a graphical Modelica environment. Simulation results can be post-processed, if desired, using the scripts found in the `Scripts` directory.
+The primary way to use BEEAM is to create and simulate a model within a graphical Modelica environment. The `Scripts` directory provides scripts for simulation results post-processing, however, at present these scripts are not enabled for general use. Some scripts require data sources that are restricted to the development team, while others require modification for local use. The scripts will be updated prior to final release of the library. 
 
 Executing BEEAM via co-simulation requires the following steps:
 
