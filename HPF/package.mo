@@ -12,5 +12,7 @@ package HPF
     uses(Modelica(version = "3.2.3")),
     version = "0.1.0-beta",
     versionDate = "2020-09-29",
-    dateModified = "2020-09-28");
+    dateModified = "2020-09-28",
+  Documentation(info="<html>
+</html>"));
 end HPF;

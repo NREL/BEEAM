@@ -8,7 +8,7 @@ model Scenario_3_Data_Set_3_3
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
     Placement(visible = true, transformation(origin = {-200, 50}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
   HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA= {-0.0062247, 1.3178, -0.5933, 3.2525, 0.19845, 4.4177, 1.3523, 4.6578, 2.3531, 2.1705, -0.11978, 3.9092, 0.57344, 4.1166, 4.1555},vArg_phB= {2.087, 0.97358, 3.5745, -1.0028, 0.071427, 1.8707, 3.1429, 4.2375, -0.27164, -0.13096, 0.001001, 2.1462, 1.5401, 3.3821, 4.5043},vArg_phC= {4.1817, 1.2447, 0.81405, 1.0908, -0.91523, 3.229, 3.027, 1.9277, -0.79214, 1.6975, 1.4944, 1.2169, 1.0425, 1.8851, 1.5209},vMag_phA= {122.4334, 0.53765, 0.72382, 0.70694, 0.64768, 0.38446, 0.36273, 0.1258, 0.146, 0.017102, 0.044527, 0.036902, 0.017037, 0.014504, 0.0037783},vMag_phB= {122.4021, 0.75737, 0.89044, 0.79294, 0.3891, 0.30947, 0.28836, 0.13309, 0.14017, 0.028679, 0.027487, 0.0049812, 0.025937, 0.014957, 0.0034788},vMag_phC= {122.4856, 0.95027, 0.65375, 0.26535, 0.5042, 0.26168, 0.11416, 0.17771, 0.020297, 0.018041, 0.035155, 0.050686, 0.015914, 0.0080868, 0.008705}) annotation (
-    Placement(visible = true, transformation(origin = {-172, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-172, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat") annotation (
     Placement(visible = true, transformation(origin = {182, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_3(V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat") annotation (
@@ -71,7 +71,7 @@ model Scenario_3_Data_Set_3_3
     Placement(visible = true, transformation(origin = {74, -118}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
-    Line(points={{-172,-24.75},{-172,-16.75}},  color = {117, 80, 123}));
+    Line(points = {{-172, -7}, {-172, -16.75}}, color = {117, 80, 123}));
   connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation (
     Line(points = {{90, -10}, {104, -10}, {104, -18}, {114, -18}}, color = {0, 0, 255}));
   connect(ground3.p, Laptop_3.n) annotation (
@@ -139,17 +139,17 @@ equation
   connect(iMsr_Sec_phC.pin_n, Laptop_Charger_5.hPin_P) annotation (
     Line(points = {{-30, -24}, {4, -24}, {4, -154}, {64, -154}, {64, -154}}, color = {117, 80, 123}));
   connect(voltageSource.pinP_phA, iMsr_Sec_phA.pin_p) annotation (
-    Line(points={{-159.5,-2},{-106,-2},{-106,2},{-48,2}},        color = {92, 53, 102}));
+    Line(points = {{-159.5, 16}, {-99.75, 16}, {-99.75, 2}, {-48, 2}}, color = {92, 53, 102}));
   connect(voltageSource.pinP_phB, iMsr_Sec_phB.pin_p) annotation (
-    Line(points={{-159.5,-12},{-90,-12},{-90,-12},{-16,-12}},            color = {92, 53, 102}));
+    Line(points = {{-159.5, 6}, {-86.75, 6}, {-86.75, -12}, {-16, -12}}, color = {92, 53, 102}));
   connect(voltageSource.pinP_phC, iMsr_Sec_phC.pin_p) annotation (
-    Line(points={{-159.5,-22},{-74,-22},{-74,-22},{-50,-22},{-50,-24}},          color = {92, 53, 102}));
+    Line(points = {{-159.5, -4}, {-50, -4}, {-50, -24}}, color = {92, 53, 102}));
   connect(vMsr_Sec_phA.pin_p, voltageSource.pinP_phA) annotation (
-    Line(points={{-100,-30},{-100,-2},{-159.5,-2}},      color = {92, 53, 102}));
+    Line(points = {{-100, -30}, {-100, 16}, {-159.5, 16}}, color = {92, 53, 102}));
   connect(vMsr_Sec_phB.pin_p, voltageSource.pinP_phB) annotation (
-    Line(points={{-82,-52},{-82,-12},{-159.5,-12}},          color = {92, 53, 102}));
+    Line(points = {{-82, -52}, {-82, 6}, {-159.5, 6}}, color = {92, 53, 102}));
   connect(voltageSource.pinP_phC, vMsr_Sec_phC.pin_p) annotation (
-    Line(points={{-159.5,-22},{-64,-22},{-64,-30}},      color = {92, 53, 102}));
+    Line(points = {{-159.5, -4}, {-64, -4}, {-64, -30}}, color = {92, 53, 102}));
   connect(Heater_1_A.pin_p, iMsr_Sec_phA.pin_n) annotation (
     Line(points = {{86, 44}, {42, 44}, {42, 2}, {-28, 2}, {-28, 2}}, color = {92, 53, 102}));
   connect(Heater_1_A.pin_n, ground6.pin) annotation (

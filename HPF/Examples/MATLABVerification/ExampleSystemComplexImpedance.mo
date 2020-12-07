@@ -2,7 +2,7 @@ within HPF.Examples.MATLABVerification;
 model ExampleSystemComplexImpedance
   extends Modelica.Icons.Example;
   import Modelica.ComplexMath.j;
-  inner HPF.SystemDef systemDef(hrms={i for i in 1:2:5})    annotation (
+  inner HPF.SystemDef systemDef(hrms={i for i in 1:2:19})    annotation (
     Placement(visible = true, transformation(origin={-36.1847,50.4921},    extent = {{-9.81534, -9.81533}, {9.81534, 7.01095}}, rotation = 0)));
   HPF.Examples.MATLABVerification.HarmonicLoad load(start_v_re = cat(1, {120}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin={14,-8},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
