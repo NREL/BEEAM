@@ -20,7 +20,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
 
   record Laptop_18V_90W
     extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData;
-    annotation(
+    annotation (
       Documentation(info = "<html><head></head><body>BiXPower DD90X DC/DC laptop charger.&nbsp;</body></html>"));
 
   end Laptop_18V_90W;

@@ -11,11 +11,16 @@ model StepDown
   // One can pass the name of the object, here the object is of the class (or record)
   // ModelData. The object name will have the appropriate fields.
   parameter HPF.Data.ConverterModels.DC2DC_StepDown.ModelData modelData "Converter model data record";
-  
+
   //parameter Real effi = 0.95;
   //Real D(start = 0.5);
   // Real Pout(start = 0);
-   Real P_loss = abs(v1*i1) - abs(v2*i2);
+  
+  Modelica.Blocks.Interfaces.RealOutput P_loss = abs(v1*i1) - abs(v2*i2); annotation (Placement(
+        transformation(extent={{-200,200},{-180,220}}), iconTransformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={0,148})));
 equation
   /*
   Converter output voltage will be dependent on the input voltage?
@@ -50,7 +55,8 @@ equation
   v1*i1 = (v2*abs(i2) + modelData.alpha + (v2*abs(i2))*modelData.beta + modelData.gamma*((v2*i2)^2));
 
 annotation (
-    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {0, -1}, extent = {{-90, 139}, {90, -139}}), Line(origin = {-56.3552, 13.1638}, points = {{-13, 0}, {27, 0}}), Line(origin = {-56.6, -11.5877}, points = {{-13, 0}, {27, 0}}, pattern = LinePattern.Dash), Line(origin = {7.77913, 28.8419}, points = {{-49, -90}, {35, 34}}), Line(origin = {42.1208, 13.1638}, points = {{-13, 0}, {27, 0}}), Line(origin = {41.876, -11.5877}, points = {{-13, 0}, {27, 0}}, pattern = LinePattern.Dash), Text(origin = {0, 80}, lineColor = {92, 53, 102}, extent = {{-180, 60}, {180, 100}}, textString = "%name")}),
+    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {0, -1}, extent = {{-90, 139}, {90, -139}}), Line(origin = {-56.3552, 13.1638}, points = {{-13, 0}, {27, 0}}), Line(origin = {-56.6, -11.5877}, points = {{-13, 0}, {27, 0}}, pattern = LinePattern.Dash), Line(origin = {7.77913, 28.8419}, points = {{-49, -90}, {35, 34}}), Line(origin = {42.1208, 13.1638}, points = {{-13, 0}, {27, 0}}), Line(origin = {41.876, -11.5877}, points = {{-13, 0}, {27, 0}}, pattern = LinePattern.Dash), Text(origin={0,
+              -240},                                                                                                                                                                                                        lineColor = {92, 53, 102}, extent = {{-180, 60}, {180, 100}}, textString = "%name")}),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
     Documentation(info="<html>
 <p>DC to DC step down (buck) converter. Converter efficiency is modeled using a quadratic loss model. </p>

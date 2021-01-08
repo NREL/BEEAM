@@ -199,6 +199,6 @@ Load Phase b-n    Total Load - 100W     Load Bank 2 (78W), LED 2 (22W)
 Load Phase c-n    Total Load - 700W     Load Bank 3 (78W), LED 3 (22W), Resistor 4 (600W)",
             horizontalAlignment =                                                                                 TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-230, -230}, {230, 230}})),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
 end Scenario_2_Data_Set_2_2;

@@ -178,6 +178,7 @@ Load Bank 2 (78W), LED 2 (22W), Resistor 3 (400W)
 Load Bank 2 (78W), LED 2 (22W)
     ", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
-    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"),
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ");
 end Scenario_2_Data_Set_2_4;

@@ -1,5 +1,5 @@
 within HPF.Examples.ModelingValidation;
-model Scenario_3_Data_Set_3_1
+model Scenario_3_Data_Set_3_2
   SinglePhase.Components.Ground ground annotation (
     Placement(visible = true, transformation(origin = {-148, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner HPF.SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
@@ -11,47 +11,47 @@ model Scenario_3_Data_Set_3_1
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation (
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 28) annotation (
-    Placement(visible = true, transformation(origin = {164, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {164, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_3(P_DCmin = 2, P_stby = 0.44, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat", nomP = 72) annotation (
     Placement(visible = true, transformation(origin = {62, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (
     Placement(visible = true, transformation(origin = {96, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_3(pwr=0.05399)     annotation (
+  DC.DC_Load Laptop_3(pwr=72.67)       annotation (
     Placement(visible = true, transformation(origin = {96, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
-    Placement(visible = true, transformation(origin = {194, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {194, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground6 annotation (
     Placement(visible = true, transformation(origin = {36, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28) annotation (
-    Placement(visible = true, transformation(origin = {64, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LED_2(pwr=0.525)       annotation (
-    Placement(visible = true, transformation(origin = {194, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin={66,-60},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load LED_2(pwr=27.6244)     annotation (
+    Placement(visible = true, transformation(origin={196,18},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
-    Placement(visible = true, transformation(origin = {90, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={90,-90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation (
-    Placement(visible = true, transformation(origin = {60, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LED_3(pwr=1.006)       annotation (
-    Placement(visible = true, transformation(origin = {90, -50}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.DC.DC_Load LED_1(pwr=0.988)       annotation (
-    Placement(visible = true, transformation(origin = {92, 60}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {62, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load LED_3(pwr=27.85)       annotation (
+    Placement(visible = true, transformation(origin={90,-64},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.DC.DC_Load LED_1(pwr=27.816)      annotation (
+    Placement(visible = true, transformation(origin = {94, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
-    Placement(visible = true, transformation(origin = {92, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {94, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P_DCmin = 2, P_stby = 0.33, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_4.mat", nomP = 72) annotation (
-    Placement(visible = true, transformation(origin = {162, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {162, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation (
-    Placement(visible = true, transformation(origin = {56, -142}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_4(pwr=0.067)       annotation (
-    Placement(visible = true, transformation(origin = {196, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin={60,-104},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load dC_Load1(pwr=70.864)      annotation (
+    Placement(visible = true, transformation(origin = {196, -28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation (
-    Placement(visible = true, transformation(origin = {196, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Ground ground17 annotation (
-    Placement(visible = true, transformation(origin = {134, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {196, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.SinglePhase.Components.Ground ground17 annotation (
+    Placement(visible = true, transformation(origin = {134, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation (
-    Placement(visible = true, transformation(origin = {92, -172}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_5(pwr=0.1866)      annotation (
-    Placement(visible = true, transformation(origin = {92, -146}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  SinglePhase.Components.Ground ground19 annotation (
-    Placement(visible = true, transformation(origin = {30, -158}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin={96,-134},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load dC_Load2(pwr=70.2708)     annotation (
+    Placement(visible = true, transformation(origin={96,-108},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.SinglePhase.Components.Ground ground19 annotation (
+    Placement(visible = true, transformation(origin={36,-136},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
     Line(points = {{-148, -8.75}, {-148, -18.75}}, color = {117, 80, 123}));
@@ -72,69 +72,65 @@ equation
   connect(Laptop_Charger_3.hPin_N, ground6.pin) annotation (
     Line(points = {{52, 8}, {36, 8}, {36, 7.25}}, color = {117, 80, 123}));
   connect(LED_Driver_2.pin_p, LED_2.p) annotation (
-    Line(points = {{174, 38}, {194, 38}}, color = {0, 0, 255}));
+    Line(points={{174,28},{196,28}},      color = {0, 0, 255}));
   connect(ground4.p, LED_2.n) annotation (
-    Line(points = {{194, 14}, {194, 18}}, color = {0, 0, 255}));
+    Line(points={{194,4},{194,8},{196,8}},
+                                        color = {0, 0, 255}));
   connect(LED_Driver_3.pin_p, LED_3.p) annotation (
-    Line(points = {{74, -40}, {90, -40}}, color = {0, 0, 255}));
+    Line(points={{76,-54},{90,-54}},      color = {0, 0, 255}));
   connect(LED_Driver_3.pin_n, LED_3.n) annotation (
-    Line(points = {{74, -52}, {86, -52}, {86, -56}, {90, -56}, {90, -60}}, color = {0, 0, 255}));
+    Line(points={{76,-66},{80,-66},{80,-74},{90,-74}},          color = {0, 0, 255}));
   connect(ground8.p, LED_3.n) annotation (
-    Line(points = {{90, -66}, {90, -60}}, color = {0, 0, 255}));
+    Line(points={{90,-80},{90,-74}},      color = {0, 0, 255}));
   connect(LED_Driver_1.pin_p, LED_1.p) annotation (
-    Line(points = {{70, 70}, {92, 70}}, color = {0, 0, 255}));
+    Line(points = {{72, 62}, {94, 62}}, color = {0, 0, 255}));
   connect(LED_Driver_1.pin_n, LED_1.n) annotation (
-    Line(points = {{70, 58}, {83.5, 58}, {83.5, 50}, {92, 50}}, color = {0, 0, 255}));
+    Line(points = {{72, 50}, {85.5, 50}, {85.5, 42}, {94, 42}}, color = {0, 0, 255}));
   connect(ground10.p, LED_1.n) annotation (
-    Line(points = {{92, 44}, {92, 50}}, color = {0, 0, 255}));
+    Line(points = {{94, 36}, {94, 42}}, color = {0, 0, 255}));
   connect(LED_Driver_2.pin_n, LED_2.n) annotation (
-    Line(points = {{174, 26}, {192, 26}, {192, 22}, {194, 22}, {194, 18}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_5.pin_p,Laptop_5. p) annotation (
-    Line(points = {{66, -136}, {92, -136}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_5.pin_n,Laptop_5. n) annotation (
-    Line(points = {{66, -148}, {82, -148}, {82, -156}, {92, -156}}, color = {0, 0, 255}));
-  connect(ground18.p,Laptop_5. n) annotation (
-    Line(points = {{92, -162}, {92, -156}}, color = {0, 0, 255}));
+    Line(points={{174,16},{192,16},{192,12},{196,12},{196,8}},            color = {0, 0, 255}));
+  connect(Laptop_Charger_5.pin_p, dC_Load2.p) annotation (
+    Line(points={{70,-98},{96,-98}},      color = {0, 0, 255}));
+  connect(Laptop_Charger_5.pin_n, dC_Load2.n) annotation (
+    Line(points={{70,-110},{86,-110},{86,-118},{96,-118}},        color = {0, 0, 255}));
+  connect(ground18.p, dC_Load2.n) annotation (
+    Line(points={{96,-124},{96,-118}},      color = {0, 0, 255}));
   connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation (
-    Line(points = {{30, -146.75}, {30, -148}, {46, -148}}, color = {92, 53, 102}));
+    Line(points={{36,-124.75},{36,-110},{50,-110}},     color = {92, 53, 102}));
   connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation (
-    Line(points = {{152, -66}, {151, -66}, {151, -66.75}, {134, -66.75}}, color = {117, 80, 123}));
-  connect(Laptop_Charger_4.pin_p,Laptop_4. p) annotation (
-    Line(points = {{172, -54}, {196, -54}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_4.pin_n,Laptop_4. n) annotation (
-    Line(points = {{172, -66}, {192, -66}, {192, -70}, {196, -70}, {196, -74}}, color = {0, 0, 255}));
-  connect(ground16.p,Laptop_4. n) annotation (
-    Line(points = {{196, -80}, {196, -74}}, color = {0, 0, 255}));
+    Line(points = {{152, -30}, {151, -30}, {151, -30.75}, {134, -30.75}}, color = {117, 80, 123}));
+  connect(Laptop_Charger_4.pin_p, dC_Load1.p) annotation (
+    Line(points = {{172, -18}, {196, -18}}, color = {0, 0, 255}));
+  connect(Laptop_Charger_4.pin_n, dC_Load1.n) annotation (
+    Line(points = {{172, -30}, {192, -30}, {192, -34}, {196, -34}, {196, -38}}, color = {0, 0, 255}));
+  connect(ground16.p, dC_Load1.n) annotation (
+    Line(points = {{196, -44}, {196, -38}}, color = {0, 0, 255}));
   connect(LED_Driver_1.hPin_N, ground6.pin) annotation (
-    Line(points = {{50, 58}, {36, 58}, {36, 7.25}}, color = {117, 80, 123}));
+    Line(points = {{52, 50}, {36, 50}, {36, 7.25}}, color = {117, 80, 123}));
   connect(LED_Driver_2.hPin_N, ground17.pin) annotation (
-    Line(points = {{154, 26}, {134, 26}, {134, -66.75}}, color = {117, 80, 123}));
+    Line(points={{154,16},{134,16},{134,-30.75}},     color = {117, 80, 123}));
   connect(LED_Driver_3.hPin_N, ground19.pin) annotation (
-    Line(points = {{54, -52}, {30, -52}, {30, -146.75}}, color = {117, 80, 123}));
+    Line(points={{56,-66},{36,-66},{36,-124.75}},    color = {117, 80, 123}));
   connect(deltaWye.pinSec_A, LED_Driver_1.hPin_P) annotation (
-    Line(points = {{-86, 16}, {8, 16}, {8, 70}, {50, 70}}, color = {92, 53, 102}));
+    Line(points = {{-86, 16}, {8, 16}, {8, 62}, {52, 62}}, color = {92, 53, 102}));
   connect(Laptop_Charger_3.hPin_P, LED_Driver_1.hPin_P) annotation (
-    Line(points = {{52, 20}, {8, 20}, {8, 70}, {50, 70}}, color = {92, 53, 102}));
+    Line(points = {{52, 20}, {8, 20}, {8, 62}, {52, 62}}, color = {92, 53, 102}));
   connect(deltaWye.pinSec_B, LED_Driver_2.hPin_P) annotation (
-    Line(points = {{-86, 8}, {0, 8}, {0, -18}, {122, -18}, {122, 38}, {154, 38}}, color = {92, 53, 102}));
+    Line(points = {{-86, 8}, {0, 8}, {0, -18}, {122, -18}, {122, 28}, {154, 28}}, color = {92, 53, 102}));
   connect(Laptop_Charger_4.hPin_P, LED_Driver_2.hPin_P) annotation (
-    Line(points = {{152, -54}, {122, -54}, {122, 38}, {154, 38}}, color = {92, 53, 102}));
+    Line(points = {{152, -18}, {122, -18}, {122, 28}, {154, 28}}, color = {92, 53, 102}));
   connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation (
-    Line(points = {{-86, 0}, {-24, 0}, {-24, -40}, {54, -40}}, color = {92, 53, 102}));
+    Line(points={{-86,0},{-24,0},{-24,-54},{56,-54}},          color = {92, 53, 102}));
   connect(Laptop_Charger_5.hPin_P, LED_Driver_3.hPin_P) annotation (
-    Line(points = {{46, -136}, {-24, -136}, {-24, -40}, {54, -40}}, color = {92, 53, 102}));
+    Line(points={{50,-98},{-24,-98},{-24,-54},{56,-54}},          color = {92, 53, 102}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}), graphics={
-          Text(
-          extent={{-222,186},{166,148}},
-          lineColor={28,108,200},
-          horizontalAlignment=TextAlignment.Left,
-          textString="Data Set 3.1
-	Load Phase a-n	 Total Load - 0W	 Laptop Charger 3 + LED Driver 1	No Load
-	Load Phase b-n	 Total Load - 0W	 Laptop Charger 4 + LED Driver 2	No Load
-	Load Phase c-n	 Total Load - 0W	 Laptop Charger 5 + LED Driver 3	No Load
-")}),
+    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics={Text(origin = {-54, -14},lineColor = {28, 108, 200}, extent = {{-208, 194}, {340, 132}}, textString = "Data Set 3.2        
+Load Phase a-n        Total Load - 100W        Laptop Charger 3 + LED Driver 1        Load Bank 1 (78W), LED 1 (22W)
+        Load Phase b-n        Total Load - 100W        Laptop Charger 4 + LED Driver 2        Load Bank 2 (78W), LED 2 (22W)
+        Load Phase c-n        Total Load - 100W        Laptop Charger 5 + LED Driver 3        Load Bank 3 (78W), LED 3 (22W)
+    ", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
-end Scenario_3_Data_Set_3_1;
+end Scenario_3_Data_Set_3_2;

@@ -178,6 +178,7 @@ Load Phase b-n        Total Load - 100W                Load Bank 2 (78W), LED 2 
 Load Phase c-n        Total Load - 100W                Load Bank 3 (78W), LED 3 (22W)",
             horizontalAlignment =                                                        TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-300, -220}, {300, 240}})),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
-    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
+    __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"),
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ");
 end Scenario_1_Data_Set_1_2;

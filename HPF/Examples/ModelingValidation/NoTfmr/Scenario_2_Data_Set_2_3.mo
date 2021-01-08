@@ -199,6 +199,6 @@ Load Phase c-n        Total Load - 700W                Load Bank 3 (78W), LED 3 
             horizontalAlignment =                                                                           TextAlignment.Left), Text(origin = {-26, -36}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Changelog:
 * Using new converter model", fontSize = 8, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-230, -230}, {230, 230}})),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
 end Scenario_2_Data_Set_2_3;

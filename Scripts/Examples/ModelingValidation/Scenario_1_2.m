@@ -109,7 +109,7 @@ disp(['System Losses:      ', num2str(inputVoltageSource.P - DC_power), ' W']);
 
 %% get measured data
 msrData = struct();
-fileName = tmp_getDataDir(scenario, dataSet);
+fileName = tmp_getDataDir(scenario, dataSet); % get directory for measured data
 msrData.prim.phA = getLineData(fileName, 'A', 'primary');
 msrData.prim.phB = getLineData(fileName, 'B', 'primary');
 msrData.prim.phC = getLineData(fileName, 'C', 'primary');
