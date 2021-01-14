@@ -19,8 +19,8 @@ from OMPython import ModelicaSystem
 #print(os.environ.get('OPENMODELICAHOME'))
 omc = OMCSessionZMQ()
 
-scenarios = np.arange(1, 3)
-dataSets = np.arange(1, 5)
+scenarios = np.arange(1, 5) # running scenarios 1-4
+dataSets = np.arange(1, 5)  # datasets 1-4
 # simulation options
 # default settings result in translation errors
 cmdOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst"        

@@ -16,7 +16,7 @@ model Scenario_3_Data_Set_3_2
     Placement(visible = true, transformation(origin = {62, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (
     Placement(visible = true, transformation(origin = {96, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_3(pwr=72.67)       annotation (
+  DC.DC_Load Laptop_3(pwr= 72.666)       annotation (
     Placement(visible = true, transformation(origin = {96, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
     Placement(visible = true, transformation(origin = {194, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -24,15 +24,15 @@ model Scenario_3_Data_Set_3_2
     Placement(visible = true, transformation(origin = {36, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin={66,-60},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load LED_2(pwr=27.6244)     annotation (
+  HPF.DC.DC_Load LED_2(pwr= 28.449)     annotation (
     Placement(visible = true, transformation(origin={196,18},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
     Placement(visible = true, transformation(origin={90,-90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin = {62, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load LED_3(pwr=27.85)       annotation (
+  HPF.DC.DC_Load LED_3(pwr= 27.615)       annotation (
     Placement(visible = true, transformation(origin={90,-64},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.DC.DC_Load LED_1(pwr=27.816)      annotation (
+  HPF.DC.DC_Load LED_1(pwr= 27.606)      annotation (
     Placement(visible = true, transformation(origin = {94, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
     Placement(visible = true, transformation(origin = {94, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -40,7 +40,7 @@ model Scenario_3_Data_Set_3_2
     Placement(visible = true, transformation(origin = {162, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation (
     Placement(visible = true, transformation(origin={60,-104},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load1(pwr=70.864)      annotation (
+  HPF.DC.DC_Load dC_Load1(pwr= 70.867)      annotation (
     Placement(visible = true, transformation(origin = {196, -28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation (
     Placement(visible = true, transformation(origin = {196, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -48,7 +48,7 @@ model Scenario_3_Data_Set_3_2
     Placement(visible = true, transformation(origin = {134, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation (
     Placement(visible = true, transformation(origin={96,-134},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load2(pwr=70.2708)     annotation (
+  HPF.DC.DC_Load dC_Load2(pwr= 70.388)     annotation (
     Placement(visible = true, transformation(origin={96,-108},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Ground ground19 annotation (
     Placement(visible = true, transformation(origin={36,-136},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));

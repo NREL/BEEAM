@@ -34,7 +34,6 @@ for scenario = [1:2] % iterate through scenarios
             convLosses, linePwr.sim.prim.total - DC_power, DC_power};
         indx = indx + 1;
     end
-    
 end
 
 % write to csv

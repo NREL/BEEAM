@@ -9,7 +9,7 @@ model Scenario_5_Data_Set_5_3
   HPF.DC.DC2DC_Converters.StepDown conv1(modelData = modelData) annotation(
     Placement(visible = true, transformation(origin = {56, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter HPF.Data.ConverterModels.DC2DC_StepDown.ModelData modelData(V = 18, alpha = 1.484, beta = 0.0252, gamma = 0.005) annotation(
-    Placement(visible = true, transformation(origin = {-48, -108}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-36, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {18, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_3(P_DCmin = 2, P_stby = 0.44, V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat", nomP = 72) annotation(
@@ -37,13 +37,13 @@ model Scenario_5_Data_Set_5_3
   HPF.DC.DC_Load dC_Load1(pwr = 45) annotation(
     Placement(visible = true, transformation(origin = {102, -88}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.DC_Load dC_Load2(pwr = 22)  annotation(
-    Placement(visible = true, transformation(origin = {56, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {58, 78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load3(pwr = 85)  annotation(
-    Placement(visible = true, transformation(origin = {56, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {58, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load4(pwr = 9)  annotation(
-    Placement(visible = true, transformation(origin = {56, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {56, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation(
-    Placement(visible = true, transformation(origin = {82, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {82, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation(
     Line(points = {{-135.5, 4}, {-104, 4}}, color = {92, 53, 102}));
@@ -96,17 +96,17 @@ equation
   connect(stepDown.n1, conv1.n1) annotation(
     Line(points = {{48, -58}, {38, -58}, {38, -4}, {46, -4}, {46, -4}}, color = {0, 0, 255}));
   connect(dC_Load3.p, Laptop_Charger_3.pin_p) annotation(
-    Line(points = {{46, 52}, {26, 52}, {26, 16}, {-14, 16}, {-14, 16}}, color = {0, 0, 255}));
+    Line(points = {{48, 56}, {26, 56}, {26, 16}, {-14, 16}}, color = {0, 0, 255}));
   connect(dC_Load2.p, Laptop_Charger_3.pin_p) annotation(
-    Line(points = {{46, 70}, {26, 70}, {26, 16}, {-14, 16}, {-14, 16}}, color = {0, 0, 255}));
+    Line(points = {{48, 78}, {26, 78}, {26, 16}, {-14, 16}}, color = {0, 0, 255}));
   connect(dC_Load4.p, Laptop_Charger_3.pin_p) annotation(
-    Line(points = {{46, 32}, {26, 32}, {26, 16}, {-14, 16}, {-14, 16}, {-14, 16}}, color = {0, 0, 255}));
+    Line(points = {{46, 36}, {26, 36}, {26, 16}, {-14, 16}}, color = {0, 0, 255}));
   connect(dC_Load2.n, ground4.p) annotation(
-    Line(points = {{66, 70}, {82, 70}, {82, 32}, {82, 32}}, color = {0, 0, 255}));
+    Line(points = {{68, 78}, {82, 78}, {82, 36}}, color = {0, 0, 255}));
   connect(dC_Load4.n, ground4.p) annotation(
-    Line(points = {{66, 32}, {82, 32}, {82, 32}, {82, 32}, {82, 32}}, color = {0, 0, 255}));
+    Line(points = {{66, 36}, {82, 36}, {82, 36}, {82, 36}, {82, 36}}, color = {0, 0, 255}));
   connect(dC_Load3.n, ground4.p) annotation(
-    Line(points = {{66, 52}, {82, 52}, {82, 32}, {82, 32}}, color = {0, 0, 255}));
+    Line(points = {{68, 56}, {82, 56}, {82, 36}}, color = {0, 0, 255}));
   annotation (
     Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics={Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(lineColor = {28, 108, 200}, extent = {{-234, 200}, {150, 150}}, textString = "Data Set 4.4
         Load Phase a-n        Total Load - 700W        Laptop Charger 3 + LED Driver 1        Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W), Heater 2 - A (400W)

@@ -10,55 +10,83 @@ model Scenario_5_Data_Set_5_1
     Placement(visible = true, transformation(origin={-80,-34},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation (
     Placement(visible = true, transformation(extent={{-104,-6},{-84,14}},      rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_3(P_DCmin = 2, P_stby = 0.44, V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat", nomP = 72) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub(P_DCmin = 2, P_stby = 0.44, V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat", nomP = 72) annotation (
     Placement(visible = true, transformation(origin={-2,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (
-    Placement(visible = true, transformation(origin={88, -20},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Laptop_3(pwr = 72.741145) annotation (
-    Placement(visible = true, transformation(origin={88, 6},     extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin={96, -14},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load Laptop_6(pwr = 0.237) annotation (
+    Placement(visible = true, transformation(origin={74, 6},     extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   SinglePhase.Components.Ground ground6 annotation (
     Placement(visible = true, transformation(origin={-28,-10},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Terminate terminate1
     annotation (Placement(transformation(extent={{-78,2},{-64,16}})));
   SinglePhase.Components.Terminate terminate2
     annotation (Placement(transformation(extent={{-78,-6},{-64,8}})));
-  HPF.DC.DC2DC_Converters.StepDown conv1(modelData = modelData)  annotation(
+  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_6(modelData = modelData)  annotation(
     Placement(visible = true, transformation(origin = {44, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {26, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter HPF.Data.ConverterModels.DC2DC_StepDown.ModelData modelData(V = 18, alpha = 1.484, beta = 0.0252, gamma = 0.005)  annotation(
-    Placement(visible = true, transformation(origin = {76, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-40, -68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load Latop_5(pwr = 0.134) annotation(
+    Placement(visible = true, transformation(origin = {74, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_5(modelData = modelData) annotation(
+    Placement(visible = true, transformation(origin = {44, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.DC.DC_Load Laptop_4(pwr = 0.125) annotation(
+    Placement(visible = true, transformation(origin = {74, 98}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_4(modelData = modelData) annotation(
+    Placement(visible = true, transformation(origin = {44, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(voltageSource.pinN, ground.pin) annotation (
-    Line(points={{-148,-8.75},{-148,-20}},         color = {117, 80, 123}));
-  connect(deltaWye.pinSec_N, ground2.pin) annotation (
-    Line(points={{-84,-8},{-80,-8},{-80,-24}},           color = {117, 80, 123}));
-  connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation (
-    Line(points={{-135.5,14},{-104,14}},      color = {92, 53, 102}));
-  connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation (
-    Line(points={{-135.5,4},{-104,4}},      color = {92, 53, 102}));
-  connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation (
-    Line(points={{-135.5,-6},{-104,-6}},      color = {92, 53, 102}));
-  connect(ground3.p, Laptop_3.n) annotation(
-    Line(points = {{88, -10}, {88, -4}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_3.hPin_N, ground6.pin) annotation (
-    Line(points={{-12,4},{-28,4},{-28,0}},        color = {117, 80, 123}));
-  connect(deltaWye.pinSec_A, Laptop_Charger_3.hPin_P)
-    annotation (Line(points={{-84,16},{-12,16}}, color={92,53,102}));
-  connect(deltaWye.pinSec_B, terminate1.hPin_P)
-    annotation (Line(points={{-84,8},{-73,8}}, color={92,53,102}));
-  connect(deltaWye.pinSec_C, terminate2.hPin_P)
-    annotation (Line(points={{-84,0},{-73,0}}, color={92,53,102}));
-  connect(Laptop_Charger_3.pin_p, conv1.p1) annotation(
+  connect(voltageSource.pinN, ground.pin) annotation(
+    Line(points = {{-148, -8.75}, {-148, -20}}, color = {117, 80, 123}));
+  connect(deltaWye.pinSec_N, ground2.pin) annotation(
+    Line(points = {{-84, -8}, {-80, -8}, {-80, -24}}, color = {117, 80, 123}));
+  connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation(
+    Line(points = {{-135.5, 14}, {-104, 14}}, color = {92, 53, 102}));
+  connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation(
+    Line(points = {{-135.5, 4}, {-104, 4}}, color = {92, 53, 102}));
+  connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation(
+    Line(points = {{-135.5, -6}, {-104, -6}}, color = {92, 53, 102}));
+  connect(ground3.p, Laptop_6.n) annotation(
+    Line(points = {{96, -4}, {96, -4.5}, {74, -4.5}, {74, -4}}, color = {0, 0, 255}));
+  connect(NextekHub.hPin_N, ground6.pin) annotation(
+    Line(points = {{-12, 4}, {-28, 4}, {-28, 0}}, color = {117, 80, 123}));
+  connect(deltaWye.pinSec_A, NextekHub.hPin_P) annotation(
+    Line(points = {{-84, 16}, {-12, 16}}, color = {92, 53, 102}));
+  connect(deltaWye.pinSec_B, terminate1.hPin_P) annotation(
+    Line(points = {{-84, 8}, {-73, 8}}, color = {92, 53, 102}));
+  connect(deltaWye.pinSec_C, terminate2.hPin_P) annotation(
+    Line(points = {{-84, 0}, {-73, 0}}, color = {92, 53, 102}));
+  connect(NextekHub.pin_p, LaptopCharger_6.p1) annotation(
     Line(points = {{8, 16}, {34, 16}, {34, 16}, {34, 16}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_3.pin_n, conv1.n1) annotation(
+  connect(NextekHub.pin_n, LaptopCharger_6.n1) annotation(
     Line(points = {{8, 4}, {18, 4}, {18, -4}, {34, -4}, {34, -4}}, color = {0, 0, 255}));
-  connect(conv1.n1, ground1.p) annotation(
+  connect(LaptopCharger_6.n1, ground1.p) annotation(
     Line(points = {{34, -4}, {26, -4}, {26, -12}, {26, -12}}, color = {0, 0, 255}));
-  connect(conv1.p2, Laptop_3.p) annotation(
-    Line(points = {{54, 16}, {88, 16}}, color = {0, 0, 255}));
-  connect(conv1.n2, Laptop_3.n) annotation(
-    Line(points = {{54, -4}, {88, -4}, {88, -4}, {88, -4}}, color = {0, 0, 255}));
+  connect(LaptopCharger_6.p2, Laptop_6.p) annotation(
+    Line(points = {{54, 16}, {74, 16}}, color = {0, 0, 255}));
+  connect(LaptopCharger_6.n2, Laptop_6.n) annotation(
+    Line(points = {{54, -4}, {74, -4}}, color = {0, 0, 255}));
+  connect(LaptopCharger_5.n2, Latop_5.n) annotation(
+    Line(points = {{54, 42}, {74, 42}}, color = {0, 0, 255}));
+  connect(LaptopCharger_5.p2, Latop_5.p) annotation(
+    Line(points = {{54, 62}, {74, 62}}, color = {0, 0, 255}));
+  connect(LaptopCharger_5.n1, LaptopCharger_6.n1) annotation(
+    Line(points = {{34, 42}, {26, 42}, {26, -4}, {34, -4}, {34, -4}}, color = {0, 0, 255}));
+  connect(LaptopCharger_4.n1, LaptopCharger_5.n1) annotation(
+    Line(points = {{34, 88}, {26, 88}, {26, 42}, {34, 42}}, color = {0, 0, 255}));
+  connect(LaptopCharger_4.p1, NextekHub.pin_p) annotation(
+    Line(points = {{34, 108}, {18, 108}, {18, 16}, {8, 16}, {8, 16}}, color = {0, 0, 255}));
+  connect(LaptopCharger_5.p1, NextekHub.pin_p) annotation(
+    Line(points = {{34, 62}, {18, 62}, {18, 16}, {8, 16}, {8, 16}}, color = {0, 0, 255}));
+  connect(LaptopCharger_4.p2, Laptop_4.p) annotation(
+    Line(points = {{54, 108}, {74, 108}, {74, 108}, {74, 108}}, color = {0, 0, 255}));
+  connect(LaptopCharger_4.n2, Laptop_4.n) annotation(
+    Line(points = {{54, 88}, {74, 88}, {74, 88}, {74, 88}}, color = {0, 0, 255}));
+  connect(Latop_5.n, ground3.p) annotation(
+    Line(points = {{74, 42}, {96, 42}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
+  connect(Laptop_4.n, ground3.p) annotation(
+    Line(points = {{74, 88}, {96, 88}, {96, -4}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
   annotation (
     Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics={Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(lineColor = {28, 108, 200}, extent = {{-234, 200}, {150, 150}}, textString = "Data Set 4.4
 	Load Phase a-n	Total Load - 700W	Laptop Charger 3 + LED Driver 1	Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W), Heater 2 - A (400W)

@@ -16,21 +16,21 @@ model Scenario_3_Data_Set_3_3
     Placement(visible = true, transformation(origin = {62, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (
     Placement(visible = true, transformation(origin = {96, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_3(pwr = 72.741145) annotation (
+  DC.DC_Load Laptop_3(pwr = 70.683) annotation (
     Placement(visible = true, transformation(origin = {96, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
     Placement(visible = true, transformation(origin={190,-42},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin={64,-86},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LED_2(pwr = 28.071211) annotation (
+  DC.DC_Load LED_2(pwr = 28.920) annotation (
     Placement(visible = true, transformation(origin={190,-18},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
     Placement(visible = true, transformation(origin={90,-116},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin={64,58},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load LED_3(pwr = 27.069063) annotation (
+  HPF.DC.DC_Load LED_3(pwr = 28.088) annotation (
     Placement(visible = true, transformation(origin={88, -92},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  DC.DC_Load LED_1(pwr = 27.721808) annotation (
+  DC.DC_Load LED_1(pwr = 28.910) annotation (
     Placement(visible = true, transformation(origin={96,54},     extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
     Placement(visible = true, transformation(origin={96,28},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -38,7 +38,7 @@ model Scenario_3_Data_Set_3_3
     Placement(visible = true, transformation(origin = {162, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation (
     Placement(visible = true, transformation(origin={56,-134},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_4(pwr = 70.519849) annotation (
+  DC.DC_Load Laptop_4(pwr = 70.573) annotation (
     Placement(visible = true, transformation(origin = {196, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation (
     Placement(visible = true, transformation(origin = {196, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -46,7 +46,7 @@ model Scenario_3_Data_Set_3_3
     Placement(visible = true, transformation(origin = {134, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation (
     Placement(visible = true, transformation(origin={92,-164},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Latop_5(pwr=71.537540) annotation (Placement(visible=true,
+  DC.DC_Load Latop_5(pwr= 67.297) annotation (Placement(visible=true,
         transformation(
         origin={92,-138},
         extent={{-10,-10},{10,10}},
@@ -55,11 +55,11 @@ model Scenario_3_Data_Set_3_3
     Placement(visible = true, transformation(origin={30,-162},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {36, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1(P = {193.13}) annotation(
-    Placement(visible = true, transformation(origin = {64, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2(P = {193.13}) annotation(
+  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.105}, Q = {0}) annotation(
+    Placement(visible = true, transformation(origin = {64, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1B(P = {179.958}) annotation(
     Placement(visible = true, transformation(origin = {150, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_3(P = {193.13}) annotation(
+  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {185.573}) annotation(
     Placement(visible = true, transformation(origin = {62, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation(
@@ -132,11 +132,11 @@ equation
     Line(points = {{54, 52}, {36, 52}, {36, -10}, {36, -10}}, color = {117, 80, 123}));
   connect(Laptop_Charger_3.hPin_N, ground1.pin) annotation(
     Line(points = {{52, 8}, {36, 8}, {36, -10}, {36, -10}}, color = {117, 80, 123}));
-  connect(Heater_1.hPin_P, deltaWye.pinSec_A) annotation(
-    Line(points = {{53, 80}, {10, 80}, {10, 16}, {-86, 16}}, color = {92, 53, 102}));
-  connect(Heater_2.hPin_P, LED_Driver_2.hPin_P) annotation(
+  connect(Heater_1A.hPin_P, deltaWye.pinSec_A) annotation(
+    Line(points = {{53, 86}, {10, 86}, {10, 16}, {-86, 16}}, color = {92, 53, 102}));
+  connect(Heater_1B.hPin_P, LED_Driver_2.hPin_P) annotation(
     Line(points = {{140, 14}, {122, 14}, {122, -8}, {152, -8}, {152, -8}}, color = {92, 53, 102}));
-  connect(Heater_3.hPin_P, deltaWye.pinSec_C) annotation(
+  connect(Heater_1C.hPin_P, deltaWye.pinSec_C) annotation(
     Line(points = {{52, -60}, {-24, -60}, {-24, -2}, {-24, -2}, {-24, 0}, {-86, 0}, {-86, 0}}, color = {92, 53, 102}));
 protected
   annotation (

@@ -16,7 +16,7 @@ model Scenario_3_Data_Set_3_1
     Placement(visible = true, transformation(origin = {62, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (
     Placement(visible = true, transformation(origin = {96, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_3(pwr=0.05399)     annotation (
+  DC.DC_Load Laptop_3(pwr= 0.054)     annotation (
     Placement(visible = true, transformation(origin = {96, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
     Placement(visible = true, transformation(origin = {194, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -24,15 +24,15 @@ model Scenario_3_Data_Set_3_1
     Placement(visible = true, transformation(origin = {36, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin = {64, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LED_2(pwr=0.525)       annotation (
+  DC.DC_Load LED_2(pwr= 0.526)       annotation (
     Placement(visible = true, transformation(origin = {194, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
     Placement(visible = true, transformation(origin = {90, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin = {60, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LED_3(pwr=1.006)       annotation (
+  DC.DC_Load LED_3(pwr= 1.008)       annotation (
     Placement(visible = true, transformation(origin = {90, -50}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.DC.DC_Load LED_1(pwr=0.988)       annotation (
+  HPF.DC.DC_Load LED_1(pwr= 0.990)       annotation (
     Placement(visible = true, transformation(origin = {92, 60}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
     Placement(visible = true, transformation(origin = {92, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -40,7 +40,7 @@ model Scenario_3_Data_Set_3_1
     Placement(visible = true, transformation(origin = {162, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation (
     Placement(visible = true, transformation(origin = {56, -142}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_4(pwr=0.067)       annotation (
+  DC.DC_Load Laptop_4(pwr= 0.068)       annotation (
     Placement(visible = true, transformation(origin = {196, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation (
     Placement(visible = true, transformation(origin = {196, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -48,10 +48,11 @@ model Scenario_3_Data_Set_3_1
     Placement(visible = true, transformation(origin = {134, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation (
     Placement(visible = true, transformation(origin = {92, -172}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_5(pwr=0.1866)      annotation (
+  DC.DC_Load Laptop_5(pwr= 0.187)      annotation (
     Placement(visible = true, transformation(origin = {92, -146}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   SinglePhase.Components.Ground ground19 annotation (
     Placement(visible = true, transformation(origin = {30, -158}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  
 equation
   connect(voltageSource.pinN, ground.pin) annotation (
     Line(points = {{-148, -8.75}, {-148, -18.75}}, color = {117, 80, 123}));

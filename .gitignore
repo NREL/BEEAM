@@ -32,3 +32,5 @@ Scripts/**/*.exe
 .vscode/
 .db		# thumbnail database file
 
+
+*.m~
