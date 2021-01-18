@@ -20,7 +20,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
 
   record Laptop_18V_90W_LapChrg4
     extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData(final V = 18.5, final alpha = 1.2488, final beta = 5.7882e-4, final gamma = 0.001);
-    annotation (
+    annotation (defaultComponentPrefixes = "parameter",
       defaultComponentName = "laptop_18V_90W_LapChrg4",
       Documentation(info="<html>
 <p>BiXPower DD90X DC/DC laptop charger.&nbsp;</p>
@@ -31,7 +31,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
 
   record Laptop_18V_90W_LapChrg5
     extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData(final V = 18.5, final alpha = 1.2611, final beta = -0.001, final gamma = 0.0011);
-    annotation (
+    annotation (defaultComponentPrefixes = "parameter",
       defaultComponentName = "laptop_18V_90W_LapChrg5",
       Documentation(info="<html>
 <p>BiXPower DD90X DC/DC laptop charger.&nbsp;</p>
@@ -42,7 +42,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
 
   record Laptop_18V_90W_LapChrg6
     extends HPF.Data.ConverterModels.DC2DC_StepDown.ModelData(final V = 18.5, final alpha = 1.1997, final beta = 0.0104, final gamma = 8.2816e-4);
-    annotation (
+    annotation (defaultComponentPrefixes = "parameter",
      defaultComponentName = "laptop_18V_90W_LapChrg6",
       Documentation(info="<html>
 <p>BiXPower DD90X DC/DC laptop charger.&nbsp;</p>
