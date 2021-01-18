@@ -22,9 +22,6 @@ if exist('modelicaSim', 'var') ~= 1
     close all            
 end
 
-%modelicaWorkingDir = '/home/avpreetsingh/OpenModelica_workspace/';
-% using modelic working directory from linux virtual machine
-modelicaWorkingDir = '/media/avpreetsingh/Misc/tmp/openmodelica_wrkspc/';
 % file path for OpenModelica mat file
 matFile_path = ['./HPF.Examples.ModelingValidation.', ...
             modelicaSim, '_res.mat'];
@@ -109,7 +106,7 @@ disp(['System Losses:      ', num2str(inputVoltageSource.P - DC_power), ' W']);
 
 %% get measured data
 msrData = struct();
-fileName = tmp_getDataDir(scenario, dataSet);
+fileName = tmp_getDataDir(scenario, dataSet); % get directory for measured data
 msrData.prim.phA = getLineData(fileName, 'A', 'primary');
 msrData.prim.phB = getLineData(fileName, 'B', 'primary');
 msrData.prim.phC = getLineData(fileName, 'C', 'primary');

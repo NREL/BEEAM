@@ -1,13 +1,14 @@
 within HPF;
+
 class SystemDef "System Definition block"
   import Modelica.ComplexMath.j;
   parameter Integer hrms[:] = {1} "Harmonics to simulate";
   /*
-        INFO: Type variability
-        Dymola is throwing an error for the type variability.
-        'constant' or no type prefix has a lower type variability than 'parameter'.
-        Also, numHrm cannot be initialized as Real.
-      */
+          INFO: Type variability
+          Dymola is throwing an error for the type variability.
+          'constant' or no type prefix has a lower type variability than 'parameter'.
+          Also, numHrm cannot be initialized as Real.
+        */
   final parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms.)";
   parameter Modelica.SIunits.Frequency fFund = 60 "Fundamental frequency (Hz)";
   parameter Modelica.SIunits.Frequency fs = 5e3 "Sampling frequency (Hz)";
@@ -39,18 +40,14 @@ algorithm
       This ensures no other instance of SystemDef class is created. 
       Can be any of these values: "info", "diagram", "text" 
       */
-  annotation (
+  annotation(
     preferredView = "info",
     defaultComponentName = "systemDef",
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "No \"systemDef\" component is defined.
     Drag SystemDef into the top level of your model.",
-    Icon(coordinateSystem(extent = {{-140, -140}, {140, 100}}, initialScale = 0.1), graphics={  Rectangle(origin = {-40, 0}, lineColor = {92, 53, 102}, extent = {{-100, 100}, {180, -140}}), Line(origin = {-41.812, 59.8666}, points = {{-98, 0}, {182, 0}}, color = {92, 53, 102}), Text(origin = {-88, 25}, extent = {{-46, 25}, {418, -5}}, textString = "Harmonics=",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-96, -53}, extent = {{-38, 23}, {426, -7}}, textString = "Fundamental=%fFund",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-210, 87}, lineColor = {92, 53, 102}, fillColor = {92, 53, 102}, extent = {{-40, 13}, {458, -27}}, textString = "System Setup", textStyle = {TextStyle.Bold}), Text(origin = {-52, -13}, extent = {{-42, 25}, {444, -7}}, textString = "%hrms",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left), Text(origin = {-96, -93}, extent = {{-38, 23}, {476, -7}}, textString = "Sampling Freq=%fs",
-            horizontalAlignment =                                                                                                                                                                                                        TextAlignment.Left)}),
-    Documentation(info="<html>
+    Icon(coordinateSystem(extent = {{-140, -140}, {140, 100}}, initialScale = 0.1), graphics = {Rectangle(origin = {-40, 0}, lineColor = {92, 53, 102}, extent = {{-100, 100}, {180, -140}}), Line(origin = {-41.812, 59.8666}, points = {{-98, 0}, {182, 0}}, color = {92, 53, 102}), Text(origin = {-88, 25}, extent = {{-46, 25}, {418, -5}}, textString = "Harmonics=", horizontalAlignment = TextAlignment.Left), Text(origin = {-96, -53}, extent = {{-38, 23}, {426, -7}}, textString = "Fundamental=%fFund", horizontalAlignment = TextAlignment.Left), Text(origin = {-210, 87}, lineColor = {92, 53, 102}, fillColor = {92, 53, 102}, extent = {{-40, 13}, {458, -27}}, textString = "System Setup", textStyle = {TextStyle.Bold}), Text(origin = {-52, -13}, extent = {{-42, 25}, {444, -7}}, textString = "%hrms", horizontalAlignment = TextAlignment.Left), Text(origin = {-96, -93}, extent = {{-38, 23}, {476, -7}}, textString = "Sampling Freq=%fs", horizontalAlignment = TextAlignment.Left)}),
+    Documentation(info = "<html>
 <p><br><span style=\"font-family: Courier New;\">SystemDef </span>is the top level block in an HPF model. The block has parameter fields for defining system-wide options and simulation settings. In a typical harmonics analysis simulation, main simulation parameters are:</p>
 <p>Parameter fields available in the block are:</p>
 <ul>

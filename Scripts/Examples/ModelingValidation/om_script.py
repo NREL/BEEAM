@@ -15,8 +15,8 @@ import numpy as np
 from OMPython import OMCSessionZMQ
 from OMPython import ModelicaSystem
 
-#os.environ["OPENMODELICAHOME"] = "/home/avpreetsingh/programfiles/OpenModelica_stable/"
-#print(os.environ.get('OPENMODELICAHOME'))
+os.environ["OPENMODELICAHOME"] = "/home/avpreetsingh/programfiles/OpenModelica_stable/"
+print(os.environ.get('OPENMODELICAHOME'))
 omc = OMCSessionZMQ()
 
 # simulation options
@@ -24,7 +24,7 @@ omc = OMCSessionZMQ()
 cmdOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst"        
 
 # run simulation
-scenario = 1
+scenario = 4
 dataSet = 3
 
 model = "HPF.Examples.ModelingValidation.Scenario_" + str(scenario) + \

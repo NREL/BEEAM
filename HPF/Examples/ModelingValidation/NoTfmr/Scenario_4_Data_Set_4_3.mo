@@ -175,6 +175,6 @@ Load Bank 2 (78W), LED 2 (22W), Heater 2 - B (400W)
 Load Bank 3 (78W), LED 3 (22W), Heater 1 - C (200W), Heater 2 - C (400W)
     ", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-230, -230}, {230, 230}})),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
 end Scenario_4_Data_Set_4_3;

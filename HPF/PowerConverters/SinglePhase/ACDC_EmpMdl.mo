@@ -1,8 +1,6 @@
 within HPF.PowerConverters.SinglePhase;
 model ACDC_EmpMdl "AC to DC converter empirical model"
   outer SystemDef systemDef;
-  // component properties for post processing
-  HPF.Utilities.ComponentProperties properties(ComponentType = "NonlinearLoad");
   import Modelica.ComplexMath.j;
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation (
     Placement(visible = true, transformation(origin = {80, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -17,10 +15,11 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
   parameter Modelica.SIunits.Power P_DCmin = 0.5 "P_DC minimum";
   parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power";
+  parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init";
   // TODO: Document that a default value of zero sets the stanby power as computed by efficiency relation.
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation (
     Placement(visible = true, transformation(origin = {20, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Interface.LoadBase loadBase(start_v_re = cat(1, {nomV}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
+  HPF.SinglePhase.Interface.LoadBase loadBase(start_v_re = cat(1, {nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_im = cat(1, {nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {nomP / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_im = cat(1, {nomP / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation (
     Placement(visible = true, transformation(origin = {-20, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   /*
         Fundamental power drawn on the AC harmonic side.
@@ -40,8 +39,9 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.v);
+  Real P_h[systemDef.numHrm] = (loadBase.v[:].re .* loadBase.i[:].re) + (loadBase.v[:].im .* loadBase.i[:].im) "Real power at harmonics";
   // intermediary variables
-  Real P1(start = nomP, fixed = false) "Real power at fundamental";
+  Real P1(start = nomP) "Real power at fundamental";
   Real S1(start = nomP) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";
   // diagnostics: Check if the computed h=1 current mag matches the input surface model

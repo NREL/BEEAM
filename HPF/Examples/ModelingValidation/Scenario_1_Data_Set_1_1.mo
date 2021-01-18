@@ -175,7 +175,7 @@ equation
     Diagram(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1), graphics={  Text(origin = {18, 18}, lineColor = {28, 108, 200}, extent = {{-182, 192}, {146, 164}}, textString = "Scenario 1 | Data Set 1.1
 No Load", fontSize = 9, horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-300, -300}, {300, 300}}, initialScale = 0.1)),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ");
 end Scenario_1_Data_Set_1_1;

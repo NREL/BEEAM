@@ -48,5 +48,8 @@ equation
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>This example demonstrates the harmonic power flow technique in a circuit containg an AC to DC converter. </p>
-</html>"));
+</html>"),
+  experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 1),
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end AC2DC_Converter;

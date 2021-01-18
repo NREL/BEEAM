@@ -150,6 +150,6 @@ No Load
 No Load
     ", horizontalAlignment = TextAlignment.Left)}),
     Icon(coordinateSystem(extent = {{-230, -230}, {230, 230}})),
-    experiment(StartTime = 0, StopTime = 0.15, Tolerance = 1e-10, Interval = 0.0005),
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),
     __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl", ls = "totalpivot", nls = "newton"));
 end Scenario_3_Data_Set_3_1;

@@ -11,7 +11,8 @@ model Impedance "Harmonic impedance element"
   Real vFundArg = Modelica.ComplexMath.arg(v[1]);
   Real iFundAbs = Modelica.ComplexMath.'abs'(i[1]);
   Real iFundArg = Modelica.ComplexMath.arg(i[1]);
-
+  Real P_h[systemDef.numHrm] = (v[:].re .* i[:].re) + (v[:].im .* i[:].im) "Real power at harmonics";
+  Modelica.SIunits.Power Preal = sum(Modelica.ComplexMath.real(v[:] .* Modelica.ComplexMath.conj(i[:])));
 equation
   /*
     hrms is a user defined vector specified in systemDef.

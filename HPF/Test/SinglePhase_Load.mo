@@ -4,7 +4,7 @@ model SinglePhase_Load
   inner HPF.SystemDef systemDef(hrms = {1}) annotation (
     Placement(visible = true, transformation(origin = {-60, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource v(theta(fixed = true), vArg = {0}, vMag = {100}) annotation (
-    Placement(visible = true, transformation(origin = {-61, -19}, extent = {{-11, -11}, {11, 11}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-61, -13}, extent = {{-11, -11}, {11, 11}}, rotation = -90)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {-40, -50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Test_components.Test_Load test_Load1(S = (-50) - 20 * j) annotation (
