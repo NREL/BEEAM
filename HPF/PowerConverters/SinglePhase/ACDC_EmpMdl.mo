@@ -1,7 +1,6 @@
 within HPF.PowerConverters.SinglePhase;
 model ACDC_EmpMdl "AC to DC converter empirical model"
   outer SystemDef systemDef;
-  // component properties for post processing
   import Modelica.ComplexMath.j;
   Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation (
     Placement(visible = true, transformation(origin = {80, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -16,55 +16,10 @@ model HarmonicPQLoad "PQ load at harmonic frequencies"
   HPF.SinglePhase.Components.Impedance z(start_i_im = cat(1, {P[1] / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {P[1] / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), z = 1e-6 - 0.0 * j) annotation(
     Placement(visible = true, transformation(origin = {-30, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
-  final parameter Real P_padded[systemDef.numHrm] = cat(1, P[:], {0.0 for i in size(P, 1)+1:systemDef.numHrm});
+  final parameter Real P_padded[systemDef.numHrm] = cat(1, P[:], {0.0 for i in size(P, 1)+1:systemDef.numHrm}); // zero padding Power harmonic vector
   final parameter Real Q_padded[systemDef.numHrm] = cat(1, Q[:], {0.0 for i in size(P, 1)+1:systemDef.numHrm});
 equation
-/*
-     In complex notation,
-    S = P + jQ = V*conj(I)
-      = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
 
-    //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
-    P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
-    Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-  */
-/*
-       P[i] = loadBase.v[i].re * loadBase.i[i].re + loadBase.v[i].im * loadBase.i[i].im;
-      Q[i] = loadBase.v[i].im * loadBase.i[i].re - loadBase.v[i].re * loadBase.i[i].im;
-      
-      
-    */
-/*
-      0.0 = loadBase.v[i].re * loadBase.i[i].re + loadBase.v[i].im * loadBase.i[i].im;
-      0.0 = loadBase.v[i].im * loadBase.i[i].re - loadBase.v[i].re * loadBase.i[i].im;
-      
-    
-
-  for i in 1:systemDef.numHrm loop
-    if i <= size(P, 1) then
-     loadBase.i[i].re = (P[i] * loadBase.v[i].re + Q[i] * loadBase.v[i].im) / (loadBase.v[i].re ^ 2 + loadBase.v[i].im ^ 2);
-    loadBase.i[i].im = (P[i] * loadBase.v[i].im - Q[i] * loadBase.v[i].re) / (loadBase.v[i].re ^ 2 + loadBase.v[i].im ^ 2);
-    
-    else
-    
-      0 = loadBase.v[i].re * loadBase.i[i].re + loadBase.v[i].im * loadBase.i[i].im;
-      0 = loadBase.v[i].im * loadBase.i[i].re - loadBase.v[i].re * loadBase.i[i].im;
-    end if;
-  end for;
-*/
-  /*
-  loadBase.i[1].re = (P[1] .* loadBase.v[1].re + Q[1] .* loadBase.v[1].im) / (loadBase.v[1].re .^ 2 + loadBase.v[1].im .^ 2); // concatenating the vectors and assigning higher harmonics to zero
-  loadBase.i[1].im = (P[1] .* loadBase.v[1].im - Q[1] .* loadBase.v[1].re) / (loadBase.v[1].re .^ 2 + loadBase.v[1].im .^ 2);
-  loadBase.i[size(P, 1) + 1:systemDef.numHrm].re = {0.0 for i in size(P, 1) + 1:systemDef.numHrm};
-  loadBase.i[size(P, 1) + 1:systemDef.numHrm].im = {0.0 for i in size(P, 1) + 1:systemDef.numHrm};
-  
-  P_padded[:] = loadBase.v[:].re .* loadBase.i[:].re + loadBase.v[:].im .* loadBase.i[:].im;
-  Q_padded[:] = loadBase.v[:].im .* loadBase.i[:].re - loadBase.v[:].re .* loadBase.i[:].im;
-  
-  loadBase.i[:].re = (P_padded[:] .* loadBase.v[:].re + Q_padded[:] .* loadBase.v[:].im) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2); // concatenating the vectors and assigning higher harmonics to zero
-  loadBase.i[:].im = (P_padded[:] .* loadBase.v[:].im - Q_padded[:] .* loadBase.v[:].re) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2);
-  */
-  
   loadBase.i[:].re = (P_padded[:] .* loadBase.v[:].re + Q_padded[:] .* loadBase.v[:].im) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2); // concatenating the vectors and assigning higher harmonics to zero
   loadBase.i[:].im = (P_padded[:] .* loadBase.v[:].im - Q_padded[:] .* loadBase.v[:].re) ./ (loadBase.v[:].re .^ 2 + loadBase.v[:].im .^ 2);
    
