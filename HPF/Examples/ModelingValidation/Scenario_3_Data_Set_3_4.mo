@@ -2,7 +2,7 @@ within HPF.Examples.ModelingValidation;
 model Scenario_3_Data_Set_3_4
   PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin = {64, 58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2B(P = {384.843}) annotation (
+  Loads.UserDefined.HarmonicPQLoad Heater_2B(P = {384.843}, vAngle = -2.0944) annotation (
     Placement(visible = true, transformation(origin = {150, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_1(pwr = 29.232) annotation (
     Placement(visible = true, transformation(origin = {96, 54}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -16,7 +16,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(origin = {196, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Loads.UserDefined.HarmonicPQLoad Heater_2A(P = {384.698}) annotation (
     Placement(visible = true, transformation(origin = {64, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {64, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_2(pwr = 29.027) annotation (
     Placement(visible = true, transformation(origin = {190, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -38,7 +38,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(origin = {62, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
     Placement(visible = true, transformation(origin = {190, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {56, -134}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
     Placement(visible = true, transformation(origin = {-146, 76}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
@@ -52,7 +52,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
     Placement(visible = true, transformation(origin = {90, -116}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {397.611}) annotation (
+  Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {397.611}, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {62, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation (
     Placement(visible = true, transformation(origin = {196, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

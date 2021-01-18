@@ -19,5 +19,8 @@ equation
     Line(points = {{-10, 2}, {-10, -4}, {-46, -4}, {-46, -14}}, color = {117, 80, 123}));
 
 annotation(
-    Documentation(info = "<html><head></head><body>Testing heater resistance values obtatined using heater resistance uncertainity analysis.<div><br></div><div>Use heater resistance values from measurement. Use transformer secondary side measurements from scenario 3 or 4 and use it as voltage settings.</div><div><br></div><div><br></div><div>Measured power = 193.13 W</div><div>Simulation = 187.754 W</div></body></html>"));
+    Documentation(info = "<html><head></head><body>Testing heater resistance values obtatined using heater resistance uncertainity analysis.<div><br></div><div>Use heater resistance values from measurement. Use transformer secondary side measurements from scenario 3 or 4 and use it as voltage settings.</div><div><br></div><div><br></div><div>Measured power = 193.13 W</div><div>Simulation = 187.754 W</div></body></html>"),
+    experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.002),
+  __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
+  __OpenModelica_simulationFlags(lv = "LOG_STATS", outputFormat = "mat", s = "dassl"));
 end Test_heaterResistance;

@@ -22,77 +22,74 @@ model Scenario_5_Data_Set_5_1
     annotation (Placement(transformation(extent={{-78,2},{-64,16}})));
   SinglePhase.Components.Terminate terminate2
     annotation (Placement(transformation(extent={{-78,-6},{-64,8}})));
-  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_6(modelData = modelData)  annotation(
+  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_6(modelData = modelData)  annotation (
     Placement(visible = true, transformation(origin = {44, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
+  Modelica.Electrical.Analog.Basic.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {26, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter HPF.Data.ConverterModels.DC2DC_StepDown.ModelData modelData(V = 18, alpha = 1.484, beta = 0.0252, gamma = 0.005)  annotation(
+  parameter HPF.Data.ConverterModels.DC2DC_StepDown.ModelData modelData(V = 18, alpha = 1.484, beta = 0.0252, gamma = 0.005)  annotation (
     Placement(visible = true, transformation(origin = {-40, -68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Latop_5(pwr = 0.134) annotation(
+  HPF.DC.DC_Load Latop_5(pwr = 0.134) annotation (
     Placement(visible = true, transformation(origin = {74, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_5(modelData = modelData) annotation(
+  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_5(modelData = modelData) annotation (
     Placement(visible = true, transformation(origin = {44, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Laptop_4(pwr = 0.125) annotation(
+  HPF.DC.DC_Load Laptop_4(pwr = 0.125) annotation (
     Placement(visible = true, transformation(origin = {74, 98}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_4(modelData = modelData) annotation(
+  HPF.DC.DC2DC_Converters.StepDown LaptopCharger_4(modelData = modelData) annotation (
     Placement(visible = true, transformation(origin = {44, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(voltageSource.pinN, ground.pin) annotation(
+  connect(voltageSource.pinN, ground.pin) annotation (
     Line(points = {{-148, -8.75}, {-148, -20}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_N, ground2.pin) annotation(
+  connect(deltaWye.pinSec_N, ground2.pin) annotation (
     Line(points = {{-84, -8}, {-80, -8}, {-80, -24}}, color = {117, 80, 123}));
-  connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation(
+  connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation (
     Line(points = {{-135.5, 14}, {-104, 14}}, color = {92, 53, 102}));
-  connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation(
+  connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation (
     Line(points = {{-135.5, 4}, {-104, 4}}, color = {92, 53, 102}));
-  connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation(
+  connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation (
     Line(points = {{-135.5, -6}, {-104, -6}}, color = {92, 53, 102}));
-  connect(ground3.p, Laptop_6.n) annotation(
+  connect(ground3.p, Laptop_6.n) annotation (
     Line(points = {{96, -4}, {96, -4.5}, {74, -4.5}, {74, -4}}, color = {0, 0, 255}));
-  connect(NextekHub.hPin_N, ground6.pin) annotation(
+  connect(NextekHub.hPin_N, ground6.pin) annotation (
     Line(points = {{-12, 4}, {-28, 4}, {-28, 0}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_A, NextekHub.hPin_P) annotation(
+  connect(deltaWye.pinSec_A, NextekHub.hPin_P) annotation (
     Line(points = {{-84, 16}, {-12, 16}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_B, terminate1.hPin_P) annotation(
+  connect(deltaWye.pinSec_B, terminate1.hPin_P) annotation (
     Line(points = {{-84, 8}, {-73, 8}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_C, terminate2.hPin_P) annotation(
+  connect(deltaWye.pinSec_C, terminate2.hPin_P) annotation (
     Line(points = {{-84, 0}, {-73, 0}}, color = {92, 53, 102}));
-  connect(NextekHub.pin_p, LaptopCharger_6.p1) annotation(
+  connect(NextekHub.pin_p, LaptopCharger_6.p1) annotation (
     Line(points = {{8, 16}, {34, 16}, {34, 16}, {34, 16}}, color = {0, 0, 255}));
-  connect(NextekHub.pin_n, LaptopCharger_6.n1) annotation(
+  connect(NextekHub.pin_n, LaptopCharger_6.n1) annotation (
     Line(points = {{8, 4}, {18, 4}, {18, -4}, {34, -4}, {34, -4}}, color = {0, 0, 255}));
-  connect(LaptopCharger_6.n1, ground1.p) annotation(
+  connect(LaptopCharger_6.n1, ground1.p) annotation (
     Line(points = {{34, -4}, {26, -4}, {26, -12}, {26, -12}}, color = {0, 0, 255}));
-  connect(LaptopCharger_6.p2, Laptop_6.p) annotation(
+  connect(LaptopCharger_6.p2, Laptop_6.p) annotation (
     Line(points = {{54, 16}, {74, 16}}, color = {0, 0, 255}));
-  connect(LaptopCharger_6.n2, Laptop_6.n) annotation(
+  connect(LaptopCharger_6.n2, Laptop_6.n) annotation (
     Line(points = {{54, -4}, {74, -4}}, color = {0, 0, 255}));
-  connect(LaptopCharger_5.n2, Latop_5.n) annotation(
+  connect(LaptopCharger_5.n2, Latop_5.n) annotation (
     Line(points = {{54, 42}, {74, 42}}, color = {0, 0, 255}));
-  connect(LaptopCharger_5.p2, Latop_5.p) annotation(
+  connect(LaptopCharger_5.p2, Latop_5.p) annotation (
     Line(points = {{54, 62}, {74, 62}}, color = {0, 0, 255}));
-  connect(LaptopCharger_5.n1, LaptopCharger_6.n1) annotation(
+  connect(LaptopCharger_5.n1, LaptopCharger_6.n1) annotation (
     Line(points = {{34, 42}, {26, 42}, {26, -4}, {34, -4}, {34, -4}}, color = {0, 0, 255}));
-  connect(LaptopCharger_4.n1, LaptopCharger_5.n1) annotation(
+  connect(LaptopCharger_4.n1, LaptopCharger_5.n1) annotation (
     Line(points = {{34, 88}, {26, 88}, {26, 42}, {34, 42}}, color = {0, 0, 255}));
-  connect(LaptopCharger_4.p1, NextekHub.pin_p) annotation(
+  connect(LaptopCharger_4.p1, NextekHub.pin_p) annotation (
     Line(points = {{34, 108}, {18, 108}, {18, 16}, {8, 16}, {8, 16}}, color = {0, 0, 255}));
-  connect(LaptopCharger_5.p1, NextekHub.pin_p) annotation(
+  connect(LaptopCharger_5.p1, NextekHub.pin_p) annotation (
     Line(points = {{34, 62}, {18, 62}, {18, 16}, {8, 16}, {8, 16}}, color = {0, 0, 255}));
-  connect(LaptopCharger_4.p2, Laptop_4.p) annotation(
+  connect(LaptopCharger_4.p2, Laptop_4.p) annotation (
     Line(points = {{54, 108}, {74, 108}, {74, 108}, {74, 108}}, color = {0, 0, 255}));
-  connect(LaptopCharger_4.n2, Laptop_4.n) annotation(
+  connect(LaptopCharger_4.n2, Laptop_4.n) annotation (
     Line(points = {{54, 88}, {74, 88}, {74, 88}, {74, 88}}, color = {0, 0, 255}));
-  connect(Latop_5.n, ground3.p) annotation(
+  connect(Latop_5.n, ground3.p) annotation (
     Line(points = {{74, 42}, {96, 42}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
-  connect(Laptop_4.n, ground3.p) annotation(
+  connect(Laptop_4.n, ground3.p) annotation (
     Line(points = {{74, 88}, {96, 88}, {96, -4}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
   annotation (
-    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics={Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(lineColor = {28, 108, 200}, extent = {{-234, 200}, {150, 150}}, textString = "Data Set 4.4
-	Load Phase a-n	Total Load - 700W	Laptop Charger 3 + LED Driver 1	Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W), Heater 2 - A (400W)
-	Load Phase b-n	Total Load - 500W	Laptop Charger 4 + LED Driver 2	Load Bank 2 (78W), LED 2 (22W), Heater 2 - B (400W)
-	Load Phase c-n	Total Load - 100W	Laptop Charger 5 + LED Driver 3	Load Bank 2 (78W), LED 2 (22W)
-    ", horizontalAlignment = TextAlignment.Left), Text(origin = {-144, 42}, lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
+    Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics={Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"),
+                                                  Text(origin = {-144, 42}, lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
     ")}),
     Icon(coordinateSystem(extent = {{-280, -220}, {260, 240}})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-10, Interval = 1),

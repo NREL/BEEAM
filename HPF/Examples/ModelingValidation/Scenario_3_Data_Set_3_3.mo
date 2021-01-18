@@ -53,92 +53,91 @@ model Scenario_3_Data_Set_3_3
         rotation=-90)));
   SinglePhase.Components.Ground ground19 annotation (
     Placement(visible = true, transformation(origin={30,-162},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.SinglePhase.Components.Ground ground1 annotation(
+  HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {36, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.105}, Q = {0}) annotation(
+  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.105}, Q = {0}) annotation (
     Placement(visible = true, transformation(origin = {64, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1B(P = {179.958}) annotation(
-    Placement(visible = true, transformation(origin = {150, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {185.573}) annotation(
+  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1B(P = {179.958}, vAngle = -2.0944) annotation (
+    Placement(visible = true, transformation(origin = {156, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {185.573}, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {62, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(voltageSource.pinN, ground.pin) annotation(
-    Line(points = {{-148, -8.75}, {-148, -18.75}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_N, ground2.pin) annotation(
-    Line(points = {{-86, -8}, {-82, -8}, {-82, -22.75}}, color = {117, 80, 123}));
-  connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation(
+  connect(voltageSource.pinN, ground.pin) annotation (
+    Line(points={{-148,-8.75},{-148,-20}},         color = {117, 80, 123}));
+  connect(deltaWye.pinSec_N, ground2.pin) annotation (
+    Line(points={{-86,-8},{-82,-8},{-82,-24}},           color = {117, 80, 123}));
+  connect(voltageSource.pinP_phA, deltaWye.pinPrim_A) annotation (
     Line(points = {{-135.5, 14}, {-106, 14}}, color = {92, 53, 102}));
-  connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation(
+  connect(voltageSource.pinP_phB, deltaWye.pinPrim_B) annotation (
     Line(points = {{-135.5, 4}, {-106, 4}}, color = {92, 53, 102}));
-  connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation(
+  connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation (
     Line(points = {{-135.5, -6}, {-106, -6}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation(
+  connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation (
     Line(points = {{72, 8}, {86, 8}, {86, 0}, {96, 0}}, color = {0, 0, 255}));
-  connect(ground3.p, Laptop_3.n) annotation(
+  connect(ground3.p, Laptop_3.n) annotation (
     Line(points = {{96, -6}, {96, 0}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_3.pin_p, Laptop_3.p) annotation(
+  connect(Laptop_Charger_3.pin_p, Laptop_3.p) annotation (
     Line(points = {{72, 20}, {96, 20}}, color = {0, 0, 255}));
-  connect(LED_Driver_2.pin_p, LED_2.p) annotation(
+  connect(LED_Driver_2.pin_p, LED_2.p) annotation (
     Line(points = {{172, -8}, {190, -8}}, color = {0, 0, 255}));
-  connect(ground4.p, LED_2.n) annotation(
+  connect(ground4.p, LED_2.n) annotation (
     Line(points = {{190, -32}, {190, -28}}, color = {0, 0, 255}));
-  connect(LED_Driver_3.pin_p, LED_3.p) annotation(
+  connect(LED_Driver_3.pin_p, LED_3.p) annotation (
     Line(points = {{74, -80}, {82, -80}, {82, -82}, {88, -82}}, color = {0, 0, 255}));
-  connect(LED_Driver_3.pin_n, LED_3.n) annotation(
+  connect(LED_Driver_3.pin_n, LED_3.n) annotation (
     Line(points = {{74, -92}, {86, -92}, {86, -96}, {88, -96}, {88, -102}}, color = {0, 0, 255}));
-  connect(ground8.p, LED_3.n) annotation(
+  connect(ground8.p, LED_3.n) annotation (
     Line(points = {{90, -106}, {90, -103}, {88, -103}, {88, -102}}, color = {0, 0, 255}));
-  connect(LED_Driver_1.pin_p, LED_1.p) annotation(
+  connect(LED_Driver_1.pin_p, LED_1.p) annotation (
     Line(points = {{74, 64}, {96, 64}}, color = {0, 0, 255}));
-  connect(LED_Driver_1.pin_n, LED_1.n) annotation(
+  connect(LED_Driver_1.pin_n, LED_1.n) annotation (
     Line(points = {{74, 52}, {87.5, 52}, {87.5, 44}, {96, 44}}, color = {0, 0, 255}));
-  connect(ground10.p, LED_1.n) annotation(
+  connect(ground10.p, LED_1.n) annotation (
     Line(points = {{96, 38}, {96, 44}}, color = {0, 0, 255}));
-  connect(LED_Driver_2.pin_n, LED_2.n) annotation(
+  connect(LED_Driver_2.pin_n, LED_2.n) annotation (
     Line(points = {{172, -20}, {176, -20}, {176, -28}, {190, -28}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_5.pin_p, Latop_5.p) annotation(
+  connect(Laptop_Charger_5.pin_p, Latop_5.p) annotation (
     Line(points = {{66, -128}, {92, -128}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_5.pin_n, Latop_5.n) annotation(
+  connect(Laptop_Charger_5.pin_n, Latop_5.n) annotation (
     Line(points = {{66, -140}, {82, -140}, {82, -148}, {92, -148}}, color = {0, 0, 255}));
-  connect(ground18.p, Latop_5.n) annotation(
+  connect(ground18.p, Latop_5.n) annotation (
     Line(points = {{92, -154}, {92, -148}}, color = {0, 0, 255}));
-  connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation(
-    Line(points = {{30, -150.75}, {30, -140}, {46, -140}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation(
-    Line(points = {{152, -66}, {151, -66}, {151, -66.75}, {134, -66.75}}, color = {117, 80, 123}));
-  connect(Laptop_Charger_4.pin_p, Laptop_4.p) annotation(
+  connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation (
+    Line(points={{30,-152},{30,-140},{46,-140}},           color = {92, 53, 102}));
+  connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation (
+    Line(points={{152,-66},{151,-66},{151,-68},{134,-68}},                color = {117, 80, 123}));
+  connect(Laptop_Charger_4.pin_p, Laptop_4.p) annotation (
     Line(points = {{172, -54}, {196, -54}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_4.pin_n, Laptop_4.n) annotation(
+  connect(Laptop_Charger_4.pin_n, Laptop_4.n) annotation (
     Line(points = {{172, -66}, {192, -66}, {192, -70}, {196, -70}, {196, -74}}, color = {0, 0, 255}));
-  connect(ground16.p, Laptop_4.n) annotation(
+  connect(ground16.p, Laptop_4.n) annotation (
     Line(points = {{196, -80}, {196, -74}}, color = {0, 0, 255}));
-  connect(LED_Driver_2.hPin_N, ground17.pin) annotation(
-    Line(points = {{152, -20}, {134, -20}, {134, -66.75}}, color = {117, 80, 123}));
-  connect(LED_Driver_3.hPin_N, ground19.pin) annotation(
-    Line(points = {{54, -92}, {30, -92}, {30, -150.75}}, color = {117, 80, 123}));
-  connect(deltaWye.pinSec_A, LED_Driver_1.hPin_P) annotation(
+  connect(LED_Driver_2.hPin_N, ground17.pin) annotation (
+    Line(points={{152,-20},{134,-20},{134,-68}},           color = {117, 80, 123}));
+  connect(LED_Driver_3.hPin_N, ground19.pin) annotation (
+    Line(points={{54,-92},{30,-92},{30,-152}},           color = {117, 80, 123}));
+  connect(deltaWye.pinSec_A, LED_Driver_1.hPin_P) annotation (
     Line(points = {{-86, 16}, {10, 16}, {10, 64}, {54, 64}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_3.hPin_P, LED_Driver_1.hPin_P) annotation(
+  connect(Laptop_Charger_3.hPin_P, LED_Driver_1.hPin_P) annotation (
     Line(points = {{52, 20}, {10, 20}, {10, 64}, {54, 64}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_B, LED_Driver_2.hPin_P) annotation(
+  connect(deltaWye.pinSec_B, LED_Driver_2.hPin_P) annotation (
     Line(points = {{-86, 8}, {20, 8}, {20, -28}, {122, -28}, {122, -8}, {152, -8}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_4.hPin_P, LED_Driver_2.hPin_P) annotation(
+  connect(Laptop_Charger_4.hPin_P, LED_Driver_2.hPin_P) annotation (
     Line(points = {{152, -54}, {140, -54}, {140, -8}, {152, -8}}, color = {92, 53, 102}));
-  connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation(
+  connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation (
     Line(points = {{-86, 0}, {-24, 0}, {-24, -80}, {54, -80}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_5.hPin_P, LED_Driver_3.hPin_P) annotation(
+  connect(Laptop_Charger_5.hPin_P, LED_Driver_3.hPin_P) annotation (
     Line(points = {{46, -128}, {-24, -128}, {-24, -80}, {54, -80}}, color = {92, 53, 102}));
-  connect(LED_Driver_1.hPin_N, ground1.pin) annotation(
+  connect(LED_Driver_1.hPin_N, ground1.pin) annotation (
     Line(points = {{54, 52}, {36, 52}, {36, -10}, {36, -10}}, color = {117, 80, 123}));
-  connect(Laptop_Charger_3.hPin_N, ground1.pin) annotation(
+  connect(Laptop_Charger_3.hPin_N, ground1.pin) annotation (
     Line(points = {{52, 8}, {36, 8}, {36, -10}, {36, -10}}, color = {117, 80, 123}));
-  connect(Heater_1A.hPin_P, deltaWye.pinSec_A) annotation(
+  connect(Heater_1A.hPin_P, deltaWye.pinSec_A) annotation (
     Line(points = {{53, 86}, {10, 86}, {10, 16}, {-86, 16}}, color = {92, 53, 102}));
-  connect(Heater_1B.hPin_P, LED_Driver_2.hPin_P) annotation(
-    Line(points = {{140, 14}, {122, 14}, {122, -8}, {152, -8}, {152, -8}}, color = {92, 53, 102}));
-  connect(Heater_1C.hPin_P, deltaWye.pinSec_C) annotation(
-    Line(points = {{52, -60}, {-24, -60}, {-24, -2}, {-24, -2}, {-24, 0}, {-86, 0}, {-86, 0}}, color = {92, 53, 102}));
-protected
+  connect(Heater_1C.hPin_P, deltaWye.pinSec_C) annotation (
+    Line(points={{51,-60},{-24,-60},{-24,-2},{-24,-2},{-24,0},{-86,0},{-86,0}},                color = {92, 53, 102}));
+  connect(Heater_1B.hPin_P, deltaWye.pinSec_B) annotation(
+    Line(points = {{146, 14}, {122, 14}, {122, -28}, {20, -28}, {20, 8}, {-86, 8}, {-86, 8}}, color = {92, 53, 102}));
   annotation (
     Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics={Text(lineColor = {28, 108, 200}, extent = {{-256, 182}, {366, 100}}, textString = "Data Set 3.3
 Load Phase a-n        Total Load - 300W        Laptop Charger 3 + LED Driver 1        Load Bank (78W), LED (22W), Heater 1 - A (200W)

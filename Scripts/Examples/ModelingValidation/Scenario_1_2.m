@@ -22,9 +22,6 @@ if exist('modelicaSim', 'var') ~= 1
     close all            
 end
 
-%modelicaWorkingDir = '/home/avpreetsingh/OpenModelica_workspace/';
-% using modelic working directory from linux virtual machine
-modelicaWorkingDir = '/media/avpreetsingh/Misc/tmp/openmodelica_wrkspc/';
 % file path for OpenModelica mat file
 matFile_path = ['./HPF.Examples.ModelingValidation.', ...
             modelicaSim, '_res.mat'];

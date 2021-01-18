@@ -51,15 +51,15 @@ model Scenario_4_Data_Set_4_2
     Placement(visible = true, transformation(extent = {{-134, -22}, {-114, -2}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation(
     Placement(visible = true, transformation(origin = {62, -132}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {189.227}) annotation(
-    Placement(visible = true, transformation(origin = {34, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation(
     Placement(visible = true, transformation(origin = {168, -106}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground19 annotation(
     Placement(visible = true, transformation(origin = {2, -178}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Loads.UserDefined.HarmonicPQLoad Heater_2A(P = {383.774}) annotation(
     Placement(visible = true, transformation(origin = {36, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {394.718}) annotation(
+  Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {189.227}, vAngle = 2.0944) annotation(
+    Placement(visible = true, transformation(origin = {34, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {394.718}, vAngle = 2.0944) annotation(
     Placement(visible = true, transformation(origin = {32, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation(
@@ -90,8 +90,6 @@ equation
     Line(points = {{2, -168}, {2, -156}, {18, -156}}, color = {92, 53, 102}));
   connect(ground4.p, LED_2.n) annotation(
     Line(points = {{162, -48}, {162, -44}}, color = {0, 0, 255}));
-  connect(Heater_1C.hPin_P, deltaWye.pinSec_C) annotation(
-    Line(points = {{23, -76}, {-52, -76}, {-52, -16}, {-114, -16}}, color = {92, 53, 102}));
   connect(LED_Driver_3.pin_n, LED_3.n) annotation(
     Line(points = {{46, -108}, {58, -108}, {58, -112}, {60, -112}, {60, -118}}, color = {0, 0, 255}));
   connect(ground16.p, Laptop_4.n) annotation(
@@ -138,6 +136,8 @@ equation
     Line(points = {{38, -144}, {64, -144}}, color = {0, 0, 255}));
   connect(Heater_2A.hPin_P, deltaWye.pinSec_A) annotation(
     Line(points = {{26, 86}, {-18, 86}, {-18, 0}, {-114, 0}, {-114, 0}}, color = {92, 53, 102}));
+  connect(Heater_1C.hPin_P, deltaWye.pinSec_C) annotation(
+    Line(points = {{23, -76}, {-52, -76}, {-52, -16}, {-114, -16}}, color = {92, 53, 102}));
   connect(Heater_2C.hPin_P, deltaWye.pinSec_C) annotation(
     Line(points = {{22, -58}, {-52, -58}, {-52, -16}, {-114, -16}, {-114, -16}}, color = {92, 53, 102}));
   annotation(
