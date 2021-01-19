@@ -24,7 +24,7 @@ omc = OMCSessionZMQ()
 cmdOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst"        
 
 # run simulation
-scenario = 4
+scenario = 5
 dataSet = 3
 
 model = "HPF.Examples.ModelingValidation.Scenario_" + str(scenario) + \

@@ -23,7 +23,7 @@ model Scenario_5_Data_Set_5_2
     Placement(visible = true, transformation(origin = {44, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {26, -64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Latop_5(pwr = 5.766) annotation(
+  HPF.DC.DC_Load Laptop_5(pwr = 5.766) annotation(
     Placement(visible = true, transformation(origin = {74, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.DC2DC_Converters.StepDown LaptopCharger_5(modelData = laptop_18V_90W_LapChrg5) annotation(
     Placement(visible = true, transformation(origin = {44, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -70,9 +70,9 @@ equation
     Line(points = {{54, 16}, {74, 16}}, color = {0, 0, 255}));
   connect(LaptopCharger_6.n2, Laptop_6.n) annotation(
     Line(points = {{54, -4}, {74, -4}}, color = {0, 0, 255}));
-  connect(LaptopCharger_5.n2, Latop_5.n) annotation(
+  connect(LaptopCharger_5.n2, Laptop_5.n) annotation(
     Line(points = {{54, 42}, {74, 42}}, color = {0, 0, 255}));
-  connect(LaptopCharger_5.p2, Latop_5.p) annotation(
+  connect(LaptopCharger_5.p2, Laptop_5.p) annotation(
     Line(points = {{54, 62}, {74, 62}}, color = {0, 0, 255}));
   connect(LaptopCharger_5.n1, LaptopCharger_6.n1) annotation(
     Line(points = {{34, 42}, {26, 42}, {26, -4}, {34, -4}, {34, -4}}, color = {0, 0, 255}));
@@ -86,7 +86,7 @@ equation
     Line(points = {{54, 108}, {74, 108}, {74, 108}, {74, 108}}, color = {0, 0, 255}));
   connect(LaptopCharger_4.n2, Laptop_4.n) annotation(
     Line(points = {{54, 88}, {74, 88}, {74, 88}, {74, 88}}, color = {0, 0, 255}));
-  connect(Latop_5.n, ground3.p) annotation(
+  connect(Laptop_5.n, ground3.p) annotation(
     Line(points = {{74, 42}, {96, 42}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
   connect(Laptop_4.n, ground3.p) annotation(
     Line(points = {{74, 88}, {96, 88}, {96, -4}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
