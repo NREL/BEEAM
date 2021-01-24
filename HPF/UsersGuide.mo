@@ -53,8 +53,7 @@ extends Modelica.Icons.Information;
   class CommonProblems
     extends Modelica.Icons.Information;
     annotation (
-      Documentation(info="<html>
-<ul>
+      Documentation(info= "<html><head></head><body><ul>
 <li>Setting impedance value as a complex number: <span style=\"font-family: Courier;\">0.05 + 0.062*</span>j gives the following error: <i>Variable j not found in scope </i></li>
 </ul>
 <p style=\"margin-left: 30px;\"><u>Solution:</u></p>
@@ -63,8 +62,8 @@ extends Modelica.Icons.Information;
 <li>OpenModelica simulation fails with error: <i>Solving non-linear system failed at time=0</i></li>
 </ul>
 <p style=\"margin-left: 30px;\"><u>Solution:</u></p>
-<p style=\"margin-left: 30px;\">Set the nonlinear solver (under Simulation Flags tab) to newton.</p>
-</html>"));
+<p style=\"margin-left: 30px;\">Set the nonlinear solver (under Simulation Flags tab) to Newton.</p><ul><li>OpenModelica simulation gives erroneous voltage and current values in a power flow simulation (Solve for voltage and current given load power draw).</li></ul><p style=\"margin-left: 30px;\"><u>Solution:</u></p><p style=\"margin-left: 30px;\">Set the nonlinear solver (under Simulation Flags tab) to Newton.</p><p style=\"margin-left: 30px;\">Or: Set the correct initialization values by setting the 'nominal' values in the parameters.</p>
+</body></html>"));
   end CommonProblems;
 
   model ReleaseNotes
