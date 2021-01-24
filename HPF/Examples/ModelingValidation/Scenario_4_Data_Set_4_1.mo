@@ -49,7 +49,7 @@ model Scenario_4_Data_Set_4_1
     Placement(visible = true, transformation(origin = {126, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation(
     Placement(visible = true, transformation(origin = {84, -164}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Latop_5(pwr = 0.186) annotation(
+  DC.DC_Load Laptop_5(pwr = 0.186) annotation(
     Placement(visible = true, transformation(origin = {84, -138}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   SinglePhase.Components.Ground ground19 annotation(
     Placement(visible = true, transformation(origin = {22, -162}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -90,11 +90,11 @@ equation
     Line(points = {{88, 38}, {88, 44}}, color = {0, 0, 255}));
   connect(LED_Driver_2.pin_n, LED_2.n) annotation(
     Line(points = {{164, -20}, {168, -20}, {168, -28}, {182, -28}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_5.pin_p, Latop_5.p) annotation(
+  connect(Laptop_Charger_5.pin_p, Laptop_5.p) annotation(
     Line(points = {{58, -128}, {84, -128}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_5.pin_n, Latop_5.n) annotation(
+  connect(Laptop_Charger_5.pin_n, Laptop_5.n) annotation(
     Line(points = {{58, -140}, {74, -140}, {74, -148}, {84, -148}}, color = {0, 0, 255}));
-  connect(ground18.p, Latop_5.n) annotation(
+  connect(ground18.p, Laptop_5.n) annotation(
     Line(points = {{84, -154}, {84, -148}}, color = {0, 0, 255}));
   connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation(
     Line(points = {{22, -152}, {22, -140}, {38, -140}}, color = {92, 53, 102}));

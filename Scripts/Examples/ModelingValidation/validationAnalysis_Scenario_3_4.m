@@ -64,8 +64,8 @@ for k = 1:2
             %linePwr.sim.sec.total = Heater_1A.P;
             eval(['linePwr.sim.sec.total = linePwr.sim.sec.total + Heater_', ...
                 num2str(k), cell2mat(iterABC), '.P;'])
-            disp(['Heater_', num2str(k), cell2mat(iterABC)])
-            eval(['Heater_', num2str(k), cell2mat(iterABC), '.P'])
+            %disp(['Heater_', num2str(k), cell2mat(iterABC)])
+            %eval(['Heater_', num2str(k), cell2mat(iterABC), '.P'])
         catch
         end
     end
@@ -91,5 +91,5 @@ convLosses = LaptopCharger_3.Ploss + LaptopCharger_4.Ploss + ...
 disp( ' ========================================')        
 disp([' Results for:  ', modelicaSim]) 
 disp( ' ========================================')
-linePwr.sim.prim.total        
-linePwr.sim.sec.total
+disp(['Input power:      ', num2str(linePwr.sim.prim.total  ), ' W']);
+disp(['Secondary power:  ', num2str(linePwr.sim.sec.total), ' W']);

@@ -23,7 +23,7 @@ model Scenario_4_Data_Set_4_4
     Placement(visible = true, transformation(origin = {138, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground17 annotation(
     Placement(visible = true, transformation(origin = {108, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Latop_5(pwr = 65.801) annotation(
+  DC.DC_Load Laptop_5(pwr = 65.801) annotation(
     Placement(visible = true, transformation(origin = {68, -138}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation(
     Placement(visible = true, transformation(origin = {68, -164}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -70,7 +70,7 @@ equation
     Line(points = {{50, 52}, {63.5, 52}, {63.5, 44}, {72, 44}}, color = {0, 0, 255}));
   connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation(
     Line(points = {{-159.5, -6}, {-130, -6}}, color = {92, 53, 102}));
-  connect(ground18.p, Latop_5.n) annotation(
+  connect(ground18.p, Laptop_5.n) annotation(
     Line(points = {{68, -154}, {68, -148}}, color = {0, 0, 255}));
   connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation(
     Line(points = {{-110, 0}, {-48, 0}, {-48, -80}, {30, -80}}, color = {92, 53, 102}));
@@ -82,7 +82,7 @@ equation
     Line(points = {{128, -20}, {108, -20}, {108, -66}}, color = {117, 80, 123}));
   connect(LED_Driver_1.hPin_N, ground1.pin) annotation(
     Line(points = {{30, 52}, {12, 52}, {12, -4}}, color = {117, 80, 123}));
-  connect(Laptop_Charger_5.pin_n, Latop_5.n) annotation(
+  connect(Laptop_Charger_5.pin_n, Laptop_5.n) annotation(
     Line(points = {{42, -140}, {58, -140}, {58, -148}, {68, -148}}, color = {0, 0, 255}));
   connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation(
     Line(points = {{6, -152}, {6, -140}, {22, -140}}, color = {92, 53, 102}));
@@ -130,7 +130,7 @@ equation
     Line(points = {{28, 20}, {-14, 20}, {-14, 64}, {30, 64}}, color = {92, 53, 102}));
   connect(deltaWye.pinSec_B, LED_Driver_2.hPin_P) annotation(
     Line(points = {{-110, 8}, {-4, 8}, {-4, -28}, {98, -28}, {98, -8}, {128, -8}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_5.pin_p, Latop_5.p) annotation(
+  connect(Laptop_Charger_5.pin_p, Laptop_5.p) annotation(
     Line(points = {{42, -128}, {68, -128}}, color = {0, 0, 255}));
   connect(Heater_2A.hPin_P, deltaWye.pinSec_A) annotation(
     Line(points = {{30, 104}, {-14, 104}, {-14, 16}, {-110, 16}, {-110, 16}}, color = {92, 53, 102}));
