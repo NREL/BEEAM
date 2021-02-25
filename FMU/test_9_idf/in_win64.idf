@@ -355,7 +355,7 @@ ScheduleTypeLimits,
 Schedule:File,
   MEASURED_EXTERNAL_TEMPERATURE,          !- Name
   Temperature,                            !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   3,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -636,7 +636,7 @@ ThermostatSetpoint:DualSetpoint,
 Schedule:File,
   MEASURED_CHAMBER_TEMPERATURE,           !- Name
   Temperature,                            !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   4,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -811,7 +811,7 @@ ThermostatSetpoint:DualSetpoint,
 Schedule:File,
   MEASURED_PLENUM_TEMPERATURE,            !- Name
   Temperature,                            !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   11,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1026,7 +1026,7 @@ Schedule:Constant,
 Schedule:File,
   CONVECTIVE_LOAD_SCHEDULE,               !- Name
   Fractional,                             !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   6,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1037,7 +1037,7 @@ Schedule:File,
 Schedule:File,
   Cooling_schedule_file,                  !- Name
   Fractional,                             !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   12,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1048,7 +1048,7 @@ Schedule:File,
 Schedule:File,
   HVAC_SCHEDULE,                          !- Name
   Temperature,                            !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   5,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1059,7 +1059,7 @@ Schedule:File,
 Schedule:File,
   MeasuredPeriod,                         !- Name
   Fractional,                             !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   8,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1070,7 +1070,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_COOLING_POWER,                 !- Name
   Temperature,                            !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   9,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1081,7 +1081,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_TOTAL_HEAT_GAIN,               !- Name
   HeatGainSchedule,                       !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   2,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1092,7 +1092,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_WATER_INLET_TEMPERATURE,       !- Name
   Temperature,                            !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   10,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1103,7 +1103,7 @@ Schedule:File,
 Schedule:File,
   Mixing_Schedule,                        !- Name
   Fractional,                             !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   13,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1114,7 +1114,7 @@ Schedule:File,
 Schedule:File,
   RADIATION_LOAD_SCHEDULE,                !- Name
   Fractional,                             !- Schedule Type Limits Name
-  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out.csv, !- File Name
+  C:\Projects\BEEAM\FMU\test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
   7,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
