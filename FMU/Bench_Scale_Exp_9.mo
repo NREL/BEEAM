@@ -39,7 +39,7 @@ model Bench_Scale_Exp_9
     Placement(visible = true, transformation(origin={-28,-34},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.PowerSensor FanPower1 annotation (
     Placement(visible = true, transformation(origin={-8,-62},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  'in_fmu' 'in_fmu1'(fmi_StopTime=86400, fmi_NumberOfSteps=1440)
+  'in_fmu' 'in_fmu1'(fmi_StopTime=259200, fmi_NumberOfSteps=4320)
     annotation (Placement(transformation(extent={{170,36},{190,56}})));
   Modelica.Blocks.Interfaces.RealOutput y
     annotation (Placement(transformation(extent={{46,76},{66,96}})));
@@ -134,7 +134,7 @@ equation
   connect(Load2_Power.pv, Load2_Power.pc) annotation (
     Line(points={{22,16},{12,16},{12,6}},                 color = {0, 0, 255}));
   connect('in_fmu1'.conditioned_zone_temp, ConditionedZoneAir.T) annotation (
-      Line(points={{191,53.2},{196,53.2},{196,-62},{142,-62},{142,-80},{118,-80}},
+      Line(points={{190,46},{196,46},{196,-62},{142,-62},{142,-80},{118,-80}},
         color={0,0,127}));
   connect(UnconditionedZoneTotalLoss.y, y) annotation (Line(points={{-17,80},{
           14,80},{14,86},{56,86}}, color={0,0,127}));

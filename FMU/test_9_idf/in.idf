@@ -355,7 +355,7 @@ ScheduleTypeLimits,
 Schedule:File,
   MEASURED_EXTERNAL_TEMPERATURE,          !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   3,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -588,7 +588,47 @@ ExternalInterface:FunctionalMockupUnitExport:From:Variable,
 ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   PlenumZone,  !- Output:Variable Index Key Name
   Zone Electric Equipment Total Heating Rate,  !- Output:Variable Name
-  plenum_space_total_heating_rate;         !- FMU Variable Name 
+  plenum_space_total_heating_rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  ConditionedZone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Heating Energy,  !- Output:Variable Name
+  conditioned_space_ideal_heating_rate;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  PlenumZone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Heating Energy,  !- Output:Variable Name
+  plenum_space_ideal_heating_rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  ConditionedZone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Cooling Energy,  !- Output:Variable Name
+  conditioned_space_ideal_cooling_rate;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  PlenumZone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Cooling Energy,  !- Output:Variable Name
+  plenum_space_ideal_cooling_rate;         !- FMU Variable Name
+  
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  ConditionedZone,  !- Output:Variable Index Key Name
+  Zone Thermostat Cooling Setpoint Temperature,  !- Output:Variable Name
+  conditioned_space_cooling_setpoint;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  PlenumZone,  !- Output:Variable Index Key Name
+  Zone Thermostat Cooling Setpoint Temperature,  !- Output:Variable Name
+  plenum_space_cooling_setpoint;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  ConditionedZone,  !- Output:Variable Index Key Name
+  Zone Thermostat Heating Setpoint Temperature,  !- Output:Variable Name
+  conditioned_space_heating_setpoint;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  PlenumZone,  !- Output:Variable Index Key Name
+  Zone Thermostat Heating Setpoint Temperature,  !- Output:Variable Name
+  plenum_space_heating_setpoint;         !- FMU Variable Name
 
 ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   ConditionedZone_chilled_water_gain,  !- Output:Variable Index Key Name
@@ -636,7 +676,7 @@ ThermostatSetpoint:DualSetpoint,
 Schedule:File,
   MEASURED_CHAMBER_TEMPERATURE,           !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   4,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -811,7 +851,7 @@ ThermostatSetpoint:DualSetpoint,
 Schedule:File,
   MEASURED_PLENUM_TEMPERATURE,            !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   11,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1026,7 +1066,7 @@ Schedule:Constant,
 Schedule:File,
   CONVECTIVE_LOAD_SCHEDULE,               !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   6,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1037,7 +1077,7 @@ Schedule:File,
 Schedule:File,
   Cooling_schedule_file,                  !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   12,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1048,7 +1088,7 @@ Schedule:File,
 Schedule:File,
   HVAC_SCHEDULE,                          !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   5,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1059,7 +1099,7 @@ Schedule:File,
 Schedule:File,
   MeasuredPeriod,                         !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   8,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1070,7 +1110,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_COOLING_POWER,                 !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   9,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1081,7 +1121,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_TOTAL_HEAT_GAIN,               !- Name
   HeatGainSchedule,                       !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   2,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1092,7 +1132,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_WATER_INLET_TEMPERATURE,       !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   10,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1103,7 +1143,7 @@ Schedule:File,
 Schedule:File,
   Mixing_Schedule,                        !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   13,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1114,7 +1154,7 @@ Schedule:File,
 Schedule:File,
   RADIATION_LOAD_SCHEDULE,                !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/DC-validation-blb/Experiment9_200707_input_out.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   7,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1170,7 +1210,27 @@ Output:Variable,
   ConditionedZone,                        !- Key Value
   Zone Electric Equipment Total Heating Rate, !- Variable Name
   timestep;                               !- Reporting Frequency
+  
+Output:Variable,
+  ConditionedZone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Heating Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
 
+Output:Variable,
+  ConditionedZone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Cooling Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  ConditionedZone,                             !- Key Value
+  Zone Thermostat Heating Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency  
+
+Output:Variable,
+  ConditionedZone,                             !- Key Value
+  Zone Thermostat Cooling Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency  
+  
 Output:Variable,
   ConditionedZone_chilled_water_gain,                        !- Key Value
   Electric Equipment Total Heating Rate, !- Variable Name
@@ -1331,6 +1391,26 @@ Output:Variable,
   Zone Electric Equipment Total Heating Rate, !- Variable Name
   timestep;                               !- Reporting Frequency
 
+Output:Variable,
+  PlenumZone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Heating Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  PlenumZone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Cooling Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+  
+Output:Variable,
+  PlenumZone,                             !- Key Value
+  Zone Thermostat Heating Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency  
+
+Output:Variable,
+  PlenumZone,                             !- Key Value
+  Zone Thermostat Cooling Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency  
+  
 Output:Variable,
   PlenumZone,                             !- Key Value
   Zone Air Heat Balance System Convective Heat Gain Rate, !- Variable Name

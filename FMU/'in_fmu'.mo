@@ -9,27 +9,43 @@ public
 protected
   Real _plenum_space_load_old;
 public
-  Modelica.Blocks.Interfaces.RealInput plenum_space_load(start = _plenum_space_load_start) "IDF line 598"
+  Modelica.Blocks.Interfaces.RealInput plenum_space_load(start = _plenum_space_load_start) "IDF line 638"
   annotation (Placement(transformation(extent={{-124,14},{-84,54}})));
   parameter Real _conditioned_space_load_start = 0
   annotation (Dialog( group="Start values for inputs "));
 protected
   Real _conditioned_space_load_old;
 public
-  Modelica.Blocks.Interfaces.RealInput conditioned_space_load(start = _conditioned_space_load_start) "IDF line 604"
+  Modelica.Blocks.Interfaces.RealInput conditioned_space_load(start = _conditioned_space_load_start) "IDF line 644"
   annotation (Placement(transformation(extent={{-124,-53},{-84,-13}})));
   Modelica.Blocks.Interfaces.RealOutput conditioned_zone_temp "IDF line 568"
-  annotation (Placement(transformation(extent={{100,62},{120,82}})));
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
   Modelica.Blocks.Interfaces.RealOutput plenum_zone_temp "IDF line 573"
-  annotation (Placement(transformation(extent={{100,33},{120,53}})));
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
   Modelica.Blocks.Interfaces.RealOutput site_outdoor_air_drybulb_temperature "IDF line 578"
-  annotation (Placement(transformation(extent={{100,5},{120,25}})));
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
   Modelica.Blocks.Interfaces.RealOutput conditioned_space_total_heating_rate "IDF line 583"
-  annotation (Placement(transformation(extent={{100,-24},{120,-4}})));
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
   Modelica.Blocks.Interfaces.RealOutput plenum_space_total_heating_rate "IDF line 588"
-  annotation (Placement(transformation(extent={{100,-52},{120,-32}})));
-  Modelica.Blocks.Interfaces.RealOutput chilled_water_gain_total_heating_rate "IDF line 593"
-  annotation (Placement(transformation(extent={{100,-81},{120,-61}})));
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput conditioned_space_ideal_heating_rate "IDF line 593"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput plenum_space_ideal_heating_rate "IDF line 598"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput conditioned_space_ideal_cooling_rate "IDF line 603"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput plenum_space_ideal_cooling_rate "IDF line 608"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput conditioned_space_cooling_setpoint "IDF line 613"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput plenum_space_cooling_setpoint "IDF line 618"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput conditioned_space_heating_setpoint "IDF line 623"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput plenum_space_heating_setpoint "IDF line 628"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+  Modelica.Blocks.Interfaces.RealOutput chilled_water_gain_total_heating_rate "IDF line 633"
+  annotation (Placement(transformation(extent={{80,-20},{120,20}})));
 public
   parameter String fmi_instanceName="'in_fmu'"
   annotation (Dialog(tab="FMI", group="Instance name"));
@@ -73,21 +89,21 @@ package fmi_Functions
       input Boolean loggingOn;
         input String fmuLocation;
       output fmiModel fmi;
-      external"C" fmi = in6856424728738554678191_fmiInstantiateModel2(instanceName, loggingOn, fmuLocation)
+      external"C" fmi = in0824875973796243360_fmiInstantiateModel2(instanceName, loggingOn, fmuLocation)
       annotation(Header="
-#ifndef in6856424728738554678191_Instantiate_C
-#define in6856424728738554678191_Instantiate_C 1
+#ifndef in0824875973796243360_Instantiate_C
+#define in0824875973796243360_Instantiate_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-#ifndef in6856424728738554678191_MYSTRCMP_C
-#define in6856424728738554678191_MYSTRCMP_C 1
-int in6856424728738554678191mystrcmp(const void *_a, const void *_b) {
+#ifndef in0824875973796243360_MYSTRCMP_C
+#define in0824875973796243360_MYSTRCMP_C 1
+int in0824875973796243360mystrcmp(const void *_a, const void *_b) {
   char *a = _a;
   char *const *b = _b;
   return strcmp(a, *b);
 }
 #endif
-void in6856424728738554678191Logger(fmiComponent c, fmiString instanceName, fmiStatus status,
+void in0824875973796243360Logger(fmiComponent c, fmiString instanceName, fmiStatus status,
 	 fmiString category, fmiString message, ...) {
   char msg[4096];
   char buf[4096];
@@ -132,8 +148,8 @@ void in6856424728738554678191Logger(fmiComponent c, fmiString instanceName, fmiS
 fail:
   ModelicaMessage(\"Logger failed, message too long?\");
 }
-void * in6856424728738554678191_fmiInstantiateModel2(const char*instanceName, fmiBoolean loggingOn, const char* fmuLocation) {
-  static fmiCoSimCallbackFunctions funcs = {&in6856424728738554678191Logger, &calloc, &free, NULL};
+void * in0824875973796243360_fmiInstantiateModel2(const char*instanceName, fmiBoolean loggingOn, const char* fmuLocation) {
+  static fmiCoSimCallbackFunctions funcs = {&in0824875973796243360Logger, &calloc, &free, NULL};
   struct dy_Extended* res;
 
   res = calloc(1, sizeof(struct dy_Extended));
@@ -202,7 +218,7 @@ void * in6856424728738554678191_fmiInstantiateModel2(const char*instanceName, fm
       ModelicaError(\"GetProcAddress failed for fmiSetDebugLogging!\");
       return 0;
     }
-    res->m=res->dyFmiInstantiateSlave(instanceName, \"685e6424e728738aeec5546e781ef91a\", fmuLocation, \"application/x-dymolakernel\", 0, fmiFalse, fmiFalse, funcs, loggingOn);
+    res->m=res->dyFmiInstantiateSlave(instanceName, \"0824bb8759a7c3a79f624aecbd3e36f0\", fmuLocation, \"application/x-dymolakernel\", 0, fmiFalse, fmiFalse, funcs, loggingOn);
     if (0==res->m) {free(res);res=0;ModelicaError(\"InstantiateSlave failed\");}
     else {res->dyTriggered=0;res->dyTime=res->dyLastTime=-1e37;}
   }
@@ -215,13 +231,13 @@ void * in6856424728738554678191_fmiInstantiateModel2(const char*instanceName, fm
       extends Modelica.Icons.Function;
       input fmiModel fmi;
       external"C"
-                 in6856424728738554678191_fmiFreeModelInstance2(fmi);
+                 in0824875973796243360_fmiFreeModelInstance2(fmi);
       annotation (Header="
-#ifndef in6856424728738554678191_Free_C
-#define in6856424728738554678191_Free_C 1
+#ifndef in0824875973796243360_Free_C
+#define in0824875973796243360_Free_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiFreeModelInstance2(void*m) {
+void in0824875973796243360_fmiFreeModelInstance2(void*m) {
   struct dy_Extended*a=m;
   if (a) {
     a->dyFmiTerminateSlave(a->m);
@@ -241,13 +257,13 @@ void in6856424728738554678191_fmiFreeModelInstance2(void*m) {
        input Real tStop;
       input Real preAvailable;
       output Real postAvailable=preAvailable;
-      external"C" in6856424728738554678191_fmiInitializeSlave2(fmi, tStart, forceShutDownAtTStop, tStop);
+      external"C" in0824875973796243360_fmiInitializeSlave2(fmi, tStart, forceShutDownAtTStop, tStop);
       annotation (Header="
-#ifndef in6856424728738554678191_InitializeSlave_C
-#define in6856424728738554678191_InitializeSlave_C 1
+#ifndef in0824875973796243360_InitializeSlave_C
+#define in0824875973796243360_InitializeSlave_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-double in6856424728738554678191_fmiInitializeSlave2(void*m, fmiReal tStart, fmiBoolean forceShutDownAtTStop, fmiReal tStop) {
+double in0824875973796243360_fmiInitializeSlave2(void*m, fmiReal tStart, fmiBoolean forceShutDownAtTStop, fmiReal tStop) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if (a) {
@@ -266,13 +282,13 @@ double in6856424728738554678191_fmiInitializeSlave2(void*m, fmiReal tStart, fmiB
      input Real currentTime;
      input Real stepSize;
      output Boolean stepOK;
-     external"C" stepOK= in6856424728738554678191_fmiDoStep2(fmi, currentTime, stepSize);
+     external"C" stepOK= in0824875973796243360_fmiDoStep2(fmi, currentTime, stepSize);
      annotation (Header="
-#ifndef in6856424728738554678191_DoStep_C
-#define in6856424728738554678191_DoStep_C 1
+#ifndef in0824875973796243360_DoStep_C
+#define in0824875973796243360_DoStep_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-double in6856424728738554678191_fmiDoStep2(void*m, double currentTime, double stepSize) {
+double in0824875973796243360_fmiDoStep2(void*m, double currentTime, double stepSize) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if (a) {
@@ -287,13 +303,13 @@ double in6856424728738554678191_fmiDoStep2(void*m, double currentTime, double st
     function fmiResetSlave
       input fmiModel fmi;
       output Boolean resetOK;
-      external"C" resetOK = in6856424728738554678191_fmiResetSlave2(fmi);
+      external"C" resetOK = in0824875973796243360_fmiResetSlave2(fmi);
       annotation (Header="
-#ifndef in6856424728738554678191_ResetSlave_C
-#define in6856424728738554678191_ResetSlave_C 1
+#ifndef in0824875973796243360_ResetSlave_C
+#define in0824875973796243360_ResetSlave_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-double in6856424728738554678191_fmiResetSlave2(void*m) {
+double in0824875973796243360_fmiResetSlave2(void*m) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if (a) {
@@ -311,17 +327,17 @@ double in6856424728738554678191_fmiResetSlave2(void*m) {
       input Real vals[size(refs, 1)];
       output Real dummy= 1;
       external"C"
-                 in6856424728738554678191_fmiSetReal2(
+                 in0824875973796243360_fmiSetReal2(
         fmi,
         refs,
         size(refs, 1),
         vals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetReal_C
-#define in6856424728738554678191_SetReal_C 1
+#ifndef in0824875973796243360_SetReal_C
+#define in0824875973796243360_SetReal_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiSetReal2(void*m, const int*refs, size_t nrefs, const double*vals) {
+void in0824875973796243360_fmiSetReal2(void*m, const int*refs, size_t nrefs, const double*vals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if(!nrefs){return;}
@@ -340,18 +356,18 @@ void in6856424728738554678191_fmiSetReal2(void*m, const int*refs, size_t nrefs, 
     protected
       Real oldVals[size(refs, 1)];
       external"C"
-                 in6856424728738554678191_fmiSetRealParam2(
+                 in0824875973796243360_fmiSetRealParam2(
         fmi,
         refs,
         size(refs, 1),
         vals,
         oldVals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetRealParam_C
-#define in6856424728738554678191_SetRealParam_C 1
+#ifndef in0824875973796243360_SetRealParam_C
+#define in0824875973796243360_SetRealParam_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiSetRealParam2(void*m, const int*refs, size_t nrefs, const double*vals, double*oldVals) {
+void in0824875973796243360_fmiSetRealParam2(void*m, const int*refs, size_t nrefs, const double*vals, double*oldVals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   int i = 0;
@@ -387,17 +403,17 @@ void in6856424728738554678191_fmiSetRealParam2(void*m, const int*refs, size_t nr
       input Integer refs[:];
       output Real vals[size(refs, 1)];
       input Real preAvailable;
-      external"C" in6856424728738554678191_fmiGetReal2(
+      external"C" in0824875973796243360_fmiGetReal2(
         fmi,
         refs,
         size(refs, 1),
         vals);
       annotation (Header="
-#ifndef in6856424728738554678191_GetReal_C
-#define in6856424728738554678191_GetReal_C 1
+#ifndef in0824875973796243360_GetReal_C
+#define in0824875973796243360_GetReal_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiGetReal2(void*m, const int*refs, size_t nrefs, double*vals) {
+void in0824875973796243360_fmiGetReal2(void*m, const int*refs, size_t nrefs, double*vals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if (a) {
@@ -422,17 +438,17 @@ void in6856424728738554678191_fmiGetReal2(void*m, const int*refs, size_t nrefs, 
       input Integer refs[:];
       output Integer vals[size(refs, 1)];
       input Integer preAvailable;
-      external"C" in6856424728738554678191_fmiGetInteger2(
+      external"C" in0824875973796243360_fmiGetInteger2(
         fmi,
         refs,
         size(refs, 1),
         vals);
       annotation (Header="
-#ifndef in6856424728738554678191_GetInteger_C
-#define in6856424728738554678191_GetInteger_C 1
+#ifndef in0824875973796243360_GetInteger_C
+#define in0824875973796243360_GetInteger_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiGetInteger2(void*m, const int*refs, size_t nrefs, int*vals) {
+void in0824875973796243360_fmiGetInteger2(void*m, const int*refs, size_t nrefs, int*vals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if (a) {
@@ -448,17 +464,17 @@ void in6856424728738554678191_fmiGetInteger2(void*m, const int*refs, size_t nref
       input Integer refs[:];
       input Integer vals[size(refs, 1)];
       output Real dummy= 1;
-      external"C" in6856424728738554678191_fmiSetInteger2(
+      external"C" in0824875973796243360_fmiSetInteger2(
         fmi,
         refs,
         size(refs, 1),
         vals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetInteger_C
-#define in6856424728738554678191_SetInteger_C 1
+#ifndef in0824875973796243360_SetInteger_C
+#define in0824875973796243360_SetInteger_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiSetInteger2(void*m, const int*refs, size_t nrefs, int*vals) {
+void in0824875973796243360_fmiSetInteger2(void*m, const int*refs, size_t nrefs, int*vals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if(!nrefs){return;}
@@ -476,18 +492,18 @@ void in6856424728738554678191_fmiSetInteger2(void*m, const int*refs, size_t nref
       input Integer vals[size(refs, 1)];
     protected
       Integer oldVals[size(refs, 1)];
-      external"C" in6856424728738554678191_fmiSetIntegerParam2(
+      external"C" in0824875973796243360_fmiSetIntegerParam2(
         fmi,
         refs,
         size(refs, 1),
         vals,
         oldVals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetIntegerParam_C
-#define in6856424728738554678191_SetIntegerParam_C 1
+#ifndef in0824875973796243360_SetIntegerParam_C
+#define in0824875973796243360_SetIntegerParam_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiSetIntegerParam2(void*m, const int*refs, size_t nrefs, int*vals, int*oldVals) {
+void in0824875973796243360_fmiSetIntegerParam2(void*m, const int*refs, size_t nrefs, int*vals, int*oldVals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   int i=0;
@@ -523,16 +539,16 @@ void in6856424728738554678191_fmiSetIntegerParam2(void*m, const int*refs, size_t
       input Integer refs[:];
       output Boolean vals[size(refs, 1)];
       input Integer preAvailable;
-      external"C" in6856424728738554678191_fmiGetBoolean2(
+      external"C" in0824875973796243360_fmiGetBoolean2(
         fmi,
         refs,
         size(refs, 1),
         vals);
         annotation (Header="
-#ifndef in6856424728738554678191_GetBoolean_C
-#define in6856424728738554678191_GetBoolean_C 1
+#ifndef in0824875973796243360_GetBoolean_C
+#define in0824875973796243360_GetBoolean_C 1
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiGetBoolean2(void*m, const int* refs, size_t nr, int* vals) {
+void in0824875973796243360_fmiGetBoolean2(void*m, const int* refs, size_t nr, int* vals) {
   int i;
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
@@ -552,17 +568,17 @@ void in6856424728738554678191_fmiGetBoolean2(void*m, const int* refs, size_t nr,
       output Real dummy2= 1;
     protected
       Boolean dummy[size(refs, 1)];
-      external"C" in6856424728738554678191_fmiSetBoolean2(
+      external"C" in0824875973796243360_fmiSetBoolean2(
         fmi,
         refs,
         size(refs, 1),
         vals,
         dummy);
         annotation (Header="
-#ifndef in6856424728738554678191_SetBoolean_C
-#define in6856424728738554678191_SetBoolean_C 1
+#ifndef in0824875973796243360_SetBoolean_C
+#define in0824875973796243360_SetBoolean_C 1
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiSetBoolean2(void*m, const int* refs, size_t nr, const int* vals,int*dummy) {
+void in0824875973796243360_fmiSetBoolean2(void*m, const int* refs, size_t nr, const int* vals,int*dummy) {
   int i;
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
@@ -583,7 +599,7 @@ void in6856424728738554678191_fmiSetBoolean2(void*m, const int* refs, size_t nr,
     protected
       Boolean dummy[size(refs, 1)];
       Boolean oldVals[size(refs, 1)];
-      external"C" in6856424728738554678191_fmiSetBooleanParam2(
+      external"C" in0824875973796243360_fmiSetBooleanParam2(
       fmi,
         refs,
         size(refs, 1),
@@ -591,10 +607,10 @@ void in6856424728738554678191_fmiSetBoolean2(void*m, const int* refs, size_t nr,
         dummy,
         oldVals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetBooleanParam_C
-#define in6856424728738554678191_SetBooleanParam_C 1
+#ifndef in0824875973796243360_SetBooleanParam_C
+#define in0824875973796243360_SetBooleanParam_C 1
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiSetBooleanParam2(void*m, const int* refs, size_t nr, const int* vals,int*dummy,int*oldVals) {
+void in0824875973796243360_fmiSetBooleanParam2(void*m, const int* refs, size_t nr, const int* vals,int*dummy,int*oldVals) {
   int i;
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
@@ -623,17 +639,17 @@ void in6856424728738554678191_fmiSetBooleanParam2(void*m, const int* refs, size_
       input Integer refs[:];
       output String vals[size(refs, 1)];
       input Integer preAvailable;
-      external"C" in6856424728738554678191_fmiGetString2(
+      external"C" in0824875973796243360_fmiGetString2(
         fmi,
         refs,
         size(refs, 1),
         vals);
       annotation (Header="
-#ifndef in6856424728738554678191_GetString_C
-#define in6856424728738554678191_GetString_C 1
+#ifndef in0824875973796243360_GetString_C
+#define in0824875973796243360_GetString_C 1
 #include <stdlib.h>
 #include \"FMI/fmiImport.h\"
-void in6856424728738554678191_fmiGetString2(void*m, const int*refs, size_t nrefs, fmiString* vals) {
+void in0824875973796243360_fmiGetString2(void*m, const int*refs, size_t nrefs, fmiString* vals) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if (a) {
@@ -648,17 +664,17 @@ void in6856424728738554678191_fmiGetString2(void*m, const int*refs, size_t nrefs
     input fmiModel fmi;
       input Integer refs[:];
       input String vals[size(refs, 1)];
-      external"C" in6856424728738554678191_fmiSetString2(
+      external"C" in0824875973796243360_fmiSetString2(
         fmi,
         refs,
         size(refs, 1),
         vals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetString_C
-#define in6856424728738554678191_SetString_C 1
+#ifndef in0824875973796243360_SetString_C
+#define in0824875973796243360_SetString_C 1
 #include \"FMI/fmiImport.h\"
 #include <stdlib.h>
-void in6856424728738554678191_fmiSetString2(void*m, const int*refs, size_t nrefs, const fmiString vals[]) {
+void in0824875973796243360_fmiSetString2(void*m, const int*refs, size_t nrefs, const fmiString vals[]) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if(!nrefs){return;}
@@ -674,17 +690,17 @@ void in6856424728738554678191_fmiSetString2(void*m, const int*refs, size_t nrefs
     input fmiModel fmi;
       input Integer refs[:];
       input String vals[size(refs, 1)];
-      external"C" in6856424728738554678191_fmiSetStringParam2(
+      external"C" in0824875973796243360_fmiSetStringParam2(
         fmi,
         refs,
         size(refs, 1),
         vals);
         annotation (Header="
-#ifndef in6856424728738554678191_SetStringParam_C
-#define in6856424728738554678191_SetStringParam_C 1
+#ifndef in0824875973796243360_SetStringParam_C
+#define in0824875973796243360_SetStringParam_C 1
 #include \"FMI/fmiImport.h\"
 #include <stdlib.h>
-void in6856424728738554678191_fmiSetStringParam2(void*m, const int*refs, size_t nrefs, const fmiString vals[]) {
+void in0824875973796243360_fmiSetStringParam2(void*m, const int*refs, size_t nrefs, const fmiString vals[]) {
   struct dy_Extended*a=m;
   fmiStatus status=fmiFatal;
   if(!nrefs){return;}
@@ -763,9 +779,41 @@ assert(fmi_CommunicationStepSize > 0.0,"The parameter fmi_CommunicationStepSize 
       fmi,
       100005,
       1);
-    chilled_water_gain_total_heating_rate :=fmi_Functions.fmiGetRealScalar(
+    conditioned_space_ideal_heating_rate :=fmi_Functions.fmiGetRealScalar(
       fmi,
       100006,
+      1);
+    plenum_space_ideal_heating_rate :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100007,
+      1);
+    conditioned_space_ideal_cooling_rate :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100008,
+      1);
+    plenum_space_ideal_cooling_rate :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100009,
+      1);
+    conditioned_space_cooling_setpoint :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100010,
+      1);
+    plenum_space_cooling_setpoint :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100011,
+      1);
+    conditioned_space_heating_setpoint :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100012,
+      1);
+    plenum_space_heating_setpoint :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100013,
+      1);
+    chilled_water_gain_total_heating_rate :=fmi_Functions.fmiGetRealScalar(
+      fmi,
+      100014,
       1);
   end when;
 initial algorithm
@@ -787,6 +835,12 @@ if fmi_pullInputsForInitialization then fmi_initInput1 = fmi_Functions.fmiSetRea
       Text(extent={{-150,150},{150,110}},
         lineColor={0,0,255},
         textString="%name"),
+      Rectangle(
+        extent={{126,22},{74,-22}},
+        lineColor={0,0,127},
+        radius=4,
+        fillColor={240,240,240},
+        fillPattern=FillPattern.Solid),
       Text(extent={{-150,-110},{150,-150}},
         lineColor={95,95,95},
         textString="FMI 1.0 CS")}),
@@ -796,7 +850,7 @@ Documentation(info="<html>
 <li>fmiVersion = 1.0</li>
 <li>modelName = in.idf</li>
 <li>generationTool = idf-to-fmu-export-prep-linux</li>
-<li>generationDateAndTime = 2021-02-24T17:22:08Z</li>
+<li>generationDateAndTime = 2021-02-24T22:02:16Z</li>
 </ul>
 <p><br><b>Co-Simulation Attributes</b></p>
 <ul>
