@@ -1896,7 +1896,7 @@ ZoneHVAC:EquipmentList,
 
 ZoneHVAC:IdealLoadsAirSystem,
   ConditionedZone Ideal Loads Air System,                  !- Name
-  ,                                                        !- Availability Schedule Name
+  HVAC_SCHEDULE,                                                        !- Availability Schedule Name
   ConditionedZone Ideal Loads Supply Inlet,                !- Zone Supply Air Node Name
   ,                                                        !- Zone Exhaust Air Node Name
   ,                                                        !- System Inlet Air Node Name
@@ -1943,7 +1943,7 @@ ZoneHVAC:EquipmentList,
 
 ZoneHVAC:IdealLoadsAirSystem,
   PlenumZone Ideal Loads Air System,                       !- Name
-  ,                                                        !- Availability Schedule Name
+  HVAC_SCHEDULE,                                                        !- Availability Schedule Name
   PlenumZone Ideal Loads Supply Inlet,                     !- Zone Supply Air Node Name
   ,                                                        !- Zone Exhaust Air Node Name
   ,                                                        !- System Inlet Air Node Name
