@@ -39,8 +39,12 @@ model Bench_Scale_Exp_9
     Placement(visible = true, transformation(origin={-28,-34},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.PowerSensor FanPower1 annotation (
     Placement(visible = true, transformation(origin={-8,-62},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  in_cs2_fmu in_cs2_fmu1(fmi_StopTime=259200, fmi_NumberOfSteps=4320)
-    annotation (Placement(transformation(extent={{148,42},{168,62}})));
+  in_cs2_fmu in_cs2_fmu1(fmi_StopTime=345600, fmi_NumberOfSteps=5760)
+    annotation (Placement(transformation(extent={{154,36},{174,56}})));
+  Modelica.Blocks.Math.Add add
+    annotation (Placement(transformation(extent={{156,-92},{136,-72}})));
+  Modelica.Blocks.Sources.Constant const(k=273.15)
+    annotation (Placement(transformation(extent={{132,-52},{152,-32}})));
 equation
   connect(Load1.n, GndDC.p) annotation (
     Line(points={{62,46},{74,46},{74,-80}},          color = {0, 0, 255}));
@@ -126,13 +130,17 @@ equation
   connect(Load2_Power.pv, Load2_Power.pc) annotation (
     Line(points={{22,16},{12,16},{12,6}},                 color = {0, 0, 255}));
   connect(UnconditionedZoneTotalLoss.y, in_cs2_fmu1.plenum_space_load)
-    annotation (Line(points={{-17,80},{140,80},{140,55.4},{147.6,55.4}}, color=
-          {0,0,127}));
+    annotation (Line(points={{-17,80},{62,80},{62,78},{140,78},{140,49.4},{
+          153.6,49.4}}, color={0,0,127}));
   connect(ConditionedZoneTotalLoss.y, in_cs2_fmu1.conditioned_space_load)
-    annotation (Line(points={{139,0},{142,0},{142,48.7},{147.6,48.7}}, color={0,
+    annotation (Line(points={{139,0},{146,0},{146,42.7},{153.6,42.7}}, color={0,
           0,127}));
-  connect(in_cs2_fmu1.conditioned_zone_temp, ConditionedZoneAir.T) annotation (
-      Line(points={{168,52},{184,52},{184,-80},{118,-80}}, color={0,0,127}));
+  connect(add.y, ConditionedZoneAir.T) annotation (Line(points={{135,-82},{126,
+          -82},{126,-80},{118,-80}}, color={0,0,127}));
+  connect(in_cs2_fmu1.conditioned_zone_temp, add.u2) annotation (Line(points={{
+          174,46},{190,46},{190,-88},{158,-88}}, color={0,0,127}));
+  connect(const.y, add.u1) annotation (Line(points={{153,-42},{176,-42},{176,
+          -76},{158,-76}}, color={0,0,127}));
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
     experiment(StartTime = 0, StopTime = 129600, Tolerance = 1e-6, Interval = 60),
