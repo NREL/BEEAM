@@ -566,6 +566,16 @@ ExternalInterface,
   FunctionalMockupUnitExport;  !- Name of External Interface
 
 ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  MEASURED_CHAMBER_TEMPERATURE,           !- Key Value
+  Schedule Value,                         !- Variable Name
+  measured_conditioned_temp;                               !- Reporting Frequency
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  MEASURED_PLENUM_TEMPERATURE,            !- Key Value
+  Schedule Value,                         !- Variable Name
+  measured_plenum_temp;  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   ConditionedZone,  !- Output:Variable Index Key Name
   Zone Mean Air Temperature,  !- Output:Variable Name
   conditioned_zone_temp;         !- FMU Variable Name
