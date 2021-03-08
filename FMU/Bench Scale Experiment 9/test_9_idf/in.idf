@@ -1653,7 +1653,7 @@ LifeCycleCost:NonrecurringCost,
   Construction,                           !- Category
   0,                                      !- Cost
   ServicePeriod;                          !- Start of Costs
-
+  
 Output:Table:Monthly,
   Building Energy Performance - Electricity, !- Name
   2,                                      !- Digits After Decimal
@@ -1908,6 +1908,18 @@ Output:Meter,
 ! New objects created from ExpandObjects
 ! -------------------------------------------------------------
 ! 
+
+ZoneCrossMixing,
+  Conditioned_SourcePlenum,               !- Name
+  ConditionedZone,                        ! Zone Name
+  Mixing_Schedule,                        !- Schedule Name
+  Flow/Zone,                              !- Design Flow Rate Calculation Method
+  0.003,                                  !- Design Flow Rate {m3/s}
+  ,                                       !- Flow Rate per Zone Floor Area {m3/s-m2}
+  ,                                       !- Flow Rate per Person {m3/s-person}
+  10,                                     !- Air Changes per Hour {1/hr}
+  PlenumZone,                             ! Source Zone Name
+  0;                                      ! Delta temp
 
 ZoneHVAC:EquipmentConnections,
   Compressor,                                              !- Zone Name
