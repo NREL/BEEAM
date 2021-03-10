@@ -11,14 +11,12 @@ model Scenario_6_Data_Set_6_2
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_120V_1600W_3D.mat", nomP = 200) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_208V_1600W.mat", nomP = 200) annotation(
     Placement(visible = true, transformation(origin = {-2, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {96, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Laptop_6(pwr = 7.076) annotation(
     Placement(visible = true, transformation(origin = {74, 6}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  SinglePhase.Components.Ground ground6 annotation(
-    Placement(visible = true, transformation(origin = {-28, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC2DC_Converters.StepDown LaptopCharger_6(modelData = laptop_18V_90W_LapChrg6) annotation(
     Placement(visible = true, transformation(origin = {44, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Laptop_5(pwr = 6.029) annotation(
@@ -29,8 +27,6 @@ model Scenario_6_Data_Set_6_2
     Placement(visible = true, transformation(origin = {74, 98}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC2DC_Converters.StepDown LaptopCharger_4(modelData = laptop_18V_90W_LapChrg4) annotation(
     Placement(visible = true, transformation(origin = {44, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Terminate terminate annotation(
-    Placement(transformation(extent = {{-66, 2}, {-52, 16}})));
   SinglePhase.Components.Terminate terminate1 annotation(
     Placement(transformation(extent = {{-66, -6}, {-52, 8}})));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
@@ -56,8 +52,6 @@ equation
     Line(points = {{-135.5, -6}, {-106, -6}}, color = {92, 53, 102}));
   connect(ground3.p, Laptop_6.n) annotation(
     Line(points = {{96, -4}, {96, -4.5}, {74, -4.5}, {74, -4}}, color = {0, 0, 255}));
-  connect(NextekHub.hPin_N, ground6.pin) annotation(
-    Line(points = {{-12, 4}, {-28, 4}, {-28, 0}}, color = {117, 80, 123}));
   connect(deltaWye.pinSec_A, NextekHub.hPin_P) annotation(
     Line(points = {{-86, 16}, {-12, 16}}, color = {92, 53, 102}));
   connect(NextekHub.pin_p, LaptopCharger_6.p1) annotation(
@@ -88,8 +82,6 @@ equation
     Line(points = {{74, 42}, {96, 42}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
   connect(Laptop_4.n, ground3.p) annotation(
     Line(points = {{74, 88}, {96, 88}, {96, -4}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
-  connect(deltaWye.pinSec_B, terminate.hPin_P) annotation(
-    Line(points = {{-86, 8}, {-61, 8}}, color = {92, 53, 102}));
   connect(deltaWye.pinSec_C, terminate1.hPin_P) annotation(
     Line(points = {{-86, 0}, {-61, 0}, {-61, 0}}, color = {92, 53, 102}));
   connect(LaptopCharger_6.n1, ground1.p) annotation(
@@ -98,6 +90,8 @@ equation
     Line(points = {{14, -42}, {26, -42}, {26, -54}}, color = {0, 0, 255}));
   connect(LumpedDCLoads.p, NextekHub.pin_p) annotation(
     Line(points = {{14, -22}, {14, 16}, {8, 16}}, color = {0, 0, 255}));
+  connect(deltaWye.pinSec_B, NextekHub.hPin_N) annotation(
+    Line(points = {{-86, 8}, {-26, 8}, {-26, 4}, {-12, 4}}, color = {92, 53, 102}));
   annotation(
     Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(lineColor = {28, 108, 200}, extent = {{-234, 200}, {150, 150}}, textString = "Data Set 4.4
         Load Phase a-n        Total Load - 700W        Laptop Charger 3 + LED Driver 1        Load Bank 1 (78W), LED 1 (22W), Heater 1 - A (200W), Heater 2 - A (400W)
