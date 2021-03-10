@@ -10,7 +10,7 @@ model Scenario_5_Data_Set_5_1
     Placement(visible = true, transformation(origin={-80,-34},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation (
     Placement(visible = true, transformation(extent={{-104,-6},{-84,14}},      rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_120V_1600W_3D.mat", nomP = 50) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_120V_1600W.mat", nomP = 50) annotation (
     Placement(visible = true, transformation(origin={-2,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation (
     Placement(visible = true, transformation(origin={96, -14},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
