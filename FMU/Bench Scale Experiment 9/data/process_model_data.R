@@ -12,6 +12,9 @@ data_cols <- cols(
   .default = col_double()
 )
 
+# Time shift to apply to modeled data to make it line up w/ measured
+time_shift <- hours(16)
+
 ## Load data
 # Set path to "results.csv"
 results_file <- path(".","model_output", "results", ext = "csv")
@@ -50,7 +53,7 @@ d <- group_by(d, Time) %>%
 # Add calculations
 d <- mutate(d,
   Timestamp   = lubridate::ymd("2020-07-06", tz = "America/Los_Angeles")
-                + lubridate::seconds(Time),
+                + lubridate::seconds(Time) + time_shift,
   P_In        = -P_In, # correct sign
   P_Out       = P_Out_Load1 + P_Out_Load2 + P_Out_Fan1 + P_Out_Fan2,
   P_Loss      = P_Loss_PS1 + P_Loss_PS2 + P_Loss_Fan,
