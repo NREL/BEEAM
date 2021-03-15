@@ -12,8 +12,8 @@ addpath('../../lib')
 % one would iterate the variable and run all the sims.
 if exist('modelicaSim', 'var') ~= 1
     %% defining variables:
-    scenario = 4;
-    dataSet = 4;
+    scenario = 3;
+    dataSet = 2;
 
     modelicaSim = ['Scenario_', num2str(scenario), '_Data_Set_', num2str(scenario), ...
                     '_', num2str(dataSet)];
@@ -91,5 +91,12 @@ convLosses = LaptopCharger_3.Ploss + LaptopCharger_4.Ploss + ...
 disp( ' ========================================')        
 disp([' Results for:  ', modelicaSim]) 
 disp( ' ========================================')
-disp(['Input power:      ', num2str(linePwr.sim.prim.total  ), ' W']);
-disp(['Secondary power:  ', num2str(linePwr.sim.sec.total), ' W']);
+disp(['Input power:       ', num2str(linePwr.sim.prim.total  ), ' W']);
+disp(['Secondary power:   ', num2str(linePwr.sim.sec.total), ' W']);
+disp(['Output power (DC): ', num2str(DC_power), ' W']);
+disp(['PLoss Transformer: ', num2str(linePwr.sim.prim.total - linePwr.sim.sec.total), ' W']);
+disp(['PLoss Converter:   ', num2str(convLosses), ' W']);
+disp(['PLoss (total):     ', num2str(linePwr.sim.prim.total - DC_power), ' W']);
+
+
+

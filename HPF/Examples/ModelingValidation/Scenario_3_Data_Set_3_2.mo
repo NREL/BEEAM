@@ -30,9 +30,9 @@ model Scenario_3_Data_Set_3_2
     Placement(visible = true, transformation(origin={90,-90},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation (
     Placement(visible = true, transformation(origin = {62, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load LED_3(pwr= 27.615)       annotation (
+  HPF.DC.DC_Load LED_3(pwr= 27.616)       annotation (
     Placement(visible = true, transformation(origin={90,-64},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.DC.DC_Load LED_1(pwr= 27.606)      annotation (
+  HPF.DC.DC_Load LED_1(pwr= 27.607)      annotation (
     Placement(visible = true, transformation(origin = {94, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
     Placement(visible = true, transformation(origin = {94, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

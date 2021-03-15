@@ -7,7 +7,7 @@ model AC2DC_Converter
     Placement(visible = true, transformation(origin = {-68.1847, 36.4921}, extent = {{-9.81534, -9.81533}, {9.81534, 7.01095}}, rotation = 0)));
   SinglePhase.Components.Impedance Z01(z = 0.8 + 0.008 * j) annotation(
     Placement(visible = true, transformation(origin = {-10, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Impedance Z12(z = 25 + 0.3013 * j) annotation(
+  SinglePhase.Components.Impedance Z12(start_v_re = cat(1, {120}, {0.0 for i in 1:systemDef.numHrm - 1}), z = 25 + 0.3013 * j) annotation(
     Placement(visible = true, transformation(origin = {32, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground annotation(
     Placement(visible = true, transformation(origin = {-28, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

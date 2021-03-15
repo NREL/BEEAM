@@ -11,28 +11,24 @@ model Scenario_6_Data_Set_6_1
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_120V_1600W_3D.mat", nomP = 50) annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_208V_1600W.mat", nomP = 50) annotation(
     Placement(visible = true, transformation(origin = {-4, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {96, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_6(pwr = 0.304) annotation(
+  DC.DC_Load Laptop_6(pwr = 0) annotation(
     Placement(visible = true, transformation(origin = {74, 6}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.SinglePhase.Components.Ground ground6 annotation(
-    Placement(visible = true, transformation(origin = {-26, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC2DC_Converters.StepDown LaptopCharger_6(modelData = laptop_18V_90W_LapChrg6) annotation(
     Placement(visible = true, transformation(origin = {44, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_5(pwr = 0.109) annotation(
+  DC.DC_Load Laptop_5(pwr = 0) annotation(
     Placement(visible = true, transformation(origin = {74, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC2DC_Converters.StepDown LaptopCharger_5(modelData = laptop_18V_90W_LapChrg5) annotation(
     Placement(visible = true, transformation(origin = {44, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load Laptop_4(pwr = 0.109) annotation(
+  DC.DC_Load Laptop_4(pwr = 0) annotation(
     Placement(visible = true, transformation(origin = {74, 98}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC2DC_Converters.StepDown LaptopCharger_4(modelData = laptop_18V_90W_LapChrg4) annotation(
     Placement(visible = true, transformation(origin = {44, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SinglePhase.Components.Terminate terminate annotation(
-    Placement(transformation(extent = {{-66, 2}, {-52, 16}})));
-  SinglePhase.Components.Terminate terminate1 annotation(
-    Placement(transformation(extent = {{-66, -6}, {-52, 8}})));
+  HPF.SinglePhase.Components.Terminate terminate1 annotation(
+    Placement(visible = true, transformation(extent = {{-66, -6}, {-52, 8}}, rotation = 0)));
   parameter Data.ConverterModels.DC2DC_StepDown.Laptop_18V_90W_LapChrg4 laptop_18V_90W_LapChrg4 annotation(
     Placement(visible = true, transformation(origin = {184, 62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter Data.ConverterModels.DC2DC_StepDown.Laptop_18V_90W_LapChrg5 laptop_18V_90W_LapChrg5 annotation(
@@ -54,8 +50,6 @@ equation
     Line(points = {{-135.5, -6}, {-106, -6}}, color = {92, 53, 102}));
   connect(ground3.p, Laptop_6.n) annotation(
     Line(points = {{96, -4}, {96, -4.5}, {74, -4.5}, {74, -4}}, color = {0, 0, 255}));
-  connect(NextekHub.hPin_N, ground6.pin) annotation(
-    Line(points = {{-14, 4}, {-26, 4}, {-26, -2}}, color = {117, 80, 123}));
   connect(deltaWye.pinSec_A, NextekHub.hPin_P) annotation(
     Line(points = {{-86, 16}, {-14, 16}}, color = {92, 53, 102}));
   connect(NextekHub.pin_p, LaptopCharger_6.p1) annotation(
@@ -86,12 +80,12 @@ equation
     Line(points = {{74, 42}, {96, 42}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
   connect(Laptop_4.n, ground3.p) annotation(
     Line(points = {{74, 88}, {96, 88}, {96, -4}, {96, -4}, {96, -4}}, color = {0, 0, 255}));
-  connect(terminate.hPin_P, deltaWye.pinSec_B) annotation(
-    Line(points = {{-61, 8}, {-86, 8}}, color = {92, 53, 102}));
   connect(terminate1.hPin_P, deltaWye.pinSec_C) annotation(
     Line(points = {{-61, 0}, {-86, 0}}, color = {92, 53, 102}));
   connect(NextekHub.pin_n, ground1.p) annotation(
     Line(points = {{6, 4}, {18, 4}, {18, -16}}, color = {0, 0, 255}));
+  connect(deltaWye.pinSec_B, NextekHub.hPin_N) annotation(
+    Line(points = {{-86, 8}, {-32, 8}, {-32, 4}, {-14, 4}}, color = {92, 53, 102}));
   annotation(
     Diagram(coordinateSystem(extent = {{-280, -220}, {260, 240}}, initialScale = 0.1), graphics = {Text(lineColor = {28, 108, 200}, extent = {{-256, 64}, {-250, 64}}, textString = "Edit Here"), Text(origin = {-38, 72}, lineColor = {28, 108, 200}, extent = {{174, -126}, {234, -146}}, textString = "PhD 25V outputs
     "), Text(origin = {2, 0},lineColor = {28, 108, 200}, extent = {{88, -28}, {228, -44}}, textString = "Lumping together all DC loads 
