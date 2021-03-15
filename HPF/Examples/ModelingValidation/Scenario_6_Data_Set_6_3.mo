@@ -31,7 +31,7 @@ model Scenario_6_Data_Set_6_3
     Placement(transformation(extent = {{-66, -6}, {-52, 8}})));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {26, -64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LumpedDCLoads(pwr = 428.984) annotation(
+  DC.DC_Load LumpedDCLoads(pwr = 429.020) annotation(
     Placement(visible = true, transformation(origin = {14, -32}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter Data.ConverterModels.DC2DC_StepDown.Laptop_18V_90W_LapChrg6 laptop_18V_90W_LapChrg6 annotation(
     Placement(visible = true, transformation(origin = {176, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

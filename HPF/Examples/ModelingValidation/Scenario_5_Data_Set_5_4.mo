@@ -30,7 +30,7 @@ model Scenario_5_Data_Set_5_4
     Placement(visible = true, transformation(origin={44,80},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC2DC_Converters.StepDown LaptopCharger_4(modelData = laptop_18V_90W_LapChrg4) annotation (
     Placement(visible = true, transformation(origin={20,80},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  DC.DC_Load LumpedDCLoads(pwr = 667.606) annotation (
+  DC.DC_Load LumpedDCLoads(pwr = 667.632) annotation (
     Placement(visible = true, transformation(origin={-10,-24},   extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   SinglePhase.Components.Terminate terminate annotation (
     Placement(transformation(extent={{-70,2},{-56,16}})));

@@ -40,9 +40,9 @@ extends Modelica.Icons.Information;
       extends Modelica.Icons.Information;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
             coordinateSystem(preserveAspectRatio=false)),
-        Documentation(info="<html>
+        Documentation(info= "<html>
 <p><br>Transformer secondary is modeled as a source, therefore the internal Modelica loop breaking algorithm (for an overconstrained system containing multiple loops) requires the placement of atleast one ground element on the secondary side.</p>
-<p><img src=\"modelica://HPF/Resources/images/UsersGuide/fig_transformerGround.png\" style=\"width:30px;height:30px;\"/></p>
+<p><img src=\"modelica://HPF/Resources/images/UsersGuide/fig_transformerGround.png\" style=\"width:11.325cm;height:5cm;\"/></p>
 </html>"));
     end TransformerGround;
     annotation (
