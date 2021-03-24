@@ -10,11 +10,11 @@ Files
 
 - **Bench_Scale_Exp_9.mo**: Modelica model of electrical system used in bench-scale validation experiment 9
 - **One-Line Diagram.pptx**: System one-line diagram with modeling notes
-- **Power Supply 1.jpg**: Photograph of nameplate for laptop power supply 1
+- **Power Supply 1.jpg**: Photograph of nameplate for laptop power supply 1 (HP model 677777-002)
   - *Input Voltage:* 120 V(AC)
   - *Output Voltage:* 19.5 V(DC)
   - *Rated Power:* 90 W
-- **Power Supply 2.jpg**: Photograph of nameplate for laptop power supply 2
+- **Power Supply 2.jpg**: Photograph of nameplate for laptop power supply 2 (HP model 608428-002)
   - *Input Voltage:* 120 V(AC)
   - *Output Voltage:* 19.0 V(DC)
   - *Rated Power:* 90 W
