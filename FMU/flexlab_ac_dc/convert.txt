@@ -1,8 +1,8 @@
 replace:
   C:/Users/MSTEEN/AppData/Local/Temp/1/osmodel-1618242178-1/resources/generated_files/schedulefile_elec_15min.csv
 with:
-  /home/ubuntu/Projects/BEEAM/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv
-
+  /home/ubuntu/Projects/BEEAM-flex-dev-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv
+  
 Output:Variable,
   FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
   Zone Electric Equipment Electric Power, !- Variable Name
