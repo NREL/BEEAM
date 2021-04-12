@@ -1,1 +1,7 @@
 python2 ..\..\..\..\EnergyPlusFMU\Scripts\EnergyPlusToFMU.py -i C:\EnergyPlusV9-2-0\Energy+.idd -w .\in.epw .\in.idf
+
+create FMU:
+python ~/Projects/EnergyPlusToFMU310/Scripts/EnergyPlusToFMU.py -i ./Energy+.idd -w ./in.epw ./in.idf
+
+validate FMU
+fmuCheck.linux64 -h 60 -s 86400 in.fmu
