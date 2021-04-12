@@ -1,0 +1,192 @@
+replace:
+  C:/Users/MSTEEN/AppData/Local/Temp/1/osmodel-1618242178-1/resources/generated_files/schedulefile_elec_15min.csv
+with:
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Electric Power, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Lights Equipment Electric Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Lights Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Thermostat Heating Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency  
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Thermostat Cooling Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Electric Power, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Lights Equipment Electric Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Lights Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Thermostat Heating Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency  
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Thermostat Cooling Setpoint Temperature, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,          !- Key Value
+  Zone Air Temperature,                   !- Variable Name
+  Timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,          !- Key Value
+  Zone Air Temperature,                   !- Variable Name
+  Timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Electric Power, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Electric Power, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
+  Zone Electric Equipment Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Heating Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Cooling Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Heating Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  FlexLab-X3-PlnmB Thermal Zone Ideal Loads Air System,                        !- Key Value
+  Zone Ideal Loads Zone Total Cooling Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+ExternalInterface,
+  FunctionalMockupUnitExport;  !- Name of External Interface
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Mean Air Temperature,  !- Output:Variable Name
+  PlnmB_zone_temp;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Mean Air Temperature,  !- Output:Variable Name
+  ZoneB_zone_temp;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  Environment,  !- Output:Variable Index Key Name
+  Site Outdoor Air Drybulb Temperature,  !- Output:Variable Name
+  site_outdoor_air_drybulb_temperature;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Electric Equipment Total Heating Rate,  !- Output:Variable Name
+  PlnmB_electric_heating_rate;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Electric Equipment Total Heating Rate,  !- Output:Variable Name
+  ZoneB_electric_heating_rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Lights Total Heating Rate,  !- Output:Variable Name
+  PlnmB_lights_heating_rate;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Lights Total Heating Rate,  !- Output:Variable Name
+  ZoneB_lights_heating_rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Thermostat Cooling Setpoint Temperature,  !- Output:Variable Name
+  PlnmB_cooling_setpoint;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Thermostat Cooling Setpoint Temperature,  !- Output:Variable Name
+  ZoneB_cooling_setpoint;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Thermostat Heating Setpoint Temperature,  !- Output:Variable Name
+  cPlnmB_heating_setpoint;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone,  !- Output:Variable Index Key Name
+  Zone Thermostat Heating Setpoint Temperature,  !- Output:Variable Name
+  ZoneB_heating_setpoint;         !- FMU Variable Name
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Heating Energy,  !- Output:Variable Name
+  PlnmB_ideal_heating_rate;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Heating Energy,  !- Output:Variable Name
+  ZoneB_ideal_heating_rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-PlnmB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Cooling Energy,  !- Output:Variable Name
+  PlnmB_ideal_cooling_rate;         !- FMU Variable Name  
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
+  Zone Ideal Loads Zone Total Cooling Energy,  !- Output:Variable Name
+  ZoneB_ideal_cooling_rate;         !- FMU Variable Name
+     
