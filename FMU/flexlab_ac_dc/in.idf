@@ -3405,8 +3405,8 @@ HeatBalanceAlgorithm,
 
 RunPeriod,
   datarun,                                !- Name
-  10,                                     !- Begin Month
-  28,                                     !- Begin Day of Month
+  1,                                     !- Begin Month
+  1,                                     !- Begin Day of Month
   2020,                                   !- Begin Year
   11,                                     !- End Month
   30,                                     !- End Day of Month
