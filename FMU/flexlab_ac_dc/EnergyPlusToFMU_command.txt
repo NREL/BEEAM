@@ -5,3 +5,6 @@ python ~/Projects/EnergyPlusToFMU310/Scripts/EnergyPlusToFMU.py -i ./Energy+.idd
 
 validate FMU
 fmuCheck.linux64 -h 60 -s 86400 in.fmu
+
+for 15min timestep:
+fmuCheck.linux64 -h 900 -s 86400 in.fmu
