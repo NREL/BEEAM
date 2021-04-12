@@ -6797,17 +6797,7 @@ Output:Variable,
 
 Output:Variable,
   FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
-  Zone Electric Equipment Electric Power, !- Variable Name
-  timestep;                               !- Reporting Frequency
-
-Output:Variable,
-  FlexLab-X3-ZoneB Thermal Zone,                             !- Key Value
   Zone Electric Equipment Total Heating Rate, !- Variable Name
-  timestep;                               !- Reporting Frequency
-
-Output:Variable,
-  FlexLab-X3-PlnmB Thermal Zone,                             !- Key Value
-  Zone Electric Equipment Electric Power, !- Variable Name
   timestep;                               !- Reporting Frequency
 
 Output:Variable,
