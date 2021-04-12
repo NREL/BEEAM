@@ -212,60 +212,6 @@ package Interface
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end TwoPortBase;
 
-  partial model TwoPortBaseAnalog
-    /*
-                    Two port (two one port classes) partial class for a rectifier.
-                    AC side is the multi harmonic side. The DC side 
-                    consists of analog connector from Modelica std library,
-                    Modelica.Electrical.Analog
-                    
-                  */
-    outer SystemDef systemDef;
-    /*
-                      Harmonic (AC) side voltage and current.
-                    */
-    Complex vHrm[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex voltage";
-    Complex iHrm[systemDef.numHrm](each re(start = 0, nominal = 1), each im(start = 0, nominal = 1)) "Complex current";
-    // overdetermined variable
-    Real omega;
-    /*
-                      DC side voltage and current. (Redefining directly from Modelica.Electrical.Analog.Interfaces.OnePort)
-                    */
-    Real vDC "DC voltage";
-    Real iDC "DC current";
-    HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation(
-      Placement(visible = true, transformation(origin = {-90, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation(
-      Placement(visible = true, transformation(origin = {-90, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation(
-      Placement(visible = true, transformation(origin = {120, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation(
-      Placement(visible = true, transformation(origin = {122, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  initial equation
-
-  equation
-/*
-      Harmonic (AC) side
-    */
-    Connections.branch(hPin_P.reference, hPin_N.reference);
-    hPin_P.reference.theta = hPin_N.reference.theta;
-    omega = der(hPin_P.reference.theta);
-    vHrm = hPin_P.v - hPin_N.v;
-    hPin_P.iRe + hPin_N.iRe = {0.0 for i in 1:systemDef.numHrm};
-    hPin_P.iIm + hPin_N.iIm = {0.0 for i in 1:systemDef.numHrm};
-    iHrm.re = hPin_P.iRe;
-    iHrm.im = hPin_P.iIm;
-/*
-      DC side
-    */
-    vDC = pin_p.v - pin_n.v;
-    0.0 = pin_p.i + pin_n.i;
-    iDC = pin_p.i;
-    annotation(
-      Icon(coordinateSystem(grid = {0, 0}, initialScale = 0.1)),
-      Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
-  end TwoPortBaseAnalog;
-
   model LoadBase
     extends HPF.SinglePhase.Interface.TwoPinBase;
   equation
@@ -274,6 +220,38 @@ package Interface
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end LoadBase;
+
+  partial model ACDC_ConverterBase
+    outer SystemDef systemDef;
+    parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init";
+    parameter Modelica.SIunits.Voltage V_Rect(start = 0) = 1 "Rectifier DC output";
+    parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power";
+    parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
+    HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation(
+      Placement(visible = true, transformation(origin = {-84, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{-110, 70}, {-90, 90}}, rotation = 0)));
+    HPF.SinglePhase.Interface.HPin_N hPin_N(h = systemDef.numHrm) annotation(
+      Placement(visible = true, transformation(origin = {-80, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{-110, -90}, {-90, -70}}, rotation = 0)));
+    Modelica.Electrical.Analog.Interfaces.PositivePin pin_p annotation(
+      Placement(visible = true, transformation(origin = {80, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{90, 70}, {110, 90}}, rotation = 0)));
+    
+    Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = V_Rect) annotation(
+      Placement(visible = true, transformation(origin = {20, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    LoadBase loadBase(start_i_im = cat(1, {nomP / nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_i_re = cat(1, {nomP / nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_im = cat(1, {nomV * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), start_v_re = cat(1, {nomV * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1})) annotation(
+      Placement(visible = true, transformation(origin = {-20, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin pin_n annotation(
+      Placement(visible = true, transformation(origin = {80, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{90, -90}, {110, -70}}, rotation = 0)));
+    equation
+    connect(vDC.p, pin_p) annotation(
+      Line(points = {{20, -2}, {20, 40}, {80, 40}}, color = {0, 0, 255}));
+    connect(hPin_P, loadBase.pin_p) annotation(
+      Line(points = {{-84, 42}, {-20, 42}, {-20, 0}}));
+    connect(loadBase.pin_n, hPin_N) annotation(
+      Line(points = {{-20, -20}, {-20, -60}, {-80, -60}}, color = {117, 80, 123}));
+    connect(vDC.n, pin_n) annotation(
+      Line(points = {{20, -22}, {20, -60}, {80, -60}}, color = {0, 0, 255}));
+    annotation(
+      Icon(graphics = {Line(origin = {-47.7858, -4.01698}, points = {{-44.9518, 25.9597}, {-40.9518, 41.9597}, {-34.9518, 57.9597}, {-26.9518, 65.9597}, {-16.9518, 61.9597}, {-10.9518, 45.9597}, {-6.95182, 27.9597}, {-2.95182, 7.9597}, {5.04818, -8.0403}, {15.0482, -14.0403}, {27.0482, -4.0403}, {33.0482, 11.9597}, {37.0482, 25.9596}}, smooth = Smooth.Bezier), Line(origin = {-3.85568, 68.1837}, points = {{0, 4}, {0, -24}}), Line(origin = {23.0478, 68.1045}, points = {{0, -10}, {0, -24}}), Line(origin = {48.7451, -24.5475}, points = {{-25, 0}, {25, 0}}), Line(origin = {-3.63854, 43.8449}, rotation = -90, points = {{0, 36}, {0, -24}}), Line(origin = {1.01175, 2.8636e-05}, points = {{-101, -100}, {99, 100}}), Line(origin = {14.6624, 67.8344}, points = {{0, -6}, {0, -24}}), Line(origin = {-22.4063, 67.9889}, points = {{0, 24}, {0, -24}}), Line(origin = {5.18579, 67.6124}, points = {{0, -2}, {0, -24}}), Line(origin = {-11.6348, 68.0442}, points = {{0, 14}, {0, -24}}), Line(origin = {49.1191, -47.2208}, points = {{-25, 0}, {25, 0}}, pattern = LinePattern.Dash), Rectangle(origin = {-1, 0}, extent = {{-99, 100}, {101, -100}})}));
+  end ACDC_ConverterBase;
   annotation(
     Icon(coordinateSystem(grid = {0, 0})),
     Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));

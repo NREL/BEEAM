@@ -1,15 +1,16 @@
 within HPF.PowerConverters.SinglePhase;
 
-model ACDC_EmpMdl "AC to DC converter empirical model"
+model ACDC_ParameterizedModel "AC to DC converter parameterized harmonic model"
   extends HPF.SinglePhase.Interface.ACDC_ConverterBase;
-  
   import Modelica.ComplexMath.j;
-  parameter String modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat" "Rectifier harmonic model mat file";
-  // "modelica://HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat"
-  
+  parameter Real magModelParams[6] = {0, 0, 0, 0, 0, 0} "Magnitude model parameters";
+  parameter Real phAngModelParams[3] = {0, 0, 0} "Phase angle model parameters";
+  parameter Modelica.SIunits.Voltage V_Rect(start = 0) = 1 "Rectifier DC output";
+  parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power";
+  parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
   parameter Modelica.SIunits.Power P_DCmin = 0.5 "P_DC minimum";
   parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power";
-  
+  parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init";
   // TODO: Document that a default value of zero sets the stanby power as computed by efficiency relation.
   /*
           Fundamental power drawn on the AC harmonic side.
@@ -39,17 +40,6 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation(
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 protected
-  final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
-  final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
-  // assuming matrices have same dimension
-  final parameter Real mdl_H[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "X", matDim[1], matDim[2]);
-  final parameter Real mdl_P_h1[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Y", matDim[1], matDim[2]);
-  final parameter Real mdl_Z_mag[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Z_mag", matDim[1], matDim[2]);
-  final parameter Real mdl_Z_arg[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Z_arg", matDim[1], matDim[2]);
-  // reading efficiency model
-  final parameter Real alpha[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "alpha", 1, 1);
-  final parameter Real beta[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "beta", 1, 1);
-  final parameter Real gamma[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "gamma", 1, 1);
   Real argS1 "Phase angle for fundamental apparent power";
   Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
   /*  The time domain plots are correct suggesting that there is no need to add the 
@@ -96,17 +86,15 @@ equation
   loadBase.i[2:1:systemDef.numHrm] = {c[i] * a[i] for i in 1:systemDef.numHrm - 1};
   PLoss = P - P_DC;
   annotation(
-    Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Text(origin = {4, 0}, lineColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
+    Icon(coordinateSystem(preserveAspectRatio = false), graphics = {Rectangle(origin = {-1, 0}, extent = {{-99, 100}, {101, -100}}), Line(origin = {-47.7858, -4.01698}, points = {{-44.9518, 25.9597}, {-40.9518, 41.9597}, {-34.9518, 57.9597}, {-26.9518, 65.9597}, {-16.9518, 61.9597}, {-10.9518, 45.9597}, {-6.95182, 27.9597}, {-2.95182, 7.9597}, {5.04818, -8.0403}, {15.0482, -14.0403}, {27.0482, -4.0403}, {33.0482, 11.9597}, {37.0482, 25.9596}}, smooth = Smooth.Bezier), Line(origin = {-22.4063, 67.9889}, points = {{0, 24}, {0, -24}}), Line(origin = {-11.6348, 68.0442}, points = {{0, 14}, {0, -24}}), Line(origin = {-3.85568, 68.1837}, points = {{0, 4}, {0, -24}}), Line(origin = {23.0478, 68.1045}, points = {{0, -10}, {0, -24}}), Line(origin = {14.6624, 67.8344}, points = {{0, -6}, {0, -24}}), Line(origin = {5.18579, 67.6124}, points = {{0, -2}, {0, -24}}), Line(origin = {-3.63854, 43.8449}, rotation = -90, points = {{0, 36}, {0, -24}}), Line(origin = {48.7451, -24.5475}, points = {{-25, 0}, {25, 0}}), Line(origin = {49.1191, -47.2208}, points = {{-25, 0}, {25, 0}}, pattern = LinePattern.Dash), Line(origin = {1.01175, 2.8636e-05}, points = {{-101, -100}, {99, 100}}), Text(origin = {4, 0}, lineColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
-    Documentation(info = "<html>
-<h4>Converter harmonic model</h4>
-<p>Coupled harmonic model for an AC to DC converter. The harmonic model is based on empirical data from laboratory measurements. The AC side harmonics are modeled using a surface function evaluated at a given harmonic and real power at <i>h=1</i> using 2D interpolation.</p>
+    Documentation(info = "<html><head></head><body><h4>Converter harmonic model</h4>
+<p>...</p>
 <h4>Converter loss model</h4>
 <p>The converter loss is modeled as a 2-stage loss model:</p>
-<p><br><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_pLoss_2stage.png\"/>.</p>
+<p><br><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_pLoss_2stage.png\">.</p>
 <p>The lambda function is implemented in <a href=\"modelica://HPF.PowerConverters.HelperFunctions.stbyPwrTransition\">stbyPwrTransition</a> function.</p>
-<p><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_ploss.png\"/></p>
-<p><br><h4>Converter model data files</h4></p>
-<p>Data files for the converter model can be found in <span style=\"font-family: Courier;\">HPF/Data/ConverterModels/SinglePhase/ACDC/</span></p>
-</html>"));
-end ACDC_EmpMdl;
+<p><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_ploss.png\"></p>
+<p><br></p><h4><br></h4>
+</body></html>"));
+end ACDC_ParameterizedModel;
