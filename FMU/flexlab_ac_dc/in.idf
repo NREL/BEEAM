@@ -6937,14 +6937,4 @@ ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   FlexLab-X3-ZoneB Thermal Zone,  !- Output:Variable Index Key Name
   Zone Thermostat Heating Setpoint Temperature,  !- Output:Variable Name
   ZoneB_heating_setpoint;         !- FMU Variable Name
-  
-ExternalInterface:FunctionalMockupUnitExport:From:Variable,
-  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
-  Zone Ideal Loads Zone Total Heating Energy,  !- Output:Variable Name
-  ZoneB_ideal_heating_rate;         !- FMU Variable Name
-
-ExternalInterface:FunctionalMockupUnitExport:From:Variable,
-  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
-  Zone Ideal Loads Zone Total Cooling Energy,  !- Output:Variable Name
-  ZoneB_ideal_cooling_rate;         !- FMU Variable Name
 
