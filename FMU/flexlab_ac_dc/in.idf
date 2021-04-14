@@ -6871,23 +6871,28 @@ Output:Variable,
   timestep;                               !- Reporting Frequency
 
 Output:Variable,
-  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,                        !- Key Value
-  Zone Ideal Loads Zone Total Heating Energy, !- Variable Name
-  timestep;                               !- Reporting Frequency
-
+  PTAC Clg Coil,                          !- Key Value
+  Cooling Coil Total Cooling Rate,        !- Variable Name
+  Timestep;                               !- Reporting Frequency
+  
 Output:Variable,
-  FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,                        !- Key Value
-  Zone Ideal Loads Zone Total Cooling Energy, !- Variable Name
-  timestep;                               !- Reporting Frequency
-
-Output:EnergyManagementSystem,
-  Verbose,                 !- Actuator Availability Dictionary Reporting
-  Verbose,                 !- Internal Variable Availability Dictionary Reporting
-  Verbose;                 !- EMS Runtime Language Debug Output Level
+  PTAC Fan,                               !- Key Value
+  Fan Electricity Rate,                   !- Variable Name
+  Timestep;                               !- Reporting Frequency
     
 ExternalInterface,
   FunctionalMockupUnitExport;  !- Name of External Interface
 
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  PTAC Clg Coil,  !- Output:Variable Index Key Name
+  Cooling Coil Total Cooling Rate,  !- Output:Variable Name
+  PTAC_Clg_Coil_Cooling_Rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  PTAC Fan,  !- Output:Variable Index Key Name
+  Fan Electricity Rate,  !- Output:Variable Name
+  PTAC_Fan_electric_rate;         !- FMU Variable Name
+  
 ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   FlexLab-X3-PlnmB Thermal Zone,  !- Output:Variable Index Key Name
   Zone Mean Air Temperature,  !- Output:Variable Name
