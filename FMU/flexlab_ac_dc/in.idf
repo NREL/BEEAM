@@ -6938,3 +6938,27 @@ ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   Zone Thermostat Heating Setpoint Temperature,  !- Output:Variable Name
   ZoneB_heating_setpoint;         !- FMU Variable Name
 
+ExternalInterface:FunctionalMockupUnitExport:To:Actuator,
+  PlnmBLightsDriverAct,  !- Name
+  PlnmB Lights Drivers,    !- Actuated Component Unique Name
+  Lights,  !- Actuated Component Type
+  Electricity Rate,          !- Actuated Component Control Type
+  PlnmBLightsDriver,                  !- FMU Variable Name
+  0;                       !- Initial Value
+
+ExternalInterface:FunctionalMockupUnitExport:To:Actuator,
+  ZoneBPlugsConvertersAct,  !- Name
+  ZoneB Plugs Converters,    !- Actuated Component Unique Name
+  ElectricEquipment,  !- Actuated Component Type
+  Electricity Rate,          !- Actuated Component Control Type
+  ZoneBPlugsConverters,                  !- FMU Variable Name
+  0;                       !- Initial Value
+
+ExternalInterface:FunctionalMockupUnitExport:To:Actuator,
+  PlnmBDCHubAct,  !- Name
+  PlnmB DC Hub,    !- Actuated Component Unique Name
+  ElectricEquipment,  !- Actuated Component Type
+  Electricity Rate,          !- Actuated Component Control Type
+  PlnmBDCHub,                  !- FMU Variable Name
+  0;                       !- Initial Value
+  
