@@ -80,9 +80,9 @@ model FlexLab_AC1
   Modelica.Blocks.Math.Division division1 annotation (
     Placement(visible = true, transformation(origin = {-119, 89}, extent = {{7, -7}, {-7, 7}}, rotation = 0)));
   'in_fmu' 'in_fmu1'(
-    fmi_StartTime=26265000,
-    fmi_StopTime=29029800,
-    fmi_NumberOfSteps=3072)
+    fmi_StartTime=27216000,
+    fmi_StopTime=27734400,
+    fmi_NumberOfSteps=576)
     annotation (Placement(transformation(extent={{-8,-126},{12,-106}})));
   Modelica.Blocks.Sources.Constant DCHUB(k=0)
     annotation (Placement(transformation(extent={{-76,-138},{-56,-118}})));
@@ -299,16 +299,16 @@ equation
         color={0,0,127}));
   connect(Plenum.y, 'in_fmu1'.PlnmBLightsDriver) annotation (Line(points={{-187,
           -58.7},{-187,-111},{-8.4,-111}}, color={0,0,127}));
-  connect(Cond_Space.y, 'in_fmu1'.ZoneBPlugsConverters) annotation (Line(points
-        ={{187,-84.7},{187,-100},{-18,-100},{-18,-116},{-8.4,-116}}, color={0,0,
+  connect(Cond_Space.y, 'in_fmu1'.ZoneBPlugsConverters) annotation (Line(points=
+         {{187,-84.7},{187,-100},{-18,-100},{-18,-116},{-8.4,-116}}, color={0,0,
           127}));
   connect(DCHUB.y, 'in_fmu1'.PlnmBDCHub) annotation (Line(points={{-55,-128},{
           -32,-128},{-32,-121},{-8.4,-121}}, color={0,0,127}));
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
     experiment(
-      StartTime=26265000,
-      StopTime=29029800,
+      StartTime=27216000,
+      StopTime=27734400,
       Interval=900,
       Tolerance=1e-06,
       __Dymola_fixedstepsize=900,
