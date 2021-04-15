@@ -2,14 +2,9 @@ within HPF.PowerConverters.SinglePhase;
 
 model ACDC_EmpMdl "AC to DC converter empirical model"
   extends HPF.SinglePhase.Interface.ACDC_ConverterBase;
-  
+  extends HPF.PowerConverters.Partials.HarmonicModel_Interp;
   import Modelica.ComplexMath.j;
-  parameter String modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat" "Rectifier harmonic model mat file";
-  // "modelica://HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat"
-  
-  parameter Modelica.SIunits.Power P_DCmin = 0.5 "P_DC minimum";
-  parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power";
-  
+ 
   // TODO: Document that a default value of zero sets the stanby power as computed by efficiency relation.
   /*
           Fundamental power drawn on the AC harmonic side.
@@ -39,17 +34,7 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation(
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 protected
-  final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
-  final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
-  // assuming matrices have same dimension
-  final parameter Real mdl_H[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "X", matDim[1], matDim[2]);
-  final parameter Real mdl_P_h1[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Y", matDim[1], matDim[2]);
-  final parameter Real mdl_Z_mag[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Z_mag", matDim[1], matDim[2]);
-  final parameter Real mdl_Z_arg[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "Z_arg", matDim[1], matDim[2]);
-  // reading efficiency model
-  final parameter Real alpha[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "alpha", 1, 1);
-  final parameter Real beta[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "beta", 1, 1);
-  final parameter Real gamma[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "gamma", 1, 1);
+  
   Real argS1 "Phase angle for fundamental apparent power";
   Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
   /*  The time domain plots are correct suggesting that there is no need to add the 

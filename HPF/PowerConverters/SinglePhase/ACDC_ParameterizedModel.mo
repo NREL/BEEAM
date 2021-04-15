@@ -2,6 +2,7 @@ within HPF.PowerConverters.SinglePhase;
 
 model ACDC_ParameterizedModel "AC to DC converter parameterized harmonic model"
   extends HPF.SinglePhase.Interface.ACDC_ConverterBase;
+  extends HPF.PowerConverters.Partials.HarmonicModel_Parameterized;
   import Modelica.ComplexMath.j;
   parameter Real magModelParams[6] = {0, 0, 0, 0, 0, 0} "Magnitude model parameters";
   parameter Real phAngModelParams[3] = {0, 0, 0} "Phase angle model parameters";
