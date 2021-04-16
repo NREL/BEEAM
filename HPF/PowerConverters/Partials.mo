@@ -6,8 +6,7 @@ package Partials
   partial model HarmonicModel_Interp
     parameter String modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat" "Rectifier harmonic model mat file" annotation(
       Dialog(tab = "Converter Model"));
-  
-  protected 
+  protected
     final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
     final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
     // assuming matrices have same dimension
@@ -21,16 +20,17 @@ package Partials
     final parameter Real gamma[:, :] = Modelica.Utilities.Streams.readRealMatrix(resourceRetValue, "gamma", 1, 1);
   equation
 
-  annotation(
-      Icon(graphics = {Polygon(origin = {-2, -73}, pattern = LinePattern.Dash, points = {{-14, 11}, {-54, -23}, {38, -23}, {58, 11}, {-14, 11}}), Line(origin = {3.68493, -72.4315}, points = {{-20, -23}, {10, 11}}, pattern = LinePattern.Dash), Line(origin = {7.69173, -71.3014}, points = {{38, -7}, {-42, -7}}, pattern = LinePattern.Dash), Line(origin = {24.5548, -76.4383}, points = {{-20, -19}, {-6, -1}}, arrow = {Arrow.Filled, Arrow.Filled}), Ellipse(origin = {12, -86}, fillPattern = FillPattern.Solid, extent = {{-2, 2}, {2, -2}}, endAngle = 360), Line(origin = {27.1233, -74.8287}, points = {{-34, -11}, {14, -11}}, arrow = {Arrow.Filled, Arrow.Filled})}),
-      Documentation(info = "<html><head></head><body>Converter model using 2D interpolation</body></html>"));end HarmonicModel_Interp;
+    annotation(
+      Icon(graphics = {Polygon(origin = {-2, -73}, pattern = LinePattern.Dash, points = {{-14, 11}, {-54, -23}, {38, -23}, {58, 11}, {-14, 11}}), Line(origin = {3.68493, -72.4315}, points = {{-20, -23}, {10, 11}}, pattern = LinePattern.Dash), Line(origin = {7.69173, -71.3014}, points = {{38, -7}, {-42, -7}}, pattern = LinePattern.Dash), Line(origin = {24.5548, -76.4383}, points = {{-20, -19}, {-6, -1}}, color = {0, 0, 0}), Ellipse(origin = {12, -86}, fillPattern = FillPattern.Solid, extent = {{-1, 1}, {1, -1}}, endAngle = 360), Line(origin = {27.1233, -74.8287}, points = {{-34, -11}, {14, -11}}, color = {0, 0, 0})}),
+      Documentation(info = "<html><head></head><body>Converter model using 2D interpolation</body></html>"));
+  end HarmonicModel_Interp;
 
   partial model HarmonicModel_Parameterized
-  
   equation
 
-  annotation(
-      Icon(graphics = {Text(origin = {3, -79}, extent = {{-81, 13}, {81, -13}}, textString = "I = f(h, P, param)", textStyle = {TextStyle.Italic})}));end HarmonicModel_Parameterized;
+    annotation(
+      Icon(graphics = {Text(origin = {3, -79}, extent = {{-81, 13}, {81, -13}}, textString = "I = f(h, P, param)", textStyle = {TextStyle.Italic})}));
+  end HarmonicModel_Parameterized;
   annotation(
     Documentation(info = "<html><head></head><body>Base class package containing models for converters.</body></html>"));
 end Partials;

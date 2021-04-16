@@ -193,9 +193,9 @@ package Interface
   partial model ACDC_ConverterBase
     outer SystemDef systemDef;
     parameter Modelica.SIunits.Voltage V_Rect(start = 0) = 1 "Rectifier DC output";
-    parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power" ;
-    parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
-    parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init";
+    parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power" annotation(Dialog(group="Initialization"));
+    parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage" annotation(Dialog(group="Initialization"));
+    parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init" annotation(Dialog(group="Initialization"));
     
     parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power" annotation(Dialog(group="Converter Loss model"));
     parameter Modelica.SIunits.Power P_DCmin = 0.5 "Minimum converter power (2-stage loss model)" annotation(Dialog(group="Converter Loss model"));
