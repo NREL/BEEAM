@@ -6979,7 +6979,7 @@ Output:Variable,
 
 Output:Variable,
   ZoneB Plugs,                             !- Key Value
-  Equipment Total Heating Rate, !- Variable Name
+  Electric Equipment Total Heating Rate, !- Variable Name
   timestep;                               !- Reporting Frequency
 
 ExternalInterface:FunctionalMockupUnitExport:From:Variable,
