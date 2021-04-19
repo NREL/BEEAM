@@ -22,3 +22,5 @@ ConverterModels
 HarmonicPQLoad
 Test_heaterResistance
 Test_timeSeriesInput
+TestGroupedConverters
+TestGroupedConverters2
