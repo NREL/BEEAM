@@ -2873,8 +2873,8 @@ Schedule:Week:Daily,
   Schedule Day 9,                         !- Sunday Schedule:Day Name
   Schedule Day 9,                         !- Monday Schedule:Day Name
   Schedule Day 9,                         !- Tuesday Schedule:Day Name
-  Schedule Day 9,                         !- Wednesday Schedule:Day Name
-  Schedule Day 9,                         !- Thursday Schedule:Day Name
+  Schedule Day 13,                         !- Wednesday Schedule:Day Name
+  Schedule Day 13,                         !- Thursday Schedule:Day Name
   Schedule Day 13,                        !- Friday Schedule:Day Name
   Schedule Day 13,                        !- Saturday Schedule:Day Name
   Schedule Day 9,                         !- Holiday Schedule:Day Name
