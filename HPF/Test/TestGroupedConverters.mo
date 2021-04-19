@@ -29,7 +29,7 @@ model TestGroupedConverters
     Placement(visible = true, transformation(origin = {-78, -2}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.SinglePhase.Components.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {-78, -28}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.GroupedConverters.EmpMdl1 empMdl1 annotation(
+  HPF.PowerConverters.SinglePhase.GroupedConverters.EmpMdl empMdl1 annotation(
     Placement(visible = true, transformation(origin = {24, 0}, extent = {{-10, -18}, {13, 18}}, rotation = 0)));
 equation
   connect(z.pin_n, msrI_single.pin_p) annotation(
