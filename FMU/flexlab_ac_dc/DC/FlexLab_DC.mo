@@ -42,9 +42,9 @@ model FlexLab_DC
   Modelica.Blocks.Sources.Constant No_Loads(k = 6) annotation (
     Placement(visible = true, transformation(origin = {166, 30}, extent = {{8, -8}, {-8, 8}}, rotation = 0)));
   'in_fmu' 'in_fmu1'(
-    fmi_StartTime=26265000,
-    fmi_StopTime=29029800,
-    fmi_NumberOfSteps=3072)
+    fmi_StartTime=27648000,
+    fmi_StopTime=28944000,
+    fmi_NumberOfSteps=1440)
     annotation (Placement(transformation(extent={{148,-92},{168,-72}})));
   Modelica.Blocks.Sources.Constant const(k=0)
     annotation (Placement(transformation(extent={{118,-62},{138,-42}})));
@@ -153,8 +153,8 @@ equation
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
     experiment(
-      StartTime=26265000,
-      StopTime=29029800,
+      StartTime=27648000,
+      StopTime=28944000,
       Interval=900,
       Tolerance=1e-06,
       __Dymola_fixedstepsize=900,
