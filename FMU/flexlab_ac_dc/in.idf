@@ -6971,4 +6971,24 @@ ExternalInterface:FunctionalMockupUnitExport:To:Actuator,
   Electricity Rate,          !- Actuated Component Control Type
   PlnmBDCHub,                  !- FMU Variable Name
   0;                       !- Initial Value
+
+Output:Variable,
+  ZoneB Lights,                             !- Key Value
+  Lights Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  ZoneB Plugs,                             !- Key Value
+  Equipment Total Heating Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  ZoneB Plugs,  !- Output:Variable Index Key Name
+  Electric Equipment Total Heating Rate,  !- Output:Variable Name
+  ZoneB_plugs_heating_rate;         !- FMU Variable Name
+
+ExternalInterface:FunctionalMockupUnitExport:From:Variable,
+  ZoneB Lights,  !- Output:Variable Index Key Name
+  Lights Total Heating Rate,  !- Output:Variable Name
+  ZoneB_light_heating_rate;         !- FMU Variable Name
   
