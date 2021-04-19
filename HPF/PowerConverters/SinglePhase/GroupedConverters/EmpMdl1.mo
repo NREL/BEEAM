@@ -12,11 +12,12 @@ model EmpMdl1
           
           Pin = Pout + alpha + beta*Pout + gamma*Pout^2
         */
-  Real P_DC = (abs(vDC.v * vDC.i)) / numConvs;
+  Real P_DC = (abs(vDC.v * vDC.i));
+  Real P_DC_singleConv = P_DC / numConvs "Output power per converter";
   /* Input output power relation (Total input AC Power (sum over all harmonics))
         P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
       */
-  Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC)) * (P_DC + alpha[1, 1] + beta[1, 1] * P_DC + gamma[1, 1] * P_DC ^ 2);
+  Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC_singleConv) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC_singleConv)) * (P_DC_singleConv + alpha[1, 1] + beta[1, 1] * P_DC_singleConv + gamma[1, 1] * P_DC_singleConv ^ 2);
   /*
           Measurements
       */
@@ -26,13 +27,13 @@ model EmpMdl1
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.v);
   Real P_h[systemDef.numHrm] = loadBase.v[:].re .* loadBase.i[:].re + loadBase.v[:].im .* loadBase.i[:].im "Real power at harmonics";
   // intermediary variables
-  Real P1(start = nomP) "Real power at fundamental";
+  Real P1(start = nomP) "Real power at fundamental (per converter)";
   Real S1(start = nomP) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";
   // diagnostics: Check if the computed h=1 current mag matches the input surface model
   Real diag_I_mag_h1 = HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, 1, P);
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation (
-    Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
+    Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 142},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 
 protected
   Real argS1 "Phase angle for fundamental apparent power";
@@ -73,14 +74,15 @@ equation
     Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     //rewriting the power relation
   */
-  loadBase.i[1].re = (P1 * loadBase.v[1].re + Q1 * loadBase.v[1].im) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2);
-  loadBase.i[1].im = (P1 * loadBase.v[1].im - Q1 * loadBase.v[1].re) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2);
+  loadBase.i[1].re = ((P1 * loadBase.v[1].re + Q1 * loadBase.v[1].im) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2)).*numConvs;
+  loadBase.i[1].im = ((P1 * loadBase.v[1].im - Q1 * loadBase.v[1].re) / (loadBase.v[1].re ^ 2 + loadBase.v[1].im ^ 2)).*numConvs;
 /*
     current injection for the rest of the harmonics.
   */
   loadBase.i[2:1:systemDef.numHrm] = {c[i] * a[i] for i in 1:systemDef.numHrm - 1};
-  PLoss = (P - P_DC) * numConvs;
+  PLoss = P*numConvs - P_DC;
+  
 annotation(
-    Icon(graphics = {Text(origin = {-6, 160}, extent = {{-200, 10}, {200, -10}}, textString = "Converters=%numConvs"), Rectangle(origin = {0.62, -0.53}, pattern = LinePattern.Dash, extent = {{-100, 180}, {100, -180}}), Line(origin = {14.8013, 15.2237}, points = {{-101, 85}, {-101, 101}, {101, 101}, {101, -101}, {87, -101}}), Line(origin = {29.4474, 31.9817}, points = {{-101, 85}, {-101, 101}, {101, 101}, {101, -101}, {87, -101}})}, coordinateSystem(extent = {{-100, -180}, {100, 180}})),
-    Diagram(coordinateSystem(extent = {{-100, -180}, {100, 180}})));
+    Icon(graphics = {Text(origin = {63, -130}, extent = {{-143, 10}, {143, -10}}, textString = "Converters=%numConvs", horizontalAlignment = TextAlignment.Left), Rectangle(origin = {15.58, -0.75}, pattern = LinePattern.Dash, extent = {{-115, 180.22}, {115, -180.22}}), Line(origin = {14.8013, 15.2237}, points = {{-101, 85}, {-101, 101}, {101, 101}, {101, -101}, {87, -101}}), Line(origin = {29.8698, 31.5593}, points = {{-101, 85}, {-101, 101}, {101, 101}, {101, -101}, {87, -101}})}, coordinateSystem(extent = {{-100, -180}, {130, 180}})),
+    Diagram(coordinateSystem(extent = {{-100, -180}, {130, 180}})));
 end EmpMdl1;
