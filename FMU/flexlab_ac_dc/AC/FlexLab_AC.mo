@@ -292,11 +292,6 @@ equation
     Line(points={{-90.2,47},{-150,47},{-150,89},{-126.7,89}},      color = {0, 0, 127}));
   connect(Light_1.u, division1.y) annotation (
     Line(points={{-88.2,73},{-150,73},{-150,89},{-126.7,89}},      color = {0, 0, 127}));
-  connect('in_fmu1'.ZoneB_lights_heating_rate, division1.u1) annotation (Line(
-        points={{12,-116},{24,-116},{24,93.2},{-110.6,93.2}}, color={0,0,127}));
-  connect('in_fmu1'.ZoneB_electric_heating_rate, division.u1) annotation (Line(
-        points={{12,-116},{110,-116},{110,-118},{204,-118},{204,82},{162,82}},
-        color={0,0,127}));
   connect(Plenum.y, 'in_fmu1'.PlnmBLightsDriver) annotation (Line(points={{-187,
           -58.7},{-187,-111},{-8.4,-111}}, color={0,0,127}));
   connect(Cond_Space.y, 'in_fmu1'.ZoneBPlugsConverters) annotation (Line(points=
@@ -304,6 +299,10 @@ equation
           127}));
   connect(DCHUB.y, 'in_fmu1'.PlnmBDCHub) annotation (Line(points={{-55,-128},{
           -32,-128},{-32,-121},{-8.4,-121}}, color={0,0,127}));
+  connect('in_fmu1'.ZoneB_plugs_heating_rate, division.u1) annotation (Line(
+        points={{12,-116},{208,-116},{208,82},{162,82}}, color={0,0,127}));
+  connect('in_fmu1'.ZoneB_light_heating_rate, division1.u1) annotation (Line(
+        points={{12,-116},{18,-116},{18,93.2},{-110.6,93.2}}, color={0,0,127}));
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
     experiment(
