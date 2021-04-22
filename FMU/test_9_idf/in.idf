@@ -1509,11 +1509,6 @@ Output:Variable,
 
 Output:Variable,
   PlenumZone,                             !- Key Value
-  Zone Electric Equipment Electric Power, !- Variable Name
-  timestep;                               !- Reporting Frequency
-
-Output:Variable,
-  PlenumZone,                             !- Key Value
   Zone Total Internal Total Heating Rate, !- Variable Name
   timestep;                               !- Reporting Frequency
 
