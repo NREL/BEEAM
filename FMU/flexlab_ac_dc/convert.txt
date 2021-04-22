@@ -160,4 +160,39 @@ ExternalInterface:FunctionalMockupUnitExport:From:Variable,
   FlexLab-X3-ZoneB Thermal Zone Ideal Loads Air System,  !- Output:Variable Index Key Name
   Zone Ideal Loads Zone Total Cooling Energy,  !- Output:Variable Name
   ZoneB_ideal_cooling_rate;         !- FMU Variable Name
-     
+
+
+
+Output:EnergyManagementSystem,
+  Verbose,
+  Verbose,
+  Verbose;
+
+EnergyManagementSystem:Actuator,
+  PlnmBLightsDriverAct, ! Name
+  PlnmB Lights Drivers, ! Component Name
+  Lights, ! Component Type
+  Electricity Rate; ! Control Variable
+
+EnergyManagementSystem:Actuator,
+  ZoneBPlugsConvertersAct, ! Name
+  ZoneB Plugs Converters, ! Component Name
+  ElectricEquipment, ! Component Type
+  Electricity Rate; ! Control Variable
+
+EnergyManagementSystem:Actuator,
+  PlnmBDCHubAct, ! Name
+  PlnmB DC Hub, ! Component Name
+  ElectricEquipment, ! Component Type
+  Electricity Rate; ! Control Variable
+  
+EnergyManagementSystem:Program,
+  SetZoneEquipmentActuators, ! Name
+  SET PlnmBLightsDriverAct = ,
+  SET ZoneBPlugsConvertersAct = ,
+  SET PlnmBDCHubAct = ;
+
+EnergyManagementSystem:ProgramCallingManager,
+  SetZoneEquipmentActuatorsManager, ! Name
+  BeginTimestepBeforePredictor, ! EnergyPlus Model Calling Point
+  SetZoneEquipmentActuators; ! Program Name 1     

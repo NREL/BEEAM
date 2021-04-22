@@ -2087,7 +2087,7 @@ BuildingSurface:Detailed,
 
 Shading:Zone:Detailed,
   OVH-Low-S2Wall-FlexLab-X3-ZoneA,        !- Name
-  S2Wall-FlexLab-X3-ZoneA,                !- Base Surface Name
+  S1Wall-FlexLab-X3-ZoneA,                !- Base Surface Name
   ,                                       !- Transmittance Schedule Name
   ,                                       !- Number of Vertices
   6.0453, 0, 2.75,                        !- X,Y,Z Vertex 1 {m}
@@ -2613,7 +2613,7 @@ BuildingSurface:Detailed,
 
 Shading:Zone:Detailed,
   OVH-Low-S2Wall-FlexLab-X3-ZoneB,        !- Name
-  S3Wall-FlexLab-X3-ZoneB,                !- Base Surface Name
+  S2Wall-FlexLab-X3-ZoneB,                !- Base Surface Name
   ,                                       !- Transmittance Schedule Name
   ,                                       !- Number of Vertices
   12.0873, 0, 2.75,                       !- X,Y,Z Vertex 1 {m}
@@ -2994,7 +2994,7 @@ ZoneHVAC:PackagedTerminalAirConditioner,
   Autosize,                               !- Cooling Supply Air Flow Rate {m3/s}
   Autosize,                               !- Heating Supply Air Flow Rate {m3/s}
   0,                                      !- No Load Supply Air Flow Rate {m3/s}
-  0.035,                                   !- Cooling Outdoor Air Flow Rate {m3/s}
+  0.034,                                  !- Cooling Outdoor Air Flow Rate {m3/s}
   0,                                      !- Heating Outdoor Air Flow Rate {m3/s}
   0,                                      !- No Load Outdoor Air Flow Rate {m3/s}
   Fan:ConstantVolume,                     !- Supply Air Fan Object Type
@@ -3024,11 +3024,11 @@ OutdoorAir:NodeList,
 Fan:ConstantVolume,
   PTAC Fan,                               !- Name
   Always On Discrete hvac_library,        !- Availability Schedule Name
-  0.7,                                    !- Fan Total Efficiency
-  1900,                                   !- Pressure Rise {Pa}
+  1,                                      !- Fan Total Efficiency
+  5000,                                   !- Pressure Rise {Pa}
   AutoSize,                               !- Maximum Flow Rate {m3/s}
-  0.4,                                    !- Motor Efficiency
-  0,                                      !- Motor In Airstream Fraction
+  1,                                      !- Motor Efficiency
+  1,                                      !- Motor In Airstream Fraction
   PTAC Heating Coil Outlet Node,          !- Air Inlet Node Name
   Node 12,                                !- Air Outlet Node Name
   ;                                       !- End-Use Subcategory
@@ -3141,7 +3141,7 @@ ZoneHVAC:EquipmentList,
 Sizing:Zone,
   FlexLab-X3-ZoneB Thermal Zone,          !- Zone or ZoneList Name
   SupplyAirTemperature,                   !- Zone Cooling Design Supply Air Temperature Input Method
-  19.19,                                  !- Zone Cooling Design Supply Air Temperature {C}
+  18.6,                                   !- Zone Cooling Design Supply Air Temperature {C}
   11.11,                                  !- Zone Cooling Design Supply Air Temperature Difference {deltaC}
   SupplyAirTemperature,                   !- Zone Heating Design Supply Air Temperature Input Method
   40,                                     !- Zone Heating Design Supply Air Temperature {C}
@@ -6247,7 +6247,7 @@ LifeCycleCost:NonrecurringCost,
   ServicePeriod;                          !- Start of Costs
 
 Output:Diagnostics,
-  DisplayExtraWarnings;                   !- Key 1
+  DisplayAllWarnings;                     !- Key 1
 
 Output:Variable,
   ,                                       !- Key Value
