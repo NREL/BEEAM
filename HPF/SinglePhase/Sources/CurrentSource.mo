@@ -3,6 +3,7 @@ model CurrentSource
   extends HPF.SinglePhase.Interface.TwoPinBase;
   parameter Real iMag[:] = {1} "Current magnitude vector (A rms)";
   parameter Real iArg[:] = {0} "Current phase angle vector (rad)";
+  Real P = v[:].re * i[:].re + v[:].im * i[:].im "Real Power";
 equation
   i[:].re = iMag[1:systemDef.numHrm] .* cos(iArg[1:systemDef.numHrm]);
   i[:].im = iMag[1:systemDef.numHrm] .* sin(iArg[1:systemDef.numHrm]);
