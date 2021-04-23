@@ -3099,7 +3099,7 @@ Curve:Quadratic,
 Coil:Cooling:DX:SingleSpeed,
   PTAC Clg Coil,                          !- Name
   Always On Discrete hvac_library,        !- Availability Schedule Name
-  Autosize,                               !- Gross Rated Total Cooling Capacity {W}
+  2800,                               !- Gross Rated Total Cooling Capacity {W}
   Autosize,                               !- Gross Rated Sensible Heat Ratio
   3,                                      !- Gross Rated Cooling COP {W/W}
   Autosize,                               !- Rated Air Flow Rate {m3/s}
