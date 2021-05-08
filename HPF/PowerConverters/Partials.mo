@@ -6,6 +6,7 @@ package Partials
   partial model HarmonicModel_Interp
     parameter String modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat" "Rectifier harmonic model mat file" annotation(
       Dialog(tab = "Converter Model"));
+  
   protected
     final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
     final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
