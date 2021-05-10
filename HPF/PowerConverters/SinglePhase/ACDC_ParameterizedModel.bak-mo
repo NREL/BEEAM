@@ -4,15 +4,7 @@ model ACDC_ParameterizedModel "AC to DC converter parameterized harmonic model"
   extends HPF.SinglePhase.Interface.ACDC_ConverterBase;
   extends HPF.PowerConverters.Partials.HarmonicModel_Parameterized;
   import Modelica.ComplexMath.j;
-  parameter Real magModelParams[6] = {0, 0, 0, 0, 0, 0} "Magnitude model parameters";
-  parameter Real phAngModelParams[3] = {0, 0, 0} "Phase angle model parameters";
-  parameter Modelica.SIunits.Voltage V_Rect(start = 0) = 1 "Rectifier DC output";
-  parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power";
-  parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage";
-  parameter Modelica.SIunits.Power P_DCmin = 0.5 "P_DC minimum";
-  parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power";
-  parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init";
-  // TODO: Document that a default value of zero sets the stanby power as computed by efficiency relation.
+  
   /*
           Fundamental power drawn on the AC harmonic side.
           Using converter efficiency model
@@ -36,13 +28,10 @@ model ACDC_ParameterizedModel "AC to DC converter parameterized harmonic model"
   Real P1(start = nomP) "Real power at fundamental";
   Real S1(start = nomP) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";
-  // diagnostics: Check if the computed h=1 current mag matches the input surface model
-  Real diag_I_mag_h1 = HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, 1, P);
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation(
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 protected
   Real argS1 "Phase angle for fundamental apparent power";
-  Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
   /*  The time domain plots are correct suggesting that there is no need to add the 
             anticipated phase shift suggesting a reverse direction for the current. 
         */

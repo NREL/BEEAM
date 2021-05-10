@@ -11,7 +11,6 @@ IFFT
 FFT_Example
 IFFT_Test
 FFT_mag_phase_reconstruct_oddHarmonics
-Basic_Components
 Test_Freq2Time
 MultiPhase_Transformer_Modeling
 Test_Rectifier
@@ -24,3 +23,5 @@ Test_heaterResistance
 Test_timeSeriesInput
 TestGroupedConverters
 TestGroupedConverters2
+ACDC_Converter_ParameterizedMdl
+ConverterParameterizedModelFunctions

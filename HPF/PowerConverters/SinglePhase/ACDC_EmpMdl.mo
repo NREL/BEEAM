@@ -28,17 +28,15 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   Real P1(start = nomP) "Real power at fundamental";
   Real S1(start = nomP) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";
-  // diagnostics: Check if the computed h=1 current mag matches the input surface model
-  Real diag_I_mag_h1 = HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, 1, P);
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation (
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 
 protected
   // Querry arg interplation in 2D at harmonics h>1, at power level P
-    Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], P) for i in 2:1:systemDef.numHrm};
+    Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
     // Querry mag interplation in 2D at harmonics h>1, at power level P
     Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
-    Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P) "Phase angle for fundamental apparent power";     // angle for S(@h=1) using harmonic current model
+    Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P1) "Phase angle for fundamental apparent power";     // angle for S(@h=1) using harmonic current model
     
   // Apply phase correction
   Real argAdj[systemDef.numHrm - 1] = arg_hh[:] + Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end];
@@ -81,7 +79,7 @@ equation
 <p><img src=\"modelica://HPF/Resources/images/PowerConverters/img_pwrConvModel_interpMag.png\" style=\"width:12.34cm;height:9cm;\"></p>
 <p>Figure 1. Surface function representing harmonic current variation as a function of input power (@<i>h=1</i>).</p>
 
-<h4>Converter loss model</h4>
+<p>Harmonic injection spectra is determined using the model. The model data is in the form of a mat file.</p><h4>Converter loss model</h4>
 <p>The converter loss is modeled as a 2-stage loss model:</p>
 <p><br><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_pLoss_2stage.png\">.</p>
 <p>The lambda function is implemented in <a href=\"modelica://HPF.PowerConverters.HelperFunctions.stbyPwrTransition\">stbyPwrTransition</a> function.</p>

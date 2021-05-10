@@ -28,22 +28,25 @@ package HelperFunctions
 
   function harmonicMagnitudeModel
   extends Modelica.Icons.Function;
+    input Real p[6] "Model parameters";
     input Real h "Harmonic number";
     input Real P_h1 "Real power at fundamental";
-    input Real p[6] "Model parameters";
     output Real magI "Current magnitude";
   algorithm
-    magI := (p[1].*h + p[2].*P_h1);
-  end harmonicMagnitudeModel;
+    magI := (p[1].*P_h1 + p[2]) ./ (((p[1].*P_h1 + p[2]) ./ (p[3].*P_h1 + p[4])) - exp(-(p[5].*P_h1.^(p[6])).*h));
+  annotation(
+      Documentation(info = "<html><head></head><body>Converter harmonic current magnitude modeling using a 3D sigmoid function.<div>&nbsp;</div></body></html>"));end harmonicMagnitudeModel;
 
   function harmonicPhaseAngleModel
   extends Modelica.Icons.Function;
+    input Real p[5] "Model parameters";
     input Real h "Harmonic number";
     input Real P_h1 "Real power at fundamental";
-    input Real p[5] "Model parameters";
-    output Real phAngleI[:] "Current magnitude";
+    output Real phAngleI "Current magnitude";
   algorithm
-    phAngleI[:] := p[1] + p[2].*h + p[3].*P_h1 + p[4].*h.*P_h1 + p[5].*P_h1.^2;
+    phAngleI := p[1] + p[2].*h + p[3].*P_h1 + p[4].*h.*P_h1 + p[5].*P_h1.^2;
+  annotation(
+      Documentation(info = "<html><head></head><body>Phase angle modeling using a polynomial function in 2 variables.<div><br></div><div>z = p00 + p10*x + p01*y + p11*x*y + p02*y^2</div></body></html>"));
   end harmonicPhaseAngleModel;
 
 end HelperFunctions;
