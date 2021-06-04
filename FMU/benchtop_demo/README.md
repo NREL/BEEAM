@@ -1,5 +1,5 @@
-DC Design Tool Co-Simulation: Bench-Scale Validation
-====================================================
+DC Design Tool Co-Simulation: Benchtop Demonstration & Validation
+=================================================================
 
 This directory contains the BEEAM (HPF library) and EnergyPlus model files and resources for the DC Design Tool cosimulation demonstration and validation using a bench-top thermal chamber. The co-simulation model combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). Experiment details are documented in the associated publication; this REAMDE documents the directory contents and aspects of the electrical model.
 
