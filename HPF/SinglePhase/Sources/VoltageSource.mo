@@ -15,8 +15,7 @@ model VoltageSource "Voltage Source"
           = v.re * i.re - j(v.re * i.im) + j(v.im * i.re) + v.im * i.im
           = (v.re*i.re + v.im*i.im) + j(v.im*i.re - v.re*i.im) 
       */
-  Real P = v[1].re * i[1].re + v[1].im * i[1].im "Real Power";
-  Real P1 = Modelica.ComplexMath.real(v[1] .* Modelica.ComplexMath.conj(i[1]));
+  Real P = v[:].re * i[:].re + v[:].im * i[:].im "Real Power";
   Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
   Real iArg[systemDef.numHrm] = Modelica.ComplexMath.arg(i[:]);
 equation
