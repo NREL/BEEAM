@@ -1,14 +1,15 @@
 DC Design Tool Co-Simulation: Bench-Scale Validation
 ====================================================
 
-This directory contains the BEEAM (HPF library) and EnergyPlus models and resources for the DC Design Tool cosimulation validation excercise, which combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). Experiment details are found elsewhere; this REAMDE focuses on the electrical model.
+This directory contains the BEEAM (HPF library) and EnergyPlus model files and resources for the DC Design Tool cosimulation demonstration and validation using a bench-top thermal chamber. The co-simulation model combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). Experiment details are documented in the associated publication; this REAMDE documents the directory contents and aspects of the electrical model.
 
 Files
 -----
 
 ### This Directory ###
 
-- **Bench_Scale_Exp_9.mo**: Modelica model of electrical system used in bench-scale validation experiment 9
+- **README.md**: This README file
+- **benchtop_demo.mo**: Modelica model of electrical system used in the benchtop cosim demonstration
 - **One-Line Diagram.pptx**: System one-line diagram with modeling notes
 - **Power Supply 1.jpg**: Photograph of nameplate for laptop power supply 1 (HP model 677777-002)
   - *Input Voltage:* 120 V(AC)
@@ -19,25 +20,25 @@ Files
   - *Output Voltage:* 19.0 V(DC)
   - *Rated Power:* 90 W
 
-### test_9_idf ###
+### idf ###
 
-Contains the EnergyPlus IDF files used for the validation excercise
+Contains the EnergyPlus input description file (IDF) and supporting files required to build the FMU.
 
-### test_9_fmu ###
+### fmu ###
 
-Contains the functional mockup unit (FMU) files for the EnergyPlus IDF
+Contains the functional mockup unit (FMU) built from the EnergyPlus IDF.
 
 ### data ###
 
-Contains data files for validation:
+Contains data files for experimental validation:
 
-- **Experiment 9 Data Processing.xlsx**: Processed experimental and model data, with plots and analysis
+- **Measured Data.xlsx**: Processed experimental and model data, with plots and analysis
 - **measured_data.csv** and **measured_data_15min.csv**: Measured (experimental) data post-processed at native and 15-min aggregate resolutions
 - **modeled_data.csv** and **modeled_data_15min.csv**: Model output data post-processed at native and 15-min aggregate resolutions
-- **process_measured_data.R**: Post-processing script for measured data
-- **process_measured_data.R**: Post-processing script for model output data
+- **process_measured_data.R**: Post-processing R script for measured data
+- **process_model_data.R**: Post-processing R script for model output data
 
-The 'model_output' subdirectory contains the raw output data from the model for post-processing.
+Prior to executing **process_model_data.R**, the model output file 'results.csv'  (exported from Dymola) must be placed into a 'model_output' subdirectory within this directory. This results file is large and therefore not included in the repository.
 
 Modeling Notes
 --------------
@@ -47,4 +48,4 @@ Modeling Notes
   - *Power Supply 1:* 19.92 V(DC)
   - *Power Supply 2:* 19.51 V(DC)
 3. The fan power supply was not characterized. Therefore, the efficiency curve for a generic 24V, 25W LED driver was used for the fan power supply.
-4. To demonstrate data exchange, the 32.7 ohm resistors were modeled with a small temperature coeffcient of resistance (alpha) estimated from the power variation with temperature present in the experimental data. The "R Temp Coefficient" worksheet of the *Experiment 9 Data Processing.xlsx* spreadsheet shows the calculation for this. This calculation had little practical effect on the validation outcome.
+4. To demonstrate data exchange, the 32.7 ohm resistors were modeled with a small temperature coeffcient of resistance (alpha) estimated from the power variation with temperature present in the experimental data. The "R Temp Coefficient" worksheet of the *Measured Data.xlsx* spreadsheet shows the calculation for this. This calculation had little practical effect on the validation outcome.
