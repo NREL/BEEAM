@@ -11,7 +11,7 @@ model Scenario_5_Data_Set_5_2
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_120V_1600W_3D.mat", nomP = 200) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl NextekHub( V_Rect = 25, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_120V_1600W.mat", nomP = 200) annotation(
     Placement(visible = true, transformation(origin = {-2, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {96, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -23,7 +23,7 @@ model Scenario_5_Data_Set_5_2
     Placement(visible = true, transformation(origin = {44, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation(
     Placement(visible = true, transformation(origin = {26, -64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load Laptop_5(pwr = 5.766) annotation(
+  HPF.DC.DC_Load Laptop_5(pwr = 6.088) annotation(
     Placement(visible = true, transformation(origin = {74, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.DC2DC_Converters.StepDown LaptopCharger_5(modelData = laptop_18V_90W_LapChrg5) annotation(
     Placement(visible = true, transformation(origin = {44, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -35,7 +35,7 @@ model Scenario_5_Data_Set_5_2
     Placement(transformation(extent = {{-78, 2}, {-64, 16}})));
   HPF.SinglePhase.Components.Terminate terminate2 annotation(
     Placement(transformation(extent = {{-78, -6}, {-64, 8}})));
-  HPF.DC.DC_Load LumpedDCLoads(pwr = 179.283) annotation(
+  HPF.DC.DC_Load LumpedDCLoads(pwr = 179.32) annotation(
     Placement(visible = true, transformation(origin = {14, -32}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter Data.ConverterModels.DC2DC_StepDown.Laptop_18V_90W_LapChrg4 laptop_18V_90W_LapChrg4 annotation(
     Placement(visible = true, transformation(origin = {174, 90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
