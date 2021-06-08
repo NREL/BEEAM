@@ -1,5 +1,6 @@
+
 Version,
-  9.3;                                    !- Version Identifier
+  9.4;                                    !- Version Identifier
 
 Timestep,
   60;                                     !- Number of Timesteps per Hour
@@ -216,12 +217,13 @@ Zone,
   0.530048201779473,                      !- Y Origin {m}
   1.80477854883065e-16,                   !- Z Origin {m}
   ,                                       !- Type
-  ,                                       !- Multiplier
+  1,                                      !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
   ,                                       !- Floor Area {m2}
   ,                                       !- Zone Inside Convection Algorithm
-  ;                                       !- Zone Outside Convection Algorithm
+  ,                                       !- Zone Outside Convection Algorithm
+  Yes;                                    !- Part of Total Floor Area
 
 BuildingSurface:Detailed,
   Surface 15,                             !- Name
@@ -323,8 +325,15 @@ ZoneControl:Thermostat,
   Compressor Thermostat,                  !- Name
   Compressor,                             !- Zone or ZoneList Name
   Compressor Thermostat Schedule,         !- Control Type Schedule Name
-  ThermostatSetpoint:DualSetpoint,        !- Control 1 Object Type
-  Compressor Dual Setpoint Thermostats;   !- Control 1 Name
+  ThermostatSetpoint:SingleHeatingOrCooling, !- Control 1 Object Type
+  CompressorSingleThermoStat,             !- Control 1 Name
+  ,                                       !- Control 2 Object Type
+  ,                                       !- Control 2 Name
+  ,                                       !- Control 3 Object Type
+  ,                                       !- Control 3 Name
+  ,                                       !- Control 4 Object Type
+  ,                                       !- Control 4 Name
+  0;                                      !- Temperature Difference Between Cutout And Setpoint {deltaC}
 
 Schedule:Compact,
   Compressor Thermostat Schedule,         !- Name
@@ -332,7 +341,7 @@ Schedule:Compact,
   Through: 12/31,                         !- Field 1
   For: AllDays,                           !- Field 2
   Until: 24:00,                           !- Field 3
-  4;                                      !- Field 4
+  3;                                      !- Field 4
 
 ScheduleTypeLimits,
   Compressor Thermostat Schedule Type Limits, !- Name
@@ -355,7 +364,7 @@ ScheduleTypeLimits,
 Schedule:File,
   MEASURED_EXTERNAL_TEMPERATURE,          !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   3,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -367,8 +376,8 @@ Schedule:File,
 !   Compressor,                             !- Zone Name
 !   ,                                       !- Template Thermostat Name
 !   ,                                       !- System Availability Schedule Name
-!   ,                                       !- Maximum Heating Supply Air Temperature {C}
-!   ,                                       !- Minimum Cooling Supply Air Temperature {C}
+!   80.0,                                   !- Maximum Heating Supply Air Temperature {C}
+!   4.0,                                    !- Minimum Cooling Supply Air Temperature {C}
 !   ,                                       !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
 !   ,                                       !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
 !   ,                                       !- Heating Limit
@@ -393,17 +402,18 @@ Schedule:File,
 
 Zone,
   ConditionedZone,                        !- Name
-  ,                                       !- Direction of Relative North {deg}
+  0,                                      !- Direction of Relative North {deg}
   2.37469753706411,                       !- X Origin {m}
   0.530048201779473,                      !- Y Origin {m}
   1.80477854883065e-16,                   !- Z Origin {m}
   ,                                       !- Type
-  ,                                       !- Multiplier
+  1,                                      !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
   ,                                       !- Floor Area {m2}
   ,                                       !- Zone Inside Convection Algorithm
-  ;                                       !- Zone Outside Convection Algorithm
+  ,                                       !- Zone Outside Convection Algorithm
+  Yes;                                    !- Part of Total Floor Area
 
 BuildingSurface:Detailed,
   ConditionedZone_Floor_exterior,         !- Name
@@ -504,7 +514,7 @@ BuildingSurface:Detailed,
 BuildingSurface:Detailed,
   ConditionedZone_Wall_interior 1,        !- Name
   Wall,                                   !- Surface Type
-  Cyclopentance_wall,                     !- Construction Name
+  R2 Construction,                        !- Construction Name
   ConditionedZone,                        !- Zone Name
   Surface,                                !- Outside Boundary Condition
   PlenumZone_Wall_interior,               !- Outside Boundary Condition Object
@@ -656,13 +666,20 @@ ExternalInterface:FunctionalMockupUnitExport:To:Schedule,
   Dimensionless 1,         !- Schedule Type Limits Names
   conditioned_space_load,                       !- FMU Variable Name
   0;                       !- Initial Value
-  
+
 ZoneControl:Thermostat,
   ConditionedZone Thermostat,             !- Name
   ConditionedZone,                        !- Zone or ZoneList Name
   ConditionedZone Thermostat Schedule,    !- Control Type Schedule Name
-  ThermostatSetpoint:DualSetpoint,        !- Control 1 Object Type
-  ConditionedZone Dual Setpoint Thermostats; !- Control 1 Name
+  ThermostatSetpoint:SingleHeatingOrCooling, !- Control 1 Object Type
+  ConditionedZoneSingleThermoStat,        !- Control 1 Name
+  ,                                       !- Control 2 Object Type
+  ,                                       !- Control 2 Name
+  ,                                       !- Control 3 Object Type
+  ,                                       !- Control 3 Name
+  ,                                       !- Control 4 Object Type
+  ,                                       !- Control 4 Name
+  0;                                      !- Temperature Difference Between Cutout And Setpoint {deltaC}
 
 Schedule:Compact,
   ConditionedZone Thermostat Schedule,    !- Name
@@ -670,7 +687,7 @@ Schedule:Compact,
   Through: 12/31,                         !- Field 1
   For: AllDays,                           !- Field 2
   Until: 24:00,                           !- Field 3
-  4;                                      !- Field 4
+  3;                                      !- Field 4
 
 ScheduleTypeLimits,
   ConditionedZone Thermostat Schedule Type Limits, !- Name
@@ -686,7 +703,7 @@ ThermostatSetpoint:DualSetpoint,
 Schedule:File,
   MEASURED_CHAMBER_TEMPERATURE,           !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   4,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -697,9 +714,9 @@ Schedule:File,
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !   ConditionedZone,                        !- Zone Name
 !   ,                                       !- Template Thermostat Name
-!   ,                                       !- System Availability Schedule Name
-!   ,                                       !- Maximum Heating Supply Air Temperature {C}
-!   ,                                       !- Minimum Cooling Supply Air Temperature {C}
+!   HVAC_SCHEDULE,                          !- System Availability Schedule Name
+!   80.0,                                   !- Maximum Heating Supply Air Temperature {C}
+!   4.0,                                    !- Minimum Cooling Supply Air Temperature {C}
 !   ,                                       !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
 !   ,                                       !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
 !   ,                                       !- Heating Limit
@@ -724,17 +741,18 @@ Schedule:File,
 
 Zone,
   PlenumZone,                             !- Name
-  ,                                       !- Direction of Relative North {deg}
+  0,                                      !- Direction of Relative North {deg}
   2.77469753706411,                       !- X Origin {m}
   0.530048201779473,                      !- Y Origin {m}
   0.27,                                   !- Z Origin {m}
   ,                                       !- Type
-  ,                                       !- Multiplier
+  1,                                      !- Multiplier
   ,                                       !- Ceiling Height {m}
   ,                                       !- Volume {m3}
   ,                                       !- Floor Area {m2}
   ,                                       !- Zone Inside Convection Algorithm
-  ;                                       !- Zone Outside Convection Algorithm
+  ,                                       !- Zone Outside Convection Algorithm
+  Yes;                                    !- Part of Total Floor Area
 
 BuildingSurface:Detailed,
   PlenumZone_RoofCeiling_exterior,        !- Name
@@ -803,7 +821,7 @@ BuildingSurface:Detailed,
 BuildingSurface:Detailed,
   PlenumZone_Wall_interior,               !- Name
   Wall,                                   !- Surface Type
-  Cyclopentance_wall Reversed,            !- Construction Name
+  R2 Construction,                        !- Construction Name
   PlenumZone,                             !- Zone Name
   Surface,                                !- Outside Boundary Condition
   ConditionedZone_Wall_interior 1,        !- Outside Boundary Condition Object
@@ -836,8 +854,15 @@ ZoneControl:Thermostat,
   PlenumZone Thermostat,                  !- Name
   PlenumZone,                             !- Zone or ZoneList Name
   PlenumZone Thermostat Schedule,         !- Control Type Schedule Name
-  ThermostatSetpoint:DualSetpoint,        !- Control 1 Object Type
-  PlenumZone Dual Setpoint Thermostats;   !- Control 1 Name
+  ThermostatSetpoint:SingleHeatingOrCooling, !- Control 1 Object Type
+  PlenumZoneSingleThermoStat,             !- Control 1 Name
+  ,                                       !- Control 2 Object Type
+  ,                                       !- Control 2 Name
+  ,                                       !- Control 3 Object Type
+  ,                                       !- Control 3 Name
+  ,                                       !- Control 4 Object Type
+  ,                                       !- Control 4 Name
+  0;                                      !- Temperature Difference Between Cutout And Setpoint {deltaC}
 
 Schedule:Compact,
   PlenumZone Thermostat Schedule,         !- Name
@@ -845,7 +870,7 @@ Schedule:Compact,
   Through: 12/31,                         !- Field 1
   For: AllDays,                           !- Field 2
   Until: 24:00,                           !- Field 3
-  4;                                      !- Field 4
+  3;                                      !- Field 4
 
 ScheduleTypeLimits,
   PlenumZone Thermostat Schedule Type Limits, !- Name
@@ -861,7 +886,7 @@ ThermostatSetpoint:DualSetpoint,
 Schedule:File,
   MEASURED_PLENUM_TEMPERATURE,            !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   11,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -872,9 +897,9 @@ Schedule:File,
 ! HVACTemplate:Zone:IdealLoadsAirSystem,
 !   PlenumZone,                             !- Zone Name
 !   ,                                       !- Template Thermostat Name
-!   ,                                       !- System Availability Schedule Name
-!   ,                                       !- Maximum Heating Supply Air Temperature {C}
-!   ,                                       !- Minimum Cooling Supply Air Temperature {C}
+!   HVAC_SCHEDULE,                          !- System Availability Schedule Name
+!   80.0,                                   !- Maximum Heating Supply Air Temperature {C}
+!   4.0,                                    !- Minimum Cooling Supply Air Temperature {C}
 !   ,                                       !- Maximum Heating Supply Air Humidity Ratio {kgWater/kgDryAir}
 !   ,                                       !- Minimum Cooling Supply Air Humidity Ratio {kgWater/kgDryAir}
 !   ,                                       !- Heating Limit
@@ -903,7 +928,8 @@ SimulationControl,
   No,                                     !- Do Plant Sizing Calculation
   No,                                     !- Run Simulation for Sizing Periods
   Yes,                                    !- Run Simulation for Weather File Run Periods
-  No;                                     !- Do HVAC Sizing Simulation for Sizing Periods
+  No,                                     !- Do HVAC Sizing Simulation for Sizing Periods
+  ;                                       !- Maximum Number of HVAC Sizing Simulation Passes
 
 ConvergenceLimits,
   1;                                      !- Minimum System Timestep {minutes}
@@ -918,7 +944,7 @@ RunPeriod,
   1,                                      !- Begin Day of Month
   2019,                                   !- Begin Year
   1,                                      !- End Month
-  2,                                     !- End Day of Month
+  10,                                     !- End Day of Month
   2019,                                   !- End Year
   Tuesday,                                !- Day of Week for Start Day
   No,                                     !- Use Weather File Holidays and Special Days
@@ -953,7 +979,7 @@ ZoneAirContaminantBalance,
   No;                                     !- Carbon Dioxide Concentration
 
 ZoneAirHeatBalanceAlgorithm,
-  ThirdOrderBackwardDifference;           !- Algorithm
+  AnalyticalSolution;                     !- Algorithm
 
 ZoneCapacitanceMultiplier:ResearchSpecial,
   Zone Capacitance Multiplier Research Special, !- Name
@@ -976,7 +1002,7 @@ GlobalGeometryRules,
 Material,
   Bronze_Draw_wire,                       !- Name
   Smooth,                                 !- Roughness
-  0.12,                                   !- Thickness {m}
+  0.04,                                   !- Thickness {m}
   287,                                    !- Conductivity {W/m-K}
   8800,                                   !- Density {kg/m3}
   376,                                    !- Specific Heat {J/kg-K}
@@ -1017,6 +1043,17 @@ Material,
   0.7,                                    !- Solar Absorptance
   0.7;                                    !- Visible Absorptance
 
+Material,
+  R2 Material,                            !- Name
+  MediumRough,                            !- Roughness
+  0.019,                                  !- Thickness {m}
+  0.044,                                  !- Conductivity {W/m-K}
+  290,                                    !- Density {kg/m3}
+  600,                                    !- Specific Heat {J/kg-K}
+  0.9,                                    !- Thermal Absorptance
+  0.5,                                    !- Solar Absorptance
+  0.5;                                    !- Visible Absorptance
+
 Construction,
   Cyclopentance_wall,                     !- Name
   outside_steel,                          !- Layer 1
@@ -1028,6 +1065,10 @@ Construction,
   inside_aluminum,                        !- Layer 1
   Cyclopentance,                          !- Layer 2
   outside_steel;                          !- Layer 3
+
+Construction,
+  R2 Construction,                        !- Name
+  R2 Material;                            !- Layer 1
 
 Construction,
   ThermalMass_Construction,               !- Name
@@ -1076,7 +1117,7 @@ Schedule:Constant,
 Schedule:File,
   CONVECTIVE_LOAD_SCHEDULE,               !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   6,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1087,7 +1128,7 @@ Schedule:File,
 Schedule:File,
   Cooling_schedule_file,                  !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   12,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1098,7 +1139,7 @@ Schedule:File,
 Schedule:File,
   HVAC_SCHEDULE,                          !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   5,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1109,7 +1150,7 @@ Schedule:File,
 Schedule:File,
   MeasuredPeriod,                         !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   8,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1120,7 +1161,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_COOLING_POWER,                 !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   9,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1131,7 +1172,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_TOTAL_HEAT_GAIN,               !- Name
   HeatGainSchedule,                       !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   2,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1142,7 +1183,7 @@ Schedule:File,
 Schedule:File,
   MEASURED_WATER_INLET_TEMPERATURE,       !- Name
   Temperature,                            !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   10,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1153,7 +1194,7 @@ Schedule:File,
 Schedule:File,
   Mixing_Schedule,                        !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   13,                                     !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1164,7 +1205,7 @@ Schedule:File,
 Schedule:File,
   RADIATION_LOAD_SCHEDULE,                !- Name
   Fractional,                             !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM/FMU/Bench Scale Experiment 9/test_9_idf/Experiment9_200707_input_out_mod.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/test_9_idf/Experiment9_200707_input_out.csv, !- File Name
   7,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   ,                                       !- Number of Hours of Data
@@ -1468,11 +1509,6 @@ Output:Variable,
 
 Output:Variable,
   PlenumZone,                             !- Key Value
-  Zone Electric Equipment Electric Power, !- Variable Name
-  timestep;                               !- Reporting Frequency
-
-Output:Variable,
-  PlenumZone,                             !- Key Value
   Zone Total Internal Total Heating Rate, !- Variable Name
   timestep;                               !- Reporting Frequency
 
@@ -1600,7 +1636,7 @@ EnergyManagementSystem:Actuator,
   ChilledWaterGainActuator,               !- Name
   ConditionedZone_chilled_water_gain,     !- Actuated Component Unique Name
   ElectricEquipment,                      !- Actuated Component Type
-  Electric Power Level;                   !- Actuated Component Control Type
+  Electricity Rate;                       !- Actuated Component Control Type
 
 EnergyManagementSystem:Actuator,
   EnviromentDiffSolarActuator,            !- Name
@@ -1632,7 +1668,7 @@ EnergyManagementSystem:Program,
   SET EnviromentDirectSolarActuator = 0,  !- Program Line 2
   SET EnviromentDiffSolarActuator = 0,    !- Program Line 3
   SET EnviromentWindSpeedActuator = 0,    !- Program Line 4
-  IF (MeasuredPeriod_ems_sensor > 0.0) && (Cooling_schedule_file_ems_sensor > 0.0), !- Program Line 5
+  IF (MeasuredPeriod_ems_sensor > 0.0) && (Cooling_schedule_file_ems_sensor > 0.0) , !- Program Line 5
   SET ChilledWaterGainActuator = (-1.0 * (ConditionedZone_Output_Variable_18_ems_sensor - MEASURED_WATER_INLET_TEMPERATURE_ems_sensor)/0.75), !- Program Line 6
   ELSE,                                   !- Program Line 7
   SET ChilledWaterGainActuator = Null,    !- Program Line 8
@@ -1663,7 +1699,50 @@ LifeCycleCost:NonrecurringCost,
   Construction,                           !- Category
   0,                                      !- Cost
   ServicePeriod;                          !- Start of Costs
-  
+
+Output:Diagnostics,
+  DisplayAdvancedReportVariables,         !- Key 1
+  DisplayZoneAirHeatBalanceOffBalance;    !- Key 2
+
+Output:Variable,
+  *,                                      !- Key Value
+  Zone Ideal Loads Zone Total Cooling Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  *,                                      !- Key Value
+  Zone Ideal Loads Zone Total Cooling Energy, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+Output:Variable,
+  *,                                      !- Key Value
+  Zone Mixing Current Density Volume Flow Rate, !- Variable Name
+  timestep;                               !- Reporting Frequency
+
+ThermostatSetpoint:SingleHeatingOrCooling,
+  PlenumZoneSingleThermoStat,             !- Name
+  MEASURED_PLENUM_TEMPERATURE;            !- Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:SingleHeatingOrCooling,
+  ConditionedZoneSingleThermoStat,        !- Name
+  MEASURED_CHAMBER_TEMPERATURE;           !- Setpoint Temperature Schedule Name
+
+ThermostatSetpoint:SingleHeatingOrCooling,
+  CompressorSingleThermoStat,             !- Name
+  MEASURED_EXTERNAL_TEMPERATURE;          !- Setpoint Temperature Schedule Name
+
+ZoneCrossMixing,
+  Conditioned_SourcePlenum,               !- Name
+  ConditionedZone,                        ! Zone Name
+  Mixing_Schedule,                        !- Schedule Name
+  Flow/Zone,                              !- Design Flow Rate Calculation Method
+  0.003,                                  !- Design Flow Rate {m3/s}
+  ,                                       !- Flow Rate per Zone Floor Area {m3/s-m2}
+  ,                                       !- Flow Rate per Person {m3/s-person}
+  10,                                     !- Air Changes per Hour {1/hr}
+  PlenumZone,                             ! Source Zone Name
+  0;                                      ! Delta temp
+
 Output:Table:Monthly,
   Building Energy Performance - Electricity, !- Name
   2,                                      !- Digits After Decimal
@@ -1699,17 +1778,17 @@ Output:Table:Monthly,
 Output:Table:Monthly,
   Building Energy Performance - Natural Gas, !- Name
   2,                                      !- Digits After Decimal
-  InteriorEquipment:Gas,                  !- Variable or Meter Name 1
+  InteriorEquipment:NaturalGas,           !- Variable or Meter Name 1
   SumOrAverage,                           !- Aggregation Type for Variable or Meter 1
-  ExteriorEquipment:Gas,                  !- Variable or Meter Name 2
+  ExteriorEquipment:NaturalGas,           !- Variable or Meter Name 2
   SumOrAverage,                           !- Aggregation Type for Variable or Meter 2
-  Heating:Gas,                            !- Variable or Meter Name 3
+  Heating:NaturalGas,                     !- Variable or Meter Name 3
   SumOrAverage,                           !- Aggregation Type for Variable or Meter 3
-  Cooling:Gas,                            !- Variable or Meter Name 4
+  Cooling:NaturalGas,                     !- Variable or Meter Name 4
   SumOrAverage,                           !- Aggregation Type for Variable or Meter 4
-  WaterSystems:Gas,                       !- Variable or Meter Name 5
+  WaterSystems:NaturalGas,                !- Variable or Meter Name 5
   SumOrAverage,                           !- Aggregation Type for Variable or Meter 5
-  Cogeneration:Gas,                       !- Variable or Meter Name 6
+  Cogeneration:NaturalGas,                !- Variable or Meter Name 6
   SumOrAverage;                           !- Aggregation Type for Variable or Meter 6
 
 Output:Table:Monthly,
@@ -1807,19 +1886,19 @@ Output:Table:Monthly,
 Output:Table:Monthly,
   Building Energy Performance - Natural Gas Peak Demand, !- Name
   2,                                      !- Digits After Decimal
-  Gas:Facility,                           !- Variable or Meter Name 1
+  NaturalGas:Facility,                    !- Variable or Meter Name 1
   Maximum,                                !- Aggregation Type for Variable or Meter 1
-  InteriorEquipment:Gas,                  !- Variable or Meter Name 2
+  InteriorEquipment:NaturalGas,           !- Variable or Meter Name 2
   ValueWhenMaximumOrMinimum,              !- Aggregation Type for Variable or Meter 2
-  ExteriorEquipment:Gas,                  !- Variable or Meter Name 3
+  ExteriorEquipment:NaturalGas,           !- Variable or Meter Name 3
   ValueWhenMaximumOrMinimum,              !- Aggregation Type for Variable or Meter 3
-  Heating:Gas,                            !- Variable or Meter Name 4
+  Heating:NaturalGas,                     !- Variable or Meter Name 4
   ValueWhenMaximumOrMinimum,              !- Aggregation Type for Variable or Meter 4
-  Cooling:Gas,                            !- Variable or Meter Name 5
+  Cooling:NaturalGas,                     !- Variable or Meter Name 5
   ValueWhenMaximumOrMinimum,              !- Aggregation Type for Variable or Meter 5
-  WaterSystems:Gas,                       !- Variable or Meter Name 6
+  WaterSystems:NaturalGas,                !- Variable or Meter Name 6
   ValueWhenMaximumOrMinimum,              !- Aggregation Type for Variable or Meter 6
-  Cogeneration:Gas,                       !- Variable or Meter Name 7
+  Cogeneration:NaturalGas,                !- Variable or Meter Name 7
   ValueWhenMaximumOrMinimum;              !- Aggregation Type for Variable or Meter 7
 
 Output:Table:Monthly,
@@ -1887,7 +1966,7 @@ Output:Table:Monthly,
   ValueWhenMaximumOrMinimum;              !- Aggregation Type for Variable or Meter 14
 
 Output:Meter:MeterFileOnly,
-  Gas:Facility,                           !- Key Name
+  NaturalGas:Facility,                    !- Key Name
   Daily;                                  !- Reporting Frequency
 
 Output:Meter:MeterFileOnly,
@@ -1903,7 +1982,7 @@ Output:Meter,
   Timestep;                               !- Reporting Frequency
 
 Output:Meter,
-  Gas:Facility,                           !- Key Name
+  NaturalGas:Facility,                    !- Key Name
   Timestep;                               !- Reporting Frequency
 
 Output:Meter,
@@ -1918,18 +1997,6 @@ Output:Meter,
 ! New objects created from ExpandObjects
 ! -------------------------------------------------------------
 ! 
-
-ZoneCrossMixing,
-  Conditioned_SourcePlenum,               !- Name
-  ConditionedZone,                        ! Zone Name
-  Mixing_Schedule,                        !- Schedule Name
-  Flow/Zone,                              !- Design Flow Rate Calculation Method
-  0.003,                                  !- Design Flow Rate {m3/s}
-  ,                                       !- Flow Rate per Zone Floor Area {m3/s-m2}
-  ,                                       !- Flow Rate per Person {m3/s-person}
-  10,                                     !- Air Changes per Hour {1/hr}
-  PlenumZone,                             ! Source Zone Name
-  0;                                      ! Delta temp
 
 ZoneHVAC:EquipmentConnections,
   Compressor,                                              !- Zone Name
@@ -1955,8 +2022,8 @@ ZoneHVAC:IdealLoadsAirSystem,
   Compressor Ideal Loads Supply Inlet,                     !- Zone Supply Air Node Name
   ,                                                        !- Zone Exhaust Air Node Name
   ,                                                        !- System Inlet Air Node Name
-  50.05,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
+  80.0,                                                    !- Maximum Heating Supply Air Temperature [C]
+  4.0,                                                     !- Minimum Cooling Supply Air Temperature [C]
   0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
   0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
   NoLimit,                                                 !- Heating Limit
@@ -1998,12 +2065,12 @@ ZoneHVAC:EquipmentList,
 
 ZoneHVAC:IdealLoadsAirSystem,
   ConditionedZone Ideal Loads Air System,                  !- Name
-  HVAC_SCHEDULE,                                                        !- Availability Schedule Name
+  HVAC_SCHEDULE,                                           !- Availability Schedule Name
   ConditionedZone Ideal Loads Supply Inlet,                !- Zone Supply Air Node Name
   ,                                                        !- Zone Exhaust Air Node Name
   ,                                                        !- System Inlet Air Node Name
-  50.05,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
+  80.0,                                                    !- Maximum Heating Supply Air Temperature [C]
+  4.0,                                                     !- Minimum Cooling Supply Air Temperature [C]
   0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
   0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
   NoLimit,                                                 !- Heating Limit
@@ -2045,12 +2112,12 @@ ZoneHVAC:EquipmentList,
 
 ZoneHVAC:IdealLoadsAirSystem,
   PlenumZone Ideal Loads Air System,                       !- Name
-  HVAC_SCHEDULE,                                                        !- Availability Schedule Name
+  HVAC_SCHEDULE,                                           !- Availability Schedule Name
   PlenumZone Ideal Loads Supply Inlet,                     !- Zone Supply Air Node Name
   ,                                                        !- Zone Exhaust Air Node Name
   ,                                                        !- System Inlet Air Node Name
-  50,                                                      !- Maximum Heating Supply Air Temperature [C]
-  13,                                                      !- Minimum Cooling Supply Air Temperature [C]
+  80.0,                                                    !- Maximum Heating Supply Air Temperature [C]
+  4.0,                                                     !- Minimum Cooling Supply Air Temperature [C]
   0.0156,                                                  !- Maximum Heating Supply Air Humidity Ratio [kg-H20/kg-air]
   0.0077,                                                  !- Minimum Cooling Supply Air Humidity Ratio [kg-H20/kg-air]
   NoLimit,                                                 !- Heating Limit

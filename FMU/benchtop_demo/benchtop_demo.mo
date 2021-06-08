@@ -143,7 +143,12 @@ equation
           -76},{158,-76}}, color={0,0,127}));
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
-    experiment(StartTime = 0, StopTime = 129600, Tolerance = 1e-6, Interval = 60),
+    experiment(
+      StopTime=345600,
+      Interval=60,
+      Tolerance=1e-06,
+      __Dymola_fixedstepsize=60,
+      __Dymola_Algorithm="Euler"),
   __OpenModelica_simulationFlags(lv = "LOG_STATS", nls = "newton", outputFormat = "mat", s = "dassl"),
   Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
