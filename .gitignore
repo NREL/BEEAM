@@ -25,6 +25,9 @@ Scripts/**/*.json
 Scripts/**/*.xml
 Scripts/**/*.exe
 
+# R history
+.Rhistory
+
 # misc
 **/.fuse*
 # temporary matlab scripts
