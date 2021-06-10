@@ -40,6 +40,18 @@ Contains data files for experimental validation:
 
 Prior to executing **process_model_data.R**, the model output file 'results.csv'  (exported from Dymola) must be placed into a 'model_output' subdirectory within this directory. This results file is large and therefore not included in the repository.
 
+Co-Simulation in Dymola
+-----------------------
+
+Successfully co-simulating the BEEAM model and the FMU containing the thermal chamber model in Dymola requires first loading the FMU into the Dymola workspace:
+
+1. Open the BEEAM model 'benchtop_demo.mo' in Dymola
+2. Import the FMU 'fmu/in.fmu' to Dymola (HOW?)
+3. Ensure that the imported FMU is recognized in the BEEAM model (no red X on the FMU block)
+4. Simulate
+
+**TO DO: Verify this description with a Dymola user by testing the process.**
+
 Modeling Notes
 --------------
 
