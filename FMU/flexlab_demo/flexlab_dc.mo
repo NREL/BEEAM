@@ -1,6 +1,6 @@
 within ;
 
-model FlexLab_DC
+model flexlab_dc
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, theta(displayUnit = "rad", fixed = true), vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
@@ -162,4 +162,4 @@ equation
   Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}), graphics={  Text(origin = {-100, -76}, extent = {{-64, -10}, {64, 10}}, textString = "Individual Lights will have Power In from E+"), Text(origin = {66, -72}, extent = {{-64, -10}, {64, 10}}, textString = "Individual Prog DC Load will have Power in from E+"), Text(origin = {12, 58}, extent = {{-43, -5}, {43, 5}}, textString = "Heat Gain - Plenum (Nextex Hub)")}),
   Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   version = "");
-end FlexLab_DC;
+end flexlab_dc;
