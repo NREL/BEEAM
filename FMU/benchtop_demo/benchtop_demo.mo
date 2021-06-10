@@ -1,4 +1,4 @@
-model Bench_Scale_Exp_9
+model benchtop_demo
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, theta(fixed = true), vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
@@ -39,7 +39,7 @@ model Bench_Scale_Exp_9
     Placement(visible = true, transformation(origin={-28,-34},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.PowerSensor FanPower1 annotation (
     Placement(visible = true, transformation(origin={-8,-62},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  in_cs2_fmu in_cs2_fmu1(fmi_StopTime=345600, fmi_NumberOfSteps=5760)
+  in_fmu in_fmu1(fmi_StopTime=345600, fmi_NumberOfSteps=5760)
     annotation (Placement(transformation(extent={{154,36},{174,56}})));
   Modelica.Blocks.Math.Add add
     annotation (Placement(transformation(extent={{156,-92},{136,-72}})));
@@ -129,15 +129,15 @@ equation
     Line(points={{-28,-44},{-29,-44},{-29,-76},{74,-76},{74,-80}},          color = {0, 0, 255}));
   connect(Load2_Power.pv, Load2_Power.pc) annotation (
     Line(points={{22,16},{12,16},{12,6}},                 color = {0, 0, 255}));
-  connect(UnconditionedZoneTotalLoss.y, in_cs2_fmu1.plenum_space_load)
+  connect(UnconditionedZoneTotalLoss.y, in_fmu1.plenum_space_load)
     annotation (Line(points={{-17,80},{62,80},{62,78},{140,78},{140,49.4},{
           153.6,49.4}}, color={0,0,127}));
-  connect(ConditionedZoneTotalLoss.y, in_cs2_fmu1.conditioned_space_load)
+  connect(ConditionedZoneTotalLoss.y, in_fmu1.conditioned_space_load)
     annotation (Line(points={{139,0},{146,0},{146,42.7},{153.6,42.7}}, color={0,
           0,127}));
   connect(add.y, ConditionedZoneAir.T) annotation (Line(points={{135,-82},{126,
           -82},{126,-80},{118,-80}}, color={0,0,127}));
-  connect(in_cs2_fmu1.conditioned_zone_temp, add.u2) annotation (Line(points={{
+  connect(in_fmu1.conditioned_zone_temp, add.u2) annotation (Line(points={{
           174,46},{190,46},{190,-88},{158,-88}}, color={0,0,127}));
   connect(const.y, add.u1) annotation (Line(points={{153,-42},{176,-42},{176,
           -76},{158,-76}}, color={0,0,127}));
@@ -153,4 +153,4 @@ equation
   Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   version = "");
-end Bench_Scale_Exp_9;
+end benchtop_demo;
