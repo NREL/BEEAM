@@ -1,7 +1,7 @@
 model benchtop_demo
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, theta(fixed = true), vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
+  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
     Placement(visible = true, transformation(origin={-188,-20},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl PowerSupply1(P1(start = 12), Q1(start = 0), V_Rect = 19.92, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_LBNL_1.mat", nomP = 90, nomV = 120)  "HP P/N 608428-002" annotation (
     Placement(visible = true, transformation(origin={-128,40},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -137,13 +137,13 @@ equation
   connect(const.y, add.u1) annotation (Line(points={{153,-42},{176,-42},{176,
           -76},{158,-76}}, color={0,0,127}));
   connect(UnconditionedZoneTotalLoss.y, 'in_fmu1'.plenum_space_load)
-    annotation (Line(points={{-17,80},{148,80},{148,63.4},{163.6,63.4}}, color=
-          {0,0,127}));
+    annotation (Line(points={{-17,80},{148,80},{148,63.4},{163.6,63.4}}, color={
+          0,0,127}));
   connect(ConditionedZoneTotalLoss.y, 'in_fmu1'.conditioned_space_load)
     annotation (Line(points={{139,0},{146,0},{146,56.7},{163.6,56.7}}, color={0,
           0,127}));
-  connect('in_fmu1'.conditioned_zone_temp, add.u2) annotation (Line(points={{
-          184,60},{192,60},{192,-88},{158,-88}}, color={0,0,127}));
+  connect('in_fmu1'.conditioned_zone_temp, add.u2) annotation (Line(points={{184,
+          60},{192,60},{192,-88},{158,-88}}, color={0,0,127}));
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
     experiment(
