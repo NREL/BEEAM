@@ -3,7 +3,7 @@ DC Design Tool Co-Simulation: Benchtop Demonstration & Validation
 
 This directory contains the BEEAM (HPF library) and EnergyPlus model files and resources for the DC Design Tool cosimulation demonstration and validation using a bench-top thermal chamber. This co-simulation demonstration is a supplement to the following publication:
 
-Frank, Stephen M., Brian Ball, Daniel L. Gerber, Khanh Cu, Avpreet Othee, Jordan Shackelford, Richard E. Brown, and James Cale. 2021. *Journal TBD*; to be published.
+Frank, Stephen M., Brian Ball, Daniel L. Gerber, Khanh Cu, Avpreet Othee, Jordan Shackelford, Richard E. Brown, and James Cale. 2021. "A New Co-Simulation Capability for Detailed Electrical and Whole-Building Energy Performance." *Journal TBD*; to be published.
 
 This co-simulation demonstration model combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). Experiment details are documented in the associated publication (citation above); this REAMDE documents the directory contents, how to execute the simulation, and some aspects of the electrical model.
 
@@ -26,11 +26,11 @@ Files
 
 ### idf ###
 
-Contains the EnergyPlus input description file (IDF) and supporting files required to build the FMU.
+Contains the EnergyPlus input description file (IDF) `in.idf` and supporting files required to build the FMU.
 
 ### fmu ###
 
-Contains the functional mockup unit (FMU) built from the EnergyPlus IDF.
+Contains the functional mockup unit (FMU) `in.fmu` built from the EnergyPlus IDF.
 
 ### data ###
 
@@ -54,7 +54,7 @@ Executing the model requires Dymola 2020 or greater. Successful execution of the
 1. Download BEEAM
 2. Load the BEEAM library in Dymola
 3. Import the FMU `in.fmu` into Dymola, using the default options
-4. Open the `benchtop_demo` model in Dymola
+4. Open the `benchtop_demo.mo` model in Dymola
 5. Check the model to verify no errors
 6. Within the simultaion setup, modify:
    a. Output interval length to 60 seconds
