@@ -1,7 +1,7 @@
-model Bench_Scale_Exp_9
+model benchtop_demo
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, theta(fixed = true), vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
+  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
     Placement(visible = true, transformation(origin={-188,-20},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl PowerSupply1(P1(start = 12), Q1(start = 0), V_Rect = 19.92, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_LBNL_1.mat", nomP = 90, nomV = 120)  "HP P/N 608428-002" annotation (
     Placement(visible = true, transformation(origin={-128,40},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -39,21 +39,21 @@ model Bench_Scale_Exp_9
     Placement(visible = true, transformation(origin={-28,-34},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.PowerSensor FanPower1 annotation (
     Placement(visible = true, transformation(origin={-8,-62},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  in_fmu in_fmu(fmi_StopTime=345600, fmi_NumberOfSteps=5760)
-    annotation (Placement(transformation(extent={{154,36},{174,56}})));
   Modelica.Blocks.Math.Add add
     annotation (Placement(transformation(extent={{156,-92},{136,-72}})));
   Modelica.Blocks.Sources.Constant const(k=273.15)
     annotation (Placement(transformation(extent={{132,-52},{152,-32}})));
+  'in_fmu' 'in_fmu1'(fmi_StopTime=345600, fmi_NumberOfSteps=5760)
+    annotation (Placement(transformation(extent={{164,50},{184,70}})));
 equation
   connect(Load1.n, GndDC.p) annotation (
     Line(points={{62,46},{74,46},{74,-80}},          color = {0, 0, 255}));
   connect(Load2.n, GndDC.p) annotation (
     Line(points={{62,6},{74,6},{74,-80}},          color = {0, 0, 255}));
   connect(PowerSupply2.pin_n, GndDC.p) annotation (
-    Line(points={{-98,-6},{74,-6},{74,-80}},          color = {0, 0, 255}));
+    Line(points={{-98,-8},{74,-8},{74,-80}},          color = {0, 0, 255}));
   connect(PowerSupply1.pin_n, GndDC.p) annotation (
-    Line(points={{-118,34},{74,34},{74,-80}},         color = {0, 0, 255}));
+    Line(points={{-118,32},{74,32},{74,-80}},         color = {0, 0, 255}));
   connect(GndAC.pin, Vin.pin_n) annotation (
     Line(points={{-188,-78},{-188,-30}},      color = {92, 53, 102}));
   connect(ConditionedZoneAir.port, Load2.heatPort) annotation (
@@ -61,27 +61,30 @@ equation
   connect(Load1.heatPort, ConditionedZoneAir.port) annotation (
     Line(points={{52,36},{52,21},{84,21},{84,-80},{96,-80}},               color = {191, 0, 0}));
   connect(Vin.pin_p, PowerSupply1.hPin_P) annotation (
-    Line(points={{-188,-10},{-188,46},{-138,46}},        color = {92, 53, 102}));
+    Line(points={{-188,-10},{-188,48},{-138,48}},        color = {92, 53, 102}));
   connect(FanPowerSupply.pin_n, GndDC.p) annotation (
-    Line(points={{-78,-46},{-68,-46},{-68,-76},{74,-76},{74,-80}},              color = {0, 0, 255}));
+    Line(points={{-78,-48},{-68,-48},{-68,-76},{74,-76},{74,-80}},              color = {0, 0, 255}));
   connect(Load1_Power.nv, PowerSupply1.pin_n) annotation (
-    Line(points={{22,36},{21.5,36},{21.5,34},{-118,34}},         color = {0, 0, 255}));
+    Line(points={{22,36},{21.5,36},{21.5,32},{-118,32}},         color = {0, 0, 255}));
   connect(Load1_Power.nc, Load1.p) annotation (
     Line(points={{32,46},{42,46}},      color = {0, 0, 255}));
   connect(Load1_Power.pc, PowerSupply1.pin_p) annotation (
-    Line(points={{12,46},{-118,46}},     color = {0, 0, 255}));
+    Line(points={{12,46},{-54,46},{-54,48},{-118,48}},
+                                         color = {0, 0, 255}));
   connect(Load1_Power.pv, PowerSupply1.pin_p) annotation (
-    Line(points={{22,56},{12,56},{12,46},{-118,46}},         color = {0, 0, 255}));
+    Line(points={{22,56},{12,56},{12,48},{-118,48}},         color = {0, 0, 255}));
   connect(Load2_Power.nc, Load2.p) annotation (
     Line(points={{32,6},{42,6}},                        color = {0, 0, 255}));
   connect(Load2_Power.pc, PowerSupply2.pin_p) annotation (
-    Line(points={{12,6},{-98,6}},      color = {0, 0, 255}));
+    Line(points={{12,6},{-44,6},{-44,8},{-98,8}},
+                                       color = {0, 0, 255}));
   connect(Load2_Power.nv, PowerSupply2.pin_n) annotation (
-    Line(points={{22,-4},{22,-6},{-98,-6}},        color = {0, 0, 255}));
+    Line(points={{22,-4},{22,-8},{-98,-8}},        color = {0, 0, 255}));
   connect(FanPower1.pc, FanPowerSupply.pin_p) annotation (
-    Line(points={{-18,-62},{-60,-62},{-60,-34},{-78,-34}},         color = {0, 0, 255}));
+    Line(points={{-18,-62},{-60,-62},{-60,-32},{-78,-32}},         color = {0, 0, 255}));
   connect(FanPower2.pc, FanPowerSupply.pin_p) annotation (
-    Line(points={{-38,-34},{-78,-34}},      color = {0, 0, 255}));
+    Line(points={{-38,-34},{-58,-34},{-58,-32},{-78,-32}},
+                                            color = {0, 0, 255}));
   connect(FanPower2.pv, FanPower2.pc) annotation (
     Line(points={{-28,-24},{-38,-24},{-38,-34}},      color = {0, 0, 255}));
   connect(FanPower1.pv, FanPower1.pc) annotation (
@@ -116,31 +119,31 @@ equation
   connect(PowerSupply2.PLoss, UnconditionedZoneTotalLoss.u2) annotation (
     Line(points={{-108,11},{-108,80},{-40,80}},      color = {0, 0, 127}));
   connect(FanPowerSupply.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-98,-34},{-168,-34},{-168,46},{-188,46},{-188,-10}},            color = {92, 53, 102}));
+    Line(points={{-98,-32},{-168,-32},{-168,46},{-188,46},{-188,-10}},            color = {92, 53, 102}));
   connect(PowerSupply1.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-138,34},{-148,34},{-148,-46},{-188,-46},{-188,-30}},            color = {117, 80, 123}));
+    Line(points={{-138,32},{-148,32},{-148,-46},{-188,-46},{-188,-30}},            color = {117, 80, 123}));
   connect(PowerSupply2.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-118,-6},{-148,-6},{-148,-46},{-188,-46},{-188,-30}},           color = {117, 80, 123}));
+    Line(points={{-118,-8},{-148,-8},{-148,-46},{-188,-46},{-188,-30}},           color = {117, 80, 123}));
   connect(FanPowerSupply.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-98,-46},{-188,-46},{-188,-30}},                     color = {117, 80, 123}));
+    Line(points={{-98,-48},{-188,-48},{-188,-30}},                     color = {117, 80, 123}));
   connect(PowerSupply2.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-118,6},{-168,6},{-168,46},{-188,46},{-188,-10}},                                     color = {92, 53, 102}));
+    Line(points={{-118,8},{-168,8},{-168,46},{-188,46},{-188,-10}},                                     color = {92, 53, 102}));
   connect(FanPower2.nv, GndDC.p) annotation (
     Line(points={{-28,-44},{-29,-44},{-29,-76},{74,-76},{74,-80}},          color = {0, 0, 255}));
   connect(Load2_Power.pv, Load2_Power.pc) annotation (
     Line(points={{22,16},{12,16},{12,6}},                 color = {0, 0, 255}));
-  connect(UnconditionedZoneTotalLoss.y, in_fmu.plenum_space_load)
-    annotation (Line(points={{-17,80},{62,80},{62,78},{140,78},{140,49.4},{
-          153.6,49.4}}, color={0,0,127}));
-  connect(ConditionedZoneTotalLoss.y, in_fmu.conditioned_space_load)
-    annotation (Line(points={{139,0},{146,0},{146,42.7},{153.6,42.7}}, color={0,
-          0,127}));
   connect(add.y, ConditionedZoneAir.T) annotation (Line(points={{135,-82},{126,
           -82},{126,-80},{118,-80}}, color={0,0,127}));
-  connect(in_fmu.conditioned_zone_temp, add.u2) annotation (Line(points={{
-          174,46},{190,46},{190,-88},{158,-88}}, color={0,0,127}));
   connect(const.y, add.u1) annotation (Line(points={{153,-42},{176,-42},{176,
           -76},{158,-76}}, color={0,0,127}));
+  connect(UnconditionedZoneTotalLoss.y, 'in_fmu1'.plenum_space_load)
+    annotation (Line(points={{-17,80},{148,80},{148,63.4},{163.6,63.4}}, color={
+          0,0,127}));
+  connect(ConditionedZoneTotalLoss.y, 'in_fmu1'.conditioned_space_load)
+    annotation (Line(points={{139,0},{146,0},{146,56.7},{163.6,56.7}}, color={0,
+          0,127}));
+  connect('in_fmu1'.conditioned_zone_temp, add.u2) annotation (Line(points={{184,
+          60},{192,60},{192,-88},{158,-88}}, color={0,0,127}));
   annotation (
     uses(HPF(version = "0.1.0-beta"), Modelica(version = "3.2.3")),
     experiment(
@@ -153,4 +156,4 @@ equation
   Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
   version = "");
-end Bench_Scale_Exp_9;
+end benchtop_demo;
