@@ -1,0 +1,15 @@
+download EnergyPlusToFMU 3.1.0 (assuming ~/Projects/EnergyPlusToFMU310)
+have the following files in the same directory
+in.idf
+in.epw
+Energy+.idd
+Experiment9_200707_input_metered.csv
+Experiment9_200707_input_out.csv
+
+change all Schedule:File paths to Experiment9_200707_input_metered.csv and Experiment9_200707_input_out.csv 
+
+create FMU:
+python ~/Projects/EnergyPlusToFMU310/Scripts/EnergyPlusToFMU.py -i ./Energy+.idd -w ./in.epw ./in.idf
+
+validate FMU
+fmuCheck.linux64 -h 60 -s 86400 in.fmu
