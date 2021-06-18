@@ -1,0 +1,3 @@
+python ~/Projects/EnergyPlusToFMU/Scripts/EnergyPlusToFMU.py -i ./Energy+.idd -w ./in.epw ./in.idf
+
+ubuntu@bball-130449:~/Projects/DC-Design/FMU/demo_idf$ ./fmuCheck.linux64 -h 60 -s 86400 ~/Projects/DC-Design/FMU/demo_idf/linux/in.fmu 
