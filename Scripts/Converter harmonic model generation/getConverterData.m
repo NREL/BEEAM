@@ -1,9 +1,21 @@
 
+% Function:
+% get converter data from CSV file 
+% ------------------------------------------------------------------------------
+%
+% Inputs:
+%   dataDirectory: path to data directory containing measurement data 
+%   device: name of the device folder
+% Outputs:
+%   convData: struct for converter harmonic data
+%
+% Avpreet Othee, avpreetsingh@hotmail.com
+% ------------------------------------------------------------------------------
 
 % get data from Device Characterization excercise
 % read data from CSV file and arrange the data in 
 function convData = getConverterData(dataDirectory, device)
-
+addpath('../lib/')
 %% dir structure
 % ../
 % ├── Processed Data

@@ -1,8 +1,21 @@
 
+% Script:
+% Generate converter harmonic model for BEEAM AC/DC converter
+% ------------------------------------------------------------------------------
+%
+% Workflow:
+%   * Get converter data into an independent data struct using function 
+%     getConverterData. 
+%   * Run script
+%
+% Avpreet Othee, avpreetsingh@hotmail.com
+% ------------------------------------------------------------------------------
+
+
+addpath('../lib/')
 
 %% Converter efficiency modeling
-% Efficiency modeling only for laptops and power supplies
-% Leds run at constant power. 
+
 for k = 1:length(convData.pwrLevel)
     % Efficiency modeling should be power over all harmonics
     % The harmonic power for the surface plot would be taken care of
@@ -13,7 +26,7 @@ end
 
 [convData.EffiMdl.alpha, convData.EffiMdl.beta, ...
     convData.EffiMdl.gamma] =  ...
-            efficiency_modeling(Pin, Pout, 0);
+            efficiency_modeling(Pin, Pout);
 %% Efficiency curve
 figure
 plot(Pout, (Pout./Pin)*100);

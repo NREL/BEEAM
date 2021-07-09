@@ -6,6 +6,8 @@ close all
 devices = { 'AC-DC - HP Laptop Charger - LBNL1 - 19.5V, 90W';  % 1
                 }; 
 
+addpath('../lib/')
+                
 %%            
 % give that path of data directory. Adjust according to specific system.
 dataDirectory = './Example Data/';
