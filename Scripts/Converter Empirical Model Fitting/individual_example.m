@@ -17,6 +17,11 @@ Pnom = 90;          % W
 Vnom = 120;         % V_ac
 Inom = Pnom / Vnom; % A_ac
 
+% Commentary: The default device used in this example, a HP 677777-002 external
+% AC/DC power supply for laptop computers, is interesting because it exhibits
+% power factor correction at the higher end of its power range. This can be seen
+% clearly in the harmonic plots.
+
 % Maximum harmonic order to include in interpolation table
 hMax = 19;
 
