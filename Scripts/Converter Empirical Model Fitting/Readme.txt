@@ -1,14 +1,22 @@
+AC/DC Converter Empirical Model Fitting
+=======================================
 
-MATLAB/GNU Octave scripts for generating interpolation based AC/DC converter
-harmonic model
---------------------------------------------------------------------------------
+This directory contains  MATLAB/GNU Octave scripts for generating interpolation-
+based AC/DC converter efficiency and harmonic models. The scripts are modular;
+different sections of the model generation are distributed across multiple
+scripts and functions. The output of these scripts is a '.mat' file suitable for
+import to Modelica/BEEAM.
 
-The scripts are modular and different sections of the model generation are 
-distributed across multiple scripts and functions.
+The resulting models are normalized with respect to  device power, voltage, and
+current ratings, such that the models can be scaled easily in BEEAM for devices
+with arbitrary ratings. Such scaling is accomplished solely by changing the
+device ratings in BEEAM; the underlying '.mat' file remains unchanged.
 
+Workflow
+--------
 
-Workflow:
----------
+**TO DO:** Update
+
 1) Get converter data from the csv file and put it in a struct named 'convData'
 Example: convData = getConverterData(dataDirectory, device)
 where, 'dataDirectory' is the path (string) to the data folder containing csv 

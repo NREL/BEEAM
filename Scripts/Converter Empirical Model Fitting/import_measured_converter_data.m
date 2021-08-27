@@ -1,110 +1,169 @@
-
-% Function:
-% get converter data from CSV file 
+% Function: Import CSU-characterized converter data from CSV file
 % ------------------------------------------------------------------------------
+% Imports device data for CSU-characterized AC/DC converters. Expects a 
+% directory containing files 'Harmonics.csv' and 'Power_data.csv' and standard
+% CSV column format (names, units) for both files.
+%
+% Harmonics are processed in groups representing a single experimental setup
+% (e.g. a particular power level). It is important that the voltage and load
+% conditions are consistent for all samples within each group!
 %
 % Inputs:
-%   dataDirectory: path to data directory containing measurement data 
-%   device: name of the device folder
+%   dataDirectory: Path to data directory containing device data
+%   groupColumn: Grouping column for processing harmonic data
+%
+% Default value for groupColumn is "Power Step"
+%
 % Outputs:
-%   convData: struct for converter harmonic data
+%   data: struct containing converter characterization data
 %
 % Avpreet Othee, avpreetsingh@hotmail.com
+% Modified By: Stephen Frank, Stephen.Frank@nrel.gov
 % ------------------------------------------------------------------------------
 
-% get data from Device Characterization excercise
-% read data from CSV file and arrange the data in 
-function convData = getConverterData(dataDirectory, device)
-addpath('../lib/')
-%% dir structure
-% ../
-% ├── Processed Data
+function data = import_measured_converter_data(dataDirectory, groupColumn)
+  
+% Default arguments
+if (nargin < 2)
+  groupColumn = 'Power Step'; % Assumed grouping column if not specified
+endif
+
+%% Dir structure for CSU-characterized devices
+% [parent]/
+% ├── Processed Data <- Set dataDirectory to here!!
 % │   ├── Figures
 % │   │   ├── ..
 % │   │   ├── ..
-% │   ├── Harmonics.csv
-% │   └── Power_data.csv
+% │   ├── Harmonics.csv <- Required file
+% │   └── Power_data.csv <- Required File
 
-%% defining columns
-col = struct();
-col.harmonics = 4;
-col.power = 2;
-col.voltage.mag = 5;
-col.voltage.arg = 6;
-col.current.mag = 8;
-col.current.arg = 9;
-col.P_DC = 18;
-
-%% using abolute path
-path_ProcessedData = '/Processed Data/';    
-% file path
-file_path = [dataDirectory, ...
-            device, path_ProcessedData];
-
-% read csv file
-% check if GNU octave 
+% Read CSV data
 if exist ("OCTAVE_VERSION", "builtin") > 0
+  % GNU Octave
   pkg load io;
-  csvData = csv2cell([file_path, 'Harmonics.csv']);
-else 
-  csvData = readcell([file_path, 'Harmonics.csv']);
+  harmonicsTable = csv2cell(fullfile(dataDirectory, 'Harmonics.csv'));
+  powerTable = csv2cell(fullfile(dataDirectory, 'Power_data.csv'));
+else
+  % MATLAB
+  harmonicsTable = readcell(fullfile(dataDirectory, 'Harmonics.csv'));
+  powerTable = readcell(fullfile(dataDirectory, 'Power_data.csv'));
 end
 
+% Get column headers
+harmonicsHeaders = harmonicsTable(1, :);
+powerHeaders = powerTable(1, :);
 
-pwrSteps = [0:10:100];  % modify this 
+% Structure for column indices
+col = struct();
 
+% Harmonics data columns indices (add more if needed)
+col.harmonics      = struct();
+col.harmonics.grp  = find(strcmp(groupColumn, harmonicsHeaders));
+col.harmonics.h    = find(strcmp('Harmonic', harmonicsHeaders));
+col.harmonics.Vmag = find(strcmp('Input Voltage Mag (Vrms)', harmonicsHeaders));
+col.harmonics.Varg = find(strcmp('Input Voltage Angle (deg)', harmonicsHeaders));
+col.harmonics.Imag = find(strcmp('Input Current Mag (Arms)', harmonicsHeaders));
+col.harmonics.Iarg = find(strcmp('Input Current Angle (deg)', harmonicsHeaders));
+
+% Power data column indices (add more if needed)
+col.power      = struct();
+col.power.Pin  = find(strcmp('Input Active Power (W)', powerHeaders));
+col.power.Pout = find(strcmp('Output Active Power (W)', powerHeaders));
+
+% Data structure
 data = struct();
-data.pwr = cell2mat(csvData(2:end, col.power));
-data.hrm = cell2mat(csvData(2:end, col.harmonics));
-data.v.mag = cell2mat(csvData(2:end, col.voltage.mag));
-data.v.arg = cell2mat(csvData(2:end, col.voltage.arg));
-data.i.mag = cell2mat(csvData(2:end, col.current.mag));
-data.i.arg = cell2mat(csvData(2:end, col.current.arg));
-data.P_DC = cell2mat(csvData(2:end, col.P_DC));
+data.path = dataDirectory;
 
+% Power data
+data.power      = struct();
+data.power.Pin  = cell2mat(powerTable(2:end, col.power.Pin));
+data.power.Pout = cell2mat(powerTable(2:end, col.power.Pout));
 
-convData.name = device;
+% Disaggregated harmonics data
+h    = cell2mat(harmonicsTable(2:end, col.harmonics.h));
+Vmag = cell2mat(harmonicsTable(2:end, col.harmonics.Vmag));
+Varg = deg2rad(cell2mat(harmonicsTable(2:end, col.harmonics.Varg)));
+Imag = cell2mat(harmonicsTable(2:end, col.harmonics.Imag));
+Iarg = deg2rad(cell2mat(harmonicsTable(2:end, col.harmonics.Iarg)));
 
-indx = 1;
-for pwrStep = pwrSteps
-    pwrIndx_begin = find(data.pwr == pwrStep);
-    if pwrStep == 100
-        pwrIndx_end = find(data.pwr == pwrStep);
-        % overly complicated way of findind last index
-        % 100 pwr step ends like, 100 100 0 0
-        % getting the index when there is a change
-        % we know that that there are 128 harmonics
-        pwrIndx_end = pwrIndx_begin + 128;
-    else
-        pwrIndx_end = find(data.pwr == pwrSteps(indx + 1));
-    end
-    
-    convData.pwrLevel(indx).pwrStep = pwrStep;
-    convData.pwrLevel(indx).v.mag = data.v.mag(pwrIndx_begin(1):pwrIndx_end(1)-1, 1);
-    convData.pwrLevel(indx).v.arg = deg2rad(data.v.arg(pwrIndx_begin(1):pwrIndx_end(1)-1, 1));
-    convData.pwrLevel(indx).i.mag = data.i.mag(pwrIndx_begin(1):pwrIndx_end(1)-1, 1);
-    convData.pwrLevel(indx).i.arg = deg2rad(data.i.arg(pwrIndx_begin(1):pwrIndx_end(1)-1, 1));
-    % correct phase shifts
-    % harmonic phase angles must be referenced wrt /_V(h=1) = 0 rad
-    vPhaseAdjust = convData.pwrLevel(indx).v.arg(2);
-    maxHarmonics = 128;
-    h = [0:1:maxHarmonics-1]';
-    convData.pwrLevel(indx).v.arg = phaseShift(convData.pwrLevel(indx).v.arg, ...
-                                                h, vPhaseAdjust);
-    convData.pwrLevel(indx).i.arg = phaseShift(convData.pwrLevel(indx).i.arg, ...
-                                                h, vPhaseAdjust);                                        
-    % AC real power
-    v = convData.pwrLevel(indx).v.mag .* (cos(convData.pwrLevel(indx).v.arg) + ...
-                        1j.*sin(convData.pwrLevel(indx).v.arg));
-    i = convData.pwrLevel(indx).i.mag .* (cos(convData.pwrLevel(indx).i.arg) + ...
-                        1j.*sin(convData.pwrLevel(indx).i.arg));                
-    convData.pwrLevel(indx).S = v .* conj(i);
-    convData.pwrLevel(indx).Preal = real(sum(convData.pwrLevel(indx).S));
-    convData.pwrLevel(indx).Preal_h1 = real(convData.pwrLevel(indx).S(2));
-    % Output DC power
-    convData.pwrLevel(indx).P_DC = data.P_DC(pwrIndx_begin(1));
-    
-    
-    
-    indx = indx + 1;
+% Compute complex voltage, complex current, input power
+Vin = Vmag .* exp(1j .* Varg);
+Iin = Imag .* exp(1j .* Iarg);
+Sin = Vin .* conj(Iin);
+Pin = real(Sin);
+
+% Groups for averaging harmonics data
+rowGroup = cell2mat(harmonicsTable(2:end, col.harmonics.grp));
+groups = unique(rowGroup);
+harms = sort(unique(h));
+
+% Enforce row vectors on grouping sets
+groups = reshape(groups, 1, []);
+harms = reshape(harms, 1, []);
+
+% Fundamental voltage and power reference values by group
+% (This should probably be vectorized for efficiency... someday)
+V1_ref = zeros(size(h));
+P1_ref = zeros(size(h));
+for g = groups
+  % Compute mask
+  mask = (rowGroup == g) & (h == 1); % Fundamental
+  
+  % Fundamental voltage reference for group
+  V1_ref(rowGroup == g) = mean(Vin(mask));
+  
+  % Fundamental power reference for group
+  P1_ref(rowGroup == g) = mean(Pin(mask));
 end
+
+% Correct phase angles
+% Harmonic phase angles must be referenced wrt /_V(h=1) = 0 rad
+Vin = Vin .* exp(-1j .* arg(V1_ref) .* h); % Rotate voltages
+Iin = Iin .* exp(-1j .* arg(V1_ref) .* h); % Rotate currents
+
+% Dimensions of aggregated harmonics data
+numRows = length(groups) * length(harms);
+
+% Column vectors to receive aggregated harmonics data
+data.harmonics     = struct();
+data.harmonics.grp = zeros(numRows, 1);
+data.harmonics.h   = zeros(numRows, 1);
+data.harmonics.V   = zeros(numRows, 1);
+data.harmonics.I   = zeros(numRows, 1);
+data.harmonics.P1  = zeros(numRows, 1);
+
+% Populate aggregated harmonics data
+% (This should probably be vectorized for efficiency... someday)
+r = 0; % Starting row index
+for gg = groups
+  for hh = harms
+    % Advance row index
+    r = r + 1;
+    
+    % Record group, harmonic
+    data.harmonics.grp(r) = gg;
+    data.harmonics.h(r)   = hh;
+    
+    % Grouping mask
+    mask = (rowGroup == gg) & (h == hh);
+    
+    % Averages
+    data.harmonics.V(r)  = mean(Vin(mask));
+    data.harmonics.I(r)  = mean(Iin(mask));
+    
+    % Reference fundamental power
+    data.harmonics.P1(r) = mean(P1_ref(mask)); % Should all be same value
+  endfor
+endfor
+
+% Final magnitude and phase angle
+data.harmonics.Vmag = abs(data.harmonics.V);
+data.harmonics.Varg = arg(data.harmonics.V);
+data.harmonics.Imag = abs(data.harmonics.I);
+data.harmonics.Iarg = arg(data.harmonics.I);
+
+% Reorder harmonics fields prior to returning
+data.harmonics = orderfields(data.harmonics, ...
+  {'grp', 'h', 'V', 'Vmag', 'Varg', 'I', 'Imag', 'Iarg', 'P1'});
+
+endfunction

@@ -19,13 +19,18 @@
 % Power units must be consistent
 %
 % Outputs:
-%   alpha = Vector of alpha coefficients
+%   alpha: Vector of loss model coefficients
 %
 % Avpreet Othee, avpreetsingh@hotmail.com
 % Modified By: Stephen Frank, Stephen.Frank@nrel.gov
 % ------------------------------------------------------------------------------
 
 function alpha = loss_model(Pin, Pout, Pnom)
+
+% GNU OCTAVE: optim package required
+if exist ("OCTAVE_VERSION", "builtin") > 0
+  pkg load optim;
+end
 
 % Reshape to column vectors
 Pin = reshape(Pin, length(Pin), 1);
