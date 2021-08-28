@@ -5,7 +5,7 @@
 %   Pin = Pout + alpha[1] + alpha[2] * Pout + alpha[3] * Pout^2
 % 
 % Coefficients are normalized such that the above equation is valid for Pin and
-% Pout relative to nominal power Pnom. A more complete description is:
+% Pout relative to nominal power 'Pnom'. A more complete description is:
 %
 %   Pin = Pout + Pnom * (alpha[1] + alpha[2]*(Pout/Pnom) + alpha[3]*(Pout/Pnom)^2)
 %

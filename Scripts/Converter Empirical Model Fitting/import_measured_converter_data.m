@@ -17,8 +17,10 @@
 % Outputs:
 %   data: struct containing converter characterization data
 %
-% Avpreet Othee, avpreetsingh@hotmail.com
-% Modified By: Stephen Frank, Stephen.Frank@nrel.gov
+% Stephen Frank, Stephen.Frank@nrel.gov
+% 
+% Based On: 'getConverterData.m' and 'generate_harmonic_load_model.m' originally
+% written by Avpreet Othee, avpreetsingh@hotmail.com
 % ------------------------------------------------------------------------------
 
 function data = import_measured_converter_data(dataDirectory, groupColumn)
