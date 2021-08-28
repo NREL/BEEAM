@@ -100,17 +100,17 @@ P1    = convData.harmonics.P1(hMask);
 
 % Plot: Magnitude
 figure
-surf(X, Y, Z_mag, 'FaceAlpha', 0.75)
+surf(X, Y .* Pnom, Z_mag .* Inom, 'FaceAlpha', 0.75)
 xlabel('$h$', 'interpreter', 'latex', 'FontSize', 14)
-ylabel('$\frac{P_{AC}^{(1)}}{P_{nom}}$', 'interpreter', 'latex', 'FontSize', 14)
+ylabel('$P_{AC}^{(1)}$', 'interpreter', 'latex', 'FontSize', 14)
 zlabel('$|I^{(h)}|$', 'interpreter', 'latex', 'FontSize', 14)
 title('Magnitude Model')
 
 % Plot: Phase
 figure
-surf(X, Y, Z_arg, 'FaceAlpha', 0.75)
+surf(X, Y .* Pnom, Z_arg, 'FaceAlpha', 0.75)
 xlabel('$h$', 'interpreter', 'latex', 'FontSize', 14)
-ylabel('$\frac{P_{AC}^{(1)}}{P_{nom}}$', 'interpreter', 'latex', 'FontSize', 14)
+ylabel('$P_{AC}^{(1)}$', 'interpreter', 'latex', 'FontSize', 14)
 zlabel('$\angle I^{(h)}$', 'interpreter', 'latex', 'FontSize', 14)
 title('Phase Model')
 
