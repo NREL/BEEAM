@@ -12,7 +12,7 @@ model AC2DC_Converter
     Placement(visible = true, transformation(origin = {-34, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource V0(vArg = {0 for i in 1:systemDef.numHrm}, vMag = cat(1, {120}, {0 for i in 2:systemDef.numHrm})) annotation (
     Placement(visible = true, transformation(origin = {-34, 24}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl ACDC_Converter(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-677777-002-Laptop-Charger.mat", nomP = 90, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl ACDC_Converter(P_DCmin = 2.5, P_stby = 1,V_Rect = 24, nomP = 90, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {30, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load(pwr = 50) annotation (
     Placement(visible = true, transformation(origin = {62, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
