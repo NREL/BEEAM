@@ -1,6 +1,9 @@
 %% Example: Fit an individual AC/DC empirical converter model
 
 %% Clear workspace
+% Close plots
+close all
+
 % Clear console
 clear
 clc
@@ -119,12 +122,13 @@ title('Phase Model')
 % converter model. Uncomment to run.
 
 % Filename
-fname = strcat([strrep(deviceName, ' ', '-'), '.mat']);
+fName = strcat([strrep(deviceName, ' ', '-'), '.mat']);
 
 % Execute save
 if exist ("OCTAVE_VERSION", "builtin") > 0
-  save('-V6', fname, 'X', 'Y', 'Z_mag', 'Z_arg', 'alpha', 'beta', 'gamma');
+  save('-V6', fName, 'X', 'Y', 'Z_mag', 'Z_arg', 'alpha', 'beta', 'gamma');
 else
-  save fname 'X' 'Y' 'Z_mag' 'Z_arg' 'alpha' 'beta' 'gamma';
+  % Needs to be tested w/ MATLAB
+  save fName 'X' 'Y' 'Z_mag' 'Z_arg' 'alpha' 'beta' 'gamma';
 end
 
