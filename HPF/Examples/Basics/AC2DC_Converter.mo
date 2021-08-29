@@ -14,7 +14,7 @@ model AC2DC_Converter
     Placement(visible = true, transformation(origin = {-34, 24}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl ACDC_Converter(P_DCmin = 2.5, P_stby = 1,V_Rect = 24, nomP = 90, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {30, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.DC_Load dC_Load(pwr = 50) annotation (
+  HPF.DC.DC_Load dC_Load(pwr = 75) annotation (
     Placement(visible = true, transformation(origin = {62, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {62, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
