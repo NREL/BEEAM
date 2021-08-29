@@ -13,10 +13,12 @@ model EmpMdl
         */
   Real P_DC = (abs(vDC.v * vDC.i));
   Real P_DC_singleConv = P_DC / numConvs "Output power per converter";
-  /* Input output power relation (Total input AC Power (sum over all harmonics))
-        P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
-      */
-  Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC_singleConv) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC_singleConv)) * (P_DC_singleConv + alpha[1, 1] + beta[1, 1] * P_DC_singleConv + gamma[1, 1] * P_DC_singleConv ^ 2);
+  /*
+  Input output power relation (Total input AC Power (sum over all harmonics))
+    P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
+  alpha, beta, and gamma are now normalized with respect to nominal power for 1 converter
+  */
+  Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC_singleConv) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC_singleConv)) * (P_DC_singleConv + nomP * (alpha[1, 1] + beta[1, 1] * (P_DC_singleConv/nomP) + gamma[1, 1] * (P_DC_singleConv/nomP)^2));
   /*
           Measurements
       */
@@ -33,11 +35,18 @@ model EmpMdl
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {24, 142},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 
 protected
-  Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P1)"Phase angle for fundamental apparent power";
-  // Querry arg interplation in 2D at harmonics h>1, at power level P
-  Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
-  // Querry mag interplation in 2D at harmonics h>1, at power level P
-  Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], P1)*numConvs for i in 2:1:systemDef.numHrm};
+  
+  // Power axis lookup is now normalized to nominal power (nomP) and magnitude output must be scaled by nominal current (nomI)
+    
+    
+  
+  Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, (P1/nomP))"Phase angle for fundamental apparent power";
+  
+  // Query arg interplation in 2D at harmonics h>1, at power level P
+  Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], (P1/nomP)) for i in 2:1:systemDef.numHrm};
+  
+  // Query mag interplation in 2D at harmonics h>1, at power level P
+  Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], (P1/nomP))*nomI*numConvs for i in 2:1:systemDef.numHrm};
   
   // Apply phase correction
   Real argAdj[systemDef.numHrm - 1] = arg_hh[:] + Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end];

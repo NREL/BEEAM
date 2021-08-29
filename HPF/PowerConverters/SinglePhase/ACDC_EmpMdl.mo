@@ -15,7 +15,7 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   /*
   Input output power relation (Total input AC Power (sum over all harmonics))
     P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
-  alpha, beta, and gamma are now normalized with respect to power
+  alpha, beta, and gamma are now normalized with respect to nominal power
   */
   Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC)) * (P_DC + nomP * (alpha[1, 1] + beta[1, 1] * (P_DC/nomP) + gamma[1, 1] * (P_DC/nomP)^2)) "Real power on AC side";
   /*
@@ -39,11 +39,11 @@ protected
     // Power axis lookup is now normalized to nominal power (nomP) and magnitude output must be scaled by nominal current (nomI)
     
     // Query arg interplation in 2D at harmonics h>1, at power level P
-    Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1 / nomP, mdl_Z_arg, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
+    Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], (P1/nomP)) for i in 2:1:systemDef.numHrm};
     
     // Query mag interplation in 2D at harmonics h>1, at power level P
-    Real c[systemDef.numHrm - 1] = nomI * {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1 / nomP, mdl_Z_mag, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
-    Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1 / nomP, mdl_Z_arg, 1, P1) "Phase angle for fundamental apparent power";     // angle for S(@h=1) using harmonic current model
+    Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], (P1/nomP))*nomI for i in 2:1:systemDef.numHrm};
+    Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, (P1/nomP)) "Phase angle for fundamental apparent power";     // angle for S(@h=1) using harmonic current model
     
   // Apply phase correction
   Real argAdj[systemDef.numHrm - 1] = arg_hh[:] + Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end];
