@@ -1,11 +1,11 @@
 AC/DC Converter Empirical Model Fitting
 =======================================
 
-This directory contains MATLAB/GNU Octave scripts for generating interpolation-
-based AC/DC converter efficiency and harmonic models. The scripts are modular;
-different sections of the model generation are distributed across multiple
-scripts and functions. The output of these scripts is a `.mat` file suitable for
-import to Modelica/BEEAM.
+This directory contains MATLAB/GNU Octave scripts for generating
+interpolation-based AC/DC converter efficiency and harmonic models. The scripts
+are modular; different sections of the model generation are distributed across
+multiple scripts and functions. The output of these scripts are `.mat` files
+suitable for import to Modelica/BEEAM.
 
 The resulting models are normalized with respect to device power, voltage, and
 current ratings, such that the models can be scaled easily in BEEAM for devices
@@ -22,9 +22,9 @@ parameters:
 - **beta:** Coefficient for linear term of normalized converter loss model
 - **gamma:** Coefficient for quadratic term of normalized converter loss model
 - **X:** Matrix of harmonic numbers (meshgrid format)
-- **Y:** Matrix of normalized converter fundamental powers (meshgrid format)
-- **Z_mag:** Matrix of converter hamonic current normalized magnitude data
-- **Z_arg:** Matrix of converter hamonic current unwrapped phase angle data
+- **Y:** Matrix of normalized converter fundamental frequency powers (meshgrid format)
+- **Z_mag:** Matrix of converter harmonic current normalized magnitude data
+- **Z_arg:** Matrix of converter harmonic current unwrapped phase angle data
 
 Parameters **alpha**, **beta**, and **gamma** model the converter efficiency
 curve; parameters **X**, **Y**, **Z_mag**, and **Z_arg** provide the 2D
@@ -51,14 +51,14 @@ This directory includes the following functions and scripts:
   user-provided input file
 - `rescale_empirical_model.m`: Utility script to rescale existing empirical
   model parameters to use new per-unit bases, while retaining the original
-  volt-amphere model output
+  volt-ampere model output
 
 Of these, `individual_example.m` is the best place to start.
 
 Dependencies
 ------------
 
-The scripts are compatible with both MATLAB or GNU Octave. They will
+The scripts are compatible with both MATLAB and GNU Octave. They will
 automatically detect whether they are running in MATLAB or Octave and adjust
 accordingly.
 
@@ -72,8 +72,8 @@ Input File Structure
 The `import_measured_converter_data` function expects two files within a common
 directory: `Power_data.csv` and `Harmonics.csv`. These files must be in
 comma-separated values (CSV) files format using `,` as a delimiter. They may
-have any number of labeled columns, but *must* at a minimum include the
-following columns (with exact names as specified and correct units):
+have any number of labeled columns, but *must* include the following columns
+(with exact names as specified and correct units):
 
 - Columns in *Power_data.csv*:
   - `Input Active Power (W)`: Converter AC input power (sum across all harmonics)
@@ -84,7 +84,7 @@ following columns (with exact names as specified and correct units):
   - `Input Voltage Angle (deg)`: AC input voltage phase angle
   - `Input Current Mag (Arms)`: AC input current magnitude
   - `Input Current Angle (deg)`: AC input current phase angle
-  - A labeled grouping column; default is `Power Step`
+  - A user-configurable grouping column; default label is `Power Step`
 
 The first row must contain column labels; all subsequent rows must contain
 values. However, column order is not important. In *Harmonics.csv*, the grouping
@@ -127,11 +127,14 @@ at both converter input and output.
 
 1. Assemble input vectors for `loss_model` and `empirical_harmonic_model`
    functions:
+   
    a. `loss_model` requires measured input power with corresponding output
       power.
+      
    b. `empirical_harmonic_model` requires measured complex harmonic current with
       corresponding harmonic order and measured fundamental frequency AC input
       power.
+      
 2. Define device power, voltage, and current ratings (nominal values).
 3. Fit the converter loss model using the `loss_model` function.
 4. Fit the converter harmonic current model using the `empirical_harmonic_model`
