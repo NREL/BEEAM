@@ -3,7 +3,7 @@ within ;
 model flexlab_dc
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, theta(displayUnit = "rad", fixed = true), vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
+  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
     Placement(visible = true, transformation(origin={-58,88},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground GndAC annotation (
     Placement(visible = true, transformation(origin={-96,56},    extent = {{-8, -8}, {8, 8}}, rotation = 0)));
@@ -54,23 +54,23 @@ equation
   connect(Vin.pin_n, GndAC.pin) annotation (
     Line(points = {{-68, 88}, {-96, 88}, {-96, 64}}, color = {117, 80, 123}));
   connect(Nextek_Hub.hPin_N, Vin.pin_n) annotation (
-    Line(points = {{-50, 60}, {-80, 60}, {-80, 88}, {-68, 88}}, color = {117, 80, 123}));
+    Line(points={{-52,60},{-80,60},{-80,88},{-68,88}},          color = {117, 80, 123}));
   connect(Vin.pin_p, Nextek_Hub.hPin_P) annotation (
-    Line(points = {{-48, 88}, {-48, 87}, {-38, 87}, {-38, 60}}, color = {92, 53, 102}));
+    Line(points={{-48,88},{-48,87},{-36,87},{-36,60}},          color = {92, 53, 102}));
   connect(Light_1.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-76, 14}, {-38, 14}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-76,14},{-36,14},{-36,40}},        color = {0, 0, 255}));
   connect(GndDC.p, Nextek_Hub.pin_n) annotation (
-    Line(points = {{-176, -82}, {-176, 27}, {-50, 27}, {-50, 40}}, color = {0, 0, 255}));
+    Line(points={{-176,-82},{-176,27},{-52,27},{-52,40}},          color = {0, 0, 255}));
   connect(Light_2.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-100, -2}, {-38, -2}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-100,-2},{-36,-2},{-36,40}},        color = {0, 0, 255}));
   connect(Light_3.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-126, -18}, {-38, -18}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-126,-18},{-36,-18},{-36,40}},        color = {0, 0, 255}));
   connect(Light_5.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-118, -48}, {-118, -48.25}, {-38, -48.25}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-118,-48},{-118,-48.25},{-36,-48.25},{-36,40}},          color = {0, 0, 255}));
   connect(Light_6.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-84, -66}, {-38, -66}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-84,-66},{-36,-66},{-36,40}},        color = {0, 0, 255}));
   connect(Light_4.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-144, -36}, {-38, -36}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-144,-36},{-36,-36},{-36,40}},        color = {0, 0, 255}));
   connect(Light_1.n, GndDC.p) annotation (
     Line(points = {{-96, 14}, {-176, 14}, {-176, -82}}, color = {0, 0, 255}));
   connect(Light_2.n, GndDC.p) annotation (
@@ -84,17 +84,17 @@ equation
   connect(Light_6.n, GndDC.p) annotation (
     Line(points = {{-104, -66}, {-176, -66}, {-176, -82}}, color = {0, 0, 255}));
   connect(Prog_DC_Ld_1.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-10, 34}, {-20, 34}, {-20, 35}, {-38, 35}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-10,34},{-20,34},{-20,35},{-36,35},{-36,40}},            color = {0, 0, 255}));
   connect(Prog_DC_Ld_6.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{-6, -56}, {-38, -56}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{-6,-56},{-36,-56},{-36,40}},        color = {0, 0, 255}));
   connect(Prog_DC_Ld_5.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{34, -38}, {-38, -38}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{34,-38},{-36,-38},{-36,40}},        color = {0, 0, 255}));
   connect(Prog_DC_Ld_4.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{60, -20}, {-38, -20}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{60,-20},{-36,-20},{-36,40}},        color = {0, 0, 255}));
   connect(Prog_DC_Ld_3.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{34, -2}, {-38, -2}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{34,-2},{-36,-2},{-36,40}},        color = {0, 0, 255}));
   connect(Prog_DC_Ld_2.p, Nextek_Hub.pin_p) annotation (
-    Line(points = {{10, 14}, {-38, 14}, {-38, 40}}, color = {0, 0, 255}));
+    Line(points={{10,14},{-36,14},{-36,40}},        color = {0, 0, 255}));
   connect(Prog_DC_Ld_6.n, GndDC.p) annotation (
     Line(points = {{14, -56}, {100, -56}, {100, -82}, {-176, -82}}, color = {0, 0, 255}));
   connect(Prog_DC_Ld_5.n, GndDC.p) annotation (

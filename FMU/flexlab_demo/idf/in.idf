@@ -1783,7 +1783,7 @@ ScheduleTypeLimits,
 Schedule:File,
   Schedule File PlnmB Lights Drivers,     !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   3,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -2173,7 +2173,7 @@ ThermostatSetpoint:SingleCooling,
 Schedule:File,
   Schedule File ZoneA Temp,               !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_mech_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_mech_15min.csv, !- File Name
   2,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -2736,7 +2736,7 @@ Lights,
 Schedule:File,
   Schedule File ZoneB Lights,             !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   2,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -6592,7 +6592,7 @@ Schedule:Year,
 Schedule:File,
   Schedule File PlnmB DC Hub,             !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   7,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -6603,7 +6603,7 @@ Schedule:File,
 Schedule:File,
   Schedule File PlnmB Fans,               !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   9,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -6614,7 +6614,7 @@ Schedule:File,
 Schedule:File,
   Schedule File ZoneB Fans,               !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   8,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -6625,7 +6625,7 @@ Schedule:File,
 Schedule:File,
   Schedule File ZoneB Misc,               !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   6,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -6636,7 +6636,7 @@ Schedule:File,
 Schedule:File,
   Schedule File ZoneB Plugs,              !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   4,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
@@ -6647,7 +6647,7 @@ Schedule:File,
 Schedule:File,
   Schedule File ZoneB Plugs Converters,   !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_elec_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM/FMU/flexlab_demo/idf/schedulefile_elec_15min.csv, !- File Name
   5,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data

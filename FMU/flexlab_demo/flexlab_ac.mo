@@ -3,7 +3,7 @@ within ;
 model flexlab_ac
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
-  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, theta(displayUnit = "rad", fixed = true), vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
+  HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
     Placement(visible = true, transformation(origin={2,90},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground GndAC annotation (
     Placement(visible = true, transformation(origin={-40,90},    extent = {{-8, -8}, {8, 8}}, rotation = -90)));
@@ -90,67 +90,67 @@ equation
   connect(Vin.pin_n, GndAC.pin) annotation (
     Line(points = {{-8, 90}, {-32, 90}}, color = {117, 80, 123}));
   connect(Desk_PS1.pin_p, Prog_DC_Ld_1.p) annotation (
-    Line(points={{62,83.6},{71,83.6},{71,83},{80,83}},      color = {0, 0, 255}));
+    Line(points={{62,84.8},{71,84.8},{71,83},{80,83}},      color = {0, 0, 255}));
   connect(Prog_DC_Ld_2.p, Desk_PS2.pin_p) annotation (
-    Line(points={{80,51},{79,51},{79,55.2},{64,55.2}},      color = {0, 0, 255}));
+    Line(points={{80,51},{79,51},{79,56.6},{64,56.6}},      color = {0, 0, 255}));
   connect(Prog_DC_Ld_4.p, Desk_PS4.pin_p) annotation (
-    Line(points={{84,-16},{73,-16},{73,-11.2},{64,-11.2}},      color = {0, 0, 255}));
+    Line(points={{84,-16},{73,-16},{73,-9.6},{64,-9.6}},        color = {0, 0, 255}));
   connect(Prog_DC_Ld_5.p, Desk_PS5.pin_p) annotation (
-    Line(points={{84,-47},{84,-41.2},{66,-41.2}},    color = {0, 0, 255}));
+    Line(points={{84,-47},{84,-39.6},{66,-39.6}},    color = {0, 0, 255}));
   connect(Prog_DC_Ld_6.p, Desk_PS6.pin_p) annotation (
-    Line(points={{88,-76},{78,-76},{78,-72.8},{68,-72.8}},      color = {0, 0, 255}));
+    Line(points={{88,-76},{78,-76},{78,-71.4},{68,-71.4}},      color = {0, 0, 255}));
   connect(Prog_DC_Ld_3.p, Desk_PS3.pin_p) annotation (
-    Line(points={{82,21},{83,21},{83,23.2},{66,23.2}},      color = {0, 0, 255}));
+    Line(points={{82,21},{83,21},{83,24.6},{66,24.6}},      color = {0, 0, 255}));
   connect(Light_1.p, Driver_1.pin_p) annotation (
-    Line(points={{-78,78},{-69,78},{-69,77.2},{-58,77.2}},      color = {0, 0, 255}));
+    Line(points={{-78,78},{-69,78},{-69,78.6},{-58,78.6}},      color = {0, 0, 255}));
   connect(Driver_2.pin_p, Light_2.p) annotation (
-    Line(points={{-60,51.2},{-70,51.2},{-70,52},{-80,52}},      color = {0, 0, 255}));
+    Line(points={{-60,52.6},{-70,52.6},{-70,52},{-80,52}},      color = {0, 0, 255}));
   connect(Light_3.p, Driver_3.pin_p) annotation (
-    Line(points={{-82,28},{-72,28},{-72,24.8},{-60,24.8}},      color = {0, 0, 255}));
+    Line(points={{-82,28},{-72,28},{-72,26.4},{-60,26.4}},      color = {0, 0, 255}));
   connect(Light_4.p, Driver_4.pin_p) annotation (
-    Line(points={{-80,0},{-70,0},{-70,-2.8},{-60,-2.8}},      color = {0, 0, 255}));
+    Line(points={{-80,0},{-70,0},{-70,-1.4},{-60,-1.4}},      color = {0, 0, 255}));
   connect(Light_5.p, Driver_5.pin_p) annotation (
-    Line(points={{-76,-30},{-67,-30},{-67,-30.8},{-60,-30.8}},      color = {0, 0, 255}));
+    Line(points={{-76,-30},{-67,-30},{-67,-29.4},{-60,-29.4}},      color = {0, 0, 255}));
   connect(Light_6.p, Driver_6.pin_p) annotation (
-    Line(points={{-76,-60},{-68,-60},{-68,-60.8},{-60,-60.8}},      color = {0, 0, 255}));
+    Line(points={{-76,-60},{-68,-60},{-68,-59.4},{-60,-59.4}},      color = {0, 0, 255}));
   connect(Desk_PS6.hPin_P, Vin.pin_p) annotation (
-    Line(points={{52,-72.8},{12,-72.8},{12,90}},    color = {92, 53, 102}));
+    Line(points={{52,-71.4},{12,-71.4},{12,90}},    color = {92, 53, 102}));
   connect(Desk_PS1.hPin_P, Vin.pin_p) annotation (
-    Line(points={{46,83.6},{12,83.6},{12,90}},    color = {92, 53, 102}));
+    Line(points={{46,84.8},{12,84.8},{12,90}},    color = {92, 53, 102}));
   connect(Desk_PS2.hPin_P, Vin.pin_p) annotation (
-    Line(points={{48,55.2},{12,55.2},{12,90}},    color = {92, 53, 102}));
+    Line(points={{48,56.6},{12,56.6},{12,90}},    color = {92, 53, 102}));
   connect(Desk_PS3.hPin_P, Vin.pin_p) annotation (
-    Line(points={{48,23.2},{12,23.2},{12,90}},    color = {92, 53, 102}));
+    Line(points={{48,24.6},{12,24.6},{12,90}},    color = {92, 53, 102}));
   connect(Desk_PS4.hPin_P, Vin.pin_p) annotation (
-    Line(points={{48,-11.2},{12,-11.2},{12,90}},    color = {92, 53, 102}));
+    Line(points={{48,-9.6},{12,-9.6},{12,90}},      color = {92, 53, 102}));
   connect(Desk_PS5.hPin_P, Vin.pin_p) annotation (
-    Line(points={{50,-41.2},{12,-41.2},{12,90}},    color = {92, 53, 102}));
+    Line(points={{50,-39.6},{12,-39.6},{12,90}},    color = {92, 53, 102}));
   connect(Driver_1.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-42,77.2},{12,77.2},{12,90}},    color = {92, 53, 102}));
+    Line(points={{-42,78.6},{12,78.6},{12,90}},    color = {92, 53, 102}));
   connect(Driver_2.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-44,51.2},{12,51.2},{12,90}},    color = {92, 53, 102}));
+    Line(points={{-44,52.6},{12,52.6},{12,90}},    color = {92, 53, 102}));
   connect(Driver_3.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-44,24.8},{12,24.8},{12,90}},    color = {92, 53, 102}));
+    Line(points={{-44,26.4},{12,26.4},{12,90}},    color = {92, 53, 102}));
   connect(Driver_4.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-42,-2.8},{12,-2.8},{12,90}},    color = {92, 53, 102}));
+    Line(points={{-42,-1.4},{12,-1.4},{12,90}},    color = {92, 53, 102}));
   connect(Driver_5.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-44,-30.8},{12,-30.8},{12,90}},    color = {92, 53, 102}));
+    Line(points={{-44,-29.4},{12,-29.4},{12,90}},    color = {92, 53, 102}));
   connect(Driver_6.hPin_P, Vin.pin_p) annotation (
-    Line(points={{-44,-60.8},{12,-60.8},{12,90}},    color = {92, 53, 102}));
+    Line(points={{-44,-59.4},{12,-59.4},{12,90}},    color = {92, 53, 102}));
   connect(Desk_PS6.hPin_N, Vin.pin_n) annotation (
-    Line(points={{52,-81.2},{-8,-81.2},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{52,-82.6},{-8,-82.6},{-8,90}},    color = {117, 80, 123}));
   connect(Driver_1.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-42,68.8},{-8,68.8},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{-42,67.4},{-8,67.4},{-8,90}},    color = {117, 80, 123}));
   connect(Driver_2.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-44,42.8},{-8,42.8},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{-44,41.4},{-8,41.4},{-8,90}},    color = {117, 80, 123}));
   connect(Driver_3.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-44,15.2},{-8,15.2},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{-44,13.6},{-8,13.6},{-8,90}},    color = {117, 80, 123}));
   connect(Driver_4.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-42,-11.2},{-8,-11.2},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{-42,-12.6},{-8,-12.6},{-8,90}},    color = {117, 80, 123}));
   connect(Driver_5.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-44,-39.2},{-8,-39.2},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{-44,-40.6},{-8,-40.6},{-8,90}},    color = {117, 80, 123}));
   connect(Driver_6.hPin_N, Vin.pin_n) annotation (
-    Line(points={{-44,-69.2},{-8,-69.2},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{-44,-70.6},{-8,-70.6},{-8,90}},    color = {117, 80, 123}));
   connect(Light_1.n, GndDC.p) annotation (
     Line(points = {{-98, 78}, {-134, 78}, {-134, -90}, {126, -90}}, color = {0, 0, 255}));
   connect(Prog_DC_Ld_6.n, GndDC.p) annotation (
@@ -166,21 +166,21 @@ equation
   connect(Prog_DC_Ld_1.n, GndDC.p) annotation (
     Line(points={{102,83},{126,83},{126,-90}},        color = {0, 0, 255}));
   connect(Desk_PS6.pin_n, GndDC.p) annotation (
-    Line(points={{68,-81.2},{80,-81.2},{80,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{68,-82.6},{80,-82.6},{80,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Desk_PS5.pin_n, GndDC.p) annotation (
-    Line(points={{66,-50.8},{76,-50.8},{76,-60},{126,-60},{126,-90}},        color = {0, 0, 255}));
+    Line(points={{66,-52.4},{76,-52.4},{76,-60},{126,-60},{126,-90}},        color = {0, 0, 255}));
   connect(Desk_PS4.pin_n, GndDC.p) annotation (
-    Line(points={{64,-20.8},{74,-20.8},{74,-34},{126,-34},{126,-90}},        color = {0, 0, 255}));
+    Line(points={{64,-22.4},{74,-22.4},{74,-34},{126,-34},{126,-90}},        color = {0, 0, 255}));
   connect(Desk_PS1.hPin_N, Vin.pin_n) annotation (
-    Line(points={{46,76.4},{-8,76.4},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{46,75.2},{-8,75.2},{-8,90}},    color = {117, 80, 123}));
   connect(Desk_PS2.hPin_N, Vin.pin_n) annotation (
-    Line(points={{48,46.8},{-8,46.8},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{48,45.4},{-8,45.4},{-8,90}},    color = {117, 80, 123}));
   connect(Desk_PS3.hPin_N, Vin.pin_n) annotation (
-    Line(points={{48,14.8},{-8,14.8},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{48,13.4},{-8,13.4},{-8,90}},    color = {117, 80, 123}));
   connect(Desk_PS4.hPin_N, Vin.pin_n) annotation (
-    Line(points={{48,-20.8},{-8,-20.8},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{48,-22.4},{-8,-22.4},{-8,90}},    color = {117, 80, 123}));
   connect(Desk_PS5.hPin_N, Vin.pin_n) annotation (
-    Line(points={{50,-50.8},{-8,-50.8},{-8,90}},    color = {117, 80, 123}));
+    Line(points={{50,-52.4},{-8,-52.4},{-8,90}},    color = {117, 80, 123}));
   connect(Light_6.n, GndDC.p) annotation (
     Line(points = {{-96, -60}, {-134, -60}, {-134, -90}, {126, -90}}, color = {0, 0, 255}));
   connect(Light_2.n, GndDC.p) annotation (
@@ -192,23 +192,23 @@ equation
   connect(Light_3.n, GndDC.p) annotation (
     Line(points = {{-102, 28}, {-134, 28}, {-134, -90}, {126, -90}}, color = {0, 0, 255}));
   connect(Driver_1.pin_n, GndDC.p) annotation (
-    Line(points={{-58,68.8},{-134,68.8},{-134,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{-58,67.4},{-134,67.4},{-134,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Driver_3.pin_n, GndDC.p) annotation (
-    Line(points={{-60,15.2},{-134,15.2},{-134,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{-60,13.6},{-134,13.6},{-134,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Driver_2.pin_n, GndDC.p) annotation (
-    Line(points={{-60,42.8},{-134,42.8},{-134,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{-60,41.4},{-134,41.4},{-134,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Driver_4.pin_n, GndDC.p) annotation (
-    Line(points={{-60,-11.2},{-134,-11.2},{-134,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{-60,-12.6},{-134,-12.6},{-134,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Driver_5.pin_n, GndDC.p) annotation (
-    Line(points={{-60,-39.2},{-134,-39.2},{-134,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{-60,-40.6},{-134,-40.6},{-134,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Driver_6.pin_n, GndDC.p) annotation (
-    Line(points={{-60,-69.2},{-134,-69.2},{-134,-90},{126,-90}},      color = {0, 0, 255}));
+    Line(points={{-60,-70.6},{-134,-70.6},{-134,-90},{126,-90}},      color = {0, 0, 255}));
   connect(Desk_PS3.pin_n, GndDC.p) annotation (
-    Line(points={{66,14.8},{126,14.8},{126,-90}},    color = {0, 0, 255}));
+    Line(points={{66,13.4},{126,13.4},{126,-90}},    color = {0, 0, 255}));
   connect(Desk_PS2.pin_n, GndDC.p) annotation (
-    Line(points={{64,46.8},{126,46.8},{126,-90}},    color = {0, 0, 255}));
+    Line(points={{64,45.4},{126,45.4},{126,-90}},    color = {0, 0, 255}));
   connect(Desk_PS1.pin_n, GndDC.p) annotation (
-    Line(points={{62,76.4},{126,76.4},{126,-90}},    color = {0, 0, 255}));
+    Line(points={{62,75.2},{126,75.2},{126,-90}},    color = {0, 0, 255}));
   connect(Driver_3.PLoss, add.u2) annotation (
     Line(points={{-52,28.8},{-173.2,28.8},{-173.2,13.4}},
                                                        color = {0, 0, 127}));
