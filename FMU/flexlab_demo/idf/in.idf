@@ -2173,7 +2173,7 @@ ThermostatSetpoint:SingleCooling,
 Schedule:File,
   Schedule File ZoneA Temp,               !- Name
   AnyNumber,                              !- Schedule Type Limits Name
-  C:/Users/MSTEEN/AppData/Local/Temp/1/osmodel-1629323263-1/resources/generated_files/schedulefile_mech_15min.csv, !- File Name
+  /home/ubuntu/Projects/BEEAM-flex-dev/FMU/flexlab_ac_dc/schedulefile_mech_15min.csv, !- File Name
   2,                                      !- Column Number
   1,                                      !- Rows to Skip at Top
   8784,                                   !- Number of Hours of Data
