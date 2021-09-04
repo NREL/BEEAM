@@ -48,7 +48,7 @@ deviceTableHeaders = deviceTable(1, :);
 % Structure for column indices
 col = struct();
 
-% Harmonics data columns indices (add more if needed)
+% Device data columns indices (add more if needed)
 col       = struct();
 col.name  = find(strcmp('Device Name', deviceTableHeaders));
 col.dir   = find(strcmp('Directory', deviceTableHeaders));
@@ -79,9 +79,11 @@ for i = (1:nDevices)
   Vnom    = deviceTable{i+1, col.volt}; 
   Inom    = Pnom / Vnom;
   
-  % Use helper function to import the data from CSV
-  convData = import_measured_converter_data( ...
-    fullfile(deviceParentDir, DevDir, "Processed Data"));
+  % Use helper functions to import the data from CSV
+  dataDirectory = fullfile(deviceParentDir, DevDir, "Processed Data");
+  convData = struct();
+  convData.power = import_measured_converter_power_data(dataDirectory);
+  convData.harmonics = import_measured_converter_harmonic_data(dataDirectory);
   
   % Get power data and calculate standby power
   if (standbyThreshold <= 0)

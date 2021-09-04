@@ -29,8 +29,10 @@ Inom = Pnom / Vnom; % A_ac
 hMax = 19;
 
 %% Import Data
-% Use helper function to import the data from CSV
-convData = import_measured_converter_data(dataDirectory);
+% Use helper functions to import the data from CSV
+convData = struct();
+convData.power = import_measured_converter_power_data(dataDirectory);
+convData.harmonics = import_measured_converter_harmonic_data(dataDirectory);
 
 % Note: By default, harmonic samples are grouped and averaged by th
 % "Power Step" column in the CSV file. You can also specify the name of the
