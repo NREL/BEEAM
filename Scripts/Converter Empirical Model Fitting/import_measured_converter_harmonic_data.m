@@ -81,8 +81,21 @@ Sin = Vin .* conj(Iin);
 Pin = real(Sin);
 
 % Groups for averaging harmonics data
-rowGroup = cell2mat(harmonicsTable(2:end, col.grp));
-groups = unique(rowGroup);
+if (iscellstr(harmonicsTable(2:end, col.grp)))
+  % Strings
+  rowGroupRaw = harmonicsTable(2:end, col.grp);
+else
+  % Numbers
+  rowGroupRaw = cell2mat(harmonicsTable(2:end, col.grp));
+end
+
+% Note: Mixed strings and numbers won't work at this time.
+
+% Converts groups to integer indices 1, 2, ...
+[~, ~, rowGroup] = unique(rowGroupRaw);
+
+% Unique values
+groups = sort(unique(rowGroup));
 harms = sort(unique(h));
 
 % Enforce row vectors on grouping sets
