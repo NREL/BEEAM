@@ -30,7 +30,7 @@ model HarmonicPQLoad_convergence_wConverters
     Placement(visible = true, transformation(origin = {16, -76}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground18 annotation(
     Placement(visible = true, transformation(origin = {16, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {-20, -72}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground19 annotation(
     Placement(visible = true, transformation(origin = {-46, -100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -40,7 +40,7 @@ model HarmonicPQLoad_convergence_wConverters
     Placement(visible = true, transformation(origin = {138, -56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground6 annotation(
     Placement(visible = true, transformation(origin = {76, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl aCDC_EmpMdl(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl aCDC_EmpMdl(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {102, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load1(pwr = 66.042) annotation(
     Placement(visible = true, transformation(origin = {52, 60}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -48,7 +48,7 @@ model HarmonicPQLoad_convergence_wConverters
     Placement(visible = true, transformation(origin = {52, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground8 annotation(
     Placement(visible = true, transformation(origin = {-10, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl aCDC_EmpMdl1(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation(
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl aCDC_EmpMdl1(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {16, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.350}) annotation(
     Placement(visible = true, transformation(origin = {22, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

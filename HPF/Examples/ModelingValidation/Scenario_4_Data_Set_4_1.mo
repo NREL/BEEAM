@@ -11,9 +11,9 @@ model Scenario_4_Data_Set_4_1
     Placement(visible = true, transformation(origin = {-90, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-114, -6}, {-94, 14}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_2.mat", nomP = 28) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {154, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_3(P_DCmin = 2, P_stby = 0.44, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat", nomP = 72) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_3(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.44, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-391174-001.mat", nomP = 120, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {54, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {88, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -23,13 +23,13 @@ model Scenario_4_Data_Set_4_1
     Placement(visible = true, transformation(origin = {182, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground6 annotation(
     Placement(visible = true, transformation(origin = {28, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_3.mat", nomP = 28) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {56, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_2(pwr = 0) annotation(
     Placement(visible = true, transformation(origin = {182, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation(
     Placement(visible = true, transformation(origin = {82, -116}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 28) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-1of3.mat", nomP = 25.2, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {56, 58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_3(pwr = 0) annotation(
     Placement(visible = true, transformation(origin = {82, -90}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -37,9 +37,9 @@ model Scenario_4_Data_Set_4_1
     Placement(visible = true, transformation(origin = {88, 54}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation(
     Placement(visible = true, transformation(origin = {88, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P_DCmin = 2, P_stby = 0.33, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_4.mat", nomP = 72) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.33, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {154, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_5.mat", nomP = 72) annotation(
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {48, -134}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Laptop_4(pwr = 0) annotation(
     Placement(visible = true, transformation(origin = {188, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
