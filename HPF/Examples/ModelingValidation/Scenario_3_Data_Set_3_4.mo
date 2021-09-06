@@ -20,7 +20,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(origin = {64, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_2(pwr = 29.027) annotation (
     Placement(visible = true, transformation(origin = {190, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.33, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), P_DCmin = 2, P_stby = 0.33, S1(start = 72), V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120, vAngle = -2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {162, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground17 annotation (
     Placement(visible = true, transformation(origin = {134, -78}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -30,7 +30,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(origin = {92, -164}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Laptop_3(pwr = 70.669) annotation (
     Placement(visible = true, transformation(origin = {96, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120, vAngle(displayUnit = "rad") = -120) annotation (
     Placement(visible = true, transformation(origin = {162, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -14,11 +14,11 @@ model Scenario_4_Data_Set_4_2
     Placement(visible = true, transformation(origin={164,-96},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {192.854}) annotation (
     Placement(visible = true, transformation(origin={28,54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120, vAngle = 2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {36, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_2(pwr = 29.059) annotation (
     Placement(visible = true, transformation(origin={164,-56},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.33, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), P_DCmin = 2, P_stby = 0.33, S1(start = 72), V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120, vAngle = -2.094395102393195) annotation (
     Placement(visible = true, transformation(origin={136,-92},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground17 annotation (
     Placement(visible = true, transformation(origin={106,-108},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -28,7 +28,7 @@ model Scenario_4_Data_Set_4_2
     Placement(visible = true, transformation(origin={86,-164},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Laptop_3(pwr = 70.575) annotation (
     Placement(visible = true, transformation(origin = {68, -6}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120, vAngle = -2.094395102393195) annotation (
     Placement(visible = true, transformation(origin={136,-52},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(origin={-66,-50},     extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -36,7 +36,7 @@ model Scenario_4_Data_Set_4_2
     Placement(visible = true, transformation(origin = {34, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground4 annotation (
     Placement(visible = true, transformation(origin={176,-76},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation (
+  PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P1(start = 72), P_DCmin = 2, P_stby = 0.27, S1(start = 72), V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120, vAngle = 2.094395102393195) annotation (
     Placement(visible = true, transformation(origin={36,-140},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner SystemDef systemDef(fs = 10e3, hrms = {i for i in 1:2:20}) annotation (
     Placement(visible = true, transformation(origin={-130,46},    extent = {{-14, -14}, {14, 10}}, rotation = 0)));

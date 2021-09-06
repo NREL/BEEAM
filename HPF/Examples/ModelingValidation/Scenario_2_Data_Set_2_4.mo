@@ -10,7 +10,7 @@ model Scenario_2_Data_Set_2_4
     Placement(visible = true, transformation(origin = {-82, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation (
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_2(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-2of3.mat", nomP = 25.2, nomV = 120, vAngle = -2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {164, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Power_Supply_1(P1(start = 600), S1(start = 600), P_DCmin = 8, P_stby = 23.34,V_Rect = 48, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-RSP-1000-48.mat", nomP = 1000, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {60, 62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -28,7 +28,7 @@ model Scenario_2_Data_Set_2_4
     Placement(visible = true, transformation(origin = {194, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground6 annotation (
     Placement(visible = true, transformation(origin = {36, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120, vAngle = 2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {64, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_2(pwr = 28.071211) annotation (
     Placement(visible = true, transformation(origin = {194, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -42,13 +42,13 @@ model Scenario_2_Data_Set_2_4
     Placement(visible = true, transformation(origin = {94, 102}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Electrical.Analog.Basic.Ground ground10 annotation (
     Placement(visible = true, transformation(origin = {94, 76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.33,V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_4(P1(start = 72), P_DCmin = 2, P_stby = 0.33, S1(start = 72),V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1900-15C2.mat", nomP = 90, nomV = 120, vAngle = -2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {162, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27,V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Laptop_Charger_5(P1(start = 72), P_DCmin = 2, P_stby = 0.27, S1(start = 72),V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120, vAngle = 2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {56, -142}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Power_Supply_2(P1(start = 400), S1(start = 400), P_DCmin = 10, P_stby = 4.89,V_Rect = 48, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Xunbuma-T-1000-48.mat", nomP = 1000, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Power_Supply_2(P1(start = 400), P_DCmin = 10, P_stby = 4.89, S1(start = 400),V_Rect = 48, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Xunbuma-T-1000-48.mat", nomP = 1000, nomV = 120, vAngle = -2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {164, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Power_Supply_3(P1(start = 1e-2), S1(start = 1e-2), P_DCmin = 10, P_stby = 17.7,V_Rect = 48, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-SE-1000-48.mat", nomP = 1000, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Power_Supply_3(P1(start = 1e-2), P_DCmin = 10, P_stby = 17.7, S1(start = 1e-2),V_Rect = 48, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-SE-1000-48.mat", nomP = 1000, nomV = 120, vAngle = 2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {60, -92}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load Load_2(pwr = 404.776810) annotation (
     Placement(visible = true, transformation(origin = {196, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -129,11 +129,11 @@ equation
     Line(points = {{92, -162}, {92, -156}}, color = {0, 0, 255}));
   connect(ground19.pin, Laptop_Charger_5.hPin_N) annotation (
     Line(points = {{30, -146.75}, {30, -148}, {46, -148}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation (
+  connect(Laptop_Charger_4.hPin_N, ground17.pin) annotation(
     Line(points = {{152, -66}, {151, -66}, {151, -66.75}, {134, -66.75}}, color = {117, 80, 123}));
-  connect(Laptop_Charger_4.pin_p, dC_Load1.p) annotation (
+  connect(Laptop_Charger_4.pin_p, dC_Load1.p) annotation(
     Line(points = {{172, -54}, {196, -54}}, color = {0, 0, 255}));
-  connect(Laptop_Charger_4.pin_n, dC_Load1.n) annotation (
+  connect(Laptop_Charger_4.pin_n, dC_Load1.n) annotation(
     Line(points = {{172, -66}, {192, -66}, {192, -70}, {196, -70}, {196, -74}}, color = {0, 0, 255}));
   connect(ground16.p, dC_Load1.n) annotation (
     Line(points = {{196, -80}, {196, -74}}, color = {0, 0, 255}));
@@ -163,7 +163,7 @@ equation
     Line(points = {{-86, 8}, {0, 8}, {0, -18}, {122, -18}, {122, 38}, {154, 38}}, color = {92, 53, 102}));
   connect(Power_Supply_2.hPin_P, LED_Driver_2.hPin_P) annotation (
     Line(points = {{154, -8}, {122, -8}, {122, 38}, {154, 38}}, color = {92, 53, 102}));
-  connect(Laptop_Charger_4.hPin_P, LED_Driver_2.hPin_P) annotation (
+  connect(Laptop_Charger_4.hPin_P, LED_Driver_2.hPin_P) annotation(
     Line(points = {{152, -54}, {122, -54}, {122, 38}, {154, 38}}, color = {92, 53, 102}));
   connect(deltaWye.pinSec_C, LED_Driver_3.hPin_P) annotation (
     Line(points = {{-86, 0}, {-24, 0}, {-24, -40}, {54, -40}}, color = {92, 53, 102}));
