@@ -14,6 +14,10 @@ These files contain the annual 15 minute interval data used by the `Schedule Fil
 
 These files contain the measured data for the architectural calibration (zone and plenum temperature in Celsius) and the mechanical calibration (cooling load and fan power in Watts).
 
+## /notebooks
+
+This folder contains Jupyter Notebooks to create supporting data files and plots.
+
 ## /pat_project
 
 Self-contained folder for the PAT project. When opening this folder in the PAT application, the following changes will need to be made to successfully run the project.
