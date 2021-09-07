@@ -7508,7 +7508,7 @@ OS:Schedule:Day,
   ,                                       !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
-  0;                                      !- Value Until Time 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {2594eebb-c440-4ff5-aff6-96eb27ef6796}, !- Handle
@@ -8044,34 +8044,6 @@ OS:Schedule:Day,
   {9e45c5a9-6508-494f-98bd-924cf65ee6c0}, !- Handle
   Schedule Day 19,                        !- Name
   {ea394cd2-8788-482c-86a6-b141aff364d6}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
-  24,                                     !- Hour 1
-  0,                                      !- Minute 1
-  1;                                      !- Value Until Time 1
-
-OS:Schedule:Rule,
-  {175c3e77-bc2a-437b-8b7a-2d97f7ac0326}, !- Handle
-  Zone Mixing Schedule Arch Calibration,  !- Name
-  {b7a459ca-a154-4c40-bb7c-fc0eace5a330}, !- Schedule Ruleset Name
-  0,                                      !- Rule Order
-  {63db4ab1-97c7-47e4-aa3f-089e9aa5808c}, !- Day Schedule Name
-  Yes,                                    !- Apply Sunday
-  Yes,                                    !- Apply Monday
-  Yes,                                    !- Apply Tuesday
-  Yes,                                    !- Apply Wednesday
-  Yes,                                    !- Apply Thursday
-  Yes,                                    !- Apply Friday
-  Yes,                                    !- Apply Saturday
-  DateRange,                              !- Date Specification Type
-  10,                                     !- Start Month
-  28,                                     !- Start Day
-  11,                                     !- End Month
-  4;                                      !- End Day
-
-OS:Schedule:Day,
-  {63db4ab1-97c7-47e4-aa3f-089e9aa5808c}, !- Handle
-  Schedule Day 2,                         !- Name
-  {fbc68cce-56d8-40d5-8b75-8a3f38e3adfb}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
