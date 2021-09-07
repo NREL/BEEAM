@@ -1,6 +1,6 @@
 # Summary
 
-This directory contains the [OpenStudio Parametric Analysis Tool (PAT)](https://github.com/NREL/OpenStudio-PAT) project that was used to calibrate the whole-building model to measured data and produce the `in.idf` for the co-simulation. 
+This directory contains the [OpenStudio Parametric Analysis Tool (PAT)](https://github.com/NREL/OpenStudio-PAT) (version 3.1.0) project that was used to calibrate the whole-building model to measured data and produce the `in.idf` for the co-simulation.
 
 ## /data
 
@@ -28,7 +28,7 @@ This folder contains the measures used in the PAT project. See the README files 
 
 ### /seeds
 
-This folder contains the OpenStudio Models used in the PAT project, described below.
+This folder contains the OpenStudio Models (version 3.1.0) used in the PAT project, described below.
 
 #### FLEXLAB_X3_1arch.osm
 
