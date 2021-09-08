@@ -11,7 +11,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File ZoneB Lights",
           "measure_definition_name": "whole_building_schedule_file",
           "measure_definition_name_xml": null,
@@ -128,7 +128,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File PlnmB Lights Drivers",
           "measure_definition_name": "whole_building_schedule_file_2",
           "measure_definition_name_xml": null,
@@ -245,7 +245,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File ZoneB Plugs",
           "measure_definition_name": "whole_building_schedule_file_3",
           "measure_definition_name_xml": null,
@@ -362,7 +362,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File ZoneB Plugs Converters",
           "measure_definition_name": "whole_building_schedule_file_4",
           "measure_definition_name_xml": null,
@@ -479,7 +479,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File ZoneB Misc",
           "measure_definition_name": "whole_building_schedule_file_5",
           "measure_definition_name_xml": null,
@@ -596,7 +596,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File PlnmB DC Hub",
           "measure_definition_name": "whole_building_schedule_file_6",
           "measure_definition_name_xml": null,
@@ -713,7 +713,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File ZoneB Fans",
           "measure_definition_name": "whole_building_schedule_file_7",
           "measure_definition_name_xml": null,
@@ -830,7 +830,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File PlnmB Fans",
           "measure_definition_name": "whole_building_schedule_file_8",
           "measure_definition_name_xml": null,
@@ -947,7 +947,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "WholeBuildingScheduleFile",
           "measure_definition_directory": "./measures/gen_schedule_file",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\gen_schedule_file",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\gen_schedule_file",
           "measure_definition_display_name": "Schedule File ZoneA Temp",
           "measure_definition_name": "whole_building_schedule_file_9",
           "measure_definition_name_xml": null,
@@ -1064,7 +1064,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "AdjustThermostatSetpointsByDegreesCopy",
           "measure_definition_directory": "./measures/mech_adjust_thermostat_setpoints_by_degrees_copy",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\mech_adjust_thermostat_setpoints_by_degrees_copy",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\mech_adjust_thermostat_setpoints_by_degrees_copy",
           "measure_definition_display_name": "Adjust Thermostat Setpoints by Degrees Copy",
           "measure_definition_name": "mech_adjust_thermostat_setpoints_by_degrees_copy",
           "measure_definition_name_xml": null,
@@ -1165,16 +1165,20 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
+                        "value": true,
+                        "weight": 0.25
+                      },
+                      {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -1192,7 +1196,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "ZoneMixing",
           "measure_definition_directory": "./measures/mech_zone_mixing",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\mech_zone_mixing",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\mech_zone_mixing",
           "measure_definition_display_name": "Zone Mixing",
           "measure_definition_name": "zone_mixing",
           "measure_definition_name_xml": null,
@@ -1341,16 +1345,20 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
+                        "value": true,
+                        "weight": 0.25
+                      },
+                      {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -1368,7 +1376,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "SimpleGlazing",
           "measure_definition_directory": "./measures/arch_simple_glazing",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\arch_simple_glazing",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\arch_simple_glazing",
           "measure_definition_display_name": "Simple Glazing",
           "measure_definition_name": "simple_glazing",
           "measure_definition_name_xml": null,
@@ -1404,7 +1412,78 @@
               "value": 0.36
             }
           ],
-          "variables": [],
+          "variables": [
+            {
+              "argument": {
+                "display_name": "Skip Simple Glazing",
+                "display_name_short": "Skip entire measure",
+                "name": "__SKIP__",
+                "value_type": "boolean",
+                "default_value": false,
+                "value": false
+              },
+              "display_name": "Skip Simple Glazing",
+              "display_name_short": "Skip entire measure",
+              "variable_type": "variable",
+              "units": null,
+              "minimum": false,
+              "maximum": true,
+              "relation_to_output": null,
+              "static_value": false,
+              "variable": true,
+              "uncertainty_description": {
+                "attributes": [
+                  {
+                    "name": "discrete",
+                    "values_and_weights": []
+                  },
+                  {
+                    "name": "lower_bounds",
+                    "value": false
+                  },
+                  {
+                    "name": "upper_bounds",
+                    "value": false
+                  },
+                  {
+                    "name": "modes",
+                    "value": false
+                  },
+                  {
+                    "name": "delta_x",
+                    "value": null
+                  },
+                  {
+                    "name": "stddev",
+                    "value": null
+                  },
+                  {
+                    "name": "discrete",
+                    "values_and_weights": [
+                      {
+                        "value": true,
+                        "weight": 0.25
+                      },
+                      {
+                        "value": false,
+                        "weight": 0.25
+                      },
+                      {
+                        "value": false,
+                        "weight": 0.25
+                      },
+                      {
+                        "value": false,
+                        "weight": 0.25
+                      }
+                    ]
+                  }
+                ],
+                "type": "discrete"
+              },
+              "workflow_index": 0
+            }
+          ],
           "workflow_index": 11
         },
         {
@@ -1413,7 +1492,7 @@
           "measure_type": "RubyMeasure",
           "measure_definition_class_name": "ZoneHVACPackagedTerminalAirConditioner",
           "measure_definition_directory": "./measures/mech_zone_hvac_packaged_terminal_air_conditioner",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\mech_zone_hvac_packaged_terminal_air_conditioner",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\mech_zone_hvac_packaged_terminal_air_conditioner",
           "measure_definition_display_name": "ZoneHVAC Packaged Terminal Air Conditioner",
           "measure_definition_name": "zone_hvac_packaged_terminal_air_conditioner",
           "measure_definition_name_xml": null,
@@ -1507,15 +1586,19 @@
                     "values_and_weights": [
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": true,
+                        "weight": 0.25
                       },
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -1533,7 +1616,7 @@
           "measure_type": "ReportingMeasure",
           "measure_definition_class_name": "OpenStudioResults",
           "measure_definition_directory": "./measures/da737820-833d-4734-8131-f962d58ea8e2",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\da737820-833d-4734-8131-f962d58ea8e2",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\da737820-833d-4734-8131-f962d58ea8e2",
           "measure_definition_display_name": "OpenStudio Results",
           "measure_definition_name": "openstudio_results",
           "measure_definition_name_xml": null,
@@ -1762,15 +1845,19 @@
                     "values_and_weights": [
                       {
                         "value": "IP",
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": "IP",
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": "IP",
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": "IP",
+                        "weight": 0.25
                       }
                     ]
                   },
@@ -1807,7 +1894,7 @@
           "measure_type": "ReportingMeasure",
           "measure_definition_class_name": "TimeSeriesObjectiveFunctionCopy",
           "measure_definition_directory": "./measures/rep_time_series_objective_function_copy",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\rep_time_series_objective_function_copy",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\rep_time_series_objective_function_copy",
           "measure_definition_display_name": "TimeSeries Objective Function Copy ZoneB",
           "measure_definition_name": "time_series_objective_function_copy",
           "measure_definition_name_xml": null,
@@ -1951,8 +2038,8 @@
               "display_name_short": "plot_name",
               "name": "plot_name",
               "value_type": "string",
-              "default_value": "Arch Calibration ZoneB Temp",
-              "value": "Arch Calibration ZoneB Temp"
+              "default_value": "Calibration Arch Zone",
+              "value": "Calibration Arch Zone"
             },
             {
               "display_name": "verbose_messages",
@@ -2037,15 +2124,19 @@
                     "values_and_weights": [
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": false,
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -2063,7 +2154,7 @@
           "measure_type": "ReportingMeasure",
           "measure_definition_class_name": "TimeSeriesObjectiveFunctionCopy",
           "measure_definition_directory": "./measures/rep_time_series_objective_function_copy",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\rep_time_series_objective_function_copy",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\rep_time_series_objective_function_copy",
           "measure_definition_display_name": "TimeSeries Objective Function Copy PlnmB",
           "measure_definition_name": "time_series_objective_function_copy_2",
           "measure_definition_name_xml": null,
@@ -2207,8 +2298,8 @@
               "display_name_short": "plot_name",
               "name": "plot_name",
               "value_type": "string",
-              "default_value": "Arch Calibration PlnmB Temp ",
-              "value": "Arch Calibration PlnmB Temp "
+              "default_value": "Calibration Arch Plnm",
+              "value": "Calibration Arch Plnm"
             },
             {
               "display_name": "verbose_messages",
@@ -2293,15 +2384,19 @@
                     "values_and_weights": [
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
+                      },
+                      {
+                        "value": false,
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -2319,7 +2414,7 @@
           "measure_type": "ReportingMeasure",
           "measure_definition_class_name": "TimeSeriesObjectiveFunctionCopy",
           "measure_definition_directory": "./measures/rep_time_series_objective_function_copy",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\rep_time_series_objective_function_copy",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\rep_time_series_objective_function_copy",
           "measure_definition_display_name": "TimeSeries Objective Function Copy Clg",
           "measure_definition_name": "time_series_objective_function_copy_2_2",
           "measure_definition_name_xml": null,
@@ -2463,8 +2558,8 @@
               "display_name_short": "plot_name",
               "name": "plot_name",
               "value_type": "string",
-              "default_value": "Mech Calibration Clg",
-              "value": "Mech Calibration Clg"
+              "default_value": "Calibration Mech Clg",
+              "value": "Calibration Mech Clg"
             },
             {
               "display_name": "verbose_messages",
@@ -2548,16 +2643,20 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
+                        "value": false,
+                        "weight": 0.25
+                      },
+                      {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -2575,7 +2674,7 @@
           "measure_type": "ReportingMeasure",
           "measure_definition_class_name": "TimeSeriesObjectiveFunctionCopy",
           "measure_definition_directory": "./measures/rep_time_series_objective_function_copy",
-          "measure_definition_directory_local": "C:\\pat_project - Copy\\measures\\rep_time_series_objective_function_copy",
+          "measure_definition_directory_local": "C:\\pat_project\\measures\\rep_time_series_objective_function_copy",
           "measure_definition_display_name": "TimeSeries Objective Function Copy Fan",
           "measure_definition_name": "time_series_objective_function_copy_2_2_2",
           "measure_definition_name_xml": null,
@@ -2719,8 +2818,8 @@
               "display_name_short": "plot_name",
               "name": "plot_name",
               "value_type": "string",
-              "default_value": "Mech Calibration Fan",
-              "value": "Mech Calibration Fan"
+              "default_value": "Calibration Mech Fan",
+              "value": "Calibration Mech Fan"
             },
             {
               "display_name": "verbose_messages",
@@ -2804,16 +2903,20 @@
                     "name": "discrete",
                     "values_and_weights": [
                       {
+                        "value": false,
+                        "weight": 0.25
+                      },
+                      {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": false,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       },
                       {
                         "value": true,
-                        "weight": 0.3333333333333333
+                        "weight": 0.25
                       }
                     ]
                   }
@@ -2831,6 +2934,123 @@
       },
       "analysis_type": null,
       "design_alternatives": [
+        {
+          "name": "Uncalibrated",
+          "seed": {
+            "file_type": "OSM",
+            "path": "./seeds/FLEXLAB_X3_0uncal.osm"
+          },
+          "options": [
+            {
+              "measure_name": "whole_building_schedule_file",
+              "workflow_index": 0,
+              "name": "Schedule File ZoneB Lights",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_2",
+              "workflow_index": 1,
+              "name": "Schedule File PlnmB Lights Drivers",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_3",
+              "workflow_index": 2,
+              "name": "Schedule File ZoneB Plugs",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_4",
+              "workflow_index": 3,
+              "name": "Schedule File ZoneB Plugs Converters",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_5",
+              "workflow_index": 4,
+              "name": "Schedule File ZoneB Misc",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_6",
+              "workflow_index": 5,
+              "name": "Schedule File PlnmB DC Hub",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_7",
+              "workflow_index": 6,
+              "name": "Schedule File ZoneB Fans",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_8",
+              "workflow_index": 7,
+              "name": "Schedule File PlnmB Fans",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "whole_building_schedule_file_9",
+              "workflow_index": 8,
+              "name": "Schedule File ZoneA Temp",
+              "description": "Option 1 Description: "
+            },
+            {
+              "measure_name": "mech_adjust_thermostat_setpoints_by_degrees_copy",
+              "workflow_index": 9,
+              "name": "mech_adjust_thermostat_setpoints_by_degrees_copy",
+              "description": "This measure adjusts heating and cooling setpoints by a user specified number of degrees. This is applied throughout the entire building."
+            },
+            {
+              "measure_name": "zone_mixing",
+              "workflow_index": 10,
+              "name": "zone_mixing",
+              "description": "This measure adds a ZoneMixing object to the model."
+            },
+            {
+              "measure_name": "simple_glazing",
+              "workflow_index": 11,
+              "name": "simple_glazing",
+              "description": "Sets SimpleGlazing object(s) properties."
+            },
+            {
+              "measure_name": "zone_hvac_packaged_terminal_air_conditioner",
+              "workflow_index": 12,
+              "name": "zone_hvac_packaged_terminal_air_conditioner",
+              "description": "This measure gets one or all Packaged Terminal Air Conditioner(s) in the model and sets the(ir) properties. Currently does not support setting heating or cooling coil properties."
+            },
+            {
+              "measure_name": "openstudio_results",
+              "workflow_index": 13,
+              "name": "results",
+              "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+            },
+            {
+              "measure_name": "time_series_objective_function_copy",
+              "workflow_index": 14,
+              "name": "arch cal zone",
+              "description": "Option 1 Description: Creates Objective Function from Timeseries Data"
+            },
+            {
+              "measure_name": "time_series_objective_function_copy_2",
+              "workflow_index": 15,
+              "name": "arch cal plnm",
+              "description": "Option 1 Description: Creates Objective Function from Timeseries Data"
+            },
+            {
+              "measure_name": "time_series_objective_function_copy_2_2",
+              "workflow_index": 16,
+              "name": "mech cal clg",
+              "description": "Option 1 Description: Creates Objective Function from Timeseries Data"
+            },
+            {
+              "measure_name": "time_series_objective_function_copy_2_2_2",
+              "workflow_index": 17,
+              "name": "mech cal fan",
+              "description": "Option 1 Description: Creates Objective Function from Timeseries Data"
+            }
+          ]
+        },
         {
           "name": "Architectural Calibration",
           "options": [
