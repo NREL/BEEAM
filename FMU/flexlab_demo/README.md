@@ -14,19 +14,23 @@ The co-simulation models in this directory combine a thermal model of FLEXLAB wi
 - **flexlab_ac.mo**: Modelica model of the AC distribution configuration, with embedded FMU
 - **flexlab_dc.mo**: Modelica model of the DC distribution configuration, with embedded FMU
 
-### /openstudio
+### /1_openstudio
 
 This directory contains the [OpenStudio Parametric Analysis Tool (PAT)](https://github.com/NREL/OpenStudio-PAT) (version 3.1.0) project that was used to calibrate the whole-building model to measured data and produce the `in.idf` for the co-simulation.
 
-### idf - @brianlball rename `energyplus`?
+### /2_energyplus
 
 Contains the EnergyPlus input description file (IDF) `in.idf` and supporting files required to build the FMU.
 
-### fmu
+### /3_fmu
 
-Contains the functional mockup unit (FMU) `in.fmu` built from the EnergyPlus IDF.
+Contains the functional mockup units (FMU) `in.fmu` built from the EnergyPlus IDF for Ubuntu and Windows 64 bit.
 
-### /notebooks
+### /4_modelica
+
+Contains the Modelica models for the AC and DC experiments.
+
+### /5_notebooks
 
 ***TO DO:** @MatthewSteen to include data processing Python scripts and document them (at a high level) here. Data files should be excluded, but cross-referenced to elsewhere (ultimately to NREL data warehouse?)*
 
