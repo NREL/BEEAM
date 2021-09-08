@@ -34,6 +34,10 @@ This folder contains the measures used in the PAT project. See the README files 
 
 This folder contains the OpenStudio Models (version 3.1.0) used in the PAT project, described below.
 
+#### FLEXLAB_X3_0uncal.osm
+
+Uncalibrated model for reference.
+
 #### FLEXLAB_X3_1arch.osm
 
 This OpenStudio model was used for the architectural calibration from Oct 30 - Nov 4, 2020 with a preceding warmup period from Oct 28-29. During this period it was assumed that unidirectional air mixing from the occupied zone to the plenum zone occurred due to natural convection when the mechanical system was not operating.
