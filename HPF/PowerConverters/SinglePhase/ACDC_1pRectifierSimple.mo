@@ -8,7 +8,7 @@ model ACDC_1pRectifierSimple
   Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = VDC_nom) annotation(
     Placement(visible = true, transformation(origin = {30, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   
-  // AC measurements: Phases A, B, C
+  // AC measurements
   Real I_arg_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.v);
