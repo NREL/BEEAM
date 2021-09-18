@@ -4,17 +4,13 @@ model ACDC_1pRectifierSimple
   extends HPF.PowerConverters.SinglePhase.ACDC_1pConverterBase;
   import Modelica.ComplexMath.j;
   
-  // DC output: voltage controlled
-  Modelica.Electrical.Analog.Sources.ConstantVoltage vDC(V = VDC_nom) annotation(
-    Placement(visible = true, transformation(origin = {30, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  
   // AC measurements
-  Real I_arg_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.v);
   
-  // Power at fundamental
+  // Reactive power at fundamental
   Real P1(start = P_nom) "Real power at fundamental";
   Real S1(start = P_nom) "Apparent power at fundamental";
   Real Q1(start = 0) "Reactive power at fundamental";
@@ -26,22 +22,20 @@ model ACDC_1pRectifierSimple
   Real P_AC(start = P_nom) "Total AC power input";
   
   // DC power output
-  Real P_DC = vDC.v * (-vDC.i) "Total DC power output";
-  
-  // Loss (internal use)
-  Real P_Loss(start = 0);
-  
+  Real P_DC = -DC_Port.pwr "Total DC power output";
 equation
+  // Control DC output voltage
+  DC_Port.v = VDC_nom;
+  
   // Loss calculation
   P_Loss = 0.0 * P_DC; // TO IMPLEMENT LATER
   
   // Real/reactive/apparent power at fundamental
   P1 = P_AC - sum(P_h[2:1:systemDef.numHrm]);
   Q1 = 0; // PF = 1 in this simple model
-  S1^2 = P1^2 + Q1^2;
+  S1 ^ 2 = P1 ^ 2 + Q1 ^ 2;
   
   // Energy balance
-  P_AC = sum(P_h[:]);
   P_AC = P_DC + P_Loss;
   
   // Current injections: fundamental
@@ -51,14 +45,7 @@ equation
   // Current injections: harmonics h > 1
   phaseLN.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm - 1};
   
-  // Loss output
-  PLoss = P_Loss;
-  
-  // Connections
-  connect(vDC.p, pin_p) annotation(
-    Line(points = {{30, 0}, {30, 40}, {80, 40}}, color = {0, 0, 255}));
-  connect(vDC.n, pin_n) annotation(
-    Line(points = {{30, -20}, {30, -60}, {80, -60}}, color = {0, 0, 255}));
-annotation(
+  // Annotation
+  annotation(
     Icon);
 end ACDC_1pRectifierSimple;

@@ -2,5 +2,6 @@ ACDC_EmpMdl
 ACDC_ParameterizedMdl
 ACDC_1pRectifierSimple
 ACDC_1pInverterSimple
+ACDC_1pBidirectionalSimple
 GroupedConverters
 ACDC_1pConverterBase

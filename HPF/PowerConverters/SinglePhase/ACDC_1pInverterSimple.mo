@@ -4,12 +4,8 @@ model ACDC_1pInverterSimple
   extends HPF.PowerConverters.SinglePhase.ACDC_1pConverterBase(phaseLN.start_i_im = cat(1, {-IAC_nom * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), phaseLN.start_i_re = cat(1, {-IAC_nom * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}));
   import Modelica.ComplexMath.j;
 
-  // DC connection
-  HPF.DC.DC_Port DC_Input annotation(
-    Placement(visible = true, transformation(origin = {20, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  
   // AC measurements
-  Real I_arg_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.v);
@@ -26,10 +22,8 @@ model ACDC_1pInverterSimple
   Real P_AC(start = P_nom) "Total AC power output";
   
   // DC power input
-  Real P_DC = DC_Input.v * DC_Input.i "Total DC power input";
+  Real P_DC = DC_Port.pwr "Total DC power input";
   
-  // Loss (internal use)
-  Real P_Loss(start = 0);
 equation
   // Loss calculation
   P_Loss = 0.0 * P_AC; // TO IMPLEMENT LATER
@@ -40,7 +34,6 @@ equation
   S1 ^ 2 = P1 ^ 2 + Q1 ^ 2;
   
   // Energy balance
-  P_AC = sum(P_h[:]);
   P_DC = P_AC + P_Loss;
   
   // Current injections: fundamental (negative sign to reverse power flow direction)
@@ -50,16 +43,7 @@ equation
   // Current injections: harmonics h > 1
   phaseLN.i[2:1:systemDef.numHrm] = {-1*Complex(0, 0) for i in 1:systemDef.numHrm - 1};
   
-  // Loss output
-  PLoss = P_Loss;
-  
-  // Connections
-  connect(DC_Input.p, pin_p) annotation(
-    Line(points = {{20, 0}, {20, 40}, {80, 40}}, color = {0, 0, 255}));
-  connect(DC_Input.n, pin_n) annotation(
-  
-  Line(points = {{20, -20}, {20, -60}, {80, -60}}, color = {0, 0, 255}));
-  
+  // Annotation
   annotation(
     Icon);
 end ACDC_1pInverterSimple;
