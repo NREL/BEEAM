@@ -17,10 +17,11 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
     P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
   alpha, beta, and gamma are now normalized with respect to nominal power
   */
-  Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC)) * (P_DC + nomP * (alpha[1, 1] + beta[1, 1] * (P_DC/nomP) + gamma[1, 1] * (P_DC/nomP)^2)) "Real power on AC side";
+    Real P = P_DC + HPF.PowerConverters.HelperFunctions.homotopyTransition(P_DC, 0, P_DCmin, P_stby, (nomP * (alpha[1, 1] + beta[1, 1] * (P_DC/nomP) + gamma[1, 1] * (P_DC/nomP)^2))) "Real power on AC side";
+  
   /*
-          Measurements
-      */
+    Measurements
+  */
   Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
@@ -50,12 +51,11 @@ protected
   
   // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = {Complex(cos(argAdj[i]), sin(argAdj[i])) for i in 1:systemDef.numHrm - 1};
-  Real tmp_Ph[systemDef.numHrm - 1] "Real power at h > 1";
+  
 equation
   
   // Power draw at the fundamental
-  tmp_Ph[:] = loadBase.v[2:systemDef.numHrm].re .* loadBase.i[2:systemDef.numHrm].re .+ loadBase.v[2:systemDef.numHrm].im .* loadBase.i[2:systemDef.numHrm].im;
-  P1 = P - sum(tmp_Ph); // Power at harmonics > 1.
+  P1 = P - sum(loadBase.v[2:systemDef.numHrm].re .* loadBase.i[2:systemDef.numHrm].re .+ loadBase.v[2:systemDef.numHrm].im .* loadBase.i[2:systemDef.numHrm].im); // Power at harmonics > 1.
   
   /*
     Solve for imaginary power Q_1 (fundamental). 

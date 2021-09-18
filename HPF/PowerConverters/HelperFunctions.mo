@@ -4,17 +4,17 @@ package HelperFunctions
 
   function stbyPwrTransition
     extends Modelica.Icons.Function;
-    input Real P_DCmin "Minimum DC power to start the transition";
-    input Real P_stby "Standby AC input power";
-    input Real P_DC "DC power";
+    input Real P_out_min "Minimum output power to start the transition";
+    input Real P_in_stby "Standby input power";
+    input Real P_out "Output power";
     output Real p "Output coefficient";
   algorithm
-    if P_DC > P_DCmin then
+    if P_out > P_out_min then
       p := 0;
-    elseif P_stby == 0 then
+    elseif P_in_stby == 0 then
       p := 0;
     else
-      p := (P_DCmin - P_DC) ./ P_DCmin;
+      p := (P_out_min - P_out) ./ P_out_min;
     end if;
 // using efficiency relation
 // using efficiency relation, standby power not specified
@@ -48,5 +48,37 @@ package HelperFunctions
   annotation(
       Documentation(info = "<html><head></head><body>Phase angle modeling using a polynomial function in 2 variables.<div><br></div><div>z = p00 + p10*x + p01*y + p11*x*y + p02*y^2</div></body></html>"));
   end harmonicPhaseAngleModel;
+  
+  function homotopyTransition
+    // TO DO: Move this helper function elsewhere more generic in the library.
+    // (Leaving here for now because it was easiest to create here.)
+    extends Modelica.Icons.Function;
+    
+    // Implemnents linear homotopy function H: (x,lambda) => (1-lambda)*F(x) + lambda*G(x)
+    // Input x maps to t = 0 at the lower boundary and lambda = 1 at the upper boundary
+    input Real x "Transition variable to map";
+    input Real Lower "Lower transition point for x";
+    input Real Upper "Upper transition point for x";
+    input Real Fval "Value of function F(x)";
+    input Real Gval "Value of function G(x)";
+    output Real H "Value of H";
+    protected Real lambda;
+  algorithm
+    // Compute lambda
+    if (Upper == Lower) and (x >= Upper) then
+      lambda := 1;
+    elseif (Upper == Lower) and (x < Lower) then
+      lambda := 0;
+    else 
+      lambda := min(max(0, (x - Lower) / (Upper - Lower)), 1);
+    end if;
+    
+    // Value of H(x)
+    H := (1-lambda)*Fval + lambda*Gval;
+    annotation(
+      Documentation(info = "<html>
+  <p>Helper function to implement the <a href=\"https://en.wikipedia.org/wiki/Homotopy\">linear homotopy operation</a> with convenience scaling.</p>
+  </html>"));
+  end homotopyTransition;
 
 end HelperFunctions;
