@@ -4,6 +4,15 @@ model ACDC_1pInverterSimple
   extends HPF.PowerConverters.SinglePhase.ACDC_1pConverterBase(phaseLN.start_i_im = cat(1, {-IAC_nom * sin(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}), phaseLN.start_i_re = cat(1, {-IAC_nom * cos(vAngle)}, {0.0 for i in 1:systemDef.numHrm - 1}));
   import Modelica.ComplexMath.j;
 
+  // Loss model parameters
+  parameter Real alpha = 0.0 "Loss model constant term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real beta =  0.1 "Loss model linear term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real gamma = 0.0 "Loss model quadratic term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Modelica.SIunits.Power P_stby = 0 "Standby (night tare) loss" annotation(Dialog(group="Converter Loss Model"));
+  
+  // Power factor parameters
+  parameter Real PF = 1.0 "Operating power factor at fundamental frequency: + for lag, - for lead" annotation(Dialog(group="Control"));
+  
   // AC measurements
   Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
@@ -12,7 +21,6 @@ model ACDC_1pInverterSimple
   
   // Power at fundamental
   Real P1(start = P_nom) "Real power at fundamental";
-  Real S1(start = P_nom) "Apparent power at fundamental";
   Real Q1(start = 0) "Reactive power at fundamental";
   
   // Power at all harmonics
@@ -26,12 +34,11 @@ model ACDC_1pInverterSimple
   
 equation
   // Loss calculation
-  P_Loss = 0.0 * P_AC; // TO IMPLEMENT LATER
+  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, -P_stby, 0, P_stby, (P_nom * (alpha + beta * (P_AC/P_nom) + gamma * (P_AC/P_nom)^2)));
   
   // Real/reactive/apparent power at fundamental
   P1 = P_AC - sum(P_h[2:1:systemDef.numHrm]);
-  Q1 = 0; // PF = 1 in this simple model
-  S1 ^ 2 = P1 ^ 2 + Q1 ^ 2;
+  Q1 = sign(PF) * P1 * sqrt(1/(PF^2) - 1);
   
   // Energy balance
   P_DC = P_AC + P_Loss;
@@ -45,5 +52,10 @@ equation
   
   // Annotation
   annotation(
-    Icon);
+    Icon,
+    Documentation(info = "<html><head></head><body>
+<div>Simple single-phase DC/AC converter (inverter) model.</div><div><h3>Harmonics Model</h3></div><div>This device operates with zero harmonic distortion and fixed, user-specified power factor (default PF = 1). Harmonic currents are zero for all h &gt; 1.</div><h3>Efficiency Model</h3><div>This device uses a two-stage efficiency model:</div>
+<div><img src=\"modelica://HPF/Resources/images/PowerConverters/eq_2stagelossmodel_inverter.png\"></div>
+<div>For AC output power greater than zero, the loss is modeled as a quadratic function of inverter output. For AC output power less than or equal to zero, the loss is a fixed standby, or \"night tare\", value. (When AC output power is less than zero, it represents standby losses drawn from the AC grid.) A homotopy function is used to ensure a smooth transition between the quadratic loss model and the standby power loss. The homotopy function is implemented by the&nbsp;<a href=\"modelica://HPF.PowerConverters.HelperFunctions.homotopyTransition\">homotopyTransition</a> function.
+</div></body></html>"));
 end ACDC_1pInverterSimple;
