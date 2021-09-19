@@ -1,6 +1,7 @@
 within HPF.PowerConverters.SinglePhase;
 
 partial model ACDC_1pConverterBase
+  // TO DO: Organize this class elsewhere in the library?
   // Harmonic system definition
   outer SystemDef systemDef;
   // Device Ratings

@@ -43,7 +43,7 @@ equation
     (P_nom * (alpha_ACDC + beta_ACDC * (P_DC/P_nom) + gamma_ACDC * (P_DC/P_nom)^2))
     );
 
-  // Real/reactive/apparent power at fundamental
+  // Real/reactive power at fundamental
   P1 = P_AC - sum(P_h[2:1:systemDef.numHrm]);
   Q1 = sign(PF) * P1 * sqrt(1/(PF^2) - 1);
   
@@ -60,8 +60,9 @@ equation
   annotation(
     Icon,
     Documentation(info = "<html><head></head><body>
-<div>Simple single-phase AC/DC bidirectional converter model.</div><div><h3>Sign Convention</h3><div>AC power P<sub>AC</sub> is defined as&nbsp;<i>into</i>&nbsp;the AC terminal and DC power P<sub>DC</sub> is defined as <i>out of</i>&nbsp;the DC terminal. For positive P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is importing power from the AC grid; for negative P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is exporting power to the AC grid.</div><h3>Harmonics Model</h3></div><div>This device operates with zero harmonic distortion and fixed, user-specified power factor (default PF = 1). Harmonic currents are zero for all h &gt; 1.</div><h3>Efficiency Model</h3><div>The AC/DC (rectifier) and DC/AC (inverter) stages of the converter use separate loss models:</div>
-<div><img src=\"modelica://HPF/Resources/images/PowerConverters/eq_2stagelossmodel_bidirectional.png\"></div>
-<div>For power import (AC to DC power transfer), losses are modeled as a quadratic function of the DC output power P<sub>DC</sub>. For power export (DC to AC power transfer), losses are modeled as a quadratic function of the AC output power (negative of input power, <i>i.e.</i>,&nbsp;−P<sub>AC</sub>). A homotopy function is used to ensure a smooth transition between the two quadratic loss models. The homotopy function is implemented by the&nbsp;<a href=\"modelica://HPF.PowerConverters.HelperFunctions.homotopyTransition\">homotopyTransition</a> function.</div>
+<p>Simple single-phase AC/DC bidirectional converter model.</p><p><h3>Sign Convention</h3><p>AC power P<sub>AC</sub> is defined as&nbsp;<i>into</i>&nbsp;the AC terminal and DC power P<sub>DC</sub> is defined as <i>out of</i>&nbsp;the DC terminal. For positive P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is importing power from the AC grid; for negative P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is exporting power to the AC grid.</p><h3>Harmonics Model</h3></p><p>This device operates with zero harmonic distortion and fixed, user-specified power factor (default PF = 1). Harmonic currents are zero for all h &gt; 1.</p><h3>Efficiency Model</h3><p>The AC/DC (rectifier) and DC/AC (inverter) stages of the converter use separate loss models:</p>
+<p><img src=\"modelica://HPF/Resources/images/PowerConverters/eq_2stagelossmodel_bidirectional.png\"></p>
+<p>For power import (AC to DC power transfer), losses are modeled as a quadratic function of the DC output power P<sub>DC</sub>. For power export (DC to AC power transfer), losses are modeled as a quadratic function of the AC output power (negative of input power, <i>i.e.</i>,&nbsp;−P<sub>AC</sub>). A homotopy function is used to ensure a smooth transition between the two quadratic loss models. The homotopy function is implemented by the&nbsp;<a href=\"modelica://HPF.PowerConverters.HelperFunctions.homotopyTransition\">homotopyTransition</a> function.</p>
+<p>The loss model parameters (&alpha;, &beta;, &gamma;) for both the AC/DC and DC/AC conversions are implemented in per-unit, that is, normalized relative to device nominal power. Therefore, the model can be scaled easily to arbitrary voltage and power ratings.</p>
 </body></html>"));
 end ACDC_1pBidirectionalSimple;

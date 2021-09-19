@@ -35,7 +35,7 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio = false)),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
-    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple DC to AC inverter (no harmonic distortion, fixed power factor).</p>
+    Documentation(info = "<html><head></head><body><p>This example demonstrates a simple grid-following DC to AC inverter (no harmonic distortion, fixed power factor).</p>
 </body></html>"),
     experiment(StartTime = 0, StopTime = 4, Tolerance = 1e-06, Interval = 0.04),
     __OpenModelica_commandLineOptions = "--matchingAlgorithm=PFPlusExt --indexReductionMethod=dynamicStateSelection -d=initialization,NLSanalyticJacobian,newInst -d=initialization ",
