@@ -1,15 +1,19 @@
 within HPF.PowerConverters.ThreePhase;
 
-model ACDC_3pRectifierSimple
+model ACDC_3pBidirectionalSimple
   extends HPF.PowerConverters.ThreePhase.ACDC_3pConverterBase;
   import Modelica.ComplexMath.j;
   
   // Loss model parameters
-  parameter Real alpha = 0.0 "Loss model constant term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
-  parameter Real beta =  0.1 "Loss model linear term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
-  parameter Real gamma = 0.0 "Loss model quadratic term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
-  parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) loss" annotation(Dialog(group="Converter Loss Model"));
-  parameter Modelica.SIunits.Power P_DCmin = 0.5 "Minimum output power (2-stage loss model)" annotation(Dialog(group="Converter Loss Model"));
+  parameter Real alpha_ACDC = 0.0 "AC/DC loss model constant term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real beta_ACDC =  0.1 "AC/DC loss model linear term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real gamma_ACDC = 0.0 "AC/DC loss model quadratic term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real alpha_DCAC = 0.0 "DC/AC loss model constant term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real beta_DCAC =  0.1 "DC/AC loss model linear term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  parameter Real gamma_DCAC = 0.0 "DC/AC loss model quadratic term (per-unit)" annotation (Dialog(group = "Converter Loss Model"));
+  
+  // Power factor parameters
+  parameter Real PF = 1.0 "Operating power factor at fundamental frequency: + for lag, - for lead" annotation(Dialog(group="Control"));
   
   // AC measurements: Phases A, B, C
   Real IA_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseA.i);
@@ -44,12 +48,15 @@ equation
   // Control DC output voltage
   DC_Port.v = VDC_nom;
   
-  // Loss calculation
-  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_DC, 0, P_DCmin, P_stby, (P_nom * (alpha + beta * (P_DC/P_nom) + gamma * (P_DC/P_nom)^2)));
+  // Loss calculation (with smooth transition across zero)
+  P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, 0, alpha_ACDC*P_nom,
+    (P_nom * (alpha_DCAC + beta_DCAC * (-P_AC/P_nom) + gamma_DCAC * (-P_AC/P_nom)^2)),
+    (P_nom * (alpha_ACDC + beta_ACDC * (P_DC/P_nom) + gamma_ACDC * (P_DC/P_nom)^2))
+    );
   
   // Real/reactive power at fundamental
   P1 = P_AC - (sum(PA_h[2:systemDef.numHrm]) + sum(PB_h[2:systemDef.numHrm]) + sum(PC_h[2:systemDef.numHrm]));
-  Q1 = 0; // PF = 1 in this simple model
+  Q1 = sign(PF) * P1 * sqrt(1/(PF^2) - 1);
   
   // Energy balance
   P_AC = P_DC + P_Loss;
@@ -72,9 +79,9 @@ equation
   // Connections
 annotation(
     Documentation(info = "<html><head></head><body>
-<p>Simple 3-phase AC/DC converter (rectifier) model. Power is balanced across the three AC phases.</p><p><h3>Harmonics Model</h3></p><p>This device operates with zero harmonic distortion and unity power factor. Harmonic currents are zero for all h &gt; 1.</p><h3>Efficiency Model</h3><p>This device uses a two-stage efficiency model:</p>
-<p><img src=\"modelica://HPF/Resources/images/PowerConverters/eq_2stagelossmodel.png\"></p>
-<p>The first (lower) stage models loss as a fixed standby power; the second (upper) stage models loss as a quadratic function of converter output. A homotopy function is used to ensure a smooth transition between the quadratic loss model and the standby power loss. The homotopy function is implemented by the&nbsp;<a href=\"modelica://HPF.PowerConverters.HelperFunctions.homotopyTransition\">homotopyTransition</a> function.</p>
-<p>The loss model parameters (&alpha;, &beta;, &gamma;) are implemented in per-unit, that is, normalized relative to device nominal power. Therefore, the model can be scaled easily to arbitrary voltage and power ratings. However, the standby loss and minimum output power parameters are in Watts.</p>
+<p>Simple single-phase AC/DC bidirectional converter model. Power is balanced across the three AC phases.</p><p><h3>Sign Convention</h3><p>AC power P<sub>AC</sub> is defined as&nbsp;<i>into</i>&nbsp;the AC terminal and DC power P<sub>DC</sub> is defined as <i>out of</i>&nbsp;the DC terminal. For positive P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is importing power from the AC grid; for negative P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is exporting power to the AC grid.</p><h3>Harmonics Model</h3></p><p>This device operates with zero harmonic distortion and fixed, user-specified power factor (default PF = 1). Harmonic currents are zero for all h &gt; 1.</p><h3>Efficiency Model</h3><p>The AC/DC (rectifier) and DC/AC (inverter) stages of the converter use separate loss models:</p>
+<p><img src=\"modelica://HPF/Resources/images/PowerConverters/eq_2stagelossmodel_bidirectional.png\"></p>
+<p>For power import (AC to DC power transfer), losses are modeled as a quadratic function of the DC output power P<sub>DC</sub>. For power export (DC to AC power transfer), losses are modeled as a quadratic function of the AC output power (negative of input power, <i>i.e.</i>,&nbsp;−P<sub>AC</sub>). A homotopy function is used to ensure a smooth transition between the two quadratic loss models. The homotopy function is implemented by the&nbsp;<a href=\"modelica://HPF.PowerConverters.HelperFunctions.homotopyTransition\">homotopyTransition</a> function.</p>
+<p>The loss model parameters (&alpha;, &beta;, &gamma;) for both the AC/DC and DC/AC conversions are implemented in per-unit, that is, normalized relative to device nominal power. Therefore, the model can be scaled easily to arbitrary voltage and power ratings.</p>
 </body></html>"));
-end ACDC_3pRectifierSimple;
+end ACDC_3pBidirectionalSimple;

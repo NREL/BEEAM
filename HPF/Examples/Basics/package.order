@@ -3,6 +3,8 @@ AC2DC_Converter
 DC2DC_Converter
 AC2DC_Simple_Rectifier_1P
 AC2DC_Simple_Inverter_1P
+AC2DC_Simple_Rectifier_3P
+AC2DC_Simple_Inverter_3P
 AC2DC_Simple_Bidirectional_1P
-AC2DC_Converter_3P
+AC2DC_Simple_Bidirectional_3P
 CableModels
