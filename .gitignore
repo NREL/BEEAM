@@ -9,7 +9,9 @@
 # Add a provision to manually remove the executable
 
 # ignore for JModelica files
-Scripts/**/*.mat
+# including mat files (model fitting for converter harmonic model has converter
+# data stored in mat files.)
+Scripts/Examples/**/*.mat
 Scripts/**/*.fmu
 Scripts/**/*_log.txt
 
