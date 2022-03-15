@@ -32,9 +32,7 @@ Contains the Modelica models for the AC and DC experiments.
 
 ### /5_notebooks
 
-***TO DO:** @MatthewSteen to include data processing Python scripts and document them (at a high level) here. Data files should be excluded, but cross-referenced to elsewhere (ultimately to NREL data warehouse?)*
-
-This directory contains Jupyter Notebooks to calculate and plot the validation results.
+This directory contains Jupyter Notebooks to plot measured data and calculate and plot the validation results.
 
 ## Co-Simulation in Dymola
 
