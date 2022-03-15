@@ -1,6 +1,4 @@
 within HPF.Loads;
-
-package UserDefined
+package ThreePhase
   extends Modelica.Icons.Package;
-  
-end UserDefined;
+end ThreePhase;

@@ -12,7 +12,7 @@ model HarmonicPQLoad_convergence_wConverters
     Placement(visible = true, transformation(origin = {-158, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-116, -14}, {-96, 6}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {396.256}, vAngle = 2.0944) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_2C(P = {396.256}, vAngle = 2.0944) annotation(
     Placement(visible = true, transformation(origin = {6, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.VoltageSensor vMsrSecPhB annotation(
     Placement(visible = true, transformation(origin = {40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -50,7 +50,7 @@ model HarmonicPQLoad_convergence_wConverters
     Placement(visible = true, transformation(origin = {-10, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl aCDC_EmpMdl1(P1(start = 72), S1(start = 72), P_DCmin = 2, P_stby = 0.27, V_Rect = 18.5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-PA-1121-12H.mat", nomP = 120, nomV = 120) annotation(
     Placement(visible = true, transformation(origin = {16, 64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.350}) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_1A(P = {193.350}) annotation(
     Placement(visible = true, transformation(origin = {22, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation(

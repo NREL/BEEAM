@@ -55,11 +55,11 @@ model Scenario_3_Data_Set_3_3
     Placement(visible = true, transformation(origin={30,-162},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground1 annotation (
     Placement(visible = true, transformation(origin = {36, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.105}, Q = {0}) annotation (
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_1A(P = {193.105}, Q = {0}) annotation (
     Placement(visible = true, transformation(origin = {64, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1B(P = {179.958}, vAngle = -2.0944) annotation (
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_1B(P = {179.958}, vAngle = -2.0944) annotation (
     Placement(visible = true, transformation(origin = {156, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {185.573}, vAngle = 2.0944) annotation (
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_1C(P = {185.573}, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {62, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinN, ground.pin) annotation (

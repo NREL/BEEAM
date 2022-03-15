@@ -13,7 +13,7 @@ model Scenario_4_Data_Set_4_4
     Placement(visible = true, transformation(origin = {64, -92}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC_Load Laptop_4(pwr = 70.813) annotation(
     Placement(visible = true, transformation(origin = {172, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {193.108}) annotation(
+  Loads.SinglePhase.HarmonicPQLoad Heater_1A(P = {193.108}) annotation(
     Placement(visible = true, transformation(origin = {40, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120, vAngle = 2.0944) annotation(
     Placement(visible = true, transformation(origin = {40, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -55,9 +55,9 @@ model Scenario_4_Data_Set_4_4
     Placement(visible = true, transformation(origin = {172, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground19 annotation(
     Placement(visible = true, transformation(origin = {6, -162}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2A(P = {384.362}) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_2A(P = {384.362}) annotation(
     Placement(visible = true, transformation(origin = {40, 104}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2B(P = {383.618}, vAngle = -2.0944) annotation(
+  Loads.SinglePhase.HarmonicPQLoad Heater_2B(P = {383.618}, vAngle = -2.0944) annotation(
     Placement(visible = true, transformation(origin = {134, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation(

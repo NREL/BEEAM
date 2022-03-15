@@ -1,4 +1,4 @@
-within HPF.Loads.UserDefined;
+within HPF.Loads.SinglePhase;
 
 model HarmonicPQLoad "PQ load at harmonic frequencies"
   import Modelica.ComplexMath.j;

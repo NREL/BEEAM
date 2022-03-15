@@ -12,7 +12,7 @@ model Scenario_4_Data_Set_4_2
     Placement(visible = true, transformation(origin={68,-106},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC_Load Laptop_4(pwr = 70.760) annotation (
     Placement(visible = true, transformation(origin={164,-96},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Loads.UserDefined.HarmonicPQLoad Heater_1A(P = {192.854}) annotation (
+  Loads.SinglePhase.HarmonicPQLoad Heater_1A(P = {192.854}) annotation (
     Placement(visible = true, transformation(origin={28,54},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120, vAngle = 2.094395102393195) annotation (
     Placement(visible = true, transformation(origin = {36, -102}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -54,11 +54,11 @@ model Scenario_4_Data_Set_4_2
     Placement(visible = true, transformation(origin={176,-116},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   SinglePhase.Components.Ground ground19 annotation (
     Placement(visible = true, transformation(origin={4,-162},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2A(P = {383.774}) annotation (
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_2A(P = {383.774}) annotation (
     Placement(visible = true, transformation(origin={28,74},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_1C(P = {189.227}, vAngle = 2.0944) annotation (
+  Loads.SinglePhase.HarmonicPQLoad Heater_1C(P = {189.227}, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {34, -76}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {394.718}, vAngle = 2.0944) annotation (
+  Loads.SinglePhase.HarmonicPQLoad Heater_2C(P = {394.718}, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {32, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Laptop_Charger_3.pin_n, Laptop_3.n) annotation (

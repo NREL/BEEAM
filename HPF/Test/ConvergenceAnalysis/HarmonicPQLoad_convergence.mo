@@ -12,7 +12,7 @@ model HarmonicPQLoad_convergence
     Placement(visible = true, transformation(origin = {-158, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Transformers.ThreePhase.Symmetric.D1Y deltaWye(Rc = 15117.5, Rp = 8.333, Rs = 1.4404E-01, Xm = 2.3311e+03, Xp = 3.3002, Xs = 0.6197) annotation(
     Placement(visible = true, transformation(extent = {{-116, -14}, {-96, 6}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {396.256}, vAngle = 2.0944) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_2C(P = {396.256}, vAngle = 2.0944) annotation(
     Placement(visible = true, transformation(origin = {6, -38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.VoltageSensor vMsrSecPhB annotation(
     Placement(visible = true, transformation(origin = {40, -20}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -26,13 +26,13 @@ model HarmonicPQLoad_convergence
     Placement(visible = true, transformation(origin = {-68, -68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.VoltageSensor vMsrSecPhC annotation(
     Placement(visible = true, transformation(origin = {-68, -38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.Loads.UserDefined.HarmonicPQLoad Heater_2B(P = {193.350}, Q = {0.5}, vAngle = -2.0944) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad Heater_2B(P = {193.350}, Q = {0.5}, vAngle = -2.0944) annotation(
     Placement(visible = true, transformation(origin = {68, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = 10 - 0.0 * j)  annotation(
     Placement(visible = true, transformation(origin = {12, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground5 annotation(
     Placement(visible = true, transformation(origin = {40, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad harmonicPQLoad(P = {193.350}, Q = {0.5}, vAngle = 0) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad harmonicPQLoad(P = {193.350}, Q = {0.5}, vAngle = 0) annotation(
     Placement(visible = true, transformation(origin = {26, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.pinP_phC, deltaWye.pinPrim_C) annotation(

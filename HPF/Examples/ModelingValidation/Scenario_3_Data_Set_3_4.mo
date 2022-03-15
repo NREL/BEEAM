@@ -2,7 +2,7 @@ within HPF.Examples.ModelingValidation;
 model Scenario_3_Data_Set_3_4
   PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_1(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-1of3.mat", nomP = 25.2, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {64, 58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2B(P = {384.843}, vAngle = -2.0944) annotation (
+  Loads.SinglePhase.HarmonicPQLoad Heater_2B(P = {384.843}, vAngle = -2.0944) annotation (
     Placement(visible = true, transformation(origin = {150, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   DC.DC_Load LED_1(pwr = 29.232) annotation (
     Placement(visible = true, transformation(origin = {96, 54}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -14,7 +14,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(origin = {88, -92}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   DC.DC_Load Laptop_4(pwr = 70.488) annotation (
     Placement(visible = true, transformation(origin = {196, -64}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2A(P = {384.698}) annotation (
+  Loads.SinglePhase.HarmonicPQLoad Heater_2A(P = {384.698}) annotation (
     Placement(visible = true, transformation(origin = {64, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PowerConverters.SinglePhase.ACDC_EmpMdl LED_Driver_3(P1(start = 28), S1(start = 28), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-3of3.mat", nomP = 25.2, nomV = 120, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {64, -86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -52,7 +52,7 @@ model Scenario_3_Data_Set_3_4
     Placement(visible = true, transformation(extent = {{-106, -6}, {-86, 14}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground8 annotation (
     Placement(visible = true, transformation(origin = {90, -116}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.UserDefined.HarmonicPQLoad Heater_2C(P = {397.611}, vAngle = 2.0944) annotation (
+  Loads.SinglePhase.HarmonicPQLoad Heater_2C(P = {397.611}, vAngle = 2.0944) annotation (
     Placement(visible = true, transformation(origin = {62, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground16 annotation (
     Placement(visible = true, transformation(origin = {196, -90}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
