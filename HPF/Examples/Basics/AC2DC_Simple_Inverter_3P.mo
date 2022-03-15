@@ -15,7 +15,7 @@ model AC2DC_Simple_Inverter_3P
     Placement(visible = true, transformation(origin = {58, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.ThreePhase.ACDC_3pInverterSimple Simple_Inverter_3phase(PF = -0.9,P_nom = 500, P_stby = 5, VAC_nom = 120, VDC_nom = 48, alpha = 0.01, beta = 0.02, gamma = 0.03)  annotation(
     Placement(visible = true, transformation(origin = {8, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {0 for i in 1:systemDef.numHrm}, vArg_phB = cat(1, {-2.094}, {0 for i in 2:systemDef.numHrm}), vArg_phC = cat(1, {2.094}, {0 for i in 2:systemDef.numHrm}), vMag_phA = cat(1, {117, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phB = cat(1, {116, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phC = cat(1, {115, 2}, {0 for i in 3:systemDef.numHrm})) annotation(
+  Sources.ThreePhase.VoltageSource voltageSource(vArg_phA = {0 for i in 1:systemDef.numHrm}, vArg_phB = cat(1, {-2.094}, {0 for i in 2:systemDef.numHrm}), vArg_phC = cat(1, {2.094}, {0 for i in 2:systemDef.numHrm}), vMag_phA = cat(1, {117, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phB = cat(1, {116, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phC = cat(1, {115, 2}, {0 for i in 3:systemDef.numHrm})) annotation(
     Placement(visible = true, transformation(origin = {-47, 9}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
 equation
   connect(DC_Power_Schedule.y, DC_Source.p_out) annotation(

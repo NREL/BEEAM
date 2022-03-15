@@ -7,7 +7,7 @@ model AC2DC_Simple_Rectifier_3P
     Placement(visible = true, transformation(origin = {-80.1847, 80.4921}, extent = {{-9.81534, -9.81533}, {9.81534, 7.01095}}, rotation = 0)));
   HPF.PowerConverters.ThreePhase.ACDC_3pRectifierSimple Simple_Rectifier_3phase(P_DCmin = 5,P_nom = 200, P_stby = 1, VAC_nom = 120, VDC_nom = 24, alpha = 0.01, beta = 0.02, gamma = 0.03)  annotation(
     Placement(visible = true, transformation(origin = {12, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sources.ThreePhase.VotlageSource voltageSource(vArg_phA = {0 for i in 1:systemDef.numHrm}, vArg_phB = cat(1, {-2.094}, {0 for i in 2:systemDef.numHrm}), vArg_phC = cat(1, {2.094}, {0 for i in 2:systemDef.numHrm}), vMag_phA = cat(1, {117, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phB = cat(1, {116, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phC = cat(1, {115, 2}, {0 for i in 3:systemDef.numHrm})) annotation(
+  HPF.Sources.ThreePhase.VoltageSource voltageSource(vArg_phA = {0 for i in 1:systemDef.numHrm}, vArg_phB = cat(1, {-2.094}, {0 for i in 2:systemDef.numHrm}), vArg_phC = cat(1, {2.094}, {0 for i in 2:systemDef.numHrm}), vMag_phA = cat(1, {117, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phB = cat(1, {116, 2}, {0 for i in 3:systemDef.numHrm}), vMag_phC = cat(1, {115, 2}, {0 for i in 3:systemDef.numHrm})) annotation(
     Placement(visible = true, transformation(origin = {-47, 9}, extent = {{-5, -5}, {5, 5}}, rotation = 0)));
   Modelica.Blocks.Sources.Ramp DC_Power_Schedule(duration = 2, height = 200, offset = 0, startTime = 0) annotation(
     Placement(visible = true, transformation(origin = {60, 66}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
