@@ -22,7 +22,7 @@ BEEAM may be combined with other Modelica libraries to develop more complex mode
 Current Release
 ---------------
 
-[BEEAM 0.1.0-beta](https://github.com/NREL/DC-Design/releases/v0.1.0-beta/) (2020-09-29)
+[BEEAM 0.2.0-beta](https://github.com/NREL/DC-Design/releases/v0.2.0-beta/) (2022-04-18)
 
 Installation
 ------------
@@ -58,7 +58,7 @@ Executing BEEAM via co-simulation requires the following steps:
 [Assimulo]: https://github.com/modelon-community/Assimulo
 [FMPy]: https://github.com/CATIA-Systems/FMPy
 
-The `FMU` directory contains examples for cosimulation of BEEAM with EnergyPlus. *Note: These examples are currently out of date and may be nonfunctional; they will be updated and tested for the final release of BEEAM.*
+The `FMU` directory contains examples for cosimulation of BEEAM with EnergyPlus.
 
 Development Notes
 -----------------
