@@ -22,7 +22,7 @@ model TestGroupedConverters
   HPF.DC.DC_Load dC_Load1(pwr = 50) annotation(
     Placement(visible = true, transformation(origin = {66, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.CurrentSensor msrI_grouped annotation(
-    Placement(visible = true, transformation(origin = {-6, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-8, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z1(z = 0.05 + 1e-7 * j) annotation(
     Placement(visible = true, transformation(origin = {-42, 8}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource v1(vArg = {0, 0}, vMag = {120, 1e-9}) annotation(
@@ -53,9 +53,9 @@ equation
   connect(v1.pin_n, ground3.pin) annotation(
     Line(points = {{-78, -12}, {-78, -20}}, color = {117, 80, 123}));
   connect(z1.pin_n, msrI_grouped.pin_p) annotation(
-    Line(points = {{-32, 8}, {-16, 8}}, color = {117, 80, 123}));
+    Line(points = {{-32, 8}, {-18, 8}}, color = {117, 80, 123}));
   connect(msrI_grouped.pin_n, empMdl1.hPin_P) annotation(
-    Line(points = {{4, 8}, {14, 8}}, color = {117, 80, 123}));
+    Line(points = {{2, 8}, {14, 8}}, color = {117, 80, 123}));
   connect(empMdl1.pin_p, dC_Load1.p) annotation(
     Line(points = {{34, 8}, {56, 8}}, color = {0, 0, 255}));
   connect(dC_Load1.n, ground2.p) annotation(

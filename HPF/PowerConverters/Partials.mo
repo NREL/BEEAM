@@ -6,6 +6,7 @@ package Partials
   partial model HarmonicModel_Interp
     parameter String modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/demoModel.mat" "Rectifier harmonic model mat file" annotation(
       Dialog(tab = "Converter Model"));
+  
   protected
     final parameter String resourceRetValue = Modelica.Utilities.Files.loadResource("modelica://" + modelFileName);
     final parameter Integer matDim[2] = Modelica.Utilities.Streams.readMatrixSize(resourceRetValue, "X");
@@ -26,8 +27,18 @@ package Partials
   end HarmonicModel_Interp;
 
   partial model HarmonicModel_Parameterized
+    parameter Real magModelParams[6] = {0, 0, 0, 0, 0, 0} "Magnitude model parameters" annotation(
+      Dialog(tab = "Converter Model"));
+    parameter Real phAngModelParams[5] = {0, 0, 0, 0, 0} "Phase angle model parameters" annotation(
+      Dialog(tab = "Converter Model"));    
+    parameter Real alpha = 1 "Converter loss model parameter" annotation(
+      Dialog(tab = "Converter Model", group="Initialization"));
+    parameter Real beta = 1 "Converter loss model parameter" annotation(
+      Dialog(tab = "Converter Model", group="Initialization"));
+    parameter Real gamma = 1 "Converter loss model parameter" annotation(
+      Dialog(tab = "Converter Model", group="Initialization"));
   equation
-
+  
     annotation(
       Icon(graphics = {Text(origin = {3, -79}, extent = {{-81, 13}, {81, -13}}, textString = "I = f(h, P, param)", textStyle = {TextStyle.Italic})}));
   end HarmonicModel_Parameterized;

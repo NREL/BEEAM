@@ -5,10 +5,9 @@ model EmpMdl
   extends HPF.PowerConverters.Partials.HarmonicModel_Interp;
   import Modelica.ComplexMath.j;
   parameter Integer numConvs = 1 "Number of converters";
-  
     /*
-          Fundamental power drawn on the AC harmonic side.
-          Using converter efficiency model
+    Fundamental power drawn on the AC harmonic side.
+    Using converter efficiency model
           
           Pin = Pout + alpha + beta*Pout + gamma*Pout^2
         */
@@ -30,25 +29,20 @@ model EmpMdl
   Real P1(start = nomP) "Real power at fundamental (per converter)";
   Real S1(start = nomP) "Apparent power at fundamental";
   Real Q1(start = 1) "Imaginary power at fundamental";
-  // diagnostics: Check if the computed h=1 current mag matches the input surface model
-  Real diag_I_mag_h1 = HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, 1, P);
   Modelica.Blocks.Interfaces.RealOutput PLoss annotation (
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {24, 142},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 
 protected
-  Real argS1 "Phase angle for fundamental apparent power";
-  Real magScale = Modelica.ComplexMath.'abs'(loadBase.i[1]);
-  /*  The time domain plots are correct suggesting that there is no need to add the 
-            anticipated phase shift suggesting a reverse direction for the current. 
-        */
+  Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P1)"Phase angle for fundamental apparent power";
   // Querry arg interplation in 2D at harmonics h>1, at power level P
-  Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], P) for i in 2:1:systemDef.numHrm};
+  Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
+  // Querry mag interplation in 2D at harmonics h>1, at power level P
+  Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], P1)*numConvs for i in 2:1:systemDef.numHrm};
+  
   // Apply phase correction
   Real argAdj[systemDef.numHrm - 1] = arg_hh[:] + Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end];
   // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = {Complex(cos(argAdj[i]), sin(argAdj[i])) for i in 1:systemDef.numHrm - 1};
-  // Querry mag interplation in 2D at harmonics h>1, at power level P
-  Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], P1)*numConvs for i in 2:1:systemDef.numHrm};
   Real tmp_Ph[systemDef.numHrm - 1] "Real power at h > 1";
 equation
 /*
@@ -61,14 +55,12 @@ equation
     Solve for imaginary power Q_1 (fundamental). 
     power angle is negative of the model fundamental
   */
-  argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P);
   P1 = S1 * cos(argS1);
   Q1 = S1 * sin(argS1);
 /*
      In complex notation,
-    S = P + jQ = V*conj(I)
-      = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
-
+    S = P + jQ = V*conj(I) = (Vre*Ire + Vim*Iim) + j(Vim*Ire - Vre*Iim)
+    
     //Complex(P, Q) = loadBase.v[1] * Modelica.ComplexMath.conj(loadBase.i[1]);
     P = (loadBase.v[1].re * loadBase.i[1].re) + (loadBase.v[1].im * loadBase.i[1].im);
     Q = (loadBase.v[1].im * loadBase.i[1].re) - (loadBase.v[1].re * loadBase.i[1].im);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   

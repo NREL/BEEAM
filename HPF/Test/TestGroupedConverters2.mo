@@ -24,16 +24,14 @@ model TestGroupedConverters2
     Placement(visible = true, transformation(origin = {78, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter1(V_Rect = 24)  annotation(
     Placement(visible = true, transformation(origin = {14, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.DC.Ground ground2 annotation(
-    Placement(visible = true, transformation(origin = {78, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load1(pwr = 50) annotation(
     Placement(visible = true, transformation(origin = {48, 48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.Ground ground3 annotation(
     Placement(visible = true, transformation(origin = {78, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load dC_Load2(pwr = 50) annotation(
-    Placement(visible = true, transformation(origin = {48, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {50, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.PowerConverters.SinglePhase.ACDC_EmpMdl converter2(V_Rect = 24)  annotation(
-    Placement(visible = true, transformation(origin = {14, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {16, 6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add Ploss_converters annotation(
     Placement(visible = true, transformation(origin = {96, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.Sensors.MultiSensor msr_grouped annotation(
@@ -61,24 +59,22 @@ equation
     Line(points = {{24, 48}, {38, 48}}, color = {0, 0, 255}));
   connect(dC_Load1.n, converter1.pin_n) annotation(
     Line(points = {{58, 48}, {68, 48}, {68, 32}, {24, 32}}, color = {0, 0, 255}));
-  connect(converter1.pin_n, ground2.p) annotation(
-    Line(points = {{24, 32}, {78, 32}}, color = {0, 0, 255}));
   connect(converter1.hPin_N, ground.pin) annotation(
     Line(points = {{4, 32}, {-10, 32}, {-10, -2}}, color = {117, 80, 123}));
   connect(converter2.hPin_P, converter1.hPin_P) annotation(
-    Line(points = {{4, 14}, {-4, 14}, {-4, 48}, {4, 48}}, color = {92, 53, 102}));
+    Line(points = {{6, 14}, {-4, 14}, {-4, 48}, {4, 48}}, color = {92, 53, 102}));
   connect(converter2.hPin_N, ground.pin) annotation(
-    Line(points = {{4, -2}, {-10, -2}}, color = {117, 80, 123}));
+    Line(points = {{6, -2}, {-10, -2}}, color = {117, 80, 123}));
   connect(converter2.pin_p, dC_Load2.p) annotation(
-    Line(points = {{24, 14}, {31, 14}, {31, 12}, {38, 12}}, color = {0, 0, 255}));
+    Line(points = {{26, 14}, {40, 14}}, color = {0, 0, 255}));
   connect(dC_Load2.n, converter2.pin_n) annotation(
-    Line(points = {{58, 12}, {68, 12}, {68, -2}, {24, -2}}, color = {0, 0, 255}));
+    Line(points = {{60, 14}, {68, 14}, {68, -2}, {26, -2}}, color = {0, 0, 255}));
   connect(ground3.p, converter2.pin_n) annotation(
-    Line(points = {{78, -2}, {24, -2}}, color = {0, 0, 255}));
+    Line(points = {{78, -2}, {26, -2}}, color = {0, 0, 255}));
   connect(Ploss_converters.u1, converter1.PLoss) annotation(
     Line(points = {{84, 74}, {14, 74}, {14, 52}}, color = {0, 0, 127}));
   connect(Ploss_converters.u2, converter2.PLoss) annotation(
-    Line(points = {{84, 62}, {32, 62}, {32, 22}, {14, 22}, {14, 18}}, color = {0, 0, 127}));
+    Line(points = {{84, 62}, {32, 62}, {32, 22}, {16, 22}, {16, 17}}, color = {0, 0, 127}));
   connect(impedance.pin_n, msr_grouped.hPin_PC) annotation(
     Line(points = {{-66, -44}, {-54, -44}}, color = {117, 80, 123}));
   connect(msr_grouped.hPin_NV, ground4.pin) annotation(
@@ -91,6 +87,8 @@ equation
     Line(points = {{-52, 48}, {-62, 48}}, color = {92, 53, 102}));
   connect(msr_converters.hPin_NV, ground.pin) annotation(
     Line(points = {{-42, 38}, {-42, -2}, {-10, -2}}, color = {117, 80, 123}));
+  connect(converter1.pin_n, ground3.p) annotation(
+    Line(points = {{24, 32}, {78, 32}, {78, -2}}, color = {0, 0, 255}));
 protected
   annotation(
     Diagram(coordinateSystem(extent = {{-160, -140}, {160, 140}})),
