@@ -1,11 +1,9 @@
 DC Design Tool Co-Simulation: Benchtop Demonstration & Validation
 =================================================================
 
-This directory contains the BEEAM (HPF library) and EnergyPlus model files and resources for the DC Design Tool cosimulation demonstration and validation using a bench-top thermal chamber. This co-simulation demonstration is a supplement to the following publication:
+This directory contains the BEEAM (HPF library) and EnergyPlus model files and resources for the DC Design Tool cosimulation demonstration and validation using a bench-top thermal chamber.
 
-Frank, Stephen M., Brian Ball, Daniel L. Gerber, Khanh Cu, Avpreet Othee, Jordan Shackelford, Richard E. Brown, and James Cale. 2021. "A New Co-Simulation Capability for Detailed Electrical and Whole-Building Energy Performance." *Journal TBD*; to be published.
-
-This co-simulation demonstration model combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). Experiment details are documented in the associated publication (citation above); this REAMDE documents the directory contents, how to execute the simulation, and some aspects of the electrical model.
+This co-simulation demonstration model combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). This REAMDE documents the directory contents, how to execute the simulation, and some aspects of the electrical model. Full details will be documented in a forthcoming publication.
 
 Files
 -----
