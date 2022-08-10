@@ -11,8 +11,6 @@ The co-simulation models in this directory combine a thermal model of FLEXLAB wi
 ### This Directory
 
 - **README.md**: This README file
-- **flexlab_ac.mo**: Modelica model of the AC distribution configuration, with embedded FMU
-- **flexlab_dc.mo**: Modelica model of the DC distribution configuration, with embedded FMU
 
 ### /1_openstudio
 
@@ -28,11 +26,14 @@ Contains the functional mockup units (FMU) `in.fmu` built from the EnergyPlus ID
 
 ### /4_modelica
 
-Contains the Modelica models for the AC and DC experiments.
+Contains the Modelica models for the AC and DC experiments:
+
+- **flexlab_ac.mo**: Modelica model of the AC distribution configuration, with embedded FMU
+- **flexlab_dc.mo**: Modelica model of the DC distribution configuration, with embedded FMU
 
 ### /5_notebooks
 
-This directory contains Jupyter Notebooks to plot measured data and calculate and plot the validation results.
+Contains Jupyter Notebooks to plot measured data and calculate and plot the validation results.
 
 ## Co-Simulation in Dymola
 
@@ -46,8 +47,8 @@ Executing the models requires Dymola 2020 or greater. Successful execution of th
 4. Open the `flexlab_ac.mo` and/or `flexlab_dc.mo` model(s) in Dymola
 5. Check the model(s) to verify no errors
 6. Within the simultaion setup, modify:
-   a. Output interval length to 900 seconds (15 minutes) ***TO DO:** @brianlball/@MatthewSteen to confirm time*
-   b. Fixed integrator step to 900 seconds (15 minutes) ***TO DO:** @brianlball/@MatthewSteen to confirm time*
+   1. Output interval length to 900 seconds (15 minutes)
+   2. Fixed integrator step to 900 seconds (15 minutes)
 7. Simulate the model(s)
 
 The BEEAM library, FMU, and model files may be loaded via drag-and-drop or using the relevant menu options. Either method works.
