@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>whole_building_schedule_file</name>
+  <uid>4e612c54-11c8-4493-a3d1-3594441e25ae</uid>
+  <version_id>00d89ff5-2184-4cf9-9209-21bd9695d980</version_id>
+  <version_modified>20210530T215737Z</version_modified>
+  <xml_checksum>FC9586A7</xml_checksum>
+  <class_name>WholeBuildingScheduleFile</class_name>
+  <display_name>Schedule File</display_name>
+  <description>Adds a ScheduleFile object to the model and applies it to a single object or all objects of a class.</description>
+  <modeler_description>https://github.com/NREL/OpenStudio-resources/blob/develop/model/simulationtests/schedule_file.rb</modeler_description>
+  <arguments>
+    <argument>
+      <name>name</name>
+      <display_name>Name</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>Schedule File</default_value>
+    </argument>
+    <argument>
+      <name>schedule_type_limits_name</name>
+      <display_name>Schedule Type Limits Name</display_name>
+      <description>(must be compatible with model object schedule)</description>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>file_path</name>
+      <display_name>File Path</display_name>
+      <description>(full path)</description>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>column</name>
+      <display_name>Column Number</display_name>
+      <description>(1 = first)</description>
+      <type>Integer</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>rows_to_skip</name>
+      <display_name>Rows to Skip at Top</display_name>
+      <type>Integer</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>num_hrs_data</name>
+      <display_name>Number of Hours of Data</display_name>
+      <description>(8784 = leap year)</description>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>8760</default_value>
+      <choices>
+        <choice>
+          <value>8760</value>
+          <display_name>8760</display_name>
+        </choice>
+        <choice>
+          <value>8784</value>
+          <display_name>8784</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>interpolate</name>
+      <display_name>Interpolate to Timestep</display_name>
+      <type>Boolean</type>
+      <required>false</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>col_separator</name>
+      <display_name>Column Separator</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>Comma</default_value>
+      <choices>
+        <choice>
+          <value>Comma</value>
+          <display_name>Comma</display_name>
+        </choice>
+        <choice>
+          <value>Tab</value>
+          <display_name>Tab</display_name>
+        </choice>
+        <choice>
+          <value>Fixed</value>
+          <display_name>Fixed</display_name>
+        </choice>
+        <choice>
+          <value>Semicolon</value>
+          <display_name>Semicolon</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>minutes_per_item</name>
+      <display_name>Minutes Per Item</display_name>
+      <description>(must be ≤ to 60 and evenly divisible into 60, same as timestep)</description>
+      <type>Integer</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+    </argument>
+    <argument>
+      <name>cls_name</name>
+      <display_name>Class Name</display_name>
+      <description>(apply to ALL objects)</description>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <choices>
+        <choice>
+          <value>NONE</value>
+          <display_name>NONE</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>obj_name</name>
+      <display_name>Object Name</display_name>
+      <description>(apply to ONE object)</description>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <choices>
+        <choice>
+          <value>NONE</value>
+          <display_name>NONE</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>setpoint_type</name>
+      <display_name>Setpoint Type</display_name>
+      <description>for ThermalZone class or object</description>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>NA</default_value>
+      <choices>
+        <choice>
+          <value>NA</value>
+          <display_name>NA</display_name>
+        </choice>
+        <choice>
+          <value>CoolingSetpoint</value>
+          <display_name>CoolingSetpoint</display_name>
+        </choice>
+        <choice>
+          <value>HeatingSetpoint</value>
+          <display_name>HeatingSetpoint</display_name>
+        </choice>
+      </choices>
+    </argument>
+  </arguments>
+  <outputs />
+  <provenances />
+  <tags>
+    <tag>Whole Building.Whole Building Schedules</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Apply Measure Now</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Parametric Analysis Tool</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>CD7F5672</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <filename>.gitkeep</filename>
+      <filetype>gitkeep</filetype>
+      <usage_type>doc</usage_type>
+      <checksum>00000000</checksum>
+    </file>
+    <file>
+      <filename>whole_building_schedule_file_test.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>3BDD749F</checksum>
+    </file>
+    <file>
+      <filename>example_model.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>53D14E69</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>836CD873</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>3.1.0</identifier>
+        <min_compatible>3.1.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>EA75604C</checksum>
+    </file>
+  </files>
+</measure>
