@@ -46,9 +46,9 @@ Executing BEEAM via co-simulation requires the following steps:
 1. Create a model
 2. Create the correct external interfaces within the model for co-simulation using the functional mockup interface (FMI)
 3. Export a model as a functional mockup unit (FMU)
-   a. [OpenModelica] is an open source Modelica environment with an FMU export option, but the FMU export is not very robust. The export FMU usually fails to load in FMU libraries.
-   b. [Dymola], a commercial Modelica implementation, is an alternative with robust FMU export.
-   b. Previously, the open source [jModelica] environment was also an alternative with robust FMU export. However, Modelon (the primary jModelica developer) has discontinued jModelica as an open source project.
+   1. [OpenModelica] is an open source Modelica environment with an FMU export option, but the FMU export is not very robust. The export FMU usually fails to load in FMU libraries.
+   2. [Dymola], a commercial Modelica implementation, is an alternative with robust FMU export.
+   3. Previously, the open source [jModelica] environment was also an alternative with robust FMU export. However, Modelon (the primary jModelica developer) has discontinued jModelica as an open source project.
 4. Simulate the exported FMU together with other FMUs using [PyFMI], [FMPy], or a similar library. Both PyFMI and FMPy are open source. PyFMI has [Assimulo] as a dependency. FMPy includes both a simulator and a GUI.
 
 [OpenModelica]: https://www.openmodelica.org/
@@ -78,7 +78,7 @@ OpenModelica is the primary development environment, but the library has also be
 Library structure and organization is not final. The notes in this section represent working concepts for library organization.
 
 1. Current development is being done in the root of the library. The components defined here are all single phase. This will continue until all bugs are removed and the system is functioning.
-2. Eventually the components may be moved into their respective sublibries e.g. *SinglePhase* and *MultiPhase*.
+2. Eventually the components may be moved into their respective sublibraries e.g. *SinglePhase* and *MultiPhase*.
 
 License
 -------
