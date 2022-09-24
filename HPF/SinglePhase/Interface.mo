@@ -192,14 +192,19 @@ package Interface
 
   partial model ACDC_ConverterBase
     outer SystemDef systemDef;
-    parameter Modelica.SIunits.Voltage V_Rect(start = 0) = 1 "Rectifier DC output";
-    parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power" annotation(Dialog(group="Initialization"));
-    parameter Modelica.SIunits.Voltage nomV = 120 "Nominal operating voltage" annotation(Dialog(group="Initialization"));
+    
+    // Ratings
+    parameter Modelica.SIunits.Voltage V_Rect(start = 0) = 1 "Rectifier DC output" annotation(Dialog(group="Device Ratings"));
+    parameter Modelica.SIunits.Power nomP = 50 "Rated nominal power" annotation(Dialog(group="Device Ratings"));
+    parameter Modelica.SIunits.Voltage nomV = 120 "Nominal AC operating voltage" annotation(Dialog(group="Device Ratings"));
+    final parameter Modelica.SIunits.Current nomI = nomP / nomV "Nominal AC operating current";
+    
+    // Initialization
     parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init" annotation(Dialog(group="Initialization"));
     
-    parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power" annotation(Dialog(group="Converter Loss model"));
-    parameter Modelica.SIunits.Power P_DCmin = 0.5 "Minimum converter power (2-stage loss model)" annotation(Dialog(group="Converter Loss model"));
-    
+    // Loss Model
+    parameter Modelica.SIunits.Power P_stby = 0 "Standby (no load) input AC power" annotation(Dialog(group="Converter Loss Model"));
+    parameter Modelica.SIunits.Power P_DCmin = 0.5 "Minimum converter power (2-stage loss model)" annotation(Dialog(group="Converter Loss Model"));
     
     HPF.SinglePhase.Interface.HPin_P hPin_P(h = systemDef.numHrm) annotation(
       Placement(visible = true, transformation(origin = {-84, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{-110, 70}, {-90, 90}}, rotation = 0)));

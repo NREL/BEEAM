@@ -14,7 +14,7 @@ model HarmonicPQLoad
     Placement(visible = true, transformation(origin = {-58, 48}, extent = {{-14, -14}, {14, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Resistor r(r = 0.1) annotation(
     Placement(visible = true, transformation(origin = {14, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Loads.UserDefined.HarmonicPQLoad harmonicPQLoad(P = {500}, Q = {0.1}) annotation(
+  HPF.Loads.SinglePhase.HarmonicPQLoad harmonicPQLoad(P = {500}, Q = {0.1}) annotation(
     Placement(visible = true, transformation(origin = {56, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(v.pin_n, ground.pin) annotation(

@@ -3,8 +3,8 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
   extends HPF.SinglePhase.Interface.ACDC_ConverterBase;
   extends HPF.PowerConverters.Partials.HarmonicModel_Interp;
   import Modelica.ComplexMath.j;
-
-  // TODO: Document that a default value of zero sets the stanby power as computed by efficiency relation.
+  
+  // TODO: Document that a default value of zero sets the standby power as computed by efficiency relation.
   /*
           Fundamental power drawn on the AC harmonic side.
           Using converter efficiency model
@@ -12,18 +12,22 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
           Pin = Pout + alpha + beta*Pout + gamma*Pout^2
         */
   Real P_DC = abs(vDC.v * vDC.i);
-  /* Input output power relation (Total input AC Power (sum over all harmonics))
-        P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
-      */
-  Real P = HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC) * P_stby + (1 - HPF.PowerConverters.HelperFunctions.stbyPwrTransition(P_DCmin, P_stby, P_DC)) * (P_DC + alpha[1, 1] + beta[1, 1] * P_DC + gamma[1, 1] * P_DC ^ 2) "Real power on AC side";
   /*
-          Measurements
-      */
+  Input output power relation (Total input AC Power (sum over all harmonics))
+    P_AC = p*P_stby + (1 - p)*f_effi(P_DC)
+  alpha, beta, and gamma are now normalized with respect to nominal power
+  */
+    Real P = P_DC + HPF.PowerConverters.HelperFunctions.homotopyTransition(P_DC, 0, P_DCmin, P_stby, (nomP * (alpha[1, 1] + beta[1, 1] * (P_DC/nomP) + gamma[1, 1] * (P_DC/nomP)^2))) "Real power on AC side";
+  
+  /*
+    Measurements
+  */
   Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
   Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.v);
   Real P_h[systemDef.numHrm] = loadBase.v[:].re .* loadBase.i[:].re + loadBase.v[:].im .* loadBase.i[:].im "Real power at harmonics";
+  
   // intermediary variables
   Real P1(start = nomP) "Real power at fundamental";
   Real S1(start = nomP) "Apparent power at fundamental";
@@ -32,27 +36,34 @@ model ACDC_EmpMdl "AC to DC converter empirical model"
     Placement(visible = true, transformation(origin = {10, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 110},extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 
 protected
-  // Querry arg interplation in 2D at harmonics h>1, at power level P
-    Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
-    // Querry mag interplation in 2D at harmonics h>1, at power level P
-    Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], P1) for i in 2:1:systemDef.numHrm};
-    Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, P1) "Phase angle for fundamental apparent power";     // angle for S(@h=1) using harmonic current model
+    
+    // Power axis lookup is now normalized to nominal power (nomP) and magnitude output must be scaled by nominal current (nomI)
+    
+    // Query arg interplation in 2D at harmonics h>1, at power level P
+    Real arg_hh[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, systemDef.hrms[i], (P1/nomP)) for i in 2:1:systemDef.numHrm};
+    
+    // Query mag interplation in 2D at harmonics h>1, at power level P
+    Real c[systemDef.numHrm - 1] = {HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_mag, systemDef.hrms[i], (P1/nomP))*nomI for i in 2:1:systemDef.numHrm};
+    Real argS1 = -HPF.Utilities.interpolateBilinear(mdl_H, mdl_P_h1, mdl_Z_arg, 1, (P1/nomP)) "Phase angle for fundamental apparent power";     // angle for S(@h=1) using harmonic current model
     
   // Apply phase correction
   Real argAdj[systemDef.numHrm - 1] = arg_hh[:] + Modelica.ComplexMath.arg(loadBase.v[1]) .* systemDef.hrms[2:end];
+  
   // intermediary variables for higher current harmonics
   Complex a[systemDef.numHrm - 1] = {Complex(cos(argAdj[i]), sin(argAdj[i])) for i in 1:systemDef.numHrm - 1};
-  Real tmp_Ph[systemDef.numHrm - 1] "Real power at h > 1";
+  
 equation
+  
   // Power draw at the fundamental
-  tmp_Ph[:] = loadBase.v[2:systemDef.numHrm].re .* loadBase.i[2:systemDef.numHrm].re .+ loadBase.v[2:systemDef.numHrm].im .* loadBase.i[2:systemDef.numHrm].im;
-  P1 = P - sum(tmp_Ph); // Power at harmonics > 1.
+  P1 = P - sum(loadBase.v[2:systemDef.numHrm].re .* loadBase.i[2:systemDef.numHrm].re .+ loadBase.v[2:systemDef.numHrm].im .* loadBase.i[2:systemDef.numHrm].im); // Power at harmonics > 1.
+  
   /*
     Solve for imaginary power Q_1 (fundamental). 
     power angle is negative of the model fundamental
   */
   P1 = S1 * cos(argS1);
   Q1 = S1 * sin(argS1);
+  
   /*
      In complex notation,
     S = P + jQ = V*conj(I)
@@ -73,18 +84,21 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio = false), graphics={  Text(origin = {4, 0}, lineColor = {92, 53, 102}, extent = {{-184, -120}, {176, -160}}, textString = "%name"), Text(origin = {70, 115}, extent = {{-54, 15}, {54, -15}}, textString = "Ploss")}),
     Diagram(coordinateSystem(preserveAspectRatio = false)),
-    Documentation(info = "<html><head></head><body><h4>Converter harmonic model</h4>
+    Documentation(info = "<html><head></head><body>
+<h4>General Information</h4>
+Parameters for both the converter harmonic model and converter loss model described below are stored in a <i>mat</i> file generated by a model-fitting script. The empirical models are stored normalized such that the model can be scaled easily to use arbitrary AC voltage and power ratings.
+<h4>Converter Harmonic Model</h4>
 <p>Coupled harmonic model for an AC to DC converter. The harmonic model is based on empirical data from laboratory measurements. The AC side harmonics are modeled using a surface function evaluated at a given harmonic and real power at <i>h=1</i> using 2D interpolation.</p>
 
 <p><img src=\"modelica://HPF/Resources/images/PowerConverters/img_pwrConvModel_interpMag.png\" style=\"width:12.34cm;height:9cm;\"></p>
 <p>Figure 1. Surface function representing harmonic current variation as a function of input power (@<i>h=1</i>).</p>
 
-<p>Harmonic injection spectra is determined using the model. The model data is in the form of a mat file.</p><h4>Converter loss model</h4>
+<p>Harmonic injection spectra is determined using the model. The model data is in the form of a mat file.</p><h4>Converter Loss Model</h4>
 <p>The converter loss is modeled as a 2-stage loss model:</p>
 <p><br><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_pLoss_2stage.png\">.</p>
 <p>The lambda function is implemented in <a href=\"modelica://HPF.PowerConverters.HelperFunctions.stbyPwrTransition\">stbyPwrTransition</a> function.</p>
 <p><img src=\"modelica://HPF/Resources/images/ConverterModels/SinglePhase/ACDC_EmpMdl/eq_ploss.png\"></p>
-<p><br></p><h4>Converter model data files</h4><p></p>
-<p>Data files for the converter model can be found in <span style=\"font-family: Courier;\">HPF/Data/ConverterModels/SinglePhase/ACDC/</span></p>
+<p><br></p><h4>Converter Model Data Files</h4><p></p>
+<p>Data files for the available converter models can be found in <span style=\"font-family: Courier;\">HPF/Data/ConverterModels/SinglePhase/ACDC/</span></p>
 </body></html>"));
 end ACDC_EmpMdl;
