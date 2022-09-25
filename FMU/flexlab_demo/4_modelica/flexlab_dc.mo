@@ -1,12 +1,12 @@
-within HPF;
-model flexlab_dc_1
+within ;
+model FLEXLAB_DC
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
     Placement(visible = true, transformation(origin={-58,88},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground GndAC annotation (
     Placement(visible = true, transformation(origin={-102,76},   extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Nextek_Hub(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek_208V_1600W.mat", nomP = 1600, nomV = 120) "P/N ??" annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Nextek_Hub(P1(start = 1), P_DCmin = 0.2, P_stby = 14.77, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Nextek-PHD16-ACDC-DIM-P-24-6-208V.mat", nomP = 1600, nomV = 120) "P/N ??" annotation (
     Placement(visible = true, transformation(origin={-44,50},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   HPF.DC.Variable_DC_Load Light_1 annotation (
     Placement(visible = true, transformation(origin = {-86, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -420,4 +420,4 @@ Output Value - Dotted Line"),
           pattern=LinePattern.DashDot,
           fontSize=0)}),
     Icon(coordinateSystem(extent={{-200,-100},{200,100}})));
-end flexlab_dc_1;
+end FLEXLAB_DC;

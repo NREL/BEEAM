@@ -1,5 +1,5 @@
 within ;
-model flexlab_ac_Cable
+model FLEXLAB_AC
   inner HPF.SystemDef systemDef(fFund = 60, fs = 5000, hrms = {1, 3, 5, 7, 9}, numPh = 1)  annotation (
     Placement(visible = true, transformation(origin={-260,142.07},     extent={{
             -20.0002,-19.5014},{20.0002,13.9299}},                                                           rotation = 0)));
@@ -34,29 +34,29 @@ model flexlab_ac_Cable
     Placement(visible = true, transformation(origin={95,-51},    extent = {{-11, -11}, {11, 11}}, rotation = 0)));
   HPF.DC.Variable_DC_Load Prog_DC_Ld_6 annotation (
     Placement(visible = true, transformation(origin={102,-84},    extent = {{-12, -12}, {12, 12}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS1(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic_SSR-550PX__300W.mat", nomP = 350, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS1(P1(start = 1), P_DCmin = 0.2, P_stby = 5.79, Q1(start = 0), S1(start = 1), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic-SSR-550PX-12V.mat", nomP = 350, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={60,78},    extent = {{-8, -6}, {8, 6}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS3(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic_SSR-550PX__300W.mat", nomP = 350, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS3(P1(start = 1), P_DCmin = 0.2, P_stby = 5.79, Q1(start = 0), S1(start = 1), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic-SSR-550PX-12V.mat", nomP = 350, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={55,17},    extent = {{-9, -7}, {9, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS2(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic_SSR-550PX__300W.mat", nomP = 350, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS2(P1(start = 1), P_DCmin = 0.2, P_stby = 5.79, Q1(start = 0), S1(start = 1), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic-SSR-550PX-12V.mat", nomP = 350, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {56, 51}, extent = {{-8, -7}, {8, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS5(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic_SSR-550PX__300W.mat", nomP = 350, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS5(P1(start = 1), P_DCmin = 0.2, P_stby = 5.79, Q1(start = 0), S1(start = 1), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic-SSR-550PX-12V.mat", nomP = 350, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={60,-54},    extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS6(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic_SSR-550PX__300W.mat", nomP = 350, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS6(P1(start = 1), P_DCmin = 0.2, P_stby = 5.79, Q1(start = 0), S1(start = 1), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic-SSR-550PX-12V.mat", nomP = 350, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={58,-89},    extent = {{-8, -7}, {8, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS4(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic_SSR-550PX__300W.mat", nomP = 350, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Desk_PS4(P1(start = 1), P_DCmin = 0.2, P_stby = 5.79, Q1(start = 0), S1(start = 1), V_Rect = 12, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Seasonic-SSR-550PX-12V.mat", nomP = 350, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {56, -16}, extent = {{-8, -8}, {8, 8}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_1(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram_OTi48_LED_Driver.mat", nomP = 60, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_1(P1(start = 1), P_DCmin = 0.2, P_stby = 1.52, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 60, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={-88,77},    extent = {{8, -7}, {-8, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_2(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram_OTi48_LED_Driver.mat", nomP = 60, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_2(P1(start = 1), P_DCmin = 0.2, P_stby = 1.52, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 60, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={-92,45},    extent = {{8, -7}, {-8, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_3(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram_OTi48_LED_Driver.mat", nomP = 60, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_3(P1(start = 1), P_DCmin = 0.2, P_stby = 1.52, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 60, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={-92,18},    extent = {{8, -8}, {-8, 8}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_4(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram_OTi48_LED_Driver.mat", nomP = 60, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_4(P1(start = 1), P_DCmin = 0.2, P_stby = 1.52, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 60, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={-89,-21},   extent = {{9, -7}, {-9, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_5(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram_OTi48_LED_Driver.mat", nomP = 60, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_5(P1(start = 1), P_DCmin = 0.2, P_stby = 1.52, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 60, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={-88,-57},    extent = {{8, -7}, {-8, 7}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_6(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram_OTi48_LED_Driver.mat", nomP = 60, nomV = 120) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl Driver_6(P1(start = 1), P_DCmin = 0.2, P_stby = 1.52, Q1(start = 0), S1(start = 1), V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Osram-Oti-48-120-277-2A0.mat", nomP = 60, nomV = 120) annotation (
     Placement(visible = true, transformation(origin={-90,-93},    extent = {{8, -7}, {-8, 7}}, rotation = 0)));
   Modelica.Blocks.Math.Add Light_Driver_Loss annotation (Placement(visible=true,
         transformation(
@@ -520,4 +520,4 @@ Input Value - Dashed Line
 Output Value - Dotted Line")}),
     Icon(coordinateSystem(extent={{-200,-100},{200,100}})),
     version="");
-end flexlab_ac_Cable;
+end FLEXLAB_AC;
