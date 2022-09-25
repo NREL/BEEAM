@@ -6,6 +6,8 @@ Frank, Stephen M., Jordan Shackelford, Omkar Ghatpande, Matthew Steen, Brian Bal
 
 The co-simulation models in this directory combine a thermal model of FLEXLAB with two electrical models: one each for an AC and a DC distribution system. The models mirror physical configurations implemented in a series of FLEXLAB experiements intended to validate the accuracy of the co-simulation architecture. Experiment details are documented in the associated publication (citation above); this REAMDE documents the directory organization, directory contents, and how to execute the co-simulation.
 
+**The *Modelica* models used for this validation study were developed and executed using BEEAM Version 0.2.x (beta). They have not been tested and may not execute properly with later BEEAM versions.**
+
 ## Files
 
 ### This Directory
