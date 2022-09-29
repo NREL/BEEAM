@@ -46,52 +46,94 @@ package Types
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})));
   end Reference;
-  
+
   type WireGaugeAC = enumeration(
-    gauge_14 "14",
-    gauge_12 "12",
-    gauge_10 "10",
-    gauge_8 "8",
-    gauge_6 "6",
-    gauge_4 "4",
-    gauge_3 "3",
-    gauge_2 "2",
-    gauge_1 "1",
-    gauge_1_0 "1/0",
-    gauge_2_0 "2/0",
-    gauge_3_0 "3/0",
-    gauge_4_0 "4/0",
-    gauge_250 "250",
-    gauge_300 "300",
-    gauge_350 "350",
-    gauge_400 "400",
-    gauge_500 "500",
-    gauge_600 "600")
+      gauge_14
+             "14",
+      gauge_12
+             "12",
+      gauge_10
+             "10",
+      gauge_8
+            "8",
+      gauge_6
+            "6",
+      gauge_4
+            "4",
+      gauge_3
+            "3",
+      gauge_2
+            "2",
+      gauge_1
+            "1",
+      gauge_1_0
+              "1/0",
+      gauge_2_0
+              "2/0",
+      gauge_3_0
+              "3/0",
+      gauge_4_0
+              "4/0",
+      gauge_250
+              "250",
+      gauge_300
+              "300",
+      gauge_350
+              "350",
+      gauge_400
+              "400",
+      gauge_500
+              "500",
+      gauge_600
+              "600")
   "Wire gauges" annotation (
   Evaluate=true);
-  
+
   type WireGaugeDC = enumeration(
-    gauge_18 "18",
-    gauge_16 "16",
-    gauge_14 "14",
-    gauge_12 "12",
-    gauge_10 "10",
-    gauge_8 "8",
-    gauge_6 "6",
-    gauge_4 "4",
-    gauge_3 "3",
-    gauge_2 "2",
-    gauge_1 "1",
-    gauge_1_0 "1/0",
-    gauge_2_0 "2/0",
-    gauge_3_0 "3/0",
-    gauge_4_0 "4/0",
-    gauge_250 "250",
-    gauge_300 "300",
-    gauge_350 "350",
-    gauge_400 "400",
-    gauge_500 "500",
-    gauge_600 "600")
+      gauge_18
+             "18",
+      gauge_16
+             "16",
+      gauge_14
+             "14",
+      gauge_12
+             "12",
+      gauge_10
+             "10",
+      gauge_8
+            "8",
+      gauge_6
+            "6",
+      gauge_4
+            "4",
+      gauge_3
+            "3",
+      gauge_2
+            "2",
+      gauge_1
+            "1",
+      gauge_1_0
+              "1/0",
+      gauge_2_0
+              "2/0",
+      gauge_3_0
+              "3/0",
+      gauge_4_0
+              "4/0",
+      gauge_250
+              "250",
+      gauge_300
+              "300",
+      gauge_350
+              "350",
+      gauge_400
+              "400",
+      gauge_500
+              "500",
+      gauge_600
+              "600",
+      gauge_POE
+              "POE")
   "Wire gauges" annotation (
   Evaluate=true);
 
