@@ -22,7 +22,7 @@ BEEAM may be combined with other Modelica libraries to develop more complex mode
 Current Release
 ---------------
 
-[BEEAM 0.2.1-beta](https://github.com/NREL/DC-Design/releases/v0.2.1-beta/) (2022-09-24)
+[BEEAM 0.3.0-beta](https://github.com/NREL/DC-Design/releases/v0.3.0-beta/) (2022-09-30)
 
 Installation
 ------------
