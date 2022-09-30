@@ -7,5 +7,6 @@ AC2DC_Simple_Rectifier_3P
 AC2DC_Simple_Inverter_3P
 AC2DC_Simple_Bidirectional_1P
 AC2DC_Simple_Bidirectional_3P
+AC2DC_Simple_Inverter_Grid_Forming_3P
 CableModels
 AC_Loads
