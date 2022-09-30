@@ -37,10 +37,10 @@ model ACDC_3pInverterSimple
   Real PC_h[systemDef.numHrm] = phaseC.v[:].re .* phaseC.i[:].re + phaseC.v[:].im .* phaseC.i[:].im "Phase C real power at harmonics";
   
   // Total AC power input
-  Real P_AC(start = P_nom) "Total AC power input";
+  Real P_AC(start = P_nom) "Total AC power output";
   
   // DC power output
-  Real P_DC = DC_Port.pwr "Total DC power output";
+  Real P_DC = DC_Port.pwr "Total DC power input";
   
 equation  
   // Loss calculation
