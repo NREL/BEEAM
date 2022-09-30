@@ -13,7 +13,7 @@ model Multiphase_Transformer
     Placement(visible = true, transformation(origin = {94, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Impedance z(z = 500 + 0 * j) annotation (
     Placement(visible = true, transformation(origin = {94, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.Sources.ThreePhase.VotlageSource votlageSource(vArg_phA = {0.52192, 6.1952, 3.641, 8.2279}, vArg_phB = {4.7065, 3.5627, 4.2216, 5.9383}, vArg_phC = {2.6138, 1.127, 6.9575, 3.4123}, vMag_phA = {282.8166, 0.45117, 0.39336, 0.76549}, vMag_phB = {282.9682, 0.65765, 0.17303, 1.3199}, vMag_phC = {281.8661, 0.35229, 0.54619, 0.99899}) annotation (
+  HPF.Sources.ThreePhase.VoltageSource voltageSource(vArg_phA = {0.52192, 6.1952, 3.641, 8.2279}, vArg_phB = {4.7065, 3.5627, 4.2216, 5.9383}, vArg_phC = {2.6138, 1.127, 6.9575, 3.4123}, vMag_phA = {282.8166, 0.45117, 0.39336, 0.76549}, vMag_phB = {282.9682, 0.65765, 0.17303, 1.3199}, vMag_phC = {281.8661, 0.35229, 0.54619, 0.99899}) annotation (
     Placement(visible = true, transformation(origin = {-98, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground ground2 annotation (
     Placement(visible = true, transformation(extent = {{-4, -78}, {16, -58}}, rotation = 0)));
@@ -32,7 +32,7 @@ equation
     Line(points={{104,18},{104,21.5},{118,21.5},{118,-12.75}},       color = {117, 80, 123}));
   connect(z.pin_n, ground1.pin) annotation (
     Line(points={{104,34},{104,29.5},{118,29.5},{118,-12.75}},       color = {117, 80, 123}));
-  connect(ground.pin, votlageSource.pinN) annotation (
+  connect(ground.pin, voltageSource.pinN) annotation (
     Line(points={{-98,-14.75},{-98,5.25}},      color = {92, 53, 102}));
   connect(z.pin_p, d1Y.pinSec_A) annotation (Line(points={{84,34},{72,34},{72,
           33.2},{-2,33.2}}, color={92,53,102}));
@@ -42,11 +42,11 @@ equation
           72,2},{84,2}}, color={92,53,102}));
   connect(d1Y.pinSec_B, r1.pin_p) annotation (Line(points={{-2,20.4},{71.5,20.4},
           {71.5,18},{84,18}}, color={92,53,102}));
-  connect(votlageSource.pinP_phC, d1Y.pinPrim_C) annotation (Line(points={{
+  connect(voltageSource.pinP_phC, d1Y.pinPrim_C) annotation (Line(points={{
           -85.5,8},{-43,8},{-43,-2},{-34,-2}}, color={92,53,102}));
-  connect(votlageSource.pinP_phA, d1Y.pinPrim_A) annotation (Line(points={{
+  connect(voltageSource.pinP_phA, d1Y.pinPrim_A) annotation (Line(points={{
           -85.5,28},{-52,28},{-52,30},{-34,30}}, color={92,53,102}));
-  connect(votlageSource.pinP_phB, d1Y.pinPrim_B) annotation (Line(points={{
+  connect(voltageSource.pinP_phB, d1Y.pinPrim_B) annotation (Line(points={{
           -85.5,18},{-53,18},{-53,14},{-34,14}}, color={92,53,102}));
   connect(vMsrSec_phA.pin_n, ground2.pin) annotation (
     Line(points={{22,-18},{22,-45},{6,-45},{6,-56.75}},       color = {117, 80, 123}));

@@ -5,6 +5,8 @@ This directory contains the BEEAM (HPF library) and EnergyPlus model files and r
 
 This co-simulation demonstration model combines an electrical model of a simple distribution system (two laptop power supplies with resistive loads) with a thermal model of a simple thermal chamber (a partitioned refrigerator). This REAMDE documents the directory contents, how to execute the simulation, and some aspects of the electrical model. Full details will be documented in a forthcoming publication.
 
+**The *Modelica* model used for this validation study was developed and executed using BEEAM Version 0.2.x (beta). It has not been tested and may not execute properly with later BEEAM versions.**
+
 Files
 -----
 

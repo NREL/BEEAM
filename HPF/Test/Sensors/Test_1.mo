@@ -9,7 +9,7 @@ model Test_1
     Placement(visible = true, transformation(origin = {-120, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground2 annotation (
     Placement(visible = true, transformation(origin = {78, -98}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl          laptop_adapter(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_3.mat", nomP = 100) annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl          laptop_adapter(V_Rect = 24, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-391174-001.mat", nomP = 120, nomV = 120) annotation (
     Placement(visible = true, transformation(origin = {68, -56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load laptop(pwr = 100) annotation (
     Placement(visible = true, transformation(origin = {100, -58}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));

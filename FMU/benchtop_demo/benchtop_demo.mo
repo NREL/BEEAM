@@ -3,9 +3,9 @@ model benchtop_demo
     Placement(visible = true, transformation(origin={-182,86.5714},    extent = {{-16, -16}, {16, 11.4286}}, rotation = 0)));
   HPF.SinglePhase.Sources.VoltageSource Vin(start_v_re = {120, 0, 0, 0, 0}, vArg = {0, 0, 0, 0, 0}, vMag = {120, 0, 0, 0, 0})  annotation (
     Placement(visible = true, transformation(origin={-188,-20},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl PowerSupply1(P1(start = 12), Q1(start = 0), V_Rect = 19.92, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_LBNL_1.mat", nomP = 90, nomV = 120)  "HP P/N 608428-002" annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl PowerSupply1(P1(start = 12), Q1(start = 0), V_Rect = 19.92, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-608428-002.mat", nomP = 90, nomV = 120)  "HP P/N 608428-002" annotation (
     Placement(visible = true, transformation(origin={-128,40},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl PowerSupply2(P1(start = 12), Q1(start = 0), V_Rect = 19.51, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Laptop_Charger_LBNL_2.mat", nomP = 90, nomV = 120)  "HP P/N 677777-002" annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl PowerSupply2(P1(start = 12), Q1(start = 0), V_Rect = 19.51, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/HP-677777-002.mat", nomP = 90, nomV = 120)  "HP P/N 677777-002" annotation (
     Placement(visible = true, transformation(origin={-108,0},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Components.Ground GndAC annotation (
     Placement(visible = true, transformation(origin={-188,-86},    extent = {{-8, -8}, {8, 8}}, rotation = 0)));
@@ -23,7 +23,7 @@ model benchtop_demo
     Placement(visible = true, transformation(origin={108,30},    extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Blocks.Math.Add3 UnconditionedZoneTotalLoss annotation (
     Placement(visible = true, transformation(origin={-28,80},  extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl FanPowerSupply(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/LED_Driver_1.mat", nomP = 25, nomV = 120) "P/N ??" annotation (
+  HPF.PowerConverters.SinglePhase.ACDC_EmpMdl FanPowerSupply(P1(start = 1), P_DCmin = 0.2, Q1(start = 0), V_Rect = 5, modelFileName = "HPF/Data/ConverterModels/SinglePhase/ACDC/Mean-Well-APV-25-24-1of3.mat", nomP = 25.2, nomV = 120) "P/N ??" annotation (
     Placement(visible = true, transformation(origin={-88,-40},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.DC.DC_Load Fan1(pwr = 0.5)  annotation (
     Placement(visible = true, transformation(origin={22,-62},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
