@@ -8,7 +8,7 @@ package DC2DC_StepDown "DC to DC step down converter model data record"
       Converter characteristics
         - output voltage
     */
-    parameter Modelica.SIunits.Voltage V = 5.0 annotation (Dialog(group = "Converter characteristics"));
+    parameter Modelica.Units.SI.Voltage V = 5.0 annotation (Dialog(group = "Converter characteristics"));
     /*
       Converter model stuff    
     */
