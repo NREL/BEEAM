@@ -4,12 +4,12 @@ model ACDC_3pInverterSimpleGridForming
   extends HPF.PowerConverters.ThreePhase.ACDC_3pConverterBase;
   import Modelica.ComplexMath.j;
   // Voltage source parameters
-  parameter Modelica.SIunits.Voltage vMag_ref = 120 "Output phase voltage magnitude";
-  parameter Modelica.SIunits.Angle vArg_ref = 0 "Output phase voltage reference angle";
-  
-  final parameter Modelica.SIunits.Angle vAngle_ref_A = vArg_ref;
-  final parameter Modelica.SIunits.Angle vAngle_ref_B = vArg_ref - Modelica.SIunits.Conversions.from_deg(120);
-  final parameter Modelica.SIunits.Angle vAngle_ref_C = vArg_ref + Modelica.SIunits.Conversions.from_deg(120);
+  parameter Modelica.Units.SI.Voltage vMag_ref = 120 "Output phase voltage magnitude";
+  parameter Modelica.Units.SI.Angle vArg_ref = 0 "Output phase voltage reference angle";
+
+  final parameter Modelica.Units.SI.Angle vAngle_ref_A = vArg_ref;
+  final parameter Modelica.Units.SI.Angle vAngle_ref_B = vArg_ref - Modelica.Units.SI.Conversions.from_deg(120);
+  final parameter Modelica.Units.SI.Angle vAngle_ref_C = vArg_ref + Modelica.Units.SI.Conversions.from_deg(120);
   // Loss model parameters
   parameter Real alpha = 0.0 "Loss model constant term (per-unit)" annotation(
     Dialog(group = "Converter Loss Model"));
@@ -19,17 +19,17 @@ model ACDC_3pInverterSimpleGridForming
     Dialog(group = "Converter Loss Model"));
   parameter Modelica.SIunits.Power P_stby = 0 "Standby loss" annotation(
     Dialog(group = "Converter Loss Model"));
-  parameter Modelica.SIunits.Power P_ACmin = 1 "Minimum output power (2-stage loss model)" annotation(Dialog(group="Converter Loss Model"));
+  parameter Modelica.Units.SI.Power P_ACmin = 1 "Minimum output power (2-stage loss model)" annotation(Dialog(group="Converter Loss Model"));
   // AC measurements: Phases A, B, C
-  Real IA_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseA.i);
-  Real IB_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseB.i);
-  Real IC_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseC.i);
+  Real IA_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseA.i);
+  Real IB_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseB.i);
+  Real IC_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseC.i);
   Real IA_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseA.i);
   Real IB_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseB.i);
   Real IC_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseC.i);
-  Real VA_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseA.v);
-  Real VB_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseB.v);
-  Real VC_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseC.v);
+  Real VA_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseA.v);
+  Real VB_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseB.v);
+  Real VC_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseC.v);
   Real VA_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseA.v);
   Real VB_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseB.v);
   Real VC_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseC.v);
