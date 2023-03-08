@@ -16,15 +16,15 @@ model ACDC_3pBidirectionalSimple
   parameter Real PF = 1.0 "Operating power factor at fundamental frequency: + for lag, - for lead" annotation(Dialog(group="Control"));
   
   // AC measurements: Phases A, B, C
-  Real IA_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseA.i);
-  Real IB_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseB.i);
-  Real IC_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseC.i);
+  Real IA_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseA.i);
+  Real IB_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseB.i);
+  Real IC_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseC.i);
   Real IA_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseA.i);
   Real IB_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseB.i);
   Real IC_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseC.i);
-  Real VA_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseA.v);
-  Real VB_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseB.v);
-  Real VC_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseC.v);
+  Real VA_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseA.v);
+  Real VB_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseB.v);
+  Real VC_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseC.v);
   Real VA_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseA.v);
   Real VB_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseB.v);
   Real VC_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseC.v);
