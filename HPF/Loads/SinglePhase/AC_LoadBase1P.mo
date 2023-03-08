@@ -6,29 +6,29 @@ partial model AC_LoadBase1P
   outer SystemDef systemDef;
   
   // Device Ratings
-  parameter Modelica.SIunits.ActivePower P_nom = 100 "Nominal real power" annotation(
+  parameter Modelica.Units.SI.ActivePower P_nom = 100 "Nominal real power" annotation (
     Dialog(group = "Device Ratings"));
-  parameter Modelica.SIunits.ReactivePower Q_nom = 0 "Nominal reactive power" annotation(
+  parameter Modelica.Units.SI.ReactivePower Q_nom = 0 "Nominal reactive power" annotation (
     Dialog(group = "Device Ratings"));
-  parameter Modelica.SIunits.Voltage V_nom = 120 "Nominal AC operating voltage" annotation(
+  parameter Modelica.Units.SI.Voltage V_nom = 120 "Nominal AC operating voltage" annotation (
     Dialog(group = "Device Ratings"));
-  final parameter Modelica.SIunits.ComplexPower S_nom = Complex(P_nom, Q_nom) "Nominal AC complex power"; 
-  final parameter Modelica.SIunits.Current I_nom = Modelica.ComplexMath.'abs'(S_nom) / V_nom "Nominal AC current";
-  
+  final parameter Modelica.Units.SI.ComplexPower S_nom = Complex(P_nom, Q_nom) "Nominal AC complex power";
+  final parameter Modelica.Units.SI.Current I_nom = Modelica.ComplexMath.abs(S_nom) / V_nom "Nominal AC current";
+
   // Initialization
-  parameter Modelica.SIunits.Angle vAngle_init = 0 "Nominal voltage angle for solver init" annotation(Dialog(group = "Initialization"));
-  final parameter Modelica.SIunits.ComplexVoltage V_init = Modelica.ComplexMath.fromPolar(V_nom, vAngle_init);
-  final parameter Modelica.SIunits.ComplexCurrent I_init = Modelica.ComplexMath.conj(S_nom / V_init);
+  parameter Modelica.Units.SI.Angle vAngle_init = 0 "Nominal voltage angle for solver init" annotation(Dialog(group = "Initialization"));
+  final parameter Modelica.Units.SI.ComplexVoltage V_init = Modelica.ComplexMath.fromPolar(V_nom, vAngle_init);
+  final parameter Modelica.Units.SI.ComplexCurrent I_init = Modelica.ComplexMath.conj(S_nom / V_init);
 
   // AC measurements
-  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
-  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.v);
+  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseLN.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.v);
   
   // AC power
-  Modelica.SIunits.ComplexPower S_load "Total complex power";
-  
+  Modelica.Units.SI.ComplexPower S_load "Total complex power";
+
   // Terminals
   HPF.SinglePhase.Interface.HPin_P hPin_L(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {-84, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{-110, -10}, {-90, 10}}, rotation = 0)));
