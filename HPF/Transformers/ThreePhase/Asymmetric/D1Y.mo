@@ -3,12 +3,12 @@ model D1Y
   outer SystemDef systemDef;
   parameter Real VPrimRated = 480 "Rated primary voltage (ph-ph)";
   parameter Real VSecRated = 208 "Rated secondary voltage (ph-ph)";
-  parameter Modelica.SIunits.Resistance Rp[3] = {1e-3, 1e-3, 1e-3} "Primary winding resistance (at fundamental)";
-  parameter Modelica.SIunits.Reactance Xp[3] = {1e-3, 1e-3, 1e-3} "Primary winding reactance";
-  parameter Modelica.SIunits.Resistance Rs[3] = {1e-3, 1e-3, 1e-3} "Secondary winding resistance";
-  parameter Modelica.SIunits.Reactance Xs[3] = {1e-3, 1e-3, 1e-3} "Secondary winding reactance";
-  parameter Modelica.SIunits.Resistance Rc[3] = {1e5, 1e5, 1e5} "Core resistance";
-  parameter Modelica.SIunits.Reactance Xm[3] = {1e5, 1e5, 1e5} "Magnetizing reactance";
+  parameter Modelica.Units.SI.Resistance Rp[3] = {1e-3, 1e-3, 1e-3} "Primary winding resistance (at fundamental)";
+  parameter Modelica.Units.SI.Reactance Xp[3] = {1e-3, 1e-3, 1e-3} "Primary winding reactance";
+  parameter Modelica.Units.SI.Resistance Rs[3] = {1e-3, 1e-3, 1e-3} "Secondary winding resistance";
+  parameter Modelica.Units.SI.Reactance Xs[3] = {1e-3, 1e-3, 1e-3} "Secondary winding reactance";
+  parameter Modelica.Units.SI.Resistance Rc[3] = {1e5, 1e5, 1e5} "Core resistance";
+  parameter Modelica.Units.SI.Reactance Xm[3] = {1e5, 1e5, 1e5} "Magnetizing reactance";
   HPF.SinglePhase.Interface.HPin_P pinPrim_A(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-102, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   HPF.SinglePhase.Interface.HPin_P pinPrim_B(h = systemDef.numHrm) annotation (
