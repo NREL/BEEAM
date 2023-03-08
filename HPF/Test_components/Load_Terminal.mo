@@ -6,7 +6,7 @@ model Load_Terminal
   parameter Real P = 1000;
   parameter Real phi = 0.1;
 
-  Real vMag = Modelica.ComplexMath.'abs'(hPin_P.v[1]);
+  Real vMag = Modelica.ComplexMath.abs(hPin_P.v[1]);
   Real iMag = sqrt(hPin_P.iRe[1]^2 * hPin_P.iIm[1]^2);
 equation
 
