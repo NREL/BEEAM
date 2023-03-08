@@ -10,8 +10,8 @@ class SystemDef "System Definition block"
           Also, numHrm cannot be initialized as Real.
         */
   final parameter Integer numHrm = size(hrms, 1) "Number of harmonics. (Automatically generated from hrms.)";
-  parameter Modelica.SIunits.Frequency fFund = 60 "Fundamental frequency (Hz)";
-  parameter Modelica.SIunits.Frequency fs = 5e3 "Sampling frequency (Hz)";
+  parameter Modelica.Units.SI.Frequency fFund = 60 "Fundamental frequency (Hz)";
+  parameter Modelica.Units.SI.Frequency fs = 5e3 "Sampling frequency (Hz)";
   final parameter Integer N = integer(floor(fs / fFund)) "Size of FFT";
   parameter Integer numPh = 3 "Number of phases";
 initial algorithm
