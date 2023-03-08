@@ -3,18 +3,18 @@ model TModel "Transformer harmonic T-model"
   outer SystemDef systemDef;
   import Modelica.ComplexMath.j;
 
-  parameter Modelica.SIunits.Voltage nomV_prim = 280 "Primary nominal voltage magnitude (at fundamental)";
-  parameter Modelica.SIunits.Voltage nomV_sec = 120 "Secondary nominal voltage magnitude (at fundamental)";
-  parameter Modelica.SIunits.Angle phi_prim = 0 "Primary nominal phase";
-  parameter Modelica.SIunits.Angle phi_sec = 0 "Secondary nominal phase";
+  parameter Modelica.Units.SI.Voltage nomV_prim = 280 "Primary nominal voltage magnitude (at fundamental)";
+  parameter Modelica.Units.SI.Voltage nomV_sec = 120 "Secondary nominal voltage magnitude (at fundamental)";
+  parameter Modelica.Units.SI.Angle phi_prim = 0 "Primary nominal phase";
+  parameter Modelica.Units.SI.Angle phi_sec = 0 "Secondary nominal phase";
 
   //final parameter Real N = nomV_prim / nomV_sec "Turns ratio N:1";
-  parameter Modelica.SIunits.Resistance Rp = 1 "Primary winding resistance (at fundamental)";
-  parameter Modelica.SIunits.Reactance Xp = 1 "Primary winding reactance";
-  parameter Modelica.SIunits.Resistance Rs = 1 "Secondary winding resistance";
-  parameter Modelica.SIunits.Reactance Xs = 1 "Secondary winding reactance";
-  parameter Modelica.SIunits.Resistance Rc = 1 "Core resistance";
-  parameter Modelica.SIunits.Reactance Xm = 1 "Magnetizing reactance";
+  parameter Modelica.Units.SI.Resistance Rp = 1 "Primary winding resistance (at fundamental)";
+  parameter Modelica.Units.SI.Reactance Xp = 1 "Primary winding reactance";
+  parameter Modelica.Units.SI.Resistance Rs = 1 "Secondary winding resistance";
+  parameter Modelica.Units.SI.Reactance Xs = 1 "Secondary winding reactance";
+  parameter Modelica.Units.SI.Resistance Rc = 1 "Core resistance";
+  parameter Modelica.Units.SI.Reactance Xm = 1 "Magnetizing reactance";
 
   HPF.SinglePhase.Interface.HPin_P pinP_prim(h = systemDef.numHrm) annotation (
     Placement(visible = true, transformation(origin = {-102, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 100}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
