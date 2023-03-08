@@ -32,7 +32,7 @@ package Types
   end Record;
   */
 
-    Modelica.SIunits.Angle theta(start = 0);
+    Modelica.Units.SI.Angle theta(start = 0);
 
     function equalityConstraint "Eqauality constraint for reference angle"
       input Reference reference1;
