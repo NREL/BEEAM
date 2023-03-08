@@ -5,16 +5,16 @@ partial model ACDC_1pConverterBase
   // Harmonic system definition
   outer SystemDef systemDef;
   // Device Ratings
-  parameter Modelica.SIunits.Power P_nom = 100 "Nominal power" annotation(
+  parameter Modelica.Units.SI.Power P_nom = 100 "Nominal power" annotation (
     Dialog(group = "Device Ratings"));
-  parameter Modelica.SIunits.Voltage VAC_nom = 120 "Nominal AC operating voltage" annotation(
+  parameter Modelica.Units.SI.Voltage VAC_nom = 120 "Nominal AC operating voltage" annotation (
     Dialog(group = "Device Ratings"));
-  parameter Modelica.SIunits.Voltage VDC_nom = 24 "Nominal DC operating voltage" annotation(
+  parameter Modelica.Units.SI.Voltage VDC_nom = 24 "Nominal DC operating voltage" annotation (
     Dialog(group = "Device Ratings"));
-  final parameter Modelica.SIunits.Current IAC_nom = P_nom / VAC_nom "Nominal AC current";
-  final parameter Modelica.SIunits.Current IDC_nom = P_nom / VDC_nom "Nominal DC current";
+  final parameter Modelica.Units.SI.Current IAC_nom = P_nom / VAC_nom "Nominal AC current";
+  final parameter Modelica.Units.SI.Current IDC_nom = P_nom / VDC_nom "Nominal DC current";
   // Initialization
-  parameter Modelica.SIunits.Angle vAngle = 0 "Nominal voltage angle for solver init" annotation(Dialog(group = "Initialization"));
+  parameter Modelica.Units.SI.Angle vAngle = 0 "Nominal voltage angle for solver init" annotation(Dialog(group = "Initialization"));
   // AC terminals
   HPF.SinglePhase.Interface.HPin_P hPin_L(h = systemDef.numHrm) annotation(
     Placement(visible = true, transformation(origin = {-84, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(extent = {{-110, 70}, {-90, 90}}, rotation = 0)));
