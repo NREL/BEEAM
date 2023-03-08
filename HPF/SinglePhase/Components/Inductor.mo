@@ -3,7 +3,7 @@ model Inductor "Harmonic inductor"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   import Modelica.ComplexMath.j;
 
-  parameter Modelica.SIunits.Inductance L(start = 1) = 1e-6 "Inductance at fundamental frequency";
+  parameter Modelica.Units.SI.Inductance L(start = 1) = 1e-6 "Inductance at fundamental frequency";
 
 equation
   /*
