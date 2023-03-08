@@ -22,9 +22,9 @@ model EmpMdl
   /*
           Measurements
       */
-  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.i);
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(loadBase.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.i);
-  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(loadBase.v);
+  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(loadBase.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(loadBase.v);
   Real P_h[systemDef.numHrm] = loadBase.v[:].re .* loadBase.i[:].re + loadBase.v[:].im .* loadBase.i[:].im "Real power at harmonics";
   // intermediary variables
