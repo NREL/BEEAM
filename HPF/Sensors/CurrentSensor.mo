@@ -7,7 +7,7 @@ model CurrentSensor "Current sensor"
   Modelica.Blocks.Interfaces.RealOutput iArg[systemDef.numHrm](each unit = "rad") annotation(
     Placement(visible = true, transformation(origin = {40, 66}, extent = {{-10, -10}, {10, 10}}, rotation = 90), iconTransformation(origin = {50, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 90)));
 equation
-  iMag = Modelica.ComplexMath.'abs'(i);
+  iMag = Modelica.ComplexMath.abs(i);
   iArg = Modelica.ComplexMath.arg(i);
 /*
     An ammeter is a zero impedance device connected in series.
