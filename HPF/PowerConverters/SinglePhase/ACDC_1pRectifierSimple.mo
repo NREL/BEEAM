@@ -15,9 +15,9 @@ model ACDC_1pRectifierSimple
   parameter Modelica.SIunits.Power P_DCmin = 0.5 "Minimum output power (2-stage loss model)" annotation(
     Dialog(group = "Converter Loss Model"));
   // AC measurements
-  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
-  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.v);
+  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseLN.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.v);
   // Reactive power at fundamental
   Real P1(start = P_nom) "Real power at fundamental";
