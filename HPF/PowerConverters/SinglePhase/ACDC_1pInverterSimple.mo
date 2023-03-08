@@ -11,7 +11,7 @@ model ACDC_1pInverterSimple
     Dialog(group = "Converter Loss Model"));
   parameter Real gamma = 0.0 "Loss model quadratic term (per-unit)" annotation(
     Dialog(group = "Converter Loss Model"));
-  parameter Modelica.SIunits.Power P_stby = 0 "Standby (night tare) loss" annotation(
+  parameter Modelica.Units.SI.Power P_stby = 0 "Standby (night tare) loss" annotation(
     Dialog(group = "Converter Loss Model"));
   
   // Power factor parameters
