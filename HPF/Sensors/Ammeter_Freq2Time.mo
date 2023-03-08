@@ -33,7 +33,7 @@ algorithm
       */
   when sample((1 / systemDef.fs)*2, 1 / systemDef.fs) and k == 1 then
     k := 0;
-    y_wv_2 := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.'abs'(i), Modelica.ComplexMath.arg(i), systemDef.N);
+    y_wv_2 := HPF.Utilities.ifft_fromMagPhaseOddHrms(Modelica.ComplexMath.abs(i), Modelica.ComplexMath.arg(i), systemDef.N);
   end when;
 equation
 /*
