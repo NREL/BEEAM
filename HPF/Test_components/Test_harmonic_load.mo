@@ -13,8 +13,8 @@ model Test_harmonic_load
 
   parameter Real argS(start = -1) = -1;
 
-  Real vMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(v[:]);
-  Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
+  Real vMag[systemDef.numHrm] = Modelica.ComplexMath.abs(v[:]);
+  Real iMag[systemDef.numHrm] = Modelica.ComplexMath.abs(i[:]);
 initial equation
 
 equation
