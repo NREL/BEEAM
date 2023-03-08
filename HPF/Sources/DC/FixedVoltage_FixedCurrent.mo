@@ -2,9 +2,9 @@ within HPF.Sources.DC;
 
 model FixedVoltage_FixedCurrent "DC Power Source: Fixed Voltage, Fixed Current"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter Modelica.SIunits.Voltage v_out(start = 1) = 1 "DC Output Voltage";
-  parameter Modelica.SIunits.Current i_out(start = 1) = 1 "DC Output Current";
-  Modelica.SIunits.Power p_out "DC Output Power";
+  parameter Modelica.Units.SI.Voltage v_out(start = 1) = 1 "DC Output Voltage";
+  parameter Modelica.Units.SI.Current i_out(start = 1) = 1 "DC Output Current";
+  Modelica.Units.SI.Power p_out "DC Output Power";
 equation
   v = v_out;
   i = -i_out;
