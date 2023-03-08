@@ -2,7 +2,7 @@ within HPF.DC;
 
 model DC_Port
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  Modelica.SIunits.Power pwr "Component power";
+  Modelica.Units.SI.Power pwr "Component power";
 equation
   pwr = v*i;
   annotation(
