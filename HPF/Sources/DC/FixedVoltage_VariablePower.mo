@@ -2,7 +2,7 @@ within HPF.Sources.DC;
 
 model FixedVoltage_VariablePower "DC Power Source: Fixed Voltage, Fixed Current"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter Modelica.SIunits.Voltage v_out(start = 1) = 1 "DC Output Voltage";
+  parameter Modelica.Units.SI.Voltage v_out(start = 1) = 1 "DC Output Voltage";
   Modelica.Blocks.Interfaces.RealInput p_out(start = 1) "DC Output Power" annotation(
     Placement(visible = true, transformation(extent = {{-22, 58}, {18, 98}}, rotation = 0), iconTransformation(origin = {0, 80}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 equation
