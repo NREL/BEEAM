@@ -40,6 +40,7 @@ equation
   // Loss calculation (with smooth transition across zero)
   P_Loss = HPF.PowerConverters.HelperFunctions.homotopyTransition(P_AC, 0, alpha_ACDC*P_nom,
     (P_nom * (alpha_DCAC + beta_DCAC * (-P_AC/P_nom) + gamma_DCAC * (-P_AC/P_nom)^2)),
+    (P_nom * (alpha_ACDC + beta_ACDC * (P_DC/P_nom) + gamma_ACDC * (P_DC/P_nom)^2)));
 
   // Real/reactive power at fundamental
   P1 = P_AC - sum(P_h[2:1:systemDef.numHrm]);
@@ -56,6 +57,7 @@ equation
   // Current injections: harmonics h > 1
   phaseLN.i[2:1:systemDef.numHrm] = {Complex(0, 0) for i in 1:systemDef.numHrm - 1};
 
+  annotation (
     Icon,
     Documentation(info = "<html><head></head><body>
 <p>Simple single-phase AC/DC bidirectional converter model.</p><p><h3>Sign Convention</h3><p>AC power P<sub>AC</sub> is defined as&nbsp;<i>into</i>&nbsp;the AC terminal and DC power P<sub>DC</sub> is defined as <i>out of</i>&nbsp;the DC terminal. For positive P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is importing power from the AC grid; for negative P<sub>AC</sub>&nbsp;and P<sub>DC</sub>&nbsp;the device is exporting power to the AC grid.</p><h3>Harmonics Model</h3></p><p>This device operates with zero harmonic distortion and fixed, user-specified power factor (default PF = 1). Harmonic currents are zero for all h &gt; 1.</p><h3>Efficiency Model</h3><p>The AC/DC (rectifier) and DC/AC (inverter) stages of the converter use separate loss models:</p>
