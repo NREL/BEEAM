@@ -3,7 +3,7 @@ model Capacitor "Harmonic capacitor"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   import Modelica.ComplexMath.j;
 
-  parameter Modelica.SIunits.Capacitance C(start = 1) = 1e-6 "Capacitance at fundamental frequency";
+  parameter Modelica.Units.SI.Capacitance C(start = 1) = 1e-6 "Capacitance at fundamental frequency";
 
 equation
   /*
