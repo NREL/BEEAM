@@ -17,8 +17,8 @@ model HarmonicSource_MATLAB_Implementation "Harmonic source"
   Real Q1(start = 1) "Imaginary power at fundamental";
   Real tmp_Ph[systemDef.numHrm-1] "tmp variable for sum of power h>1";
   // measurements
-  Real vMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(v[:]);
-  Real iMag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(i[:]);
+  Real vMag[systemDef.numHrm] = Modelica.ComplexMath.abs(v[:]);
+  Real iMag[systemDef.numHrm] = Modelica.ComplexMath.abs(i[:]);
   Real iArg[systemDef.numHrm] = Modelica.ComplexMath.arg(i[:]);
   Real vArg[systemDef.numHrm] = Modelica.ComplexMath.arg(v[:]);
   // temp variables
