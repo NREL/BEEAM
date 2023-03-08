@@ -1,7 +1,7 @@
 within HPF.Test_components;
 model Load_QuasiLib
   import Modelica.ComplexMath.j;
-  extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+  extends Modelica.Electrical.QuasiStatic.SinglePhase.Interfaces.OnePort;
 
   //parameter Complex S1(re(start = 1), im(start = 1)) = 1 + 0*j;
   parameter Real P1 = 1000;
