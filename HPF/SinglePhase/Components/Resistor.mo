@@ -4,15 +4,15 @@ model Resistor "Resistive element"
   extends HPF.SinglePhase.Interface.TwoPinBase;
   HPF.Utilities.ComponentProperties properties(final ComponentType = "Resistor");
   import Modelica.ComplexMath.j;
-  parameter Modelica.SIunits.Resistance r(start = 1) = 1 "Resistance (ohm)";
+  parameter Modelica.Units.SI.Resistance r(start = 1) = 1 "Resistance (ohm)";
   /*
       Fundamental harmonic values display, For debugging
     */
-  Modelica.SIunits.Voltage vFundAbs = Modelica.ComplexMath.'abs'(v[1]);
-  Modelica.SIunits.Angle vFundArg = Modelica.ComplexMath.arg(v[1]);
-  Modelica.SIunits.Current iFundAbs = Modelica.ComplexMath.'abs'(i[1]);
-  Modelica.SIunits.Angle iFundArg = Modelica.ComplexMath.arg(i[1]);
-  Modelica.SIunits.Power Preal = sum(Modelica.ComplexMath.real(v[:] .* Modelica.ComplexMath.conj(i[:])));
+  Modelica.Units.SI.Voltage vFundAbs = Modelica.ComplexMath.abs(v[1]);
+  Modelica.Units.SI.Angle vFundArg = Modelica.ComplexMath.arg(v[1]);
+  Modelica.Units.SI.Current iFundAbs = Modelica.ComplexMath.abs(i[1]);
+  Modelica.Units.SI.Angle iFundArg = Modelica.ComplexMath.arg(i[1]);
+  Modelica.Units.SI.Power Preal = sum(Modelica.ComplexMath.real(v[:] .* Modelica.ComplexMath.conj(i[:])));
 equation
 /*
     vRe + j*vIm = (zRe*iRe - zIm*iIm) + j*(zRe*iIm + zIm*iRe);
