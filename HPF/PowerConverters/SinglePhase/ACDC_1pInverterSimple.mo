@@ -19,9 +19,9 @@ model ACDC_1pInverterSimple
     Dialog(group = "Control"));
   
   // AC measurements
-  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.i);
+  Real I_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseLN.i);
   Real I_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.i);
-  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.'abs'(phaseLN.v);
+  Real V_mag[systemDef.numHrm] = Modelica.ComplexMath.abs(phaseLN.v);
   Real V_arg[systemDef.numHrm] = Modelica.ComplexMath.arg(phaseLN.v);
   
   // Power at fundamental
