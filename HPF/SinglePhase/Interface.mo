@@ -110,8 +110,6 @@ package Interface
     extends HPF.SinglePhase.Interface.TwoPinBase;
   
   equation
-    Connections.root(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
-    annotation(
     Connections.potentialRoot(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
     annotation (
       Icon(coordinateSystem(grid = {0, 0})),
