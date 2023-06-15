@@ -112,6 +112,8 @@ package Interface
   equation
     Connections.root(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
     annotation(
+    Connections.potentialRoot(pin_p.reference); //Defining root for the graph, root node in a virtual connection graph.
+    annotation (
       Icon(coordinateSystem(grid = {0, 0})),
       Diagram(coordinateSystem(extent = {{-200, -200}, {200, 200}}, grid = {0, 0})),
   Documentation(info = "<html><head></head><body>Partial model class for voltage sources. This partial model extends the two pin base partial model to include the additional type used in the loop reduction algorithm (overconstrained connection based equation systems)</body></html>"));
